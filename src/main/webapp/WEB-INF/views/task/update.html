@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sd="http://www.thymeleaf.org/spring-data">
+<head>
+<title>Tasks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../../../resources/css/bootstrap.min.css" rel="stylesheet"
+	media="screen" th:href="@{/resources/css/bootstrap.min.css}" />
+<link href="../../../resources/css/jquery.dataTables.min.css "
+	rel="stylesheet" media="screen"
+	th:href="@{/resources/css/jquery.dataTables.min.css }" />
+<link href="../../../resources/css/core.css" rel="stylesheet"
+	media="screen" th:href="@{/resources/css/core.css}" />
+
+<script src="../../../resources/js/bootstrap.min.js"
+	th:src="@{/resources/js/bootstrap.min.js}"></script>
+<script src="../../../resources/js/jquery-1.12.3.js"
+	th:src="@{/resources/js/jquery-1.12.3.js}"></script>
+<script src="../../../resources/js/jquery.dataTables.min.js"
+	th:src="@{/resources/js/jquery.dataTables.min.js}"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header">&nbsp;</div>
+	<div>
+		<form class="form-narrow form-horizontal" action="#" th:action="@{/task/update}"
+			th:object="${task}" method="post">
+
+			<div class="form-group">
+				<label for="id" th:text="#{tasks.id}" class="col-sm-2 control-label">Id</label>
+				<div class="col-sm-10">
+					<input type="text" th:field="*{id}" class="form-control" id="id"
+						th:placeholder="#{tasks.id}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="description" th:text="#{tasks.description}"
+					class="col-sm-2 control-label">Description</label>
+				<div class="col-sm-10">
+					<input type="text" th:field="*{description}" class="form-control"
+						id="description" th:placeholder="#{tasks.description}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="referenceId" th:text="#{tasks.referenceId}"
+					class="col-sm-2 control-label">Ref Id1</label>
+				<div class="col-sm-10">
+					<input type="text" th:field="*{referenceId}" class="form-control"
+						id="referenceId" th:placeholder="#{tasks.referenceId}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="taskType" th:text="#{tasks.taskType}"
+					class="col-sm-2 control-label">task Type</label>
+				<div class="col-sm-10">
+					<select th:field="*{taskType}" class="form-control" id="taskType">
+						<option th:each="taskType : ${taskTypes}" th:value="${taskType}"
+							th:text="#{${'tasks.type.' + taskType}}">Wireframe</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="assignDate" th:text="#{tasks.assignDate}"
+					class="col-sm-2 control-label">assign Date</label>
+				<div class="col-sm-10">
+					<input type="date" th:field="*{assignDate}" class="form-control"
+						id="assignDate" th:placeholder="#{tasks.assignDate}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="targetDate" th:text="#{tasks.targetDate}"
+					class="col-sm-2 control-label">target Date</label>
+				<div class="col-sm-10">
+					<input type="date" th:field="*{targetDate}" class="form-control"
+						id="targetDate" th:placeholder="#{tasks.targetDate}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="status" th:text="#{tasks.status}"
+					class="col-sm-2 control-label">task status</label>
+				<div class="col-sm-10">
+					<select th:field="*{status}" class="form-control" id="status">
+						<option th:each="status : ${taskStatus}" th:value="${status}"
+							th:text="#{${'tasks.status.' + status}}">Wireframe</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="completeDate" th:text="#{tasks.completeDate}"
+					class="col-sm-2 control-label">complete Date</label>
+				<div class="col-sm-10">
+					<input type="date" th:field="*{completeDate}" class="form-control"
+						id="completeDate" th:placeholder="#{tasks.completeDate}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="owner" th:text="#{tasks.owner}"
+					class="col-sm-2 control-label">task owner</label>
+				<div class="col-sm-10">
+					<select th:field="*{owner}" class="form-control" id="owner">
+						<option th:each="owner : ${owners}" th:value="${{owner.userName}}"
+							th:text="${{owner}}">Wireframe</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="support" th:text="#{tasks.support}"
+					class="col-sm-2 control-label">task support</label>
+				<div class="col-sm-10">
+					<select th:field="*{support}" class="form-control" id="support">
+						<option th:each="support : ${owners}" th:value="${{support.userName}}"
+							th:text="${{support}}">Wireframe</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="revised" th:text="#{tasks.revised}"
+					class="col-sm-2 control-label">revised </label>
+				<div class="col-sm-10">
+					<input type="text" th:field="*{revised}" class="form-control"
+						id="revised" th:placeholder="#{tasks.revised}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="memo" th:text="#{tasks.memo}"
+					class="col-sm-2 control-label">memo </label>
+				<div class="col-sm-10">
+					<input type="text" th:field="*{memo}" class="form-control"
+						id="memo" th:placeholder="#{tasks.memo}">
+				</div>
+			</div>
+			<button type="submit" class="col-sm-offset-2 btn btn-default">save</button>
+		</form>
+	</div>
+	<div th:replace="fragments/footer :: footer">&copy; 2013 The
+		Static Templates</div>
+</body>
+</html>

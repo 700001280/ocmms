@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sd="http://www.thymeleaf.org/spring-data">
+<head>
+<title>Tasks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../../../resources/css/bootstrap.min.css" rel="stylesheet"
+	media="screen" th:href="@{/resources/css/bootstrap.min.css}" />
+<link href="../../../resources/css/jquery.dataTables.min.css "
+	rel="stylesheet" media="screen"
+	th:href="@{/resources/css/jquery.dataTables.min.css }" />
+<link href="../../../resources/css/core.css" rel="stylesheet"
+	media="screen" th:href="@{/resources/css/core.css}" />
+
+<script src="../../../resources/js/bootstrap.min.js"
+	th:src="@{/resources/js/bootstrap.min.js}"></script>
+<script src="../../../resources/js/jquery-1.12.3.js"
+	th:src="@{/resources/js/jquery-1.12.3.js}"></script>
+<script src="../../../resources/js/jquery.dataTables.min.js"
+	th:src="@{/resources/js/jquery.dataTables.min.js}"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#example').DataTable({
+		//"processing": true,
+		//"serverSide": true,
+		//"ajax": "scripts/server_processing.php"
+		});
+	});
+</script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header">&nbsp;</div>
+	<div th:unless="${#lists.isEmpty(allTasks)}">
+		<h2 th:text="#{title.tasklist}">List of Tasks</h2>
+		<table id="example" class="display table-condensed"
+			contenteditable="true">
+			<thead>
+				<tr>
+					<th th:text="#{tasks.id}">Id</th>
+					<th th:text="#{tasks.description}">Description</th>
+					<th th:text="#{tasks.referenceId}">Refer Id</th>
+					<th th:text="#{tasks.taskType}">Task Tpye</th>
+					<th th:text="#{tasks.assignDate}">Assign Date</th>
+					<th th:text="#{tasks.targetDate}">Target Date</th>
+					<th th:text="#{tasks.status}">Status</th>
+					<th th:text="#{tasks.completeDate}">Complete Date</th>
+					<th th:text="#{tasks.owner}">Owner</th>
+					<th th:text="#{tasks.support}">Support</th>
+					<th th:text="#{tasks.revised}">Update</th>
+					<th th:text="#{tasks.memo}">Memo</th>
+					<th>Edit</th>
+					<th>Del</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="task : ${allTasks}">
+
+					<td th:text="${task.id}">id</td>
+					<td th:text="${task.description}">description</td>
+					<td th:text="${task.referenceId}">referenceId</td>
+					<td th:text="${task.taskType}">Wireframe</td>
+					<td th:text="${task.assignDate}">Electric Heating, Turf</td>
+					<td th:text="${task.targetDate}">1</td>
+					<td th:text="#{|tasks.status.${task.status}|}">Thymus Thymi</td>
+					<td th:text="${task.completeDate}">12</td>
+					<td th:text="${{task.owner}}">Electric Heating, Turf</td>
+					<td th:text="${{task.support}}">1</td>
+					<td th:text="${task.revised}">Thymus Thymi</td>
+					<td th:text="${task.memo}">12</td>
+					<td><a href="#" th:href="@{/task/update/__${task.id}__}">Edit</a></td>
+					<td><a href="#" th:href="@{/task/delete/__${task.id}__}">Del</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- <div class="row">
+		<div class="col-sm-6">
+			<div sd:pagination-summary="">info</div>
+		</div>
+		<div class="col-sm-6">
+			<nav class="pull-right">
+				<ul class="pagination" sd:pagination="full">
+					Pagination created by SpringDataDialect, this content is just for mockup
+					<li class="disabled"><a href="#" aria-label="Previous"><span
+							aria-hidden="true">&laquo;</span></a></li>
+					<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</div> -->
+	<div th:replace="fragments/footer :: footer">&copy; 2013 The
+		Static Templates</div>
+</body>
+</html>
