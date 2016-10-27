@@ -10,7 +10,7 @@ import com.ocmms.cmms.Application;
 
 @Configuration
 @PropertySource("classpath:persistence.properties")
-@PropertySource("classpath:application.properties")
+//@PropertySource("classpath:application.properties")
 @ComponentScan(basePackageClasses = Application.class)
 class ApplicationConfig {
 

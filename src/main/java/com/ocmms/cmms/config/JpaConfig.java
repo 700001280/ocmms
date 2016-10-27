@@ -1,6 +1,5 @@
 package com.ocmms.cmms.config;
 
-import java.util.Arrays;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
@@ -9,10 +8,6 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.Cache;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.concurrent.ConcurrentMapCache;
-import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
@@ -86,13 +81,5 @@ class JpaConfig {
         return new JpaTransactionManager(entityManagerFactory);
     }   
  
-
-    @Bean
-    public CacheManager cacheManager() throws Exception {
-        SimpleCacheManager scm = new SimpleCacheManager();
-        Cache cache = new ConcurrentMapCache("customers");
-        scm.setCaches(Arrays.asList(cache));
-        return scm;
-    }
 
 }
