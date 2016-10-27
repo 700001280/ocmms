@@ -1,1 +1,1 @@
-# OCMMS IS A OPEN COMPUTER MECHNICAL MANAGEMENT SYSTEM
+Open Computerized Maintenance Management System

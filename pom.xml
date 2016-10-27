@@ -3,7 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>ocmms</artifactId>
 	<packaging>war</packaging>
-	<name>Alex Qin's CMMS Application</name>
+	<name>OCMMS</name>
+	<description>Open Computerized Maintenance Management System</description>
 	<parent>
 		<groupId>io.spring.platform</groupId>
 		<artifactId>platform-bom</artifactId>
@@ -254,4 +255,6 @@
 			</plugin>
 		</plugins>
 	</build>
+	<url>HTTP://WWW.OCMMS.COM</url>
+	<groupId>com.ocmms</groupId>
 </project>
