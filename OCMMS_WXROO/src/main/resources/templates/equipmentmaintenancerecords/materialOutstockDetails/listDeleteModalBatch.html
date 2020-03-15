@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="materialoutstockdetails-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('EquipmentMaintenanceRecordsItemMaterialOutstockDetailsThymeleafController')}">
+    <table id="materialoutstockdetails-detail-table-items-to-remove-batch" data-parent-table="equipmentmaintenancerecord-entity-table" data-data-parent-id="${equipmentMaintenanceRecord != null ? equipmentMaintenanceRecord.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('equipmentMaintenanceRecord', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="organization" data-th-text="#{label_equipmentmaintenancerecord_materialoutstockdetails_organization}">organization</th>
+              <th data-data="orderNo" data-th-text="#{label_equipmentmaintenancerecord_materialoutstockdetails_orderno}">orderNo</th>
+              <th data-data="materialCatalog" data-th-text="#{label_equipmentmaintenancerecord_materialoutstockdetails_materialcatalog}">materialCatalog</th>
+              <th data-data="storageLocation" data-th-text="#{label_equipmentmaintenancerecord_materialoutstockdetails_storagelocation}">storageLocation</th>
+              <th data-data="storageType" data-th-text="#{label_equipmentmaintenancerecord_materialoutstockdetails_storagetype}">storageType</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>organization</td>
+              <td>orderNo</td>
+              <td>materialCatalog</td>
+              <td>storageLocation</td>
+              <td>storageType</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

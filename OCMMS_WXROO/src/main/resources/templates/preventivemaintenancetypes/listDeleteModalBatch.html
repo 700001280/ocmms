@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="preventivemaintenancetype-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceTypesCollectionThymeleafController')},itemLink=${@linkBuilder.of('PreventiveMaintenanceTypesItemThymeleafController')}">
+    <table id="preventivemaintenancetype-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="type" data-th-text="#{label_preventivemaintenancetype_type}">type</th>
+          <th data-data="description" data-th-text="#{label_preventivemaintenancetype_description}">description</th>
+          <th data-data="recordStatus" data-th-text="#{label_preventivemaintenancetype_recordstatus}">recordStatus</th>
+          <th data-data="createdDate" data-th-text="#{label_preventivemaintenancetype_createddate}">createdDate</th>
+          <th data-data="createdBy" data-th-text="#{label_preventivemaintenancetype_createdby}">createdBy</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>type</td>
+          <td>description</td>
+          <td>recordStatus</td>
+          <td>createdDate</td>
+          <td>createdBy</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_technicalobject})}|">Show TechnicalObject - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${technicalObject}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="technicalobject-tag-field" data-z="65c6df0d">
+            	      <strong data-th-text="#{label_technicalobject_tag}">tag</strong>
+                    <span data-th-text="*{{tag}}">tagValue</span>
+         	        </li>
+                  <li id="technicalobject-description-field" data-z="f53a0ccd">
+            	      <strong data-th-text="#{label_technicalobject_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="technicalobject-descriptionlocal-field" data-z="b8b54731">
+            	      <strong data-th-text="#{label_technicalobject_descriptionlocal}">descriptionLocal</strong>
+                    <span data-th-text="*{{descriptionLocal}}">descriptionLocalValue</span>
+         	        </li>
+                  <li id="technicalobject-abcindicator-field" data-z="28d22871">
+            	      <strong data-th-text="#{label_technicalobject_abcindicator}">abcIndicator</strong>
+                    <span data-th-text="*{{abcIndicator}}">abcIndicatorValue</span>
+         	        </li>
+                  <li id="technicalobject-mainworkcenter-field" data-z="7160ae11">
+            	      <strong data-th-text="#{label_technicalobject_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="technicalobject-organization-field" data-z="c0826fd1">
+            	      <strong data-th-text="#{label_technicalobject_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="technicalobject-manufacturermodelnumber-field" data-z="ed2c572d">
+            	      <strong data-th-text="#{label_technicalobject_manufacturermodelnumber}">manufacturerModelNumber</strong>
+                    <span data-th-text="*{{manufacturerModelNumber}}">manufacturerModelNumberValue</span>
+         	        </li>
+                  <li id="technicalobject-manufacturerserialnumber-field" data-z="e611f5b1">
+            	      <strong data-th-text="#{label_technicalobject_manufacturerserialnumber}">manufacturerSerialNumber</strong>
+                    <span data-th-text="*{{manufacturerSerialNumber}}">manufacturerSerialNumberValue</span>
+         	        </li>
+                  <li id="technicalobject-manufacturerpartnumber-field" data-z="6071a651">
+            	      <strong data-th-text="#{label_technicalobject_manufacturerpartnumber}">manufacturerPartNumber</strong>
+                    <span data-th-text="*{{manufacturerPartNumber}}">manufacturerPartNumberValue</span>
+         	        </li>
+                  <li id="technicalobject-plannergroup-field" data-z="e8569871">
+            	      <strong data-th-text="#{label_technicalobject_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="technicalobject-memo-field" data-z="46f17cf1">
+            	      <strong data-th-text="#{label_technicalobject_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="technicalobject-recordstatus-field" data-z="9bb449f1">
+            	      <strong data-th-text="#{label_technicalobject_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="technicalobject-createddate-field" data-z="3b28dad">
+            	      <strong data-th-text="#{label_technicalobject_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="technicalobject-createdby-field" data-z="9ce8080d">
+            	      <strong data-th-text="#{label_technicalobject_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="technicalobject-lastmodifieddate-field" data-z="64d90bd1">
+            	      <strong data-th-text="#{label_technicalobject_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="technicalobject-lastmodifiedby-field" data-z="2d1fbf31">
+            	      <strong data-th-text="#{label_technicalobject_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

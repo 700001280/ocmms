@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_hoist})}|">Show Hoist - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${hoist}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_hoist})}">Show Hoist</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_hoist})}">Hoist data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="hoist-tag-field" data-z="fe539be6">
+            	      <strong data-th-text="#{label_hoist_tag}">tag</strong>
+                    <span data-th-text="*{{tag}}">tagValue</span>
+         	        </li>
+                  <li id="hoist-description-field" data-z="314ce0a6">
+            	      <strong data-th-text="#{label_hoist_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="hoist-descriptionlocal-field" data-z="b8b9f2f8">
+            	      <strong data-th-text="#{label_hoist_descriptionlocal}">descriptionLocal</strong>
+                    <span data-th-text="*{{descriptionLocal}}">descriptionLocalValue</span>
+         	        </li>
+                  <li id="hoist-abcindicator-field" data-z="6f19cfb8">
+            	      <strong data-th-text="#{label_hoist_abcindicator}">abcIndicator</strong>
+                    <span data-th-text="*{{abcIndicator}}">abcIndicatorValue</span>
+         	        </li>
+                  <li id="hoist-mainworkcenter-field" data-z="445b9f98">
+            	      <strong data-th-text="#{label_hoist_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="hoist-organization-field" data-z="6ca1718">
+            	      <strong data-th-text="#{label_hoist_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="hoist-manufacturermodelnumber-field" data-z="c9ab2d86">
+            	      <strong data-th-text="#{label_hoist_manufacturermodelnumber}">manufacturerModelNumber</strong>
+                    <span data-th-text="*{{manufacturerModelNumber}}">manufacturerModelNumberValue</span>
+         	        </li>
+                  <li id="hoist-manufacturerserialnumber-field" data-z="996dea78">
+            	      <strong data-th-text="#{label_hoist_manufacturerserialnumber}">manufacturerSerialNumber</strong>
+                    <span data-th-text="*{{manufacturerSerialNumber}}">manufacturerSerialNumberValue</span>
+         	        </li>
+                  <li id="hoist-manufacturerpartnumber-field" data-z="360220d8">
+            	      <strong data-th-text="#{label_hoist_manufacturerpartnumber}">manufacturerPartNumber</strong>
+                    <span data-th-text="*{{manufacturerPartNumber}}">manufacturerPartNumberValue</span>
+         	        </li>
+                  <li id="hoist-plannergroup-field" data-z="2e9e3fb8">
+            	      <strong data-th-text="#{label_hoist_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="hoist-memo-field" data-z="bffc5b38">
+            	      <strong data-th-text="#{label_hoist_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="hoist-recordstatus-field" data-z="e1fbf138">
+            	      <strong data-th-text="#{label_hoist_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="hoist-createddate-field" data-z="3fc56186">
+            	      <strong data-th-text="#{label_hoist_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="hoist-createdby-field" data-z="871ffe26">
+            	      <strong data-th-text="#{label_hoist_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="hoist-lastmodifieddate-field" data-z="64ddb798">
+            	      <strong data-th-text="#{label_hoist_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="hoist-lastmodifiedby-field" data-z="1ab0b8">
+            	      <strong data-th-text="#{label_hoist_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="hoist-functionallocation-field" data-z="332edfd8">
+            	      <strong data-th-text="#{label_hoist_functionallocation}">functionalLocation</strong>
+                    <span data-th-text="*{{functionalLocation}}">functionalLocationValue</span>
+         	        </li>
+                  <li id="hoist-equipmentnumber-field" data-z="e48429e6">
+            	      <strong data-th-text="#{label_hoist_equipmentnumber}">equipmentNumber</strong>
+                    <span data-th-text="*{{equipmentNumber}}">equipmentNumberValue</span>
+         	        </li>
+                  <li id="hoist-superiorequipment-field" data-z="97999b26">
+            	      <strong data-th-text="#{label_hoist_superiorequipment}">superiorEquipment</strong>
+                    <span data-th-text="*{{superiorEquipment}}">superiorEquipmentValue</span>
+         	        </li>
+                  <li id="hoist-constructiondate-field" data-z="b9aba538">
+            	      <strong data-th-text="#{label_hoist_constructiondate}">constructionDate</strong>
+                    <span data-th-text="*{{constructionDate}}">constructionDateValue</span>
+         	        </li>
+                  <li id="hoist-countryofmanufacture-field" data-z="92d6a9b8">
+            	      <strong data-th-text="#{label_hoist_countryofmanufacture}">countryOfManufacture</strong>
+                    <span data-th-text="*{{countryOfManufacture}}">countryOfManufactureValue</span>
+         	        </li>
+                  <li id="hoist-manufacturer-field" data-z="e07dbb58">
+            	      <strong data-th-text="#{label_hoist_manufacturer}">manufacturer</strong>
+                    <span data-th-text="*{{manufacturer}}">manufacturerValue</span>
+         	        </li>
+                  <li id="hoist-plantsection-field" data-z="72d8b618">
+            	      <strong data-th-text="#{label_hoist_plantsection}">plantSection</strong>
+                    <span data-th-text="*{{plantSection}}">plantSectionValue</span>
+         	        </li>
+                  <li id="hoist-equipmentcategory-field" data-z="323ab986">
+            	      <strong data-th-text="#{label_hoist_equipmentcategory}">equipmentCategory</strong>
+                    <span data-th-text="*{{equipmentCategory}}">equipmentCategoryValue</span>
+         	        </li>
+                  <li id="hoist-objecttype-field" data-z="6ed2d4b8">
+            	      <strong data-th-text="#{label_hoist_objecttype}">objectType</strong>
+                    <span data-th-text="*{{objectType}}">objectTypeValue</span>
+         	        </li>
+                  <li id="hoist-drawingnumber-field" data-z="6e1b7da6">
+            	      <strong data-th-text="#{label_hoist_drawingnumber}">drawingNumber</strong>
+                    <span data-th-text="*{{drawingNumber}}">drawingNumberValue</span>
+         	        </li>
+                  <li id="hoist-catalogprofile-field" data-z="66968118">
+            	      <strong data-th-text="#{label_hoist_catalogprofile}">catalogProfile</strong>
+                    <span data-th-text="*{{catalogProfile}}">catalogProfileValue</span>
+         	        </li>
+                  <li id="hoist-plantlocation-field" data-z="b501286">
+            	      <strong data-th-text="#{label_hoist_plantlocation}">plantLocation</strong>
+                    <span data-th-text="*{{plantLocation}}">plantLocationValue</span>
+         	        </li>
+                  <li id="hoist-consttypematerial-field" data-z="fe04ea6">
+            	      <strong data-th-text="#{label_hoist_consttypematerial}">constTypeMaterial</strong>
+                    <span data-th-text="*{{constTypeMaterial}}">constTypeMaterialValue</span>
+         	        </li>
+                  <li id="hoist-sizedimension-field" data-z="9ca185a6">
+            	      <strong data-th-text="#{label_hoist_sizedimension}">sizeDimension</strong>
+                    <span data-th-text="*{{sizeDimension}}">sizeDimensionValue</span>
+         	        </li>
+                  <li id="hoist-grossweight-field" data-z="92700cc6">
+            	      <strong data-th-text="#{label_hoist_grossweight}">grossWeight</strong>
+                    <span data-th-text="*{{grossWeight}}">grossWeightValue</span>
+         	        </li>
+                  <li id="hoist-weightunit-field" data-z="6fd24058">
+            	      <strong data-th-text="#{label_hoist_weightunit}">weightUnit</strong>
+                    <span data-th-text="*{{weightUnit}}">weightUnitValue</span>
+         	        </li>
+                  <li id="hoist-acquisitiondate-field" data-z="f7f5f566">
+            	      <strong data-th-text="#{label_hoist_acquisitiondate}">acquisitionDate</strong>
+                    <span data-th-text="*{{acquisitionDate}}">acquisitionDateValue</span>
+         	        </li>
+                  <li id="hoist-acquisitionvalue-field" data-z="dd372458">
+            	      <strong data-th-text="#{label_hoist_acquisitionvalue}">acquisitionValue</strong>
+                    <span data-th-text="*{{acquisitionValue}}">acquisitionValueValue</span>
+         	        </li>
+                  <li id="hoist-acquisitionvaluecurrency-field" data-z="a2bc3958">
+            	      <strong data-th-text="#{label_hoist_acquisitionvaluecurrency}">acquisitionValueCurrency</strong>
+                    <span data-th-text="*{{acquisitionValueCurrency}}">acquisitionValueCurrencyValue</span>
+         	        </li>
+                  <li id="hoist-beginguaranteedate-field" data-z="e5ebcd18">
+            	      <strong data-th-text="#{label_hoist_beginguaranteedate}">beginGuaranteeDate</strong>
+                    <span data-th-text="*{{beginGuaranteeDate}}">beginGuaranteeDateValue</span>
+         	        </li>
+                  <li id="hoist-warrantyenddate-field" data-z="3405a306">
+            	      <strong data-th-text="#{label_hoist_warrantyenddate}">warrantyEndDate</strong>
+                    <span data-th-text="*{{warrantyEndDate}}">warrantyEndDateValue</span>
+         	        </li>
+                  <li id="hoist-supplier-field" data-z="c68f5c78">
+            	      <strong data-th-text="#{label_hoist_supplier}">supplier</strong>
+                    <span data-th-text="*{{supplier}}">supplierValue</span>
+         	        </li>
+                  <li id="hoist-contract-field" data-z="ffc98bb8">
+            	      <strong data-th-text="#{label_hoist_contract}">contract</strong>
+                    <span data-th-text="*{{contract}}">contractValue</span>
+         	        </li>
+                  <li id="hoist-ehsscritical-field" data-z="47cff958">
+            	      <strong data-th-text="#{label_hoist_ehsscritical}">ehssCritical</strong>
+                    <span data-th-text="*{{ehssCritical}}">ehssCriticalValue</span>
+         	        </li>
+                  <li id="hoist-criticalclassification-field" data-z="d82c55b8">
+            	      <strong data-th-text="#{label_hoist_criticalclassification}">criticalClassification</strong>
+                    <span data-th-text="*{{criticalClassification}}">criticalClassificationValue</span>
+         	        </li>
+                  <li id="hoist-assetcode-field" data-z="10bfa66">
+            	      <strong data-th-text="#{label_hoist_assetcode}">assetCode</strong>
+                    <span data-th-text="*{{assetCode}}">assetCodeValue</span>
+         	        </li>
+                  <li id="hoist-startdepreciationcost-field" data-z="f8885426">
+            	      <strong data-th-text="#{label_hoist_startdepreciationcost}">startDepreciationCost</strong>
+                    <span data-th-text="*{{startDepreciationCost}}">startDepreciationCostValue</span>
+         	        </li>
+                  <li id="hoist-depreciationyear-field" data-z="2cb7e7d8">
+            	      <strong data-th-text="#{label_hoist_depreciationyear}">depreciationYear</strong>
+                    <span data-th-text="*{{depreciationYear}}">depreciationYearValue</span>
+         	        </li>
+                  <li id="hoist-capitalizeddate-field" data-z="b1196406">
+            	      <strong data-th-text="#{label_hoist_capitalizeddate}">capitalizedDate</strong>
+                    <span data-th-text="*{{capitalizedDate}}">capitalizedDateValue</span>
+         	        </li>
+                  <li id="hoist-currentbookvalue-field" data-z="dd36ded8">
+            	      <strong data-th-text="#{label_hoist_currentbookvalue}">currentBookValue</strong>
+                    <span data-th-text="*{{currentBookValue}}">currentBookValueValue</span>
+         	        </li>
+                  <li id="hoist-originalassetid-field" data-z="a6858d66">
+            	      <strong data-th-text="#{label_hoist_originalassetid}">originalAssetId</strong>
+                    <span data-th-text="*{{originalAssetId}}">originalAssetIdValue</span>
+         	        </li>
+                  <li id="hoist-assetvaluecurrency-field" data-z="1b546478">
+            	      <strong data-th-text="#{label_hoist_assetvaluecurrency}">assetValueCurrency</strong>
+                    <span data-th-text="*{{assetValueCurrency}}">assetValueCurrencyValue</span>
+         	        </li>
+                  <li id="hoist-assetclassification-field" data-z="1d7cfa86">
+            	      <strong data-th-text="#{label_hoist_assetclassification}">assetClassification</strong>
+                    <span data-th-text="*{{assetClassification}}">assetClassificationValue</span>
+         	        </li>
+                  <li id="hoist-lastinspectiondate-field" data-z="af7423f8">
+            	      <strong data-th-text="#{label_hoist_lastinspectiondate}">lastInspectionDate</strong>
+                    <span data-th-text="*{{lastInspectionDate}}">lastInspectionDateValue</span>
+         	        </li>
+                  <li id="hoist-nextinspectiondate-field" data-z="cd286458">
+            	      <strong data-th-text="#{label_hoist_nextinspectiondate}">nextInspectionDate</strong>
+                    <span data-th-text="*{{nextInspectionDate}}">nextInspectionDateValue</span>
+         	        </li>
+                  <li id="hoist-parameter-field" data-z="bdafe4c6">
+            	      <strong data-th-text="#{label_hoist_parameter}">parameter</strong>
+                    <span data-th-text="*{{parameter}}">parameterValue</span>
+         	        </li>
+                  <li id="hoist-manufacturername-field" data-z="d2ff5d98">
+            	      <strong data-th-text="#{label_hoist_manufacturername}">manufacturerName</strong>
+                    <span data-th-text="*{{manufacturerName}}">manufacturerNameValue</span>
+         	        </li>
+                  <li id="hoist-installationdate-field" data-z="9ba12c18">
+            	      <strong data-th-text="#{label_hoist_installationdate}">installationDate</strong>
+                    <span data-th-text="*{{installationDate}}">installationDateValue</span>
+         	        </li>
+                  <li id="hoist-onservicedate-field" data-z="d90db1e6">
+            	      <strong data-th-text="#{label_hoist_onservicedate}">onServiceDate</strong>
+                    <span data-th-text="*{{onServiceDate}}">onServiceDateValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="Hoist_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('HoistsItemThymeleafController').to('editForm').with('hoist', hoist.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="Hoist_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('HoistsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

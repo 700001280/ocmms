@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_taskheader})}|">Show TaskHeader - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${taskHeader}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="taskheader-tasktype-field" data-z="db9ad5d">
+            	      <strong data-th-text="#{label_taskheader_tasktype}">taskType</strong>
+                    <span data-th-text="*{{taskType}}">taskTypeValue</span>
+         	        </li>
+                  <li id="taskheader-taskcode-field" data-z="ef30a2fd">
+            	      <strong data-th-text="#{label_taskheader_taskcode}">taskCode</strong>
+                    <span data-th-text="*{{taskCode}}">taskCodeValue</span>
+         	        </li>
+                  <li id="taskheader-groupcounter-field" data-z="2304be5d">
+            	      <strong data-th-text="#{label_taskheader_groupcounter}">groupCounter</strong>
+                    <span data-th-text="*{{groupCounter}}">groupCounterValue</span>
+         	        </li>
+                  <li id="taskheader-tasktitle-field" data-z="8d7e58e1">
+            	      <strong data-th-text="#{label_taskheader_tasktitle}">taskTitle</strong>
+                    <span data-th-text="*{{taskTitle}}">taskTitleValue</span>
+         	        </li>
+                  <li id="taskheader-technicalobject-field" data-z="2c2e281">
+            	      <strong data-th-text="#{label_taskheader_technicalobject}">technicalObject</strong>
+                    <span data-th-text="*{{technicalObject}}">technicalObjectValue</span>
+         	        </li>
+                  <li id="taskheader-mainworkcenter-field" data-z="83dc96fd">
+            	      <strong data-th-text="#{label_taskheader_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="taskheader-organization-field" data-z="ec7ba3bd">
+            	      <strong data-th-text="#{label_taskheader_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="taskheader-workcenterresponsible-field" data-z="f2ada621">
+            	      <strong data-th-text="#{label_taskheader_workcenterresponsible}">workCenterResponsible</strong>
+                    <span data-th-text="*{{workCenterResponsible}}">workCenterResponsibleValue</span>
+         	        </li>
+                  <li id="taskheader-systemcondition-field" data-z="62d30841">
+            	      <strong data-th-text="#{label_taskheader_systemcondition}">systemCondition</strong>
+                    <span data-th-text="*{{systemCondition}}">systemConditionValue</span>
+         	        </li>
+                  <li id="taskheader-keydate-field" data-z="49071a61">
+            	      <strong data-th-text="#{label_taskheader_keydate}">keyDate</strong>
+                    <span data-th-text="*{{keyDate}}">keyDateValue</span>
+         	        </li>
+                  <li id="taskheader-recordstatus-field" data-z="c7ad7ddd">
+            	      <strong data-th-text="#{label_taskheader_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="taskheader-createddate-field" data-z="c30d2c41">
+            	      <strong data-th-text="#{label_taskheader_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="taskheader-createdby-field" data-z="2dc13ba1">
+            	      <strong data-th-text="#{label_taskheader_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="taskheader-lastmodifieddate-field" data-z="c7fe69bd">
+            	      <strong data-th-text="#{label_taskheader_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="taskheader-lastmodifiedby-field" data-z="3f9ba81d">
+            	      <strong data-th-text="#{label_taskheader_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

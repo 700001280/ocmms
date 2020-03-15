@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_machineworkcenter})}|">Show MachineWorkCenter - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${machineWorkCenter}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="machineworkcenter-organization-field" data-z="360d1622">
+            	      <strong data-th-text="#{label_machineworkcenter_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="machineworkcenter-operationalworkcenter-field" data-z="e31d88dc">
+            	      <strong data-th-text="#{label_machineworkcenter_operationalworkcenter}">operationalWorkCenter</strong>
+                    <span data-th-text="*{{operationalWorkCenter}}">operationalWorkCenterValue</span>
+         	        </li>
+                  <li id="machineworkcenter-code-field" data-z="a53bb9e2">
+            	      <strong data-th-text="#{label_machineworkcenter_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="machineworkcenter-category-field" data-z="21a3d242">
+            	      <strong data-th-text="#{label_machineworkcenter_category}">category</strong>
+                    <span data-th-text="*{{category}}">categoryValue</span>
+         	        </li>
+                  <li id="machineworkcenter-name-field" data-z="b7d49e22">
+            	      <strong data-th-text="#{label_machineworkcenter_name}">name</strong>
+                    <span data-th-text="*{{name}}">nameValue</span>
+         	        </li>
+                  <li id="machineworkcenter-responsible-field" data-z="1b1c611c">
+            	      <strong data-th-text="#{label_machineworkcenter_responsible}">responsible</strong>
+                    <span data-th-text="*{{responsible}}">responsibleValue</span>
+         	        </li>
+                  <li id="machineworkcenter-controlkey-field" data-z="94d38e2">
+            	      <strong data-th-text="#{label_machineworkcenter_controlkey}">controlKey</strong>
+                    <span data-th-text="*{{controlKey}}">controlKeyValue</span>
+         	        </li>
+                  <li id="machineworkcenter-plannergroup-field" data-z="5de13ec2">
+            	      <strong data-th-text="#{label_machineworkcenter_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="machineworkcenter-capacityunitofmeasure-field" data-z="affa8e1c">
+            	      <strong data-th-text="#{label_machineworkcenter_capacityunitofmeasure}">capacityUnitOfMeasure</strong>
+                    <span data-th-text="*{{capacityUnitOfMeasure}}">capacityUnitOfMeasureValue</span>
+         	        </li>
+                  <li id="machineworkcenter-capacitystarttime-field" data-z="4e35277c">
+            	      <strong data-th-text="#{label_machineworkcenter_capacitystarttime}">capacityStartTime</strong>
+                    <span data-th-text="*{{capacityStartTime}}">capacityStartTimeValue</span>
+         	        </li>
+                  <li id="machineworkcenter-capacityendtime-field" data-z="d9019f9c">
+            	      <strong data-th-text="#{label_machineworkcenter_capacityendtime}">capacityEndTime</strong>
+                    <span data-th-text="*{{capacityEndTime}}">capacityEndTimeValue</span>
+         	        </li>
+                  <li id="machineworkcenter-capacityutilization-field" data-z="c17c45bc">
+            	      <strong data-th-text="#{label_machineworkcenter_capacityutilization}">capacityUtilization</strong>
+                    <span data-th-text="*{{capacityUtilization}}">capacityUtilizationValue</span>
+         	        </li>
+                  <li id="machineworkcenter-numberofcapacities-field" data-z="127d0762">
+            	      <strong data-th-text="#{label_machineworkcenter_numberofcapacities}">numberofCapacities</strong>
+                    <span data-th-text="*{{numberofCapacities}}">numberofCapacitiesValue</span>
+         	        </li>
+                  <li id="machineworkcenter-validitystartdate-field" data-z="5a429e5c">
+            	      <strong data-th-text="#{label_machineworkcenter_validitystartdate}">validityStartDate</strong>
+                    <span data-th-text="*{{validityStartDate}}">validityStartDateValue</span>
+         	        </li>
+                  <li id="machineworkcenter-validityenddate-field" data-z="126d67c">
+            	      <strong data-th-text="#{label_machineworkcenter_validityenddate}">validityEndDate</strong>
+                    <span data-th-text="*{{validityEndDate}}">validityEndDateValue</span>
+         	        </li>
+                  <li id="machineworkcenter-costcenter-field" data-z="6bfabd22">
+            	      <strong data-th-text="#{label_machineworkcenter_costcenter}">costCenter</strong>
+                    <span data-th-text="*{{costCenter}}">costCenterValue</span>
+         	        </li>
+                  <li id="machineworkcenter-recordstatus-field" data-z="113ef042">
+            	      <strong data-th-text="#{label_machineworkcenter_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="machineworkcenter-createddate-field" data-z="1801593c">
+            	      <strong data-th-text="#{label_machineworkcenter_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="machineworkcenter-createdby-field" data-z="9e426b5c">
+            	      <strong data-th-text="#{label_machineworkcenter_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="machineworkcenter-lastmodifieddate-field" data-z="2d1621a2">
+            	      <strong data-th-text="#{label_machineworkcenter_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="machineworkcenter-lastmodifiedby-field" data-z="6a9a1542">
+            	      <strong data-th-text="#{label_machineworkcenter_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

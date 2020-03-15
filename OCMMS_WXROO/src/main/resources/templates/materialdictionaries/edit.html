@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-layout}">
+  <head id="head">
+
+    <title data-th-text="#{label_edit_entity(#{label_materialdictionary})}">
+    Edit MaterialDictionary - Spring Roo application</title>
+
+    <!-- DateTimePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css" data-th-href="@{/webjars/datetimepicker/2.5.4/build/jquery.datetimepicker.min.css}" />
+
+  </head>
+  
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+
+        <div class="container-fluid content" data-th-with="collectionLink=${@linkBuilder.of('MaterialDictionariesCollectionThymeleafController')},itemLink=${@linkBuilder.of('MaterialDictionariesItemThymeleafController')}">
+
+          <h1 data-th-text="#{label_edit_entity(#{label_materialdictionary})}">Edit MaterialDictionary</h1>
+
+          <!-- FORM -->
+          <form class="form-horizontal validate" method="POST" data-th-object="${materialDictionary}" data-th-action="${itemLink.to('update').with('materialDictionary', materialDictionary.id)}">
+            <input type="hidden" name="_method" value="PUT" />
+            	<input type="hidden" name="version" data-th-value="*{version}" />
+
+            <!-- CONCURRENCY CONTROL -->
+            <div data-th-replace="~{fragments/concurrency-control :: concurrency-control(editFormUrl = ${itemLink.to('editForm').with('materialDictionary', materialDictionary.id)})}"></div>
+            <!-- /CONCURRENCY CONTROL -->
+
+             <fieldset id="containerFields">
+              <legend class="sr-only" data-th-text="#{label_data_entity(#{label_materialdictionary})}">MaterialDictionary data </legend>
+
+<div class="form-group has-error has-feedback" data-z="7b44a716" id="materialdictionary-materialclass-field" data-th-classappend="${#fields.hasErrors('materialClass')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="materialClass" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_materialclass}">materialClass</label>
+  <div class="col-md-6">
+    <input id="materialClass" name="materialClass" data-th-value="*{{materialClass}}" type="text" class="form-control" placeholder="materialClass" data-th-placeholder="#{label_materialdictionary_materialclass}" data-toggle="tooltip" aria-describedby="materialClassStatus" />
+      <span data-th-classappend="${#fields.hasErrors('materialClass')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('materialClass')}" aria-hidden="true"></span>
+      <span id="materialClass-error" class="help-block" data-th-if="${#fields.hasErrors('materialClass')}" data-th-errors="*{materialClass}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="31c2276" id="materialdictionary-itemref-field" data-th-classappend="${#fields.hasErrors('itemRef')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="itemRef" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_itemref}">itemRef</label>
+  <div class="col-md-6">
+    <input id="itemRef" name="itemRef" data-th-value="*{{itemRef}}" type="text" class="form-control" placeholder="itemRef" data-th-placeholder="#{label_materialdictionary_itemref}" data-toggle="tooltip" aria-describedby="itemRefStatus" />
+      <span data-th-classappend="${#fields.hasErrors('itemRef')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('itemRef')}" aria-hidden="true"></span>
+      <span id="itemRef-error" class="help-block" data-th-if="${#fields.hasErrors('itemRef')}" data-th-errors="*{itemRef}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="8c9fe656" id="materialdictionary-classdefinition-field" data-th-classappend="${#fields.hasErrors('classDefinition')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="classDefinition" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_classdefinition}">classDefinition</label>
+  <div class="col-md-6">
+    <input id="classDefinition" name="classDefinition" data-th-value="*{{classDefinition}}" type="text" class="form-control" placeholder="classDefinition" data-th-placeholder="#{label_materialdictionary_classdefinition}" data-toggle="tooltip" aria-describedby="classDefinitionStatus" />
+      <span data-th-classappend="${#fields.hasErrors('classDefinition')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('classDefinition')}" aria-hidden="true"></span>
+      <span id="classDefinition-error" class="help-block" data-th-if="${#fields.hasErrors('classDefinition')}" data-th-errors="*{classDefinition}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="aed54688" id="materialdictionary-unspsc-field" data-th-classappend="${#fields.hasErrors('unspsc')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="unspsc" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_unspsc}">unspsc</label>
+  <div class="col-md-6">
+    <input id="unspsc" name="unspsc" data-th-value="*{{unspsc}}" type="text" class="form-control" placeholder="unspsc" data-th-placeholder="#{label_materialdictionary_unspsc}" data-toggle="tooltip" aria-describedby="unspscStatus" />
+      <span data-th-classappend="${#fields.hasErrors('unspsc')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('unspsc')}" aria-hidden="true"></span>
+      <span id="unspsc-error" class="help-block" data-th-if="${#fields.hasErrors('unspsc')}" data-th-errors="*{unspsc}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="d7f9c068" id="materialdictionary-directmaterial-field" data-th-classappend="${#fields.hasErrors('directMaterial')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="directMaterial" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_directmaterial}">directMaterial</label>
+  <div class="col-md-6">
+    <input id="directMaterial" name="directMaterial" data-th-value="*{{directMaterial}}" type="text" class="form-control" placeholder="directMaterial" data-th-placeholder="#{label_materialdictionary_directmaterial}" data-toggle="tooltip" aria-describedby="directMaterialStatus" />
+      <span data-th-classappend="${#fields.hasErrors('directMaterial')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('directMaterial')}" aria-hidden="true"></span>
+      <span id="directMaterial-error" class="help-block" data-th-if="${#fields.hasErrors('directMaterial')}" data-th-errors="*{directMaterial}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="66915d08" id="materialdictionary-unspscdefinition-field" data-th-classappend="${#fields.hasErrors('unspscDefinition')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="unspscDefinition" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_unspscdefinition}">unspscDefinition</label>
+  <div class="col-md-6">
+    <input id="unspscDefinition" name="unspscDefinition" data-th-value="*{{unspscDefinition}}" type="text" class="form-control" placeholder="unspscDefinition" data-th-placeholder="#{label_materialdictionary_unspscdefinition}" data-toggle="tooltip" aria-describedby="unspscDefinitionStatus" />
+      <span data-th-classappend="${#fields.hasErrors('unspscDefinition')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('unspscDefinition')}" aria-hidden="true"></span>
+      <span id="unspscDefinition-error" class="help-block" data-th-if="${#fields.hasErrors('unspscDefinition')}" data-th-errors="*{unspscDefinition}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="782337b6" id="materialdictionary-classabbrivaition-field" data-th-classappend="${#fields.hasErrors('classAbbrivaition')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="classAbbrivaition" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_classabbrivaition}">classAbbrivaition</label>
+  <div class="col-md-6">
+    <input id="classAbbrivaition" name="classAbbrivaition" data-th-value="*{{classAbbrivaition}}" type="text" class="form-control" placeholder="classAbbrivaition" data-th-placeholder="#{label_materialdictionary_classabbrivaition}" data-toggle="tooltip" aria-describedby="classAbbrivaitionStatus" />
+      <span data-th-classappend="${#fields.hasErrors('classAbbrivaition')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('classAbbrivaition')}" aria-hidden="true"></span>
+      <span id="classAbbrivaition-error" class="help-block" data-th-if="${#fields.hasErrors('classAbbrivaition')}" data-th-errors="*{classAbbrivaition}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="8062268" id="materialdictionary-property-field" data-th-classappend="${#fields.hasErrors('property')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="property" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_property}">property</label>
+  <div class="col-md-6">
+    <input id="property" name="property" data-th-value="*{{property}}" type="text" class="form-control" placeholder="property" data-th-placeholder="#{label_materialdictionary_property}" data-toggle="tooltip" aria-describedby="propertyStatus" />
+      <span data-th-classappend="${#fields.hasErrors('property')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('property')}" aria-hidden="true"></span>
+      <span id="property-error" class="help-block" data-th-if="${#fields.hasErrors('property')}" data-th-errors="*{property}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="f0c8e0e8" id="materialdictionary-propertydefinition-field" data-th-classappend="${#fields.hasErrors('propertyDefinition')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="propertyDefinition" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_propertydefinition}">propertyDefinition</label>
+  <div class="col-md-6">
+    <input id="propertyDefinition" name="propertyDefinition" data-th-value="*{{propertyDefinition}}" type="text" class="form-control" placeholder="propertyDefinition" data-th-placeholder="#{label_materialdictionary_propertydefinition}" data-toggle="tooltip" aria-describedby="propertyDefinitionStatus" />
+      <span data-th-classappend="${#fields.hasErrors('propertyDefinition')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('propertyDefinition')}" aria-hidden="true"></span>
+      <span id="propertyDefinition-error" class="help-block" data-th-if="${#fields.hasErrors('propertyDefinition')}" data-th-errors="*{propertyDefinition}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="8522f748" id="materialdictionary-propertyabbreviation-field" data-th-classappend="${#fields.hasErrors('propertyAbbreviation')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="propertyAbbreviation" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_propertyabbreviation}">propertyAbbreviation</label>
+  <div class="col-md-6">
+    <input id="propertyAbbreviation" name="propertyAbbreviation" data-th-value="*{{propertyAbbreviation}}" type="text" class="form-control" placeholder="propertyAbbreviation" data-th-placeholder="#{label_materialdictionary_propertyabbreviation}" data-toggle="tooltip" aria-describedby="propertyAbbreviationStatus" />
+      <span data-th-classappend="${#fields.hasErrors('propertyAbbreviation')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('propertyAbbreviation')}" aria-hidden="true"></span>
+      <span id="propertyAbbreviation-error" class="help-block" data-th-if="${#fields.hasErrors('propertyAbbreviation')}" data-th-errors="*{propertyAbbreviation}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="b98197e8" id="materialdictionary-podseq-field" data-th-classappend="${#fields.hasErrors('podSeq')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="podSeq" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_podseq}">podSeq</label>
+  <div class="col-md-6">
+    <input id="podSeq" name="podSeq" data-th-value="*{{podSeq}}" type="text" class="form-control" placeholder="podSeq" data-th-placeholder="#{label_materialdictionary_podseq}" data-toggle="tooltip" aria-describedby="podSeqStatus" />
+      <span data-th-classappend="${#fields.hasErrors('podSeq')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('podSeq')}" aria-hidden="true"></span>
+      <span id="podSeq-error" class="help-block" data-th-if="${#fields.hasErrors('podSeq')}" data-th-errors="*{podSeq}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="a4641d68" id="materialdictionary-sfdseq-field" data-th-classappend="${#fields.hasErrors('sfdSeq')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="sfdSeq" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_sfdseq}">sfdSeq</label>
+  <div class="col-md-6">
+    <input id="sfdSeq" name="sfdSeq" data-th-value="*{{sfdSeq}}" type="text" class="form-control" placeholder="sfdSeq" data-th-placeholder="#{label_materialdictionary_sfdseq}" data-toggle="tooltip" aria-describedby="sfdSeqStatus" />
+      <span data-th-classappend="${#fields.hasErrors('sfdSeq')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('sfdSeq')}" aria-hidden="true"></span>
+      <span id="sfdSeq-error" class="help-block" data-th-if="${#fields.hasErrors('sfdSeq')}" data-th-errors="*{sfdSeq}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="5e1a47a8" id="materialdictionary-mandatoryind-field" data-th-classappend="${#fields.hasErrors('mandatoryInd')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="mandatoryInd" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_mandatoryind}">mandatoryInd</label>
+  <div class="col-md-6">
+    <input id="mandatoryInd" name="mandatoryInd" data-th-value="*{{mandatoryInd}}" type="text" class="form-control" placeholder="mandatoryInd" data-th-placeholder="#{label_materialdictionary_mandatoryind}" data-toggle="tooltip" aria-describedby="mandatoryIndStatus" />
+      <span data-th-classappend="${#fields.hasErrors('mandatoryInd')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('mandatoryInd')}" aria-hidden="true"></span>
+      <span id="mandatoryInd-error" class="help-block" data-th-if="${#fields.hasErrors('mandatoryInd')}" data-th-errors="*{mandatoryInd}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="7eb70c48" id="materialdictionary-recordstatus-field" data-th-classappend="${#fields.hasErrors('recordStatus')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('RecordStatusesCollectionThymeleafController')}">
+    <label for="recordStatus" class="col-md-3 control-label" data-th-text="#{label_materialdictionary_recordstatus}">RecordStatus</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{recordStatus}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{recordStatus} == null" data-th-value="*{recordStatus.id}" data-th-text="*{{recordStatus}}" selected="selected">RecordStatus</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('recordStatus')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('recordStatus')}" aria-hidden="true"></span>
+      <span id="recordStatus-error" class="help-block" data-th-if="${#fields.hasErrors('recordStatus')}" data-th-errors="*{recordStatus}">Error message.</span>
+    </div>
+</div>
+             </fieldset>
+
+
+              <!-- buttons form -->
+              <div class="form-group">
+                <div class="col-md-12">
+                  <div class="pull-left">
+                    <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{${collectionLink.to('list')}} + '\''" data-th-text="#{label_reset}">Cancel</button>
+                  </div>
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-primary" data-th-text="#{label_save}">Save</button>
+                  </div>
+                </div>
+              </div>
+
+          </form>
+          <!-- /FORM -->
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+   </div>
+   <!-- /CONTAINER -->
+
+   <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+   </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+
+    <!-- DateTimePicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js" data-th-src="@{/webjars/datetimepicker/build/jquery.datetimepicker.full.min.js}"></script>
+    <script src="../../static/public/js/datetimepicker-defaults.js" data-th-src="@{/public/js/datetimepicker-defaults.js}"></script>
+
+    <!-- jquery.inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.1/jquery.inputmask.bundle.min.js" data-th-src="@{/webjars/jquery.inputmask/min/jquery.inputmask.bundle.min.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+      (function(jQuery) {
+        jQuery(document).ready(
+      	  function() {
+      	    Inputmask.extendAliases({
+      	      'numeric' : {
+      	         'groupSeparator' : /*[[#{label_inputmask_groupSeparator}]]*/'.',
+      	         'radixPoint' : /*[[#{label_inputmask_radixPoint}]]*/','
+      	       },
+      	       'currency' : {
+      	          'prefix' : /*[[#{label_inputmask_prefix}]]*/'',
+      	          'suffix' : /*[[#{label_inputmask_suffix}]]*/' €'
+      	        }
+      	    });
+      	 });
+       })(jQuery);
+    </script>
+    <script src="../../static/public/js/inputmask-defaults.js" data-th-src="@{/public/js/inputmask-defaults.js}"></script>
+
+    <!-- JQuery Validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js" data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
+      </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js" data-th-src="@{/webjars/jquery-validation/dist/additional-methods.min.js}">
+      </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/localization/messages_es.js" data-th-src="@{/webjars/jquery-validation/src/localization/messages_}+${#locale.language}+'.js'" data-th-if="${#locale.language} != 'en'">
+      </script>
+    <script src="../../static/public/js/validation-defaults.js" data-th-src="@{/public/js/validation-defaults.js}">
+      </script>
+    <!-- Concurrency control management -->
+    <script data-th-src="@{/public/js/concurrency-control.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+      (function(jQuery) {
+         jQuery(document).ready(function() {
+      	   jQuery.extend( jQuery.validator.messages, {
+      	     'dateformat' : /*[[#{error_invalid_date}]]*/ 'Please enter a correct date/time',
+      	     'inputmask': /*[[#{error_invalid_maskValue}]]*/ 'Please enter a valid value',
+      	   });
+      	 });
+      })(jQuery);
+      </script>
+
+    </div>
+
+  </body>
+
+</html>

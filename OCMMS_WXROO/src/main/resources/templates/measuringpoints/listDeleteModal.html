@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="measuringpoint-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('MeasuringPointsCollectionThymeleafController')},itemLink=${@linkBuilder.of('MeasuringPointsItemThymeleafController')}">
+    <table id="measuringpoint-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="measuringTag" data-th-text="#{label_measuringpoint_measuringtag}">measuringTag</th>
+          <th data-data="description" data-th-text="#{label_measuringpoint_description}">description</th>
+          <th data-data="measuringType" data-th-text="#{label_measuringpoint_measuringtype}">measuringType</th>
+          <th data-data="medium" data-th-text="#{label_measuringpoint_medium}">medium</th>
+          <th data-data="lowLimit" data-th-text="#{label_measuringpoint_lowlimit}">lowLimit</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>measuringTag</td>
+          <td>description</td>
+          <td>measuringType</td>
+          <td>medium</td>
+          <td>lowLimit</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

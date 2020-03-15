@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_worklogtype})}|">Show WorkLogType - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${workLogType}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="worklogtype-code-field" data-z="34eaf7c2">
+            	      <strong data-th-text="#{label_worklogtype_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="worklogtype-description-field" data-z="d3b23e7c">
+            	      <strong data-th-text="#{label_worklogtype_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="worklogtype-recordstatus-field" data-z="8c424e22">
+            	      <strong data-th-text="#{label_worklogtype_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="worklogtype-createddate-field" data-z="e22abf5c">
+            	      <strong data-th-text="#{label_worklogtype_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="worklogtype-createdby-field" data-z="19ced97c">
+            	      <strong data-th-text="#{label_worklogtype_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="worklogtype-lastmodifieddate-field" data-z="99778f82">
+            	      <strong data-th-text="#{label_worklogtype_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="worklogtype-lastmodifiedby-field" data-z="323d7b22">
+            	      <strong data-th-text="#{label_worklogtype_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

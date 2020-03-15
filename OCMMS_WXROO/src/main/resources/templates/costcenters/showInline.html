@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_costcenter})}|">Show CostCenter - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${costCenter}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="costcenter-code-field" data-z="ae87d48d">
+            	      <strong data-th-text="#{label_costcenter_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="costcenter-description-field" data-z="74b47751">
+            	      <strong data-th-text="#{label_costcenter_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="costcenter-organization-field" data-z="305555cd">
+            	      <strong data-th-text="#{label_costcenter_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="costcenter-recordstatus-field" data-z="b872fed">
+            	      <strong data-th-text="#{label_costcenter_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="costcenter-createddate-field" data-z="832cf831">
+            	      <strong data-th-text="#{label_costcenter_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="costcenter-createdby-field" data-z="6434391">
+            	      <strong data-th-text="#{label_costcenter_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="costcenter-lastmodifieddate-field" data-z="449093cd">
+            	      <strong data-th-text="#{label_costcenter_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="costcenter-lastmodifiedby-field" data-z="f3d1162d">
+            	      <strong data-th-text="#{label_costcenter_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

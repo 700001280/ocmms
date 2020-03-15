@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_failuredamagetype})}|">Show FailureDamageType - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${failureDamageType}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_failuredamagetype})}">Show FailureDamageType</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_failuredamagetype})}">FailureDamageType data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="failuredamagetype-code-field" data-z="60cc9b68">
+            	      <strong data-th-text="#{label_failuredamagetype_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="failuredamagetype-description-field" data-z="74465416">
+            	      <strong data-th-text="#{label_failuredamagetype_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="failuredamagetype-groupcode-field" data-z="9da643f6">
+            	      <strong data-th-text="#{label_failuredamagetype_groupcode}">groupCode</strong>
+                    <span data-th-text="*{{groupCode}}">groupCodeValue</span>
+         	        </li>
+                  <li id="failuredamagetype-groupdescription-field" data-z="25a68fc8">
+            	      <strong data-th-text="#{label_failuredamagetype_groupdescription}">groupDescription</strong>
+                    <span data-th-text="*{{groupDescription}}">groupDescriptionValue</span>
+         	        </li>
+                  <li id="failuredamagetype-subcode-field" data-z="3ba13196">
+            	      <strong data-th-text="#{label_failuredamagetype_subcode}">subCode</strong>
+                    <span data-th-text="*{{subCode}}">subCodeValue</span>
+         	        </li>
+                  <li id="failuredamagetype-subdescription-field" data-z="1db30e28">
+            	      <strong data-th-text="#{label_failuredamagetype_subdescription}">subDescription</strong>
+                    <span data-th-text="*{{subDescription}}">subDescriptionValue</span>
+         	        </li>
+                  <li id="failuredamagetype-recordstatus-field" data-z="fe30ebc8">
+            	      <strong data-th-text="#{label_failuredamagetype_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="failuredamagetype-createddate-field" data-z="82bed4f6">
+            	      <strong data-th-text="#{label_failuredamagetype_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="failuredamagetype-createdby-field" data-z="73bf8d96">
+            	      <strong data-th-text="#{label_failuredamagetype_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="failuredamagetype-lastmodifieddate-field" data-z="11f2ea28">
+            	      <strong data-th-text="#{label_failuredamagetype_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="failuredamagetype-lastmodifiedby-field" data-z="e2fb4748">
+            	      <strong data-th-text="#{label_failuredamagetype_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="FailureDamageType_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('FailureDamageTypesItemThymeleafController').to('editForm').with('failureDamageType', failureDamageType.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="FailureDamageType_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('FailureDamageTypesCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

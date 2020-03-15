@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_planitem})}|">Show PlanItem - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${planItem}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_planitem})}">Show PlanItem</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_planitem})}">PlanItem data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="planitem-code-field" data-z="c98a8327">
+            	      <strong data-th-text="#{label_planitem_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="planitem-plan-field" data-z="e043cba7">
+            	      <strong data-th-text="#{label_planitem_plan}">plan</strong>
+                    <span data-th-text="*{{plan}}">planValue</span>
+         	        </li>
+                  <li id="planitem-category-field" data-z="83327107">
+            	      <strong data-th-text="#{label_planitem_category}">category</strong>
+                    <span data-th-text="*{{category}}">categoryValue</span>
+         	        </li>
+                  <li id="planitem-description-field" data-z="dd670777">
+            	      <strong data-th-text="#{label_planitem_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="planitem-technicalobject-field" data-z="843d4397">
+            	      <strong data-th-text="#{label_planitem_technicalobject}">technicalObject</strong>
+                    <span data-th-text="*{{technicalObject}}">technicalObjectValue</span>
+         	        </li>
+                  <li id="planitem-organization-field" data-z="ddf4ca67">
+            	      <strong data-th-text="#{label_planitem_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="planitem-ordertype-field" data-z="cb8a7817">
+            	      <strong data-th-text="#{label_planitem_ordertype}">orderType</strong>
+                    <span data-th-text="*{{orderType}}">orderTypeValue</span>
+         	        </li>
+                  <li id="planitem-plannergroup-field" data-z="5c8f307">
+            	      <strong data-th-text="#{label_planitem_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="planitem-systemcondition-field" data-z="e44d6957">
+            	      <strong data-th-text="#{label_planitem_systemcondition}">systemCondition</strong>
+                    <span data-th-text="*{{systemCondition}}">systemConditionValue</span>
+         	        </li>
+                  <li id="planitem-priority-field" data-z="a96d7447">
+            	      <strong data-th-text="#{label_planitem_priority}">priority</strong>
+                    <span data-th-text="*{{priority}}">priorityValue</span>
+         	        </li>
+                  <li id="planitem-maintenanceactivitytype-field" data-z="90176fb7">
+            	      <strong data-th-text="#{label_planitem_maintenanceactivitytype}">maintenanceActivityType</strong>
+                    <span data-th-text="*{{maintenanceActivityType}}">maintenanceActivityTypeValue</span>
+         	        </li>
+                  <li id="planitem-mainworkcenter-field" data-z="fba6bb27">
+            	      <strong data-th-text="#{label_planitem_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="planitem-taskheader-field" data-z="a49640a7">
+            	      <strong data-th-text="#{label_planitem_taskheader}">taskHeader</strong>
+                    <span data-th-text="*{{taskHeader}}">taskHeaderValue</span>
+         	        </li>
+                  <li id="planitem-recordstatus-field" data-z="b926a487">
+            	      <strong data-th-text="#{label_planitem_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="planitem-createddate-field" data-z="ebdf8857">
+            	      <strong data-th-text="#{label_planitem_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="planitem-createdby-field" data-z="6e87a537">
+            	      <strong data-th-text="#{label_planitem_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="planitem-lastmodifieddate-field" data-z="75d02b67">
+            	      <strong data-th-text="#{label_planitem_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="planitem-lastmodifiedby-field" data-z="b765cc47">
+            	      <strong data-th-text="#{label_planitem_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="PlanItem_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('PlanItemsItemThymeleafController').to('editForm').with('planItem', planItem.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="PlanItem_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('PlanItemsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

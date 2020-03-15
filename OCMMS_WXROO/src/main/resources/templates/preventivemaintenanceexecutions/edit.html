@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-layout}">
+  <head id="head">
+
+    <title data-th-text="#{label_edit_entity(#{label_preventivemaintenanceexecution})}">
+    Edit PreventiveMaintenanceExecution - Spring Roo application</title>
+
+    <!-- DateTimePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css" data-th-href="@{/webjars/datetimepicker/2.5.4/build/jquery.datetimepicker.min.css}" />
+
+  </head>
+  
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+
+        <div class="container-fluid content" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceExecutionsCollectionThymeleafController')},itemLink=${@linkBuilder.of('PreventiveMaintenanceExecutionsItemThymeleafController')}">
+
+          <h1 data-th-text="#{label_edit_entity(#{label_preventivemaintenanceexecution})}">Edit PreventiveMaintenanceExecution</h1>
+
+          <!-- FORM -->
+          <form class="form-horizontal validate" method="POST" data-th-object="${preventiveMaintenanceExecution}" data-th-action="${itemLink.to('update').with('preventiveMaintenanceExecution', preventiveMaintenanceExecution.id)}">
+            <input type="hidden" name="_method" value="PUT" />
+            	<input type="hidden" name="version" data-th-value="*{version}" />
+
+            <!-- CONCURRENCY CONTROL -->
+            <div data-th-replace="~{fragments/concurrency-control :: concurrency-control(editFormUrl = ${itemLink.to('editForm').with('preventiveMaintenanceExecution', preventiveMaintenanceExecution.id)})}"></div>
+            <!-- /CONCURRENCY CONTROL -->
+
+             <fieldset id="containerFields">
+              <legend class="sr-only" data-th-text="#{label_data_entity(#{label_preventivemaintenanceexecution})}">PreventiveMaintenanceExecution data </legend>
+
+<div class="form-group has-error has-feedback" data-z="1ed377b0" id="preventivemaintenanceexecution-preventivemaintenancecontent-field" data-th-classappend="${#fields.hasErrors('preventiveMaintenanceContent')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceContentsCollectionThymeleafController')}">
+    <label for="preventiveMaintenanceContent" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenanceexecution_preventivemaintenancecontent}">PreventiveMaintenanceContent</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{preventiveMaintenanceContent}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{preventiveMaintenanceContent} == null" data-th-value="*{preventiveMaintenanceContent.id}" data-th-text="*{{preventiveMaintenanceContent}}" selected="selected">PreventiveMaintenanceContent</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('preventiveMaintenanceContent')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('preventiveMaintenanceContent')}" aria-hidden="true"></span>
+      <span id="preventiveMaintenanceContent-error" class="help-block" data-th-if="${#fields.hasErrors('preventiveMaintenanceContent')}" data-th-errors="*{preventiveMaintenanceContent}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="15b18d4e" id="preventivemaintenanceexecution-technicalobject-field" data-th-classappend="${#fields.hasErrors('technicalObject')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('TechnicalObjectsCollectionThymeleafController')}">
+    <label for="technicalObject" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenanceexecution_technicalobject}">TechnicalObject</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{technicalObject}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{technicalObject} == null" data-th-value="*{technicalObject.id}" data-th-text="*{{technicalObject}}" selected="selected">TechnicalObject</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('technicalObject')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('technicalObject')}" aria-hidden="true"></span>
+      <span id="technicalObject-error" class="help-block" data-th-if="${#fields.hasErrors('technicalObject')}" data-th-errors="*{technicalObject}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="85fac4ae" id="preventivemaintenanceexecution-description-field" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="description" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenanceexecution_description}">description</label>
+  <div class="col-md-6">
+    <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_preventivemaintenanceexecution_description}" data-toggle="tooltip" aria-describedby="descriptionStatus" />
+      <span data-th-classappend="${#fields.hasErrors('description')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('description')}" aria-hidden="true"></span>
+      <span id="description-error" class="help-block" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" id="preventivemaintenanceexecution-startdate-field" data-z="7cb9c60e" data-th-classappend="${#fields.hasErrors('startDate')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="startDate" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenanceexecution_startdate}">startDate</label>
+  <div class="col-md-3">
+    <input id="startDate" name="startDate" data-th-value="*{{startDate}}" type="text" class="form-control datetimepicker" placeholder="startDate" data-th-placeholder="#{label_preventivemaintenanceexecution_startdate}" data-th-attr="data-dateformat=${startDate_date_format}" data-toggle="tooltip" /> <span data-th-classappend="${#fields.hasErrors('startDate')}? 'glyphicon glyphicon-remove form-control-feedback'" data-th-if="${#fields.hasErrors('startDate')}" aria-hidden="true"></span>
+     <span id="startDate-error" class="help-block" data-th-if="${#fields.hasErrors('startDate')}" data-th-errors="*{startDate}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" id="preventivemaintenanceexecution-completedate-field" data-z="2ebc89b0" data-th-classappend="${#fields.hasErrors('completeDate')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="completeDate" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenanceexecution_completedate}">completeDate</label>
+  <div class="col-md-3">
+    <input id="completeDate" name="completeDate" data-th-value="*{{completeDate}}" type="text" class="form-control datetimepicker" placeholder="completeDate" data-th-placeholder="#{label_preventivemaintenanceexecution_completedate}" data-th-attr="data-dateformat=${completeDate_date_format}" data-toggle="tooltip" /> <span data-th-classappend="${#fields.hasErrors('completeDate')}? 'glyphicon glyphicon-remove form-control-feedback'" data-th-if="${#fields.hasErrors('completeDate')}" aria-hidden="true"></span>
+     <span id="completeDate-error" class="help-block" data-th-if="${#fields.hasErrors('completeDate')}" data-th-errors="*{completeDate}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="2243910e" id="preventivemaintenanceexecution-owner-field" data-th-classappend="${#fields.hasErrors('owner')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EmployeesCollectionThymeleafController')}">
+    <label for="owner" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenanceexecution_owner}">Employee</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{owner}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{owner} == null" data-th-value="*{owner.id}" data-th-text="*{{owner}}" selected="selected">Employee</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('owner')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('owner')}" aria-hidden="true"></span>
+      <span id="owner-error" class="help-block" data-th-if="${#fields.hasErrors('owner')}" data-th-errors="*{owner}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="4aa2d5b0" id="preventivemaintenanceexecution-preventivemaintenancefinding-field" data-th-classappend="${#fields.hasErrors('preventiveMaintenanceFinding')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceFindingsCollectionThymeleafController')}">
+    <label for="preventiveMaintenanceFinding" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenanceexecution_preventivemaintenancefinding}">PreventiveMaintenanceFinding</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{preventiveMaintenanceFinding}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{preventiveMaintenanceFinding} == null" data-th-value="*{preventiveMaintenanceFinding.id}" data-th-text="*{{preventiveMaintenanceFinding}}" selected="selected">PreventiveMaintenanceFinding</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('preventiveMaintenanceFinding')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('preventiveMaintenanceFinding')}" aria-hidden="true"></span>
+      <span id="preventiveMaintenanceFinding-error" class="help-block" data-th-if="${#fields.hasErrors('preventiveMaintenanceFinding')}" data-th-errors="*{preventiveMaintenanceFinding}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="230a8e30" id="preventivemaintenanceexecution-recordstatus-field" data-th-classappend="${#fields.hasErrors('recordStatus')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('RecordStatusesCollectionThymeleafController')}">
+    <label for="recordStatus" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenanceexecution_recordstatus}">RecordStatus</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{recordStatus}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{recordStatus} == null" data-th-value="*{recordStatus.id}" data-th-text="*{{recordStatus}}" selected="selected">RecordStatus</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('recordStatus')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('recordStatus')}" aria-hidden="true"></span>
+      <span id="recordStatus-error" class="help-block" data-th-if="${#fields.hasErrors('recordStatus')}" data-th-errors="*{recordStatus}">Error message.</span>
+    </div>
+</div>
+             </fieldset>
+
+
+              <!-- buttons form -->
+              <div class="form-group">
+                <div class="col-md-12">
+                  <div class="pull-left">
+                    <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{${collectionLink.to('list')}} + '\''" data-th-text="#{label_reset}">Cancel</button>
+                  </div>
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-primary" data-th-text="#{label_save}">Save</button>
+                  </div>
+                </div>
+              </div>
+
+          </form>
+          <!-- /FORM -->
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+   </div>
+   <!-- /CONTAINER -->
+
+   <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+   </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+
+    <!-- DateTimePicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js" data-th-src="@{/webjars/datetimepicker/build/jquery.datetimepicker.full.min.js}"></script>
+    <script src="../../static/public/js/datetimepicker-defaults.js" data-th-src="@{/public/js/datetimepicker-defaults.js}"></script>
+
+    <!-- jquery.inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.1/jquery.inputmask.bundle.min.js" data-th-src="@{/webjars/jquery.inputmask/min/jquery.inputmask.bundle.min.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+      (function(jQuery) {
+        jQuery(document).ready(
+      	  function() {
+      	    Inputmask.extendAliases({
+      	      'numeric' : {
+      	         'groupSeparator' : /*[[#{label_inputmask_groupSeparator}]]*/'.',
+      	         'radixPoint' : /*[[#{label_inputmask_radixPoint}]]*/','
+      	       },
+      	       'currency' : {
+      	          'prefix' : /*[[#{label_inputmask_prefix}]]*/'',
+      	          'suffix' : /*[[#{label_inputmask_suffix}]]*/' €'
+      	        }
+      	    });
+      	 });
+       })(jQuery);
+    </script>
+    <script src="../../static/public/js/inputmask-defaults.js" data-th-src="@{/public/js/inputmask-defaults.js}"></script>
+
+    <!-- JQuery Validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js" data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
+      </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js" data-th-src="@{/webjars/jquery-validation/dist/additional-methods.min.js}">
+      </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/localization/messages_es.js" data-th-src="@{/webjars/jquery-validation/src/localization/messages_}+${#locale.language}+'.js'" data-th-if="${#locale.language} != 'en'">
+      </script>
+    <script src="../../static/public/js/validation-defaults.js" data-th-src="@{/public/js/validation-defaults.js}">
+      </script>
+    <!-- Concurrency control management -->
+    <script data-th-src="@{/public/js/concurrency-control.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+      (function(jQuery) {
+         jQuery(document).ready(function() {
+      	   jQuery.extend( jQuery.validator.messages, {
+      	     'dateformat' : /*[[#{error_invalid_date}]]*/ 'Please enter a correct date/time',
+      	     'inputmask': /*[[#{error_invalid_maskValue}]]*/ 'Please enter a valid value',
+      	   });
+      	 });
+      })(jQuery);
+      </script>
+
+    </div>
+
+  </body>
+
+</html>

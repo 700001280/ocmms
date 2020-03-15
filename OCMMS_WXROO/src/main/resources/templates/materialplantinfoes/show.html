@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_materialplantinfo})}|">Show MaterialPlantInfo - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${materialPlantInfo}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_materialplantinfo})}">Show MaterialPlantInfo</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_materialplantinfo})}">MaterialPlantInfo data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="materialplantinfo-materialcatalog-field" data-z="9fd2a777">
+            	      <strong data-th-text="#{label_materialplantinfo_materialcatalog}">materialCatalog</strong>
+                    <span data-th-text="*{{materialCatalog}}">materialCatalogValue</span>
+         	        </li>
+                  <li id="materialplantinfo-plant-field" data-z="83bcb677">
+            	      <strong data-th-text="#{label_materialplantinfo_plant}">plant</strong>
+                    <span data-th-text="*{{plant}}">plantValue</span>
+         	        </li>
+                  <li id="materialplantinfo-stock-field" data-z="366bcd17">
+            	      <strong data-th-text="#{label_materialplantinfo_stock}">stock</strong>
+                    <span data-th-text="*{{stock}}">stockValue</span>
+         	        </li>
+                  <li id="materialplantinfo-safetystock-field" data-z="f8a11537">
+            	      <strong data-th-text="#{label_materialplantinfo_safetystock}">safetyStock</strong>
+                    <span data-th-text="*{{safetyStock}}">safetyStockValue</span>
+         	        </li>
+                  <li id="materialplantinfo-reqreorderpoint-field" data-z="bc936f77">
+            	      <strong data-th-text="#{label_materialplantinfo_reqreorderpoint}">reqReorderPoint</strong>
+                    <span data-th-text="*{{reqReorderPoint}}">reqReorderPointValue</span>
+         	        </li>
+                  <li id="materialplantinfo-consumableinventory-field" data-z="162aa697">
+            	      <strong data-th-text="#{label_materialplantinfo_consumableinventory}">consumableInventory</strong>
+                    <span data-th-text="*{{consumableInventory}}">consumableInventoryValue</span>
+         	        </li>
+                  <li id="materialplantinfo-critical-field" data-z="4ac9c607">
+            	      <strong data-th-text="#{label_materialplantinfo_critical}">critical</strong>
+                    <span data-th-text="*{{critical}}">criticalValue</span>
+         	        </li>
+                  <li id="materialplantinfo-usefullife-field" data-z="7ecdddc7">
+            	      <strong data-th-text="#{label_materialplantinfo_usefullife}">usefulLife</strong>
+                    <span data-th-text="*{{usefulLife}}">usefulLifeValue</span>
+         	        </li>
+                  <li id="materialplantinfo-shelflifedays-field" data-z="23916c77">
+            	      <strong data-th-text="#{label_materialplantinfo_shelflifedays}">shelfLifeDays</strong>
+                    <span data-th-text="*{{shelfLifeDays}}">shelfLifeDaysValue</span>
+         	        </li>
+                  <li id="materialplantinfo-declarationnumber-field" data-z="f412ab97">
+            	      <strong data-th-text="#{label_materialplantinfo_declarationnumber}">declarationNumber</strong>
+                    <span data-th-text="*{{declarationNumber}}">declarationNumberValue</span>
+         	        </li>
+                  <li id="materialplantinfo-declarationname-field" data-z="8d5f0157">
+            	      <strong data-th-text="#{label_materialplantinfo_declarationname}">declarationName</strong>
+                    <span data-th-text="*{{declarationName}}">declarationNameValue</span>
+         	        </li>
+                  <li id="materialplantinfo-documenttype-field" data-z="6aaf1f67">
+            	      <strong data-th-text="#{label_materialplantinfo_documenttype}">documentType</strong>
+                    <span data-th-text="*{{documentType}}">documentTypeValue</span>
+         	        </li>
+                  <li id="materialplantinfo-recordstatus-field" data-z="d21339a7">
+            	      <strong data-th-text="#{label_materialplantinfo_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="materialplantinfo-createddate-field" data-z="267bcf37">
+            	      <strong data-th-text="#{label_materialplantinfo_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="materialplantinfo-createdby-field" data-z="d7482417">
+            	      <strong data-th-text="#{label_materialplantinfo_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="materialplantinfo-lastmodifieddate-field" data-z="6e2d3087">
+            	      <strong data-th-text="#{label_materialplantinfo_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="materialplantinfo-lastmodifiedby-field" data-z="47819967">
+            	      <strong data-th-text="#{label_materialplantinfo_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="MaterialPlantInfo_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('MaterialPlantInfoesItemThymeleafController').to('editForm').with('materialPlantInfo', materialPlantInfo.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="MaterialPlantInfo_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('MaterialPlantInfoesCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

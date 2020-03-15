@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+
+  <head id="head">
+    <title data-th-text="#{label_list_entity(#{label_workcenterresponsible_plural})}">
+    List WorkCenterResponsible - OCMMSROO - SpringRoo Application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+        <div class="container-fluid content">
+
+          <h1 data-th-text="#{label_workcenterresponsible_plural}">WorkCenterResponsibles</h1>
+
+          <!--TABLE-->
+          <div class="table-responsive" id="containerFields" data-th-with="collectionLink=${@linkBuilder.of('WorkCenterResponsiblesCollectionThymeleafController')},itemLink=${@linkBuilder.of('WorkCenterResponsiblesItemThymeleafController')}">
+              <table id="workcenterresponsible-entity-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-row-id="id" data-select="single" data-z="2a8dd6a6" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${collectionLink.to('datatables')}" data-data-show-inline="false" data-data-show-url="${itemLink.to('show').with('workCenterResponsible', '_ID_')}" data-data-export-csv-url="${collectionLink.to('exportCsv')}" data-data-export-xls-url="${collectionLink.to('exportXls')}" data-data-export-pdf-url="${collectionLink.to('exportPdf')}" data-data-create-url="${collectionLink.to('createForm')}" data-data-edit-url="${itemLink.to('editForm').with('workCenterResponsible', '_ID_')}" data-data-delete-url="${itemLink.to('delete').with('workCenterResponsible', '_ID_')}" data-data-delete-batch-url="${collectionLink.to('deleteBatch').with('ids', '_ID_')}">
+                <caption class="sr-only" data-th-text="#{label_list_entity(#{label_workcenterresponsible_plural})}">WorkCenterResponsible List</caption>
+                <thead>
+                  <tr>
+                    <th data-data="id" data-checkboxes="true"></th>
+                    <th data-data="organization" data-th-text="#{label_workcenterresponsible_organization}">organization</th>
+                    <th data-data="responsible" data-th-text="#{label_workcenterresponsible_responsible}">responsible</th>
+                    <th data-data="description" data-th-text="#{label_workcenterresponsible_description}">description</th>
+                    <th data-data="recordStatus" data-th-text="#{label_workcenterresponsible_recordstatus}">recordStatus</th>
+                    <th data-data="createdDate" data-th-text="#{label_workcenterresponsible_createddate}">createdDate</th>
+                    <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                  </tr>
+                </thead>
+                <tbody data-th-remove="all">
+                  <tr>
+                    <td></td>
+                    <td>organization</td>
+                    <td>responsible</td>
+                    <td>description</td>
+                    <td>recordStatus</td>
+                    <td>createdDate</td>
+                    <td data-th-text="#{label_tools}">Tools</td>
+                  </tr>
+                </tbody>
+              </table>
+                <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='workcenterresponsible-entity-table',
+                    title=#{label_delete_entity(#{label_workcenterresponsible_plural})}, message=#{info_delete_item_confirm}, content=~{workcenterresponsibles/listDeleteModal :: workcenterresponsible-entityModalConfirmBody})}">
+                </div>
+                <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='workcenterresponsible-entity-table',
+                    title=#{label_delete_entity(#{label_workcenterresponsible_plural})}, message=#{info_delete_batch_confirm}, content=~{workcenterresponsibles/listDeleteModalBatch :: workcenterresponsible-entityModalConfirmBody})}">
+                </div>
+              <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='workcenterresponsible-entity-table',
+                  title=#{label_export_empty_error(#{label_workcenterresponsible_plural})}, message=#{info_export_empty_error})}">
+              </div>
+          </div>
+          <!-- /TABLE -->
+
+          <!-- details -->
+        <hr>
+        <div id="details-level-1">
+            <ul class="nav nav-tabs" id="nav-tabs">
+                <li class="active">
+                  <a id="hierarchyworkcenters-detail-table-tab" data-toggle="tab" href="#detail-hierarchyworkcenters-detail" data-z="95b1e45a">HierarchyWorkCenters</a>
+                </li>
+                <li class="active">
+                  <a id="mainworkcenters-detail-table-tab" data-toggle="tab" href="#detail-mainworkcenters-detail" data-z="71140c52">MainWorkCenters</a>
+                </li>
+                <li class="active">
+                  <a id="operationalworkcenters-detail-table-tab" data-toggle="tab" href="#detail-operationalworkcenters-detail" data-z="87ab65e0">OperationalWorkCenters</a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="tab-content">
+              <div id="detail-hierarchyworkcenters-detail" class="tab-pane active">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('WorkCenterResponsiblesItemHierarchyWorkCentersThymeleafController')},detailItemLink=${@linkBuilder.of('HierarchyWorkCentersItemThymeleafController')}">
+                    <table id="hierarchyworkcenters-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="workcenterresponsible-entity-table" data-row-id="id" data-z="95b1e45a" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('workCenterResponsible', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('hierarchyWorkCenter', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('workCenterResponsible', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('hierarchyWorkCenter', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromHierarchyWorkCenters').with('workCenterResponsible', '_PARENTID_').with('hierarchyWorkCentersToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromHierarchyWorkCentersBatch').with('workCenterResponsible', '_PARENTID_').with('hierarchyWorkCentersToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_workcenterresponsible_hierarchyworkcenters})}">HierarchyWorkCenters List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="organization" data-th-text="#{label_workcenterresponsible_hierarchyworkcenters_organization}">organization</th>
+                              <th data-data="code" data-th-text="#{label_workcenterresponsible_hierarchyworkcenters_code}">code</th>
+                              <th data-data="category" data-th-text="#{label_workcenterresponsible_hierarchyworkcenters_category}">category</th>
+                              <th data-data="name" data-th-text="#{label_workcenterresponsible_hierarchyworkcenters_name}">name</th>
+                              <th data-data="responsible" data-th-text="#{label_workcenterresponsible_hierarchyworkcenters_responsible}">responsible</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>organization</td>
+                              <td>code</td>
+                              <td>category</td>
+                              <td>name</td>
+                              <td>responsible</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='hierarchyworkcenters-detail-table',
+                        title=#{label_delete_entity(#{label_workcenterresponsible_hierarchyworkcenters})}, message=#{info_delete_item_confirm}, content=~{workcenterresponsibles/hierarchyWorkCenters/listDeleteModal :: hierarchyworkcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='hierarchyworkcenters-detail-table',
+                        title=#{label_delete_entity(#{label_workcenterresponsible_hierarchyworkcenters})}, message=#{info_delete_batch_confirm}, content=~{workcenterresponsibles/hierarchyWorkCenters/listDeleteModalBatch :: hierarchyworkcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='hierarchyworkcenters-detail-table',
+                        title=#{label_export_empty_error(#{label_workcenterresponsible_hierarchyworkcenters})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-mainworkcenters-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('WorkCenterResponsiblesItemMainWorkCentersThymeleafController')},detailItemLink=${@linkBuilder.of('MainWorkCentersItemThymeleafController')}">
+                    <table id="mainworkcenters-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="workcenterresponsible-entity-table" data-row-id="id" data-z="71140c52" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('workCenterResponsible', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('mainWorkCenter', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('workCenterResponsible', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('mainWorkCenter', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromMainWorkCenters').with('workCenterResponsible', '_PARENTID_').with('mainWorkCentersToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromMainWorkCentersBatch').with('workCenterResponsible', '_PARENTID_').with('mainWorkCentersToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_workcenterresponsible_mainworkcenters})}">MainWorkCenters List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="department" data-th-text="#{label_workcenterresponsible_mainworkcenters_department}">department</th>
+                              <th data-data="code" data-th-text="#{label_workcenterresponsible_mainworkcenters_code}">code</th>
+                              <th data-data="category" data-th-text="#{label_workcenterresponsible_mainworkcenters_category}">category</th>
+                              <th data-data="name" data-th-text="#{label_workcenterresponsible_mainworkcenters_name}">name</th>
+                              <th data-data="responsible" data-th-text="#{label_workcenterresponsible_mainworkcenters_responsible}">responsible</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>department</td>
+                              <td>code</td>
+                              <td>category</td>
+                              <td>name</td>
+                              <td>responsible</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='mainworkcenters-detail-table',
+                        title=#{label_delete_entity(#{label_workcenterresponsible_mainworkcenters})}, message=#{info_delete_item_confirm}, content=~{workcenterresponsibles/mainWorkCenters/listDeleteModal :: mainworkcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='mainworkcenters-detail-table',
+                        title=#{label_delete_entity(#{label_workcenterresponsible_mainworkcenters})}, message=#{info_delete_batch_confirm}, content=~{workcenterresponsibles/mainWorkCenters/listDeleteModalBatch :: mainworkcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='mainworkcenters-detail-table',
+                        title=#{label_export_empty_error(#{label_workcenterresponsible_mainworkcenters})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-operationalworkcenters-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('WorkCenterResponsiblesItemOperationalWorkCentersThymeleafController')},detailItemLink=${@linkBuilder.of('OperationalWorkCentersItemThymeleafController')}">
+                    <table id="operationalworkcenters-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="workcenterresponsible-entity-table" data-row-id="id" data-z="87ab65e0" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('workCenterResponsible', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('operationalWorkCenter', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('workCenterResponsible', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('operationalWorkCenter', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromOperationalWorkCenters').with('workCenterResponsible', '_PARENTID_').with('operationalWorkCentersToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromOperationalWorkCentersBatch').with('workCenterResponsible', '_PARENTID_').with('operationalWorkCentersToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_workcenterresponsible_operationalworkcenters})}">OperationalWorkCenters List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="organization" data-th-text="#{label_workcenterresponsible_operationalworkcenters_organization}">organization</th>
+                              <th data-data="mainWorkCenter" data-th-text="#{label_workcenterresponsible_operationalworkcenters_mainworkcenter}">mainWorkCenter</th>
+                              <th data-data="code" data-th-text="#{label_workcenterresponsible_operationalworkcenters_code}">code</th>
+                              <th data-data="category" data-th-text="#{label_workcenterresponsible_operationalworkcenters_category}">category</th>
+                              <th data-data="name" data-th-text="#{label_workcenterresponsible_operationalworkcenters_name}">name</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>organization</td>
+                              <td>mainWorkCenter</td>
+                              <td>code</td>
+                              <td>category</td>
+                              <td>name</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='operationalworkcenters-detail-table',
+                        title=#{label_delete_entity(#{label_workcenterresponsible_operationalworkcenters})}, message=#{info_delete_item_confirm}, content=~{workcenterresponsibles/operationalWorkCenters/listDeleteModal :: operationalworkcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='operationalworkcenters-detail-table',
+                        title=#{label_delete_entity(#{label_workcenterresponsible_operationalworkcenters})}, message=#{info_delete_batch_confirm}, content=~{workcenterresponsibles/operationalWorkCenters/listDeleteModalBatch :: operationalworkcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='operationalworkcenters-detail-table',
+                        title=#{label_export_empty_error(#{label_workcenterresponsible_operationalworkcenters})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+            </div> <!--/tab-content-->
+        </div>
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a href="../index.html" class="btn btn-default" data-th-href="@{/}">
+                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                 <span data-th-text="#{label_back}">Back</span>
+              </a>
+            </div>
+          </div>
+
+        </hr></div>
+
+      </section>
+      <!-- /CONTENT -->
+    </div>
+    <!-- /CONTAINER -->
+
+    <footer class="container">
+      <!-- Content replaced by layout of the page displayed -->
+    </footer>
+
+    <!-- JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so that the pages load faster -->
+    <!-- JavaScript loaded by layout of the page displayed -->
+    <!--
+         Only the inner content of the following tag "javascript" is included
+         within the template, in the div "javascript"
+        -->
+    <div data-layout-fragment="javascript">
+    </div>
+
+  </body>
+
+</html>

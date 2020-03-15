@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_abcindicator})}|">Show AbcIndicator - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${abcIndicator}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="abcindicator-risklevel-field" data-z="1f4900e6">
+            	      <strong data-th-text="#{label_abcindicator_risklevel}">riskLevel</strong>
+                    <span data-th-text="*{{riskLevel}}">riskLevelValue</span>
+         	        </li>
+                  <li id="abcindicator-description-field" data-z="f90f1266">
+            	      <strong data-th-text="#{label_abcindicator_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="abcindicator-status-field" data-z="48547838">
+            	      <strong data-th-text="#{label_abcindicator_status}">status</strong>
+                    <span data-th-text="*{{status}}">statusValue</span>
+         	        </li>
+                  <li id="abcindicator-indicator-field" data-z="a1dbd1c6">
+            	      <strong data-th-text="#{label_abcindicator_indicator}">indicator</strong>
+                    <span data-th-text="*{{indicator}}">indicatorValue</span>
+         	        </li>
+                  <li id="abcindicator-recordstatus-field" data-z="127ff778">
+            	      <strong data-th-text="#{label_abcindicator_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="abcindicator-createddate-field" data-z="7879346">
+            	      <strong data-th-text="#{label_abcindicator_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="abcindicator-createdby-field" data-z="49439fe6">
+            	      <strong data-th-text="#{label_abcindicator_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="abcindicator-lastmodifieddate-field" data-z="b749dd8">
+            	      <strong data-th-text="#{label_abcindicator_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="abcindicator-lastmodifiedby-field" data-z="1fb626f8">
+            	      <strong data-th-text="#{label_abcindicator_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

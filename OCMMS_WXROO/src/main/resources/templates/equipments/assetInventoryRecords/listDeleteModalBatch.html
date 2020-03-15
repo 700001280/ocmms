@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="assetinventoryrecords-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('EquipmentsItemAssetInventoryRecordsThymeleafController')}">
+    <table id="assetinventoryrecords-detail-table-items-to-remove-batch" data-parent-table="equipment-entity-table" data-data-parent-id="${equipment != null ? equipment.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('equipment', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="checkDate" data-th-text="#{label_equipment_assetinventoryrecords_checkdate}">checkDate</th>
+              <th data-data="description" data-th-text="#{label_equipment_assetinventoryrecords_description}">description</th>
+              <th data-data="assetStatus" data-th-text="#{label_equipment_assetinventoryrecords_assetstatus}">assetStatus</th>
+              <th data-data="category" data-th-text="#{label_equipment_assetinventoryrecords_category}">category</th>
+              <th data-data="subCategory" data-th-text="#{label_equipment_assetinventoryrecords_subcategory}">subCategory</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>checkDate</td>
+              <td>description</td>
+              <td>assetStatus</td>
+              <td>category</td>
+              <td>subCategory</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

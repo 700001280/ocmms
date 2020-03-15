@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="lotodetails-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('LotoInfoesItemLotoDetailsThymeleafController')}">
+    <table id="lotodetails-detail-table-items-to-remove-batch" data-parent-table="lotoinfo-entity-table" data-data-parent-id="${lotoInfo != null ? lotoInfo.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('lotoInfo', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="source" data-th-text="#{label_lotoinfo_lotodetails_source}">source</th>
+              <th data-data="potentialHazard" data-th-text="#{label_lotoinfo_lotodetails_potentialhazard}">potentialHazard</th>
+              <th data-data="sourceTag" data-th-text="#{label_lotoinfo_lotodetails_sourcetag}">sourceTag</th>
+              <th data-data="device" data-th-text="#{label_lotoinfo_lotodetails_device}">device</th>
+              <th data-data="lotoDeviceType" data-th-text="#{label_lotoinfo_lotodetails_lotodevicetype}">lotoDeviceType</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>source</td>
+              <td>potentialHazard</td>
+              <td>sourceTag</td>
+              <td>device</td>
+              <td>lotoDeviceType</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

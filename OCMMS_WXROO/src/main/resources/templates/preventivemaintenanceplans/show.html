@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_preventivemaintenanceplan})}|">Show PreventiveMaintenancePlan - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${preventiveMaintenancePlan}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_preventivemaintenanceplan})}">Show PreventiveMaintenancePlan</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_preventivemaintenanceplan})}">PreventiveMaintenancePlan data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="preventivemaintenanceplan-code-field" data-z="e39f1c31">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-category-field" data-z="dfdf7511">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_category}">category</strong>
+                    <span data-th-text="*{{category}}">categoryValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-singlecycle-field" data-z="44ff7acd">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_singlecycle}">singleCycle</strong>
+                    <span data-th-text="*{{singleCycle}}">singleCycleValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-cycleunit-field" data-z="dac3810d">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_cycleunit}">cycleUnit</strong>
+                    <span data-th-text="*{{cycleUnit}}">cycleUnitValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-description-field" data-z="a7700f2d">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-sortfield-field" data-z="7f541e8d">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_sortfield}">sortField</strong>
+                    <span data-th-text="*{{sortField}}">sortFieldValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-authorizationgroup-field" data-z="8358b171">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_authorizationgroup}">authorizationGroup</strong>
+                    <span data-th-text="*{{authorizationGroup}}">authorizationGroupValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-schedulingperiod-field" data-z="c294b851">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_schedulingperiod}">schedulingPeriod</strong>
+                    <span data-th-text="*{{schedulingPeriod}}">schedulingPeriodValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-schedulingperioduom-field" data-z="68e80cad">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_schedulingperioduom}">schedulingPeriodUom</strong>
+                    <span data-th-text="*{{schedulingPeriodUom}}">schedulingPeriodUomValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-callhorizon-field" data-z="f10f82ed">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_callhorizon}">callHorizon</strong>
+                    <span data-th-text="*{{callHorizon}}">callHorizonValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-callhorizonuom-field" data-z="4c47ec91">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_callhorizonuom}">callHorizonUom</strong>
+                    <span data-th-text="*{{callHorizonUom}}">callHorizonUomValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-startdate-field" data-z="8bada44d">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_startdate}">startDate</strong>
+                    <span data-th-text="*{{startDate}}">startDateValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-startcounter-field" data-z="32fd3071">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_startcounter}">startCounter</strong>
+                    <span data-th-text="*{{startCounter}}">startCounterValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-recordstatus-field" data-z="303e9391">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-createddate-field" data-z="b5e8900d">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-createdby-field" data-z="a77b226d">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-lastmodifieddate-field" data-z="b1e58571">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="preventivemaintenanceplan-lastmodifiedby-field" data-z="c83e20d1">
+            	      <strong data-th-text="#{label_preventivemaintenanceplan_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="PreventiveMaintenancePlan_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('PreventiveMaintenancePlansItemThymeleafController').to('editForm').with('preventiveMaintenancePlan', preventiveMaintenancePlan.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="PreventiveMaintenancePlan_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('PreventiveMaintenancePlansCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

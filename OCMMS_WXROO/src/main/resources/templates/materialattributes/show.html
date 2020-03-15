@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_materialattribute})}|">Show MaterialAttribute - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${materialAttribute}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_materialattribute})}">Show MaterialAttribute</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_materialattribute})}">MaterialAttribute data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="materialattribute-attributename-field" data-z="34dfe3b4">
+            	      <strong data-th-text="#{label_materialattribute_attributename}">attributeName</strong>
+                    <span data-th-text="*{{attributeName}}">attributeNameValue</span>
+         	        </li>
+                  <li id="materialattribute-description-field" data-z="9e0ab234">
+            	      <strong data-th-text="#{label_materialattribute_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="materialattribute-uom-field" data-z="bce01054">
+            	      <strong data-th-text="#{label_materialattribute_uom}">uom</strong>
+                    <span data-th-text="*{{uom}}">uomValue</span>
+         	        </li>
+                  <li id="materialattribute-materialcatalog-field" data-z="499ad4d4">
+            	      <strong data-th-text="#{label_materialattribute_materialcatalog}">materialCatalog</strong>
+                    <span data-th-text="*{{materialCatalog}}">materialCatalogValue</span>
+         	        </li>
+                  <li id="materialattribute-recordstatus-field" data-z="cf8516a">
+            	      <strong data-th-text="#{label_materialattribute_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="materialattribute-createddate-field" data-z="ac833314">
+            	      <strong data-th-text="#{label_materialattribute_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="materialattribute-createdby-field" data-z="50a0db34">
+            	      <strong data-th-text="#{label_materialattribute_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="materialattribute-lastmodifieddate-field" data-z="fd6aaeca">
+            	      <strong data-th-text="#{label_materialattribute_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="materialattribute-lastmodifiedby-field" data-z="5d7fcc6a">
+            	      <strong data-th-text="#{label_materialattribute_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="MaterialAttribute_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('MaterialAttributesItemThymeleafController').to('editForm').with('materialAttribute', materialAttribute.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="MaterialAttribute_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('MaterialAttributesCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

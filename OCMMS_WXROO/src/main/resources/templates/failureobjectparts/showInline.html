@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_failureobjectpart})}|">Show FailureObjectPart - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${failureObjectPart}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="failureobjectpart-code-field" data-z="4caed531">
+            	      <strong data-th-text="#{label_failureobjectpart_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="failureobjectpart-description-field" data-z="78ee362d">
+            	      <strong data-th-text="#{label_failureobjectpart_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="failureobjectpart-groupcode-field" data-z="6a3dbfcd">
+            	      <strong data-th-text="#{label_failureobjectpart_groupcode}">groupCode</strong>
+                    <span data-th-text="*{{groupCode}}">groupCodeValue</span>
+         	        </li>
+                  <li id="failureobjectpart-groupdescription-field" data-z="bfdb6411">
+            	      <strong data-th-text="#{label_failureobjectpart_groupdescription}">groupDescription</strong>
+                    <span data-th-text="*{{groupDescription}}">groupDescriptionValue</span>
+         	        </li>
+                  <li id="failureobjectpart-subcode-field" data-z="46c3b72d">
+            	      <strong data-th-text="#{label_failureobjectpart_subcode}">subCode</strong>
+                    <span data-th-text="*{{subCode}}">subCodeValue</span>
+         	        </li>
+                  <li id="failureobjectpart-subdescription-field" data-z="ea7260b1">
+            	      <strong data-th-text="#{label_failureobjectpart_subdescription}">subDescription</strong>
+                    <span data-th-text="*{{subDescription}}">subDescriptionValue</span>
+         	        </li>
+                  <li id="failureobjectpart-recordstatus-field" data-z="8e854c91">
+            	      <strong data-th-text="#{label_failureobjectpart_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="failureobjectpart-createddate-field" data-z="8766b70d">
+            	      <strong data-th-text="#{label_failureobjectpart_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="failureobjectpart-createdby-field" data-z="4057096d">
+            	      <strong data-th-text="#{label_failureobjectpart_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="failureobjectpart-lastmodifieddate-field" data-z="ac27be71">
+            	      <strong data-th-text="#{label_failureobjectpart_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="failureobjectpart-lastmodifiedby-field" data-z="afba99d1">
+            	      <strong data-th-text="#{label_failureobjectpart_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

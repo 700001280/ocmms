@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_productmasterdata})}|">Show ProductMasterData - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${productMasterData}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_productmasterdata})}">Show ProductMasterData</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_productmasterdata})}">ProductMasterData data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="productmasterdata-materialcode-field" data-z="e401f6b0">
+            	      <strong data-th-text="#{label_productmasterdata_materialcode}">materialCode</strong>
+                    <span data-th-text="*{{materialCode}}">materialCodeValue</span>
+         	        </li>
+                  <li id="productmasterdata-grade-field" data-z="4f7b91ee">
+            	      <strong data-th-text="#{label_productmasterdata_grade}">grade</strong>
+                    <span data-th-text="*{{grade}}">gradeValue</span>
+         	        </li>
+                  <li id="productmasterdata-color-field" data-z="706bd06e">
+            	      <strong data-th-text="#{label_productmasterdata_color}">color</strong>
+                    <span data-th-text="*{{color}}">colorValue</span>
+         	        </li>
+                  <li id="productmasterdata-description-field" data-z="410a520e">
+            	      <strong data-th-text="#{label_productmasterdata_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="productmasterdata-producttype-field" data-z="f78dc8e">
+            	      <strong data-th-text="#{label_productmasterdata_producttype}">productType</strong>
+                    <span data-th-text="*{{productType}}">productTypeValue</span>
+         	        </li>
+                  <li id="productmasterdata-shafttype-field" data-z="dc9806ee">
+            	      <strong data-th-text="#{label_productmasterdata_shafttype}">shaftType</strong>
+                    <span data-th-text="*{{shaftType}}">shaftTypeValue</span>
+         	        </li>
+                  <li id="productmasterdata-recordstatus-field" data-z="c9ecacd0">
+            	      <strong data-th-text="#{label_productmasterdata_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="productmasterdata-createddate-field" data-z="4f82d2ee">
+            	      <strong data-th-text="#{label_productmasterdata_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="productmasterdata-createdby-field" data-z="9adaa98e">
+            	      <strong data-th-text="#{label_productmasterdata_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="productmasterdata-lastmodifieddate-field" data-z="2856e730">
+            	      <strong data-th-text="#{label_productmasterdata_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="productmasterdata-lastmodifiedby-field" data-z="aecae650">
+            	      <strong data-th-text="#{label_productmasterdata_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="ProductMasterData_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('ProductMasterDatasItemThymeleafController').to('editForm').with('productMasterData', productMasterData.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="ProductMasterData_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('ProductMasterDatasCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

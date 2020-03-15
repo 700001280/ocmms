@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_preventivemaintenancecontent})}|">Show PreventiveMaintenanceContent - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${preventiveMaintenanceContent}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="preventivemaintenancecontent-serialno-field" data-z="1de6b291">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_serialno}">serialNo</strong>
+                    <span data-th-text="*{{serialNo}}">serialNoValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-description-field" data-z="568782ed">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-method-field" data-z="225f2d71">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_method}">method</strong>
+                    <span data-th-text="*{{method}}">methodValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-standard-field" data-z="909d5d71">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_standard}">standard</strong>
+                    <span data-th-text="*{{standard}}">standardValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-tool-field" data-z="a5d59711">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_tool}">tool</strong>
+                    <span data-th-text="*{{tool}}">toolValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-materialcatalog-field" data-z="e15ea10d">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_materialcatalog}">materialCatalog</strong>
+                    <span data-th-text="*{{materialCatalog}}">materialCatalogValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-startdate-field" data-z="2d8f080d">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_startdate}">startDate</strong>
+                    <span data-th-text="*{{startDate}}">startDateValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-singlecycle-field" data-z="f416ee8d">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_singlecycle}">singleCycle</strong>
+                    <span data-th-text="*{{singleCycle}}">singleCycleValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-cycleunit-field" data-z="7ca4e4cd">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_cycleunit}">cycleUnit</strong>
+                    <span data-th-text="*{{cycleUnit}}">cycleUnitValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-preventivemaintenancestandard-field" data-z="47ecfced">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_preventivemaintenancestandard}">preventiveMaintenanceStandard</strong>
+                    <span data-th-text="*{{preventiveMaintenanceStandard}}">preventiveMaintenanceStandardValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-recordstatus-field" data-z="641597d1">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-createddate-field" data-z="650003cd">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-createdby-field" data-z="495c862d">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-lastmodifieddate-field" data-z="5e2069b1">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="preventivemaintenancecontent-lastmodifiedby-field" data-z="62651511">
+            	      <strong data-th-text="#{label_preventivemaintenancecontent_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

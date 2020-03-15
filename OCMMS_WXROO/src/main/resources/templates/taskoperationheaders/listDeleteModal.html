@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="taskoperationheader-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('TaskOperationHeadersCollectionThymeleafController')},itemLink=${@linkBuilder.of('TaskOperationHeadersItemThymeleafController')}">
+    <table id="taskoperationheader-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="taskHeaderText" data-th-text="#{label_taskoperationheader_taskheadertext}">taskHeaderText</th>
+          <th data-data="taskOperationHeaderCode" data-th-text="#{label_taskoperationheader_taskoperationheadercode}">taskOperationHeaderCode</th>
+          <th data-data="operationNumber" data-th-text="#{label_taskoperationheader_operationnumber}">operationNumber</th>
+          <th data-data="operationShortText" data-th-text="#{label_taskoperationheader_operationshorttext}">operationShortText</th>
+          <th data-data="operationWorkCenter" data-th-text="#{label_taskoperationheader_operationworkcenter}">operationWorkCenter</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>taskHeaderText</td>
+          <td>taskOperationHeaderCode</td>
+          <td>operationNumber</td>
+          <td>operationShortText</td>
+          <td>operationWorkCenter</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

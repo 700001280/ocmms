@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_measuringpoint})}|">Show MeasuringPoint - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${measuringPoint}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="measuringpoint-measuringtag-field" data-z="747d12e0">
+            	      <strong data-th-text="#{label_measuringpoint_measuringtag}">measuringTag</strong>
+                    <span data-th-text="*{{measuringTag}}">measuringTagValue</span>
+         	        </li>
+                  <li id="measuringpoint-description-field" data-z="16311a3e">
+            	      <strong data-th-text="#{label_measuringpoint_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="measuringpoint-measuringtype-field" data-z="1c7a837e">
+            	      <strong data-th-text="#{label_measuringpoint_measuringtype}">measuringType</strong>
+                    <span data-th-text="*{{measuringType}}">measuringTypeValue</span>
+         	        </li>
+                  <li id="measuringpoint-medium-field" data-z="a6b90500">
+            	      <strong data-th-text="#{label_measuringpoint_medium}">medium</strong>
+                    <span data-th-text="*{{medium}}">mediumValue</span>
+         	        </li>
+                  <li id="measuringpoint-lowlimit-field" data-z="c0a7ea60">
+            	      <strong data-th-text="#{label_measuringpoint_lowlimit}">lowLimit</strong>
+                    <span data-th-text="*{{lowLimit}}">lowLimitValue</span>
+         	        </li>
+                  <li id="measuringpoint-upperlimit-field" data-z="d62c87e0">
+            	      <strong data-th-text="#{label_measuringpoint_upperlimit}">upperLimit</strong>
+                    <span data-th-text="*{{upperLimit}}">upperLimitValue</span>
+         	        </li>
+                  <li id="measuringpoint-lowalarm-field" data-z="6c9c6fa0">
+            	      <strong data-th-text="#{label_measuringpoint_lowalarm}">lowAlarm</strong>
+                    <span data-th-text="*{{lowAlarm}}">lowAlarmValue</span>
+         	        </li>
+                  <li id="measuringpoint-upperalarm-field" data-z="82210d20">
+            	      <strong data-th-text="#{label_measuringpoint_upperalarm}">upperAlarm</strong>
+                    <span data-th-text="*{{upperAlarm}}">upperAlarmValue</span>
+         	        </li>
+                  <li id="measuringpoint-lowinterlock-field" data-z="6cb57860">
+            	      <strong data-th-text="#{label_measuringpoint_lowinterlock}">lowInterlock</strong>
+                    <span data-th-text="*{{lowInterlock}}">lowInterlockValue</span>
+         	        </li>
+                  <li id="measuringpoint-upperinterlock-field" data-z="cbaf55e0">
+            	      <strong data-th-text="#{label_measuringpoint_upperinterlock}">upperInterlock</strong>
+                    <span data-th-text="*{{upperInterlock}}">upperInterlockValue</span>
+         	        </li>
+                  <li id="measuringpoint-unitofmeasure-field" data-z="3397cd5e">
+            	      <strong data-th-text="#{label_measuringpoint_unitofmeasure}">unitOfMeasure</strong>
+                    <span data-th-text="*{{unitOfMeasure}}">unitOfMeasureValue</span>
+         	        </li>
+                  <li id="measuringpoint-equipment-field" data-z="50a6fbbe">
+            	      <strong data-th-text="#{label_measuringpoint_equipment}">equipment</strong>
+                    <span data-th-text="*{{equipment}}">equipmentValue</span>
+         	        </li>
+                  <li id="measuringpoint-recordstatus-field" data-z="999eeaa0">
+            	      <strong data-th-text="#{label_measuringpoint_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="measuringpoint-createddate-field" data-z="24a99b1e">
+            	      <strong data-th-text="#{label_measuringpoint_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="measuringpoint-createdby-field" data-z="ea75bdbe">
+            	      <strong data-th-text="#{label_measuringpoint_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="measuringpoint-lastmodifieddate-field" data-z="3615bd00">
+            	      <strong data-th-text="#{label_measuringpoint_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="measuringpoint-lastmodifiedby-field" data-z="5ae4f020">
+            	      <strong data-th-text="#{label_measuringpoint_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

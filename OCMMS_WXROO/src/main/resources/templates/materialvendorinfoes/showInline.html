@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_materialvendorinfo})}|">Show MaterialVendorInfo - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${materialVendorInfo}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="materialvendorinfo-description-field" data-z="d7ed2a36">
+            	      <strong data-th-text="#{label_materialvendorinfo_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="materialvendorinfo-code-field" data-z="c83c6948">
+            	      <strong data-th-text="#{label_materialvendorinfo_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="materialvendorinfo-materialcatalog-field" data-z="5d9d7bd6">
+            	      <strong data-th-text="#{label_materialvendorinfo_materialcatalog}">materialCatalog</strong>
+                    <span data-th-text="*{{materialCatalog}}">materialCatalogValue</span>
+         	        </li>
+                  <li id="materialvendorinfo-vendorinfotype-field" data-z="48dedde8">
+            	      <strong data-th-text="#{label_materialvendorinfo_vendorinfotype}">vendorInfoType</strong>
+                    <span data-th-text="*{{vendorInfoType}}">vendorInfoTypeValue</span>
+         	        </li>
+                  <li id="materialvendorinfo-recordstatus-field" data-z="f64d9a8">
+            	      <strong data-th-text="#{label_materialvendorinfo_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="materialvendorinfo-createddate-field" data-z="e665ab16">
+            	      <strong data-th-text="#{label_materialvendorinfo_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="materialvendorinfo-createdby-field" data-z="a9656bb6">
+            	      <strong data-th-text="#{label_materialvendorinfo_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="materialvendorinfo-lastmodifieddate-field" data-z="69bce808">
+            	      <strong data-th-text="#{label_materialvendorinfo_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="materialvendorinfo-lastmodifiedby-field" data-z="76eb3d28">
+            	      <strong data-th-text="#{label_materialvendorinfo_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

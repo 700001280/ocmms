@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_notificationheader})}|">Show NotificationHeader - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${notificationHeader}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="notificationheader-notificationcode-field" data-z="ce81f6a3">
+            	      <strong data-th-text="#{label_notificationheader_notificationcode}">notificationCode</strong>
+                    <span data-th-text="*{{notificationCode}}">notificationCodeValue</span>
+         	        </li>
+                  <li id="notificationheader-notificationtype-field" data-z="ed0b0103">
+            	      <strong data-th-text="#{label_notificationheader_notificationtype}">notificationType</strong>
+                    <span data-th-text="*{{notificationType}}">notificationTypeValue</span>
+         	        </li>
+                  <li id="notificationheader-reporteddate-field" data-z="3f819783">
+            	      <strong data-th-text="#{label_notificationheader_reporteddate}">reportedDate</strong>
+                    <span data-th-text="*{{reportedDate}}">reportedDateValue</span>
+         	        </li>
+                  <li id="notificationheader-reportedby-field" data-z="2f7b8f63">
+            	      <strong data-th-text="#{label_notificationheader_reportedby}">reportedBy</strong>
+                    <span data-th-text="*{{reportedBy}}">reportedByValue</span>
+         	        </li>
+                  <li id="notificationheader-description-field" data-z="38585d3b">
+            	      <strong data-th-text="#{label_notificationheader_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="notificationheader-longtext-field" data-z="68741483">
+            	      <strong data-th-text="#{label_notificationheader_longtext}">longText</strong>
+                    <span data-th-text="*{{longText}}">longTextValue</span>
+         	        </li>
+                  <li id="notificationheader-systemstatus-field" data-z="2e489383">
+            	      <strong data-th-text="#{label_notificationheader_systemstatus}">systemStatus</strong>
+                    <span data-th-text="*{{systemStatus}}">systemStatusValue</span>
+         	        </li>
+                  <li id="notificationheader-userstatus-field" data-z="36b2e903">
+            	      <strong data-th-text="#{label_notificationheader_userstatus}">userStatus</strong>
+                    <span data-th-text="*{{userStatus}}">userStatusValue</span>
+         	        </li>
+                  <li id="notificationheader-priority-field" data-z="575d9503">
+            	      <strong data-th-text="#{label_notificationheader_priority}">priority</strong>
+                    <span data-th-text="*{{priority}}">priorityValue</span>
+         	        </li>
+                  <li id="notificationheader-technicalobject-field" data-z="b746175b">
+            	      <strong data-th-text="#{label_notificationheader_technicalobject}">technicalObject</strong>
+                    <span data-th-text="*{{technicalObject}}">technicalObjectValue</span>
+         	        </li>
+                  <li id="notificationheader-plantlocation-field" data-z="7d6ebddb">
+            	      <strong data-th-text="#{label_notificationheader_plantlocation}">plantLocation</strong>
+                    <span data-th-text="*{{plantLocation}}">plantLocationValue</span>
+         	        </li>
+                  <li id="notificationheader-plantsection-field" data-z="4d3ccc23">
+            	      <strong data-th-text="#{label_notificationheader_plantsection}">plantSection</strong>
+                    <span data-th-text="*{{plantSection}}">plantSectionValue</span>
+         	        </li>
+                  <li id="notificationheader-costcenter-field" data-z="96c7a063">
+            	      <strong data-th-text="#{label_notificationheader_costcenter}">costCenter</strong>
+                    <span data-th-text="*{{costCenter}}">costCenterValue</span>
+         	        </li>
+                  <li id="notificationheader-plannergroup-field" data-z="90255c3">
+            	      <strong data-th-text="#{label_notificationheader_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="notificationheader-mainworkcenter-field" data-z="16125ee3">
+            	      <strong data-th-text="#{label_notificationheader_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="notificationheader-workcenterresponsible-field" data-z="c9084f7b">
+            	      <strong data-th-text="#{label_notificationheader_workcenterresponsible}">workCenterResponsible</strong>
+                    <span data-th-text="*{{workCenterResponsible}}">workCenterResponsibleValue</span>
+         	        </li>
+                  <li id="notificationheader-breakdown-field" data-z="8ef139b">
+            	      <strong data-th-text="#{label_notificationheader_breakdown}">breakdown</strong>
+                    <span data-th-text="*{{breakdown}}">breakdownValue</span>
+         	        </li>
+                  <li id="notificationheader-requiredstart-field" data-z="c224e53b">
+            	      <strong data-th-text="#{label_notificationheader_requiredstart}">requiredStart</strong>
+                    <span data-th-text="*{{requiredStart}}">requiredStartValue</span>
+         	        </li>
+                  <li id="notificationheader-requiredend-field" data-z="65b0d11b">
+            	      <strong data-th-text="#{label_notificationheader_requiredend}">requiredEnd</strong>
+                    <span data-th-text="*{{requiredEnd}}">requiredEndValue</span>
+         	        </li>
+                  <li id="notificationheader-workorderheader-field" data-z="e774f59b">
+            	      <strong data-th-text="#{label_notificationheader_workorderheader}">workorderHeader</strong>
+                    <span data-th-text="*{{workorderHeader}}">workorderHeaderValue</span>
+         	        </li>
+                  <li id="notificationheader-recordstatus-field" data-z="bc600743">
+            	      <strong data-th-text="#{label_notificationheader_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="notificationheader-createddate-field" data-z="46d0de1b">
+            	      <strong data-th-text="#{label_notificationheader_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="notificationheader-createdby-field" data-z="7e9b9bfb">
+            	      <strong data-th-text="#{label_notificationheader_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="notificationheader-lastmodifieddate-field" data-z="a3e1d023">
+            	      <strong data-th-text="#{label_notificationheader_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="notificationheader-lastmodifiedby-field" data-z="d1d17003">
+            	      <strong data-th-text="#{label_notificationheader_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

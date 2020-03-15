@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_procurementorder})}|">Show ProcurementOrder - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${procurementOrder}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_procurementorder})}">Show ProcurementOrder</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_procurementorder})}">ProcurementOrder data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="procurementorder-prioritytype-field" data-z="f69c1389">
+            	      <strong data-th-text="#{label_procurementorder_prioritytype}">priorityType</strong>
+                    <span data-th-text="*{{priorityType}}">priorityTypeValue</span>
+         	        </li>
+                  <li id="procurementorder-catalogtype-field" data-z="78583a15">
+            	      <strong data-th-text="#{label_procurementorder_catalogtype}">catalogType</strong>
+                    <span data-th-text="*{{catalogType}}">catalogTypeValue</span>
+         	        </li>
+                  <li id="procurementorder-description-field" data-z="c62eccd5">
+            	      <strong data-th-text="#{label_procurementorder_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="procurementorder-supplier-field" data-z="6fd576a9">
+            	      <strong data-th-text="#{label_procurementorder_supplier}">supplier</strong>
+                    <span data-th-text="*{{supplier}}">supplierValue</span>
+         	        </li>
+                  <li id="procurementorder-orderdate-field" data-z="4615be75">
+            	      <strong data-th-text="#{label_procurementorder_orderdate}">orderDate</strong>
+                    <span data-th-text="*{{orderDate}}">orderDateValue</span>
+         	        </li>
+                  <li id="procurementorder-ordernumber-field" data-z="6d841995">
+            	      <strong data-th-text="#{label_procurementorder_ordernumber}">orderNumber</strong>
+                    <span data-th-text="*{{orderNumber}}">orderNumberValue</span>
+         	        </li>
+                  <li id="procurementorder-memo-field" data-z="c18135e9">
+            	      <strong data-th-text="#{label_procurementorder_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="procurementorder-closed-field" data-z="c6bb6d29">
+            	      <strong data-th-text="#{label_procurementorder_closed}">closed</strong>
+                    <span data-th-text="*{{closed}}">closedValue</span>
+         	        </li>
+                  <li id="procurementorder-recordstatus-field" data-z="e9578ae9">
+            	      <strong data-th-text="#{label_procurementorder_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="procurementorder-createddate-field" data-z="d4a74db5">
+            	      <strong data-th-text="#{label_procurementorder_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="procurementorder-createdby-field" data-z="69d2a15">
+            	      <strong data-th-text="#{label_procurementorder_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="procurementorder-lastmodifieddate-field" data-z="bc8310c9">
+            	      <strong data-th-text="#{label_procurementorder_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="procurementorder-lastmodifiedby-field" data-z="9ef6a229">
+            	      <strong data-th-text="#{label_procurementorder_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="ProcurementOrder_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('ProcurementOrdersItemThymeleafController').to('editForm').with('procurementOrder', procurementOrder.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="ProcurementOrder_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('ProcurementOrdersCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="isolationmethod-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('IsolationMethodsCollectionThymeleafController')},itemLink=${@linkBuilder.of('IsolationMethodsItemThymeleafController')}">
+    <table id="isolationmethod-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="code" data-th-text="#{label_isolationmethod_code}">code</th>
+          <th data-data="description" data-th-text="#{label_isolationmethod_description}">description</th>
+          <th data-data="recordStatus" data-th-text="#{label_isolationmethod_recordstatus}">recordStatus</th>
+          <th data-data="createdDate" data-th-text="#{label_isolationmethod_createddate}">createdDate</th>
+          <th data-data="createdBy" data-th-text="#{label_isolationmethod_createdby}">createdBy</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>code</td>
+          <td>description</td>
+          <td>recordStatus</td>
+          <td>createdDate</td>
+          <td>createdBy</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

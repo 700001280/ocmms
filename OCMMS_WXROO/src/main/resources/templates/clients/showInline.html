@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_client})}|">Show Client - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${client}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="client-code-field" data-z="84e154b6">
+            	      <strong data-th-text="#{label_client_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="client-orgname-field" data-z="5ffced48">
+            	      <strong data-th-text="#{label_client_orgname}">orgName</strong>
+                    <span data-th-text="*{{orgName}}">orgNameValue</span>
+         	        </li>
+                  <li id="client-description-field" data-z="b1bb2708">
+            	      <strong data-th-text="#{label_client_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="client-postalcode-field" data-z="745fee36">
+            	      <strong data-th-text="#{label_client_postalcode}">postalCode</strong>
+                    <span data-th-text="*{{postalCode}}">postalCodeValue</span>
+         	        </li>
+                  <li id="client-phone-field" data-z="d16cd388">
+            	      <strong data-th-text="#{label_client_phone}">phone</strong>
+                    <span data-th-text="*{{phone}}">phoneValue</span>
+         	        </li>
+                  <li id="client-fax-field" data-z="780bffe8">
+            	      <strong data-th-text="#{label_client_fax}">fax</strong>
+                    <span data-th-text="*{{fax}}">faxValue</span>
+         	        </li>
+                  <li id="client-web-field" data-z="7904d508">
+            	      <strong data-th-text="#{label_client_web}">web</strong>
+                    <span data-th-text="*{{web}}">webValue</span>
+         	        </li>
+                  <li id="client-mail-field" data-z="95b58376">
+            	      <strong data-th-text="#{label_client_mail}">mail</strong>
+                    <span data-th-text="*{{mail}}">mailValue</span>
+         	        </li>
+                  <li id="client-recordstatus-field" data-z="6f567716">
+            	      <strong data-th-text="#{label_client_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="client-createddate-field" data-z="c033a7e8">
+            	      <strong data-th-text="#{label_client_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="client-createdby-field" data-z="f1d07508">
+            	      <strong data-th-text="#{label_client_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="client-lastmodifieddate-field" data-z="13a61e76">
+            	      <strong data-th-text="#{label_client_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="client-lastmodifiedby-field" data-z="a0eb3716">
+            	      <strong data-th-text="#{label_client_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="client-organizationcatalog-field" data-z="813744a8">
+            	      <strong data-th-text="#{label_client_organizationcatalog}">organizationCatalog</strong>
+                    <span data-th-text="*{{organizationCatalog}}">organizationCatalogValue</span>
+         	        </li>
+                  <li id="client-address-field" data-z="9d198488">
+            	      <strong data-th-text="#{label_client_address}">address</strong>
+                    <span data-th-text="*{{address}}">addressValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

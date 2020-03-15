@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_elevator})}|">Show Elevator - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${elevator}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="elevator-tag-field" data-z="87a643c5">
+            	      <strong data-th-text="#{label_elevator_tag}">tag</strong>
+                    <span data-th-text="*{{tag}}">tagValue</span>
+         	        </li>
+                  <li id="elevator-description-field" data-z="14a53985">
+            	      <strong data-th-text="#{label_elevator_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="elevator-descriptionlocal-field" data-z="d3614d79">
+            	      <strong data-th-text="#{label_elevator_descriptionlocal}">descriptionLocal</strong>
+                    <span data-th-text="*{{descriptionLocal}}">descriptionLocalValue</span>
+         	        </li>
+                  <li id="elevator-abcindicator-field" data-z="f6cc92b9">
+            	      <strong data-th-text="#{label_elevator_abcindicator}">abcIndicator</strong>
+                    <span data-th-text="*{{abcIndicator}}">abcIndicatorValue</span>
+         	        </li>
+                  <li id="elevator-mainworkcenter-field" data-z="aa69a659">
+            	      <strong data-th-text="#{label_elevator_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="elevator-organization-field" data-z="8e7cda19">
+            	      <strong data-th-text="#{label_elevator_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="elevator-manufacturermodelnumber-field" data-z="37622fe5">
+            	      <strong data-th-text="#{label_elevator_manufacturermodelnumber}">manufacturerModelNumber</strong>
+                    <span data-th-text="*{{manufacturerModelNumber}}">manufacturerModelNumberValue</span>
+         	        </li>
+                  <li id="elevator-manufacturerserialnumber-field" data-z="e29733f9">
+            	      <strong data-th-text="#{label_elevator_manufacturerserialnumber}">manufacturerSerialNumber</strong>
+                    <span data-th-text="*{{manufacturerSerialNumber}}">manufacturerSerialNumberValue</span>
+         	        </li>
+                  <li id="elevator-manufacturerpartnumber-field" data-z="1041d699">
+            	      <strong data-th-text="#{label_elevator_manufacturerpartnumber}">manufacturerPartNumber</strong>
+                    <span data-th-text="*{{manufacturerPartNumber}}">manufacturerPartNumberValue</span>
+         	        </li>
+                  <li id="elevator-plannergroup-field" data-z="b65102b9">
+            	      <strong data-th-text="#{label_elevator_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="elevator-memo-field" data-z="60feaf39">
+            	      <strong data-th-text="#{label_elevator_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="elevator-recordstatus-field" data-z="69aeb439">
+            	      <strong data-th-text="#{label_elevator_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="elevator-createddate-field" data-z="231dba65">
+            	      <strong data-th-text="#{label_elevator_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="elevator-createdby-field" data-z="902702c5">
+            	      <strong data-th-text="#{label_elevator_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="elevator-lastmodifieddate-field" data-z="7f851219">
+            	      <strong data-th-text="#{label_elevator_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="elevator-lastmodifiedby-field" data-z="6628b779">
+            	      <strong data-th-text="#{label_elevator_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="elevator-functionallocation-field" data-z="41699e19">
+            	      <strong data-th-text="#{label_elevator_functionallocation}">functionalLocation</strong>
+                    <span data-th-text="*{{functionalLocation}}">functionalLocationValue</span>
+         	        </li>
+                  <li id="elevator-equipmentnumber-field" data-z="4036fb45">
+            	      <strong data-th-text="#{label_elevator_equipmentnumber}">equipmentNumber</strong>
+                    <span data-th-text="*{{equipmentNumber}}">equipmentNumberValue</span>
+         	        </li>
+                  <li id="elevator-superiorequipment-field" data-z="d1dd90c5">
+            	      <strong data-th-text="#{label_elevator_superiorequipment}">superiorEquipment</strong>
+                    <span data-th-text="*{{superiorEquipment}}">superiorEquipmentValue</span>
+         	        </li>
+                  <li id="elevator-constructiondate-field" data-z="d452ffb9">
+            	      <strong data-th-text="#{label_elevator_constructiondate}">constructionDate</strong>
+                    <span data-th-text="*{{constructionDate}}">constructionDateValue</span>
+         	        </li>
+                  <li id="elevator-countryofmanufacture-field" data-z="fd5adbb9">
+            	      <strong data-th-text="#{label_elevator_countryofmanufacture}">countryOfManufacture</strong>
+                    <span data-th-text="*{{countryOfManufacture}}">countryOfManufactureValue</span>
+         	        </li>
+                  <li id="elevator-manufacturer-field" data-z="68307e59">
+            	      <strong data-th-text="#{label_elevator_manufacturer}">manufacturer</strong>
+                    <span data-th-text="*{{manufacturer}}">manufacturerValue</span>
+         	        </li>
+                  <li id="elevator-plantsection-field" data-z="fa8b7919">
+            	      <strong data-th-text="#{label_elevator_plantsection}">plantSection</strong>
+                    <span data-th-text="*{{plantSection}}">plantSectionValue</span>
+         	        </li>
+                  <li id="elevator-equipmentcategory-field" data-z="6c7eaf25">
+            	      <strong data-th-text="#{label_elevator_equipmentcategory}">equipmentCategory</strong>
+                    <span data-th-text="*{{equipmentCategory}}">equipmentCategoryValue</span>
+         	        </li>
+                  <li id="elevator-objecttype-field" data-z="86ac63f9">
+            	      <strong data-th-text="#{label_elevator_objecttype}">objectType</strong>
+                    <span data-th-text="*{{objectType}}">objectTypeValue</span>
+         	        </li>
+                  <li id="elevator-drawingnumber-field" data-z="dcc11ac5">
+            	      <strong data-th-text="#{label_elevator_drawingnumber}">drawingNumber</strong>
+                    <span data-th-text="*{{drawingNumber}}">drawingNumberValue</span>
+         	        </li>
+                  <li id="elevator-catalogprofile-field" data-z="cca487d9">
+            	      <strong data-th-text="#{label_elevator_catalogprofile}">catalogProfile</strong>
+                    <span data-th-text="*{{catalogProfile}}">catalogProfileValue</span>
+         	        </li>
+                  <li id="elevator-plantlocation-field" data-z="79f5afa5">
+            	      <strong data-th-text="#{label_elevator_plantlocation}">plantLocation</strong>
+                    <span data-th-text="*{{plantLocation}}">plantLocationValue</span>
+         	        </li>
+                  <li id="elevator-consttypematerial-field" data-z="4a244445">
+            	      <strong data-th-text="#{label_elevator_consttypematerial}">constTypeMaterial</strong>
+                    <span data-th-text="*{{constTypeMaterial}}">constTypeMaterialValue</span>
+         	        </li>
+                  <li id="elevator-sizedimension-field" data-z="b4722c5">
+            	      <strong data-th-text="#{label_elevator_sizedimension}">sizeDimension</strong>
+                    <span data-th-text="*{{sizeDimension}}">sizeDimensionValue</span>
+         	        </li>
+                  <li id="elevator-grossweight-field" data-z="75c865a5">
+            	      <strong data-th-text="#{label_elevator_grossweight}">grossWeight</strong>
+                    <span data-th-text="*{{grossWeight}}">grossWeightValue</span>
+         	        </li>
+                  <li id="elevator-weightunit-field" data-z="87abcf99">
+            	      <strong data-th-text="#{label_elevator_weightunit}">weightUnit</strong>
+                    <span data-th-text="*{{weightUnit}}">weightUnitValue</span>
+         	        </li>
+                  <li id="elevator-acquisitiondate-field" data-z="53a8c6c5">
+            	      <strong data-th-text="#{label_elevator_acquisitiondate}">acquisitionDate</strong>
+                    <span data-th-text="*{{acquisitionDate}}">acquisitionDateValue</span>
+         	        </li>
+                  <li id="elevator-acquisitionvalue-field" data-z="f7de7ed9">
+            	      <strong data-th-text="#{label_elevator_acquisitionvalue}">acquisitionValue</strong>
+                    <span data-th-text="*{{acquisitionValue}}">acquisitionValueValue</span>
+         	        </li>
+                  <li id="elevator-acquisitionvaluecurrency-field" data-z="ebe582d9">
+            	      <strong data-th-text="#{label_elevator_acquisitionvaluecurrency}">acquisitionValueCurrency</strong>
+                    <span data-th-text="*{{acquisitionValueCurrency}}">acquisitionValueCurrencyValue</span>
+         	        </li>
+                  <li id="elevator-beginguaranteedate-field" data-z="f4268b59">
+            	      <strong data-th-text="#{label_elevator_beginguaranteedate}">beginGuaranteeDate</strong>
+                    <span data-th-text="*{{beginGuaranteeDate}}">beginGuaranteeDateValue</span>
+         	        </li>
+                  <li id="elevator-warrantyenddate-field" data-z="8fb87465">
+            	      <strong data-th-text="#{label_elevator_warrantyenddate}">warrantyEndDate</strong>
+                    <span data-th-text="*{{warrantyEndDate}}">warrantyEndDateValue</span>
+         	        </li>
+                  <li id="elevator-supplier-field" data-z="b655c7f9">
+            	      <strong data-th-text="#{label_elevator_supplier}">supplier</strong>
+                    <span data-th-text="*{{supplier}}">supplierValue</span>
+         	        </li>
+                  <li id="elevator-contract-field" data-z="ef8ff739">
+            	      <strong data-th-text="#{label_elevator_contract}">contract</strong>
+                    <span data-th-text="*{{contract}}">contractValue</span>
+         	        </li>
+                  <li id="elevator-ehsscritical-field" data-z="cf82bc59">
+            	      <strong data-th-text="#{label_elevator_ehsscritical}">ehssCritical</strong>
+                    <span data-th-text="*{{ehssCritical}}">ehssCriticalValue</span>
+         	        </li>
+                  <li id="elevator-criticalclassification-field" data-z="b26c0b79">
+            	      <strong data-th-text="#{label_elevator_criticalclassification}">criticalClassification</strong>
+                    <span data-th-text="*{{criticalClassification}}">criticalClassificationValue</span>
+         	        </li>
+                  <li id="elevator-assetcode-field" data-z="a12ff05">
+            	      <strong data-th-text="#{label_elevator_assetcode}">assetCode</strong>
+                    <span data-th-text="*{{assetCode}}">assetCodeValue</span>
+         	        </li>
+                  <li id="elevator-startdepreciationcost-field" data-z="de8a6245">
+            	      <strong data-th-text="#{label_elevator_startdepreciationcost}">startDepreciationCost</strong>
+                    <span data-th-text="*{{startDepreciationCost}}">startDepreciationCostValue</span>
+         	        </li>
+                  <li id="elevator-depreciationyear-field" data-z="475f4259">
+            	      <strong data-th-text="#{label_elevator_depreciationyear}">depreciationYear</strong>
+                    <span data-th-text="*{{depreciationYear}}">depreciationYearValue</span>
+         	        </li>
+                  <li id="elevator-capitalizeddate-field" data-z="ccc3565">
+            	      <strong data-th-text="#{label_elevator_capitalizeddate}">capitalizedDate</strong>
+                    <span data-th-text="*{{capitalizedDate}}">capitalizedDateValue</span>
+         	        </li>
+                  <li id="elevator-currentbookvalue-field" data-z="f7de3959">
+            	      <strong data-th-text="#{label_elevator_currentbookvalue}">currentBookValue</strong>
+                    <span data-th-text="*{{currentBookValue}}">currentBookValueValue</span>
+         	        </li>
+                  <li id="elevator-originalassetid-field" data-z="2385ec5">
+            	      <strong data-th-text="#{label_elevator_originalassetid}">originalAssetId</strong>
+                    <span data-th-text="*{{originalAssetId}}">originalAssetIdValue</span>
+         	        </li>
+                  <li id="elevator-assetvaluecurrency-field" data-z="298f22b9">
+            	      <strong data-th-text="#{label_elevator_assetvaluecurrency}">assetValueCurrency</strong>
+                    <span data-th-text="*{{assetValueCurrency}}">assetValueCurrencyValue</span>
+         	        </li>
+                  <li id="elevator-assetclassification-field" data-z="d69a0465">
+            	      <strong data-th-text="#{label_elevator_assetclassification}">assetClassification</strong>
+                    <span data-th-text="*{{assetClassification}}">assetClassificationValue</span>
+         	        </li>
+                  <li id="elevator-lastinspectiondate-field" data-z="bdaee239">
+            	      <strong data-th-text="#{label_elevator_lastinspectiondate}">lastInspectionDate</strong>
+                    <span data-th-text="*{{lastInspectionDate}}">lastInspectionDateValue</span>
+         	        </li>
+                  <li id="elevator-nextinspectiondate-field" data-z="db632299">
+            	      <strong data-th-text="#{label_elevator_nextinspectiondate}">nextInspectionDate</strong>
+                    <span data-th-text="*{{nextInspectionDate}}">nextInspectionDateValue</span>
+         	        </li>
+                  <li id="elevator-parameter-field" data-z="c6b6e965">
+            	      <strong data-th-text="#{label_elevator_parameter}">parameter</strong>
+                    <span data-th-text="*{{parameter}}">parameterValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_purchaseexpedite})}|">Show PurchaseExpedite - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${purchaseExpedite}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="purchaseexpedite-procurementorder-field" data-z="88963d0a">
+            	      <strong data-th-text="#{label_purchaseexpedite_procurementorder}">procurementOrder</strong>
+                    <span data-th-text="*{{procurementOrder}}">procurementOrderValue</span>
+         	        </li>
+                  <li id="purchaseexpedite-description-field" data-z="9eac6d74">
+            	      <strong data-th-text="#{label_purchaseexpedite_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="purchaseexpedite-memo-field" data-z="1fdb7a2a">
+            	      <strong data-th-text="#{label_purchaseexpedite_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="purchaseexpedite-expeditor-field" data-z="35bb0cf4">
+            	      <strong data-th-text="#{label_purchaseexpedite_expeditor}">expeditor</strong>
+                    <span data-th-text="*{{expeditor}}">expeditorValue</span>
+         	        </li>
+                  <li id="purchaseexpedite-expeditedate-field" data-z="11ca910a">
+            	      <strong data-th-text="#{label_purchaseexpedite_expeditedate}">expediteDate</strong>
+                    <span data-th-text="*{{expediteDate}}">expediteDateValue</span>
+         	        </li>
+                  <li id="purchaseexpedite-plandeliverdate-field" data-z="e80fd34">
+            	      <strong data-th-text="#{label_purchaseexpedite_plandeliverdate}">planDeliverDate</strong>
+                    <span data-th-text="*{{planDeliverDate}}">planDeliverDateValue</span>
+         	        </li>
+                  <li id="purchaseexpedite-recordstatus-field" data-z="208dfe2a">
+            	      <strong data-th-text="#{label_purchaseexpedite_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="purchaseexpedite-createddate-field" data-z="ad24ee54">
+            	      <strong data-th-text="#{label_purchaseexpedite_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="purchaseexpedite-createdby-field" data-z="8f86674">
+            	      <strong data-th-text="#{label_purchaseexpedite_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="purchaseexpedite-lastmodifieddate-field" data-z="c0dbfb8a">
+            	      <strong data-th-text="#{label_purchaseexpedite_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="purchaseexpedite-lastmodifiedby-field" data-z="e25d492a">
+            	      <strong data-th-text="#{label_purchaseexpedite_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

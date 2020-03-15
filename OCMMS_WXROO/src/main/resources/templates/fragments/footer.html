@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Footer</title>
+    </head>
+    <body id="body">
+        <!--
+        Only the internal content of the following div is included within
+        the template, in footer fragment
+        -->
+        <footer class="container" data-th-fragment="footer">
+
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <small class="clearfix">
+                        COPYRIGHT© <a href="http://www.ocmms.com/" target="_blank"
+                                      data-th-text="|OCMMS  ${#calendars.format(#dates.createNow(),'yyyy')} |">
+                            OCMMS 2017</a>ALL RIGHTS RESERVED
+                        &nbsp;&nbsp; VERSION:<span
+                            data-th-text="#{app_version}"></span><br>
+                        <a href="http://www.miitbeian.gov.cn/" target="_blank">渝ICP备17002329号</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50010502000522">渝公网安备 50010502000522号</a>
+                    </small>
+                </div>
+            </div>            
+        </footer>
+
+    </body>
+</html>

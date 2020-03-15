@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="workorderoperations-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('WorkOrderHeadersItemWorkOrderOperationsThymeleafController')}">
+    <table id="workorderoperations-detail-table-items-to-remove-batch" data-parent-table="workorderheader-entity-table" data-data-parent-id="${workOrderHeader != null ? workOrderHeader.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('workOrderHeader', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="workOrder" data-th-text="#{label_workorderheader_workorderoperations_workorder}">workOrder</th>
+              <th data-data="operationalWorkCenter" data-th-text="#{label_workorderheader_workorderoperations_operationalworkcenter}">operationalWorkCenter</th>
+              <th data-data="operationRelationship" data-th-text="#{label_workorderheader_workorderoperations_operationrelationship}">operationRelationship</th>
+              <th data-data="description" data-th-text="#{label_workorderheader_workorderoperations_description}">description</th>
+              <th data-data="workerNumber" data-th-text="#{label_workorderheader_workorderoperations_workernumber}">workerNumber</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>workOrder</td>
+              <td>operationalWorkCenter</td>
+              <td>operationRelationship</td>
+              <td>description</td>
+              <td>workerNumber</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

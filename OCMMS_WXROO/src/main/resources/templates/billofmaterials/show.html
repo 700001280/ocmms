@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_billofmaterial})}|">Show BillOfMaterial - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${billOfMaterial}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_billofmaterial})}">Show BillOfMaterial</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_billofmaterial})}">BillOfMaterial data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="billofmaterial-tag-field" data-z="43233c0e">
+            	      <strong data-th-text="#{label_billofmaterial_tag}">tag</strong>
+                    <span data-th-text="*{{tag}}">tagValue</span>
+         	        </li>
+                  <li id="billofmaterial-description-field" data-z="272dd8ce">
+            	      <strong data-th-text="#{label_billofmaterial_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="billofmaterial-descriptionlocal-field" data-z="e4f5d3d0">
+            	      <strong data-th-text="#{label_billofmaterial_descriptionlocal}">descriptionLocal</strong>
+                    <span data-th-text="*{{descriptionLocal}}">descriptionLocalValue</span>
+         	        </li>
+                  <li id="billofmaterial-abcindicator-field" data-z="3557dc90">
+            	      <strong data-th-text="#{label_billofmaterial_abcindicator}">abcIndicator</strong>
+                    <span data-th-text="*{{abcIndicator}}">abcIndicatorValue</span>
+         	        </li>
+                  <li id="billofmaterial-mainworkcenter-field" data-z="7349d670">
+            	      <strong data-th-text="#{label_billofmaterial_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="billofmaterial-organization-field" data-z="cd0823f0">
+            	      <strong data-th-text="#{label_billofmaterial_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="billofmaterial-manufacturermodelnumber-field" data-z="225129ae">
+            	      <strong data-th-text="#{label_billofmaterial_manufacturermodelnumber}">manufacturerModelNumber</strong>
+                    <span data-th-text="*{{manufacturerModelNumber}}">manufacturerModelNumberValue</span>
+         	        </li>
+                  <li id="billofmaterial-manufacturerserialnumber-field" data-z="55877350">
+            	      <strong data-th-text="#{label_billofmaterial_manufacturerserialnumber}">manufacturerSerialNumber</strong>
+                    <span data-th-text="*{{manufacturerSerialNumber}}">manufacturerSerialNumberValue</span>
+         	        </li>
+                  <li id="billofmaterial-manufacturerpartnumber-field" data-z="2017ffb0">
+            	      <strong data-th-text="#{label_billofmaterial_manufacturerpartnumber}">manufacturerPartNumber</strong>
+                    <span data-th-text="*{{manufacturerPartNumber}}">manufacturerPartNumberValue</span>
+         	        </li>
+                  <li id="billofmaterial-plannergroup-field" data-z="f4dc4c90">
+            	      <strong data-th-text="#{label_billofmaterial_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="billofmaterial-memo-field" data-z="1520c010">
+            	      <strong data-th-text="#{label_billofmaterial_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="billofmaterial-recordstatus-field" data-z="a839fe10">
+            	      <strong data-th-text="#{label_billofmaterial_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="billofmaterial-createddate-field" data-z="35a659ae">
+            	      <strong data-th-text="#{label_billofmaterial_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="billofmaterial-createdby-field" data-z="ddb0e04e">
+            	      <strong data-th-text="#{label_billofmaterial_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="billofmaterial-lastmodifieddate-field" data-z="91199870">
+            	      <strong data-th-text="#{label_billofmaterial_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="billofmaterial-lastmodifiedby-field" data-z="2f08e790">
+            	      <strong data-th-text="#{label_billofmaterial_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="billofmaterial-bomcomponent-field" data-z="c1d4b290">
+            	      <strong data-th-text="#{label_billofmaterial_bomcomponent}">bomComponent</strong>
+                    <span data-th-text="*{{bomComponent}}">bomComponentValue</span>
+         	        </li>
+                  <li id="billofmaterial-setsize-field" data-z="b70ac38e">
+            	      <strong data-th-text="#{label_billofmaterial_setsize}">setSize</strong>
+                    <span data-th-text="*{{setSize}}">setSizeValue</span>
+         	        </li>
+                  <li id="billofmaterial-unit-field" data-z="23b95ed0">
+            	      <strong data-th-text="#{label_billofmaterial_unit}">unit</strong>
+                    <span data-th-text="*{{unit}}">unitValue</span>
+         	        </li>
+                  <li id="billofmaterial-needstock-field" data-z="f186a7ee">
+            	      <strong data-th-text="#{label_billofmaterial_needstock}">needStock</strong>
+                    <span data-th-text="*{{needStock}}">needStockValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="BillOfMaterial_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('BillOfMaterialsItemThymeleafController').to('editForm').with('billOfMaterial', billOfMaterial.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="BillOfMaterial_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('BillOfMaterialsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_workorderoperation})}|">Show WorkOrderOperation - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${workOrderOperation}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="workorderoperation-workorder-field" data-z="fec30cc9">
+            	      <strong data-th-text="#{label_workorderoperation_workorder}">workOrder</strong>
+                    <span data-th-text="*{{workOrder}}">workOrderValue</span>
+         	        </li>
+                  <li id="workorderoperation-operationalworkcenter-field" data-z="a18f06c9">
+            	      <strong data-th-text="#{label_workorderoperation_operationalworkcenter}">operationalWorkCenter</strong>
+                    <span data-th-text="*{{operationalWorkCenter}}">operationalWorkCenterValue</span>
+         	        </li>
+                  <li id="workorderoperation-operationrelationship-field" data-z="9df091c9">
+            	      <strong data-th-text="#{label_workorderoperation_operationrelationship}">operationRelationship</strong>
+                    <span data-th-text="*{{operationRelationship}}">operationRelationshipValue</span>
+         	        </li>
+                  <li id="workorderoperation-description-field" data-z="dcd56a89">
+            	      <strong data-th-text="#{label_workorderoperation_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="workorderoperation-workernumber-field" data-z="75341b35">
+            	      <strong data-th-text="#{label_workorderoperation_workernumber}">workerNumber</strong>
+                    <span data-th-text="*{{workerNumber}}">workerNumberValue</span>
+         	        </li>
+                  <li id="workorderoperation-planworkerhours-field" data-z="56ec8bc9">
+            	      <strong data-th-text="#{label_workorderoperation_planworkerhours}">planWorkerHours</strong>
+                    <span data-th-text="*{{planWorkerHours}}">planWorkerHoursValue</span>
+         	        </li>
+                  <li id="workorderoperation-recordstatus-field" data-z="a784a3b5">
+            	      <strong data-th-text="#{label_workorderoperation_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="workorderoperation-createddate-field" data-z="eb4deb69">
+            	      <strong data-th-text="#{label_workorderoperation_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="workorderoperation-createdby-field" data-z="89f7a4c9">
+            	      <strong data-th-text="#{label_workorderoperation_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="workorderoperation-lastmodifieddate-field" data-z="f99ee395">
+            	      <strong data-th-text="#{label_workorderoperation_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="workorderoperation-lastmodifiedby-field" data-z="8640b7f5">
+            	      <strong data-th-text="#{label_workorderoperation_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

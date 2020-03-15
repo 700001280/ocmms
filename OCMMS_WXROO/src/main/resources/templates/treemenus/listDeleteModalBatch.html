@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="treemenu-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('TreeMenusCollectionThymeleafController')},itemLink=${@linkBuilder.of('TreeMenusItemThymeleafController')}">
+    <table id="treemenu-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="name" data-th-text="#{label_treemenu_name}">name</th>
+          <th data-data="urlLink" data-th-text="#{label_treemenu_urllink}">urlLink</th>
+          <th data-data="visible" data-th-text="#{label_treemenu_visible}">visible</th>
+          <th data-data="parentMenu" data-th-text="#{label_treemenu_parentmenu}">parentMenu</th>
+          <th data-data="loginRoles" data-th-text="#{label_treemenu_loginroles}">loginRoles</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>name</td>
+          <td>urlLink</td>
+          <td>visible</td>
+          <td>parentMenu</td>
+          <td>loginRoles</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

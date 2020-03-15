@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-layout}">
+  <head id="head">
+
+    <title data-th-text="#{label_edit_entity(#{label_failureobjectpart})}">
+    Edit FailureObjectPart - Spring Roo application</title>
+
+    <!-- DateTimePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css" data-th-href="@{/webjars/datetimepicker/2.5.4/build/jquery.datetimepicker.min.css}" />
+
+  </head>
+  
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+
+        <div class="container-fluid content" data-th-with="collectionLink=${@linkBuilder.of('FailureObjectPartsCollectionThymeleafController')},itemLink=${@linkBuilder.of('FailureObjectPartsItemThymeleafController')}">
+
+          <h1 data-th-text="#{label_edit_entity(#{label_failureobjectpart})}">Edit FailureObjectPart</h1>
+
+          <!-- FORM -->
+          <form class="form-horizontal validate" method="POST" data-th-object="${failureObjectPart}" data-th-action="${itemLink.to('update').with('failureObjectPart', failureObjectPart.id)}">
+            <input type="hidden" name="_method" value="PUT" />
+            	<input type="hidden" name="version" data-th-value="*{version}" />
+
+            <!-- CONCURRENCY CONTROL -->
+            <div data-th-replace="~{fragments/concurrency-control :: concurrency-control(editFormUrl = ${itemLink.to('editForm').with('failureObjectPart', failureObjectPart.id)})}"></div>
+            <!-- /CONCURRENCY CONTROL -->
+
+             <fieldset id="containerFields">
+              <legend class="sr-only" data-th-text="#{label_data_entity(#{label_failureobjectpart})}">FailureObjectPart data </legend>
+
+<div class="form-group has-error has-feedback" data-z="4caed531" id="failureobjectpart-code-field" data-th-classappend="${#fields.hasErrors('code')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="code" class="col-md-3 control-label" data-th-text="#{label_failureobjectpart_code}">code</label>
+  <div class="col-md-6">
+    <input id="code" name="code" data-th-value="*{{code}}" type="text" class="form-control" placeholder="code" data-th-placeholder="#{label_failureobjectpart_code}" data-toggle="tooltip" aria-describedby="codeStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('code')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('code')}" aria-hidden="true"></span>
+      <span id="code-error" class="help-block" data-th-if="${#fields.hasErrors('code')}" data-th-errors="*{code}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="78ee362d" id="failureobjectpart-description-field" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="description" class="col-md-3 control-label" data-th-text="#{label_failureobjectpart_description}">description</label>
+  <div class="col-md-6">
+    <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_failureobjectpart_description}" data-toggle="tooltip" aria-describedby="descriptionStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('description')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('description')}" aria-hidden="true"></span>
+      <span id="description-error" class="help-block" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="6a3dbfcd" id="failureobjectpart-groupcode-field" data-th-classappend="${#fields.hasErrors('groupCode')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="groupCode" class="col-md-3 control-label" data-th-text="#{label_failureobjectpart_groupcode}">groupCode</label>
+  <div class="col-md-6">
+    <input id="groupCode" name="groupCode" data-th-value="*{{groupCode}}" type="text" class="form-control" placeholder="groupCode" data-th-placeholder="#{label_failureobjectpart_groupcode}" data-toggle="tooltip" aria-describedby="groupCodeStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('groupCode')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('groupCode')}" aria-hidden="true"></span>
+      <span id="groupCode-error" class="help-block" data-th-if="${#fields.hasErrors('groupCode')}" data-th-errors="*{groupCode}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="bfdb6411" id="failureobjectpart-groupdescription-field" data-th-classappend="${#fields.hasErrors('groupDescription')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="groupDescription" class="col-md-3 control-label" data-th-text="#{label_failureobjectpart_groupdescription}">groupDescription</label>
+  <div class="col-md-6">
+    <input id="groupDescription" name="groupDescription" data-th-value="*{{groupDescription}}" type="text" class="form-control" placeholder="groupDescription" data-th-placeholder="#{label_failureobjectpart_groupdescription}" data-toggle="tooltip" aria-describedby="groupDescriptionStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('groupDescription')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('groupDescription')}" aria-hidden="true"></span>
+      <span id="groupDescription-error" class="help-block" data-th-if="${#fields.hasErrors('groupDescription')}" data-th-errors="*{groupDescription}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="46c3b72d" id="failureobjectpart-subcode-field" data-th-classappend="${#fields.hasErrors('subCode')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="subCode" class="col-md-3 control-label" data-th-text="#{label_failureobjectpart_subcode}">subCode</label>
+  <div class="col-md-6">
+    <input id="subCode" name="subCode" data-th-value="*{{subCode}}" type="text" class="form-control" placeholder="subCode" data-th-placeholder="#{label_failureobjectpart_subcode}" data-toggle="tooltip" aria-describedby="subCodeStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('subCode')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('subCode')}" aria-hidden="true"></span>
+      <span id="subCode-error" class="help-block" data-th-if="${#fields.hasErrors('subCode')}" data-th-errors="*{subCode}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="ea7260b1" id="failureobjectpart-subdescription-field" data-th-classappend="${#fields.hasErrors('subDescription')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="subDescription" class="col-md-3 control-label" data-th-text="#{label_failureobjectpart_subdescription}">subDescription</label>
+  <div class="col-md-6">
+    <input id="subDescription" name="subDescription" data-th-value="*{{subDescription}}" type="text" class="form-control" placeholder="subDescription" data-th-placeholder="#{label_failureobjectpart_subdescription}" data-toggle="tooltip" aria-describedby="subDescriptionStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('subDescription')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('subDescription')}" aria-hidden="true"></span>
+      <span id="subDescription-error" class="help-block" data-th-if="${#fields.hasErrors('subDescription')}" data-th-errors="*{subDescription}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="8e854c91" id="failureobjectpart-recordstatus-field" data-th-classappend="${#fields.hasErrors('recordStatus')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('RecordStatusesCollectionThymeleafController')}">
+    <label for="recordStatus" class="col-md-3 control-label" data-th-text="#{label_failureobjectpart_recordstatus}">RecordStatus</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{recordStatus}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{recordStatus} == null" data-th-value="*{recordStatus.id}" data-th-text="*{{recordStatus}}" selected="selected">RecordStatus</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('recordStatus')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('recordStatus')}" aria-hidden="true"></span>
+      <span id="recordStatus-error" class="help-block" data-th-if="${#fields.hasErrors('recordStatus')}" data-th-errors="*{recordStatus}">Error message.</span>
+    </div>
+</div>
+             </fieldset>
+
+
+              <!-- buttons form -->
+              <div class="form-group">
+                <div class="col-md-12">
+                  <div class="pull-left">
+                    <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{${collectionLink.to('list')}} + '\''" data-th-text="#{label_reset}">Cancel</button>
+                  </div>
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-primary" data-th-text="#{label_save}">Save</button>
+                  </div>
+                </div>
+              </div>
+
+          </form>
+          <!-- /FORM -->
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+   </div>
+   <!-- /CONTAINER -->
+
+   <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+   </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+
+    <!-- DateTimePicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js" data-th-src="@{/webjars/datetimepicker/build/jquery.datetimepicker.full.min.js}"></script>
+    <script src="../../static/public/js/datetimepicker-defaults.js" data-th-src="@{/public/js/datetimepicker-defaults.js}"></script>
+
+    <!-- jquery.inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.1/jquery.inputmask.bundle.min.js" data-th-src="@{/webjars/jquery.inputmask/min/jquery.inputmask.bundle.min.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+      (function(jQuery) {
+        jQuery(document).ready(
+      	  function() {
+      	    Inputmask.extendAliases({
+      	      'numeric' : {
+      	         'groupSeparator' : /*[[#{label_inputmask_groupSeparator}]]*/'.',
+      	         'radixPoint' : /*[[#{label_inputmask_radixPoint}]]*/','
+      	       },
+      	       'currency' : {
+      	          'prefix' : /*[[#{label_inputmask_prefix}]]*/'',
+      	          'suffix' : /*[[#{label_inputmask_suffix}]]*/' €'
+      	        }
+      	    });
+      	 });
+       })(jQuery);
+    </script>
+    <script src="../../static/public/js/inputmask-defaults.js" data-th-src="@{/public/js/inputmask-defaults.js}"></script>
+
+    <!-- JQuery Validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js" data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
+      </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js" data-th-src="@{/webjars/jquery-validation/dist/additional-methods.min.js}">
+      </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/localization/messages_es.js" data-th-src="@{/webjars/jquery-validation/src/localization/messages_}+${#locale.language}+'.js'" data-th-if="${#locale.language} != 'en'">
+      </script>
+    <script src="../../static/public/js/validation-defaults.js" data-th-src="@{/public/js/validation-defaults.js}">
+      </script>
+    <!-- Concurrency control management -->
+    <script data-th-src="@{/public/js/concurrency-control.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+      (function(jQuery) {
+         jQuery(document).ready(function() {
+      	   jQuery.extend( jQuery.validator.messages, {
+      	     'dateformat' : /*[[#{error_invalid_date}]]*/ 'Please enter a correct date/time',
+      	     'inputmask': /*[[#{error_invalid_maskValue}]]*/ 'Please enter a valid value',
+      	   });
+      	 });
+      })(jQuery);
+      </script>
+
+    </div>
+
+  </body>
+
+</html>

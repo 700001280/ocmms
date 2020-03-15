@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_equipmentlubrication})}|">Show EquipmentLubrication - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${equipmentLubrication}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_equipmentlubrication})}">Show EquipmentLubrication</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_equipmentlubrication})}">EquipmentLubrication data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="equipmentlubrication-materialcatalog-field" data-z="33ab33bf">
+            	      <strong data-th-text="#{label_equipmentlubrication_materialcatalog}">materialCatalog</strong>
+                    <span data-th-text="*{{materialCatalog}}">materialCatalogValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-fillquantity-field" data-z="e51784ff">
+            	      <strong data-th-text="#{label_equipmentlubrication_fillquantity}">fillQuantity</strong>
+                    <span data-th-text="*{{fillQuantity}}">fillQuantityValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-lubpoint-field" data-z="92fc3f9f">
+            	      <strong data-th-text="#{label_equipmentlubrication_lubpoint}">lubPoint</strong>
+                    <span data-th-text="*{{lubPoint}}">lubPointValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-lubunit-field" data-z="d7e6e9f">
+            	      <strong data-th-text="#{label_equipmentlubrication_lubunit}">lubUnit</strong>
+                    <span data-th-text="*{{lubUnit}}">lubUnitValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-intervalcycleunit-field" data-z="75ac1d7f">
+            	      <strong data-th-text="#{label_equipmentlubrication_intervalcycleunit}">intervalCycleUnit</strong>
+                    <span data-th-text="*{{intervalCycleUnit}}">intervalCycleUnitValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-intervalcycle-field" data-z="3f4711df">
+            	      <strong data-th-text="#{label_equipmentlubrication_intervalcycle}">intervalCycle</strong>
+                    <span data-th-text="*{{intervalCycle}}">intervalCycleValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-runtimecycleunit-field" data-z="476bbc5f">
+            	      <strong data-th-text="#{label_equipmentlubrication_runtimecycleunit}">runtimeCycleUnit</strong>
+                    <span data-th-text="*{{runtimeCycleUnit}}">runtimeCycleUnitValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-runtimecycle-field" data-z="a06920bf">
+            	      <strong data-th-text="#{label_equipmentlubrication_runtimecycle}">runtimeCycle</strong>
+                    <span data-th-text="*{{runtimeCycle}}">runtimeCycleValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-description-field" data-z="465d3e9f">
+            	      <strong data-th-text="#{label_equipmentlubrication_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-recordstatus-field" data-z="6ef7525f">
+            	      <strong data-th-text="#{label_equipmentlubrication_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-createddate-field" data-z="54d5bf7f">
+            	      <strong data-th-text="#{label_equipmentlubrication_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-createdby-field" data-z="2a71865f">
+            	      <strong data-th-text="#{label_equipmentlubrication_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-lastmodifieddate-field" data-z="55662d3f">
+            	      <strong data-th-text="#{label_equipmentlubrication_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="equipmentlubrication-lastmodifiedby-field" data-z="3bc2641f">
+            	      <strong data-th-text="#{label_equipmentlubrication_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="EquipmentLubrication_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('EquipmentLubricationsItemThymeleafController').to('editForm').with('equipmentLubrication', equipmentLubrication.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="EquipmentLubrication_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('EquipmentLubricationsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

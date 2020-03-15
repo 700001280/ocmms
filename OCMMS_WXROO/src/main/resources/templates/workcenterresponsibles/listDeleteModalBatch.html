@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="workcenterresponsible-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('WorkCenterResponsiblesCollectionThymeleafController')},itemLink=${@linkBuilder.of('WorkCenterResponsiblesItemThymeleafController')}">
+    <table id="workcenterresponsible-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="organization" data-th-text="#{label_workcenterresponsible_organization}">organization</th>
+          <th data-data="responsible" data-th-text="#{label_workcenterresponsible_responsible}">responsible</th>
+          <th data-data="description" data-th-text="#{label_workcenterresponsible_description}">description</th>
+          <th data-data="recordStatus" data-th-text="#{label_workcenterresponsible_recordstatus}">recordStatus</th>
+          <th data-data="createdDate" data-th-text="#{label_workcenterresponsible_createddate}">createdDate</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>organization</td>
+          <td>responsible</td>
+          <td>description</td>
+          <td>recordStatus</td>
+          <td>createdDate</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

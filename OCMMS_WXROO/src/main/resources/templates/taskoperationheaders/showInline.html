@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_taskoperationheader})}|">Show TaskOperationHeader - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${taskOperationHeader}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="taskoperationheader-taskheadertext-field" data-z="e990b744">
+            	      <strong data-th-text="#{label_taskoperationheader_taskheadertext}">taskHeaderText</strong>
+                    <span data-th-text="*{{taskHeaderText}}">taskHeaderTextValue</span>
+         	        </li>
+                  <li id="taskoperationheader-taskoperationheadercode-field" data-z="cde9441a">
+            	      <strong data-th-text="#{label_taskoperationheader_taskoperationheadercode}">taskOperationHeaderCode</strong>
+                    <span data-th-text="*{{taskOperationHeaderCode}}">taskOperationHeaderCodeValue</span>
+         	        </li>
+                  <li id="taskoperationheader-operationnumber-field" data-z="eec6e49a">
+            	      <strong data-th-text="#{label_taskoperationheader_operationnumber}">operationNumber</strong>
+                    <span data-th-text="*{{operationNumber}}">operationNumberValue</span>
+         	        </li>
+                  <li id="taskoperationheader-operationshorttext-field" data-z="feb1824">
+            	      <strong data-th-text="#{label_taskoperationheader_operationshorttext}">operationShortText</strong>
+                    <span data-th-text="*{{operationShortText}}">operationShortTextValue</span>
+         	        </li>
+                  <li id="taskoperationheader-operationworkcenter-field" data-z="e891ab9a">
+            	      <strong data-th-text="#{label_taskoperationheader_operationworkcenter}">operationWorkCenter</strong>
+                    <span data-th-text="*{{operationWorkCenter}}">operationWorkCenterValue</span>
+         	        </li>
+                  <li id="taskoperationheader-activitytype-field" data-z="dc5d9f24">
+            	      <strong data-th-text="#{label_taskoperationheader_activitytype}">activityType</strong>
+                    <span data-th-text="*{{activityType}}">activityTypeValue</span>
+         	        </li>
+                  <li id="taskoperationheader-controlkey-field" data-z="2091a124">
+            	      <strong data-th-text="#{label_taskoperationheader_controlkey}">controlkey</strong>
+                    <span data-th-text="*{{controlkey}}">controlkeyValue</span>
+         	        </li>
+                  <li id="taskoperationheader-organization-field" data-z="f1110dc4">
+            	      <strong data-th-text="#{label_taskoperationheader_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="taskoperationheader-systemcondition-field" data-z="ca508cda">
+            	      <strong data-th-text="#{label_taskoperationheader_systemcondition}">systemCondition</strong>
+                    <span data-th-text="*{{systemCondition}}">systemConditionValue</span>
+         	        </li>
+                  <li id="taskoperationheader-operationlabor-field" data-z="1bd2e1a4">
+            	      <strong data-th-text="#{label_taskoperationheader_operationlabor}">operationLabor</strong>
+                    <span data-th-text="*{{operationLabor}}">operationLaborValue</span>
+         	        </li>
+                  <li id="taskoperationheader-unitforwork-field" data-z="c3352d3a">
+            	      <strong data-th-text="#{label_taskoperationheader_unitforwork}">unitForWork</strong>
+                    <span data-th-text="*{{unitForWork}}">unitForWorkValue</span>
+         	        </li>
+                  <li id="taskoperationheader-noofrequiredcapacity-field" data-z="fbd7cd64">
+            	      <strong data-th-text="#{label_taskoperationheader_noofrequiredcapacity}">noOfRequiredCapacity</strong>
+                    <span data-th-text="*{{noOfRequiredCapacity}}">noOfRequiredCapacityValue</span>
+         	        </li>
+                  <li id="taskoperationheader-recordstatus-field" data-z="cc42e7e4">
+            	      <strong data-th-text="#{label_taskoperationheader_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="taskoperationheader-createddate-field" data-z="b2aee55a">
+            	      <strong data-th-text="#{label_taskoperationheader_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="taskoperationheader-createdby-field" data-z="d08066fa">
+            	      <strong data-th-text="#{label_taskoperationheader_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="taskoperationheader-lastmodifieddate-field" data-z="50317844">
+            	      <strong data-th-text="#{label_taskoperationheader_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="taskoperationheader-lastmodifiedby-field" data-z="747eac64">
+            	      <strong data-th-text="#{label_taskoperationheader_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

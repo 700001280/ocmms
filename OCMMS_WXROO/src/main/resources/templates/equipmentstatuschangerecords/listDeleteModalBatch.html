@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="equipmentstatuschangerecord-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('EquipmentStatusChangeRecordsCollectionThymeleafController')},itemLink=${@linkBuilder.of('EquipmentStatusChangeRecordsItemThymeleafController')}">
+    <table id="equipmentstatuschangerecord-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="changeDate" data-th-text="#{label_equipmentstatuschangerecord_changedate}">changeDate</th>
+          <th data-data="description" data-th-text="#{label_equipmentstatuschangerecord_description}">description</th>
+          <th data-data="equipmentStatus" data-th-text="#{label_equipmentstatuschangerecord_equipmentstatus}">equipmentStatus</th>
+          <th data-data="equipment" data-th-text="#{label_equipmentstatuschangerecord_equipment}">equipment</th>
+          <th data-data="recordStatus" data-th-text="#{label_equipmentstatuschangerecord_recordstatus}">recordStatus</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>changeDate</td>
+          <td>description</td>
+          <td>equipmentStatus</td>
+          <td>equipment</td>
+          <td>recordStatus</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

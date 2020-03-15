@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_organization})}|">Show Organization - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${organization}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="organization-code-field" data-z="787a23de">
+            	      <strong data-th-text="#{label_organization_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="organization-orgname-field" data-z="38fed20">
+            	      <strong data-th-text="#{label_organization_orgname}">orgName</strong>
+                    <span data-th-text="*{{orgName}}">orgNameValue</span>
+         	        </li>
+                  <li id="organization-description-field" data-z="519a7ae0">
+            	      <strong data-th-text="#{label_organization_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="organization-postalcode-field" data-z="c3dabf5e">
+            	      <strong data-th-text="#{label_organization_postalcode}">postalCode</strong>
+                    <span data-th-text="*{{postalCode}}">postalCodeValue</span>
+         	        </li>
+                  <li id="organization-phone-field" data-z="50ede960">
+            	      <strong data-th-text="#{label_organization_phone}">phone</strong>
+                    <span data-th-text="*{{phone}}">phoneValue</span>
+         	        </li>
+                  <li id="organization-fax-field" data-z="408abc0">
+            	      <strong data-th-text="#{label_organization_fax}">fax</strong>
+                    <span data-th-text="*{{fax}}">faxValue</span>
+         	        </li>
+                  <li id="organization-web-field" data-z="50180e0">
+            	      <strong data-th-text="#{label_organization_web}">web</strong>
+                    <span data-th-text="*{{web}}">webValue</span>
+         	        </li>
+                  <li id="organization-mail-field" data-z="894e529e">
+            	      <strong data-th-text="#{label_organization_mail}">mail</strong>
+                    <span data-th-text="*{{mail}}">mailValue</span>
+         	        </li>
+                  <li id="organization-recordstatus-field" data-z="cb619e3e">
+            	      <strong data-th-text="#{label_organization_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="organization-createddate-field" data-z="6012fbc0">
+            	      <strong data-th-text="#{label_organization_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="organization-createdby-field" data-z="fca2dee0">
+            	      <strong data-th-text="#{label_organization_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="organization-lastmodifieddate-field" data-z="99f9719e">
+            	      <strong data-th-text="#{label_organization_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="organization-lastmodifiedby-field" data-z="26c9343e">
+            	      <strong data-th-text="#{label_organization_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="organization-organizationcatalog-field" data-z="1bd14080">
+            	      <strong data-th-text="#{label_organization_organizationcatalog}">organizationCatalog</strong>
+                    <span data-th-text="*{{organizationCatalog}}">organizationCatalogValue</span>
+         	        </li>
+                  <li id="organization-address-field" data-z="40ac8460">
+            	      <strong data-th-text="#{label_organization_address}">address</strong>
+                    <span data-th-text="*{{address}}">addressValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

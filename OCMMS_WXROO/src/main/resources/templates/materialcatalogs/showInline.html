@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_materialcatalog})}|">Show MaterialCatalog - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${materialCatalog}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="materialcatalog-code-field" data-z="2d27ba47">
+            	      <strong data-th-text="#{label_materialcatalog_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="materialcatalog-materialname-field" data-z="98d8e9c7">
+            	      <strong data-th-text="#{label_materialcatalog_materialname}">materialName</strong>
+                    <span data-th-text="*{{materialName}}">materialNameValue</span>
+         	        </li>
+                  <li id="materialcatalog-materialgroup-field" data-z="22115eb7">
+            	      <strong data-th-text="#{label_materialcatalog_materialgroup}">materialGroup</strong>
+                    <span data-th-text="*{{materialGroup}}">materialGroupValue</span>
+         	        </li>
+                  <li id="materialcatalog-recordstatus-field" data-z="6c2abba7">
+            	      <strong data-th-text="#{label_materialcatalog_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="materialcatalog-createddate-field" data-z="a6c0d37">
+            	      <strong data-th-text="#{label_materialcatalog_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="materialcatalog-createdby-field" data-z="d62fe217">
+            	      <strong data-th-text="#{label_materialcatalog_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="materialcatalog-lastmodifieddate-field" data-z="4cb3b287">
+            	      <strong data-th-text="#{label_materialcatalog_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="materialcatalog-lastmodifiedby-field" data-z="b9c09b67">
+            	      <strong data-th-text="#{label_materialcatalog_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="materialcatalog-materialtype-field" data-z="a4c90fe7">
+            	      <strong data-th-text="#{label_materialcatalog_materialtype}">materialType</strong>
+                    <span data-th-text="*{{materialType}}">materialTypeValue</span>
+         	        </li>
+                  <li id="materialcatalog-discipline-field" data-z="d6184fe7">
+            	      <strong data-th-text="#{label_materialcatalog_discipline}">discipline</strong>
+                    <span data-th-text="*{{discipline}}">disciplineValue</span>
+         	        </li>
+                  <li id="materialcatalog-instocktype-field" data-z="75d93a97">
+            	      <strong data-th-text="#{label_materialcatalog_instocktype}">instockType</strong>
+                    <span data-th-text="*{{instockType}}">instockTypeValue</span>
+         	        </li>
+                  <li id="materialcatalog-uom-field" data-z="c06abd77">
+            	      <strong data-th-text="#{label_materialcatalog_uom}">uom</strong>
+                    <span data-th-text="*{{uom}}">uomValue</span>
+         	        </li>
+                  <li id="materialcatalog-usefullife-field" data-z="5cdddfc7">
+            	      <strong data-th-text="#{label_materialcatalog_usefullife}">usefulLife</strong>
+                    <span data-th-text="*{{usefulLife}}">usefulLifeValue</span>
+         	        </li>
+                  <li id="materialcatalog-shelflifedays-field" data-z="cc6a2a77">
+            	      <strong data-th-text="#{label_materialcatalog_shelflifedays}">shelfLifeDays</strong>
+                    <span data-th-text="*{{shelfLifeDays}}">shelfLifeDaysValue</span>
+         	        </li>
+                  <li id="materialcatalog-shortdescription-field" data-z="f736a7c7">
+            	      <strong data-th-text="#{label_materialcatalog_shortdescription}">shortDescription</strong>
+                    <span data-th-text="*{{shortDescription}}">shortDescriptionValue</span>
+         	        </li>
+                  <li id="materialcatalog-longdescription-field" data-z="581fcfb7">
+            	      <strong data-th-text="#{label_materialcatalog_longdescription}">longDescription</strong>
+                    <span data-th-text="*{{longDescription}}">longDescriptionValue</span>
+         	        </li>
+                  <li id="materialcatalog-hazardousmaterial-field" data-z="b17101b7">
+            	      <strong data-th-text="#{label_materialcatalog_hazardousmaterial}">hazardousMaterial</strong>
+                    <span data-th-text="*{{hazardousMaterial}}">hazardousMaterialValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

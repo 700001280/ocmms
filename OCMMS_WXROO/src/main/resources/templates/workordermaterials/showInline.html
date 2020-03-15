@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_workordermaterial})}|">Show WorkOrderMaterial - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${workOrderMaterial}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="workordermaterial-workorder-field" data-z="18531625">
+            	      <strong data-th-text="#{label_workordermaterial_workorder}">workOrder</strong>
+                    <span data-th-text="*{{workOrder}}">workOrderValue</span>
+         	        </li>
+                  <li id="workordermaterial-material-field" data-z="27423139">
+            	      <strong data-th-text="#{label_workordermaterial_material}">material</strong>
+                    <span data-th-text="*{{material}}">materialValue</span>
+         	        </li>
+                  <li id="workordermaterial-quantity-field" data-z="489fd4b9">
+            	      <strong data-th-text="#{label_workordermaterial_quantity}">quantity</strong>
+                    <span data-th-text="*{{quantity}}">quantityValue</span>
+         	        </li>
+                  <li id="workordermaterial-partname-field" data-z="7c5d7e79">
+            	      <strong data-th-text="#{label_workordermaterial_partname}">partName</strong>
+                    <span data-th-text="*{{partName}}">partNameValue</span>
+         	        </li>
+                  <li id="workordermaterial-unit-field" data-z="9c910699">
+            	      <strong data-th-text="#{label_workordermaterial_unit}">unit</strong>
+                    <span data-th-text="*{{unit}}">unitValue</span>
+         	        </li>
+                  <li id="workordermaterial-recordstatus-field" data-z="6835ccd9">
+            	      <strong data-th-text="#{label_workordermaterial_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="workordermaterial-createddate-field" data-z="e1010dc5">
+            	      <strong data-th-text="#{label_workordermaterial_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="workordermaterial-createdby-field" data-z="a387ae25">
+            	      <strong data-th-text="#{label_workordermaterial_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="workordermaterial-lastmodifieddate-field" data-z="3d8edab9">
+            	      <strong data-th-text="#{label_workordermaterial_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="workordermaterial-lastmodifiedby-field" data-z="df4c2819">
+            	      <strong data-th-text="#{label_workordermaterial_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

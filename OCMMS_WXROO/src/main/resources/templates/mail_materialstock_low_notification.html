@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:remove="all">Template for HTML email with inline image</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p th:text="#{label_mail_greeting(${name})}">
+            Hello, Peter Static!
+        </p>
+        
+        <p>
+            Please note that below material are less than the safety stock:      
+        </p>
+        <p>Detail:</p>
+
+        <ul>
+            <li>Material: <span  th:text="|${materialPlantInfo.materialCatalog.code}-${materialPlantInfo.materialCatalog.shortDescription}|"></span></li>
+            <li>Warehouse: <span th:text="${materialPlantInfo.storageLocation.description}"></span></li>
+            <li>Location:<span th:text="${materialPlantInfo.location}"></span></li>
+            <li>Stock:<span th:text="${materialPlantInfo.stock}"></span></li>
+            <li>Safety Stock:<span th:text="${materialPlantInfo.safetyStock}"></span></li>            
+
+        </ul>
+        <p>
+            You can find detail information in OCMMS.
+        </p>
+        <p>
+            <!-- <img src="sample.png" th:src="|cid:${imageResourceName}|" /> -->
+        </p>
+        <p>
+            Regards, <br />
+            <em>OCMMS ADMIM</em>
+        </p>
+    </body>
+</html>

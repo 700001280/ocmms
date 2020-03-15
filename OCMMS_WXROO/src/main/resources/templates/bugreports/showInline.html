@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_bugreport})}|">Show BugReport - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${bugReport}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="bugreport-description-field" data-z="429fc0c1">
+            	      <strong data-th-text="#{label_bugreport_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="bugreport-title-field" data-z="5c876c1">
+            	      <strong data-th-text="#{label_bugreport_title}">title</strong>
+                    <span data-th-text="*{{title}}">titleValue</span>
+         	        </li>
+                  <li id="bugreport-submitter-field" data-z="7080e3a1">
+            	      <strong data-th-text="#{label_bugreport_submitter}">submitter</strong>
+                    <span data-th-text="*{{submitter}}">submitterValue</span>
+         	        </li>
+                  <li id="bugreport-submitdate-field" data-z="4c8c1f9d">
+            	      <strong data-th-text="#{label_bugreport_submitdate}">submitDate</strong>
+                    <span data-th-text="*{{submitDate}}">submitDateValue</span>
+         	        </li>
+                  <li id="bugreport-solved-field" data-z="508f469d">
+            	      <strong data-th-text="#{label_bugreport_solved}">solved</strong>
+                    <span data-th-text="*{{solved}}">solvedValue</span>
+         	        </li>
+                  <li id="bugreport-closedescription-field" data-z="e82c951d">
+            	      <strong data-th-text="#{label_bugreport_closedescription}">closeDescription</strong>
+                    <span data-th-text="*{{closeDescription}}">closeDescriptionValue</span>
+         	        </li>
+                  <li id="bugreport-handler-field" data-z="a6afd001">
+            	      <strong data-th-text="#{label_bugreport_handler}">handler</strong>
+                    <span data-th-text="*{{handler}}">handlerValue</span>
+         	        </li>
+                  <li id="bugreport-solveddate-field" data-z="6b85a5fd">
+            	      <strong data-th-text="#{label_bugreport_solveddate}">solvedDate</strong>
+                    <span data-th-text="*{{solvedDate}}">solvedDateValue</span>
+         	        </li>
+                  <li id="bugreport-pics-field" data-z="aec9f19d">
+            	      <strong data-th-text="#{label_bugreport_pics}">pics</strong>
+                    <span data-th-text="*{{pics}}">picsValue</span>
+         	        </li>
+                  <li id="bugreport-recordstatus-field" data-z="fb05147d">
+            	      <strong data-th-text="#{label_bugreport_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="bugreport-createddate-field" data-z="511841a1">
+            	      <strong data-th-text="#{label_bugreport_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="bugreport-createdby-field" data-z="1c522901">
+            	      <strong data-th-text="#{label_bugreport_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="bugreport-lastmodifieddate-field" data-z="c269b05d">
+            	      <strong data-th-text="#{label_bugreport_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="bugreport-lastmodifiedby-field" data-z="fb6816bd">
+            	      <strong data-th-text="#{label_bugreport_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

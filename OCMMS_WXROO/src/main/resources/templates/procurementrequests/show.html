@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_procurementrequest})}|">Show ProcurementRequest - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${procurementRequest}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_procurementrequest})}">Show ProcurementRequest</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_procurementrequest})}">ProcurementRequest data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="procurementrequest-prioritytype-field" data-z="9848a64a">
+            	      <strong data-th-text="#{label_procurementrequest_prioritytype}">priorityType</strong>
+                    <span data-th-text="*{{priorityType}}">priorityTypeValue</span>
+         	        </li>
+                  <li id="procurementrequest-catalogtype-field" data-z="b75dcb34">
+            	      <strong data-th-text="#{label_procurementrequest_catalogtype}">catalogType</strong>
+                    <span data-th-text="*{{catalogType}}">catalogTypeValue</span>
+         	        </li>
+                  <li id="procurementrequest-requester-field" data-z="8c252f34">
+            	      <strong data-th-text="#{label_procurementrequest_requester}">requester</strong>
+                    <span data-th-text="*{{requester}}">requesterValue</span>
+         	        </li>
+                  <li id="procurementrequest-submitdate-field" data-z="9d25900a">
+            	      <strong data-th-text="#{label_procurementrequest_submitdate}">submitDate</strong>
+                    <span data-th-text="*{{submitDate}}">submitDateValue</span>
+         	        </li>
+                  <li id="procurementrequest-description-field" data-z="5345df4">
+            	      <strong data-th-text="#{label_procurementrequest_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="procurementrequest-requestdate-field" data-z="dcc475f4">
+            	      <strong data-th-text="#{label_procurementrequest_requestdate}">requestDate</strong>
+                    <span data-th-text="*{{requestDate}}">requestDateValue</span>
+         	        </li>
+                  <li id="procurementrequest-requestnumber-field" data-z="1362ed54">
+            	      <strong data-th-text="#{label_procurementrequest_requestnumber}">requestNumber</strong>
+                    <span data-th-text="*{{requestNumber}}">requestNumberValue</span>
+         	        </li>
+                  <li id="procurementrequest-organization-field" data-z="afd2438a">
+            	      <strong data-th-text="#{label_procurementrequest_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="procurementrequest-memo-field" data-z="842919aa">
+            	      <strong data-th-text="#{label_procurementrequest_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="procurementrequest-closed-field" data-z="7ef964aa">
+            	      <strong data-th-text="#{label_procurementrequest_closed}">closed</strong>
+                    <span data-th-text="*{{closed}}">closedValue</span>
+         	        </li>
+                  <li id="procurementrequest-recordstatus-field" data-z="8b041daa">
+            	      <strong data-th-text="#{label_procurementrequest_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="procurementrequest-createddate-field" data-z="13acded4">
+            	      <strong data-th-text="#{label_procurementrequest_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="procurementrequest-createdby-field" data-z="79c276f4">
+            	      <strong data-th-text="#{label_procurementrequest_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="procurementrequest-lastmodifieddate-field" data-z="bc365b0a">
+            	      <strong data-th-text="#{label_procurementrequest_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="procurementrequest-lastmodifiedby-field" data-z="87c988aa">
+            	      <strong data-th-text="#{label_procurementrequest_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="ProcurementRequest_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('ProcurementRequestsItemThymeleafController').to('editForm').with('procurementRequest', procurementRequest.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="ProcurementRequest_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('ProcurementRequestsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

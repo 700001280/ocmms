@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_notificationuserstatuswithnumber})}|">Show NotificationUserStatusWithNumber - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${notificationUserStatusWithNumber}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="notificationuserstatuswithnumber-code-field" data-z="a090e462">
+            	      <strong data-th-text="#{label_notificationuserstatuswithnumber_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="notificationuserstatuswithnumber-description-field" data-z="7686dddc">
+            	      <strong data-th-text="#{label_notificationuserstatuswithnumber_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="notificationuserstatuswithnumber-recordstatus-field" data-z="44019ac2">
+            	      <strong data-th-text="#{label_notificationuserstatuswithnumber_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="notificationuserstatuswithnumber-createddate-field" data-z="84ff5ebc">
+            	      <strong data-th-text="#{label_notificationuserstatuswithnumber_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="notificationuserstatuswithnumber-createdby-field" data-z="f603d0dc">
+            	      <strong data-th-text="#{label_notificationuserstatuswithnumber_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="notificationuserstatuswithnumber-lastmodifieddate-field" data-z="917f8c22">
+            	      <strong data-th-text="#{label_notificationuserstatuswithnumber_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="notificationuserstatuswithnumber-lastmodifiedby-field" data-z="f75c1fc2">
+            	      <strong data-th-text="#{label_notificationuserstatuswithnumber_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

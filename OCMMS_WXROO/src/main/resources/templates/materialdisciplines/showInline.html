@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_materialdiscipline})}|">Show MaterialDiscipline - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${materialDiscipline}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="materialdiscipline-description-field" data-z="3d15eafc">
+            	      <strong data-th-text="#{label_materialdiscipline_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="materialdiscipline-discipline-field" data-z="438d08a2">
+            	      <strong data-th-text="#{label_materialdiscipline_discipline}">discipline</strong>
+                    <span data-th-text="*{{discipline}}">disciplineValue</span>
+         	        </li>
+                  <li id="materialdiscipline-recordstatus-field" data-z="4f5431a2">
+            	      <strong data-th-text="#{label_materialdiscipline_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="materialdiscipline-createddate-field" data-z="4b8e6bdc">
+            	      <strong data-th-text="#{label_materialdiscipline_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="materialdiscipline-createdby-field" data-z="c933a5fc">
+            	      <strong data-th-text="#{label_materialdiscipline_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="materialdiscipline-lastmodifieddate-field" data-z="f1ebb302">
+            	      <strong data-th-text="#{label_materialdiscipline_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="materialdiscipline-lastmodifiedby-field" data-z="78647ea2">
+            	      <strong data-th-text="#{label_materialdiscipline_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

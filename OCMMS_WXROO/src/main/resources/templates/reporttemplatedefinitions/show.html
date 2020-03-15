@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_reporttemplatedefinition})}|">Show ReportTemplateDefinition - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${reportTemplateDefinition}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_reporttemplatedefinition})}">Show ReportTemplateDefinition</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_reporttemplatedefinition})}">ReportTemplateDefinition data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="reporttemplatedefinition-template-field" data-z="16a2610c">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_template}">template</strong>
+                    <span data-th-text="*{{template}}">templateValue</span>
+         	        </li>
+                  <li id="reporttemplatedefinition-classname-field" data-z="bf7955d2">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_classname}">className</strong>
+                    <span data-th-text="*{{className}}">classNameValue</span>
+         	        </li>
+                  <li id="reporttemplatedefinition-description-field" data-z="bf352dd2">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="reporttemplatedefinition-title-field" data-z="c5f54492">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_title}">title</strong>
+                    <span data-th-text="*{{title}}">titleValue</span>
+         	        </li>
+                  <li id="reporttemplatedefinition-owner-field" data-z="30753d12">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_owner}">Owner</strong>
+                    <span data-th-text="*{{Owner}}">OwnerValue</span>
+         	        </li>
+                  <li id="reporttemplatedefinition-systemdefault-field" data-z="d7520e32">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_systemdefault}">systemDefault</strong>
+                    <span data-th-text="*{{systemDefault}}">systemDefaultValue</span>
+         	        </li>
+                  <li id="reporttemplatedefinition-recordstatus-field" data-z="111d498c">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="reporttemplatedefinition-createddate-field" data-z="cdadaeb2">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="reporttemplatedefinition-createdby-field" data-z="3ad1a652">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="reporttemplatedefinition-lastmodifieddate-field" data-z="f832c5ec">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="reporttemplatedefinition-lastmodifiedby-field" data-z="ec47440c">
+            	      <strong data-th-text="#{label_reporttemplatedefinition_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="ReportTemplateDefinition_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('ReportTemplateDefinitionsItemThymeleafController').to('editForm').with('reportTemplateDefinition', reportTemplateDefinition.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="ReportTemplateDefinition_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('ReportTemplateDefinitionsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

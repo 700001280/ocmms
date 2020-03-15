@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="criticalclassification-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('CriticalClassificationsCollectionThymeleafController')},itemLink=${@linkBuilder.of('CriticalClassificationsItemThymeleafController')}">
+    <table id="criticalclassification-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="category" data-th-text="#{label_criticalclassification_category}">category</th>
+          <th data-data="description" data-th-text="#{label_criticalclassification_description}">description</th>
+          <th data-data="subCategory" data-th-text="#{label_criticalclassification_subcategory}">subCategory</th>
+          <th data-data="subDescription" data-th-text="#{label_criticalclassification_subdescription}">subDescription</th>
+          <th data-data="riskMatrix" data-th-text="#{label_criticalclassification_riskmatrix}">riskMatrix</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>category</td>
+          <td>description</td>
+          <td>subCategory</td>
+          <td>subDescription</td>
+          <td>riskMatrix</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

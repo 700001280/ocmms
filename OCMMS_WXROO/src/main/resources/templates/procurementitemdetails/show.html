@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_procurementitemdetail})}|">Show ProcurementItemDetail - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${procurementItemDetail}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_procurementitemdetail})}">Show ProcurementItemDetail</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_procurementitemdetail})}">ProcurementItemDetail data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="procurementitemdetail-requester-field" data-z="74babe15">
+            	      <strong data-th-text="#{label_procurementitemdetail_requester}">requester</strong>
+                    <span data-th-text="*{{requester}}">requesterValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-submitdate-field" data-z="c741dd49">
+            	      <strong data-th-text="#{label_procurementitemdetail_submitdate}">submitDate</strong>
+                    <span data-th-text="*{{submitDate}}">submitDateValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-quantity-field" data-z="678dc709">
+            	      <strong data-th-text="#{label_procurementitemdetail_quantity}">quantity</strong>
+                    <span data-th-text="*{{quantity}}">quantityValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-uom-field" data-z="77007b5">
+            	      <strong data-th-text="#{label_procurementitemdetail_uom}">uom</strong>
+                    <span data-th-text="*{{uom}}">uomValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-organization-field" data-z="c4103d09">
+            	      <strong data-th-text="#{label_procurementitemdetail_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-unitprice-field" data-z="18cc20d5">
+            	      <strong data-th-text="#{label_procurementitemdetail_unitprice}">unitPrice</strong>
+                    <span data-th-text="*{{unitPrice}}">unitPriceValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-currencyunit-field" data-z="ac7734e9">
+            	      <strong data-th-text="#{label_procurementitemdetail_currencyunit}">currencyUnit</strong>
+                    <span data-th-text="*{{currencyUnit}}">currencyUnitValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-memo-field" data-z="d7dc0229">
+            	      <strong data-th-text="#{label_procurementitemdetail_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-closed-field" data-z="b1942969">
+            	      <strong data-th-text="#{label_procurementitemdetail_closed}">closed</strong>
+                    <span data-th-text="*{{closed}}">closedValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-recordstatus-field" data-z="9f421729">
+            	      <strong data-th-text="#{label_procurementitemdetail_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-createddate-field" data-z="2d1a3975">
+            	      <strong data-th-text="#{label_procurementitemdetail_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-createdby-field" data-z="625805d5">
+            	      <strong data-th-text="#{label_procurementitemdetail_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-lastmodifieddate-field" data-z="25cd7d09">
+            	      <strong data-th-text="#{label_procurementitemdetail_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="procurementitemdetail-lastmodifiedby-field" data-z="846f1e69">
+            	      <strong data-th-text="#{label_procurementitemdetail_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="ProcurementItemDetail_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('ProcurementItemDetailsItemThymeleafController').to('editForm').with('procurementItemDetail', procurementItemDetail.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="ProcurementItemDetail_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('ProcurementItemDetailsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

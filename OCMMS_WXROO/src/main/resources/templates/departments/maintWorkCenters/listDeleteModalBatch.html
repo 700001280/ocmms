@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="maintworkcenters-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('DepartmentsItemMaintWorkCentersThymeleafController')}">
+    <table id="maintworkcenters-detail-table-items-to-remove-batch" data-parent-table="department-entity-table" data-data-parent-id="${department != null ? department.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('department', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="department" data-th-text="#{label_department_maintworkcenters_department}">department</th>
+              <th data-data="code" data-th-text="#{label_department_maintworkcenters_code}">code</th>
+              <th data-data="category" data-th-text="#{label_department_maintworkcenters_category}">category</th>
+              <th data-data="name" data-th-text="#{label_department_maintworkcenters_name}">name</th>
+              <th data-data="responsible" data-th-text="#{label_department_maintworkcenters_responsible}">responsible</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>department</td>
+              <td>code</td>
+              <td>category</td>
+              <td>name</td>
+              <td>responsible</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

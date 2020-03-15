@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="tasktrackings-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('TaskTrackingTypesItemTaskTrackingsThymeleafController')}">
+    <table id="tasktrackings-detail-table-items-to-remove-batch" data-parent-table="tasktrackingtype-entity-table" data-data-parent-id="${taskTrackingType != null ? taskTrackingType.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('taskTrackingType', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="submitDate" data-th-text="#{label_tasktrackingtype_tasktrackings_submitdate}">submitDate</th>
+              <th data-data="submitter" data-th-text="#{label_tasktrackingtype_tasktrackings_submitter}">submitter</th>
+              <th data-data="technicalObject" data-th-text="#{label_tasktrackingtype_tasktrackings_technicalobject}">technicalObject</th>
+              <th data-data="description" data-th-text="#{label_tasktrackingtype_tasktrackings_description}">description</th>
+              <th data-data="taskTrackingPriority" data-th-text="#{label_tasktrackingtype_tasktrackings_tasktrackingpriority}">taskTrackingPriority</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>submitDate</td>
+              <td>submitter</td>
+              <td>technicalObject</td>
+              <td>description</td>
+              <td>taskTrackingPriority</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

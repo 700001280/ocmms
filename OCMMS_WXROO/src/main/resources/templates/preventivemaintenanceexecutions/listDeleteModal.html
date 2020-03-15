@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="preventivemaintenanceexecution-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceExecutionsCollectionThymeleafController')},itemLink=${@linkBuilder.of('PreventiveMaintenanceExecutionsItemThymeleafController')}">
+    <table id="preventivemaintenanceexecution-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="preventiveMaintenanceContent" data-th-text="#{label_preventivemaintenanceexecution_preventivemaintenancecontent}">preventiveMaintenanceContent</th>
+          <th data-data="technicalObject" data-th-text="#{label_preventivemaintenanceexecution_technicalobject}">technicalObject</th>
+          <th data-data="description" data-th-text="#{label_preventivemaintenanceexecution_description}">description</th>
+          <th data-data="startDate" data-th-text="#{label_preventivemaintenanceexecution_startdate}">startDate</th>
+          <th data-data="completeDate" data-th-text="#{label_preventivemaintenanceexecution_completedate}">completeDate</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>preventiveMaintenanceContent</td>
+          <td>technicalObject</td>
+          <td>description</td>
+          <td>startDate</td>
+          <td>completeDate</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

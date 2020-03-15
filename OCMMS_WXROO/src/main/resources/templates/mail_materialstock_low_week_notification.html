@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<title th:remove="all">Template for HTML email with inline image</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous"></link>
+<title th:remove="all">Template for HTML email with inline image</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<p th:text="#{label_mail_greeting(${name})}">Hello, Peter Static!</p>
+
+	<p>Please note that below material are less than the safety stock:
+	</p>
+	<p>Detail:</p>
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead class="thead-light">
+				<tr>
+					<th>Material</th>
+					<th>Warehouse</th>
+					<th>Location</th>
+					<th>Stock</th>
+					<th>Safety Stock</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="materialPlantInfo: ${materialPlantInfoes}">
+					<td th:text="|${materialPlantInfo.materialCatalog.code}-${materialPlantInfo.materialCatalog.shortDescription}|">Onions</td>
+					<td th:text="${materialPlantInfo.storageLocation.description}">Onions</td>
+					<td th:text="${materialPlantInfo.location}">Onions</td>
+					<td th:text="${materialPlantInfo.stock}">Onions</td>
+					<td th:text="${materialPlantInfo.safetyStock}">Onions</td>					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<p>You can find detail information in OCMMS.</p>
+	<p>
+		<!-- <img src="sample.png" th:src="|cid:${imageResourceName}|" /> -->
+	</p>
+	<p>
+		Regards, <br /> <em>OCMMS ADMIM</em>
+	</p>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_tasktrackingpriority})}|">Show TaskTrackingPriority - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${taskTrackingPriority}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_tasktrackingpriority})}">Show TaskTrackingPriority</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_tasktrackingpriority})}">TaskTrackingPriority data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="tasktrackingpriority-priority-field" data-z="f36a1eb">
+            	      <strong data-th-text="#{label_tasktrackingpriority_priority}">priority</strong>
+                    <span data-th-text="*{{priority}}">priorityValue</span>
+         	        </li>
+                  <li id="tasktrackingpriority-description-field" data-z="cbbd4753">
+            	      <strong data-th-text="#{label_tasktrackingpriority_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="tasktrackingpriority-recordstatus-field" data-z="9598602b">
+            	      <strong data-th-text="#{label_tasktrackingpriority_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="tasktrackingpriority-createddate-field" data-z="da35c833">
+            	      <strong data-th-text="#{label_tasktrackingpriority_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="tasktrackingpriority-createdby-field" data-z="c1e42c13">
+            	      <strong data-th-text="#{label_tasktrackingpriority_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="tasktrackingpriority-lastmodifieddate-field" data-z="5f3750b">
+            	      <strong data-th-text="#{label_tasktrackingpriority_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="tasktrackingpriority-lastmodifiedby-field" data-z="3e572eeb">
+            	      <strong data-th-text="#{label_tasktrackingpriority_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="TaskTrackingPriority_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('TaskTrackingPrioritiesItemThymeleafController').to('editForm').with('taskTrackingPriority', taskTrackingPriority.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="TaskTrackingPriority_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('TaskTrackingPrioritiesCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

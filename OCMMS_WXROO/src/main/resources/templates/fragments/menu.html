@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Page menu</title>
+  </head>
+  <body id="body">
+    <!--
+    Only the internal content of the following div is included within
+    the template, in menu fragment
+    -->
+    <nav class="navbar navbar-default navbar-static-top" data-th-fragment="menu">
+
+         <div class="container">
+
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainnav" aria-expanded="false">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <!-- Brand logo -->
+              <div class="organization-logo navbar-brand">
+                <a title="OCMMS" href="/" data-th-href="@{/}">
+                  <img alt="ocmms" data-th-src="@{/public/img/logo.png}" src="../../static/public/img/logo.png" />
+                </a>
+              </div>
+              <!-- Name application -->
+              <div class="application-name navbar-brand hidden-xs">
+                <a data-th-title="#{label_goHome}" href="/" data-th-href="@{/}">OCMMS</a>
+              </div>
+
+            </div><!-- /navbar-header -->
+
+            <div id="mainnav" class="navbar-collapse collapse">
+
+              <ul class="nav navbar-nav" id="entitiesMenuEntries">
+                <li class="dropdown" id="equipment-entry" data-z="df03d016">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_baseinfo}">Base Info</a>
+                 <ul class="dropdown-menu">
+	                  <li><a href="/functionallocations" data-th-href="@{/functionallocations}" data-th-utext="#{label_functionallocation_plural}">List FunctionLocation</a></li>
+	                  <li><a href="/equipments" data-th-href="@{/equipments}" data-th-utext="#{label_equipment_plural}">List Equipment</a></li>
+	                  <li><a href="/equipmentparameters" data-th-href="@{/equipmentparameters}" data-th-utext="#{label_equipmentparameter_plural}">List EquipmentParameter</a></li>
+                      <li><a href="/billofmaterials" data-th-href="@{/billofmaterials}" data-th-utext="#{label_billofmaterial_plural}">List EquipmentBom</a></li>
+                      <li><a href="/equipmentlubrications" data-th-href="@{/equipmentlubrications}" data-th-utext="#{label_equipmentlubrication_plural}">List EquipmentLubrication</a></li>
+                      
+                      
+                 </ul>
+                </li>   
+                
+                <li class="dropdown" id="partmaintenancerecord-entry" data-z="7b270d96">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_maintenance}">Maintenance</a>
+                 <ul class="dropdown-menu">	                  
+	                  <li><a href="/equipmentmaintenancerecords" data-th-href="@{/equipmentmaintenancerecords}" data-th-utext="#{label_equipmentmaintenancerecord_plural}">List EquipmentMaintenanceRecord</a></li>                      
+                      <li><a href="/equipmentreplacerecords" data-th-href="@{/equipmentreplacerecords}" data-th-utext="#{label_equipmentreplacerecord_plural}">List EquipmentReplaceRecord</a></li>
+                      <li><a href="/pelletizerreplacerecords" data-th-href="@{/pelletizerreplacerecords}" data-th-utext="#{label_pelletizerreplacerecord_plural}">List PelletizerReplaceRecord</a></li>
+                      <li><a href="/extrudershaftreplacerecords" data-th-href="@{/extrudershaftreplacerecords}" data-th-utext="#{label_extrudershaftreplacerecord_plural}">List ExtruderShaftReplaceRecord</a></li>                      
+                      <li><a href="/equipmentscrappingrecords" data-th-href="@{/equipmentscrappingrecords}" data-th-utext="#{label_equipmentscrappingrecord_plural}">List EquipmentScrappingRecord</a></li>
+	                  
+	                  <li><a href="/partmaintenancerecords" data-th-href="@{/partmaintenancerecords}" data-th-utext="#{label_partmaintenancerecord_plural}">List PartMaintenanceRecord</a></li>
+	                  <li><a href="/pelletizeruprollermaintenancerecords" data-th-href="@{/pelletizeruprollermaintenancerecords}" data-th-utext="#{label_pelletizeruprollermaintenancerecord_plural}">List PelletizerUpRollerMaintenanceRecord</a></li>
+	                  <li><a href="/pelletizercuttermaintenancerecords" data-th-href="@{/pelletizercuttermaintenancerecords}" data-th-utext="#{label_pelletizercuttermaintenancerecord_plural}">List PelletizerCutterMaintenanceRecord</a></li>
+	                  <li><a href="/partreplacerecords" data-th-href="@{/partreplacerecords}" data-th-utext="#{label_partreplacerecord_plural}">List PartReplaceRecord</a></li>
+	                  <li><a href="/pelletizeruprollerreplacerecords" data-th-href="@{/pelletizeruprollerreplacerecords}" data-th-utext="#{label_pelletizeruprollerreplacerecord_plural}">List PelletizerUpRollerReplaceRecord</a></li>
+	                  <li><a href="/pelletizercutterreplacerecords" data-th-href="@{/pelletizercutterreplacerecords}" data-th-utext="#{label_pelletizercutterreplacerecord_plural}">List PelletizerCutterReplaceRecord</a></li>
+	                  <li><a href="/partscrappingrecords" data-th-href="@{/partscrappingrecords}" data-th-utext="#{label_partscrappingrecord_plural}">List PartScrappingRecord</a></li>
+	                  
+                 </ul>
+                </li>                 
+       
+                <li class="dropdown" id="materialcatalog-entry" data-z="2c38eeb6">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_mro}">MRO</a>
+                 <ul class="dropdown-menu">
+                 <li><a href="/servicecatalogs" data-th-href="@{/servicecatalogs}" data-th-utext="#{label_servicecatalog_plural}">List ServiceCatalog</a></li>	                  
+	                  <li><a href="/materialcatalogs" data-th-href="@{/materialcatalogs}" data-th-utext="#{label_materialcatalog_plural}">List MaterialCatalog</a></li>
+	                  <li><a href="/screwelements" data-th-href="@{/screwelements}" data-th-utext="#{label_screwelement_plural}">List ScrewElement</a></li>
+	                  <li><a href="/materialplantinfoes" data-th-href="@{/materialplantinfoes}" data-th-utext="#{label_materialplantinfo_plural}">List MaterialPlantInfo</a></li>
+	                  <li><a href="/materialattributes" data-th-href="@{/materialattributes}" data-th-utext="#{label_materialattribute_plural}">List MaterialAttribute</a></li>
+	                  <li><a href="/materialvendorinfoes" data-th-href="@{/materialvendorinfoes}" data-th-utext="#{label_materialvendorinfo_plural}">List MaterialVendorInfo</a></li>
+	                  <li><a href="/servicereceivedetails" data-th-href="@{/servicereceivedetails}" data-th-utext="#{label_servicereceivedetail_plural}">List ServiceReceiveDetail</a></li>
+	                  <li><a href="/materialinstockdetails" data-th-href="@{/materialinstockdetails}" data-th-utext="#{label_materialinstockdetail_plural}">List MaterialInstockDetail</a></li>
+	                  <li><a href="/materialoutstockdetails" data-th-href="@{/materialoutstockdetails}" data-th-utext="#{label_materialoutstockdetail_plural}">List MaterialOutstockDetail</a></li>
+                 </ul>
+                </li>
+                
+                         
+                
+                <li class="dropdown" id="personalamkpi-entry" data-z="7b3456">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_performance}">Performance</a>
+                 <ul class="dropdown-menu">	
+                 	  <li><a href="/worklogs" data-th-href="@{/worklogs}" data-th-utext="#{label_worklog_plural}">List Memo</a></li>
+	                  <li><a href="/tasktrackings" data-th-href="@{/tasktrackings}" data-th-utext="#{label_tasktracking_plural}">List Task</a></li>                   
+                      <li><a href="/lotoinfoes" data-th-href="@{/lotoinfoes}" data-th-utext="#{label_lotoinfo_plural}">List PersonalSafetyKpi</a></li>
+	                  <li><a href="/lotodetails" data-th-href="@{/lotodetails}" data-th-utext="#{label_lotodetail_plural}">List PersonalAmKpi</a></li>
+	                  <li><a href="/lotoissuereports" data-th-href="@{/lotoissuereports}" data-th-utext="#{label_lotoissuereport_plural}">List PersonalSixsKpi</a></li>
+	                  
+                 </ul>
+                </li>
+
+                <li class="dropdown" id="purchasedetail-entry" data-z="e43c7448">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_Procurement}">Procurement</a>
+                 <ul class="dropdown-menu">
+	                  <li><a href="/procurementrequests" data-th-href="@{/procurementrequests}" data-th-utext="#{label_procurementrequest_plural}">List MaterialPurchaseDetail</a></li>
+	                  <li><a href="/procurementorders" data-th-href="@{/procurementorders}" data-th-utext="#{label_procurementorder_plural}">List ServicePurchaseDetail</a></li>
+	                  <li><a href="/materialprocurementitemdetails" data-th-href="@{/materialprocurementitemdetails}" data-th-utext="#{label_materialprocurementitemdetail_plural}">List MaterialPurchaseDetail</a></li>
+	                  <li><a href="/serviceprocurementitemdetails" data-th-href="@{/serviceprocurementitemdetails}" data-th-utext="#{label_serviceprocurementitemdetail_plural}">List MaterialPurchaseDetail</a></li>
+	                  	                  
+	                  <li><a href="/vendors" data-th-href="@{/vendors}" data-th-utext="#{label_vendor_plural}">List Supplier</a></li>
+                 </ul>
+                </li>   
+                
+                
+                <li class="dropdown" id="purchasedetail-entry" data-z="e43c7448">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_system}">=System</a>
+                 <ul class="dropdown-menu">
+	                  <li><a href="/bugreports/create-form" data-th-href="@{/bugreports/create-form}" data-th-utext="#{label_create_entity(#{label_bugreport})}">Create SystemBugReport</a></li>
+                 </ul>
+                </li>             
+
+              </ul>
+
+              <!-- Language select -->
+              <ul class="nav navbar-nav navbar-right upper-nav languages" data-th-replace="~{fragments/languages :: languages}">
+                <!-- Content replaced by the session template fragment language.html
+                -->
+                <span>Language data</span>
+              </ul>
+
+              <!-- User menu -->
+              <ul class="nav navbar-nav navbar-right upper-nav session" data-th-replace="~{fragments/session-links :: session}">
+                <!-- Content replaced by the session template fragment session-links.html
+                -->
+                <span>User session data</span>
+              </ul>
+
+
+              <!-- User menu links -->
+              <ul class="nav navbar-nav navbar-right upper-nav links" data-th-replace="~{fragments/session-links :: links}">
+                <!-- Content replaced by the links template fragment session-links.html
+                -->
+                <span>User session data</span>
+              </ul>
+           </div>
+
+          </div>
+    </nav>
+
+    <!--
+    Only the internal content of the following div is included within
+    the template, in menu-languages fragment
+    -->
+    <nav class="navbar navbar-default navbar-static-top" data-th-fragment="menu-languages">
+
+         <div class="container">
+
+            <div class="navbar-header">
+
+              <!-- Brand logo -->
+              <div class="organization-logo navbar-brand">
+                <a title="ocmms" href="/" data-th-href="@{/}">
+                  <img alt="ocmms" data-th-src="@{/public/img/logo.png}" src="../../static/public/img/logo.png" />
+                </a>
+              </div>
+              <!-- Name application -->
+              <div class="application-name navbar-brand hidden-xs">
+                <a data-th-title="#{label_goHome}" href="/" data-th-href="@{/}">ocmms</a>
+              </div>
+
+            </div><!-- /navbar-header -->
+
+            <div id="mainnav" class="navbar-collapse collapse">
+
+              <!-- Language select -->
+              <ul class="nav navbar-nav navbar-right upper-nav languages" data-th-replace="~{fragments/languages :: languages}">
+                <!-- Content replaced by the session template fragment language.html
+                -->
+                <span>Language data</span>
+              </ul>
+
+           </div>
+
+          </div>
+    </nav>
+
+  </body>
+</html>

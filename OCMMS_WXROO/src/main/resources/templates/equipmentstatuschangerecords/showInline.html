@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_equipmentstatuschangerecord})}|">Show EquipmentStatusChangeRecord - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${equipmentStatusChangeRecord}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="equipmentstatuschangerecord-changedate-field" data-z="724f7e36">
+            	      <strong data-th-text="#{label_equipmentstatuschangerecord_changedate}">changeDate</strong>
+                    <span data-th-text="*{{changeDate}}">changeDateValue</span>
+         	        </li>
+                  <li id="equipmentstatuschangerecord-description-field" data-z="54d00248">
+            	      <strong data-th-text="#{label_equipmentstatuschangerecord_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="equipmentstatuschangerecord-equipmentstatus-field" data-z="2dadb968">
+            	      <strong data-th-text="#{label_equipmentstatuschangerecord_equipmentstatus}">equipmentStatus</strong>
+                    <span data-th-text="*{{equipmentStatus}}">equipmentStatusValue</span>
+         	        </li>
+                  <li id="equipmentstatuschangerecord-equipment-field" data-z="f5145e48">
+            	      <strong data-th-text="#{label_equipmentstatuschangerecord_equipment}">equipment</strong>
+                    <span data-th-text="*{{equipment}}">equipmentValue</span>
+         	        </li>
+                  <li id="equipmentstatuschangerecord-recordstatus-field" data-z="2edd03d6">
+            	      <strong data-th-text="#{label_equipmentstatuschangerecord_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="equipmentstatuschangerecord-createddate-field" data-z="63488328">
+            	      <strong data-th-text="#{label_equipmentstatuschangerecord_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="equipmentstatuschangerecord-createdby-field" data-z="8ee32048">
+            	      <strong data-th-text="#{label_equipmentstatuschangerecord_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="equipmentstatuschangerecord-lastmodifieddate-field" data-z="5f984b36">
+            	      <strong data-th-text="#{label_equipmentstatuschangerecord_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="equipmentstatuschangerecord-lastmodifiedby-field" data-z="990193d6">
+            	      <strong data-th-text="#{label_equipmentstatuschangerecord_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

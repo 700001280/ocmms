@@ -1,0 +1,20 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="cities-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('ProvincesItemCitiesThymeleafController')}">
+    <table id="cities-detail-table-item-to-remove" data-parent-table="province-entity-table" data-data-parent-id="${province != null ? province.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('province', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="description" data-th-text="#{label_province_cities_description}">description</th>
+              <th data-data="province" data-th-text="#{label_province_cities_province}">province</th>
+              <th data-data="recordStatus" data-th-text="#{label_province_cities_recordstatus}">recordStatus</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>description</td>
+              <td>province</td>
+              <td>recordStatus</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

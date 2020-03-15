@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="timesheets-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('WorkOrderOperationsItemTimeSheetsThymeleafController')}">
+    <table id="timesheets-detail-table-item-to-remove" data-parent-table="workorderoperation-entity-table" data-data-parent-id="${workOrderOperation != null ? workOrderOperation.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('workOrderOperation', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="workOrderOperation" data-th-text="#{label_workorderoperation_timesheets_workorderoperation}">workOrderOperation</th>
+              <th data-data="worker" data-th-text="#{label_workorderoperation_timesheets_worker}">worker</th>
+              <th data-data="workHours" data-th-text="#{label_workorderoperation_timesheets_workhours}">workHours</th>
+              <th data-data="workDate" data-th-text="#{label_workorderoperation_timesheets_workdate}">workDate</th>
+              <th data-data="approver" data-th-text="#{label_workorderoperation_timesheets_approver}">approver</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>workOrderOperation</td>
+              <td>worker</td>
+              <td>workHours</td>
+              <td>workDate</td>
+              <td>approver</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

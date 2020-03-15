@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="plantlocation-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('PlantLocationsCollectionThymeleafController')},itemLink=${@linkBuilder.of('PlantLocationsItemThymeleafController')}">
+    <table id="plantlocation-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="location" data-th-text="#{label_plantlocation_location}">location</th>
+          <th data-data="description" data-th-text="#{label_plantlocation_description}">description</th>
+          <th data-data="plant" data-th-text="#{label_plantlocation_plant}">plant</th>
+          <th data-data="recordStatus" data-th-text="#{label_plantlocation_recordstatus}">recordStatus</th>
+          <th data-data="createdDate" data-th-text="#{label_plantlocation_createddate}">createdDate</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>location</td>
+          <td>description</td>
+          <td>plant</td>
+          <td>recordStatus</td>
+          <td>createdDate</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_lotodetail})}|">Show LotoDetail - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${lotoDetail}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="lotodetail-source-field" data-z="798958fa">
+            	      <strong data-th-text="#{label_lotodetail_source}">source</strong>
+                    <span data-th-text="*{{source}}">sourceValue</span>
+         	        </li>
+                  <li id="lotodetail-potentialhazard-field" data-z="e3730e4">
+            	      <strong data-th-text="#{label_lotodetail_potentialhazard}">potentialHazard</strong>
+                    <span data-th-text="*{{potentialHazard}}">potentialHazardValue</span>
+         	        </li>
+                  <li id="lotodetail-sourcetag-field" data-z="26670a84">
+            	      <strong data-th-text="#{label_lotodetail_sourcetag}">sourceTag</strong>
+                    <span data-th-text="*{{sourceTag}}">sourceTagValue</span>
+         	        </li>
+                  <li id="lotodetail-device-field" data-z="290b7d9a">
+            	      <strong data-th-text="#{label_lotodetail_device}">device</strong>
+                    <span data-th-text="*{{device}}">deviceValue</span>
+         	        </li>
+                  <li id="lotodetail-lotodevicetype-field" data-z="a328b3da">
+            	      <strong data-th-text="#{label_lotodetail_lotodevicetype}">lotoDeviceType</strong>
+                    <span data-th-text="*{{lotoDeviceType}}">lotoDeviceTypeValue</span>
+         	        </li>
+                  <li id="lotodetail-location-field" data-z="f711bafa">
+            	      <strong data-th-text="#{label_lotodetail_location}">location</strong>
+                    <span data-th-text="*{{location}}">locationValue</span>
+         	        </li>
+                  <li id="lotodetail-method-field" data-z="a87f583a">
+            	      <strong data-th-text="#{label_lotodetail_method}">method</strong>
+                    <span data-th-text="*{{method}}">methodValue</span>
+         	        </li>
+                  <li id="lotodetail-isolationmethod-field" data-z="f3d6bd04">
+            	      <strong data-th-text="#{label_lotodetail_isolationmethod}">isolationMethod</strong>
+                    <span data-th-text="*{{isolationMethod}}">isolationMethodValue</span>
+         	        </li>
+                  <li id="lotodetail-verification-field" data-z="210770ba">
+            	      <strong data-th-text="#{label_lotodetail_verification}">verification</strong>
+                    <span data-th-text="*{{verification}}">verificationValue</span>
+         	        </li>
+                  <li id="lotodetail-returnserviceorder-field" data-z="eab3faba">
+            	      <strong data-th-text="#{label_lotodetail_returnserviceorder}">returnServiceOrder</strong>
+                    <span data-th-text="*{{returnServiceOrder}}">returnServiceOrderValue</span>
+         	        </li>
+                  <li id="lotodetail-lotodetailtype-field" data-z="dbca107a">
+            	      <strong data-th-text="#{label_lotodetail_lotodetailtype}">lotoDetailType</strong>
+                    <span data-th-text="*{{lotoDetailType}}">lotoDetailTypeValue</span>
+         	        </li>
+                  <li id="lotodetail-note-field" data-z="bd47cda">
+            	      <strong data-th-text="#{label_lotodetail_note}">note</strong>
+                    <span data-th-text="*{{note}}">noteValue</span>
+         	        </li>
+                  <li id="lotodetail-lotoinfo-field" data-z="1313dc3a">
+            	      <strong data-th-text="#{label_lotodetail_lotoinfo}">lotoInfo</strong>
+                    <span data-th-text="*{{lotoInfo}}">lotoInfoValue</span>
+         	        </li>
+                  <li id="lotodetail-recordstatus-field" data-z="20b2c7da">
+            	      <strong data-th-text="#{label_lotodetail_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="lotodetail-createddate-field" data-z="b5682ea4">
+            	      <strong data-th-text="#{label_lotodetail_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="lotodetail-createdby-field" data-z="a2af7ac4">
+            	      <strong data-th-text="#{label_lotodetail_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="lotodetail-lastmodifieddate-field" data-z="29246d3a">
+            	      <strong data-th-text="#{label_lotodetail_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="lotodetail-lastmodifiedby-field" data-z="6c7666da">
+            	      <strong data-th-text="#{label_lotodetail_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

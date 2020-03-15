@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_messagelog})}|">Show MessageLog - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${messageLog}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="messagelog-message-field" data-z="61fac1d6">
+            	      <strong data-th-text="#{label_messagelog_message}">message</strong>
+                    <span data-th-text="*{{message}}">messageValue</span>
+         	        </li>
+                  <li id="messagelog-receiverrole-field" data-z="b6e043e8">
+            	      <strong data-th-text="#{label_messagelog_receiverrole}">receiverRole</strong>
+                    <span data-th-text="*{{receiverRole}}">receiverRoleValue</span>
+         	        </li>
+                  <li id="messagelog-recordstatus-field" data-z="41f42028">
+            	      <strong data-th-text="#{label_messagelog_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="messagelog-createddate-field" data-z="19939496">
+            	      <strong data-th-text="#{label_messagelog_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="messagelog-createdby-field" data-z="99ffb536">
+            	      <strong data-th-text="#{label_messagelog_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="messagelog-lastmodifieddate-field" data-z="9e44ee88">
+            	      <strong data-th-text="#{label_messagelog_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="messagelog-lastmodifiedby-field" data-z="42c2e3a8">
+            	      <strong data-th-text="#{label_messagelog_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

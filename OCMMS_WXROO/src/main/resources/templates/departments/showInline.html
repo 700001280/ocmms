@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_department})}|">Show Department - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${department}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="department-code-field" data-z="4d6ef57d">
+            	      <strong data-th-text="#{label_department_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="department-orgname-field" data-z="f965c321">
+            	      <strong data-th-text="#{label_department_orgname}">orgName</strong>
+                    <span data-th-text="*{{orgName}}">orgNameValue</span>
+         	        </li>
+                  <li id="department-description-field" data-z="1ca36861">
+            	      <strong data-th-text="#{label_department_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="department-postalcode-field" data-z="e32d9dbd">
+            	      <strong data-th-text="#{label_department_postalcode}">postalCode</strong>
+                    <span data-th-text="*{{postalCode}}">postalCodeValue</span>
+         	        </li>
+                  <li id="department-phone-field" data-z="1a934ba1">
+            	      <strong data-th-text="#{label_department_phone}">phone</strong>
+                    <span data-th-text="*{{phone}}">phoneValue</span>
+         	        </li>
+                  <li id="department-fax-field" data-z="3c73aa41">
+            	      <strong data-th-text="#{label_department_fax}">fax</strong>
+                    <span data-th-text="*{{fax}}">faxValue</span>
+         	        </li>
+                  <li id="department-web-field" data-z="3d6c7f61">
+            	      <strong data-th-text="#{label_department_web}">web</strong>
+                    <span data-th-text="*{{web}}">webValue</span>
+         	        </li>
+                  <li id="department-mail-field" data-z="5e43243d">
+            	      <strong data-th-text="#{label_department_mail}">mail</strong>
+                    <span data-th-text="*{{mail}}">mailValue</span>
+         	        </li>
+                  <li id="department-recordstatus-field" data-z="617660dd">
+            	      <strong data-th-text="#{label_department_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="department-createddate-field" data-z="2b1be941">
+            	      <strong data-th-text="#{label_department_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="department-createdby-field" data-z="d45b38a1">
+            	      <strong data-th-text="#{label_department_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="department-lastmodifieddate-field" data-z="bc9dccbd">
+            	      <strong data-th-text="#{label_department_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="department-lastmodifiedby-field" data-z="8ab7cb1d">
+            	      <strong data-th-text="#{label_department_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="department-organizationcatalog-field" data-z="70191d01">
+            	      <strong data-th-text="#{label_department_organizationcatalog}">organizationCatalog</strong>
+                    <span data-th-text="*{{organizationCatalog}}">organizationCatalogValue</span>
+         	        </li>
+                  <li id="department-address-field" data-z="36825a61">
+            	      <strong data-th-text="#{label_department_address}">address</strong>
+                    <span data-th-text="*{{address}}">addressValue</span>
+         	        </li>
+                  <li id="department-organization-field" data-z="864486bd">
+            	      <strong data-th-text="#{label_department_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

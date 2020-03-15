@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_document})}|">Show Document - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${document}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_document})}">Show Document</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_document})}">Document data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="document-filename-field" data-z="c54cfca6">
+            	      <strong data-th-text="#{label_document_filename}">fileName</strong>
+                    <span data-th-text="*{{fileName}}">fileNameValue</span>
+         	        </li>
+                  <li id="document-description-field" data-z="5955b278">
+            	      <strong data-th-text="#{label_document_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="document-filetype-field" data-z="d13d22c6">
+            	      <strong data-th-text="#{label_document_filetype}">fileType</strong>
+                    <span data-th-text="*{{fileType}}">fileTypeValue</span>
+         	        </li>
+                  <li id="document-uploaddate-field" data-z="ce3511e6">
+            	      <strong data-th-text="#{label_document_uploaddate}">uploadDate</strong>
+                    <span data-th-text="*{{uploadDate}}">uploadDateValue</span>
+         	        </li>
+                  <li id="document-lotoinfo-field" data-z="e1b73406">
+            	      <strong data-th-text="#{label_document_lotoinfo}">lotoInfo</strong>
+                    <span data-th-text="*{{lotoInfo}}">lotoInfoValue</span>
+         	        </li>
+                  <li id="document-lotoissuereport-field" data-z="89fef398">
+            	      <strong data-th-text="#{label_document_lotoissuereport}">lotoIssueReport</strong>
+                    <span data-th-text="*{{lotoIssueReport}}">lotoIssueReportValue</span>
+         	        </li>
+                  <li id="document-assetinventoryrecord-field" data-z="d7868346">
+            	      <strong data-th-text="#{label_document_assetinventoryrecord}">assetInventoryRecord</strong>
+                    <span data-th-text="*{{assetInventoryRecord}}">assetInventoryRecordValue</span>
+         	        </li>
+                  <li id="document-lotodetail-field" data-z="6bbd8de6">
+            	      <strong data-th-text="#{label_document_lotodetail}">lotoDetail</strong>
+                    <span data-th-text="*{{lotoDetail}}">lotoDetailValue</span>
+         	        </li>
+                  <li id="document-uploader-field" data-z="ec901fa6">
+            	      <strong data-th-text="#{label_document_uploader}">uploader</strong>
+                    <span data-th-text="*{{uploader}}">uploaderValue</span>
+         	        </li>
+                  <li id="document-notificationitem-field" data-z="428452c6">
+            	      <strong data-th-text="#{label_document_notificationitem}">notificationItem</strong>
+                    <span data-th-text="*{{notificationItem}}">notificationItemValue</span>
+         	        </li>
+                  <li id="document-systembugreport-field" data-z="9dbd5258">
+            	      <strong data-th-text="#{label_document_systembugreport}">systemBugReport</strong>
+                    <span data-th-text="*{{systemBugReport}}">systemBugReportValue</span>
+         	        </li>
+                  <li id="document-preventivemaintenancefinding-field" data-z="7ffbf526">
+            	      <strong data-th-text="#{label_document_preventivemaintenancefinding}">preventiveMaintenanceFinding</strong>
+                    <span data-th-text="*{{preventiveMaintenanceFinding}}">preventiveMaintenanceFindingValue</span>
+         	        </li>
+                  <li id="document-autonomousmaintenancefinding-field" data-z="29efc726">
+            	      <strong data-th-text="#{label_document_autonomousmaintenancefinding}">autonomousMaintenanceFinding</strong>
+                    <span data-th-text="*{{autonomousMaintenanceFinding}}">autonomousMaintenanceFindingValue</span>
+         	        </li>
+                  <li id="document-failuremaintenancereport-field" data-z="67da2fc6">
+            	      <strong data-th-text="#{label_document_failuremaintenancereport}">failureMaintenanceReport</strong>
+                    <span data-th-text="*{{failureMaintenanceReport}}">failureMaintenanceReportValue</span>
+         	        </li>
+                  <li id="document-workorderheader-field" data-z="22ba9438">
+            	      <strong data-th-text="#{label_document_workorderheader}">workOrderHeader</strong>
+                    <span data-th-text="*{{workOrderHeader}}">workOrderHeaderValue</span>
+         	        </li>
+                  <li id="document-functionallocation-field" data-z="7e7fbdc6">
+            	      <strong data-th-text="#{label_document_functionallocation}">functionalLocation</strong>
+                    <span data-th-text="*{{functionalLocation}}">functionalLocationValue</span>
+         	        </li>
+                  <li id="document-equipment-field" data-z="ea85a78">
+            	      <strong data-th-text="#{label_document_equipment}">equipment</strong>
+                    <span data-th-text="*{{equipment}}">equipmentValue</span>
+         	        </li>
+                  <li id="document-materialcatalog-field" data-z="6b241318">
+            	      <strong data-th-text="#{label_document_materialcatalog}">materialCatalog</strong>
+                    <span data-th-text="*{{materialCatalog}}">materialCatalogValue</span>
+         	        </li>
+                  <li id="document-materialinstockdetail-field" data-z="7f0358">
+            	      <strong data-th-text="#{label_document_materialinstockdetail}">materialInstockDetail</strong>
+                    <span data-th-text="*{{materialInstockDetail}}">materialInstockDetailValue</span>
+         	        </li>
+                  <li id="document-measuringpoint-field" data-z="5ed8566">
+            	      <strong data-th-text="#{label_document_measuringpoint}">measuringPoint</strong>
+                    <span data-th-text="*{{measuringPoint}}">measuringPointValue</span>
+         	        </li>
+                  <li id="document-measuringrecord-field" data-z="c4b30c18">
+            	      <strong data-th-text="#{label_document_measuringrecord}">measuringRecord</strong>
+                    <span data-th-text="*{{measuringRecord}}">measuringRecordValue</span>
+         	        </li>
+                  <li id="document-equipmentmaintenancerecord-field" data-z="eb127ae6">
+            	      <strong data-th-text="#{label_document_equipmentmaintenancerecord}">equipmentMaintenanceRecord</strong>
+                    <span data-th-text="*{{equipmentMaintenanceRecord}}">equipmentMaintenanceRecordValue</span>
+         	        </li>
+                  <li id="document-partmaintenancerecord-field" data-z="6889498">
+            	      <strong data-th-text="#{label_document_partmaintenancerecord}">partMaintenanceRecord</strong>
+                    <span data-th-text="*{{partMaintenanceRecord}}">partMaintenanceRecordValue</span>
+         	        </li>
+                  <li id="document-equipmentreplacerecord-field" data-z="3d2b2e46">
+            	      <strong data-th-text="#{label_document_equipmentreplacerecord}">equipmentReplaceRecord</strong>
+                    <span data-th-text="*{{equipmentReplaceRecord}}">equipmentReplaceRecordValue</span>
+         	        </li>
+                  <li id="document-partreplacerecord-field" data-z="9e05f0f8">
+            	      <strong data-th-text="#{label_document_partreplacerecord}">partReplaceRecord</strong>
+                    <span data-th-text="*{{partReplaceRecord}}">partReplaceRecordValue</span>
+         	        </li>
+                  <li id="document-equipmentscrappingrecord-field" data-z="b8a792a6">
+            	      <strong data-th-text="#{label_document_equipmentscrappingrecord}">equipmentScrappingRecord</strong>
+                    <span data-th-text="*{{equipmentScrappingRecord}}">equipmentScrappingRecordValue</span>
+         	        </li>
+                  <li id="document-partscrappingrecord-field" data-z="4ddc70d8">
+            	      <strong data-th-text="#{label_document_partscrappingrecord}">partScrappingRecord</strong>
+                    <span data-th-text="*{{partScrappingRecord}}">partScrappingRecordValue</span>
+         	        </li>
+                  <li id="document-equipmentparameter-field" data-z="22693126">
+            	      <strong data-th-text="#{label_document_equipmentparameter}">equipmentParameter</strong>
+                    <span data-th-text="*{{equipmentParameter}}">equipmentParameterValue</span>
+         	        </li>
+                  <li id="document-preventivemaintenancestandard-field" data-z="66b07fb8">
+            	      <strong data-th-text="#{label_document_preventivemaintenancestandard}">preventiveMaintenanceStandard</strong>
+                    <span data-th-text="*{{preventiveMaintenanceStandard}}">preventiveMaintenanceStandardValue</span>
+         	        </li>
+                  <li id="document-preventivemaintenancecontent-field" data-z="542c9726">
+            	      <strong data-th-text="#{label_document_preventivemaintenancecontent}">preventiveMaintenanceContent</strong>
+                    <span data-th-text="*{{preventiveMaintenanceContent}}">preventiveMaintenanceContentValue</span>
+         	        </li>
+                  <li id="document-preventivemaintenanceexecution-field" data-z="6506186">
+            	      <strong data-th-text="#{label_document_preventivemaintenanceexecution}">preventiveMaintenanceExecution</strong>
+                    <span data-th-text="*{{preventiveMaintenanceExecution}}">preventiveMaintenanceExecutionValue</span>
+         	        </li>
+                  <li id="document-tasktracking-field" data-z="e0733e86">
+            	      <strong data-th-text="#{label_document_tasktracking}">taskTracking</strong>
+                    <span data-th-text="*{{taskTracking}}">taskTrackingValue</span>
+         	        </li>
+                  <li id="document-worklog-field" data-z="5b77ff8">
+            	      <strong data-th-text="#{label_document_worklog}">workLog</strong>
+                    <span data-th-text="*{{workLog}}">workLogValue</span>
+         	        </li>
+                  <li id="document-procurementrequest-field" data-z="8ff4b8a6">
+            	      <strong data-th-text="#{label_document_procurementrequest}">procurementRequest</strong>
+                    <span data-th-text="*{{procurementRequest}}">procurementRequestValue</span>
+         	        </li>
+                  <li id="document-procurementorder-field" data-z="d4c37a86">
+            	      <strong data-th-text="#{label_document_procurementorder}">procurementOrder</strong>
+                    <span data-th-text="*{{procurementOrder}}">procurementOrderValue</span>
+         	        </li>
+                  <li id="document-procurementitemdetail-field" data-z="cb7b6478">
+            	      <strong data-th-text="#{label_document_procurementitemdetail}">procurementItemDetail</strong>
+                    <span data-th-text="*{{procurementItemDetail}}">procurementItemDetailValue</span>
+         	        </li>
+                  <li id="document-assetclassification-field" data-z="3c47da58">
+            	      <strong data-th-text="#{label_document_assetclassification}">assetClassification</strong>
+                    <span data-th-text="*{{assetClassification}}">assetClassificationValue</span>
+         	        </li>
+                  <li id="document-assetstatus-field" data-z="ed9351d8">
+            	      <strong data-th-text="#{label_document_assetstatus}">assetStatus</strong>
+                    <span data-th-text="*{{assetStatus}}">assetStatusValue</span>
+         	        </li>
+                  <li id="document-assetstatuschangerecord-field" data-z="21af9878">
+            	      <strong data-th-text="#{label_document_assetstatuschangerecord}">assetStatusChangeRecord</strong>
+                    <span data-th-text="*{{assetStatusChangeRecord}}">assetStatusChangeRecordValue</span>
+         	        </li>
+                  <li id="document-criticalclassification-field" data-z="32e08ca6">
+            	      <strong data-th-text="#{label_document_criticalclassification}">criticalClassification</strong>
+                    <span data-th-text="*{{criticalClassification}}">criticalClassificationValue</span>
+         	        </li>
+                  <li id="document-costcenter-field" data-z="a85c2f86">
+            	      <strong data-th-text="#{label_document_costcenter}">costCenter</strong>
+                    <span data-th-text="*{{costCenter}}">costCenterValue</span>
+         	        </li>
+                  <li id="document-employee-field" data-z="586817a6">
+            	      <strong data-th-text="#{label_document_employee}">employee</strong>
+                    <span data-th-text="*{{employee}}">employeeValue</span>
+         	        </li>
+                  <li id="document-purchaseexpedite-field" data-z="b5a7a2a6">
+            	      <strong data-th-text="#{label_document_purchaseexpedite}">purchaseExpedite</strong>
+                    <span data-th-text="*{{purchaseExpedite}}">purchaseExpediteValue</span>
+         	        </li>
+                  <li id="document-instockdetail-field" data-z="e6a21798">
+            	      <strong data-th-text="#{label_document_instockdetail}">instockDetail</strong>
+                    <span data-th-text="*{{instockDetail}}">instockDetailValue</span>
+         	        </li>
+                  <li id="document-materialoutstockdetail-field" data-z="eb600d66">
+            	      <strong data-th-text="#{label_document_materialoutstockdetail}">materialOutstockDetail</strong>
+                    <span data-th-text="*{{materialOutstockDetail}}">materialOutstockDetailValue</span>
+         	        </li>
+                  <li id="document-technicalobject-field" data-z="c2ec8618">
+            	      <strong data-th-text="#{label_document_technicalobject}">technicalObject</strong>
+                    <span data-th-text="*{{technicalObject}}">technicalObjectValue</span>
+         	        </li>
+                  <li id="document-equipmentlubrication-field" data-z="ef1a2046">
+            	      <strong data-th-text="#{label_document_equipmentlubrication}">equipmentLubrication</strong>
+                    <span data-th-text="*{{equipmentLubrication}}">equipmentLubricationValue</span>
+         	        </li>
+                  <li id="document-recordstatus-field" data-z="bb0d59a6">
+            	      <strong data-th-text="#{label_document_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="document-createddate-field" data-z="67ce3358">
+            	      <strong data-th-text="#{label_document_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="document-createdby-field" data-z="a8771c78">
+            	      <strong data-th-text="#{label_document_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="document-lastmodifieddate-field" data-z="d093906">
+            	      <strong data-th-text="#{label_document_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="document-lastmodifiedby-field" data-z="da73b5a6">
+            	      <strong data-th-text="#{label_document_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="Document_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('DocumentsItemThymeleafController').to('editForm').with('document', document.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="Document_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('DocumentsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="abcindicator-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('AbcIndicatorsCollectionThymeleafController')},itemLink=${@linkBuilder.of('AbcIndicatorsItemThymeleafController')}">
+    <table id="abcindicator-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="riskLevel" data-th-text="#{label_abcindicator_risklevel}">riskLevel</th>
+          <th data-data="description" data-th-text="#{label_abcindicator_description}">description</th>
+          <th data-data="status" data-th-text="#{label_abcindicator_status}">status</th>
+          <th data-data="indicator" data-th-text="#{label_abcindicator_indicator}">indicator</th>
+          <th data-data="recordStatus" data-th-text="#{label_abcindicator_recordstatus}">recordStatus</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>riskLevel</td>
+          <td>description</td>
+          <td>status</td>
+          <td>indicator</td>
+          <td>recordStatus</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

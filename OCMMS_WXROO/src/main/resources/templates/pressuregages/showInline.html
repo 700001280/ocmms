@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_pressuregage})}|">Show PressureGage - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${pressureGage}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="pressuregage-tag-field" data-z="3531d496">
+            	      <strong data-th-text="#{label_pressuregage_tag}">tag</strong>
+                    <span data-th-text="*{{tag}}">tagValue</span>
+         	        </li>
+                  <li id="pressuregage-description-field" data-z="917f6956">
+            	      <strong data-th-text="#{label_pressuregage_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="pressuregage-descriptionlocal-field" data-z="e7315848">
+            	      <strong data-th-text="#{label_pressuregage_descriptionlocal}">descriptionLocal</strong>
+                    <span data-th-text="*{{descriptionLocal}}">descriptionLocalValue</span>
+         	        </li>
+                  <li id="pressuregage-abcindicator-field" data-z="15385d08">
+            	      <strong data-th-text="#{label_pressuregage_abcindicator}">abcIndicator</strong>
+                    <span data-th-text="*{{abcIndicator}}">abcIndicatorValue</span>
+         	        </li>
+                  <li id="pressuregage-mainworkcenter-field" data-z="dd0c18e8">
+            	      <strong data-th-text="#{label_pressuregage_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="pressuregage-organization-field" data-z="ace8a468">
+            	      <strong data-th-text="#{label_pressuregage_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="pressuregage-manufacturermodelnumber-field" data-z="4662e36">
+            	      <strong data-th-text="#{label_pressuregage_manufacturermodelnumber}">manufacturerModelNumber</strong>
+                    <span data-th-text="*{{manufacturerModelNumber}}">manufacturerModelNumberValue</span>
+         	        </li>
+                  <li id="pressuregage-manufacturerserialnumber-field" data-z="b612ffc8">
+            	      <strong data-th-text="#{label_pressuregage_manufacturerserialnumber}">manufacturerSerialNumber</strong>
+                    <span data-th-text="*{{manufacturerSerialNumber}}">manufacturerSerialNumberValue</span>
+         	        </li>
+                  <li id="pressuregage-manufacturerpartnumber-field" data-z="cc8c4a28">
+            	      <strong data-th-text="#{label_pressuregage_manufacturerpartnumber}">manufacturerPartNumber</strong>
+                    <span data-th-text="*{{manufacturerPartNumber}}">manufacturerPartNumberValue</span>
+         	        </li>
+                  <li id="pressuregage-plannergroup-field" data-z="d4bccd08">
+            	      <strong data-th-text="#{label_pressuregage_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="pressuregage-memo-field" data-z="64e53888">
+            	      <strong data-th-text="#{label_pressuregage_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="pressuregage-recordstatus-field" data-z="881a7e88">
+            	      <strong data-th-text="#{label_pressuregage_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="pressuregage-createddate-field" data-z="9ff7ea36">
+            	      <strong data-th-text="#{label_pressuregage_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="pressuregage-createdby-field" data-z="5abcf2d6">
+            	      <strong data-th-text="#{label_pressuregage_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="pressuregage-lastmodifieddate-field" data-z="93551ce8">
+            	      <strong data-th-text="#{label_pressuregage_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="pressuregage-lastmodifiedby-field" data-z="98cb2a08">
+            	      <strong data-th-text="#{label_pressuregage_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="pressuregage-lastinspectiondate-field" data-z="1da77548">
+            	      <strong data-th-text="#{label_pressuregage_lastinspectiondate}">lastInspectionDate</strong>
+                    <span data-th-text="*{{lastInspectionDate}}">lastInspectionDateValue</span>
+         	        </li>
+                  <li id="pressuregage-nextinspectiondate-field" data-z="3b5bb5a8">
+            	      <strong data-th-text="#{label_pressuregage_nextinspectiondate}">nextInspectionDate</strong>
+                    <span data-th-text="*{{nextInspectionDate}}">nextInspectionDateValue</span>
+         	        </li>
+                  <li id="pressuregage-parameter-field" data-z="914cd976">
+            	      <strong data-th-text="#{label_pressuregage_parameter}">parameter</strong>
+                    <span data-th-text="*{{parameter}}">parameterValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

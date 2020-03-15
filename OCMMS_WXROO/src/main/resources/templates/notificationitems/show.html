@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_notificationitem})}|">Show NotificationItem - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${notificationItem}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_notificationitem})}">Show NotificationItem</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_notificationitem})}">NotificationItem data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="notificationitem-notificationheader-field" data-z="ea01d0a9">
+            	      <strong data-th-text="#{label_notificationitem_notificationheader}">notificationHeader</strong>
+                    <span data-th-text="*{{notificationHeader}}">notificationHeaderValue</span>
+         	        </li>
+                  <li id="notificationitem-failureobjectpart-field" data-z="c7fa80b5">
+            	      <strong data-th-text="#{label_notificationitem_failureobjectpart}">failureObjectPart</strong>
+                    <span data-th-text="*{{failureObjectPart}}">failureObjectPartValue</span>
+         	        </li>
+                  <li id="notificationitem-failuredamagetype-field" data-z="75d8edd5">
+            	      <strong data-th-text="#{label_notificationitem_failuredamagetype}">failureDamageType</strong>
+                    <span data-th-text="*{{failureDamageType}}">failureDamageTypeValue</span>
+         	        </li>
+                  <li id="notificationitem-failuredamagecause-field" data-z="7af52949">
+            	      <strong data-th-text="#{label_notificationitem_failuredamagecause}">failureDamageCause</strong>
+                    <span data-th-text="*{{failureDamageCause}}">failureDamageCauseValue</span>
+         	        </li>
+                  <li id="notificationitem-failuredescription-field" data-z="1a96529">
+            	      <strong data-th-text="#{label_notificationitem_failuredescription}">failureDescription</strong>
+                    <span data-th-text="*{{failureDescription}}">failureDescriptionValue</span>
+         	        </li>
+                  <li id="notificationitem-activity-field" data-z="b2a55a29">
+            	      <strong data-th-text="#{label_notificationitem_activity}">activity</strong>
+                    <span data-th-text="*{{activity}}">activityValue</span>
+         	        </li>
+                  <li id="notificationitem-executionfactor-field" data-z="3b9888b5">
+            	      <strong data-th-text="#{label_notificationitem_executionfactor}">executionFactor</strong>
+                    <span data-th-text="*{{executionFactor}}">executionFactorValue</span>
+         	        </li>
+                  <li id="notificationitem-causeofdamage-field" data-z="bf173155">
+            	      <strong data-th-text="#{label_notificationitem_causeofdamage}">causeOfDamage</strong>
+                    <span data-th-text="*{{causeOfDamage}}">causeOfDamageValue</span>
+         	        </li>
+                  <li id="notificationitem-memo-field" data-z="102625c9">
+            	      <strong data-th-text="#{label_notificationitem_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="notificationitem-recordstatus-field" data-z="f37e9ac9">
+            	      <strong data-th-text="#{label_notificationitem_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="notificationitem-createddate-field" data-z="a36ec1d5">
+            	      <strong data-th-text="#{label_notificationitem_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="notificationitem-createdby-field" data-z="92f32635">
+            	      <strong data-th-text="#{label_notificationitem_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="notificationitem-lastmodifieddate-field" data-z="3adf30a9">
+            	      <strong data-th-text="#{label_notificationitem_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="notificationitem-lastmodifiedby-field" data-z="bb993a09">
+            	      <strong data-th-text="#{label_notificationitem_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="NotificationItem_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('NotificationItemsItemThymeleafController').to('editForm').with('notificationItem', notificationItem.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="NotificationItem_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('NotificationItemsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-layout}">
+  <head id="head">
+
+    <title data-th-text="#{label_edit_entity(#{label_materialplantinfo})}">
+    Edit MaterialPlantInfo - Spring Roo application</title>
+
+    <!-- DateTimePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css" data-th-href="@{/webjars/datetimepicker/2.5.4/build/jquery.datetimepicker.min.css}" />
+
+  </head>
+  
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+
+        <div class="container-fluid content" data-th-with="collectionLink=${@linkBuilder.of('MaterialPlantInfoesCollectionThymeleafController')},itemLink=${@linkBuilder.of('MaterialPlantInfoesItemThymeleafController')}">
+
+          <h1 data-th-text="#{label_edit_entity(#{label_materialplantinfo})}">Edit MaterialPlantInfo</h1>
+
+          <!-- FORM -->
+          <form class="form-horizontal validate" method="POST" data-th-object="${materialPlantInfo}" data-th-action="${itemLink.to('update').with('materialPlantInfo', materialPlantInfo.id)}">
+            <input type="hidden" name="_method" value="PUT" />
+            	<input type="hidden" name="version" data-th-value="*{version}" />
+
+            <!-- CONCURRENCY CONTROL -->
+            <div data-th-replace="~{fragments/concurrency-control :: concurrency-control(editFormUrl = ${itemLink.to('editForm').with('materialPlantInfo', materialPlantInfo.id)})}"></div>
+            <!-- /CONCURRENCY CONTROL -->
+
+             <fieldset id="containerFields">
+              <legend class="sr-only" data-th-text="#{label_data_entity(#{label_materialplantinfo})}">MaterialPlantInfo data </legend>
+
+<div class="form-group has-error has-feedback" data-z="9fd2a777" id="materialplantinfo-materialcatalog-field" data-th-classappend="${#fields.hasErrors('materialCatalog')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('MaterialCatalogsCollectionThymeleafController')}">
+    <label for="materialCatalog" class="col-md-3 control-label" data-th-text="#{label_materialplantinfo_materialcatalog}">MaterialCatalog</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{materialCatalog}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{materialCatalog} == null" data-th-value="*{materialCatalog.id}" data-th-text="*{{materialCatalog}}" selected="selected">MaterialCatalog</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('materialCatalog')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('materialCatalog')}" aria-hidden="true"></span>
+      <span id="materialCatalog-error" class="help-block" data-th-if="${#fields.hasErrors('materialCatalog')}" data-th-errors="*{materialCatalog}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="83bcb677" id="materialplantinfo-plant-field" data-th-classappend="${#fields.hasErrors('plant')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PlantsCollectionThymeleafController')}">
+    <label for="plant" class="col-md-3 control-label" data-th-text="#{label_materialplantinfo_plant}">Plant</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{plant}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{plant} == null" data-th-value="*{plant.id}" data-th-text="*{{plant}}" selected="selected">Plant</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('plant')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('plant')}" aria-hidden="true"></span>
+      <span id="plant-error" class="help-block" data-th-if="${#fields.hasErrors('plant')}" data-th-errors="*{plant}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="366bcd17" id="materialplantinfo-stock-field" data-th-classappend="${#fields.hasErrors('stock')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="stock" class="col-md-3 control-label" data-th-text="#{label_materialplantinfo_stock}">stock</label>
+  <div class="col-md-3">
+    <input id="stock" name="stock" data-th-value="*{{stock}}" type="text" class="form-control inputmask" placeholder="stock" data-th-placeholder="#{label_materialplantinfo_stock}" data-toggle="tooltip" aria-describedby="stockStatus" data-inputmask-alias="numeric" data-inputmask-digits="2" />
+      <span data-th-classappend="${#fields.hasErrors('stock')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('stock')}" aria-hidden="true"></span>
+      <span id="stock-error" class="help-block" data-th-if="${#fields.hasErrors('stock')}" data-th-errors="*{stock}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="f8a11537" id="materialplantinfo-safetystock-field" data-th-classappend="${#fields.hasErrors('safetyStock')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="safetyStock" class="col-md-3 control-label" data-th-text="#{label_materialplantinfo_safetystock}">safetyStock</label>
+  <div class="col-md-3">
+    <input id="safetyStock" name="safetyStock" data-th-value="*{{safetyStock}}" type="text" class="form-control inputmask" placeholder="safetyStock" data-th-placeholder="#{label_materialplantinfo_safetystock}" data-toggle="tooltip" aria-describedby="safetyStockStatus" data-inputmask-alias="numeric" data-inputmask-digits="2" />
+      <span data-th-classappend="${#fields.hasErrors('safetyStock')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('safetyStock')}" aria-hidden="true"></span>
+      <span id="safetyStock-error" class="help-block" data-th-if="${#fields.hasErrors('safetyStock')}" data-th-errors="*{safetyStock}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="bc936f77" id="materialplantinfo-reqreorderpoint-field" data-th-classappend="${#fields.hasErrors('reqReorderPoint')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="reqReorderPoint" class="col-md-3 control-label" data-th-text="#{label_materialplantinfo_reqreorderpoint}">reqReorderPoint</label>
+  <div class="col-md-3">
+    <input id="reqReorderPoint" name="reqReorderPoint" data-th-value="*{{reqReorderPoint}}" type="text" class="form-control inputmask" placeholder="reqReorderPoint" data-th-placeholder="#{label_materialplantinfo_reqreorderpoint}" data-toggle="tooltip" aria-describedby="reqReorderPointStatus" data-inputmask-alias="numeric" data-inputmask-digits="2" />
+      <span data-th-classappend="${#fields.hasErrors('reqReorderPoint')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('reqReorderPoint')}" aria-hidden="true"></span>
+      <span id="reqReorderPoint-error" class="help-block" data-th-if="${#fields.hasErrors('reqReorderPoint')}" data-th-errors="*{reqReorderPoint}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" id="materialplantinfo-consumableinventory-field" data-z="162aa697" data-th-classappend="${#fields.hasErrors('consumableInventory')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label class="col-md-3 control-label" for="consumableInventory" data-th-text="#{label_materialplantinfo_consumableinventory}">consumableInventory</label>
+  <div class="col-md-6">
+    <div class="checkbox">
+      <input type="checkbox" data-th-field="*{consumableInventory}" data-th-title="#{label_requiredfield}" data-toggle="tooltip" />
+       <span data-th-classappend="${#fields.hasErrors('consumableInventory')}? 'form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('consumableInventory')}" aria-hidden="true"></span>
+        <span id="consumableInventory-error" class="help-block" data-th-if="${#fields.hasErrors('consumableInventory')}" data-th-errors="*{consumableInventory}">Error message.</span>
+    </div>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" id="materialplantinfo-critical-field" data-z="4ac9c607" data-th-classappend="${#fields.hasErrors('critical')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label class="col-md-3 control-label" for="critical" data-th-text="#{label_materialplantinfo_critical}">critical</label>
+  <div class="col-md-6">
+    <div class="checkbox">
+      <input type="checkbox" data-th-field="*{critical}" data-th-title="#{label_requiredfield}" data-toggle="tooltip" />
+       <span data-th-classappend="${#fields.hasErrors('critical')}? 'form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('critical')}" aria-hidden="true"></span>
+        <span id="critical-error" class="help-block" data-th-if="${#fields.hasErrors('critical')}" data-th-errors="*{critical}">Error message.</span>
+    </div>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" id="materialplantinfo-usefullife-field" data-z="7ecdddc7" data-th-classappend="${#fields.hasErrors('usefulLife')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label class="col-md-3 control-label" for="usefulLife" data-th-text="#{label_materialplantinfo_usefullife}">usefulLife</label>
+  <div class="col-md-6">
+    <div class="checkbox">
+      <input type="checkbox" data-th-field="*{usefulLife}" data-th-title="#{label_requiredfield}" data-toggle="tooltip" />
+       <span data-th-classappend="${#fields.hasErrors('usefulLife')}? 'form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('usefulLife')}" aria-hidden="true"></span>
+        <span id="usefulLife-error" class="help-block" data-th-if="${#fields.hasErrors('usefulLife')}" data-th-errors="*{usefulLife}">Error message.</span>
+    </div>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="23916c77" id="materialplantinfo-shelflifedays-field" data-th-classappend="${#fields.hasErrors('shelfLifeDays')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="shelfLifeDays" class="col-md-3 control-label" data-th-text="#{label_materialplantinfo_shelflifedays}">shelfLifeDays</label>
+  <div class="col-md-3">
+    <input id="shelfLifeDays" name="shelfLifeDays" data-th-value="*{{shelfLifeDays}}" type="text" class="form-control inputmask" placeholder="shelfLifeDays" data-th-placeholder="#{label_materialplantinfo_shelflifedays}" data-toggle="tooltip" aria-describedby="shelfLifeDaysStatus" data-inputmask-alias="numeric" data-inputmask-digits="0" />
+      <span data-th-classappend="${#fields.hasErrors('shelfLifeDays')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('shelfLifeDays')}" aria-hidden="true"></span>
+      <span id="shelfLifeDays-error" class="help-block" data-th-if="${#fields.hasErrors('shelfLifeDays')}" data-th-errors="*{shelfLifeDays}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="f412ab97" id="materialplantinfo-declarationnumber-field" data-th-classappend="${#fields.hasErrors('declarationNumber')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="declarationNumber" class="col-md-3 control-label" data-th-text="#{label_materialplantinfo_declarationnumber}">declarationNumber</label>
+  <div class="col-md-6">
+    <input id="declarationNumber" name="declarationNumber" data-th-value="*{{declarationNumber}}" type="text" class="form-control" placeholder="declarationNumber" data-th-placeholder="#{label_materialplantinfo_declarationnumber}" data-toggle="tooltip" aria-describedby="declarationNumberStatus" />
+      <span data-th-classappend="${#fields.hasErrors('declarationNumber')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('declarationNumber')}" aria-hidden="true"></span>
+      <span id="declarationNumber-error" class="help-block" data-th-if="${#fields.hasErrors('declarationNumber')}" data-th-errors="*{declarationNumber}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="8d5f0157" id="materialplantinfo-declarationname-field" data-th-classappend="${#fields.hasErrors('declarationName')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="declarationName" class="col-md-3 control-label" data-th-text="#{label_materialplantinfo_declarationname}">declarationName</label>
+  <div class="col-md-6">
+    <input id="declarationName" name="declarationName" data-th-value="*{{declarationName}}" type="text" class="form-control" placeholder="declarationName" data-th-placeholder="#{label_materialplantinfo_declarationname}" data-toggle="tooltip" aria-describedby="declarationNameStatus" />
+      <span data-th-classappend="${#fields.hasErrors('declarationName')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('declarationName')}" aria-hidden="true"></span>
+      <span id="declarationName-error" class="help-block" data-th-if="${#fields.hasErrors('declarationName')}" data-th-errors="*{declarationName}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="6aaf1f67" id="materialplantinfo-documenttype-field" data-th-classappend="${#fields.hasErrors('documentType')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="documentType" class="col-md-3 control-label" data-th-text="#{label_materialplantinfo_documenttype}">documentType</label>
+  <div class="col-md-6">
+    <input id="documentType" name="documentType" data-th-value="*{{documentType}}" type="text" class="form-control" placeholder="documentType" data-th-placeholder="#{label_materialplantinfo_documenttype}" data-toggle="tooltip" aria-describedby="documentTypeStatus" />
+      <span data-th-classappend="${#fields.hasErrors('documentType')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('documentType')}" aria-hidden="true"></span>
+      <span id="documentType-error" class="help-block" data-th-if="${#fields.hasErrors('documentType')}" data-th-errors="*{documentType}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="d21339a7" id="materialplantinfo-recordstatus-field" data-th-classappend="${#fields.hasErrors('recordStatus')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('RecordStatusesCollectionThymeleafController')}">
+    <label for="recordStatus" class="col-md-3 control-label" data-th-text="#{label_materialplantinfo_recordstatus}">RecordStatus</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{recordStatus}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{recordStatus} == null" data-th-value="*{recordStatus.id}" data-th-text="*{{recordStatus}}" selected="selected">RecordStatus</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('recordStatus')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('recordStatus')}" aria-hidden="true"></span>
+      <span id="recordStatus-error" class="help-block" data-th-if="${#fields.hasErrors('recordStatus')}" data-th-errors="*{recordStatus}">Error message.</span>
+    </div>
+</div>
+             </fieldset>
+
+
+              <!-- buttons form -->
+              <div class="form-group">
+                <div class="col-md-12">
+                  <div class="pull-left">
+                    <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{${collectionLink.to('list')}} + '\''" data-th-text="#{label_reset}">Cancel</button>
+                  </div>
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-primary" data-th-text="#{label_save}">Save</button>
+                  </div>
+                </div>
+              </div>
+
+          </form>
+          <!-- /FORM -->
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+   </div>
+   <!-- /CONTAINER -->
+
+   <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+   </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+
+    <!-- DateTimePicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js" data-th-src="@{/webjars/datetimepicker/build/jquery.datetimepicker.full.min.js}"></script>
+    <script src="../../static/public/js/datetimepicker-defaults.js" data-th-src="@{/public/js/datetimepicker-defaults.js}"></script>
+
+    <!-- jquery.inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.1/jquery.inputmask.bundle.min.js" data-th-src="@{/webjars/jquery.inputmask/min/jquery.inputmask.bundle.min.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+      (function(jQuery) {
+        jQuery(document).ready(
+      	  function() {
+      	    Inputmask.extendAliases({
+      	      'numeric' : {
+      	         'groupSeparator' : /*[[#{label_inputmask_groupSeparator}]]*/'.',
+      	         'radixPoint' : /*[[#{label_inputmask_radixPoint}]]*/','
+      	       },
+      	       'currency' : {
+      	          'prefix' : /*[[#{label_inputmask_prefix}]]*/'',
+      	          'suffix' : /*[[#{label_inputmask_suffix}]]*/' €'
+      	        }
+      	    });
+      	 });
+       })(jQuery);
+    </script>
+    <script src="../../static/public/js/inputmask-defaults.js" data-th-src="@{/public/js/inputmask-defaults.js}"></script>
+
+    <!-- JQuery Validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js" data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
+      </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js" data-th-src="@{/webjars/jquery-validation/dist/additional-methods.min.js}">
+      </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/localization/messages_es.js" data-th-src="@{/webjars/jquery-validation/src/localization/messages_}+${#locale.language}+'.js'" data-th-if="${#locale.language} != 'en'">
+      </script>
+    <script src="../../static/public/js/validation-defaults.js" data-th-src="@{/public/js/validation-defaults.js}">
+      </script>
+    <!-- Concurrency control management -->
+    <script data-th-src="@{/public/js/concurrency-control.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+      (function(jQuery) {
+         jQuery(document).ready(function() {
+      	   jQuery.extend( jQuery.validator.messages, {
+      	     'dateformat' : /*[[#{error_invalid_date}]]*/ 'Please enter a correct date/time',
+      	     'inputmask': /*[[#{error_invalid_maskValue}]]*/ 'Please enter a valid value',
+      	   });
+      	 });
+      })(jQuery);
+      </script>
+
+    </div>
+
+  </body>
+
+</html>

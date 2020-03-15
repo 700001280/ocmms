@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_vendor})}|">Show Vendor - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${vendor}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="vendor-code-field" data-z="340f3473">
+            	      <strong data-th-text="#{label_vendor_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="vendor-companyname-field" data-z="b844134b">
+            	      <strong data-th-text="#{label_vendor_companyname}">companyName</strong>
+                    <span data-th-text="*{{companyName}}">companyNameValue</span>
+         	        </li>
+                  <li id="vendor-address-field" data-z="68812fab">
+            	      <strong data-th-text="#{label_vendor_address}">address</strong>
+                    <span data-th-text="*{{address}}">addressValue</span>
+         	        </li>
+                  <li id="vendor-postalcode-field" data-z="e9644c33">
+            	      <strong data-th-text="#{label_vendor_postalcode}">postalCode</strong>
+                    <span data-th-text="*{{postalCode}}">postalCodeValue</span>
+         	        </li>
+                  <li id="vendor-phone-field" data-z="7faeb6b">
+            	      <strong data-th-text="#{label_vendor_phone}">phone</strong>
+                    <span data-th-text="*{{phone}}">phoneValue</span>
+         	        </li>
+                  <li id="vendor-fax-field" data-z="85f4b48b">
+            	      <strong data-th-text="#{label_vendor_fax}">fax</strong>
+                    <span data-th-text="*{{fax}}">faxValue</span>
+         	        </li>
+                  <li id="vendor-web-field" data-z="86ed89ab">
+            	      <strong data-th-text="#{label_vendor_web}">web</strong>
+                    <span data-th-text="*{{web}}">webValue</span>
+         	        </li>
+                  <li id="vendor-mail-field" data-z="44e36333">
+            	      <strong data-th-text="#{label_vendor_mail}">mail</strong>
+                    <span data-th-text="*{{mail}}">mailValue</span>
+         	        </li>
+                  <li id="vendor-recordstatus-field" data-z="b4bb49d3">
+            	      <strong data-th-text="#{label_vendor_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="vendor-createddate-field" data-z="ebbb098b">
+            	      <strong data-th-text="#{label_vendor_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="vendor-createdby-field" data-z="81f9e36b">
+            	      <strong data-th-text="#{label_vendor_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="vendor-lastmodifieddate-field" data-z="a0b94ab3">
+            	      <strong data-th-text="#{label_vendor_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="vendor-lastmodifiedby-field" data-z="20664e93">
+            	      <strong data-th-text="#{label_vendor_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="vendor-available-field" data-z="cb8b660b">
+            	      <strong data-th-text="#{label_vendor_available}">available</strong>
+                    <span data-th-text="*{{available}}">availableValue</span>
+         	        </li>
+                  <li id="vendor-responsible-field" data-z="eed6116b">
+            	      <strong data-th-text="#{label_vendor_responsible}">responsible</strong>
+                    <span data-th-text="*{{responsible}}">responsibleValue</span>
+         	        </li>
+                  <li id="vendor-certification-field" data-z="6271a5eb">
+            	      <strong data-th-text="#{label_vendor_certification}">certification</strong>
+                    <span data-th-text="*{{certification}}">certificationValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_equipment})}|">Show Equipment - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${equipment}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="equipment-tag-field" data-z="bef9addb">
+            	      <strong data-th-text="#{label_equipment_tag}">tag</strong>
+                    <span data-th-text="*{{tag}}">tagValue</span>
+         	        </li>
+                  <li id="equipment-description-field" data-z="5cd02d9b">
+            	      <strong data-th-text="#{label_equipment_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="equipment-descriptionlocal-field" data-z="99797723">
+            	      <strong data-th-text="#{label_equipment_descriptionlocal}">descriptionLocal</strong>
+                    <span data-th-text="*{{descriptionLocal}}">descriptionLocalValue</span>
+         	        </li>
+                  <li id="equipment-abcindicator-field" data-z="b4002163">
+            	      <strong data-th-text="#{label_equipment_abcindicator}">abcIndicator</strong>
+                    <span data-th-text="*{{abcIndicator}}">abcIndicatorValue</span>
+         	        </li>
+                  <li id="equipment-mainworkcenter-field" data-z="e8f43283">
+            	      <strong data-th-text="#{label_equipment_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="equipment-organization-field" data-z="4bb068c3">
+            	      <strong data-th-text="#{label_equipment_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="equipment-manufacturermodelnumber-field" data-z="f201b2fb">
+            	      <strong data-th-text="#{label_equipment_manufacturermodelnumber}">manufacturerModelNumber</strong>
+                    <span data-th-text="*{{manufacturerModelNumber}}">manufacturerModelNumberValue</span>
+         	        </li>
+                  <li id="equipment-manufacturerserialnumber-field" data-z="7be813a3">
+            	      <strong data-th-text="#{label_equipment_manufacturerserialnumber}">manufacturerSerialNumber</strong>
+                    <span data-th-text="*{{manufacturerSerialNumber}}">manufacturerSerialNumberValue</span>
+         	        </li>
+                  <li id="equipment-manufacturerpartnumber-field" data-z="e4ba98c3">
+            	      <strong data-th-text="#{label_equipment_manufacturerpartnumber}">manufacturerPartNumber</strong>
+                    <span data-th-text="*{{manufacturerPartNumber}}">manufacturerPartNumberValue</span>
+         	        </li>
+                  <li id="equipment-plannergroup-field" data-z="73849163">
+            	      <strong data-th-text="#{label_equipment_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="equipment-memo-field" data-z="141887e3">
+            	      <strong data-th-text="#{label_equipment_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="equipment-recordstatus-field" data-z="26e242e3">
+            	      <strong data-th-text="#{label_equipment_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="equipment-createddate-field" data-z="6b48ae7b">
+            	      <strong data-th-text="#{label_equipment_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="equipment-createdby-field" data-z="9d8c045b">
+            	      <strong data-th-text="#{label_equipment_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="equipment-lastmodifieddate-field" data-z="459d3bc3">
+            	      <strong data-th-text="#{label_equipment_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="equipment-lastmodifiedby-field" data-z="a4b343a3">
+            	      <strong data-th-text="#{label_equipment_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="equipment-functionallocation-field" data-z="e21e0543">
+            	      <strong data-th-text="#{label_equipment_functionallocation}">functionalLocation</strong>
+                    <span data-th-text="*{{functionalLocation}}">functionalLocationValue</span>
+         	        </li>
+                  <li id="equipment-equipmentnumber-field" data-z="d2fdf45b">
+            	      <strong data-th-text="#{label_equipment_equipmentnumber}">equipmentNumber</strong>
+                    <span data-th-text="*{{equipmentNumber}}">equipmentNumberValue</span>
+         	        </li>
+                  <li id="equipment-superiorequipment-field" data-z="ceca9c5b">
+            	      <strong data-th-text="#{label_equipment_superiorequipment}">superiorEquipment</strong>
+                    <span data-th-text="*{{superiorEquipment}}">superiorEquipmentValue</span>
+         	        </li>
+                  <li id="equipment-constructiondate-field" data-z="9a6b2963">
+            	      <strong data-th-text="#{label_equipment_constructiondate}">constructionDate</strong>
+                    <span data-th-text="*{{constructionDate}}">constructionDateValue</span>
+         	        </li>
+                  <li id="equipment-countryofmanufacture-field" data-z="42922063">
+            	      <strong data-th-text="#{label_equipment_countryofmanufacture}">countryOfManufacture</strong>
+                    <span data-th-text="*{{countryOfManufacture}}">countryOfManufactureValue</span>
+         	        </li>
+                  <li id="equipment-manufacturer-field" data-z="25640d03">
+            	      <strong data-th-text="#{label_equipment_manufacturer}">manufacturer</strong>
+                    <span data-th-text="*{{manufacturer}}">manufacturerValue</span>
+         	        </li>
+                  <li id="equipment-plantsection-field" data-z="b7bf07c3">
+            	      <strong data-th-text="#{label_equipment_plantsection}">plantSection</strong>
+                    <span data-th-text="*{{plantSection}}">plantSectionValue</span>
+         	        </li>
+                  <li id="equipment-equipmentcategory-field" data-z="696bbabb">
+            	      <strong data-th-text="#{label_equipment_equipmentcategory}">equipmentCategory</strong>
+                    <span data-th-text="*{{equipmentCategory}}">equipmentCategoryValue</span>
+         	        </li>
+                  <li id="equipment-objecttype-field" data-z="25e79523">
+            	      <strong data-th-text="#{label_equipment_objecttype}">objectType</strong>
+                    <span data-th-text="*{{objectType}}">objectTypeValue</span>
+         	        </li>
+                  <li id="equipment-drawingnumber-field" data-z="c5ff615b">
+            	      <strong data-th-text="#{label_equipment_drawingnumber}">drawingNumber</strong>
+                    <span data-th-text="*{{drawingNumber}}">drawingNumberValue</span>
+         	        </li>
+                  <li id="equipment-catalogprofile-field" data-z="b2f1403">
+            	      <strong data-th-text="#{label_equipment_catalogprofile}">catalogProfile</strong>
+                    <span data-th-text="*{{catalogProfile}}">catalogProfileValue</span>
+         	        </li>
+                  <li id="equipment-plantlocation-field" data-z="6333f63b">
+            	      <strong data-th-text="#{label_equipment_plantlocation}">plantLocation</strong>
+                    <span data-th-text="*{{plantLocation}}">plantLocationValue</span>
+         	        </li>
+                  <li id="equipment-consttypematerial-field" data-z="47114fdb">
+            	      <strong data-th-text="#{label_equipment_consttypematerial}">constTypeMaterial</strong>
+                    <span data-th-text="*{{constTypeMaterial}}">constTypeMaterialValue</span>
+         	        </li>
+                  <li id="equipment-sizedimension-field" data-z="f485695b">
+            	      <strong data-th-text="#{label_equipment_sizedimension}">sizeDimension</strong>
+                    <span data-th-text="*{{sizeDimension}}">sizeDimensionValue</span>
+         	        </li>
+                  <li id="equipment-grossweight-field" data-z="bdf359bb">
+            	      <strong data-th-text="#{label_equipment_grossweight}">grossWeight</strong>
+                    <span data-th-text="*{{grossWeight}}">grossWeightValue</span>
+         	        </li>
+                  <li id="equipment-weightunit-field" data-z="26e700c3">
+            	      <strong data-th-text="#{label_equipment_weightunit}">weightUnit</strong>
+                    <span data-th-text="*{{weightUnit}}">weightUnitValue</span>
+         	        </li>
+                  <li id="equipment-acquisitiondate-field" data-z="e66fbfdb">
+            	      <strong data-th-text="#{label_equipment_acquisitiondate}">acquisitionDate</strong>
+                    <span data-th-text="*{{acquisitionDate}}">acquisitionDateValue</span>
+         	        </li>
+                  <li id="equipment-acquisitionvalue-field" data-z="bdf6a883">
+            	      <strong data-th-text="#{label_equipment_acquisitionvalue}">acquisitionValue</strong>
+                    <span data-th-text="*{{acquisitionValue}}">acquisitionValueValue</span>
+         	        </li>
+                  <li id="equipment-acquisitionvaluecurrency-field" data-z="85366283">
+            	      <strong data-th-text="#{label_equipment_acquisitionvaluecurrency}">acquisitionValueCurrency</strong>
+                    <span data-th-text="*{{acquisitionValueCurrency}}">acquisitionValueCurrencyValue</span>
+         	        </li>
+                  <li id="equipment-beginguaranteedate-field" data-z="94daf283">
+            	      <strong data-th-text="#{label_equipment_beginguaranteedate}">beginGuaranteeDate</strong>
+                    <span data-th-text="*{{beginGuaranteeDate}}">beginGuaranteeDateValue</span>
+         	        </li>
+                  <li id="equipment-warrantyenddate-field" data-z="227f6d7b">
+            	      <strong data-th-text="#{label_equipment_warrantyenddate}">warrantyEndDate</strong>
+                    <span data-th-text="*{{warrantyEndDate}}">warrantyEndDateValue</span>
+         	        </li>
+                  <li id="equipment-supplier-field" data-z="221f3ba3">
+            	      <strong data-th-text="#{label_equipment_supplier}">supplier</strong>
+                    <span data-th-text="*{{supplier}}">supplierValue</span>
+         	        </li>
+                  <li id="equipment-contract-field" data-z="5b596ae3">
+            	      <strong data-th-text="#{label_equipment_contract}">contract</strong>
+                    <span data-th-text="*{{contract}}">contractValue</span>
+         	        </li>
+                  <li id="equipment-ehsscritical-field" data-z="8cb64b03">
+            	      <strong data-th-text="#{label_equipment_ehsscritical}">ehssCritical</strong>
+                    <span data-th-text="*{{ehssCritical}}">ehssCriticalValue</span>
+         	        </li>
+                  <li id="equipment-criticalclassification-field" data-z="86e4cda3">
+            	      <strong data-th-text="#{label_equipment_criticalclassification}">criticalClassification</strong>
+                    <span data-th-text="*{{criticalClassification}}">criticalClassificationValue</span>
+         	        </li>
+                  <li id="equipment-assetcode-field" data-z="1778009b">
+            	      <strong data-th-text="#{label_equipment_assetcode}">assetCode</strong>
+                    <span data-th-text="*{{assetCode}}">assetCodeValue</span>
+         	        </li>
+                  <li id="equipment-startdepreciationcost-field" data-z="403bb2db">
+            	      <strong data-th-text="#{label_equipment_startdepreciationcost}">startDepreciationCost</strong>
+                    <span data-th-text="*{{startDepreciationCost}}">startDepreciationCostValue</span>
+         	        </li>
+                  <li id="equipment-depreciationyear-field" data-z="d776c03">
+            	      <strong data-th-text="#{label_equipment_depreciationyear}">depreciationYear</strong>
+                    <span data-th-text="*{{depreciationYear}}">depreciationYearValue</span>
+         	        </li>
+                  <li id="equipment-capitalizeddate-field" data-z="9f932e7b">
+            	      <strong data-th-text="#{label_equipment_capitalizeddate}">capitalizedDate</strong>
+                    <span data-th-text="*{{capitalizedDate}}">capitalizedDateValue</span>
+         	        </li>
+                  <li id="equipment-currentbookvalue-field" data-z="bdf66303">
+            	      <strong data-th-text="#{label_equipment_currentbookvalue}">currentBookValue</strong>
+                    <span data-th-text="*{{currentBookValue}}">currentBookValueValue</span>
+         	        </li>
+                  <li id="equipment-originalassetid-field" data-z="94ff57db">
+            	      <strong data-th-text="#{label_equipment_originalassetid}">originalAssetId</strong>
+                    <span data-th-text="*{{originalAssetId}}">originalAssetIdValue</span>
+         	        </li>
+                  <li id="equipment-assetvaluecurrency-field" data-z="ca4389e3">
+            	      <strong data-th-text="#{label_equipment_assetvaluecurrency}">assetValueCurrency</strong>
+                    <span data-th-text="*{{assetValueCurrency}}">assetValueCurrencyValue</span>
+         	        </li>
+                  <li id="equipment-assetclassification-field" data-z="4c72827b">
+            	      <strong data-th-text="#{label_equipment_assetclassification}">assetClassification</strong>
+                    <span data-th-text="*{{assetClassification}}">assetClassificationValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_taskheadertext})}|">Show TaskHeaderText - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${taskHeaderText}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="taskheadertext-taskheader-field" data-z="362a9aaa">
+            	      <strong data-th-text="#{label_taskheadertext_taskheader}">taskHeader</strong>
+                    <span data-th-text="*{{taskHeader}}">taskHeaderValue</span>
+         	        </li>
+                  <li id="taskheadertext-taskheadertextcode-field" data-z="90a7bcaa">
+            	      <strong data-th-text="#{label_taskheadertext_taskheadertextcode}">taskHeaderTextCode</strong>
+                    <span data-th-text="*{{taskHeaderTextCode}}">taskHeaderTextCodeValue</span>
+         	        </li>
+                  <li id="taskheadertext-counterline-field" data-z="442e2b74">
+            	      <strong data-th-text="#{label_taskheadertext_counterline}">counterLine</strong>
+                    <span data-th-text="*{{counterLine}}">counterLineValue</span>
+         	        </li>
+                  <li id="taskheadertext-headertexttitle-field" data-z="e6d706d4">
+            	      <strong data-th-text="#{label_taskheadertext_headertexttitle}">headerTextTitle</strong>
+                    <span data-th-text="*{{headerTextTitle}}">headerTextTitleValue</span>
+         	        </li>
+                  <li id="taskheadertext-recordstatus-field" data-z="370c89ca">
+            	      <strong data-th-text="#{label_taskheadertext_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="taskheadertext-createddate-field" data-z="8cd66eb4">
+            	      <strong data-th-text="#{label_taskheadertext_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="taskheadertext-createdby-field" data-z="c5ce7ed4">
+            	      <strong data-th-text="#{label_taskheadertext_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="taskheadertext-lastmodifieddate-field" data-z="17ebb72a">
+            	      <strong data-th-text="#{label_taskheadertext_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="taskheadertext-lastmodifiedby-field" data-z="53676cca">
+            	      <strong data-th-text="#{label_taskheadertext_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

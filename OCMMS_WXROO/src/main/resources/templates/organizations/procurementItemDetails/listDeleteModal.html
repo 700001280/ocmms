@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="procurementitemdetails-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('OrganizationsItemProcurementItemDetailsThymeleafController')}">
+    <table id="procurementitemdetails-detail-table-item-to-remove" data-parent-table="organization-entity-table" data-data-parent-id="${organization != null ? organization.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('organization', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="requester" data-th-text="#{label_organization_procurementitemdetails_requester}">requester</th>
+              <th data-data="submitDate" data-th-text="#{label_organization_procurementitemdetails_submitdate}">submitDate</th>
+              <th data-data="quantity" data-th-text="#{label_organization_procurementitemdetails_quantity}">quantity</th>
+              <th data-data="uom" data-th-text="#{label_organization_procurementitemdetails_uom}">uom</th>
+              <th data-data="organization" data-th-text="#{label_organization_procurementitemdetails_organization}">organization</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>requester</td>
+              <td>submitDate</td>
+              <td>quantity</td>
+              <td>uom</td>
+              <td>organization</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

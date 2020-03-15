@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_company})}|">Show Company - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${company}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_company})}">Show Company</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_company})}">Company data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="company-code-field" data-z="d94e0e72">
+            	      <strong data-th-text="#{label_company_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="company-orgname-field" data-z="f87f0a0c">
+            	      <strong data-th-text="#{label_company_orgname}">orgName</strong>
+                    <span data-th-text="*{{orgName}}">orgNameValue</span>
+         	        </li>
+                  <li id="company-description-field" data-z="ce9941cc">
+            	      <strong data-th-text="#{label_company_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="company-postalcode-field" data-z="1b16af2">
+            	      <strong data-th-text="#{label_company_postalcode}">postalCode</strong>
+                    <span data-th-text="*{{postalCode}}">postalCodeValue</span>
+         	        </li>
+                  <li id="company-phone-field" data-z="a97514c">
+            	      <strong data-th-text="#{label_company_phone}">phone</strong>
+                    <span data-th-text="*{{phone}}">phoneValue</span>
+         	        </li>
+                  <li id="company-fax-field" data-z="72831eac">
+            	      <strong data-th-text="#{label_company_fax}">fax</strong>
+                    <span data-th-text="*{{fax}}">faxValue</span>
+         	        </li>
+                  <li id="company-web-field" data-z="737bf3cc">
+            	      <strong data-th-text="#{label_company_web}">web</strong>
+                    <span data-th-text="*{{web}}">webValue</span>
+         	        </li>
+                  <li id="company-mail-field" data-z="ea223d32">
+            	      <strong data-th-text="#{label_company_mail}">mail</strong>
+                    <span data-th-text="*{{mail}}">mailValue</span>
+         	        </li>
+                  <li id="company-recordstatus-field" data-z="ee3bb4d2">
+            	      <strong data-th-text="#{label_company_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="company-createddate-field" data-z="dd11c2ac">
+            	      <strong data-th-text="#{label_company_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="company-createdby-field" data-z="723e70cc">
+            	      <strong data-th-text="#{label_company_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="company-lastmodifieddate-field" data-z="fdfe1e32">
+            	      <strong data-th-text="#{label_company_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="company-lastmodifiedby-field" data-z="fb77f5d2">
+            	      <strong data-th-text="#{label_company_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="company-organizationcatalog-field" data-z="57c05b6c">
+            	      <strong data-th-text="#{label_company_organizationcatalog}">organizationCatalog</strong>
+                    <span data-th-text="*{{organizationCatalog}}">organizationCatalogValue</span>
+         	        </li>
+                  <li id="company-address-field" data-z="359ba14c">
+            	      <strong data-th-text="#{label_company_address}">address</strong>
+                    <span data-th-text="*{{address}}">addressValue</span>
+         	        </li>
+                  <li id="company-client-field" data-z="2182a9f2">
+            	      <strong data-th-text="#{label_company_client}">client</strong>
+                    <span data-th-text="*{{client}}">clientValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="Company_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('CompaniesItemThymeleafController').to('editForm').with('company', company.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="Company_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('CompaniesCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

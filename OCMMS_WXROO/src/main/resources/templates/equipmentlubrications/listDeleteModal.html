@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="equipmentlubrication-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('EquipmentLubricationsCollectionThymeleafController')},itemLink=${@linkBuilder.of('EquipmentLubricationsItemThymeleafController')}">
+    <table id="equipmentlubrication-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="materialCatalog" data-th-text="#{label_equipmentlubrication_materialcatalog}">materialCatalog</th>
+          <th data-data="fillQuantity" data-th-text="#{label_equipmentlubrication_fillquantity}">fillQuantity</th>
+          <th data-data="lubPoint" data-th-text="#{label_equipmentlubrication_lubpoint}">lubPoint</th>
+          <th data-data="lubUnit" data-th-text="#{label_equipmentlubrication_lubunit}">lubUnit</th>
+          <th data-data="intervalCycleUnit" data-th-text="#{label_equipmentlubrication_intervalcycleunit}">intervalCycleUnit</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>materialCatalog</td>
+          <td>fillQuantity</td>
+          <td>lubPoint</td>
+          <td>lubUnit</td>
+          <td>intervalCycleUnit</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

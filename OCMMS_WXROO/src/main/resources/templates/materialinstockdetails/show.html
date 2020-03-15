@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_materialinstockdetail})}|">Show MaterialInstockDetail - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${materialInstockDetail}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_materialinstockdetail})}">Show MaterialInstockDetail</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_materialinstockdetail})}">MaterialInstockDetail data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="materialinstockdetail-orderno-field" data-z="dd180a2e">
+            	      <strong data-th-text="#{label_materialinstockdetail_orderno}">orderNo</strong>
+                    <span data-th-text="*{{orderNo}}">orderNoValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-quantity-field" data-z="e589e950">
+            	      <strong data-th-text="#{label_materialinstockdetail_quantity}">quantity</strong>
+                    <span data-th-text="*{{quantity}}">quantityValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-unitprice-field" data-z="5a54476e">
+            	      <strong data-th-text="#{label_materialinstockdetail_unitprice}">unitPrice</strong>
+                    <span data-th-text="*{{unitPrice}}">unitPriceValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-currencyunit-field" data-z="af7adbb0">
+            	      <strong data-th-text="#{label_materialinstockdetail_currencyunit}">currencyUnit</strong>
+                    <span data-th-text="*{{currencyUnit}}">currencyUnitValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-goodreceiveno-field" data-z="431ca3ce">
+            	      <strong data-th-text="#{label_materialinstockdetail_goodreceiveno}">goodReceiveNo</strong>
+                    <span data-th-text="*{{goodReceiveNo}}">goodReceiveNoValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-receivedate-field" data-z="80bd3a6e">
+            	      <strong data-th-text="#{label_materialinstockdetail_receivedate}">receiveDate</strong>
+                    <span data-th-text="*{{receiveDate}}">receiveDateValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-receiver-field" data-z="e72eccd0">
+            	      <strong data-th-text="#{label_materialinstockdetail_receiver}">receiver</strong>
+                    <span data-th-text="*{{receiver}}">receiverValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-invoicedate-field" data-z="3b56f92e">
+            	      <strong data-th-text="#{label_materialinstockdetail_invoicedate}">invoiceDate</strong>
+                    <span data-th-text="*{{invoiceDate}}">invoiceDateValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-paymentsubmitter-field" data-z="e66e6930">
+            	      <strong data-th-text="#{label_materialinstockdetail_paymentsubmitter}">paymentSubmitter</strong>
+                    <span data-th-text="*{{paymentSubmitter}}">paymentSubmitterValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-paymentdate-field" data-z="8ca5120e">
+            	      <strong data-th-text="#{label_materialinstockdetail_paymentdate}">paymentDate</strong>
+                    <span data-th-text="*{{paymentDate}}">paymentDateValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-memo-field" data-z="1b5a5ff0">
+            	      <strong data-th-text="#{label_materialinstockdetail_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-closed-field" data-z="ef23170">
+            	      <strong data-th-text="#{label_materialinstockdetail_closed}">closed</strong>
+                    <span data-th-text="*{{closed}}">closedValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-recordstatus-field" data-z="a245bdf0">
+            	      <strong data-th-text="#{label_materialinstockdetail_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-createddate-field" data-z="2d331dce">
+            	      <strong data-th-text="#{label_materialinstockdetail_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-createdby-field" data-z="a3e02c6e">
+            	      <strong data-th-text="#{label_materialinstockdetail_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-lastmodifieddate-field" data-z="1d826850">
+            	      <strong data-th-text="#{label_materialinstockdetail_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-lastmodifiedby-field" data-z="d5242f70">
+            	      <strong data-th-text="#{label_materialinstockdetail_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-materialprocurementitemdetail-field" data-z="8cd8092e">
+            	      <strong data-th-text="#{label_materialinstockdetail_materialprocurementitemdetail}">materialProcurementItemDetail</strong>
+                    <span data-th-text="*{{materialProcurementItemDetail}}">materialProcurementItemDetailValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-expirationdate-field" data-z="f6789270">
+            	      <strong data-th-text="#{label_materialinstockdetail_expirationdate}">expirationDate</strong>
+                    <span data-th-text="*{{expirationDate}}">expirationDateValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-materialcatalog-field" data-z="c682d28e">
+            	      <strong data-th-text="#{label_materialinstockdetail_materialcatalog}">materialCatalog</strong>
+                    <span data-th-text="*{{materialCatalog}}">materialCatalogValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-storagelocation-field" data-z="77da430e">
+            	      <strong data-th-text="#{label_materialinstockdetail_storagelocation}">storageLocation</strong>
+                    <span data-th-text="*{{storageLocation}}">storageLocationValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-serialnumber-field" data-z="72edceb0">
+            	      <strong data-th-text="#{label_materialinstockdetail_serialnumber}">serialNumber</strong>
+                    <span data-th-text="*{{serialNumber}}">serialNumberValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-keeper-field" data-z="652718b0">
+            	      <strong data-th-text="#{label_materialinstockdetail_keeper}">keeper</strong>
+                    <span data-th-text="*{{keeper}}">keeperValue</span>
+         	        </li>
+                  <li id="materialinstockdetail-storagetype-field" data-z="dcd65ee">
+            	      <strong data-th-text="#{label_materialinstockdetail_storagetype}">storageType</strong>
+                    <span data-th-text="*{{storageType}}">storageTypeValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="MaterialInstockDetail_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('MaterialInstockDetailsItemThymeleafController').to('editForm').with('materialInstockDetail', materialInstockDetail.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="MaterialInstockDetail_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('MaterialInstockDetailsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

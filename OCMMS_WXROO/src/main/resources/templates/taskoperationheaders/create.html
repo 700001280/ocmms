@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-layout}">
+  <head id="head">
+
+    <title data-th-text="#{label_create_entity(#{label_taskoperationheader})}">
+      Create TaskOperationHeader - OCMMSROO - SpringRoo Application</title>
+
+    <!-- DateTimePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css" data-th-href="@{/webjars/datetimepicker/build/jquery.datetimepicker.min.css}" />
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+        <div class="container-fluid content" data-th-with="collectionLink=${@linkBuilder.of('TaskOperationHeadersCollectionThymeleafController')}">
+
+          <h1 data-th-text="#{label_create_entity(#{label_taskoperationheader})}">Create TaskOperationHeader</h1>
+
+          <!-- FORM -->
+          <form class="form-horizontal validate" method="POST" data-th-object="${taskOperationHeader}" data-th-action="${collectionLink.to('create').with('taskOperationHeader', taskOperationHeader.id)}">
+
+            <fieldset id="containerFields">
+              <legend class="sr-only" data-th-text="#{label_data_entity(#{label_taskoperationheader})}">TaskOperationHeader data </legend>
+
+<div class="form-group has-error has-feedback" data-z="e990b744" id="taskoperationheader-taskheadertext-field" data-th-classappend="${#fields.hasErrors('taskHeaderText')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('TaskHeaderTextsCollectionThymeleafController')}">
+    <label for="taskHeaderText" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_taskheadertext}">TaskHeaderText</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{taskHeaderText}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{taskHeaderText} == null" data-th-value="*{taskHeaderText.id}" data-th-text="*{{taskHeaderText}}" selected="selected">TaskHeaderText</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('taskHeaderText')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('taskHeaderText')}" aria-hidden="true"></span>
+      <span id="taskHeaderText-error" class="help-block" data-th-if="${#fields.hasErrors('taskHeaderText')}" data-th-errors="*{taskHeaderText}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="cde9441a" id="taskoperationheader-taskoperationheadercode-field" data-th-classappend="${#fields.hasErrors('taskOperationHeaderCode')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="taskOperationHeaderCode" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_taskoperationheadercode}">taskOperationHeaderCode</label>
+  <div class="col-md-6">
+    <input id="taskOperationHeaderCode" name="taskOperationHeaderCode" data-th-value="*{{taskOperationHeaderCode}}" type="text" class="form-control" placeholder="taskOperationHeaderCode" data-th-placeholder="#{label_taskoperationheader_taskoperationheadercode}" data-toggle="tooltip" aria-describedby="taskOperationHeaderCodeStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('taskOperationHeaderCode')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('taskOperationHeaderCode')}" aria-hidden="true"></span>
+      <span id="taskOperationHeaderCode-error" class="help-block" data-th-if="${#fields.hasErrors('taskOperationHeaderCode')}" data-th-errors="*{taskOperationHeaderCode}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="eec6e49a" id="taskoperationheader-operationnumber-field" data-th-classappend="${#fields.hasErrors('operationNumber')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="operationNumber" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_operationnumber}">operationNumber</label>
+  <div class="col-md-3">
+    <input id="operationNumber" name="operationNumber" data-th-value="*{{operationNumber}}" type="text" class="form-control inputmask" placeholder="operationNumber" data-th-placeholder="#{label_taskoperationheader_operationnumber}" data-toggle="tooltip" aria-describedby="operationNumberStatus" data-inputmask-alias="numeric" data-inputmask-digits="0" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('operationNumber')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('operationNumber')}" aria-hidden="true"></span>
+      <span id="operationNumber-error" class="help-block" data-th-if="${#fields.hasErrors('operationNumber')}" data-th-errors="*{operationNumber}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="feb1824" id="taskoperationheader-operationshorttext-field" data-th-classappend="${#fields.hasErrors('operationShortText')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="operationShortText" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_operationshorttext}">operationShortText</label>
+  <div class="col-md-6">
+    <input id="operationShortText" name="operationShortText" data-th-value="*{{operationShortText}}" type="text" class="form-control" placeholder="operationShortText" data-th-placeholder="#{label_taskoperationheader_operationshorttext}" data-toggle="tooltip" aria-describedby="operationShortTextStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('operationShortText')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('operationShortText')}" aria-hidden="true"></span>
+      <span id="operationShortText-error" class="help-block" data-th-if="${#fields.hasErrors('operationShortText')}" data-th-errors="*{operationShortText}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="e891ab9a" id="taskoperationheader-operationworkcenter-field" data-th-classappend="${#fields.hasErrors('operationWorkCenter')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('OperationalWorkCentersCollectionThymeleafController')}">
+    <label for="operationWorkCenter" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_operationworkcenter}">OperationalWorkCenter</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{operationWorkCenter}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{operationWorkCenter} == null" data-th-value="*{operationWorkCenter.id}" data-th-text="*{{operationWorkCenter}}" selected="selected">OperationalWorkCenter</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('operationWorkCenter')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('operationWorkCenter')}" aria-hidden="true"></span>
+      <span id="operationWorkCenter-error" class="help-block" data-th-if="${#fields.hasErrors('operationWorkCenter')}" data-th-errors="*{operationWorkCenter}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="dc5d9f24" id="taskoperationheader-activitytype-field" data-th-classappend="${#fields.hasErrors('activityType')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('TaskActivityTypesCollectionThymeleafController')}">
+    <label for="activityType" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_activitytype}">TaskActivityType</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{activityType}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{activityType} == null" data-th-value="*{activityType.id}" data-th-text="*{{activityType}}" selected="selected">TaskActivityType</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('activityType')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('activityType')}" aria-hidden="true"></span>
+      <span id="activityType-error" class="help-block" data-th-if="${#fields.hasErrors('activityType')}" data-th-errors="*{activityType}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="2091a124" id="taskoperationheader-controlkey-field" data-th-classappend="${#fields.hasErrors('controlkey')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('WorkOrderControlkeysCollectionThymeleafController')}">
+    <label for="controlkey" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_controlkey}">WorkOrderControlkey</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{controlkey}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{controlkey} == null" data-th-value="*{controlkey.id}" data-th-text="*{{controlkey}}" selected="selected">WorkOrderControlkey</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('controlkey')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('controlkey')}" aria-hidden="true"></span>
+      <span id="controlkey-error" class="help-block" data-th-if="${#fields.hasErrors('controlkey')}" data-th-errors="*{controlkey}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="f1110dc4" id="taskoperationheader-organization-field" data-th-classappend="${#fields.hasErrors('organization')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('OrganizationsCollectionThymeleafController')}">
+    <label for="organization" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_organization}">Organization</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{organization}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{organization} == null" data-th-value="*{organization.id}" data-th-text="*{{organization}}" selected="selected">Organization</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('organization')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('organization')}" aria-hidden="true"></span>
+      <span id="organization-error" class="help-block" data-th-if="${#fields.hasErrors('organization')}" data-th-errors="*{organization}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="ca508cda" id="taskoperationheader-systemcondition-field" data-th-classappend="${#fields.hasErrors('systemCondition')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('SystemConditionsCollectionThymeleafController')}">
+    <label for="systemCondition" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_systemcondition}">SystemCondition</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{systemCondition}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{systemCondition} == null" data-th-value="*{systemCondition.id}" data-th-text="*{{systemCondition}}" selected="selected">SystemCondition</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('systemCondition')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('systemCondition')}" aria-hidden="true"></span>
+      <span id="systemCondition-error" class="help-block" data-th-if="${#fields.hasErrors('systemCondition')}" data-th-errors="*{systemCondition}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="1bd2e1a4" id="taskoperationheader-operationlabor-field" data-th-classappend="${#fields.hasErrors('operationLabor')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="operationLabor" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_operationlabor}">operationLabor</label>
+  <div class="col-md-3">
+    <input id="operationLabor" name="operationLabor" data-th-value="*{{operationLabor}}" type="text" class="form-control inputmask" placeholder="operationLabor" data-th-placeholder="#{label_taskoperationheader_operationlabor}" data-toggle="tooltip" aria-describedby="operationLaborStatus" data-inputmask-alias="numeric" data-inputmask-digits="0" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('operationLabor')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('operationLabor')}" aria-hidden="true"></span>
+      <span id="operationLabor-error" class="help-block" data-th-if="${#fields.hasErrors('operationLabor')}" data-th-errors="*{operationLabor}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="c3352d3a" id="taskoperationheader-unitforwork-field" data-th-classappend="${#fields.hasErrors('unitForWork')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('UnitOfMeasuresCollectionThymeleafController')}">
+    <label for="unitForWork" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_unitforwork}">UnitOfMeasure</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{unitForWork}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{unitForWork} == null" data-th-value="*{unitForWork.id}" data-th-text="*{{unitForWork}}" selected="selected">UnitOfMeasure</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('unitForWork')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('unitForWork')}" aria-hidden="true"></span>
+      <span id="unitForWork-error" class="help-block" data-th-if="${#fields.hasErrors('unitForWork')}" data-th-errors="*{unitForWork}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="fbd7cd64" id="taskoperationheader-noofrequiredcapacity-field" data-th-classappend="${#fields.hasErrors('noOfRequiredCapacity')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="noOfRequiredCapacity" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_noofrequiredcapacity}">noOfRequiredCapacity</label>
+  <div class="col-md-3">
+    <input id="noOfRequiredCapacity" name="noOfRequiredCapacity" data-th-value="*{{noOfRequiredCapacity}}" type="text" class="form-control inputmask" placeholder="noOfRequiredCapacity" data-th-placeholder="#{label_taskoperationheader_noofrequiredcapacity}" data-toggle="tooltip" aria-describedby="noOfRequiredCapacityStatus" data-inputmask-alias="numeric" data-inputmask-digits="0" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('noOfRequiredCapacity')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('noOfRequiredCapacity')}" aria-hidden="true"></span>
+      <span id="noOfRequiredCapacity-error" class="help-block" data-th-if="${#fields.hasErrors('noOfRequiredCapacity')}" data-th-errors="*{noOfRequiredCapacity}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="cc42e7e4" id="taskoperationheader-recordstatus-field" data-th-classappend="${#fields.hasErrors('recordStatus')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('RecordStatusesCollectionThymeleafController')}">
+    <label for="recordStatus" class="col-md-3 control-label" data-th-text="#{label_taskoperationheader_recordstatus}">RecordStatus</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{recordStatus}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{recordStatus} == null" data-th-value="*{recordStatus.id}" data-th-text="*{{recordStatus}}" selected="selected">RecordStatus</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('recordStatus')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('recordStatus')}" aria-hidden="true"></span>
+      <span id="recordStatus-error" class="help-block" data-th-if="${#fields.hasErrors('recordStatus')}" data-th-errors="*{recordStatus}">Error message.</span>
+    </div>
+</div>
+            </fieldset>
+
+
+              <!-- buttons form -->
+              <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" class="btn btn-primary" data-th-text="#{label_save}">Save</button>
+                    <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{${collectionLink.to('list')}} + '\''" data-th-text="#{label_reset}">Cancel</button>
+                </div>
+              </div>
+
+          </form>
+          <!-- /FORM -->
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+
+    <!-- DateTimePicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js" data-th-src="@{/webjars/datetimepicker/build/jquery.datetimepicker.full.min.js}"></script>
+    <script src="../../static/public/js/datetimepicker-defaults.js" data-th-src="@{/public/js/datetimepicker-defaults.js}"></script>
+
+    <!-- jquery.inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.1/jquery.inputmask.bundle.min.js" data-th-src="@{/webjars/jquery.inputmask/min/jquery.inputmask.bundle.min.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+					(function(jQuery) {
+						jQuery(document)
+								.ready(
+										function() {
+											Inputmask
+													.extendAliases({
+														'numeric' : {
+															'groupSeparator' : /*[[#{label_inputmask_groupSeparator}]]*/'.',
+															'radixPoint' : /*[[#{label_inputmask_radixPoint}]]*/','
+														},
+														'currency' : {
+															'prefix' : /*[[#{label_inputmask_prefix}]]*/'',
+															'suffix' : /*[[#{label_inputmask_suffix}]]*/' €'
+														}
+													});
+										});
+					})(jQuery);
+  		</script>
+    <script src="../../static/public/js/inputmask-defaults.js" data-th-src="@{/public/js/inputmask-defaults.js}"></script>
+
+    <!-- JQuery Validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js" data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
+		  </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js" data-th-src="@{/webjars/jquery-validation/dist/additional-methods.min.js}">
+			</script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/localization/messages_es.js" data-th-src="@{/webjars/jquery-validation/src/localization/messages_}+${#locale.language}+'.js'" data-th-if="${#locale.language} != 'en'">
+			</script>
+    <script src="../../static/public/js/validation-defaults.js" data-th-src="@{/public/js/validation-defaults.js}">
+			</script>
+
+    <script type="text/javascript" data-th-inline="javascript">
+					(function(jQuery) {
+						jQuery(document)
+								.ready(
+										function() {
+											jQuery
+													.extend(
+															jQuery.validator.messages,
+															{
+																'dateformat' : /*[[#{error_invalid_date}]]*/'Please enter a correct date/time',
+																'inputmask' : /*[[#{error_invalid_maskValue}]]*/'Please enter a valid value',
+															});
+										});
+					})(jQuery);
+		  </script>
+
+    </div>
+
+  </body>
+
+</html>

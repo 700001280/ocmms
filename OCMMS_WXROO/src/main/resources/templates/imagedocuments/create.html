@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-layout}">
+  <head id="head">
+
+    <title data-th-text="#{label_create_entity(#{label_imagedocument})}">
+      Create ImageDocument - OCMMSROO - SpringRoo Application</title>
+
+    <!-- DateTimePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css" data-th-href="@{/webjars/datetimepicker/build/jquery.datetimepicker.min.css}" />
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+        <div class="container-fluid content" data-th-with="collectionLink=${@linkBuilder.of('ImageDocumentsCollectionThymeleafController')}">
+
+          <h1 data-th-text="#{label_create_entity(#{label_imagedocument})}">Create ImageDocument</h1>
+
+          <!-- FORM -->
+          <form class="form-horizontal validate" method="POST" data-th-object="${imageDocument}" data-th-action="${collectionLink.to('create').with('imageDocument', imageDocument.id)}">
+
+            <fieldset id="containerFields">
+              <legend class="sr-only" data-th-text="#{label_data_entity(#{label_imagedocument})}">ImageDocument data </legend>
+
+<div class="form-group has-error has-feedback" data-z="4904b1cb" id="imagedocument-filename-field" data-th-classappend="${#fields.hasErrors('fileName')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="fileName" class="col-md-3 control-label" data-th-text="#{label_imagedocument_filename}">fileName</label>
+  <div class="col-md-6">
+    <input id="fileName" name="fileName" data-th-value="*{{fileName}}" type="text" class="form-control" placeholder="fileName" data-th-placeholder="#{label_imagedocument_filename}" data-toggle="tooltip" aria-describedby="fileNameStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('fileName')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('fileName')}" aria-hidden="true"></span>
+      <span id="fileName-error" class="help-block" data-th-if="${#fields.hasErrors('fileName')}" data-th-errors="*{fileName}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="7896af33" id="imagedocument-description-field" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="description" class="col-md-3 control-label" data-th-text="#{label_imagedocument_description}">description</label>
+  <div class="col-md-6">
+    <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_imagedocument_description}" data-toggle="tooltip" aria-describedby="descriptionStatus" />
+      <span data-th-classappend="${#fields.hasErrors('description')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('description')}" aria-hidden="true"></span>
+      <span id="description-error" class="help-block" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="54f4d7eb" id="imagedocument-filetype-field" data-th-classappend="${#fields.hasErrors('fileType')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="fileType" class="col-md-3 control-label" data-th-text="#{label_imagedocument_filetype}">fileType</label>
+  <div class="col-md-6">
+    <input id="fileType" name="fileType" data-th-value="*{{fileType}}" type="text" class="form-control" placeholder="fileType" data-th-placeholder="#{label_imagedocument_filetype}" data-toggle="tooltip" aria-describedby="fileTypeStatus" />
+      <span data-th-classappend="${#fields.hasErrors('fileType')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('fileType')}" aria-hidden="true"></span>
+      <span id="fileType-error" class="help-block" data-th-if="${#fields.hasErrors('fileType')}" data-th-errors="*{fileType}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="e14780b3" id="imagedocument-imageencode-field" data-th-classappend="${#fields.hasErrors('imageEncode')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="imageEncode" class="col-md-3 control-label" data-th-text="#{label_imagedocument_imageencode}">imageEncode</label>
+  <div class="col-md-6">
+    <input id="imageEncode" name="imageEncode" data-th-value="*{{imageEncode}}" type="text" class="form-control" placeholder="imageEncode" data-th-placeholder="#{label_imagedocument_imageencode}" data-toggle="tooltip" aria-describedby="imageEncodeStatus" />
+      <span data-th-classappend="${#fields.hasErrors('imageEncode')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('imageEncode')}" aria-hidden="true"></span>
+      <span id="imageEncode-error" class="help-block" data-th-if="${#fields.hasErrors('imageEncode')}" data-th-errors="*{imageEncode}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" id="imagedocument-uploaddate-field" data-z="42d411cb" data-th-classappend="${#fields.hasErrors('uploadDate')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="uploadDate" class="col-md-3 control-label" data-th-text="#{label_imagedocument_uploaddate}">uploadDate</label>
+  <div class="col-md-3">
+    <input id="uploadDate" name="uploadDate" data-th-value="*{{uploadDate}}" type="text" class="form-control datetimepicker" placeholder="uploadDate" data-th-placeholder="#{label_imagedocument_uploaddate}" data-th-attr="data-dateformat=${uploadDate_date_format}" data-toggle="tooltip" /> <span data-th-classappend="${#fields.hasErrors('uploadDate')}? 'glyphicon glyphicon-remove form-control-feedback'" data-th-if="${#fields.hasErrors('uploadDate')}" aria-hidden="true"></span>
+     <span id="uploadDate-error" class="help-block" data-th-if="${#fields.hasErrors('uploadDate')}" data-th-errors="*{uploadDate}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="656ee92b" id="imagedocument-lotoinfo-field" data-th-classappend="${#fields.hasErrors('lotoInfo')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('LotoInfoesCollectionThymeleafController')}">
+    <label for="lotoInfo" class="col-md-3 control-label" data-th-text="#{label_imagedocument_lotoinfo}">LotoInfo</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{lotoInfo}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{lotoInfo} == null" data-th-value="*{lotoInfo.id}" data-th-text="*{{lotoInfo}}" selected="selected">LotoInfo</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('lotoInfo')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('lotoInfo')}" aria-hidden="true"></span>
+      <span id="lotoInfo-error" class="help-block" data-th-if="${#fields.hasErrors('lotoInfo')}" data-th-errors="*{lotoInfo}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="f2ad1ad3" id="imagedocument-lotoissuereport-field" data-th-classappend="${#fields.hasErrors('lotoIssueReport')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('LotoIssueReportsCollectionThymeleafController')}">
+    <label for="lotoIssueReport" class="col-md-3 control-label" data-th-text="#{label_imagedocument_lotoissuereport}">LotoIssueReport</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{lotoIssueReport}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{lotoIssueReport} == null" data-th-value="*{lotoIssueReport.id}" data-th-text="*{{lotoIssueReport}}" selected="selected">LotoIssueReport</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('lotoIssueReport')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('lotoIssueReport')}" aria-hidden="true"></span>
+      <span id="lotoIssueReport-error" class="help-block" data-th-if="${#fields.hasErrors('lotoIssueReport')}" data-th-errors="*{lotoIssueReport}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="9d46a8eb" id="imagedocument-assetinventoryrecord-field" data-th-classappend="${#fields.hasErrors('assetInventoryRecord')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('AssetInventoryRecordsCollectionThymeleafController')}">
+    <label for="assetInventoryRecord" class="col-md-3 control-label" data-th-text="#{label_imagedocument_assetinventoryrecord}">AssetInventoryRecord</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{assetInventoryRecord}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{assetInventoryRecord} == null" data-th-value="*{assetInventoryRecord.id}" data-th-text="*{{assetInventoryRecord}}" selected="selected">AssetInventoryRecord</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('assetInventoryRecord')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('assetInventoryRecord')}" aria-hidden="true"></span>
+      <span id="assetInventoryRecord-error" class="help-block" data-th-if="${#fields.hasErrors('assetInventoryRecord')}" data-th-errors="*{assetInventoryRecord}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="e05c8dcb" id="imagedocument-lotodetail-field" data-th-classappend="${#fields.hasErrors('lotoDetail')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('LotoDetailsCollectionThymeleafController')}">
+    <label for="lotoDetail" class="col-md-3 control-label" data-th-text="#{label_imagedocument_lotodetail}">LotoDetail</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{lotoDetail}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{lotoDetail} == null" data-th-value="*{lotoDetail.id}" data-th-text="*{{lotoDetail}}" selected="selected">LotoDetail</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('lotoDetail')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('lotoDetail')}" aria-hidden="true"></span>
+      <span id="lotoDetail-error" class="help-block" data-th-if="${#fields.hasErrors('lotoDetail')}" data-th-errors="*{lotoDetail}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="7047d4cb" id="imagedocument-uploader-field" data-th-classappend="${#fields.hasErrors('uploader')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EmployeesCollectionThymeleafController')}">
+    <label for="uploader" class="col-md-3 control-label" data-th-text="#{label_imagedocument_uploader}">Employee</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{uploader}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{uploader} == null" data-th-value="*{uploader.id}" data-th-text="*{{uploader}}" selected="selected">Employee</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('uploader')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('uploader')}" aria-hidden="true"></span>
+      <span id="uploader-error" class="help-block" data-th-if="${#fields.hasErrors('uploader')}" data-th-errors="*{uploader}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="ef9b12eb" id="imagedocument-notificationitem-field" data-th-classappend="${#fields.hasErrors('notificationItem')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('NotificationItemsCollectionThymeleafController')}">
+    <label for="notificationItem" class="col-md-3 control-label" data-th-text="#{label_imagedocument_notificationitem}">NotificationItem</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{notificationItem}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{notificationItem} == null" data-th-value="*{notificationItem.id}" data-th-text="*{{notificationItem}}" selected="selected">NotificationItem</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('notificationItem')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('notificationItem')}" aria-hidden="true"></span>
+      <span id="notificationItem-error" class="help-block" data-th-if="${#fields.hasErrors('notificationItem')}" data-th-errors="*{notificationItem}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="66b7993" id="imagedocument-systembugreport-field" data-th-classappend="${#fields.hasErrors('systemBugReport')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('BugReportsCollectionThymeleafController')}">
+    <label for="systemBugReport" class="col-md-3 control-label" data-th-text="#{label_imagedocument_systembugreport}">BugReport</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{systemBugReport}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{systemBugReport} == null" data-th-value="*{systemBugReport.id}" data-th-text="*{{systemBugReport}}" selected="selected">BugReport</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('systemBugReport')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('systemBugReport')}" aria-hidden="true"></span>
+      <span id="systemBugReport-error" class="help-block" data-th-if="${#fields.hasErrors('systemBugReport')}" data-th-errors="*{systemBugReport}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="a951d92b" id="imagedocument-tasktracking-field" data-th-classappend="${#fields.hasErrors('taskTracking')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('TaskTrackingsCollectionThymeleafController')}">
+    <label for="taskTracking" class="col-md-3 control-label" data-th-text="#{label_imagedocument_tasktracking}">TaskTracking</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{taskTracking}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{taskTracking} == null" data-th-value="*{taskTracking.id}" data-th-text="*{{taskTracking}}" selected="selected">TaskTracking</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('taskTracking')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('taskTracking')}" aria-hidden="true"></span>
+      <span id="taskTracking-error" class="help-block" data-th-if="${#fields.hasErrors('taskTracking')}" data-th-errors="*{taskTracking}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="75521233" id="imagedocument-worklog-field" data-th-classappend="${#fields.hasErrors('workLog')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('WorkLogsCollectionThymeleafController')}">
+    <label for="workLog" class="col-md-3 control-label" data-th-text="#{label_imagedocument_worklog}">WorkLog</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{workLog}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{workLog} == null" data-th-value="*{workLog.id}" data-th-text="*{{workLog}}" selected="selected">WorkLog</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('workLog')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('workLog')}" aria-hidden="true"></span>
+      <span id="workLog-error" class="help-block" data-th-if="${#fields.hasErrors('workLog')}" data-th-errors="*{workLog}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="f9e2a5cb" id="imagedocument-preventivemaintenancefinding-field" data-th-classappend="${#fields.hasErrors('preventiveMaintenanceFinding')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceFindingsCollectionThymeleafController')}">
+    <label for="preventiveMaintenanceFinding" class="col-md-3 control-label" data-th-text="#{label_imagedocument_preventivemaintenancefinding}">PreventiveMaintenanceFinding</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{preventiveMaintenanceFinding}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{preventiveMaintenanceFinding} == null" data-th-value="*{preventiveMaintenanceFinding.id}" data-th-text="*{{preventiveMaintenanceFinding}}" selected="selected">PreventiveMaintenanceFinding</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('preventiveMaintenanceFinding')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('preventiveMaintenanceFinding')}" aria-hidden="true"></span>
+      <span id="preventiveMaintenanceFinding-error" class="help-block" data-th-if="${#fields.hasErrors('preventiveMaintenanceFinding')}" data-th-errors="*{preventiveMaintenanceFinding}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="a3d677cb" id="imagedocument-autonomousmaintenancefinding-field" data-th-classappend="${#fields.hasErrors('autonomousMaintenanceFinding')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('AutonomousMaintenanceFindingsCollectionThymeleafController')}">
+    <label for="autonomousMaintenanceFinding" class="col-md-3 control-label" data-th-text="#{label_imagedocument_autonomousmaintenancefinding}">AutonomousMaintenanceFinding</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{autonomousMaintenanceFinding}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{autonomousMaintenanceFinding} == null" data-th-value="*{autonomousMaintenanceFinding.id}" data-th-text="*{{autonomousMaintenanceFinding}}" selected="selected">AutonomousMaintenanceFinding</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('autonomousMaintenanceFinding')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('autonomousMaintenanceFinding')}" aria-hidden="true"></span>
+      <span id="autonomousMaintenanceFinding-error" class="help-block" data-th-if="${#fields.hasErrors('autonomousMaintenanceFinding')}" data-th-errors="*{autonomousMaintenanceFinding}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="6014faeb" id="imagedocument-failuremaintenancereport-field" data-th-classappend="${#fields.hasErrors('failureMaintenanceReport')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('FailureMaintenanceReportsCollectionThymeleafController')}">
+    <label for="failureMaintenanceReport" class="col-md-3 control-label" data-th-text="#{label_imagedocument_failuremaintenancereport}">FailureMaintenanceReport</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{failureMaintenanceReport}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{failureMaintenanceReport} == null" data-th-value="*{failureMaintenanceReport.id}" data-th-text="*{{failureMaintenanceReport}}" selected="selected">FailureMaintenanceReport</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('failureMaintenanceReport')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('failureMaintenanceReport')}" aria-hidden="true"></span>
+      <span id="failureMaintenanceReport-error" class="help-block" data-th-if="${#fields.hasErrors('failureMaintenanceReport')}" data-th-errors="*{failureMaintenanceReport}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="8b68bb73" id="imagedocument-workorderheader-field" data-th-classappend="${#fields.hasErrors('workOrderHeader')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('WorkOrderHeadersCollectionThymeleafController')}">
+    <label for="workOrderHeader" class="col-md-3 control-label" data-th-text="#{label_imagedocument_workorderheader}">WorkOrderHeader</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{workOrderHeader}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{workOrderHeader} == null" data-th-value="*{workOrderHeader.id}" data-th-text="*{{workOrderHeader}}" selected="selected">WorkOrderHeader</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('workOrderHeader')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('workOrderHeader')}" aria-hidden="true"></span>
+      <span id="workOrderHeader-error" class="help-block" data-th-if="${#fields.hasErrors('workOrderHeader')}" data-th-errors="*{workOrderHeader}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="40e708ab" id="imagedocument-functionallocation-field" data-th-classappend="${#fields.hasErrors('functionalLocation')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('FunctionalLocationsCollectionThymeleafController')}">
+    <label for="functionalLocation" class="col-md-3 control-label" data-th-text="#{label_imagedocument_functionallocation}">FunctionalLocation</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{functionalLocation}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{functionalLocation} == null" data-th-value="*{functionalLocation.id}" data-th-text="*{{functionalLocation}}" selected="selected">FunctionalLocation</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('functionalLocation')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('functionalLocation')}" aria-hidden="true"></span>
+      <span id="functionalLocation-error" class="help-block" data-th-if="${#fields.hasErrors('functionalLocation')}" data-th-errors="*{functionalLocation}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="1e749f3" id="imagedocument-equipment-field" data-th-classappend="${#fields.hasErrors('equipment')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EquipmentsCollectionThymeleafController')}">
+    <label for="equipment" class="col-md-3 control-label" data-th-text="#{label_imagedocument_equipment}">Equipment</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{equipment}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{equipment} == null" data-th-value="*{equipment.id}" data-th-text="*{{equipment}}" selected="selected">Equipment</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('equipment')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('equipment')}" aria-hidden="true"></span>
+      <span id="equipment-error" class="help-block" data-th-if="${#fields.hasErrors('equipment')}" data-th-errors="*{equipment}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="d3d23a53" id="imagedocument-materialcatalog-field" data-th-classappend="${#fields.hasErrors('materialCatalog')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('MaterialCatalogsCollectionThymeleafController')}">
+    <label for="materialCatalog" class="col-md-3 control-label" data-th-text="#{label_imagedocument_materialcatalog}">MaterialCatalog</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{materialCatalog}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{materialCatalog} == null" data-th-value="*{materialCatalog.id}" data-th-text="*{{materialCatalog}}" selected="selected">MaterialCatalog</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('materialCatalog')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('materialCatalog')}" aria-hidden="true"></span>
+      <span id="materialCatalog-error" class="help-block" data-th-if="${#fields.hasErrors('materialCatalog')}" data-th-errors="*{materialCatalog}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="f2c39253" id="imagedocument-materialinstockdetail-field" data-th-classappend="${#fields.hasErrors('materialInstockDetail')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('MaterialInstockDetailsCollectionThymeleafController')}">
+    <label for="materialInstockDetail" class="col-md-3 control-label" data-th-text="#{label_imagedocument_materialinstockdetail}">MaterialInstockDetail</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{materialInstockDetail}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{materialInstockDetail} == null" data-th-value="*{materialInstockDetail.id}" data-th-text="*{{materialInstockDetail}}" selected="selected">MaterialInstockDetail</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('materialInstockDetail')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('materialInstockDetail')}" aria-hidden="true"></span>
+      <span id="materialInstockDetail-error" class="help-block" data-th-if="${#fields.hasErrors('materialInstockDetail')}" data-th-errors="*{materialInstockDetail}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="11900acb" id="imagedocument-measuringpoint-field" data-th-classappend="${#fields.hasErrors('measuringPoint')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('MeasuringPointsCollectionThymeleafController')}">
+    <label for="measuringPoint" class="col-md-3 control-label" data-th-text="#{label_imagedocument_measuringpoint}">MeasuringPoint</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{measuringPoint}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{measuringPoint} == null" data-th-value="*{measuringPoint.id}" data-th-text="*{{measuringPoint}}" selected="selected">MeasuringPoint</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('measuringPoint')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('measuringPoint')}" aria-hidden="true"></span>
+      <span id="measuringPoint-error" class="help-block" data-th-if="${#fields.hasErrors('measuringPoint')}" data-th-errors="*{measuringPoint}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="2d613353" id="imagedocument-measuringrecord-field" data-th-classappend="${#fields.hasErrors('measuringRecord')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('MeasuringRecordsCollectionThymeleafController')}">
+    <label for="measuringRecord" class="col-md-3 control-label" data-th-text="#{label_imagedocument_measuringrecord}">MeasuringRecord</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{measuringRecord}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{measuringRecord} == null" data-th-value="*{measuringRecord.id}" data-th-text="*{{measuringRecord}}" selected="selected">MeasuringRecord</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('measuringRecord')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('measuringRecord')}" aria-hidden="true"></span>
+      <span id="measuringRecord-error" class="help-block" data-th-if="${#fields.hasErrors('measuringRecord')}" data-th-errors="*{measuringRecord}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="bfc710cb" id="imagedocument-equipmentmaintenancerecord-field" data-th-classappend="${#fields.hasErrors('equipmentMaintenanceRecord')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EquipmentMaintenanceRecordsCollectionThymeleafController')}">
+    <label for="equipmentMaintenanceRecord" class="col-md-3 control-label" data-th-text="#{label_imagedocument_equipmentmaintenancerecord}">EquipmentMaintenanceRecord</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{equipmentMaintenanceRecord}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{equipmentMaintenanceRecord} == null" data-th-value="*{equipmentMaintenanceRecord.id}" data-th-text="*{{equipmentMaintenanceRecord}}" selected="selected">EquipmentMaintenanceRecord</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('equipmentMaintenanceRecord')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('equipmentMaintenanceRecord')}" aria-hidden="true"></span>
+      <span id="equipmentMaintenanceRecord-error" class="help-block" data-th-if="${#fields.hasErrors('equipmentMaintenanceRecord')}" data-th-errors="*{equipmentMaintenanceRecord}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="f8cd2393" id="imagedocument-partmaintenancerecord-field" data-th-classappend="${#fields.hasErrors('partMaintenanceRecord')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PartMaintenanceRecordsCollectionThymeleafController')}">
+    <label for="partMaintenanceRecord" class="col-md-3 control-label" data-th-text="#{label_imagedocument_partmaintenancerecord}">PartMaintenanceRecord</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{partMaintenanceRecord}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{partMaintenanceRecord} == null" data-th-value="*{partMaintenanceRecord.id}" data-th-text="*{{partMaintenanceRecord}}" selected="selected">PartMaintenanceRecord</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('partMaintenanceRecord')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('partMaintenanceRecord')}" aria-hidden="true"></span>
+      <span id="partMaintenanceRecord-error" class="help-block" data-th-if="${#fields.hasErrors('partMaintenanceRecord')}" data-th-errors="*{partMaintenanceRecord}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="93787eab" id="imagedocument-equipmentreplacerecord-field" data-th-classappend="${#fields.hasErrors('equipmentReplaceRecord')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EquipmentReplaceRecordsCollectionThymeleafController')}">
+    <label for="equipmentReplaceRecord" class="col-md-3 control-label" data-th-text="#{label_imagedocument_equipmentreplacerecord}">EquipmentReplaceRecord</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{equipmentReplaceRecord}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{equipmentReplaceRecord} == null" data-th-value="*{equipmentReplaceRecord.id}" data-th-text="*{{equipmentReplaceRecord}}" selected="selected">EquipmentReplaceRecord</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('equipmentReplaceRecord')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('equipmentReplaceRecord')}" aria-hidden="true"></span>
+      <span id="equipmentReplaceRecord-error" class="help-block" data-th-if="${#fields.hasErrors('equipmentReplaceRecord')}" data-th-errors="*{equipmentReplaceRecord}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="93c73573" id="imagedocument-partreplacerecord-field" data-th-classappend="${#fields.hasErrors('partReplaceRecord')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PartReplaceRecordsCollectionThymeleafController')}">
+    <label for="partReplaceRecord" class="col-md-3 control-label" data-th-text="#{label_imagedocument_partreplacerecord}">PartReplaceRecord</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{partReplaceRecord}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{partReplaceRecord} == null" data-th-value="*{partReplaceRecord.id}" data-th-text="*{{partReplaceRecord}}" selected="selected">PartReplaceRecord</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('partReplaceRecord')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('partReplaceRecord')}" aria-hidden="true"></span>
+      <span id="partReplaceRecord-error" class="help-block" data-th-if="${#fields.hasErrors('partReplaceRecord')}" data-th-errors="*{partReplaceRecord}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="b0e25dcb" id="imagedocument-equipmentscrappingrecord-field" data-th-classappend="${#fields.hasErrors('equipmentScrappingRecord')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EquipmentScrappingRecordsCollectionThymeleafController')}">
+    <label for="equipmentScrappingRecord" class="col-md-3 control-label" data-th-text="#{label_imagedocument_equipmentscrappingrecord}">EquipmentScrappingRecord</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{equipmentScrappingRecord}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{equipmentScrappingRecord} == null" data-th-value="*{equipmentScrappingRecord.id}" data-th-text="*{{equipmentScrappingRecord}}" selected="selected">EquipmentScrappingRecord</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('equipmentScrappingRecord')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('equipmentScrappingRecord')}" aria-hidden="true"></span>
+      <span id="equipmentScrappingRecord-error" class="help-block" data-th-if="${#fields.hasErrors('equipmentScrappingRecord')}" data-th-errors="*{equipmentScrappingRecord}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="d85e8293" id="imagedocument-partscrappingrecord-field" data-th-classappend="${#fields.hasErrors('partScrappingRecord')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PartScrappingRecordsCollectionThymeleafController')}">
+    <label for="partScrappingRecord" class="col-md-3 control-label" data-th-text="#{label_imagedocument_partscrappingrecord}">PartScrappingRecord</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{partScrappingRecord}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{partScrappingRecord} == null" data-th-value="*{partScrappingRecord.id}" data-th-text="*{{partScrappingRecord}}" selected="selected">PartScrappingRecord</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('partScrappingRecord')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('partScrappingRecord')}" aria-hidden="true"></span>
+      <span id="partScrappingRecord-error" class="help-block" data-th-if="${#fields.hasErrors('partScrappingRecord')}" data-th-errors="*{partScrappingRecord}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="e4d07c0b" id="imagedocument-equipmentparameter-field" data-th-classappend="${#fields.hasErrors('equipmentParameter')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EquipmentParametersCollectionThymeleafController')}">
+    <label for="equipmentParameter" class="col-md-3 control-label" data-th-text="#{label_imagedocument_equipmentparameter}">EquipmentParameter</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{equipmentParameter}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{equipmentParameter} == null" data-th-value="*{equipmentParameter.id}" data-th-text="*{{equipmentParameter}}" selected="selected">EquipmentParameter</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('equipmentParameter')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('equipmentParameter')}" aria-hidden="true"></span>
+      <span id="equipmentParameter-error" class="help-block" data-th-if="${#fields.hasErrors('equipmentParameter')}" data-th-errors="*{equipmentParameter}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="299fe3b3" id="imagedocument-preventivemaintenancestandard-field" data-th-classappend="${#fields.hasErrors('preventiveMaintenanceStandard')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceStandardsCollectionThymeleafController')}">
+    <label for="preventiveMaintenanceStandard" class="col-md-3 control-label" data-th-text="#{label_imagedocument_preventivemaintenancestandard}">PreventiveMaintenanceStandard</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{preventiveMaintenanceStandard}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{preventiveMaintenanceStandard} == null" data-th-value="*{preventiveMaintenanceStandard.id}" data-th-text="*{{preventiveMaintenanceStandard}}" selected="selected">PreventiveMaintenanceStandard</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('preventiveMaintenanceStandard')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('preventiveMaintenanceStandard')}" aria-hidden="true"></span>
+      <span id="preventiveMaintenanceStandard-error" class="help-block" data-th-if="${#fields.hasErrors('preventiveMaintenanceStandard')}" data-th-errors="*{preventiveMaintenanceStandard}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="ce1347cb" id="imagedocument-preventivemaintenancecontent-field" data-th-classappend="${#fields.hasErrors('preventiveMaintenanceContent')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceContentsCollectionThymeleafController')}">
+    <label for="preventiveMaintenanceContent" class="col-md-3 control-label" data-th-text="#{label_imagedocument_preventivemaintenancecontent}">PreventiveMaintenanceContent</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{preventiveMaintenanceContent}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{preventiveMaintenanceContent} == null" data-th-value="*{preventiveMaintenanceContent.id}" data-th-text="*{{preventiveMaintenanceContent}}" selected="selected">PreventiveMaintenanceContent</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('preventiveMaintenanceContent')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('preventiveMaintenanceContent')}" aria-hidden="true"></span>
+      <span id="preventiveMaintenanceContent-error" class="help-block" data-th-if="${#fields.hasErrors('preventiveMaintenanceContent')}" data-th-errors="*{preventiveMaintenanceContent}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="a14d7ceb" id="imagedocument-preventivemaintenanceexecution-field" data-th-classappend="${#fields.hasErrors('preventiveMaintenanceExecution')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceExecutionsCollectionThymeleafController')}">
+    <label for="preventiveMaintenanceExecution" class="col-md-3 control-label" data-th-text="#{label_imagedocument_preventivemaintenanceexecution}">PreventiveMaintenanceExecution</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{preventiveMaintenanceExecution}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{preventiveMaintenanceExecution} == null" data-th-value="*{preventiveMaintenanceExecution.id}" data-th-text="*{{preventiveMaintenanceExecution}}" selected="selected">PreventiveMaintenanceExecution</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('preventiveMaintenanceExecution')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('preventiveMaintenanceExecution')}" aria-hidden="true"></span>
+      <span id="preventiveMaintenanceExecution-error" class="help-block" data-th-if="${#fields.hasErrors('preventiveMaintenanceExecution')}" data-th-errors="*{preventiveMaintenanceExecution}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="525c038b" id="imagedocument-procurementrequest-field" data-th-classappend="${#fields.hasErrors('procurementRequest')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('ProcurementRequestsCollectionThymeleafController')}">
+    <label for="procurementRequest" class="col-md-3 control-label" data-th-text="#{label_imagedocument_procurementrequest}">ProcurementRequest</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{procurementRequest}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{procurementRequest} == null" data-th-value="*{procurementRequest.id}" data-th-text="*{{procurementRequest}}" selected="selected">ProcurementRequest</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('procurementRequest')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('procurementRequest')}" aria-hidden="true"></span>
+      <span id="procurementRequest-error" class="help-block" data-th-if="${#fields.hasErrors('procurementRequest')}" data-th-errors="*{procurementRequest}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="81da3aab" id="imagedocument-procurementorder-field" data-th-classappend="${#fields.hasErrors('procurementOrder')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('ProcurementOrdersCollectionThymeleafController')}">
+    <label for="procurementOrder" class="col-md-3 control-label" data-th-text="#{label_imagedocument_procurementorder}">ProcurementOrder</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{procurementOrder}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{procurementOrder} == null" data-th-value="*{procurementOrder.id}" data-th-text="*{{procurementOrder}}" selected="selected">ProcurementOrder</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('procurementOrder')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('procurementOrder')}" aria-hidden="true"></span>
+      <span id="procurementOrder-error" class="help-block" data-th-if="${#fields.hasErrors('procurementOrder')}" data-th-errors="*{procurementOrder}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="bdbff373" id="imagedocument-procurementitemdetail-field" data-th-classappend="${#fields.hasErrors('procurementItemDetail')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('ProcurementItemDetailsCollectionThymeleafController')}">
+    <label for="procurementItemDetail" class="col-md-3 control-label" data-th-text="#{label_imagedocument_procurementitemdetail}">ProcurementItemDetail</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{procurementItemDetail}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{procurementItemDetail} == null" data-th-value="*{procurementItemDetail.id}" data-th-text="*{{procurementItemDetail}}" selected="selected">ProcurementItemDetail</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('procurementItemDetail')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('procurementItemDetail')}" aria-hidden="true"></span>
+      <span id="procurementItemDetail-error" class="help-block" data-th-if="${#fields.hasErrors('procurementItemDetail')}" data-th-errors="*{procurementItemDetail}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="c6c9ec13" id="imagedocument-assetclassification-field" data-th-classappend="${#fields.hasErrors('assetClassification')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('AssetClassificationsCollectionThymeleafController')}">
+    <label for="assetClassification" class="col-md-3 control-label" data-th-text="#{label_imagedocument_assetclassification}">AssetClassification</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{assetClassification}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{assetClassification} == null" data-th-value="*{assetClassification.id}" data-th-text="*{{assetClassification}}" selected="selected">AssetClassification</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('assetClassification')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('assetClassification')}" aria-hidden="true"></span>
+      <span id="assetClassification-error" class="help-block" data-th-if="${#fields.hasErrors('assetClassification')}" data-th-errors="*{assetClassification}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="cd44e93" id="imagedocument-assetstatus-field" data-th-classappend="${#fields.hasErrors('assetStatus')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('AssetStatusesCollectionThymeleafController')}">
+    <label for="assetStatus" class="col-md-3 control-label" data-th-text="#{label_imagedocument_assetstatus}">AssetStatus</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{assetStatus}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{assetStatus} == null" data-th-value="*{assetStatus.id}" data-th-text="*{{assetStatus}}" selected="selected">AssetStatus</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('assetStatus')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('assetStatus')}" aria-hidden="true"></span>
+      <span id="assetStatus-error" class="help-block" data-th-if="${#fields.hasErrors('assetStatus')}" data-th-errors="*{assetStatus}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="950c54b3" id="imagedocument-assetstatuschangerecord-field" data-th-classappend="${#fields.hasErrors('assetStatusChangeRecord')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('AssetStatusChangeRecordsCollectionThymeleafController')}">
+    <label for="assetStatusChangeRecord" class="col-md-3 control-label" data-th-text="#{label_imagedocument_assetstatuschangerecord}">AssetStatusChangeRecord</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{assetStatusChangeRecord}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{assetStatusChangeRecord} == null" data-th-value="*{assetStatusChangeRecord.id}" data-th-text="*{{assetStatusChangeRecord}}" selected="selected">AssetStatusChangeRecord</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('assetStatusChangeRecord')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('assetStatusChangeRecord')}" aria-hidden="true"></span>
+      <span id="assetStatusChangeRecord-error" class="help-block" data-th-if="${#fields.hasErrors('assetStatusChangeRecord')}" data-th-errors="*{assetStatusChangeRecord}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="892ddd0b" id="imagedocument-criticalclassification-field" data-th-classappend="${#fields.hasErrors('criticalClassification')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('CriticalClassificationsCollectionThymeleafController')}">
+    <label for="criticalClassification" class="col-md-3 control-label" data-th-text="#{label_imagedocument_criticalclassification}">CriticalClassification</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{criticalClassification}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{criticalClassification} == null" data-th-value="*{criticalClassification.id}" data-th-text="*{{criticalClassification}}" selected="selected">CriticalClassification</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('criticalClassification')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('criticalClassification')}" aria-hidden="true"></span>
+      <span id="criticalClassification-error" class="help-block" data-th-if="${#fields.hasErrors('criticalClassification')}" data-th-errors="*{criticalClassification}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="1cfb2f6b" id="imagedocument-costcenter-field" data-th-classappend="${#fields.hasErrors('costCenter')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('CostCentersCollectionThymeleafController')}">
+    <label for="costCenter" class="col-md-3 control-label" data-th-text="#{label_imagedocument_costcenter}">CostCenter</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{costCenter}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{costCenter} == null" data-th-value="*{costCenter.id}" data-th-text="*{{costCenter}}" selected="selected">CostCenter</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('costCenter')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('costCenter')}" aria-hidden="true"></span>
+      <span id="costCenter-error" class="help-block" data-th-if="${#fields.hasErrors('costCenter')}" data-th-errors="*{costCenter}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="dc1fcccb" id="imagedocument-employee-field" data-th-classappend="${#fields.hasErrors('employee')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EmployeesCollectionThymeleafController')}">
+    <label for="employee" class="col-md-3 control-label" data-th-text="#{label_imagedocument_employee}">Employee</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{employee}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{employee} == null" data-th-value="*{employee.id}" data-th-text="*{{employee}}" selected="selected">Employee</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('employee')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('employee')}" aria-hidden="true"></span>
+      <span id="employee-error" class="help-block" data-th-if="${#fields.hasErrors('employee')}" data-th-errors="*{employee}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="62be62cb" id="imagedocument-purchaseexpedite-field" data-th-classappend="${#fields.hasErrors('purchaseExpedite')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PurchaseExpeditesCollectionThymeleafController')}">
+    <label for="purchaseExpedite" class="col-md-3 control-label" data-th-text="#{label_imagedocument_purchaseexpedite}">PurchaseExpedite</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{purchaseExpedite}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{purchaseExpedite} == null" data-th-value="*{purchaseExpedite.id}" data-th-text="*{{purchaseExpedite}}" selected="selected">PurchaseExpedite</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('purchaseExpedite')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('purchaseExpedite')}" aria-hidden="true"></span>
+      <span id="purchaseExpedite-error" class="help-block" data-th-if="${#fields.hasErrors('purchaseExpedite')}" data-th-errors="*{purchaseExpedite}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="3996d193" id="imagedocument-instockdetail-field" data-th-classappend="${#fields.hasErrors('instockDetail')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('InstockDetailsCollectionThymeleafController')}">
+    <label for="instockDetail" class="col-md-3 control-label" data-th-text="#{label_imagedocument_instockdetail}">InstockDetail</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{instockDetail}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{instockDetail} == null" data-th-value="*{instockDetail.id}" data-th-text="*{{instockDetail}}" selected="selected">InstockDetail</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('instockDetail')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('instockDetail')}" aria-hidden="true"></span>
+      <span id="instockDetail-error" class="help-block" data-th-if="${#fields.hasErrors('instockDetail')}" data-th-errors="*{instockDetail}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="41ad5dcb" id="imagedocument-materialoutstockdetail-field" data-th-classappend="${#fields.hasErrors('materialOutstockDetail')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('MaterialOutstockDetailsCollectionThymeleafController')}">
+    <label for="materialOutstockDetail" class="col-md-3 control-label" data-th-text="#{label_imagedocument_materialoutstockdetail}">MaterialOutstockDetail</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{materialOutstockDetail}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{materialOutstockDetail} == null" data-th-value="*{materialOutstockDetail.id}" data-th-text="*{{materialOutstockDetail}}" selected="selected">MaterialOutstockDetail</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('materialOutstockDetail')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('materialOutstockDetail')}" aria-hidden="true"></span>
+      <span id="materialOutstockDetail-error" class="help-block" data-th-if="${#fields.hasErrors('materialOutstockDetail')}" data-th-errors="*{materialOutstockDetail}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="2b9aad53" id="imagedocument-technicalobject-field" data-th-classappend="${#fields.hasErrors('technicalObject')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('TechnicalObjectsCollectionThymeleafController')}">
+    <label for="technicalObject" class="col-md-3 control-label" data-th-text="#{label_imagedocument_technicalobject}">TechnicalObject</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{technicalObject}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{technicalObject} == null" data-th-value="*{technicalObject.id}" data-th-text="*{{technicalObject}}" selected="selected">TechnicalObject</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('technicalObject')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('technicalObject')}" aria-hidden="true"></span>
+      <span id="technicalObject-error" class="help-block" data-th-if="${#fields.hasErrors('technicalObject')}" data-th-errors="*{technicalObject}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="b4da45eb" id="imagedocument-equipmentlubrication-field" data-th-classappend="${#fields.hasErrors('equipmentLubrication')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EquipmentLubricationsCollectionThymeleafController')}">
+    <label for="equipmentLubrication" class="col-md-3 control-label" data-th-text="#{label_imagedocument_equipmentlubrication}">EquipmentLubrication</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{equipmentLubrication}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{equipmentLubrication} == null" data-th-value="*{equipmentLubrication.id}" data-th-text="*{{equipmentLubrication}}" selected="selected">EquipmentLubrication</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('equipmentLubrication')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('equipmentLubrication')}" aria-hidden="true"></span>
+      <span id="equipmentLubrication-error" class="help-block" data-th-if="${#fields.hasErrors('equipmentLubrication')}" data-th-errors="*{equipmentLubrication}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="83ebf44b" id="imagedocument-recordstatus-field" data-th-classappend="${#fields.hasErrors('recordStatus')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('RecordStatusesCollectionThymeleafController')}">
+    <label for="recordStatus" class="col-md-3 control-label" data-th-text="#{label_imagedocument_recordstatus}">RecordStatus</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{recordStatus}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{recordStatus} == null" data-th-value="*{recordStatus.id}" data-th-text="*{{recordStatus}}" selected="selected">RecordStatus</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('recordStatus')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('recordStatus')}" aria-hidden="true"></span>
+      <span id="recordStatus-error" class="help-block" data-th-if="${#fields.hasErrors('recordStatus')}" data-th-errors="*{recordStatus}">Error message.</span>
+    </div>
+</div>
+            </fieldset>
+
+
+              <!-- buttons form -->
+              <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" class="btn btn-primary" data-th-text="#{label_save}">Save</button>
+                    <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{${collectionLink.to('list')}} + '\''" data-th-text="#{label_reset}">Cancel</button>
+                </div>
+              </div>
+
+          </form>
+          <!-- /FORM -->
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+
+    <!-- DateTimePicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js" data-th-src="@{/webjars/datetimepicker/build/jquery.datetimepicker.full.min.js}"></script>
+    <script src="../../static/public/js/datetimepicker-defaults.js" data-th-src="@{/public/js/datetimepicker-defaults.js}"></script>
+
+    <!-- jquery.inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.1/jquery.inputmask.bundle.min.js" data-th-src="@{/webjars/jquery.inputmask/min/jquery.inputmask.bundle.min.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+					(function(jQuery) {
+						jQuery(document)
+								.ready(
+										function() {
+											Inputmask
+													.extendAliases({
+														'numeric' : {
+															'groupSeparator' : /*[[#{label_inputmask_groupSeparator}]]*/'.',
+															'radixPoint' : /*[[#{label_inputmask_radixPoint}]]*/','
+														},
+														'currency' : {
+															'prefix' : /*[[#{label_inputmask_prefix}]]*/'',
+															'suffix' : /*[[#{label_inputmask_suffix}]]*/' €'
+														}
+													});
+										});
+					})(jQuery);
+  		</script>
+    <script src="../../static/public/js/inputmask-defaults.js" data-th-src="@{/public/js/inputmask-defaults.js}"></script>
+
+    <!-- JQuery Validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js" data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
+		  </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js" data-th-src="@{/webjars/jquery-validation/dist/additional-methods.min.js}">
+			</script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/localization/messages_es.js" data-th-src="@{/webjars/jquery-validation/src/localization/messages_}+${#locale.language}+'.js'" data-th-if="${#locale.language} != 'en'">
+			</script>
+    <script src="../../static/public/js/validation-defaults.js" data-th-src="@{/public/js/validation-defaults.js}">
+			</script>
+
+    <script type="text/javascript" data-th-inline="javascript">
+					(function(jQuery) {
+						jQuery(document)
+								.ready(
+										function() {
+											jQuery
+													.extend(
+															jQuery.validator.messages,
+															{
+																'dateformat' : /*[[#{error_invalid_date}]]*/'Please enter a correct date/time',
+																'inputmask' : /*[[#{error_invalid_maskValue}]]*/'Please enter a valid value',
+															});
+										});
+					})(jQuery);
+		  </script>
+
+    </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_storagelocation})}|">Show StorageLocation - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${storageLocation}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="storagelocation-warehouse-field" data-z="e04be899">
+            	      <strong data-th-text="#{label_storagelocation_warehouse}">warehouse</strong>
+                    <span data-th-text="*{{warehouse}}">warehouseValue</span>
+         	        </li>
+                  <li id="storagelocation-location-field" data-z="ed5c15e5">
+            	      <strong data-th-text="#{label_storagelocation_location}">location</strong>
+                    <span data-th-text="*{{location}}">locationValue</span>
+         	        </li>
+                  <li id="storagelocation-binname-field" data-z="35454559">
+            	      <strong data-th-text="#{label_storagelocation_binname}">binName</strong>
+                    <span data-th-text="*{{binName}}">binNameValue</span>
+         	        </li>
+                  <li id="storagelocation-description-field" data-z="bdb9e6f9">
+            	      <strong data-th-text="#{label_storagelocation_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="storagelocation-recordstatus-field" data-z="e32fb545">
+            	      <strong data-th-text="#{label_storagelocation_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="storagelocation-createddate-field" data-z="cc3267d9">
+            	      <strong data-th-text="#{label_storagelocation_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="storagelocation-createdby-field" data-z="75b07d39">
+            	      <strong data-th-text="#{label_storagelocation_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="storagelocation-lastmodifieddate-field" data-z="5f46ad25">
+            	      <strong data-th-text="#{label_storagelocation_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="storagelocation-lastmodifiedby-field" data-z="836da585">
+            	      <strong data-th-text="#{label_storagelocation_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

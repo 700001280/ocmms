@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+
+  <head id="head">
+    <title data-th-text="#{label_list_entity(#{label_organization_plural})}">
+    List Organization - OCMMSROO - SpringRoo Application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+        <div class="container-fluid content">
+
+          <h1 data-th-text="#{label_organization_plural}">Organizations</h1>
+
+          <!--TABLE-->
+          <div class="table-responsive" id="containerFields" data-th-with="collectionLink=${@linkBuilder.of('OrganizationsCollectionThymeleafController')},itemLink=${@linkBuilder.of('OrganizationsItemThymeleafController')}">
+              <table id="organization-entity-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-row-id="id" data-select="single" data-z="82233a9" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${collectionLink.to('datatables')}" data-data-show-inline="false" data-data-show-url="${itemLink.to('show').with('organization', '_ID_')}" data-data-export-csv-url="${collectionLink.to('exportCsv')}" data-data-export-xls-url="${collectionLink.to('exportXls')}" data-data-export-pdf-url="${collectionLink.to('exportPdf')}" data-data-create-url="${collectionLink.to('createForm')}" data-data-edit-url="${itemLink.to('editForm').with('organization', '_ID_')}" data-data-delete-url="${itemLink.to('delete').with('organization', '_ID_')}" data-data-delete-batch-url="${collectionLink.to('deleteBatch').with('ids', '_ID_')}">
+                <caption class="sr-only" data-th-text="#{label_list_entity(#{label_organization_plural})}">Organization List</caption>
+                <thead>
+                  <tr>
+                    <th data-data="id" data-checkboxes="true"></th>
+                    <th data-data="code" data-th-text="#{label_organization_code}">code</th>
+                    <th data-data="orgName" data-th-text="#{label_organization_orgname}">orgName</th>
+                    <th data-data="description" data-th-text="#{label_organization_description}">description</th>
+                    <th data-data="postalCode" data-th-text="#{label_organization_postalcode}">postalCode</th>
+                    <th data-data="phone" data-th-text="#{label_organization_phone}">phone</th>
+                    <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                  </tr>
+                </thead>
+                <tbody data-th-remove="all">
+                  <tr>
+                    <td></td>
+                    <td>code</td>
+                    <td>orgName</td>
+                    <td>description</td>
+                    <td>postalCode</td>
+                    <td>phone</td>
+                    <td data-th-text="#{label_tools}">Tools</td>
+                  </tr>
+                </tbody>
+              </table>
+                <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='organization-entity-table',
+                    title=#{label_delete_entity(#{label_organization_plural})}, message=#{info_delete_item_confirm}, content=~{organizations/listDeleteModal :: organization-entityModalConfirmBody})}">
+                </div>
+                <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='organization-entity-table',
+                    title=#{label_delete_entity(#{label_organization_plural})}, message=#{info_delete_batch_confirm}, content=~{organizations/listDeleteModalBatch :: organization-entityModalConfirmBody})}">
+                </div>
+              <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='organization-entity-table',
+                  title=#{label_export_empty_error(#{label_organization_plural})}, message=#{info_export_empty_error})}">
+              </div>
+          </div>
+          <!-- /TABLE -->
+
+          <!-- details -->
+        <hr>
+        <div id="details-level-1">
+            <ul class="nav nav-tabs" id="nav-tabs">
+                <li class="active">
+                  <a id="costcenters-detail-table-tab" data-toggle="tab" href="#detail-costcenters-detail" data-z="98dd55ac">CostCenters</a>
+                </li>
+                <li class="active">
+                  <a id="departments-detail-table-tab" data-toggle="tab" href="#detail-departments-detail" data-z="b2dabfec">Departments</a>
+                </li>
+                <li class="active">
+                  <a id="employees-detail-table-tab" data-toggle="tab" href="#detail-employees-detail" data-z="9031ec34">Employees</a>
+                </li>
+                <li class="active">
+                  <a id="hierarchyworkcenters-detail-table-tab" data-toggle="tab" href="#detail-hierarchyworkcenters-detail" data-z="95b1e45a">HierarchyWorkCenters</a>
+                </li>
+                <li class="active">
+                  <a id="operationalworkcenters-detail-table-tab" data-toggle="tab" href="#detail-operationalworkcenters-detail" data-z="87ab65e0">OperationalWorkCenters</a>
+                </li>
+                <li class="active">
+                  <a id="procurementitemdetails-detail-table-tab" data-toggle="tab" href="#detail-procurementitemdetails-detail" data-z="8748e128">ProcurementItemDetails</a>
+                </li>
+                <li class="active">
+                  <a id="technicalobjects-detail-table-tab" data-toggle="tab" href="#detail-technicalobjects-detail" data-z="c8b0d938">TechnicalObjects</a>
+                </li>
+                <li class="active">
+                  <a id="warehouses-detail-table-tab" data-toggle="tab" href="#detail-warehouses-detail" data-z="aec88e4a">Warehouses</a>
+                </li>
+                <li class="active">
+                  <a id="workcenterresponsibles-detail-table-tab" data-toggle="tab" href="#detail-workcenterresponsibles-detail" data-z="9f880330">WorkCenterResponsibles</a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="tab-content">
+              <div id="detail-costcenters-detail" class="tab-pane active">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('OrganizationsItemCostCentersThymeleafController')},detailItemLink=${@linkBuilder.of('CostCentersItemThymeleafController')}">
+                    <table id="costcenters-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="organization-entity-table" data-row-id="id" data-z="98dd55ac" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('organization', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('costCenter', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('organization', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('costCenter', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromCostCenters').with('organization', '_PARENTID_').with('costCentersToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromCostCentersBatch').with('organization', '_PARENTID_').with('costCentersToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_organization_costcenters})}">CostCenters List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="code" data-th-text="#{label_organization_costcenters_code}">code</th>
+                              <th data-data="description" data-th-text="#{label_organization_costcenters_description}">description</th>
+                              <th data-data="organization" data-th-text="#{label_organization_costcenters_organization}">organization</th>
+                              <th data-data="recordStatus" data-th-text="#{label_organization_costcenters_recordstatus}">recordStatus</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>code</td>
+                              <td>description</td>
+                              <td>organization</td>
+                              <td>recordStatus</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='costcenters-detail-table',
+                        title=#{label_delete_entity(#{label_organization_costcenters})}, message=#{info_delete_item_confirm}, content=~{organizations/costCenters/listDeleteModal :: costcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='costcenters-detail-table',
+                        title=#{label_delete_entity(#{label_organization_costcenters})}, message=#{info_delete_batch_confirm}, content=~{organizations/costCenters/listDeleteModalBatch :: costcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='costcenters-detail-table',
+                        title=#{label_export_empty_error(#{label_organization_costcenters})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-departments-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('OrganizationsItemDepartmentsThymeleafController')},detailItemLink=${@linkBuilder.of('DepartmentsItemThymeleafController')}">
+                    <table id="departments-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="organization-entity-table" data-row-id="id" data-z="b2dabfec" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('organization', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('department', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('organization', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('department', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromDepartments').with('organization', '_PARENTID_').with('departmentsToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromDepartmentsBatch').with('organization', '_PARENTID_').with('departmentsToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_organization_departments})}">Departments List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="code" data-th-text="#{label_organization_departments_code}">code</th>
+                              <th data-data="orgName" data-th-text="#{label_organization_departments_orgname}">orgName</th>
+                              <th data-data="description" data-th-text="#{label_organization_departments_description}">description</th>
+                              <th data-data="postalCode" data-th-text="#{label_organization_departments_postalcode}">postalCode</th>
+                              <th data-data="phone" data-th-text="#{label_organization_departments_phone}">phone</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>code</td>
+                              <td>orgName</td>
+                              <td>description</td>
+                              <td>postalCode</td>
+                              <td>phone</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='departments-detail-table',
+                        title=#{label_delete_entity(#{label_organization_departments})}, message=#{info_delete_item_confirm}, content=~{organizations/departments/listDeleteModal :: departments-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='departments-detail-table',
+                        title=#{label_delete_entity(#{label_organization_departments})}, message=#{info_delete_batch_confirm}, content=~{organizations/departments/listDeleteModalBatch :: departments-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='departments-detail-table',
+                        title=#{label_export_empty_error(#{label_organization_departments})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-employees-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('OrganizationsItemEmployeesThymeleafController')},detailItemLink=${@linkBuilder.of('EmployeesItemThymeleafController')}">
+                    <table id="employees-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="organization-entity-table" data-row-id="id" data-z="9031ec34" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('organization', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('employee', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('organization', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('employee', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromEmployees').with('organization', '_PARENTID_').with('employeesToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromEmployeesBatch').with('organization', '_PARENTID_').with('employeesToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_organization_employees})}">Employees List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="organization" data-th-text="#{label_organization_employees_organization}">organization</th>
+                              <th data-data="costCenter" data-th-text="#{label_organization_employees_costcenter}">costCenter</th>
+                              <th data-data="maintWorkCenter" data-th-text="#{label_organization_employees_maintworkcenter}">maintWorkCenter</th>
+                              <th data-data="personNumber" data-th-text="#{label_organization_employees_personnumber}">personNumber</th>
+                              <th data-data="username" data-th-text="#{label_organization_employees_username}">username</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>organization</td>
+                              <td>costCenter</td>
+                              <td>maintWorkCenter</td>
+                              <td>personNumber</td>
+                              <td>username</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='employees-detail-table',
+                        title=#{label_delete_entity(#{label_organization_employees})}, message=#{info_delete_item_confirm}, content=~{organizations/employees/listDeleteModal :: employees-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='employees-detail-table',
+                        title=#{label_delete_entity(#{label_organization_employees})}, message=#{info_delete_batch_confirm}, content=~{organizations/employees/listDeleteModalBatch :: employees-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='employees-detail-table',
+                        title=#{label_export_empty_error(#{label_organization_employees})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-hierarchyworkcenters-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('OrganizationsItemHierarchyWorkCentersThymeleafController')},detailItemLink=${@linkBuilder.of('HierarchyWorkCentersItemThymeleafController')}">
+                    <table id="hierarchyworkcenters-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="organization-entity-table" data-row-id="id" data-z="95b1e45a" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('organization', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('hierarchyWorkCenter', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('organization', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('hierarchyWorkCenter', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromHierarchyWorkCenters').with('organization', '_PARENTID_').with('hierarchyWorkCentersToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromHierarchyWorkCentersBatch').with('organization', '_PARENTID_').with('hierarchyWorkCentersToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_organization_hierarchyworkcenters})}">HierarchyWorkCenters List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="organization" data-th-text="#{label_organization_hierarchyworkcenters_organization}">organization</th>
+                              <th data-data="code" data-th-text="#{label_organization_hierarchyworkcenters_code}">code</th>
+                              <th data-data="category" data-th-text="#{label_organization_hierarchyworkcenters_category}">category</th>
+                              <th data-data="name" data-th-text="#{label_organization_hierarchyworkcenters_name}">name</th>
+                              <th data-data="responsible" data-th-text="#{label_organization_hierarchyworkcenters_responsible}">responsible</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>organization</td>
+                              <td>code</td>
+                              <td>category</td>
+                              <td>name</td>
+                              <td>responsible</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='hierarchyworkcenters-detail-table',
+                        title=#{label_delete_entity(#{label_organization_hierarchyworkcenters})}, message=#{info_delete_item_confirm}, content=~{organizations/hierarchyWorkCenters/listDeleteModal :: hierarchyworkcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='hierarchyworkcenters-detail-table',
+                        title=#{label_delete_entity(#{label_organization_hierarchyworkcenters})}, message=#{info_delete_batch_confirm}, content=~{organizations/hierarchyWorkCenters/listDeleteModalBatch :: hierarchyworkcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='hierarchyworkcenters-detail-table',
+                        title=#{label_export_empty_error(#{label_organization_hierarchyworkcenters})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-operationalworkcenters-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('OrganizationsItemOperationalWorkCentersThymeleafController')},detailItemLink=${@linkBuilder.of('OperationalWorkCentersItemThymeleafController')}">
+                    <table id="operationalworkcenters-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="organization-entity-table" data-row-id="id" data-z="87ab65e0" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('organization', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('operationalWorkCenter', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('organization', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('operationalWorkCenter', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromOperationalWorkCenters').with('organization', '_PARENTID_').with('operationalWorkCentersToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromOperationalWorkCentersBatch').with('organization', '_PARENTID_').with('operationalWorkCentersToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_organization_operationalworkcenters})}">OperationalWorkCenters List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="organization" data-th-text="#{label_organization_operationalworkcenters_organization}">organization</th>
+                              <th data-data="mainWorkCenter" data-th-text="#{label_organization_operationalworkcenters_mainworkcenter}">mainWorkCenter</th>
+                              <th data-data="code" data-th-text="#{label_organization_operationalworkcenters_code}">code</th>
+                              <th data-data="category" data-th-text="#{label_organization_operationalworkcenters_category}">category</th>
+                              <th data-data="name" data-th-text="#{label_organization_operationalworkcenters_name}">name</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>organization</td>
+                              <td>mainWorkCenter</td>
+                              <td>code</td>
+                              <td>category</td>
+                              <td>name</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='operationalworkcenters-detail-table',
+                        title=#{label_delete_entity(#{label_organization_operationalworkcenters})}, message=#{info_delete_item_confirm}, content=~{organizations/operationalWorkCenters/listDeleteModal :: operationalworkcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='operationalworkcenters-detail-table',
+                        title=#{label_delete_entity(#{label_organization_operationalworkcenters})}, message=#{info_delete_batch_confirm}, content=~{organizations/operationalWorkCenters/listDeleteModalBatch :: operationalworkcenters-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='operationalworkcenters-detail-table',
+                        title=#{label_export_empty_error(#{label_organization_operationalworkcenters})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-procurementitemdetails-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('OrganizationsItemProcurementItemDetailsThymeleafController')},detailItemLink=${@linkBuilder.of('ProcurementItemDetailsItemThymeleafController')}">
+                    <table id="procurementitemdetails-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="organization-entity-table" data-row-id="id" data-z="8748e128" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('organization', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('procurementItemDetail', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('organization', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('procurementItemDetail', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromProcurementItemDetails').with('organization', '_PARENTID_').with('procurementItemDetailsToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromProcurementItemDetailsBatch').with('organization', '_PARENTID_').with('procurementItemDetailsToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_organization_procurementitemdetails})}">ProcurementItemDetails List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="requester" data-th-text="#{label_organization_procurementitemdetails_requester}">requester</th>
+                              <th data-data="submitDate" data-th-text="#{label_organization_procurementitemdetails_submitdate}">submitDate</th>
+                              <th data-data="quantity" data-th-text="#{label_organization_procurementitemdetails_quantity}">quantity</th>
+                              <th data-data="uom" data-th-text="#{label_organization_procurementitemdetails_uom}">uom</th>
+                              <th data-data="organization" data-th-text="#{label_organization_procurementitemdetails_organization}">organization</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>requester</td>
+                              <td>submitDate</td>
+                              <td>quantity</td>
+                              <td>uom</td>
+                              <td>organization</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='procurementitemdetails-detail-table',
+                        title=#{label_delete_entity(#{label_organization_procurementitemdetails})}, message=#{info_delete_item_confirm}, content=~{organizations/procurementItemDetails/listDeleteModal :: procurementitemdetails-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='procurementitemdetails-detail-table',
+                        title=#{label_delete_entity(#{label_organization_procurementitemdetails})}, message=#{info_delete_batch_confirm}, content=~{organizations/procurementItemDetails/listDeleteModalBatch :: procurementitemdetails-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='procurementitemdetails-detail-table',
+                        title=#{label_export_empty_error(#{label_organization_procurementitemdetails})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-technicalobjects-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('OrganizationsItemTechnicalObjectsThymeleafController')},detailItemLink=${@linkBuilder.of('TechnicalObjectsItemThymeleafController')}">
+                    <table id="technicalobjects-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="organization-entity-table" data-row-id="id" data-z="c8b0d938" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('organization', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('technicalObject', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('organization', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('technicalObject', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromTechnicalObjects').with('organization', '_PARENTID_').with('technicalObjectsToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromTechnicalObjectsBatch').with('organization', '_PARENTID_').with('technicalObjectsToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_organization_technicalobjects})}">TechnicalObjects List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="tag" data-th-text="#{label_organization_technicalobjects_tag}">tag</th>
+                              <th data-data="description" data-th-text="#{label_organization_technicalobjects_description}">description</th>
+                              <th data-data="descriptionLocal" data-th-text="#{label_organization_technicalobjects_descriptionlocal}">descriptionLocal</th>
+                              <th data-data="abcIndicator" data-th-text="#{label_organization_technicalobjects_abcindicator}">abcIndicator</th>
+                              <th data-data="mainWorkCenter" data-th-text="#{label_organization_technicalobjects_mainworkcenter}">mainWorkCenter</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>tag</td>
+                              <td>description</td>
+                              <td>descriptionLocal</td>
+                              <td>abcIndicator</td>
+                              <td>mainWorkCenter</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='technicalobjects-detail-table',
+                        title=#{label_delete_entity(#{label_organization_technicalobjects})}, message=#{info_delete_item_confirm}, content=~{organizations/technicalObjects/listDeleteModal :: technicalobjects-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='technicalobjects-detail-table',
+                        title=#{label_delete_entity(#{label_organization_technicalobjects})}, message=#{info_delete_batch_confirm}, content=~{organizations/technicalObjects/listDeleteModalBatch :: technicalobjects-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='technicalobjects-detail-table',
+                        title=#{label_export_empty_error(#{label_organization_technicalobjects})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-warehouses-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('OrganizationsItemWarehousesThymeleafController')},detailItemLink=${@linkBuilder.of('WarehousesItemThymeleafController')}">
+                    <table id="warehouses-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="organization-entity-table" data-row-id="id" data-z="aec88e4a" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('organization', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('warehouse', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('organization', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('warehouse', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromWarehouses').with('organization', '_PARENTID_').with('warehousesToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromWarehousesBatch').with('organization', '_PARENTID_').with('warehousesToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_organization_warehouses})}">Warehouses List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="code" data-th-text="#{label_organization_warehouses_code}">code</th>
+                              <th data-data="memo" data-th-text="#{label_organization_warehouses_memo}">memo</th>
+                              <th data-data="description" data-th-text="#{label_organization_warehouses_description}">description</th>
+                              <th data-data="organization" data-th-text="#{label_organization_warehouses_organization}">organization</th>
+                              <th data-data="recordStatus" data-th-text="#{label_organization_warehouses_recordstatus}">recordStatus</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>code</td>
+                              <td>memo</td>
+                              <td>description</td>
+                              <td>organization</td>
+                              <td>recordStatus</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='warehouses-detail-table',
+                        title=#{label_delete_entity(#{label_organization_warehouses})}, message=#{info_delete_item_confirm}, content=~{organizations/warehouses/listDeleteModal :: warehouses-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='warehouses-detail-table',
+                        title=#{label_delete_entity(#{label_organization_warehouses})}, message=#{info_delete_batch_confirm}, content=~{organizations/warehouses/listDeleteModalBatch :: warehouses-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='warehouses-detail-table',
+                        title=#{label_export_empty_error(#{label_organization_warehouses})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-workcenterresponsibles-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('OrganizationsItemWorkCenterResponsiblesThymeleafController')},detailItemLink=${@linkBuilder.of('WorkCenterResponsiblesItemThymeleafController')}">
+                    <table id="workcenterresponsibles-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="organization-entity-table" data-row-id="id" data-z="9f880330" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('organization', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('workCenterResponsible', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('organization', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('workCenterResponsible', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromWorkCenterResponsibles').with('organization', '_PARENTID_').with('workCenterResponsiblesToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromWorkCenterResponsiblesBatch').with('organization', '_PARENTID_').with('workCenterResponsiblesToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_organization_workcenterresponsibles})}">WorkCenterResponsibles List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="organization" data-th-text="#{label_organization_workcenterresponsibles_organization}">organization</th>
+                              <th data-data="responsible" data-th-text="#{label_organization_workcenterresponsibles_responsible}">responsible</th>
+                              <th data-data="description" data-th-text="#{label_organization_workcenterresponsibles_description}">description</th>
+                              <th data-data="recordStatus" data-th-text="#{label_organization_workcenterresponsibles_recordstatus}">recordStatus</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>organization</td>
+                              <td>responsible</td>
+                              <td>description</td>
+                              <td>recordStatus</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='workcenterresponsibles-detail-table',
+                        title=#{label_delete_entity(#{label_organization_workcenterresponsibles})}, message=#{info_delete_item_confirm}, content=~{organizations/workCenterResponsibles/listDeleteModal :: workcenterresponsibles-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='workcenterresponsibles-detail-table',
+                        title=#{label_delete_entity(#{label_organization_workcenterresponsibles})}, message=#{info_delete_batch_confirm}, content=~{organizations/workCenterResponsibles/listDeleteModalBatch :: workcenterresponsibles-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='workcenterresponsibles-detail-table',
+                        title=#{label_export_empty_error(#{label_organization_workcenterresponsibles})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+            </div> <!--/tab-content-->
+        </div>
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a href="../index.html" class="btn btn-default" data-th-href="@{/}">
+                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                 <span data-th-text="#{label_back}">Back</span>
+              </a>
+            </div>
+          </div>
+
+        </hr></div>
+
+      </section>
+      <!-- /CONTENT -->
+    </div>
+    <!-- /CONTAINER -->
+
+    <footer class="container">
+      <!-- Content replaced by layout of the page displayed -->
+    </footer>
+
+    <!-- JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so that the pages load faster -->
+    <!-- JavaScript loaded by layout of the page displayed -->
+    <!--
+         Only the inner content of the following tag "javascript" is included
+         within the template, in the div "javascript"
+        -->
+    <div data-layout-fragment="javascript">
+    </div>
+
+  </body>
+
+</html>

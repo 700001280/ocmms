@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="materialinstockdetail-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('MaterialInstockDetailsCollectionThymeleafController')},itemLink=${@linkBuilder.of('MaterialInstockDetailsItemThymeleafController')}">
+    <table id="materialinstockdetail-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="orderNo" data-th-text="#{label_materialinstockdetail_orderno}">orderNo</th>
+          <th data-data="quantity" data-th-text="#{label_materialinstockdetail_quantity}">quantity</th>
+          <th data-data="unitPrice" data-th-text="#{label_materialinstockdetail_unitprice}">unitPrice</th>
+          <th data-data="currencyUnit" data-th-text="#{label_materialinstockdetail_currencyunit}">currencyUnit</th>
+          <th data-data="goodReceiveNo" data-th-text="#{label_materialinstockdetail_goodreceiveno}">goodReceiveNo</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>orderNo</td>
+          <td>quantity</td>
+          <td>unitPrice</td>
+          <td>currencyUnit</td>
+          <td>goodReceiveNo</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

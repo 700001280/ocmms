@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_equipmentscrappingrecord})}|">Show EquipmentScrappingRecord - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${equipmentScrappingRecord}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="equipmentscrappingrecord-scrappingdate-field" data-z="cab0c1ed">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_scrappingdate}">scrappingDate</strong>
+                    <span data-th-text="*{{scrappingDate}}">scrappingDateValue</span>
+         	        </li>
+                  <li id="equipmentscrappingrecord-description-field" data-z="689eebed">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="equipmentscrappingrecord-worker-field" data-z="760444d1">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_worker}">worker</strong>
+                    <span data-th-text="*{{worker}}">workerValue</span>
+         	        </li>
+                  <li id="equipmentscrappingrecord-equipment-field" data-z="26b6d2d">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_equipment}">equipment</strong>
+                    <span data-th-text="*{{equipment}}">equipmentValue</span>
+         	        </li>
+                  <li id="equipmentscrappingrecord-storagelocation-field" data-z="88f0fa8d">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_storagelocation}">storageLocation</strong>
+                    <span data-th-text="*{{storageLocation}}">storageLocationValue</span>
+         	        </li>
+                  <li id="equipmentscrappingrecord-location-field" data-z="ee9a5571">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_location}">location</strong>
+                    <span data-th-text="*{{location}}">locationValue</span>
+         	        </li>
+                  <li id="equipmentscrappingrecord-recordstatus-field" data-z="94eb4ed1">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="equipmentscrappingrecord-createddate-field" data-z="77176ccd">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="equipmentscrappingrecord-createdby-field" data-z="9c3a2f2d">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="equipmentscrappingrecord-lastmodifieddate-field" data-z="2f42a0b1">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="equipmentscrappingrecord-lastmodifiedby-field" data-z="b4a90c11">
+            	      <strong data-th-text="#{label_equipmentscrappingrecord_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

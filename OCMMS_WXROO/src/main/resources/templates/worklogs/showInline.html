@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_worklog})}|">Show WorkLog - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${workLog}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="worklog-description-field" data-z="544ddb76">
+            	      <strong data-th-text="#{label_worklog_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="worklog-logdate-field" data-z="38a5e456">
+            	      <strong data-th-text="#{label_worklog_logdate}">logDate</strong>
+                    <span data-th-text="*{{logDate}}">logDateValue</span>
+         	        </li>
+                  <li id="worklog-worklogtype-field" data-z="8d6e2156">
+            	      <strong data-th-text="#{label_worklog_worklogtype}">workLogType</strong>
+                    <span data-th-text="*{{workLogType}}">workLogTypeValue</span>
+         	        </li>
+                  <li id="worklog-assign-field" data-z="ec8e1988">
+            	      <strong data-th-text="#{label_worklog_assign}">assign</strong>
+                    <span data-th-text="*{{assign}}">assignValue</span>
+         	        </li>
+                  <li id="worklog-remark-field" data-z="4e500b68">
+            	      <strong data-th-text="#{label_worklog_remark}">remark</strong>
+                    <span data-th-text="*{{remark}}">remarkValue</span>
+         	        </li>
+                  <li id="worklog-logger-field" data-z="b9720968">
+            	      <strong data-th-text="#{label_worklog_logger}">logger</strong>
+                    <span data-th-text="*{{logger}}">loggerValue</span>
+         	        </li>
+                  <li id="worklog-recordstatus-field" data-z="1f1a5068">
+            	      <strong data-th-text="#{label_worklog_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="worklog-createddate-field" data-z="62c65c56">
+            	      <strong data-th-text="#{label_worklog_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="worklog-createdby-field" data-z="8cc16cf6">
+            	      <strong data-th-text="#{label_worklog_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="worklog-lastmodifieddate-field" data-z="2058fec8">
+            	      <strong data-th-text="#{label_worklog_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="worklog-lastmodifiedby-field" data-z="6f1e03e8">
+            	      <strong data-th-text="#{label_worklog_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

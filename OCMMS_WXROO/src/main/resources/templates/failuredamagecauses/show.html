@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_failuredamagecause})}|">Show FailureDamageCause - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${failureDamageCause}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_failuredamagecause})}">Show FailureDamageCause</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_failuredamagecause})}">FailureDamageCause data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="failuredamagecause-code-field" data-z="2f543b3b">
+            	      <strong data-th-text="#{label_failuredamagecause_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="failuredamagecause-description-field" data-z="955d0e3">
+            	      <strong data-th-text="#{label_failuredamagecause_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="failuredamagecause-groupcode-field" data-z="86189003">
+            	      <strong data-th-text="#{label_failuredamagecause_groupcode}">groupCode</strong>
+                    <span data-th-text="*{{groupCode}}">groupCodeValue</span>
+         	        </li>
+                  <li id="failuredamagecause-groupdescription-field" data-z="58b60b1b">
+            	      <strong data-th-text="#{label_failuredamagecause_groupdescription}">groupDescription</strong>
+                    <span data-th-text="*{{groupDescription}}">groupDescriptionValue</span>
+         	        </li>
+                  <li id="failuredamagecause-subcode-field" data-z="54611ce3">
+            	      <strong data-th-text="#{label_failuredamagecause_subcode}">subCode</strong>
+                    <span data-th-text="*{{subCode}}">subCodeValue</span>
+         	        </li>
+                  <li id="failuredamagecause-subdescription-field" data-z="72ff423b">
+            	      <strong data-th-text="#{label_failuredamagecause_subdescription}">subDescription</strong>
+                    <span data-th-text="*{{subDescription}}">subDescriptionValue</span>
+         	        </li>
+                  <li id="failuredamagecause-explanation-field" data-z="ee750143">
+            	      <strong data-th-text="#{label_failuredamagecause_explanation}">explanation</strong>
+                    <span data-th-text="*{{explanation}}">explanationValue</span>
+         	        </li>
+                  <li id="failuredamagecause-recordstatus-field" data-z="b11089b">
+            	      <strong data-th-text="#{label_failuredamagecause_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="failuredamagecause-createddate-field" data-z="17ce51c3">
+            	      <strong data-th-text="#{label_failuredamagecause_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="failuredamagecause-createdby-field" data-z="5c31d9a3">
+            	      <strong data-th-text="#{label_failuredamagecause_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="failuredamagecause-lastmodifieddate-field" data-z="4502657b">
+            	      <strong data-th-text="#{label_failuredamagecause_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="failuredamagecause-lastmodifiedby-field" data-z="38477b5b">
+            	      <strong data-th-text="#{label_failuredamagecause_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="FailureDamageCause_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('FailureDamageCausesItemThymeleafController').to('editForm').with('failureDamageCause', failureDamageCause.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="FailureDamageCause_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('FailureDamageCausesCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

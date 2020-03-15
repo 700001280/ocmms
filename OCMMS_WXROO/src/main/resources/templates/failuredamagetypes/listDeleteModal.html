@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="failuredamagetype-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('FailureDamageTypesCollectionThymeleafController')},itemLink=${@linkBuilder.of('FailureDamageTypesItemThymeleafController')}">
+    <table id="failuredamagetype-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="code" data-th-text="#{label_failuredamagetype_code}">code</th>
+          <th data-data="description" data-th-text="#{label_failuredamagetype_description}">description</th>
+          <th data-data="groupCode" data-th-text="#{label_failuredamagetype_groupcode}">groupCode</th>
+          <th data-data="groupDescription" data-th-text="#{label_failuredamagetype_groupdescription}">groupDescription</th>
+          <th data-data="subCode" data-th-text="#{label_failuredamagetype_subcode}">subCode</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>code</td>
+          <td>description</td>
+          <td>groupCode</td>
+          <td>groupDescription</td>
+          <td>subCode</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

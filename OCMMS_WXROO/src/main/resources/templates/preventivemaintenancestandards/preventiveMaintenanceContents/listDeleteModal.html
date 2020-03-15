@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="preventivemaintenancecontents-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceStandardsItemPreventiveMaintenanceContentsThymeleafController')}">
+    <table id="preventivemaintenancecontents-detail-table-item-to-remove" data-parent-table="preventivemaintenancestandard-entity-table" data-data-parent-id="${preventiveMaintenanceStandard != null ? preventiveMaintenanceStandard.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('preventiveMaintenanceStandard', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="serialNo" data-th-text="#{label_preventivemaintenancestandard_preventivemaintenancecontents_serialno}">serialNo</th>
+              <th data-data="description" data-th-text="#{label_preventivemaintenancestandard_preventivemaintenancecontents_description}">description</th>
+              <th data-data="method" data-th-text="#{label_preventivemaintenancestandard_preventivemaintenancecontents_method}">method</th>
+              <th data-data="standard" data-th-text="#{label_preventivemaintenancestandard_preventivemaintenancecontents_standard}">standard</th>
+              <th data-data="tool" data-th-text="#{label_preventivemaintenancestandard_preventivemaintenancecontents_tool}">tool</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>serialNo</td>
+              <td>description</td>
+              <td>method</td>
+              <td>standard</td>
+              <td>tool</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_workcenterresponsible})}|">Show WorkCenterResponsible - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${workCenterResponsible}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_workcenterresponsible})}">Show WorkCenterResponsible</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_workcenterresponsible})}">WorkCenterResponsible data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="workcenterresponsible-organization-field" data-z="1f8730c5">
+            	      <strong data-th-text="#{label_workcenterresponsible_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="workcenterresponsible-responsible-field" data-z="5c72e619">
+            	      <strong data-th-text="#{label_workcenterresponsible_responsible}">responsible</strong>
+                    <span data-th-text="*{{responsible}}">responsibleValue</span>
+         	        </li>
+                  <li id="workcenterresponsible-description-field" data-z="4adf5d59">
+            	      <strong data-th-text="#{label_workcenterresponsible_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="workcenterresponsible-recordstatus-field" data-z="fab90ae5">
+            	      <strong data-th-text="#{label_workcenterresponsible_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="workcenterresponsible-createddate-field" data-z="5957de39">
+            	      <strong data-th-text="#{label_workcenterresponsible_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="workcenterresponsible-createdby-field" data-z="78800b99">
+            	      <strong data-th-text="#{label_workcenterresponsible_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="workcenterresponsible-lastmodifieddate-field" data-z="40ec32c5">
+            	      <strong data-th-text="#{label_workcenterresponsible_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="workcenterresponsible-lastmodifiedby-field" data-z="ddf81325">
+            	      <strong data-th-text="#{label_workcenterresponsible_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="WorkCenterResponsible_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('WorkCenterResponsiblesItemThymeleafController').to('editForm').with('workCenterResponsible', workCenterResponsible.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="WorkCenterResponsible_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('WorkCenterResponsiblesCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

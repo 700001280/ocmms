@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="materialprocurementitemdetails-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('WorkOrderMaterialsItemMaterialProcurementItemDetailsThymeleafController')}">
+    <table id="materialprocurementitemdetails-detail-table-item-to-remove" data-parent-table="workordermaterial-entity-table" data-data-parent-id="${workOrderMaterial != null ? workOrderMaterial.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('workOrderMaterial', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="requester" data-th-text="#{label_workordermaterial_materialprocurementitemdetails_requester}">requester</th>
+              <th data-data="submitDate" data-th-text="#{label_workordermaterial_materialprocurementitemdetails_submitdate}">submitDate</th>
+              <th data-data="quantity" data-th-text="#{label_workordermaterial_materialprocurementitemdetails_quantity}">quantity</th>
+              <th data-data="uom" data-th-text="#{label_workordermaterial_materialprocurementitemdetails_uom}">uom</th>
+              <th data-data="organization" data-th-text="#{label_workordermaterial_materialprocurementitemdetails_organization}">organization</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>requester</td>
+              <td>submitDate</td>
+              <td>quantity</td>
+              <td>uom</td>
+              <td>organization</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

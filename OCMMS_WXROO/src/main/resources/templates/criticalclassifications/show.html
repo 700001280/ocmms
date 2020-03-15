@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_criticalclassification})}|">Show CriticalClassification - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${criticalClassification}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_criticalclassification})}">Show CriticalClassification</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_criticalclassification})}">CriticalClassification data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="criticalclassification-category-field" data-z="bc011210">
+            	      <strong data-th-text="#{label_criticalclassification_category}">category</strong>
+                    <span data-th-text="*{{category}}">categoryValue</span>
+         	        </li>
+                  <li id="criticalclassification-description-field" data-z="930cddce">
+            	      <strong data-th-text="#{label_criticalclassification_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="criticalclassification-subcategory-field" data-z="b324d9ae">
+            	      <strong data-th-text="#{label_criticalclassification_subcategory}">subCategory</strong>
+                    <span data-th-text="*{{subCategory}}">subCategoryValue</span>
+         	        </li>
+                  <li id="criticalclassification-subdescription-field" data-z="7fc78970">
+            	      <strong data-th-text="#{label_criticalclassification_subdescription}">subDescription</strong>
+                    <span data-th-text="*{{subDescription}}">subDescriptionValue</span>
+         	        </li>
+                  <li id="criticalclassification-riskmatrix-field" data-z="4c435bb0">
+            	      <strong data-th-text="#{label_criticalclassification_riskmatrix}">riskMatrix</strong>
+                    <span data-th-text="*{{riskMatrix}}">riskMatrixValue</span>
+         	        </li>
+                  <li id="criticalclassification-recordstatus-field" data-z="b83b9910">
+            	      <strong data-th-text="#{label_criticalclassification_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="criticalclassification-createddate-field" data-z="a1855eae">
+            	      <strong data-th-text="#{label_criticalclassification_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="criticalclassification-createdby-field" data-z="4f8d254e">
+            	      <strong data-th-text="#{label_criticalclassification_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="criticalclassification-lastmodifieddate-field" data-z="40d5b370">
+            	      <strong data-th-text="#{label_criticalclassification_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="criticalclassification-lastmodifiedby-field" data-z="450fc290">
+            	      <strong data-th-text="#{label_criticalclassification_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="CriticalClassification_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('CriticalClassificationsItemThymeleafController').to('editForm').with('criticalClassification', criticalClassification.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="CriticalClassification_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('CriticalClassificationsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_pressurevessel})}|">Show PressureVessel - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${pressureVessel}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_pressurevessel})}">Show PressureVessel</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_pressurevessel})}">PressureVessel data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="pressurevessel-tag-field" data-z="6d223858">
+            	      <strong data-th-text="#{label_pressurevessel_tag}">tag</strong>
+                    <span data-th-text="*{{tag}}">tagValue</span>
+         	        </li>
+                  <li id="pressurevessel-description-field" data-z="ac38eb18">
+            	      <strong data-th-text="#{label_pressurevessel_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="pressurevessel-descriptionlocal-field" data-z="44c9fc6">
+            	      <strong data-th-text="#{label_pressurevessel_descriptionlocal}">descriptionLocal</strong>
+                    <span data-th-text="*{{descriptionLocal}}">descriptionLocalValue</span>
+         	        </li>
+                  <li id="pressurevessel-abcindicator-field" data-z="51af1386">
+            	      <strong data-th-text="#{label_pressurevessel_abcindicator}">abcIndicator</strong>
+                    <span data-th-text="*{{abcIndicator}}">abcIndicatorValue</span>
+         	        </li>
+                  <li id="pressurevessel-mainworkcenter-field" data-z="d6af27e6">
+            	      <strong data-th-text="#{label_pressurevessel_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="pressurevessel-organization-field" data-z="e95f5ae6">
+            	      <strong data-th-text="#{label_pressurevessel_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="pressurevessel-manufacturermodelnumber-field" data-z="97311cf8">
+            	      <strong data-th-text="#{label_pressurevessel_manufacturermodelnumber}">manufacturerModelNumber</strong>
+                    <span data-th-text="*{{manufacturerModelNumber}}">manufacturerModelNumberValue</span>
+         	        </li>
+                  <li id="pressurevessel-manufacturerserialnumber-field" data-z="7ca5e946">
+            	      <strong data-th-text="#{label_pressurevessel_manufacturerserialnumber}">manufacturerSerialNumber</strong>
+                    <span data-th-text="*{{manufacturerSerialNumber}}">manufacturerSerialNumberValue</span>
+         	        </li>
+                  <li id="pressurevessel-manufacturerpartnumber-field" data-z="4d277b26">
+            	      <strong data-th-text="#{label_pressurevessel_manufacturerpartnumber}">manufacturerPartNumber</strong>
+                    <span data-th-text="*{{manufacturerPartNumber}}">manufacturerPartNumberValue</span>
+         	        </li>
+                  <li id="pressurevessel-plannergroup-field" data-z="11338386">
+            	      <strong data-th-text="#{label_pressurevessel_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="pressurevessel-memo-field" data-z="2b014d06">
+            	      <strong data-th-text="#{label_pressurevessel_memo}">memo</strong>
+                    <span data-th-text="*{{memo}}">memoValue</span>
+         	        </li>
+                  <li id="pressurevessel-recordstatus-field" data-z="c4913506">
+            	      <strong data-th-text="#{label_pressurevessel_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="pressurevessel-createddate-field" data-z="bab16bf8">
+            	      <strong data-th-text="#{label_pressurevessel_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="pressurevessel-createdby-field" data-z="fe0ffd18">
+            	      <strong data-th-text="#{label_pressurevessel_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="pressurevessel-lastmodifieddate-field" data-z="b0706466">
+            	      <strong data-th-text="#{label_pressurevessel_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="pressurevessel-lastmodifiedby-field" data-z="926e3906">
+            	      <strong data-th-text="#{label_pressurevessel_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="pressurevessel-functionallocation-field" data-z="e4c99126">
+            	      <strong data-th-text="#{label_pressurevessel_functionallocation}">functionalLocation</strong>
+                    <span data-th-text="*{{functionalLocation}}">functionalLocationValue</span>
+         	        </li>
+                  <li id="pressurevessel-equipmentnumber-field" data-z="9ca1ab58">
+            	      <strong data-th-text="#{label_pressurevessel_equipmentnumber}">equipmentNumber</strong>
+                    <span data-th-text="*{{equipmentNumber}}">equipmentNumberValue</span>
+         	        </li>
+                  <li id="pressurevessel-superiorequipment-field" data-z="be5c8818">
+            	      <strong data-th-text="#{label_pressurevessel_superiorequipment}">superiorEquipment</strong>
+                    <span data-th-text="*{{superiorEquipment}}">superiorEquipmentValue</span>
+         	        </li>
+                  <li id="pressurevessel-constructiondate-field" data-z="53e5206">
+            	      <strong data-th-text="#{label_pressurevessel_constructiondate}">constructionDate</strong>
+                    <span data-th-text="*{{constructionDate}}">constructionDateValue</span>
+         	        </li>
+                  <li id="pressurevessel-countryofmanufacture-field" data-z="488a3f86">
+            	      <strong data-th-text="#{label_pressurevessel_countryofmanufacture}">countryOfManufacture</strong>
+                    <span data-th-text="*{{countryOfManufacture}}">countryOfManufactureValue</span>
+         	        </li>
+                  <li id="pressurevessel-manufacturer-field" data-z="c312ff26">
+            	      <strong data-th-text="#{label_pressurevessel_manufacturer}">manufacturer</strong>
+                    <span data-th-text="*{{manufacturer}}">manufacturerValue</span>
+         	        </li>
+                  <li id="pressurevessel-plantsection-field" data-z="556df9e6">
+            	      <strong data-th-text="#{label_pressurevessel_plantsection}">plantSection</strong>
+                    <span data-th-text="*{{plantSection}}">plantSectionValue</span>
+         	        </li>
+                  <li id="pressurevessel-equipmentcategory-field" data-z="58fda678">
+            	      <strong data-th-text="#{label_pressurevessel_equipmentcategory}">equipmentCategory</strong>
+                    <span data-th-text="*{{equipmentCategory}}">equipmentCategoryValue</span>
+         	        </li>
+                  <li id="pressurevessel-objecttype-field" data-z="d5e2b406">
+            	      <strong data-th-text="#{label_pressurevessel_objecttype}">objectType</strong>
+                    <span data-th-text="*{{objectType}}">objectTypeValue</span>
+         	        </li>
+                  <li id="pressurevessel-drawingnumber-field" data-z="de2eb398">
+            	      <strong data-th-text="#{label_pressurevessel_drawingnumber}">drawingNumber</strong>
+                    <span data-th-text="*{{drawingNumber}}">drawingNumberValue</span>
+         	        </li>
+                  <li id="pressurevessel-catalogprofile-field" data-z="f8ea0966">
+            	      <strong data-th-text="#{label_pressurevessel_catalogprofile}">catalogProfile</strong>
+                    <span data-th-text="*{{catalogProfile}}">catalogProfileValue</span>
+         	        </li>
+                  <li id="pressurevessel-plantlocation-field" data-z="7b634878">
+            	      <strong data-th-text="#{label_pressurevessel_plantlocation}">plantLocation</strong>
+                    <span data-th-text="*{{plantLocation}}">plantLocationValue</span>
+         	        </li>
+                  <li id="pressurevessel-consttypematerial-field" data-z="36a33b98">
+            	      <strong data-th-text="#{label_pressurevessel_consttypematerial}">constTypeMaterial</strong>
+                    <span data-th-text="*{{constTypeMaterial}}">constTypeMaterialValue</span>
+         	        </li>
+                  <li id="pressurevessel-sizedimension-field" data-z="cb4bb98">
+            	      <strong data-th-text="#{label_pressurevessel_sizedimension}">sizeDimension</strong>
+                    <span data-th-text="*{{sizeDimension}}">sizeDimensionValue</span>
+         	        </li>
+                  <li id="pressurevessel-grossweight-field" data-z="d5c1738">
+            	      <strong data-th-text="#{label_pressurevessel_grossweight}">grossWeight</strong>
+                    <span data-th-text="*{{grossWeight}}">grossWeightValue</span>
+         	        </li>
+                  <li id="pressurevessel-weightunit-field" data-z="d6e21fa6">
+            	      <strong data-th-text="#{label_pressurevessel_weightunit}">weightUnit</strong>
+                    <span data-th-text="*{{weightUnit}}">weightUnitValue</span>
+         	        </li>
+                  <li id="pressurevessel-acquisitiondate-field" data-z="b01376d8">
+            	      <strong data-th-text="#{label_pressurevessel_acquisitiondate}">acquisitionDate</strong>
+                    <span data-th-text="*{{acquisitionDate}}">acquisitionDateValue</span>
+         	        </li>
+                  <li id="pressurevessel-acquisitionvalue-field" data-z="28c9d126">
+            	      <strong data-th-text="#{label_pressurevessel_acquisitionvalue}">acquisitionValue</strong>
+                    <span data-th-text="*{{acquisitionValue}}">acquisitionValueValue</span>
+         	        </li>
+                  <li id="pressurevessel-acquisitionvaluecurrency-field" data-z="85f43826">
+            	      <strong data-th-text="#{label_pressurevessel_acquisitionvaluecurrency}">acquisitionValueCurrency</strong>
+                    <span data-th-text="*{{acquisitionValueCurrency}}">acquisitionValueCurrencyValue</span>
+         	        </li>
+                  <li id="pressurevessel-beginguaranteedate-field" data-z="97867e66">
+            	      <strong data-th-text="#{label_pressurevessel_beginguaranteedate}">beginGuaranteeDate</strong>
+                    <span data-th-text="*{{beginGuaranteeDate}}">beginGuaranteeDateValue</span>
+         	        </li>
+                  <li id="pressurevessel-warrantyenddate-field" data-z="ec232478">
+            	      <strong data-th-text="#{label_pressurevessel_warrantyenddate}">warrantyEndDate</strong>
+                    <span data-th-text="*{{warrantyEndDate}}">warrantyEndDateValue</span>
+         	        </li>
+                  <li id="pressurevessel-supplier-field" data-z="5f0ab746">
+            	      <strong data-th-text="#{label_pressurevessel_supplier}">supplier</strong>
+                    <span data-th-text="*{{supplier}}">supplierValue</span>
+         	        </li>
+                  <li id="pressurevessel-contract-field" data-z="9844e686">
+            	      <strong data-th-text="#{label_pressurevessel_contract}">contract</strong>
+                    <span data-th-text="*{{contract}}">contractValue</span>
+         	        </li>
+                  <li id="pressurevessel-ehsscritical-field" data-z="2a653d26">
+            	      <strong data-th-text="#{label_pressurevessel_ehsscritical}">ehssCritical</strong>
+                    <span data-th-text="*{{ehssCritical}}">ehssCriticalValue</span>
+         	        </li>
+                  <li id="pressurevessel-criticalclassification-field" data-z="ef51b006">
+            	      <strong data-th-text="#{label_pressurevessel_criticalclassification}">criticalClassification</strong>
+                    <span data-th-text="*{{criticalClassification}}">criticalClassificationValue</span>
+         	        </li>
+                  <li id="pressurevessel-assetcode-field" data-z="77fbf958">
+            	      <strong data-th-text="#{label_pressurevessel_assetcode}">assetCode</strong>
+                    <span data-th-text="*{{assetCode}}">assetCodeValue</span>
+         	        </li>
+                  <li id="pressurevessel-startdepreciationcost-field" data-z="f9477818">
+            	      <strong data-th-text="#{label_pressurevessel_startdepreciationcost}">startDepreciationCost</strong>
+                    <span data-th-text="*{{startDepreciationCost}}">startDepreciationCostValue</span>
+         	        </li>
+                  <li id="pressurevessel-depreciationyear-field" data-z="784a94a6">
+            	      <strong data-th-text="#{label_pressurevessel_depreciationyear}">depreciationYear</strong>
+                    <span data-th-text="*{{depreciationYear}}">depreciationYearValue</span>
+         	        </li>
+                  <li id="pressurevessel-capitalizeddate-field" data-z="6936e578">
+            	      <strong data-th-text="#{label_pressurevessel_capitalizeddate}">capitalizedDate</strong>
+                    <span data-th-text="*{{capitalizedDate}}">capitalizedDateValue</span>
+         	        </li>
+                  <li id="pressurevessel-currentbookvalue-field" data-z="28c98ba6">
+            	      <strong data-th-text="#{label_pressurevessel_currentbookvalue}">currentBookValue</strong>
+                    <span data-th-text="*{{currentBookValue}}">currentBookValueValue</span>
+         	        </li>
+                  <li id="pressurevessel-originalassetid-field" data-z="5ea30ed8">
+            	      <strong data-th-text="#{label_pressurevessel_originalassetid}">originalAssetId</strong>
+                    <span data-th-text="*{{originalAssetId}}">originalAssetIdValue</span>
+         	        </li>
+                  <li id="pressurevessel-assetvaluecurrency-field" data-z="ccef15c6">
+            	      <strong data-th-text="#{label_pressurevessel_assetvaluecurrency}">assetValueCurrency</strong>
+                    <span data-th-text="*{{assetValueCurrency}}">assetValueCurrencyValue</span>
+         	        </li>
+                  <li id="pressurevessel-assetclassification-field" data-z="9f3872f8">
+            	      <strong data-th-text="#{label_pressurevessel_assetclassification}">assetClassification</strong>
+                    <span data-th-text="*{{assetClassification}}">assetClassificationValue</span>
+         	        </li>
+                  <li id="pressurevessel-lastinspectiondate-field" data-z="610ed546">
+            	      <strong data-th-text="#{label_pressurevessel_lastinspectiondate}">lastInspectionDate</strong>
+                    <span data-th-text="*{{lastInspectionDate}}">lastInspectionDateValue</span>
+         	        </li>
+                  <li id="pressurevessel-nextinspectiondate-field" data-z="7ec315a6">
+            	      <strong data-th-text="#{label_pressurevessel_nextinspectiondate}">nextInspectionDate</strong>
+                    <span data-th-text="*{{nextInspectionDate}}">nextInspectionDateValue</span>
+         	        </li>
+                  <li id="pressurevessel-serviceregistrationnumber-field" data-z="4e550038">
+            	      <strong data-th-text="#{label_pressurevessel_serviceregistrationnumber}">serviceRegistrationNumber</strong>
+                    <span data-th-text="*{{serviceRegistrationNumber}}">serviceRegistrationNumberValue</span>
+         	        </li>
+                  <li id="pressurevessel-manufacturername-field" data-z="1e920a66">
+            	      <strong data-th-text="#{label_pressurevessel_manufacturername}">manufacturerName</strong>
+                    <span data-th-text="*{{manufacturerName}}">manufacturerNameValue</span>
+         	        </li>
+                  <li id="pressurevessel-manufacturedate-field" data-z="813ae058">
+            	      <strong data-th-text="#{label_pressurevessel_manufacturedate}">manufactureDate</strong>
+                    <span data-th-text="*{{manufactureDate}}">manufactureDateValue</span>
+         	        </li>
+                  <li id="pressurevessel-designedservicelife-field" data-z="793d1718">
+            	      <strong data-th-text="#{label_pressurevessel_designedservicelife}">designedServiceLife</strong>
+                    <span data-th-text="*{{designedServiceLife}}">designedServiceLifeValue</span>
+         	        </li>
+                  <li id="pressurevessel-designpressure-field" data-z="2cee3f46">
+            	      <strong data-th-text="#{label_pressurevessel_designpressure}">designPressure</strong>
+                    <span data-th-text="*{{designPressure}}">designPressureValue</span>
+         	        </li>
+                  <li id="pressurevessel-maximumallowableworkingpressure-field" data-z="83ad25d8">
+            	      <strong data-th-text="#{label_pressurevessel_maximumallowableworkingpressure}">maximumAllowableWorkingPressure</strong>
+                    <span data-th-text="*{{maximumAllowableWorkingPressure}}">maximumAllowableWorkingPressureValue</span>
+         	        </li>
+                  <li id="pressurevessel-pressurevesselcategory-field" data-z="48062da6">
+            	      <strong data-th-text="#{label_pressurevessel_pressurevesselcategory}">pressureVesselCategory</strong>
+                    <span data-th-text="*{{pressureVesselCategory}}">pressureVesselCategoryValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="PressureVessel_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('PressureVesselsItemThymeleafController').to('editForm').with('pressureVessel', pressureVessel.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="PressureVessel_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('PressureVesselsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

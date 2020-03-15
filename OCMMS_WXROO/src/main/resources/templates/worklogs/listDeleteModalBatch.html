@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="worklog-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('WorkLogsCollectionThymeleafController')},itemLink=${@linkBuilder.of('WorkLogsItemThymeleafController')}">
+    <table id="worklog-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="description" data-th-text="#{label_worklog_description}">description</th>
+          <th data-data="logDate" data-th-text="#{label_worklog_logdate}">logDate</th>
+          <th data-data="workLogType" data-th-text="#{label_worklog_worklogtype}">workLogType</th>
+          <th data-data="assign" data-th-text="#{label_worklog_assign}">assign</th>
+          <th data-data="remark" data-th-text="#{label_worklog_remark}">remark</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>description</td>
+          <td>logDate</td>
+          <td>workLogType</td>
+          <td>assign</td>
+          <td>remark</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

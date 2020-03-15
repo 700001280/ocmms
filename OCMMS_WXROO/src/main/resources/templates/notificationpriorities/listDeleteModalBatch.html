@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="notificationpriority-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('NotificationPrioritiesCollectionThymeleafController')},itemLink=${@linkBuilder.of('NotificationPrioritiesItemThymeleafController')}">
+    <table id="notificationpriority-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="priority" data-th-text="#{label_notificationpriority_priority}">priority</th>
+          <th data-data="schedule" data-th-text="#{label_notificationpriority_schedule}">schedule</th>
+          <th data-data="complete" data-th-text="#{label_notificationpriority_complete}">complete</th>
+          <th data-data="notificationType" data-th-text="#{label_notificationpriority_notificationtype}">notificationType</th>
+          <th data-data="recordStatus" data-th-text="#{label_notificationpriority_recordstatus}">recordStatus</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>priority</td>
+          <td>schedule</td>
+          <td>complete</td>
+          <td>notificationType</td>
+          <td>recordStatus</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

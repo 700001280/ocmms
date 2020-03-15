@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_plantsection})}|">Show PlantSection - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${plantSection}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="plantsection-plant-field" data-z="864c82f9">
+            	      <strong data-th-text="#{label_plantsection_plant}">plant</strong>
+                    <span data-th-text="*{{plant}}">plantValue</span>
+         	        </li>
+                  <li id="plantsection-description-field" data-z="7743159">
+            	      <strong data-th-text="#{label_plantsection_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="plantsection-section-field" data-z="45ddc539">
+            	      <strong data-th-text="#{label_plantsection_section}">section</strong>
+                    <span data-th-text="*{{section}}">sectionValue</span>
+         	        </li>
+                  <li id="plantsection-sectionphonenumber-field" data-z="b1b0a065">
+            	      <strong data-th-text="#{label_plantsection_sectionphonenumber}">sectionPhoneNumber</strong>
+                    <span data-th-text="*{{sectionPhoneNumber}}">sectionPhoneNumberValue</span>
+         	        </li>
+                  <li id="plantsection-recordstatus-field" data-z="d0beb6e5">
+            	      <strong data-th-text="#{label_plantsection_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="plantsection-createddate-field" data-z="15ecb239">
+            	      <strong data-th-text="#{label_plantsection_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="plantsection-createdby-field" data-z="3c39df99">
+            	      <strong data-th-text="#{label_plantsection_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="plantsection-lastmodifieddate-field" data-z="43bdec5">
+            	      <strong data-th-text="#{label_plantsection_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="plantsection-lastmodifiedby-field" data-z="4942bf25">
+            	      <strong data-th-text="#{label_plantsection_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

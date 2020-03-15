@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_assetstatus})}|">Show AssetStatus - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${assetStatus}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="assetstatus-code-field" data-z="e2f17697">
+            	      <strong data-th-text="#{label_assetstatus_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="assetstatus-description-field" data-z="b55c5607">
+            	      <strong data-th-text="#{label_assetstatus_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="assetstatus-status-field" data-z="c401b3f7">
+            	      <strong data-th-text="#{label_assetstatus_status}">status</strong>
+                    <span data-th-text="*{{status}}">statusValue</span>
+         	        </li>
+                  <li id="assetstatus-recordstatus-field" data-z="dfdb27f7">
+            	      <strong data-th-text="#{label_assetstatus_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="assetstatus-createddate-field" data-z="c3d4d6e7">
+            	      <strong data-th-text="#{label_assetstatus_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="assetstatus-createdby-field" data-z="ad9f57c7">
+            	      <strong data-th-text="#{label_assetstatus_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="assetstatus-lastmodifieddate-field" data-z="5eb576d7">
+            	      <strong data-th-text="#{label_assetstatus_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="assetstatus-lastmodifiedby-field" data-z="30733b7">
+            	      <strong data-th-text="#{label_assetstatus_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

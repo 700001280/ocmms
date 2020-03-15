@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="equipmentmaintenancerecords-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('EquipmentsItemEquipmentMaintenanceRecordsThymeleafController')}">
+    <table id="equipmentmaintenancerecords-detail-table-item-to-remove" data-parent-table="equipment-entity-table" data-data-parent-id="${equipment != null ? equipment.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('equipment', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="maintStartDate" data-th-text="#{label_equipment_equipmentmaintenancerecords_maintstartdate}">maintStartDate</th>
+              <th data-data="maintEndDate" data-th-text="#{label_equipment_equipmentmaintenancerecords_maintenddate}">maintEndDate</th>
+              <th data-data="description" data-th-text="#{label_equipment_equipmentmaintenancerecords_description}">description</th>
+              <th data-data="downtime" data-th-text="#{label_equipment_equipmentmaintenancerecords_downtime}">downtime</th>
+              <th data-data="shutdown" data-th-text="#{label_equipment_equipmentmaintenancerecords_shutdown}">shutdown</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>maintStartDate</td>
+              <td>maintEndDate</td>
+              <td>description</td>
+              <td>downtime</td>
+              <td>shutdown</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

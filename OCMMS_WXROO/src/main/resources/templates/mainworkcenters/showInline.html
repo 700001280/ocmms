@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_mainworkcenter})}|">Show MainWorkCenter - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${mainWorkCenter}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="mainworkcenter-department-field" data-z="95932f2a">
+            	      <strong data-th-text="#{label_mainworkcenter_department}">department</strong>
+                    <span data-th-text="*{{department}}">departmentValue</span>
+         	        </li>
+                  <li id="mainworkcenter-code-field" data-z="b5f1ac0a">
+            	      <strong data-th-text="#{label_mainworkcenter_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="mainworkcenter-category-field" data-z="2444706a">
+            	      <strong data-th-text="#{label_mainworkcenter_category}">category</strong>
+                    <span data-th-text="*{{category}}">categoryValue</span>
+         	        </li>
+                  <li id="mainworkcenter-name-field" data-z="c88a904a">
+            	      <strong data-th-text="#{label_mainworkcenter_name}">name</strong>
+                    <span data-th-text="*{{name}}">nameValue</span>
+         	        </li>
+                  <li id="mainworkcenter-responsible-field" data-z="dc6131f4">
+            	      <strong data-th-text="#{label_mainworkcenter_responsible}">responsible</strong>
+                    <span data-th-text="*{{responsible}}">responsibleValue</span>
+         	        </li>
+                  <li id="mainworkcenter-controlkey-field" data-z="e63eed0a">
+            	      <strong data-th-text="#{label_mainworkcenter_controlkey}">controlKey</strong>
+                    <span data-th-text="*{{controlKey}}">controlKeyValue</span>
+         	        </li>
+                  <li id="mainworkcenter-validitystartdate-field" data-z="caed6d34">
+            	      <strong data-th-text="#{label_mainworkcenter_validitystartdate}">validityStartDate</strong>
+                    <span data-th-text="*{{validityStartDate}}">validityStartDateValue</span>
+         	        </li>
+                  <li id="mainworkcenter-validityenddate-field" data-z="ff677b54">
+            	      <strong data-th-text="#{label_mainworkcenter_validityenddate}">validityEndDate</strong>
+                    <span data-th-text="*{{validityEndDate}}">validityEndDateValue</span>
+         	        </li>
+                  <li id="mainworkcenter-costcenter-field" data-z="48ec714a">
+            	      <strong data-th-text="#{label_mainworkcenter_costcenter}">costCenter</strong>
+                    <span data-th-text="*{{costCenter}}">costCenterValue</span>
+         	        </li>
+                  <li id="mainworkcenter-hierarchyworkcenter-field" data-z="d1186494">
+            	      <strong data-th-text="#{label_mainworkcenter_hierarchyworkcenter}">hierarchyWorkCenter</strong>
+                    <span data-th-text="*{{hierarchyWorkCenter}}">hierarchyWorkCenterValue</span>
+         	        </li>
+                  <li id="mainworkcenter-recordstatus-field" data-z="78943a6a">
+            	      <strong data-th-text="#{label_mainworkcenter_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="mainworkcenter-createddate-field" data-z="d9462a14">
+            	      <strong data-th-text="#{label_mainworkcenter_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="mainworkcenter-createdby-field" data-z="efb59234">
+            	      <strong data-th-text="#{label_mainworkcenter_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="mainworkcenter-lastmodifieddate-field" data-z="f6ea17ca">
+            	      <strong data-th-text="#{label_mainworkcenter_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="mainworkcenter-lastmodifiedby-field" data-z="51c5756a">
+            	      <strong data-th-text="#{label_mainworkcenter_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

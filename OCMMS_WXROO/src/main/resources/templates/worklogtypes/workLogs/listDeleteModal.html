@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="worklogs-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('WorkLogTypesItemWorkLogsThymeleafController')}">
+    <table id="worklogs-detail-table-item-to-remove" data-parent-table="worklogtype-entity-table" data-data-parent-id="${workLogType != null ? workLogType.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('workLogType', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="description" data-th-text="#{label_worklogtype_worklogs_description}">description</th>
+              <th data-data="logDate" data-th-text="#{label_worklogtype_worklogs_logdate}">logDate</th>
+              <th data-data="workLogType" data-th-text="#{label_worklogtype_worklogs_worklogtype}">workLogType</th>
+              <th data-data="assign" data-th-text="#{label_worklogtype_worklogs_assign}">assign</th>
+              <th data-data="remark" data-th-text="#{label_worklogtype_worklogs_remark}">remark</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>description</td>
+              <td>logDate</td>
+              <td>workLogType</td>
+              <td>assign</td>
+              <td>remark</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

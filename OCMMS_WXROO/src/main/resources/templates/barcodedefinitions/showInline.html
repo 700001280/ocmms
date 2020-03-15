@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_barcodedefinition})}|">Show BarcodeDefinition - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${barcodeDefinition}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="barcodedefinition-code-field" data-z="5a914908">
+            	      <strong data-th-text="#{label_barcodedefinition_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="barcodedefinition-classname-field" data-z="c08e1376">
+            	      <strong data-th-text="#{label_barcodedefinition_classname}">className</strong>
+                    <span data-th-text="*{{className}}">classNameValue</span>
+         	        </li>
+                  <li id="barcodedefinition-description-field" data-z="ce111276">
+            	      <strong data-th-text="#{label_barcodedefinition_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="barcodedefinition-recordstatus-field" data-z="ddbdf968">
+            	      <strong data-th-text="#{label_barcodedefinition_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="barcodedefinition-createddate-field" data-z="dc899356">
+            	      <strong data-th-text="#{label_barcodedefinition_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="barcodedefinition-createdby-field" data-z="3be663f6">
+            	      <strong data-th-text="#{label_barcodedefinition_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="barcodedefinition-lastmodifieddate-field" data-z="230027c8">
+            	      <strong data-th-text="#{label_barcodedefinition_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="barcodedefinition-lastmodifiedby-field" data-z="137b6ce8">
+            	      <strong data-th-text="#{label_barcodedefinition_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

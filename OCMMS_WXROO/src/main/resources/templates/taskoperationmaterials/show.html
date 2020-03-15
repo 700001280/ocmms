@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_taskoperationmaterial})}|">Show TaskOperationMaterial - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${taskOperationMaterial}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_taskoperationmaterial})}">Show TaskOperationMaterial</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_taskoperationmaterial})}">TaskOperationMaterial data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="taskoperationmaterial-taskoperationheader-field" data-z="224d5280">
+            	      <strong data-th-text="#{label_taskoperationmaterial_taskoperationheader}">taskOperationHeader</strong>
+                    <span data-th-text="*{{taskOperationHeader}}">taskOperationHeaderValue</span>
+         	        </li>
+                  <li id="taskoperationmaterial-material-field" data-z="42ae921e">
+            	      <strong data-th-text="#{label_taskoperationmaterial_material}">material</strong>
+                    <span data-th-text="*{{material}}">materialValue</span>
+         	        </li>
+                  <li id="taskoperationmaterial-quantity-field" data-z="640c359e">
+            	      <strong data-th-text="#{label_taskoperationmaterial_quantity}">quantity</strong>
+                    <span data-th-text="*{{quantity}}">quantityValue</span>
+         	        </li>
+                  <li id="taskoperationmaterial-recordstatus-field" data-z="430d333e">
+            	      <strong data-th-text="#{label_taskoperationmaterial_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="taskoperationmaterial-createddate-field" data-z="2a20c6c0">
+            	      <strong data-th-text="#{label_taskoperationmaterial_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="taskoperationmaterial-createdby-field" data-z="f5a769e0">
+            	      <strong data-th-text="#{label_taskoperationmaterial_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="taskoperationmaterial-lastmodifieddate-field" data-z="77d2869e">
+            	      <strong data-th-text="#{label_taskoperationmaterial_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="taskoperationmaterial-lastmodifiedby-field" data-z="61e3893e">
+            	      <strong data-th-text="#{label_taskoperationmaterial_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="TaskOperationMaterial_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('TaskOperationMaterialsItemThymeleafController').to('editForm').with('taskOperationMaterial', taskOperationMaterial.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="TaskOperationMaterial_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('TaskOperationMaterialsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

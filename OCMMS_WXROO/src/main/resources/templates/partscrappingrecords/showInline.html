@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_partscrappingrecord})}|">Show PartScrappingRecord - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${partScrappingRecord}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="partscrappingrecord-materialcatalog-field" data-z="3fd8f668">
+            	      <strong data-th-text="#{label_partscrappingrecord_materialcatalog}">materialCatalog</strong>
+                    <span data-th-text="*{{materialCatalog}}">materialCatalogValue</span>
+         	        </li>
+                  <li id="partscrappingrecord-serialnumber-field" data-z="524bc916">
+            	      <strong data-th-text="#{label_partscrappingrecord_serialnumber}">serialNumber</strong>
+                    <span data-th-text="*{{serialNumber}}">serialNumberValue</span>
+         	        </li>
+                  <li id="partscrappingrecord-scrappingdate-field" data-z="75058908">
+            	      <strong data-th-text="#{label_partscrappingrecord_scrappingdate}">scrappingDate</strong>
+                    <span data-th-text="*{{scrappingDate}}">scrappingDateValue</span>
+         	        </li>
+                  <li id="partscrappingrecord-description-field" data-z="ec20bdc8">
+            	      <strong data-th-text="#{label_partscrappingrecord_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="partscrappingrecord-partkeeper-field" data-z="760fbdd6">
+            	      <strong data-th-text="#{label_partscrappingrecord_partkeeper}">partKeeper</strong>
+                    <span data-th-text="*{{partKeeper}}">partKeeperValue</span>
+         	        </li>
+                  <li id="partscrappingrecord-storagelocation-field" data-z="f13066e8">
+            	      <strong data-th-text="#{label_partscrappingrecord_storagelocation}">storageLocation</strong>
+                    <span data-th-text="*{{storageLocation}}">storageLocationValue</span>
+         	        </li>
+                  <li id="partscrappingrecord-recordstatus-field" data-z="81a3b856">
+            	      <strong data-th-text="#{label_partscrappingrecord_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="partscrappingrecord-createddate-field" data-z="fa993ea8">
+            	      <strong data-th-text="#{label_partscrappingrecord_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="partscrappingrecord-createdby-field" data-z="d22cbbc8">
+            	      <strong data-th-text="#{label_partscrappingrecord_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="partscrappingrecord-lastmodifieddate-field" data-z="cef0bfb6">
+            	      <strong data-th-text="#{label_partscrappingrecord_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="partscrappingrecord-lastmodifiedby-field" data-z="54ed2856">
+            	      <strong data-th-text="#{label_partscrappingrecord_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

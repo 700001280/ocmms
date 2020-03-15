@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_taskoperationtext})}|">Show TaskOperationText - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${taskOperationText}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="taskoperationtext-taskoperationheader-field" data-z="38052eba">
+            	      <strong data-th-text="#{label_taskoperationtext_taskoperationheader}">taskOperationHeader</strong>
+                    <span data-th-text="*{{taskOperationHeader}}">taskOperationHeaderValue</span>
+         	        </li>
+                  <li id="taskoperationtext-taskoperationtextcode-field" data-z="f5e5fa7a">
+            	      <strong data-th-text="#{label_taskoperationtext_taskoperationtextcode}">taskOperationTextCode</strong>
+                    <span data-th-text="*{{taskOperationTextCode}}">taskOperationTextCodeValue</span>
+         	        </li>
+                  <li id="taskoperationtext-operationtextnumber-field" data-z="b01de13a">
+            	      <strong data-th-text="#{label_taskoperationtext_operationtextnumber}">operationTextNumber</strong>
+                    <span data-th-text="*{{operationTextNumber}}">operationTextNumberValue</span>
+         	        </li>
+                  <li id="taskoperationtext-operationshorttext-field" data-z="81a0ac84">
+            	      <strong data-th-text="#{label_taskoperationtext_operationshorttext}">operationShortText</strong>
+                    <span data-th-text="*{{operationShortText}}">operationShortTextValue</span>
+         	        </li>
+                  <li id="taskoperationtext-recordstatus-field" data-z="c9574444">
+            	      <strong data-th-text="#{label_taskoperationtext_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="taskoperationtext-createddate-field" data-z="d6d7cfa">
+            	      <strong data-th-text="#{label_taskoperationtext_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="taskoperationtext-createdby-field" data-z="db40669a">
+            	      <strong data-th-text="#{label_taskoperationtext_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="taskoperationtext-lastmodifieddate-field" data-z="b900a4a4">
+            	      <strong data-th-text="#{label_taskoperationtext_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="taskoperationtext-lastmodifiedby-field" data-z="7ded70c4">
+            	      <strong data-th-text="#{label_taskoperationtext_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

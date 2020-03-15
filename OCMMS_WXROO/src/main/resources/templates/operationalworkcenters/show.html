@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_operationalworkcenter})}|">Show OperationalWorkCenter - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${operationalWorkCenter}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_operationalworkcenter})}">Show OperationalWorkCenter</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_operationalworkcenter})}">OperationalWorkCenter data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="operationalworkcenter-organization-field" data-z="c2d9622d">
+            	      <strong data-th-text="#{label_operationalworkcenter_organization}">organization</strong>
+                    <span data-th-text="*{{organization}}">organizationValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-mainworkcenter-field" data-z="39c4796d">
+            	      <strong data-th-text="#{label_operationalworkcenter_mainworkcenter}">mainWorkCenter</strong>
+                    <span data-th-text="*{{mainWorkCenter}}">mainWorkCenterValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-code-field" data-z="2e8e40ed">
+            	      <strong data-th-text="#{label_operationalworkcenter_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-category-field" data-z="20f5dbcd">
+            	      <strong data-th-text="#{label_operationalworkcenter_category}">category</strong>
+                    <span data-th-text="*{{category}}">categoryValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-name-field" data-z="4127252d">
+            	      <strong data-th-text="#{label_operationalworkcenter_name}">name</strong>
+                    <span data-th-text="*{{name}}">nameValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-responsible-field" data-z="6e0e7b1">
+            	      <strong data-th-text="#{label_operationalworkcenter_responsible}">responsible</strong>
+                    <span data-th-text="*{{responsible}}">responsibleValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-controlkey-field" data-z="7c430bad">
+            	      <strong data-th-text="#{label_operationalworkcenter_controlkey}">controlKey</strong>
+                    <span data-th-text="*{{controlKey}}">controlKeyValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-plannergroup-field" data-z="eaad8acd">
+            	      <strong data-th-text="#{label_operationalworkcenter_plannergroup}">plannerGroup</strong>
+                    <span data-th-text="*{{plannerGroup}}">plannerGroupValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-capacityunitofmeasure-field" data-z="156b9e71">
+            	      <strong data-th-text="#{label_operationalworkcenter_capacityunitofmeasure}">capacityUnitOfMeasure</strong>
+                    <span data-th-text="*{{capacityUnitOfMeasure}}">capacityUnitOfMeasureValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-capacitystarttime-field" data-z="a3fdaa51">
+            	      <strong data-th-text="#{label_operationalworkcenter_capacitystarttime}">capacityStartTime</strong>
+                    <span data-th-text="*{{capacityStartTime}}">capacityStartTimeValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-capacityendtime-field" data-z="ab46d3b1">
+            	      <strong data-th-text="#{label_operationalworkcenter_capacityendtime}">capacityEndTime</strong>
+                    <span data-th-text="*{{capacityEndTime}}">capacityEndTimeValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-capacityutilization-field" data-z="c72f6751">
+            	      <strong data-th-text="#{label_operationalworkcenter_capacityutilization}">capacityUtilization</strong>
+                    <span data-th-text="*{{capacityUtilization}}">capacityUtilizationValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-numberofcapacities-field" data-z="75c4df2d">
+            	      <strong data-th-text="#{label_operationalworkcenter_numberofcapacities}">numberofCapacities</strong>
+                    <span data-th-text="*{{numberofCapacities}}">numberofCapacitiesValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-validitystartdate-field" data-z="b00b2131">
+            	      <strong data-th-text="#{label_operationalworkcenter_validitystartdate}">validityStartDate</strong>
+                    <span data-th-text="*{{validityStartDate}}">validityStartDateValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-validityenddate-field" data-z="d36c0a91">
+            	      <strong data-th-text="#{label_operationalworkcenter_validityenddate}">validityEndDate</strong>
+                    <span data-th-text="*{{validityEndDate}}">validityEndDateValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-costcenter-field" data-z="def08fed">
+            	      <strong data-th-text="#{label_operationalworkcenter_costcenter}">costCenter</strong>
+                    <span data-th-text="*{{costCenter}}">costCenterValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-activitytype-field" data-z="ae25f38d">
+            	      <strong data-th-text="#{label_operationalworkcenter_activitytype}">activityType</strong>
+                    <span data-th-text="*{{activityType}}">activityTypeValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-recordstatus-field" data-z="9e0b3c4d">
+            	      <strong data-th-text="#{label_operationalworkcenter_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-createddate-field" data-z="3c5dfd1">
+            	      <strong data-th-text="#{label_operationalworkcenter_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-createdby-field" data-z="89319331">
+            	      <strong data-th-text="#{label_operationalworkcenter_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-lastmodifieddate-field" data-z="a377702d">
+            	      <strong data-th-text="#{label_operationalworkcenter_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="operationalworkcenter-lastmodifiedby-field" data-z="f5838a8d">
+            	      <strong data-th-text="#{label_operationalworkcenter_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="OperationalWorkCenter_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('OperationalWorkCentersItemThymeleafController').to('editForm').with('operationalWorkCenter', operationalWorkCenter.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="OperationalWorkCenter_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('OperationalWorkCentersCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

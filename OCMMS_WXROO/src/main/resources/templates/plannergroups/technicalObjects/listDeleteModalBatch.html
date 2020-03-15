@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="technicalobjects-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('PlannerGroupsItemTechnicalObjectsThymeleafController')}">
+    <table id="technicalobjects-detail-table-items-to-remove-batch" data-parent-table="plannergroup-entity-table" data-data-parent-id="${plannerGroup != null ? plannerGroup.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('plannerGroup', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="tag" data-th-text="#{label_plannergroup_technicalobjects_tag}">tag</th>
+              <th data-data="description" data-th-text="#{label_plannergroup_technicalobjects_description}">description</th>
+              <th data-data="descriptionLocal" data-th-text="#{label_plannergroup_technicalobjects_descriptionlocal}">descriptionLocal</th>
+              <th data-data="abcIndicator" data-th-text="#{label_plannergroup_technicalobjects_abcindicator}">abcIndicator</th>
+              <th data-data="mainWorkCenter" data-th-text="#{label_plannergroup_technicalobjects_mainworkcenter}">mainWorkCenter</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>tag</td>
+              <td>description</td>
+              <td>descriptionLocal</td>
+              <td>abcIndicator</td>
+              <td>mainWorkCenter</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

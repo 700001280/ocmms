@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="lotoinfoes-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('EquipmentsItemLotoInfoesThymeleafController')}">
+    <table id="lotoinfoes-detail-table-item-to-remove" data-parent-table="equipment-entity-table" data-data-parent-id="${equipment != null ? equipment.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('equipment', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="lotoTag" data-th-text="#{label_equipment_lotoinfoes_lototag}">lotoTag</th>
+              <th data-data="description" data-th-text="#{label_equipment_lotoinfoes_description}">description</th>
+              <th data-data="equipment" data-th-text="#{label_equipment_lotoinfoes_equipment}">equipment</th>
+              <th data-data="developedBy" data-th-text="#{label_equipment_lotoinfoes_developedby}">developedBy</th>
+              <th data-data="reviewedBy" data-th-text="#{label_equipment_lotoinfoes_reviewedby}">reviewedBy</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>lotoTag</td>
+              <td>description</td>
+              <td>equipment</td>
+              <td>developedBy</td>
+              <td>reviewedBy</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

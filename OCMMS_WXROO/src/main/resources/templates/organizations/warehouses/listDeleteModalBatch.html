@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="warehouses-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('OrganizationsItemWarehousesThymeleafController')}">
+    <table id="warehouses-detail-table-items-to-remove-batch" data-parent-table="organization-entity-table" data-data-parent-id="${organization != null ? organization.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('organization', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="code" data-th-text="#{label_organization_warehouses_code}">code</th>
+              <th data-data="memo" data-th-text="#{label_organization_warehouses_memo}">memo</th>
+              <th data-data="description" data-th-text="#{label_organization_warehouses_description}">description</th>
+              <th data-data="organization" data-th-text="#{label_organization_warehouses_organization}">organization</th>
+              <th data-data="recordStatus" data-th-text="#{label_organization_warehouses_recordstatus}">recordStatus</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>code</td>
+              <td>memo</td>
+              <td>description</td>
+              <td>organization</td>
+              <td>recordStatus</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

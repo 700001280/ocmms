@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-layout}">
+  <head id="head">
+
+    <title data-th-text="#{label_create_entity(#{label_lotoinfo})}">
+      Create LotoInfo - OCMMSROO - SpringRoo Application</title>
+
+    <!-- DateTimePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css" data-th-href="@{/webjars/datetimepicker/build/jquery.datetimepicker.min.css}" />
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+        <div class="container-fluid content" data-th-with="collectionLink=${@linkBuilder.of('LotoInfoesCollectionThymeleafController')}">
+
+          <h1 data-th-text="#{label_create_entity(#{label_lotoinfo})}">Create LotoInfo</h1>
+
+          <!-- FORM -->
+          <form class="form-horizontal validate" method="POST" data-th-object="${lotoInfo}" data-th-action="${collectionLink.to('create').with('lotoInfo', lotoInfo.id)}">
+
+            <fieldset id="containerFields">
+              <legend class="sr-only" data-th-text="#{label_data_entity(#{label_lotoinfo})}">LotoInfo data </legend>
+
+<div class="form-group has-error has-feedback" data-z="f515b227" id="lotoinfo-lototag-field" data-th-classappend="${#fields.hasErrors('lotoTag')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="lotoTag" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_lototag}">lotoTag</label>
+  <div class="col-md-6">
+    <input id="lotoTag" name="lotoTag" data-th-value="*{{lotoTag}}" type="text" class="form-control" placeholder="lotoTag" data-th-placeholder="#{label_lotoinfo_lototag}" data-toggle="tooltip" aria-describedby="lotoTagStatus" />
+      <span data-th-classappend="${#fields.hasErrors('lotoTag')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('lotoTag')}" aria-hidden="true"></span>
+      <span id="lotoTag-error" class="help-block" data-th-if="${#fields.hasErrors('lotoTag')}" data-th-errors="*{lotoTag}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="3e4ba247" id="lotoinfo-description-field" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="description" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_description}">description</label>
+  <div class="col-md-6">
+    <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_lotoinfo_description}" data-toggle="tooltip" aria-describedby="descriptionStatus" />
+      <span data-th-classappend="${#fields.hasErrors('description')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('description')}" aria-hidden="true"></span>
+      <span id="description-error" class="help-block" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="7ca5f207" id="lotoinfo-equipment-field" data-th-classappend="${#fields.hasErrors('equipment')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EquipmentsCollectionThymeleafController')}">
+    <label for="equipment" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_equipment}">Equipment</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{equipment}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{equipment} == null" data-th-value="*{equipment.id}" data-th-text="*{{equipment}}" selected="selected">Equipment</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('equipment')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('equipment')}" aria-hidden="true"></span>
+      <span id="equipment-error" class="help-block" data-th-if="${#fields.hasErrors('equipment')}" data-th-errors="*{equipment}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="93f34f87" id="lotoinfo-developedby-field" data-th-classappend="${#fields.hasErrors('developedBy')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EmployeesCollectionThymeleafController')}">
+    <label for="developedBy" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_developedby}">Employee</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{developedBy}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{developedBy} == null" data-th-value="*{developedBy.id}" data-th-text="*{{developedBy}}" selected="selected">Employee</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('developedBy')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('developedBy')}" aria-hidden="true"></span>
+      <span id="developedBy-error" class="help-block" data-th-if="${#fields.hasErrors('developedBy')}" data-th-errors="*{developedBy}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="8ae80457" id="lotoinfo-reviewedby-field" data-th-classappend="${#fields.hasErrors('reviewedBy')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EmployeesCollectionThymeleafController')}">
+    <label for="reviewedBy" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_reviewedby}">Employee</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{reviewedBy}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{reviewedBy} == null" data-th-value="*{reviewedBy.id}" data-th-text="*{{reviewedBy}}" selected="selected">Employee</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('reviewedBy')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('reviewedBy')}" aria-hidden="true"></span>
+      <span id="reviewedBy-error" class="help-block" data-th-if="${#fields.hasErrors('reviewedBy')}" data-th-errors="*{reviewedBy}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="9f13f387" id="lotoinfo-revisedby-field" data-th-classappend="${#fields.hasErrors('revisedBy')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EmployeesCollectionThymeleafController')}">
+    <label for="revisedBy" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_revisedby}">Employee</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{revisedBy}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{revisedBy} == null" data-th-value="*{revisedBy.id}" data-th-text="*{{revisedBy}}" selected="selected">Employee</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('revisedBy')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('revisedBy')}" aria-hidden="true"></span>
+      <span id="revisedBy-error" class="help-block" data-th-if="${#fields.hasErrors('revisedBy')}" data-th-errors="*{revisedBy}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="a02b45b7" id="lotoinfo-note-field" data-th-classappend="${#fields.hasErrors('note')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="note" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_note}">note</label>
+  <div class="col-md-6">
+    <input id="note" name="note" data-th-value="*{{note}}" type="text" class="form-control" placeholder="note" data-th-placeholder="#{label_lotoinfo_note}" data-toggle="tooltip" aria-describedby="noteStatus" />
+      <span data-th-classappend="${#fields.hasErrors('note')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('note')}" aria-hidden="true"></span>
+      <span id="note-error" class="help-block" data-th-if="${#fields.hasErrors('note')}" data-th-errors="*{note}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" id="lotoinfo-nextauditdate-field" data-z="904b5507" data-th-classappend="${#fields.hasErrors('nextAuditDate')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="nextAuditDate" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_nextauditdate}">nextAuditDate</label>
+  <div class="col-md-3">
+    <input id="nextAuditDate" name="nextAuditDate" data-th-value="*{{nextAuditDate}}" type="text" class="form-control datetimepicker" placeholder="nextAuditDate" data-th-placeholder="#{label_lotoinfo_nextauditdate}" data-th-attr="data-dateformat=${nextAuditDate_date_format}" data-toggle="tooltip" /> <span data-th-classappend="${#fields.hasErrors('nextAuditDate')}? 'glyphicon glyphicon-remove form-control-feedback'" data-th-if="${#fields.hasErrors('nextAuditDate')}" aria-hidden="true"></span>
+     <span id="nextAuditDate-error" class="help-block" data-th-if="${#fields.hasErrors('nextAuditDate')}" data-th-errors="*{nextAuditDate}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="e6bf6657" id="lotoinfo-barurl-field" data-th-classappend="${#fields.hasErrors('barUrl')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="barUrl" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_barurl}">barUrl</label>
+  <div class="col-md-6">
+    <input id="barUrl" name="barUrl" data-th-value="*{{barUrl}}" type="text" class="form-control" placeholder="barUrl" data-th-placeholder="#{label_lotoinfo_barurl}" data-toggle="tooltip" aria-describedby="barUrlStatus" />
+      <span data-th-classappend="${#fields.hasErrors('barUrl')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('barUrl')}" aria-hidden="true"></span>
+      <span id="barUrl-error" class="help-block" data-th-if="${#fields.hasErrors('barUrl')}" data-th-errors="*{barUrl}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="304b9897" id="lotoinfo-lotobaseinfo-field" data-th-classappend="${#fields.hasErrors('lotoBaseInfo')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('LotoBaseInfoesCollectionThymeleafController')}">
+    <label for="lotoBaseInfo" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_lotobaseinfo}">LotoBaseInfo</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{lotoBaseInfo}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{lotoBaseInfo} == null" data-th-value="*{lotoBaseInfo.id}" data-th-text="*{{lotoBaseInfo}}" selected="selected">LotoBaseInfo</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('lotoBaseInfo')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('lotoBaseInfo')}" aria-hidden="true"></span>
+      <span id="lotoBaseInfo-error" class="help-block" data-th-if="${#fields.hasErrors('lotoBaseInfo')}" data-th-errors="*{lotoBaseInfo}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="74d563b7" id="lotoinfo-recordstatus-field" data-th-classappend="${#fields.hasErrors('recordStatus')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('RecordStatusesCollectionThymeleafController')}">
+    <label for="recordStatus" class="col-md-3 control-label" data-th-text="#{label_lotoinfo_recordstatus}">RecordStatus</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{recordStatus}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{recordStatus} == null" data-th-value="*{recordStatus.id}" data-th-text="*{{recordStatus}}" selected="selected">RecordStatus</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('recordStatus')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('recordStatus')}" aria-hidden="true"></span>
+      <span id="recordStatus-error" class="help-block" data-th-if="${#fields.hasErrors('recordStatus')}" data-th-errors="*{recordStatus}">Error message.</span>
+    </div>
+</div>
+            </fieldset>
+
+
+              <!-- buttons form -->
+              <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" class="btn btn-primary" data-th-text="#{label_save}">Save</button>
+                    <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{${collectionLink.to('list')}} + '\''" data-th-text="#{label_reset}">Cancel</button>
+                </div>
+              </div>
+
+          </form>
+          <!-- /FORM -->
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+
+    <!-- DateTimePicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js" data-th-src="@{/webjars/datetimepicker/build/jquery.datetimepicker.full.min.js}"></script>
+    <script src="../../static/public/js/datetimepicker-defaults.js" data-th-src="@{/public/js/datetimepicker-defaults.js}"></script>
+
+    <!-- jquery.inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.1/jquery.inputmask.bundle.min.js" data-th-src="@{/webjars/jquery.inputmask/min/jquery.inputmask.bundle.min.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+					(function(jQuery) {
+						jQuery(document)
+								.ready(
+										function() {
+											Inputmask
+													.extendAliases({
+														'numeric' : {
+															'groupSeparator' : /*[[#{label_inputmask_groupSeparator}]]*/'.',
+															'radixPoint' : /*[[#{label_inputmask_radixPoint}]]*/','
+														},
+														'currency' : {
+															'prefix' : /*[[#{label_inputmask_prefix}]]*/'',
+															'suffix' : /*[[#{label_inputmask_suffix}]]*/' €'
+														}
+													});
+										});
+					})(jQuery);
+  		</script>
+    <script src="../../static/public/js/inputmask-defaults.js" data-th-src="@{/public/js/inputmask-defaults.js}"></script>
+
+    <!-- JQuery Validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js" data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
+		  </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js" data-th-src="@{/webjars/jquery-validation/dist/additional-methods.min.js}">
+			</script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/localization/messages_es.js" data-th-src="@{/webjars/jquery-validation/src/localization/messages_}+${#locale.language}+'.js'" data-th-if="${#locale.language} != 'en'">
+			</script>
+    <script src="../../static/public/js/validation-defaults.js" data-th-src="@{/public/js/validation-defaults.js}">
+			</script>
+
+    <script type="text/javascript" data-th-inline="javascript">
+					(function(jQuery) {
+						jQuery(document)
+								.ready(
+										function() {
+											jQuery
+													.extend(
+															jQuery.validator.messages,
+															{
+																'dateformat' : /*[[#{error_invalid_date}]]*/'Please enter a correct date/time',
+																'inputmask' : /*[[#{error_invalid_maskValue}]]*/'Please enter a valid value',
+															});
+										});
+					})(jQuery);
+		  </script>
+
+    </div>
+
+  </body>
+
+</html>

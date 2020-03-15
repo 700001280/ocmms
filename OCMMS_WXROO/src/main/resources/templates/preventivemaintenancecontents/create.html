@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-layout}">
+  <head id="head">
+
+    <title data-th-text="#{label_create_entity(#{label_preventivemaintenancecontent})}">
+      Create PreventiveMaintenanceContent - OCMMSROO - SpringRoo Application</title>
+
+    <!-- DateTimePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css" data-th-href="@{/webjars/datetimepicker/build/jquery.datetimepicker.min.css}" />
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+        <div class="container-fluid content" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceContentsCollectionThymeleafController')}">
+
+          <h1 data-th-text="#{label_create_entity(#{label_preventivemaintenancecontent})}">Create PreventiveMaintenanceContent</h1>
+
+          <!-- FORM -->
+          <form class="form-horizontal validate" method="POST" data-th-object="${preventiveMaintenanceContent}" data-th-action="${collectionLink.to('create').with('preventiveMaintenanceContent', preventiveMaintenanceContent.id)}">
+
+            <fieldset id="containerFields">
+              <legend class="sr-only" data-th-text="#{label_data_entity(#{label_preventivemaintenancecontent})}">PreventiveMaintenanceContent data </legend>
+
+<div class="form-group has-error has-feedback" data-z="1de6b291" id="preventivemaintenancecontent-serialno-field" data-th-classappend="${#fields.hasErrors('serialNo')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="serialNo" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_serialno}">serialNo</label>
+  <div class="col-md-3">
+    <input id="serialNo" name="serialNo" data-th-value="*{{serialNo}}" type="text" class="form-control inputmask" placeholder="serialNo" data-th-placeholder="#{label_preventivemaintenancecontent_serialno}" data-toggle="tooltip" aria-describedby="serialNoStatus" data-inputmask-alias="numeric" data-inputmask-digits="0" />
+      <span data-th-classappend="${#fields.hasErrors('serialNo')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('serialNo')}" aria-hidden="true"></span>
+      <span id="serialNo-error" class="help-block" data-th-if="${#fields.hasErrors('serialNo')}" data-th-errors="*{serialNo}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="568782ed" id="preventivemaintenancecontent-description-field" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="description" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_description}">description</label>
+  <div class="col-md-6">
+    <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_preventivemaintenancecontent_description}" data-toggle="tooltip" aria-describedby="descriptionStatus" />
+      <span data-th-classappend="${#fields.hasErrors('description')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('description')}" aria-hidden="true"></span>
+      <span id="description-error" class="help-block" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="225f2d71" id="preventivemaintenancecontent-method-field" data-th-classappend="${#fields.hasErrors('method')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="method" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_method}">method</label>
+  <div class="col-md-6">
+    <input id="method" name="method" data-th-value="*{{method}}" type="text" class="form-control" placeholder="method" data-th-placeholder="#{label_preventivemaintenancecontent_method}" data-toggle="tooltip" aria-describedby="methodStatus" />
+      <span data-th-classappend="${#fields.hasErrors('method')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('method')}" aria-hidden="true"></span>
+      <span id="method-error" class="help-block" data-th-if="${#fields.hasErrors('method')}" data-th-errors="*{method}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="909d5d71" id="preventivemaintenancecontent-standard-field" data-th-classappend="${#fields.hasErrors('standard')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="standard" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_standard}">standard</label>
+  <div class="col-md-6">
+    <input id="standard" name="standard" data-th-value="*{{standard}}" type="text" class="form-control" placeholder="standard" data-th-placeholder="#{label_preventivemaintenancecontent_standard}" data-toggle="tooltip" aria-describedby="standardStatus" />
+      <span data-th-classappend="${#fields.hasErrors('standard')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('standard')}" aria-hidden="true"></span>
+      <span id="standard-error" class="help-block" data-th-if="${#fields.hasErrors('standard')}" data-th-errors="*{standard}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="a5d59711" id="preventivemaintenancecontent-tool-field" data-th-classappend="${#fields.hasErrors('tool')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="tool" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_tool}">tool</label>
+  <div class="col-md-6">
+    <input id="tool" name="tool" data-th-value="*{{tool}}" type="text" class="form-control" placeholder="tool" data-th-placeholder="#{label_preventivemaintenancecontent_tool}" data-toggle="tooltip" aria-describedby="toolStatus" />
+      <span data-th-classappend="${#fields.hasErrors('tool')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('tool')}" aria-hidden="true"></span>
+      <span id="tool-error" class="help-block" data-th-if="${#fields.hasErrors('tool')}" data-th-errors="*{tool}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="e15ea10d" id="preventivemaintenancecontent-materialcatalog-field" data-th-classappend="${#fields.hasErrors('materialCatalog')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('MaterialCatalogsCollectionThymeleafController')}">
+    <label for="materialCatalog" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_materialcatalog}">MaterialCatalog</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{materialCatalog}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{materialCatalog} == null" data-th-value="*{materialCatalog.id}" data-th-text="*{{materialCatalog}}" selected="selected">MaterialCatalog</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('materialCatalog')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('materialCatalog')}" aria-hidden="true"></span>
+      <span id="materialCatalog-error" class="help-block" data-th-if="${#fields.hasErrors('materialCatalog')}" data-th-errors="*{materialCatalog}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" id="preventivemaintenancecontent-startdate-field" data-z="2d8f080d" data-th-classappend="${#fields.hasErrors('startDate')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="startDate" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_startdate}">startDate</label>
+  <div class="col-md-3">
+    <input id="startDate" name="startDate" data-th-value="*{{startDate}}" type="text" class="form-control datetimepicker" placeholder="startDate" data-th-placeholder="#{label_preventivemaintenancecontent_startdate}" data-th-attr="data-dateformat=${startDate_date_format}" data-toggle="tooltip" /> <span data-th-classappend="${#fields.hasErrors('startDate')}? 'glyphicon glyphicon-remove form-control-feedback'" data-th-if="${#fields.hasErrors('startDate')}" aria-hidden="true"></span>
+     <span id="startDate-error" class="help-block" data-th-if="${#fields.hasErrors('startDate')}" data-th-errors="*{startDate}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="f416ee8d" id="preventivemaintenancecontent-singlecycle-field" data-th-classappend="${#fields.hasErrors('singleCycle')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="singleCycle" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_singlecycle}">singleCycle</label>
+  <div class="col-md-3">
+    <input id="singleCycle" name="singleCycle" data-th-value="*{{singleCycle}}" type="text" class="form-control inputmask" placeholder="singleCycle" data-th-placeholder="#{label_preventivemaintenancecontent_singlecycle}" data-toggle="tooltip" aria-describedby="singleCycleStatus" data-inputmask-alias="numeric" data-inputmask-digits="0" />
+      <span data-th-classappend="${#fields.hasErrors('singleCycle')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('singleCycle')}" aria-hidden="true"></span>
+      <span id="singleCycle-error" class="help-block" data-th-if="${#fields.hasErrors('singleCycle')}" data-th-errors="*{singleCycle}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="7ca4e4cd" id="preventivemaintenancecontent-cycleunit-field" data-th-classappend="${#fields.hasErrors('cycleUnit')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PlanPeriodsCollectionThymeleafController')}">
+    <label for="cycleUnit" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_cycleunit}">PlanPeriod</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{cycleUnit}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{cycleUnit} == null" data-th-value="*{cycleUnit.id}" data-th-text="*{{cycleUnit}}" selected="selected">PlanPeriod</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('cycleUnit')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('cycleUnit')}" aria-hidden="true"></span>
+      <span id="cycleUnit-error" class="help-block" data-th-if="${#fields.hasErrors('cycleUnit')}" data-th-errors="*{cycleUnit}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="47ecfced" id="preventivemaintenancecontent-preventivemaintenancestandard-field" data-th-classappend="${#fields.hasErrors('preventiveMaintenanceStandard')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PreventiveMaintenanceStandardsCollectionThymeleafController')}">
+    <label for="preventiveMaintenanceStandard" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_preventivemaintenancestandard}">PreventiveMaintenanceStandard</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{preventiveMaintenanceStandard}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{preventiveMaintenanceStandard} == null" data-th-value="*{preventiveMaintenanceStandard.id}" data-th-text="*{{preventiveMaintenanceStandard}}" selected="selected">PreventiveMaintenanceStandard</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('preventiveMaintenanceStandard')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('preventiveMaintenanceStandard')}" aria-hidden="true"></span>
+      <span id="preventiveMaintenanceStandard-error" class="help-block" data-th-if="${#fields.hasErrors('preventiveMaintenanceStandard')}" data-th-errors="*{preventiveMaintenanceStandard}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="641597d1" id="preventivemaintenancecontent-recordstatus-field" data-th-classappend="${#fields.hasErrors('recordStatus')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('RecordStatusesCollectionThymeleafController')}">
+    <label for="recordStatus" class="col-md-3 control-label" data-th-text="#{label_preventivemaintenancecontent_recordstatus}">RecordStatus</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{recordStatus}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{recordStatus} == null" data-th-value="*{recordStatus.id}" data-th-text="*{{recordStatus}}" selected="selected">RecordStatus</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('recordStatus')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('recordStatus')}" aria-hidden="true"></span>
+      <span id="recordStatus-error" class="help-block" data-th-if="${#fields.hasErrors('recordStatus')}" data-th-errors="*{recordStatus}">Error message.</span>
+    </div>
+</div>
+            </fieldset>
+
+
+              <!-- buttons form -->
+              <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" class="btn btn-primary" data-th-text="#{label_save}">Save</button>
+                    <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{${collectionLink.to('list')}} + '\''" data-th-text="#{label_reset}">Cancel</button>
+                </div>
+              </div>
+
+          </form>
+          <!-- /FORM -->
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+
+    <!-- DateTimePicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js" data-th-src="@{/webjars/datetimepicker/build/jquery.datetimepicker.full.min.js}"></script>
+    <script src="../../static/public/js/datetimepicker-defaults.js" data-th-src="@{/public/js/datetimepicker-defaults.js}"></script>
+
+    <!-- jquery.inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.1/jquery.inputmask.bundle.min.js" data-th-src="@{/webjars/jquery.inputmask/min/jquery.inputmask.bundle.min.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+					(function(jQuery) {
+						jQuery(document)
+								.ready(
+										function() {
+											Inputmask
+													.extendAliases({
+														'numeric' : {
+															'groupSeparator' : /*[[#{label_inputmask_groupSeparator}]]*/'.',
+															'radixPoint' : /*[[#{label_inputmask_radixPoint}]]*/','
+														},
+														'currency' : {
+															'prefix' : /*[[#{label_inputmask_prefix}]]*/'',
+															'suffix' : /*[[#{label_inputmask_suffix}]]*/' €'
+														}
+													});
+										});
+					})(jQuery);
+  		</script>
+    <script src="../../static/public/js/inputmask-defaults.js" data-th-src="@{/public/js/inputmask-defaults.js}"></script>
+
+    <!-- JQuery Validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js" data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
+		  </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js" data-th-src="@{/webjars/jquery-validation/dist/additional-methods.min.js}">
+			</script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/localization/messages_es.js" data-th-src="@{/webjars/jquery-validation/src/localization/messages_}+${#locale.language}+'.js'" data-th-if="${#locale.language} != 'en'">
+			</script>
+    <script src="../../static/public/js/validation-defaults.js" data-th-src="@{/public/js/validation-defaults.js}">
+			</script>
+
+    <script type="text/javascript" data-th-inline="javascript">
+					(function(jQuery) {
+						jQuery(document)
+								.ready(
+										function() {
+											jQuery
+													.extend(
+															jQuery.validator.messages,
+															{
+																'dateformat' : /*[[#{error_invalid_date}]]*/'Please enter a correct date/time',
+																'inputmask' : /*[[#{error_invalid_maskValue}]]*/'Please enter a valid value',
+															});
+										});
+					})(jQuery);
+		  </script>
+
+    </div>
+
+  </body>
+
+</html>

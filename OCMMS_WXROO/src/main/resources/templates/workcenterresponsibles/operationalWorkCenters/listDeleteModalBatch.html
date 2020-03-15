@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="operationalworkcenters-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('WorkCenterResponsiblesItemOperationalWorkCentersThymeleafController')}">
+    <table id="operationalworkcenters-detail-table-items-to-remove-batch" data-parent-table="workcenterresponsible-entity-table" data-data-parent-id="${workCenterResponsible != null ? workCenterResponsible.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('workCenterResponsible', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="organization" data-th-text="#{label_workcenterresponsible_operationalworkcenters_organization}">organization</th>
+              <th data-data="mainWorkCenter" data-th-text="#{label_workcenterresponsible_operationalworkcenters_mainworkcenter}">mainWorkCenter</th>
+              <th data-data="code" data-th-text="#{label_workcenterresponsible_operationalworkcenters_code}">code</th>
+              <th data-data="category" data-th-text="#{label_workcenterresponsible_operationalworkcenters_category}">category</th>
+              <th data-data="name" data-th-text="#{label_workcenterresponsible_operationalworkcenters_name}">name</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>organization</td>
+              <td>mainWorkCenter</td>
+              <td>code</td>
+              <td>category</td>
+              <td>name</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

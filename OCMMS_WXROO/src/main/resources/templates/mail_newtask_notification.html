@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:remove="all">Template for HTML email with inline image</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p th:text="#{label_mail_greeting(${name})}">
+            Hello, Peter Static!
+        </p>
+        
+        <p>
+            Please follow up below task and make sure complete in time:      
+        </p>
+        <p>Task Detail:</p>
+
+        <ul>
+            <li>ID: <span  th:text="${mailContent.id}"></span></li>
+            <li>Description: <span th:text="${mailContent.description}"></span></li>
+            <li>Owner:<span th:text="${mailContent.taskOwner.username}"></span></li>
+            <li>Memo:<span th:text="${mailContent.memo}"></span></li>
+            <li>Target:<span th:text="${#calendars.format(mailContent.targetDate,'yyyy-MM-dd')}"></span></li>
+
+        </ul>
+        <p>
+            You can find detail information in OCMMS.
+        </p>
+        <p>
+            <!-- <img src="sample.png" th:src="|cid:${imageResourceName}|" /> -->
+        </p>
+        <p>
+            Regards, <br />
+            <em>OCMMS ADMIM</em>
+        </p>
+    </body>
+</html>

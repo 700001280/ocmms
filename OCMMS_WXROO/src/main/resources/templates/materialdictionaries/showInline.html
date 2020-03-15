@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_materialdictionary})}|">Show MaterialDictionary - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${materialDictionary}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="materialdictionary-materialclass-field" data-z="7b44a716">
+            	      <strong data-th-text="#{label_materialdictionary_materialclass}">materialClass</strong>
+                    <span data-th-text="*{{materialClass}}">materialClassValue</span>
+         	        </li>
+                  <li id="materialdictionary-itemref-field" data-z="31c2276">
+            	      <strong data-th-text="#{label_materialdictionary_itemref}">itemRef</strong>
+                    <span data-th-text="*{{itemRef}}">itemRefValue</span>
+         	        </li>
+                  <li id="materialdictionary-classdefinition-field" data-z="8c9fe656">
+            	      <strong data-th-text="#{label_materialdictionary_classdefinition}">classDefinition</strong>
+                    <span data-th-text="*{{classDefinition}}">classDefinitionValue</span>
+         	        </li>
+                  <li id="materialdictionary-unspsc-field" data-z="aed54688">
+            	      <strong data-th-text="#{label_materialdictionary_unspsc}">unspsc</strong>
+                    <span data-th-text="*{{unspsc}}">unspscValue</span>
+         	        </li>
+                  <li id="materialdictionary-directmaterial-field" data-z="d7f9c068">
+            	      <strong data-th-text="#{label_materialdictionary_directmaterial}">directMaterial</strong>
+                    <span data-th-text="*{{directMaterial}}">directMaterialValue</span>
+         	        </li>
+                  <li id="materialdictionary-unspscdefinition-field" data-z="66915d08">
+            	      <strong data-th-text="#{label_materialdictionary_unspscdefinition}">unspscDefinition</strong>
+                    <span data-th-text="*{{unspscDefinition}}">unspscDefinitionValue</span>
+         	        </li>
+                  <li id="materialdictionary-classabbrivaition-field" data-z="782337b6">
+            	      <strong data-th-text="#{label_materialdictionary_classabbrivaition}">classAbbrivaition</strong>
+                    <span data-th-text="*{{classAbbrivaition}}">classAbbrivaitionValue</span>
+         	        </li>
+                  <li id="materialdictionary-property-field" data-z="8062268">
+            	      <strong data-th-text="#{label_materialdictionary_property}">property</strong>
+                    <span data-th-text="*{{property}}">propertyValue</span>
+         	        </li>
+                  <li id="materialdictionary-propertydefinition-field" data-z="f0c8e0e8">
+            	      <strong data-th-text="#{label_materialdictionary_propertydefinition}">propertyDefinition</strong>
+                    <span data-th-text="*{{propertyDefinition}}">propertyDefinitionValue</span>
+         	        </li>
+                  <li id="materialdictionary-propertyabbreviation-field" data-z="8522f748">
+            	      <strong data-th-text="#{label_materialdictionary_propertyabbreviation}">propertyAbbreviation</strong>
+                    <span data-th-text="*{{propertyAbbreviation}}">propertyAbbreviationValue</span>
+         	        </li>
+                  <li id="materialdictionary-podseq-field" data-z="b98197e8">
+            	      <strong data-th-text="#{label_materialdictionary_podseq}">podSeq</strong>
+                    <span data-th-text="*{{podSeq}}">podSeqValue</span>
+         	        </li>
+                  <li id="materialdictionary-sfdseq-field" data-z="a4641d68">
+            	      <strong data-th-text="#{label_materialdictionary_sfdseq}">sfdSeq</strong>
+                    <span data-th-text="*{{sfdSeq}}">sfdSeqValue</span>
+         	        </li>
+                  <li id="materialdictionary-mandatoryind-field" data-z="5e1a47a8">
+            	      <strong data-th-text="#{label_materialdictionary_mandatoryind}">mandatoryInd</strong>
+                    <span data-th-text="*{{mandatoryInd}}">mandatoryIndValue</span>
+         	        </li>
+                  <li id="materialdictionary-recordstatus-field" data-z="7eb70c48">
+            	      <strong data-th-text="#{label_materialdictionary_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="materialdictionary-createddate-field" data-z="c0b2a476">
+            	      <strong data-th-text="#{label_materialdictionary_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="materialdictionary-createdby-field" data-z="13613d16">
+            	      <strong data-th-text="#{label_materialdictionary_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="materialdictionary-lastmodifieddate-field" data-z="a974caa8">
+            	      <strong data-th-text="#{label_materialdictionary_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="materialdictionary-lastmodifiedby-field" data-z="5a7b47c8">
+            	      <strong data-th-text="#{label_materialdictionary_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

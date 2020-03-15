@@ -1,0 +1,65 @@
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-09 20:45:18
+project setup --topLevelPackage com.ocmms.cmms --java 8 --projectName OCMMSROO --packaging JAR 
+settings add --name spring.roo.jpa.require.schema-object-name --value true
+jpa setup --provider HIBERNATE --database MYSQL --databaseName ocmmsroo --hostName 127.0.0.1 --password 120120 --userName sa
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-09 20:46:55
+repository jpa --all
+service --all
+web mvc setup
+web mvc view setup --type THYMELEAF
+web mvc controller --all --responseType THYMELEAF
+// [failed] web mvc detail --all --responseType THYMELEAF --views list
+web mvc controller --all --responseType JSON --pathPrefix /api
+finder add --entity ~.model.assistance.TaskTracking --name findByTaskOwner
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-09 21:30:30
+web mvc detail --all --responseType THYMELEAF --views list
+// [failed] web mvc detail --all --responseType THYMELEAF --views list
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-10 07:50:49
+// [failed] finder add --entity ~.model.system.TreeMenu --name findByLoginRolesIgnoreCaseContainingAndVisibleTrue
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-14 17:00:06
+security setup --provider SPRINGLETS_JPA 
+web mvc finder --all --responseType THYMELEAF
+web mvc controller --all --pathPrefix /api
+// [failed] email sender setup --service service-impl:~.UserInfoService --username USERNAME --password PASSWORD --host HOST --port 1000 --protocol PROTOCOL --starttls true
+// [failed] email sender setup --service ~.service.UserInfoService --username USERNAME --password PASSWORD --host HOST --port 1000 --protocol PROTOCOL --starttls true
+// [failed] email sender setup --service ~.service.api.UserInfoService --username USERNAME --password PASSWORD --host HOST --port 1000 --protocol PROTOCOL --starttls true
+// [failed] email sender setup --service ~.service.impl.UserInfoServiceImpl --username USERNAME --password PASSWORD --host HOST --port 1000 --protocol PROTOCOL --starttls true
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-14 18:09:00
+// [failed] email sender setup --service ~.service.impl.UserInfoServiceImpl --username USERNAME --password PASSWORD --host HOST --port 1000 --protocol PROTOCOL --starttls true
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-14 18:23:36
+// [failed] email sender setup --service ~.service.impl.UserInfoServiceImpl --username USERNAME --password PASSWORD --host HOST --port 1000 --protocol PROTOCOL --starttls true
+// [failed] email sender setup --service ~.service.impl.UserInfoServiceImpl --username USERNAME --password PASSWORD --host HOST --port 1000 --protocol PROTOCOL --starttls true
+// [failed] email sender setup --service ~.service.impl.UnitOfMeasureServiceImpl --username USERNAME --password PASSWORD --host HOST --port 1000 --protocol PROTOCOL --starttls true
+// [failed] finder add --entity ~.model.hrm.Employee --name findOneByUsername 
+ email sender setup --service ~.service.impl.UnitOfMeasureServiceImpl --username USERNAME --password PASSWORD --host HOST --port 1000 --protocol PROTOCOL --starttls true
+// [failed] dto --class ~.model.hrm.UsernameFormBean
+dto --class ~.model.hrm.UsernameFormBean --force
+ field string --fieldName username
+// [failed] quit
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-14 18:55:07
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-14 19:13:01
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-14 19:37:26
+// [failed] web mvc finder --all --responseType THYMELEAF
+// [failed] web mvc finder --all --responseType THYMELEAF
+finder add --entity ~.model.assistance.TaskTracking --name findByTaskOwnerAndTargetDateBetweenOrderByIdDesc --formBean ~.model.hrm.TaskFormBean  --force
+// [failed] finder add --entity ~.model.assistance.TaskTracking --name findByTaskOwnerAndTargetDateBetweenOrderByIdDesc --formBean ~.model.hrm.TaskFormBean  --force
+finder add --entity ~.model.assistance.TaskTracking --name findByTaskOwnerAndTargetDateBetweenOrderByIdDesc --formBean ~.model.hrm.TaskFormBean  --force
+finder add --entity ~.model.assistance.TaskTracking --name findByTaskOwnerAndTargetDateBetweenOrderByIdDesc --formBean ~.model.hrm.TaskFormBean  --force
+entity projection --class ~.model.assistance.EmployeeTask --entity ~.model.assistance.TaskTracking --fields id,description --entityFormatExpression #{description}
+// [failed] entity projection --class ~.model.assistance.EmployeeTask --entity ~.model.assistance.TaskTracking --fields id,submitDate, submitter,description,targetDate,memo --entityFormatExpression #{description}
+// [failed] entity projection --class ~.model.assistance.EmployeeTask --entity ~.model.assistance.TaskTracking --fields id,submitDate, submitter,description,targetDate,memo --entityFormatExpression #{description} --force
+// [failed] entity projection --class ~.model.assistance.EmployeeTask --entity ~.model.assistance.TaskTracking --fields id,submitDate, submitter,description,targetDate,memo --entityFormatExpression #{description} --force
+repository jpa --entity ~.model.assistance.TaskTracking --interface ~.repository.TaskTrackingRepository --defaultReturnType ~.model.assistance.EmployeeTask
+repository jpa --entity ~.model.assistance.TaskTracking --interface ~.repository.TaskTrackingRepository --defaultReturnType ~.model.assistance.EmployeeTask  --force
+repository jpa --entity ~.model.assistance.TaskTracking --interface ~.repository.EmployeeTaskRepository --defaultReturnType ~.model.assistance.EmployeeTask  --force
+// [failed] web mvc finder --all --responseType THYMELEAF
+// [failed] web mvc finder --all --responseType THYMELEAF
+// [failed] quit
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-14 20:40:23
+// [failed] web mvc finder --all --responseType THYMELEAF
+web mvc finder --all --responseType THYMELEAF
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-14 20:53:55
+// [failed]  web mvc finder --all --responseType THYMELEAF
+// [failed]  web mvc finder --all --responseType THYMELEAF
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-14 21:13:34
+// [failed] web mvc finder --all --responseType THYMELEAF

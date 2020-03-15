@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_pelletizermaintenancerecord})}|">Show PelletizerMaintenanceRecord - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${pelletizerMaintenanceRecord}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_pelletizermaintenancerecord})}">Show PelletizerMaintenanceRecord</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_pelletizermaintenancerecord})}">PelletizerMaintenanceRecord data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="pelletizermaintenancerecord-maintstartdate-field" data-z="315c2d7">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_maintstartdate}">maintStartDate</strong>
+                    <span data-th-text="*{{maintStartDate}}">maintStartDateValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-maintenddate-field" data-z="77deddb7">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_maintenddate}">maintEndDate</strong>
+                    <span data-th-text="*{{maintEndDate}}">maintEndDateValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-description-field" data-z="e326e2c7">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-downtime-field" data-z="80536d97">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_downtime}">downtime</strong>
+                    <span data-th-text="*{{downtime}}">downtimeValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-shutdown-field" data-z="8ddd0cb7">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_shutdown}">shutdown</strong>
+                    <span data-th-text="*{{shutdown}}">shutdownValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-interim-field" data-z="45794647">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_interim}">interim</strong>
+                    <span data-th-text="*{{interim}}">interimValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-maintainer-field" data-z="854a8a77">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_maintainer}">maintainer</strong>
+                    <span data-th-text="*{{maintainer}}">maintainerValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-equipment-field" data-z="48575287">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_equipment}">equipment</strong>
+                    <span data-th-text="*{{equipment}}">equipmentValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-recordstatus-field" data-z="6b623337">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-createddate-field" data-z="f19f63a7">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-createdby-field" data-z="e2261487">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-lastmodifieddate-field" data-z="6d44e217">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-lastmodifiedby-field" data-z="c8f86ef7">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-onlineruntime-field" data-z="307273a7">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_onlineruntime}">onlineRunTime</strong>
+                    <span data-th-text="*{{onlineRunTime}}">onlineRunTimeValue</span>
+         	        </li>
+                  <li id="pelletizermaintenancerecord-offlineruntime-field" data-z="5c319ad7">
+            	      <strong data-th-text="#{label_pelletizermaintenancerecord_offlineruntime}">offlineRunTime</strong>
+                    <span data-th-text="*{{offlineRunTime}}">offlineRunTimeValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="PelletizerMaintenanceRecord_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('PelletizerMaintenanceRecordsItemThymeleafController').to('editForm').with('pelletizerMaintenanceRecord', pelletizerMaintenanceRecord.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="PelletizerMaintenanceRecord_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('PelletizerMaintenanceRecordsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

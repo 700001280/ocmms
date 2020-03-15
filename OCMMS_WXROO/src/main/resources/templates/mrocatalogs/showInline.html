@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_mrocatalog})}|">Show MROCatalog - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${mROCatalog}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="mrocatalog-code-field" data-z="96ae55da">
+            	      <strong data-th-text="#{label_mrocatalog_code}">code</strong>
+                    <span data-th-text="*{{code}}">codeValue</span>
+         	        </li>
+                  <li id="mrocatalog-materialname-field" data-z="aee0425a">
+            	      <strong data-th-text="#{label_mrocatalog_materialname}">materialName</strong>
+                    <span data-th-text="*{{materialName}}">materialNameValue</span>
+         	        </li>
+                  <li id="mrocatalog-materialgroup-field" data-z="ccf51884">
+            	      <strong data-th-text="#{label_mrocatalog_materialgroup}">materialGroup</strong>
+                    <span data-th-text="*{{materialGroup}}">materialGroupValue</span>
+         	        </li>
+                  <li id="mrocatalog-recordstatus-field" data-z="8232143a">
+            	      <strong data-th-text="#{label_mrocatalog_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="mrocatalog-createddate-field" data-z="fa9dd644">
+            	      <strong data-th-text="#{label_mrocatalog_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="mrocatalog-createdby-field" data-z="ea6a8a64">
+            	      <strong data-th-text="#{label_mrocatalog_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="mrocatalog-lastmodifieddate-field" data-z="e766899a">
+            	      <strong data-th-text="#{label_mrocatalog_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="mrocatalog-lastmodifiedby-field" data-z="6b541b3a">
+            	      <strong data-th-text="#{label_mrocatalog_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

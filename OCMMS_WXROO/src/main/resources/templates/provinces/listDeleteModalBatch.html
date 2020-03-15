@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="province-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('ProvincesCollectionThymeleafController')},itemLink=${@linkBuilder.of('ProvincesItemThymeleafController')}">
+    <table id="province-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="description" data-th-text="#{label_province_description}">description</th>
+          <th data-data="region" data-th-text="#{label_province_region}">region</th>
+          <th data-data="recordStatus" data-th-text="#{label_province_recordstatus}">recordStatus</th>
+          <th data-data="createdDate" data-th-text="#{label_province_createddate}">createdDate</th>
+          <th data-data="createdBy" data-th-text="#{label_province_createdby}">createdBy</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>description</td>
+          <td>region</td>
+          <td>recordStatus</td>
+          <td>createdDate</td>
+          <td>createdBy</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

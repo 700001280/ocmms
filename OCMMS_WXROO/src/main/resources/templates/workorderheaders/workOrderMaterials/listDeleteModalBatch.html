@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="workordermaterials-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('WorkOrderHeadersItemWorkOrderMaterialsThymeleafController')}">
+    <table id="workordermaterials-detail-table-items-to-remove-batch" data-parent-table="workorderheader-entity-table" data-data-parent-id="${workOrderHeader != null ? workOrderHeader.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('workOrderHeader', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="workOrder" data-th-text="#{label_workorderheader_workordermaterials_workorder}">workOrder</th>
+              <th data-data="material" data-th-text="#{label_workorderheader_workordermaterials_material}">material</th>
+              <th data-data="quantity" data-th-text="#{label_workorderheader_workordermaterials_quantity}">quantity</th>
+              <th data-data="partName" data-th-text="#{label_workorderheader_workordermaterials_partname}">partName</th>
+              <th data-data="unit" data-th-text="#{label_workorderheader_workordermaterials_unit}">unit</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>workOrder</td>
+              <td>material</td>
+              <td>quantity</td>
+              <td>partName</td>
+              <td>unit</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

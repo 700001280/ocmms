@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="materialattributes-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('MaterialCatalogsItemMaterialAttributesThymeleafController')}">
+    <table id="materialattributes-detail-table-item-to-remove" data-parent-table="materialcatalog-entity-table" data-data-parent-id="${materialCatalog != null ? materialCatalog.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('materialCatalog', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="attributeName" data-th-text="#{label_materialcatalog_materialattributes_attributename}">attributeName</th>
+              <th data-data="description" data-th-text="#{label_materialcatalog_materialattributes_description}">description</th>
+              <th data-data="uom" data-th-text="#{label_materialcatalog_materialattributes_uom}">uom</th>
+              <th data-data="materialCatalog" data-th-text="#{label_materialcatalog_materialattributes_materialcatalog}">materialCatalog</th>
+              <th data-data="recordStatus" data-th-text="#{label_materialcatalog_materialattributes_recordstatus}">recordStatus</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>attributeName</td>
+              <td>description</td>
+              <td>uom</td>
+              <td>materialCatalog</td>
+              <td>recordStatus</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

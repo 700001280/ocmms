@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="productmasterdata-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('ProductMasterDatasCollectionThymeleafController')},itemLink=${@linkBuilder.of('ProductMasterDatasItemThymeleafController')}">
+    <table id="productmasterdata-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="materialCode" data-th-text="#{label_productmasterdata_materialcode}">materialCode</th>
+          <th data-data="grade" data-th-text="#{label_productmasterdata_grade}">grade</th>
+          <th data-data="color" data-th-text="#{label_productmasterdata_color}">color</th>
+          <th data-data="description" data-th-text="#{label_productmasterdata_description}">description</th>
+          <th data-data="productType" data-th-text="#{label_productmasterdata_producttype}">productType</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>materialCode</td>
+          <td>grade</td>
+          <td>color</td>
+          <td>description</td>
+          <td>productType</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_treemenu})}|">Show TreeMenu - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${treeMenu}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_treemenu})}">Show TreeMenu</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_treemenu})}">TreeMenu data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="treemenu-name-field" data-z="4ca8b2e8">
+            	      <strong data-th-text="#{label_treemenu_name}">name</strong>
+                    <span data-th-text="*{{name}}">nameValue</span>
+         	        </li>
+                  <li id="treemenu-urllink-field" data-z="a255eed6">
+            	      <strong data-th-text="#{label_treemenu_urllink}">urlLink</strong>
+                    <span data-th-text="*{{urlLink}}">urlLinkValue</span>
+         	        </li>
+                  <li id="treemenu-visible-field" data-z="caa1d596">
+            	      <strong data-th-text="#{label_treemenu_visible}">visible</strong>
+                    <span data-th-text="*{{visible}}">visibleValue</span>
+         	        </li>
+                  <li id="treemenu-parentmenu-field" data-z="cf757488">
+            	      <strong data-th-text="#{label_treemenu_parentmenu}">parentMenu</strong>
+                    <span data-th-text="*{{parentMenu}}">parentMenuValue</span>
+         	        </li>
+                  <li id="treemenu-loginroles-field" data-z="20a4cee8">
+            	      <strong data-th-text="#{label_treemenu_loginroles}">loginRoles</strong>
+                    <span data-th-text="*{{loginRoles}}">loginRolesValue</span>
+         	        </li>
+                  <li id="treemenu-recordstatus-field" data-z="97acdf08">
+            	      <strong data-th-text="#{label_treemenu_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="treemenu-createddate-field" data-z="1c5779b6">
+            	      <strong data-th-text="#{label_treemenu_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="treemenu-createdby-field" data-z="60ba6256">
+            	      <strong data-th-text="#{label_treemenu_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="treemenu-lastmodifieddate-field" data-z="d9c33d68">
+            	      <strong data-th-text="#{label_treemenu_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="treemenu-lastmodifiedby-field" data-z="d476a88">
+            	      <strong data-th-text="#{label_treemenu_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="TreeMenu_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('TreeMenusItemThymeleafController').to('editForm').with('treeMenu', treeMenu.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="TreeMenu_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('TreeMenusCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_workordertimesheet})}|">Show WorkOrderTimeSheet - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${workOrderTimeSheet}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="workordertimesheet-workorderoperation-field" data-z="f0b6a400">
+            	      <strong data-th-text="#{label_workordertimesheet_workorderoperation}">workOrderOperation</strong>
+                    <span data-th-text="*{{workOrderOperation}}">workOrderOperationValue</span>
+         	        </li>
+                  <li id="workordertimesheet-worker-field" data-z="3ae08700">
+            	      <strong data-th-text="#{label_workordertimesheet_worker}">worker</strong>
+                    <span data-th-text="*{{worker}}">workerValue</span>
+         	        </li>
+                  <li id="workordertimesheet-workhours-field" data-z="6a367e7e">
+            	      <strong data-th-text="#{label_workordertimesheet_workhours}">workHours</strong>
+                    <span data-th-text="*{{workHours}}">workHoursValue</span>
+         	        </li>
+                  <li id="workordertimesheet-workdate-field" data-z="ca090ac0">
+            	      <strong data-th-text="#{label_workordertimesheet_workdate}">workDate</strong>
+                    <span data-th-text="*{{workDate}}">workDateValue</span>
+         	        </li>
+                  <li id="workordertimesheet-approver-field" data-z="99d225e0">
+            	      <strong data-th-text="#{label_workordertimesheet_approver}">approver</strong>
+                    <span data-th-text="*{{approver}}">approverValue</span>
+         	        </li>
+                  <li id="workordertimesheet-approvedate-field" data-z="cfb6875e">
+            	      <strong data-th-text="#{label_workordertimesheet_approvedate}">approveDate</strong>
+                    <span data-th-text="*{{approveDate}}">approveDateValue</span>
+         	        </li>
+                  <li id="workordertimesheet-recordstatus-field" data-z="5652f1c0">
+            	      <strong data-th-text="#{label_workordertimesheet_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="workordertimesheet-createddate-field" data-z="4bc82ffe">
+            	      <strong data-th-text="#{label_workordertimesheet_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="workordertimesheet-createdby-field" data-z="77f40a9e">
+            	      <strong data-th-text="#{label_workordertimesheet_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="workordertimesheet-lastmodifieddate-field" data-z="dd313420">
+            	      <strong data-th-text="#{label_workordertimesheet_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="workordertimesheet-lastmodifiedby-field" data-z="bab3af40">
+            	      <strong data-th-text="#{label_workordertimesheet_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>
