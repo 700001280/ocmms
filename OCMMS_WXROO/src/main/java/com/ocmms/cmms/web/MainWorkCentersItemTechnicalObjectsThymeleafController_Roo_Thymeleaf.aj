@@ -4,9 +4,9 @@
 package com.ocmms.cmms.web;
 
 import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
-import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
+import com.ocmms.cmms.service.api.EquipmentService;
 import com.ocmms.cmms.service.api.MainWorkCenterService;
-import com.ocmms.cmms.service.api.TechnicalObjectService;
 import com.ocmms.cmms.web.MainWorkCentersCollectionThymeleafController;
 import com.ocmms.cmms.web.MainWorkCentersCollectionThymeleafLinkFactory;
 import com.ocmms.cmms.web.MainWorkCentersItemTechnicalObjectsThymeleafController;
@@ -63,7 +63,7 @@ privileged aspect MainWorkCentersItemTechnicalObjectsThymeleafController_Roo_Thy
      * TODO Auto-generated attribute documentation
      * 
      */
-    private TechnicalObjectService MainWorkCentersItemTechnicalObjectsThymeleafController.technicalObjectService;
+    private EquipmentService MainWorkCentersItemTechnicalObjectsThymeleafController.equipmentService;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -87,15 +87,15 @@ privileged aspect MainWorkCentersItemTechnicalObjectsThymeleafController_Roo_Thy
      * TODO Auto-generated constructor documentation
      * 
      * @param mainWorkCenterService
-     * @param technicalObjectService
+     * @param equipmentService
      * @param conversionService
      * @param messageSource
      * @param linkBuilder
      */
     @Autowired
-    public MainWorkCentersItemTechnicalObjectsThymeleafController.new(MainWorkCenterService mainWorkCenterService, TechnicalObjectService technicalObjectService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    public MainWorkCentersItemTechnicalObjectsThymeleafController.new(MainWorkCenterService mainWorkCenterService, EquipmentService equipmentService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
         setMainWorkCenterService(mainWorkCenterService);
-        setTechnicalObjectService(technicalObjectService);
+        setEquipmentService(equipmentService);
         setConversionService(conversionService);
         setMessageSource(messageSource);
         setCollectionLink(linkBuilder.of(MainWorkCentersCollectionThymeleafController.class));
@@ -122,19 +122,19 @@ privileged aspect MainWorkCentersItemTechnicalObjectsThymeleafController_Roo_Thy
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return TechnicalObjectService
+     * @return EquipmentService
      */
-    public TechnicalObjectService MainWorkCentersItemTechnicalObjectsThymeleafController.getTechnicalObjectService() {
-        return technicalObjectService;
+    public EquipmentService MainWorkCentersItemTechnicalObjectsThymeleafController.getEquipmentService() {
+        return equipmentService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param technicalObjectService
+     * @param equipmentService
      */
-    public void MainWorkCentersItemTechnicalObjectsThymeleafController.setTechnicalObjectService(TechnicalObjectService technicalObjectService) {
-        this.technicalObjectService = technicalObjectService;
+    public void MainWorkCentersItemTechnicalObjectsThymeleafController.setEquipmentService(EquipmentService equipmentService) {
+        this.equipmentService = equipmentService;
     }
     
     /**
@@ -224,6 +224,11 @@ privileged aspect MainWorkCentersItemTechnicalObjectsThymeleafController_Roo_Thy
         model.addAttribute("application_locale", LocaleContextHolder.getLocale().getLanguage());
         model.addAttribute("createdDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         model.addAttribute("lastModifiedDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        model.addAttribute("constructionDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        model.addAttribute("acquisitionDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        model.addAttribute("beginGuaranteeDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        model.addAttribute("warrantyEndDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        model.addAttribute("capitalizedDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     /**
@@ -247,11 +252,11 @@ privileged aspect MainWorkCentersItemTechnicalObjectsThymeleafController_Roo_Thy
      */
     @GetMapping(name = "datatables", produces = Datatables.MEDIA_TYPE, value = "/dt")
     @ResponseBody
-    public ResponseEntity<ConvertedDatatablesData<TechnicalObject>> MainWorkCentersItemTechnicalObjectsThymeleafController.datatables(@ModelAttribute MainWorkCenter mainWorkCenter, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
+    public ResponseEntity<ConvertedDatatablesData<Equipment>> MainWorkCentersItemTechnicalObjectsThymeleafController.datatables(@ModelAttribute MainWorkCenter mainWorkCenter, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
         
-        Page<TechnicalObject> technicalObjects = getTechnicalObjectService().findByMainWorkCenter(mainWorkCenter, search, pageable);
-        long totalTechnicalObjectsCount = getTechnicalObjectService().countByMainWorkCenter(mainWorkCenter);
-        ConvertedDatatablesData<TechnicalObject> data =  new ConvertedDatatablesData<TechnicalObject>(technicalObjects, totalTechnicalObjectsCount, draw, getConversionService(), datatablesColumns);
+        Page<Equipment> technicalObjects = getEquipmentService().findByMainWorkCenter(mainWorkCenter, search, pageable);
+        long totalTechnicalObjectsCount = getEquipmentService().countByMainWorkCenter(mainWorkCenter);
+        ConvertedDatatablesData<Equipment> data =  new ConvertedDatatablesData<Equipment>(technicalObjects, totalTechnicalObjectsCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(data);
     }
     
@@ -267,11 +272,11 @@ privileged aspect MainWorkCentersItemTechnicalObjectsThymeleafController_Roo_Thy
      */
     @GetMapping(name = "datatablesByIdsIn", produces = Datatables.MEDIA_TYPE, value = "/dtByIdsIn")
     @ResponseBody
-    public ResponseEntity<ConvertedDatatablesData<TechnicalObject>> MainWorkCentersItemTechnicalObjectsThymeleafController.datatablesByIdsIn(@RequestParam("ids") List<Long> ids, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
+    public ResponseEntity<ConvertedDatatablesData<Equipment>> MainWorkCentersItemTechnicalObjectsThymeleafController.datatablesByIdsIn(@RequestParam("ids") List<Long> ids, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
         
-        Page<TechnicalObject> technicalObjects = getTechnicalObjectService().findAllByIdsIn(ids, search, pageable);
+        Page<Equipment> technicalObjects = getEquipmentService().findAllByIdsIn(ids, search, pageable);
         long totalTechnicalObjectsCount = technicalObjects.getTotalElements();
-        ConvertedDatatablesData<TechnicalObject> data =  new ConvertedDatatablesData<TechnicalObject>(technicalObjects, totalTechnicalObjectsCount, draw, getConversionService(), datatablesColumns);
+        ConvertedDatatablesData<Equipment> data =  new ConvertedDatatablesData<Equipment>(technicalObjects, totalTechnicalObjectsCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(data);
     }
     
@@ -285,7 +290,7 @@ privileged aspect MainWorkCentersItemTechnicalObjectsThymeleafController_Roo_Thy
     @GetMapping(value = "/create-form", name = "createForm")
     public ModelAndView MainWorkCentersItemTechnicalObjectsThymeleafController.createForm(@ModelAttribute MainWorkCenter mainWorkCenter, Model model) {
         populateForm(model);
-        model.addAttribute("technicalObject", new TechnicalObject());
+        model.addAttribute("equipment", new Equipment());
         return new ModelAndView("mainworkcenters/technicalObjects/create");
     }
     
@@ -343,9 +348,9 @@ privileged aspect MainWorkCentersItemTechnicalObjectsThymeleafController_Roo_Thy
             // Obtain the selected books and include them in the author that will be 
             // included in the view
             if (technicalObjects != null) {
-                mainWorkCenter.setTechnicalObjects(new HashSet<TechnicalObject>(getTechnicalObjectService().findAll(technicalObjects)));
+                mainWorkCenter.setTechnicalObjects(new HashSet<Equipment>(getEquipmentService().findAll(technicalObjects)));
             }else{
-                mainWorkCenter.setTechnicalObjects(new HashSet<TechnicalObject>());
+                mainWorkCenter.setTechnicalObjects(new HashSet<Equipment>());
             }
             // Reset the version to prevent update
              mainWorkCenter.setVersion(version);

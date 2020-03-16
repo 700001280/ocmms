@@ -35,6 +35,12 @@ privileged aspect EquipmentCategoryRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String EquipmentCategoryRepositoryImpl.RECORD_STATUS = "recordStatus";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String EquipmentCategoryRepositoryImpl.CREATED_DATE = "createdDate";
     
     /**
@@ -68,12 +74,13 @@ privileged aspect EquipmentCategoryRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<EquipmentCategory> query = from(equipmentCategory);
         
-        Path<?>[] paths = new Path<?>[] {equipmentCategory.code,equipmentCategory.description,equipmentCategory.createdDate,equipmentCategory.createdBy,equipmentCategory.lastModifiedDate,equipmentCategory.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {equipmentCategory.code,equipmentCategory.description,equipmentCategory.recordStatus,equipmentCategory.createdDate,equipmentCategory.createdBy,equipmentCategory.lastModifiedDate,equipmentCategory.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(CODE, equipmentCategory.code)
 			.map(DESCRIPTION, equipmentCategory.description)
+			.map(RECORD_STATUS, equipmentCategory.recordStatus)
 			.map(CREATED_DATE, equipmentCategory.createdDate)
 			.map(CREATED_BY, equipmentCategory.createdBy)
 			.map(LAST_MODIFIED_DATE, equipmentCategory.lastModifiedDate)
@@ -99,7 +106,7 @@ privileged aspect EquipmentCategoryRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<EquipmentCategory> query = from(equipmentCategory);
         
-        Path<?>[] paths = new Path<?>[] {equipmentCategory.code,equipmentCategory.description,equipmentCategory.createdDate,equipmentCategory.createdBy,equipmentCategory.lastModifiedDate,equipmentCategory.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {equipmentCategory.code,equipmentCategory.description,equipmentCategory.recordStatus,equipmentCategory.createdDate,equipmentCategory.createdBy,equipmentCategory.lastModifiedDate,equipmentCategory.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -108,6 +115,7 @@ privileged aspect EquipmentCategoryRepositoryImpl_Roo_Jpa_Repository_Impl {
         AttributeMappingBuilder mapping = buildMapper()
 			.map(CODE, equipmentCategory.code)
 			.map(DESCRIPTION, equipmentCategory.description)
+			.map(RECORD_STATUS, equipmentCategory.recordStatus)
 			.map(CREATED_DATE, equipmentCategory.createdDate)
 			.map(CREATED_BY, equipmentCategory.createdBy)
 			.map(LAST_MODIFIED_DATE, equipmentCategory.lastModifiedDate)

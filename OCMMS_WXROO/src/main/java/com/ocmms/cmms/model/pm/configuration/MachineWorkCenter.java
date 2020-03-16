@@ -103,8 +103,8 @@ public class MachineWorkCenter {
 	 * 
 	 */
 	@NotNull
-	@Column(name = "NAME", unique = true, length = 40)
-	private String name;
+	@Column(name = "DESCRIPTION", unique = true, length = 40)
+	private String description;
 
 	/**
 	 * TODO Auto-generated attribute documentation

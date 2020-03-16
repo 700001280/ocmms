@@ -7,8 +7,6 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.pm.configuration.AbcIndicator;
-import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
-import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.notification.NotificationHeader;
 import com.ocmms.cmms.model.pm.pm.PreventiveMaintenanceExecution;
 import com.ocmms.cmms.model.pm.pm.PreventiveMaintenanceStandard;
@@ -757,16 +755,6 @@ privileged aspect TechnicalObjectServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void TechnicalObjectServiceImpl.delete(TechnicalObject technicalObject) {
-        // Clear bidirectional many-to-one child relationship with MainWorkCenter
-        if (technicalObject.getMainWorkCenter() != null) {
-            technicalObject.getMainWorkCenter().getTechnicalObjects().remove(technicalObject);
-        }
-        
-        // Clear bidirectional many-to-one child relationship with PlannerGroup
-        if (technicalObject.getPlannerGroup() != null) {
-            technicalObject.getPlannerGroup().getTechnicalObjects().remove(technicalObject);
-        }
-        
         // Clear bidirectional many-to-one child relationship with Organization
         if (technicalObject.getOrganization() != null) {
             technicalObject.getOrganization().getTechnicalObjects().remove(technicalObject);
@@ -939,18 +927,6 @@ privileged aspect TechnicalObjectServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param mainWorkCenter
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<TechnicalObject> TechnicalObjectServiceImpl.findByMainWorkCenter(MainWorkCenter mainWorkCenter, GlobalSearch globalSearch, Pageable pageable) {
-        return getTechnicalObjectRepository().findByMainWorkCenter(mainWorkCenter, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param organization
      * @param globalSearch
      * @param pageable
@@ -958,18 +934,6 @@ privileged aspect TechnicalObjectServiceImpl_Roo_Service_Impl {
      */
     public Page<TechnicalObject> TechnicalObjectServiceImpl.findByOrganization(Organization organization, GlobalSearch globalSearch, Pageable pageable) {
         return getTechnicalObjectRepository().findByOrganization(organization, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plannerGroup
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<TechnicalObject> TechnicalObjectServiceImpl.findByPlannerGroup(PlannerGroup plannerGroup, GlobalSearch globalSearch, Pageable pageable) {
-        return getTechnicalObjectRepository().findByPlannerGroup(plannerGroup, globalSearch, pageable);
     }
     
     /**
@@ -985,31 +949,11 @@ privileged aspect TechnicalObjectServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param mainWorkCenter
-     * @return Long
-     */
-    public long TechnicalObjectServiceImpl.countByMainWorkCenter(MainWorkCenter mainWorkCenter) {
-        return getTechnicalObjectRepository().countByMainWorkCenter(mainWorkCenter);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param organization
      * @return Long
      */
     public long TechnicalObjectServiceImpl.countByOrganization(Organization organization) {
         return getTechnicalObjectRepository().countByOrganization(organization);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plannerGroup
-     * @return Long
-     */
-    public long TechnicalObjectServiceImpl.countByPlannerGroup(PlannerGroup plannerGroup) {
-        return getTechnicalObjectRepository().countByPlannerGroup(plannerGroup);
     }
     
     /**

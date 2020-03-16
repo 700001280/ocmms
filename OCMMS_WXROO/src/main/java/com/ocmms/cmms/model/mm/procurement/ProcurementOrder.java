@@ -50,7 +50,7 @@ import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
  */
 @RooJavaBean
 @RooToString
-@RooJpaEntity(inheritanceType = "SINGLE_TABLE", table = "MM_PROCUREMENT_ORDER", entityFormatMessage = "entity_format_message_mm_procurement_order")
+@RooJpaEntity(table = "MM_PROCUREMENT_ORDER", entityFormatMessage = "entity_format_message_mm_procurement_order")
 @RooEquals(isJpaEntity = true)
 @RooSerializable
 
@@ -130,13 +130,7 @@ public class ProcurementOrder {
 			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "procurementOrder")
 	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
 	private Set<ImageDocument> images = new HashSet<ImageDocument>();
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@NotNull
-	@Column(name = "DESCRIPTION")
-	private String description;
+	
 	
 	/**
 	 * TODO Auto-generated attribute documentation

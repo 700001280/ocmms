@@ -52,8 +52,8 @@ public class WorkOrderUserStatusWithNumber {
 	 *
 	 */
 	@Id
-	@SequenceGenerator(name = "userStatusWithNumberGen", sequenceName = "SEQ_PM_WORKORDER_USERSTATUSWITHNUMBER_ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userStatusWithNumberGen")
+	@SequenceGenerator(name = "workOrderUserStatusWithNumberGen", sequenceName = "SEQ_PM_WORKORDER_USERSTATUSWITHNUMBER_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "workOrderUserStatusWithNumberGen")
 	@Column(name = "ID")
 	private Long id;
 

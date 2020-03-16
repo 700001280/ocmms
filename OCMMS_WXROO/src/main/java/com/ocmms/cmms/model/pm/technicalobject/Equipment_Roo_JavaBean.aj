@@ -13,7 +13,9 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.eshem.CriticalClassification;
 import com.ocmms.cmms.model.loto.LotoInfo;
+import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.ObjectType;
+import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
@@ -112,6 +114,46 @@ privileged aspect Equipment_Roo_JavaBean {
      */
     public Equipment Equipment.setSuperiorEquipment(TechnicalObject superiorEquipment) {
         this.superiorEquipment = superiorEquipment;
+        return this;
+    }
+    
+    /**
+     * Gets mainWorkCenter value
+     * 
+     * @return MainWorkCenter
+     */
+    public MainWorkCenter Equipment.getMainWorkCenter() {
+        return this.mainWorkCenter;
+    }
+    
+    /**
+     * Sets mainWorkCenter value
+     * 
+     * @param mainWorkCenter
+     * @return Equipment
+     */
+    public Equipment Equipment.setMainWorkCenter(MainWorkCenter mainWorkCenter) {
+        this.mainWorkCenter = mainWorkCenter;
+        return this;
+    }
+    
+    /**
+     * Gets plannerGroup value
+     * 
+     * @return PlannerGroup
+     */
+    public PlannerGroup Equipment.getPlannerGroup() {
+        return this.plannerGroup;
+    }
+    
+    /**
+     * Sets plannerGroup value
+     * 
+     * @param plannerGroup
+     * @return Equipment
+     */
+    public Equipment Equipment.setPlannerGroup(PlannerGroup plannerGroup) {
+        this.plannerGroup = plannerGroup;
         return this;
     }
     

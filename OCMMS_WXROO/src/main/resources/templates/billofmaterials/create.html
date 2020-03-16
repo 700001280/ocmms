@@ -69,17 +69,6 @@
       <span id="abcIndicator-error" class="help-block" data-th-if="${#fields.hasErrors('abcIndicator')}" data-th-errors="*{abcIndicator}">Error message.</span>
     </div>
 </div>
-<div class="form-group has-error has-feedback" data-z="7349d670" id="billofmaterial-mainworkcenter-field" data-th-classappend="${#fields.hasErrors('mainWorkCenter')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('MainWorkCentersCollectionThymeleafController')}">
-    <label for="mainWorkCenter" class="col-md-3 control-label" data-th-text="#{label_billofmaterial_mainworkcenter}">MainWorkCenter</label>
-    <div class="col-md-6">
-      <!-- Select2 -->
-      <select data-th-field="*{mainWorkCenter}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
-          <option data-th-unless="*{mainWorkCenter} == null" data-th-value="*{mainWorkCenter.id}" data-th-text="*{{mainWorkCenter}}" selected="selected">MainWorkCenter</option>
-      </select>
-      <span data-th-classappend="${#fields.hasErrors('mainWorkCenter')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('mainWorkCenter')}" aria-hidden="true"></span>
-      <span id="mainWorkCenter-error" class="help-block" data-th-if="${#fields.hasErrors('mainWorkCenter')}" data-th-errors="*{mainWorkCenter}">Error message.</span>
-    </div>
-</div>
 <div class="form-group has-error has-feedback" data-z="cd0823f0" id="billofmaterial-organization-field" data-th-classappend="${#fields.hasErrors('organization')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('OrganizationsCollectionThymeleafController')}">
     <label for="organization" class="col-md-3 control-label" data-th-text="#{label_billofmaterial_organization}">Organization</label>
     <div class="col-md-6">
@@ -114,17 +103,6 @@
       <span data-th-classappend="${#fields.hasErrors('manufacturerPartNumber')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('manufacturerPartNumber')}" aria-hidden="true"></span>
       <span id="manufacturerPartNumber-error" class="help-block" data-th-if="${#fields.hasErrors('manufacturerPartNumber')}" data-th-errors="*{manufacturerPartNumber}">Error message.</span>
   </div>
-</div>
-<div class="form-group has-error has-feedback" data-z="f4dc4c90" id="billofmaterial-plannergroup-field" data-th-classappend="${#fields.hasErrors('plannerGroup')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PlannerGroupsCollectionThymeleafController')}">
-    <label for="plannerGroup" class="col-md-3 control-label" data-th-text="#{label_billofmaterial_plannergroup}">PlannerGroup</label>
-    <div class="col-md-6">
-      <!-- Select2 -->
-      <select data-th-field="*{plannerGroup}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
-          <option data-th-unless="*{plannerGroup} == null" data-th-value="*{plannerGroup.id}" data-th-text="*{{plannerGroup}}" selected="selected">PlannerGroup</option>
-      </select>
-      <span data-th-classappend="${#fields.hasErrors('plannerGroup')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('plannerGroup')}" aria-hidden="true"></span>
-      <span id="plannerGroup-error" class="help-block" data-th-if="${#fields.hasErrors('plannerGroup')}" data-th-errors="*{plannerGroup}">Error message.</span>
-    </div>
 </div>
 <div class="form-group has-error has-feedback" data-z="1520c010" id="billofmaterial-memo-field" data-th-classappend="${#fields.hasErrors('memo')}? 'has-error has-feedback'" data-th-class="form-group">
   <label for="memo" class="col-md-3 control-label" data-th-text="#{label_billofmaterial_memo}">memo</label>
@@ -164,6 +142,14 @@
       <span id="setSize-error" class="help-block" data-th-if="${#fields.hasErrors('setSize')}" data-th-errors="*{setSize}">Error message.</span>
   </div>
 </div>
+<div class="form-group has-error has-feedback" data-z="b2ea46ee" id="billofmaterial-safestock-field" data-th-classappend="${#fields.hasErrors('safestock')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="safestock" class="col-md-3 control-label" data-th-text="#{label_billofmaterial_safestock}">safestock</label>
+  <div class="col-md-3">
+    <input id="safestock" name="safestock" data-th-value="*{{safestock}}" type="text" class="form-control inputmask" placeholder="safestock" data-th-placeholder="#{label_billofmaterial_safestock}" data-toggle="tooltip" aria-describedby="safestockStatus" data-inputmask-alias="numeric" data-inputmask-digits="2" />
+      <span data-th-classappend="${#fields.hasErrors('safestock')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('safestock')}" aria-hidden="true"></span>
+      <span id="safestock-error" class="help-block" data-th-if="${#fields.hasErrors('safestock')}" data-th-errors="*{safestock}">Error message.</span>
+  </div>
+</div>
 <div class="form-group has-error has-feedback" data-z="23b95ed0" id="billofmaterial-unit-field" data-th-classappend="${#fields.hasErrors('unit')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('UnitOfMeasuresCollectionThymeleafController')}">
     <label for="unit" class="col-md-3 control-label" data-th-text="#{label_billofmaterial_unit}">UnitOfMeasure</label>
     <div class="col-md-6">
@@ -174,6 +160,38 @@
       <span data-th-classappend="${#fields.hasErrors('unit')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('unit')}" aria-hidden="true"></span>
       <span id="unit-error" class="help-block" data-th-if="${#fields.hasErrors('unit')}" data-th-errors="*{unit}">Error message.</span>
     </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="6f9f0bce" id="billofmaterial-drawingnumber-field" data-th-classappend="${#fields.hasErrors('drawingNumber')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="drawingNumber" class="col-md-3 control-label" data-th-text="#{label_billofmaterial_drawingnumber}">drawingNumber</label>
+  <div class="col-md-6">
+    <input id="drawingNumber" name="drawingNumber" data-th-value="*{{drawingNumber}}" type="text" class="form-control" placeholder="drawingNumber" data-th-placeholder="#{label_billofmaterial_drawingnumber}" data-toggle="tooltip" aria-describedby="drawingNumberStatus" />
+      <span data-th-classappend="${#fields.hasErrors('drawingNumber')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('drawingNumber')}" aria-hidden="true"></span>
+      <span id="drawingNumber-error" class="help-block" data-th-if="${#fields.hasErrors('drawingNumber')}" data-th-errors="*{drawingNumber}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="f2f314d0" id="billofmaterial-techpositionnumber-field" data-th-classappend="${#fields.hasErrors('techPositionNumber')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="techPositionNumber" class="col-md-3 control-label" data-th-text="#{label_billofmaterial_techpositionnumber}">techPositionNumber</label>
+  <div class="col-md-6">
+    <input id="techPositionNumber" name="techPositionNumber" data-th-value="*{{techPositionNumber}}" type="text" class="form-control" placeholder="techPositionNumber" data-th-placeholder="#{label_billofmaterial_techpositionnumber}" data-toggle="tooltip" aria-describedby="techPositionNumberStatus" />
+      <span data-th-classappend="${#fields.hasErrors('techPositionNumber')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('techPositionNumber')}" aria-hidden="true"></span>
+      <span id="techPositionNumber-error" class="help-block" data-th-if="${#fields.hasErrors('techPositionNumber')}" data-th-errors="*{techPositionNumber}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="1440c6ee" id="billofmaterial-parameter-field" data-th-classappend="${#fields.hasErrors('parameter')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="parameter" class="col-md-3 control-label" data-th-text="#{label_billofmaterial_parameter}">parameter</label>
+  <div class="col-md-6">
+    <input id="parameter" name="parameter" data-th-value="*{{parameter}}" type="text" class="form-control" placeholder="parameter" data-th-placeholder="#{label_billofmaterial_parameter}" data-toggle="tooltip" aria-describedby="parameterStatus" />
+      <span data-th-classappend="${#fields.hasErrors('parameter')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('parameter')}" aria-hidden="true"></span>
+      <span id="parameter-error" class="help-block" data-th-if="${#fields.hasErrors('parameter')}" data-th-errors="*{parameter}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="26113bf0" id="billofmaterial-positionnumber-field" data-th-classappend="${#fields.hasErrors('positionNumber')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="positionNumber" class="col-md-3 control-label" data-th-text="#{label_billofmaterial_positionnumber}">positionNumber</label>
+  <div class="col-md-6">
+    <input id="positionNumber" name="positionNumber" data-th-value="*{{positionNumber}}" type="text" class="form-control" placeholder="positionNumber" data-th-placeholder="#{label_billofmaterial_positionnumber}" data-toggle="tooltip" aria-describedby="positionNumberStatus" />
+      <span data-th-classappend="${#fields.hasErrors('positionNumber')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('positionNumber')}" aria-hidden="true"></span>
+      <span id="positionNumber-error" class="help-block" data-th-if="${#fields.hasErrors('positionNumber')}" data-th-errors="*{positionNumber}">Error message.</span>
+  </div>
 </div>
 <div class="form-group has-error has-feedback" id="billofmaterial-needstock-field" data-z="f186a7ee" data-th-classappend="${#fields.hasErrors('needStock')}? 'has-error has-feedback'" data-th-class="form-group">
   <label class="col-md-3 control-label" for="needStock" data-th-text="#{label_billofmaterial_needstock}">needStock</label>

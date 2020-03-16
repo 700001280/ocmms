@@ -5,7 +5,10 @@ package com.ocmms.cmms.model.mm.master;
 
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import io.springlets.format.EntityFormat;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 privileged aspect MaterialPlantInfo_Roo_Jpa_Entity {
@@ -13,6 +16,10 @@ privileged aspect MaterialPlantInfo_Roo_Jpa_Entity {
     declare @type: MaterialPlantInfo: @Entity;
     
     declare @type: MaterialPlantInfo: @Table(name = "MM_MASTER_MATERIALPLANTINFO");
+    
+    declare @type: MaterialPlantInfo: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
+    
+    declare @type: MaterialPlantInfo: @DiscriminatorColumn;
     
     declare @type: MaterialPlantInfo: @EntityFormat(message = "entity_format_message_mm_master_materialplantinfo");
     

@@ -5,10 +5,7 @@ package com.ocmms.cmms.model.pm.technicalobject.regulatory;
 
 import com.ocmms.cmms.model.pm.technicalobject.regulatory.Elevator;
 import io.springlets.format.EntityFormat;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 privileged aspect Elevator_Roo_Jpa_Entity {
@@ -16,10 +13,6 @@ privileged aspect Elevator_Roo_Jpa_Entity {
     declare @type: Elevator: @Entity;
     
     declare @type: Elevator: @Table(name = "PM_REGULATORY_ELEVATOR");
-    
-    declare @type: Elevator: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
-    
-    declare @type: Elevator: @DiscriminatorColumn;
     
     declare @type: Elevator: @EntityFormat(message = "entity_format_message_pm_regulatory_elevator");
     

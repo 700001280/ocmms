@@ -49,7 +49,7 @@ import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
  */
 @RooJavaBean
 @RooToString
-@RooJpaEntity(inheritanceType = "SINGLE_TABLE", table = "MM_PROCUREMENT_REQUEST", entityFormatMessage = "entity_format_message_mm_procurement_request")
+@RooJpaEntity(table = "MM_PROCUREMENT_REQUEST", entityFormatMessage = "entity_format_message_mm_procurement_request")
 @RooEquals(isJpaEntity = true)
 @RooSerializable
 
@@ -104,14 +104,6 @@ public class ProcurementRequest {
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(style = "M-")
 	private Calendar submitDate;
-
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@NotNull
-	@Column(name = "DESCRIPTION")
-	private String description;
 	
 
 	/**

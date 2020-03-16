@@ -47,12 +47,6 @@ privileged aspect PressureGageRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String PressureGageRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String PressureGageRepositoryImpl.ORGANIZATION = "organization";
     
     /**
@@ -72,12 +66,6 @@ privileged aspect PressureGageRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String PressureGageRepositoryImpl.MANUFACTURER_PART_NUMBER = "manufacturerPartNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String PressureGageRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -146,7 +134,7 @@ privileged aspect PressureGageRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<PressureGage> query = from(pressureGage);
         
-        Path<?>[] paths = new Path<?>[] {pressureGage.tag,pressureGage.description,pressureGage.descriptionLocal,pressureGage.abcIndicator,pressureGage.mainWorkCenter,pressureGage.organization,pressureGage.manufacturerModelNumber,pressureGage.manufacturerSerialNumber,pressureGage.manufacturerPartNumber,pressureGage.plannerGroup,pressureGage.memo,pressureGage.recordStatus,pressureGage.createdDate,pressureGage.createdBy,pressureGage.lastModifiedDate,pressureGage.lastModifiedBy,pressureGage.lastInspectionDate,pressureGage.nextInspectionDate,pressureGage.parameter};        
+        Path<?>[] paths = new Path<?>[] {pressureGage.tag,pressureGage.description,pressureGage.descriptionLocal,pressureGage.abcIndicator,pressureGage.organization,pressureGage.manufacturerModelNumber,pressureGage.manufacturerSerialNumber,pressureGage.manufacturerPartNumber,pressureGage.memo,pressureGage.recordStatus,pressureGage.createdDate,pressureGage.createdBy,pressureGage.lastModifiedDate,pressureGage.lastModifiedBy,pressureGage.lastInspectionDate,pressureGage.nextInspectionDate,pressureGage.parameter};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -154,12 +142,10 @@ privileged aspect PressureGageRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, pressureGage.description)
 			.map(DESCRIPTION_LOCAL, pressureGage.descriptionLocal)
 			.map(ABC_INDICATOR, pressureGage.abcIndicator)
-			.map(MAIN_WORK_CENTER, pressureGage.mainWorkCenter)
 			.map(ORGANIZATION, pressureGage.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, pressureGage.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, pressureGage.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, pressureGage.manufacturerPartNumber)
-			.map(PLANNER_GROUP, pressureGage.plannerGroup)
 			.map(MEMO, pressureGage.memo)
 			.map(RECORD_STATUS, pressureGage.recordStatus)
 			.map(CREATED_DATE, pressureGage.createdDate)
@@ -190,7 +176,7 @@ privileged aspect PressureGageRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<PressureGage> query = from(pressureGage);
         
-        Path<?>[] paths = new Path<?>[] {pressureGage.tag,pressureGage.description,pressureGage.descriptionLocal,pressureGage.abcIndicator,pressureGage.mainWorkCenter,pressureGage.organization,pressureGage.manufacturerModelNumber,pressureGage.manufacturerSerialNumber,pressureGage.manufacturerPartNumber,pressureGage.plannerGroup,pressureGage.memo,pressureGage.recordStatus,pressureGage.createdDate,pressureGage.createdBy,pressureGage.lastModifiedDate,pressureGage.lastModifiedBy,pressureGage.lastInspectionDate,pressureGage.nextInspectionDate,pressureGage.parameter};        
+        Path<?>[] paths = new Path<?>[] {pressureGage.tag,pressureGage.description,pressureGage.descriptionLocal,pressureGage.abcIndicator,pressureGage.organization,pressureGage.manufacturerModelNumber,pressureGage.manufacturerSerialNumber,pressureGage.manufacturerPartNumber,pressureGage.memo,pressureGage.recordStatus,pressureGage.createdDate,pressureGage.createdBy,pressureGage.lastModifiedDate,pressureGage.lastModifiedBy,pressureGage.lastInspectionDate,pressureGage.nextInspectionDate,pressureGage.parameter};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -201,12 +187,10 @@ privileged aspect PressureGageRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, pressureGage.description)
 			.map(DESCRIPTION_LOCAL, pressureGage.descriptionLocal)
 			.map(ABC_INDICATOR, pressureGage.abcIndicator)
-			.map(MAIN_WORK_CENTER, pressureGage.mainWorkCenter)
 			.map(ORGANIZATION, pressureGage.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, pressureGage.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, pressureGage.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, pressureGage.manufacturerPartNumber)
-			.map(PLANNER_GROUP, pressureGage.plannerGroup)
 			.map(MEMO, pressureGage.memo)
 			.map(RECORD_STATUS, pressureGage.recordStatus)
 			.map(CREATED_DATE, pressureGage.createdDate)

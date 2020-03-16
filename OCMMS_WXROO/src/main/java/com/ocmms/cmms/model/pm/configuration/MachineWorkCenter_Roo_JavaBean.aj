@@ -117,22 +117,22 @@ privileged aspect MachineWorkCenter_Roo_JavaBean {
     }
     
     /**
-     * Gets name value
+     * Gets description value
      * 
      * @return String
      */
-    public String MachineWorkCenter.getName() {
-        return this.name;
+    public String MachineWorkCenter.getDescription() {
+        return this.description;
     }
     
     /**
-     * Sets name value
+     * Sets description value
      * 
-     * @param name
+     * @param description
      * @return MachineWorkCenter
      */
-    public MachineWorkCenter MachineWorkCenter.setName(String name) {
-        this.name = name;
+    public MachineWorkCenter MachineWorkCenter.setDescription(String description) {
+        this.description = description;
         return this;
     }
     
@@ -516,7 +516,7 @@ privileged aspect MachineWorkCenter_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", code='" + code + '\'' + 
                 ", category='" + category + '\'' + 
-                ", name='" + name + '\'' + 
+                ", description='" + description + '\'' + 
                 ", controlKey='" + controlKey + '\'' + 
                 ", capacityStartTime='" + capacityStartTime == null ? null : java.text.DateFormat.getDateTimeInstance().format(capacityStartTime.getTime()) + '\'' + 
                 ", capacityEndTime='" + capacityEndTime == null ? null : java.text.DateFormat.getDateTimeInstance().format(capacityEndTime.getTime()) + '\'' + 

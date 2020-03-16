@@ -49,9 +49,9 @@
             <!-- /CONCURRENCY CONTROL -->
             
             <fieldset id="containerFields">
-              <legend data-th-text="#{label_data_entity(#{label_technicalobject})}">TechnicalObject data </legend>
+              <legend data-th-text="#{label_data_entity(#{label_equipment})}">Equipment data </legend>
 
-                <div class="form-group has-error has-feedback" data-z="c8b0d938" id="technicalobjects-detail" data-th-class="form-group" data-th-with="select2ControllerLink=${@linkBuilder.of('TechnicalObjectsCollectionThymeleafController')}">
+                <div class="form-group has-error has-feedback" data-z="3e5f44c6" id="technicalobjects-detail" data-th-class="form-group" data-th-with="select2ControllerLink=${@linkBuilder.of('EquipmentsCollectionThymeleafController')}">
                     <div class="col-md-6 col-md-offset-3">
                       <select id="technicalObjects" name="technicalObjectsIds" class="form-control dropdown-select-ajax" data-allow-clear="true" data-ajax--cache="true" data-ajax--data-type="json" data-ajax--delay="250" multiple="multiple" data-data-ajax--url="${select2ControllerLink.to('select2')}" data-data-placeholder="#{info_select_technicalObjects}">
                           <option data-th-each="item: *{technicalObjects}" selected="true" data-th-text="${{item}}" data-th-value="${item.id}">Another product to select</option>

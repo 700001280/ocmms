@@ -561,6 +561,21 @@ privileged aspect BillOfMaterialsCollectionThymeleafController_Roo_Thymeleaf {
         else if (columnName.equals("setSize")) {
             builder.addColumn(getMessageSource().getMessage("label_billofmaterial_setsize", null, "Set Size", locale), "setSize", BigDecimal.class.getName(), 100);
         }
+        else if (columnName.equals("safestock")) {
+            builder.addColumn(getMessageSource().getMessage("label_billofmaterial_safestock", null, "Safestock", locale), "safestock", BigDecimal.class.getName(), 100);
+        }
+        else if (columnName.equals("drawingNumber")) {
+            builder.addColumn(getMessageSource().getMessage("label_billofmaterial_drawingnumber", null, "Drawing Number", locale), "drawingNumber", String.class.getName(), 100);
+        }
+        else if (columnName.equals("techPositionNumber")) {
+            builder.addColumn(getMessageSource().getMessage("label_billofmaterial_techpositionnumber", null, "Tech Position Number", locale), "techPositionNumber", String.class.getName(), 100);
+        }
+        else if (columnName.equals("parameter")) {
+            builder.addColumn(getMessageSource().getMessage("label_billofmaterial_parameter", null, "Parameter", locale), "parameter", String.class.getName(), 100);
+        }
+        else if (columnName.equals("positionNumber")) {
+            builder.addColumn(getMessageSource().getMessage("label_billofmaterial_positionnumber", null, "Position Number", locale), "positionNumber", String.class.getName(), 100);
+        }
         else if (columnName.equals("needStock")) {
             builder.addColumn(getMessageSource().getMessage("label_billofmaterial_needstock", null, "Need Stock", locale), "needStock", Boolean.class.getName(), 100);
         }

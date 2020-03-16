@@ -5,10 +5,10 @@ package com.ocmms.cmms.service.impl;
 
 import com.ocmms.cmms.model.pm.configuration.OperationalWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
-import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.repository.PlannerGroupRepository;
+import com.ocmms.cmms.service.api.EquipmentService;
 import com.ocmms.cmms.service.api.OperationalWorkCenterService;
-import com.ocmms.cmms.service.api.TechnicalObjectService;
 import com.ocmms.cmms.service.impl.PlannerGroupServiceImpl;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.MessageI18n;
@@ -46,20 +46,20 @@ privileged aspect PlannerGroupServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    private TechnicalObjectService PlannerGroupServiceImpl.technicalObjectService;
+    private EquipmentService PlannerGroupServiceImpl.equipmentService;
     
     /**
      * TODO Auto-generated constructor documentation
      * 
      * @param plannerGroupRepository
      * @param operationalWorkCenterService
-     * @param technicalObjectService
+     * @param equipmentService
      */
     @Autowired
-    public PlannerGroupServiceImpl.new(PlannerGroupRepository plannerGroupRepository, @Lazy OperationalWorkCenterService operationalWorkCenterService, @Lazy TechnicalObjectService technicalObjectService) {
+    public PlannerGroupServiceImpl.new(PlannerGroupRepository plannerGroupRepository, @Lazy OperationalWorkCenterService operationalWorkCenterService, @Lazy EquipmentService equipmentService) {
         setPlannerGroupRepository(plannerGroupRepository);
         setOperationalWorkCenterService(operationalWorkCenterService);
-        setTechnicalObjectService(technicalObjectService);
+        setEquipmentService(equipmentService);
     }
 
     /**
@@ -101,19 +101,19 @@ privileged aspect PlannerGroupServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return TechnicalObjectService
+     * @return EquipmentService
      */
-    public TechnicalObjectService PlannerGroupServiceImpl.getTechnicalObjectService() {
-        return technicalObjectService;
+    public EquipmentService PlannerGroupServiceImpl.getEquipmentService() {
+        return equipmentService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param technicalObjectService
+     * @param equipmentService
      */
-    public void PlannerGroupServiceImpl.setTechnicalObjectService(TechnicalObjectService technicalObjectService) {
-        this.technicalObjectService = technicalObjectService;
+    public void PlannerGroupServiceImpl.setEquipmentService(EquipmentService equipmentService) {
+        this.equipmentService = equipmentService;
     }
     
     /**
@@ -153,7 +153,7 @@ privileged aspect PlannerGroupServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public PlannerGroup PlannerGroupServiceImpl.addToTechnicalObjects(PlannerGroup plannerGroup, Iterable<Long> technicalObjectsToAdd) {
-        List<TechnicalObject> technicalObjects = getTechnicalObjectService().findAll(technicalObjectsToAdd);
+        List<Equipment> technicalObjects = getEquipmentService().findAll(technicalObjectsToAdd);
         plannerGroup.addToTechnicalObjects(technicalObjects);
         return getPlannerGroupRepository().save(plannerGroup);
     }
@@ -181,7 +181,7 @@ privileged aspect PlannerGroupServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public PlannerGroup PlannerGroupServiceImpl.removeFromTechnicalObjects(PlannerGroup plannerGroup, Iterable<Long> technicalObjectsToRemove) {
-        List<TechnicalObject> technicalObjects = getTechnicalObjectService().findAll(technicalObjectsToRemove);
+        List<Equipment> technicalObjects = getEquipmentService().findAll(technicalObjectsToRemove);
         plannerGroup.removeFromTechnicalObjects(technicalObjects);
         return getPlannerGroupRepository().save(plannerGroup);
     }
@@ -223,15 +223,15 @@ privileged aspect PlannerGroupServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public PlannerGroup PlannerGroupServiceImpl.setTechnicalObjects(PlannerGroup plannerGroup, Iterable<Long> technicalObjects) {
-        List<TechnicalObject> items = getTechnicalObjectService().findAll(technicalObjects);
-        Set<TechnicalObject> currents = plannerGroup.getTechnicalObjects();
-        Set<TechnicalObject> toRemove = new HashSet<TechnicalObject>();
-        for (Iterator<TechnicalObject> iterator = currents.iterator(); iterator.hasNext();) {
-            TechnicalObject nextTechnicalObject = iterator.next();
-            if (items.contains(nextTechnicalObject)) {
-                items.remove(nextTechnicalObject);
+        List<Equipment> items = getEquipmentService().findAll(technicalObjects);
+        Set<Equipment> currents = plannerGroup.getTechnicalObjects();
+        Set<Equipment> toRemove = new HashSet<Equipment>();
+        for (Iterator<Equipment> iterator = currents.iterator(); iterator.hasNext();) {
+            Equipment nextEquipment = iterator.next();
+            if (items.contains(nextEquipment)) {
+                items.remove(nextEquipment);
             } else {
-                toRemove.add(nextTechnicalObject);
+                toRemove.add(nextEquipment);
             }
         }
         plannerGroup.removeFromTechnicalObjects(toRemove);
@@ -254,8 +254,8 @@ privileged aspect PlannerGroupServiceImpl_Roo_Service_Impl {
             item.setPlannerGroup(null);
         }
         
-        // Clear bidirectional one-to-many parent relationship with TechnicalObject
-        for (TechnicalObject item : plannerGroup.getTechnicalObjects()) {
+        // Clear bidirectional one-to-many parent relationship with Equipment
+        for (Equipment item : plannerGroup.getTechnicalObjects()) {
             item.setPlannerGroup(null);
         }
         

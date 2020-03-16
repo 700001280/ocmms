@@ -42,12 +42,12 @@
              <fieldset id="containerFields">
               <legend class="sr-only" data-th-text="#{label_data_entity(#{label_treemenu})}">TreeMenu data </legend>
 
-<div class="form-group has-error has-feedback" data-z="4ca8b2e8" id="treemenu-name-field" data-th-classappend="${#fields.hasErrors('name')}? 'has-error has-feedback'" data-th-class="form-group">
-  <label for="name" class="col-md-3 control-label" data-th-text="#{label_treemenu_name}">name</label>
+<div class="form-group has-error has-feedback" data-z="ddef8d6" id="treemenu-description-field" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="description" class="col-md-3 control-label" data-th-text="#{label_treemenu_description}">description</label>
   <div class="col-md-6">
-    <input id="name" name="name" data-th-value="*{{name}}" type="text" class="form-control" placeholder="name" data-th-placeholder="#{label_treemenu_name}" data-toggle="tooltip" aria-describedby="nameStatus" required="required" />
-      <span data-th-classappend="${#fields.hasErrors('name')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('name')}" aria-hidden="true"></span>
-      <span id="name-error" class="help-block" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Error message.</span>
+    <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_treemenu_description}" data-toggle="tooltip" aria-describedby="descriptionStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('description')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('description')}" aria-hidden="true"></span>
+      <span id="description-error" class="help-block" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Error message.</span>
   </div>
 </div>
 <div class="form-group has-error has-feedback" data-z="a255eed6" id="treemenu-urllink-field" data-th-classappend="${#fields.hasErrors('urlLink')}? 'has-error has-feedback'" data-th-class="form-group">

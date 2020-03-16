@@ -119,14 +119,7 @@ public class TechnicalObject {
 	@EntityFormat
 	private AbcIndicator abcIndicator;
 
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "MAINWORKCENTER")
-	@EntityFormat
-	private MainWorkCenter mainWorkCenter;	
+	
 	
 	/**
 	 * TODO Auto-generated attribute documentation
@@ -162,14 +155,7 @@ public class TechnicalObject {
 	private String manufacturerPartNumber;	
 	
 	
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PLANNERGROUP")
-	@EntityFormat
-	private PlannerGroup plannerGroup;	
+	
 	
 	//@OneToOne(mappedBy = "technicalObject")
     //private RegulatoryTechnicalObject regulatoryTechnicalObject;

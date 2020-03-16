@@ -31,22 +31,22 @@ privileged aspect TreeMenu_Roo_JavaBean {
     }
     
     /**
-     * Gets name value
+     * Gets description value
      * 
      * @return String
      */
-    public String TreeMenu.getName() {
-        return this.name;
+    public String TreeMenu.getDescription() {
+        return this.description;
     }
     
     /**
-     * Sets name value
+     * Sets description value
      * 
-     * @param name
+     * @param description
      * @return TreeMenu
      */
-    public TreeMenu TreeMenu.setName(String name) {
-        this.name = name;
+    public TreeMenu TreeMenu.setDescription(String description) {
+        this.description = description;
         return this;
     }
     
@@ -288,7 +288,7 @@ privileged aspect TreeMenu_Roo_JavaBean {
     public String TreeMenu.toString() {
         return "TreeMenu {" + 
                 "id='" + id + '\'' + 
-                ", name='" + name + '\'' + 
+                ", description='" + description + '\'' + 
                 ", urlLink='" + urlLink + '\'' + 
                 ", visible='" + visible + '\'' + 
                 ", loginRoles='" + loginRoles + '\'' + 

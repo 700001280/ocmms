@@ -17,10 +17,7 @@ import com.ocmms.cmms.model.pm.technicalobject.EquipmentLubrication;
 import com.ocmms.cmms.model.pm.technicalobject.EquipmentParameter;
 import com.ocmms.cmms.model.pm.technicalobject.EquipmentStatusChangeRecord;
 import io.springlets.format.EntityFormat;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import org.springframework.util.Assert;
 
@@ -29,10 +26,6 @@ privileged aspect Equipment_Roo_Jpa_Entity {
     declare @type: Equipment: @Entity;
     
     declare @type: Equipment: @Table(name = "PM_TECHNICALOBJECT_EQUIPMENT");
-    
-    declare @type: Equipment: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
-    
-    declare @type: Equipment: @DiscriminatorColumn;
     
     declare @type: Equipment: @EntityFormat(message = "entity_format_message_pm_technicalobject_equipment");
     

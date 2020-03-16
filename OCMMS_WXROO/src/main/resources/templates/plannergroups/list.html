@@ -73,7 +73,7 @@
                   <a id="operationalworkcenters-detail-table-tab" data-toggle="tab" href="#detail-operationalworkcenters-detail" data-z="87ab65e0">OperationalWorkCenters</a>
                 </li>
                 <li class="active">
-                  <a id="technicalobjects-detail-table-tab" data-toggle="tab" href="#detail-technicalobjects-detail" data-z="c8b0d938">TechnicalObjects</a>
+                  <a id="technicalobjects-detail-table-tab" data-toggle="tab" href="#detail-technicalobjects-detail" data-z="3e5f44c6">TechnicalObjects</a>
                 </li>
             </ul>
 
@@ -120,8 +120,8 @@
               </div> <!--/tab-pane -->
               <div id="detail-technicalobjects-detail" class="tab-pane">
                 <!--START DETAIL TABLE-->
-                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('PlannerGroupsItemTechnicalObjectsThymeleafController')},detailItemLink=${@linkBuilder.of('TechnicalObjectsItemThymeleafController')}">
-                    <table id="technicalobjects-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="plannergroup-entity-table" data-row-id="id" data-z="c8b0d938" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('plannerGroup', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('technicalObject', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('plannerGroup', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('technicalObject', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromTechnicalObjects').with('plannerGroup', '_PARENTID_').with('technicalObjectsToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromTechnicalObjectsBatch').with('plannerGroup', '_PARENTID_').with('technicalObjectsToRemove', '_ID_')}">
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('PlannerGroupsItemTechnicalObjectsThymeleafController')},detailItemLink=${@linkBuilder.of('EquipmentsItemThymeleafController')}">
+                    <table id="technicalobjects-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="plannergroup-entity-table" data-row-id="id" data-z="3e5f44c6" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('plannerGroup', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('equipment', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('plannerGroup', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('equipment', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromTechnicalObjects').with('plannerGroup', '_PARENTID_').with('technicalObjectsToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromTechnicalObjectsBatch').with('plannerGroup', '_PARENTID_').with('technicalObjectsToRemove', '_ID_')}">
                       <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_plannergroup_technicalobjects})}">TechnicalObjects List</caption>
                       <thead>
                         <tr>
@@ -130,7 +130,7 @@
                               <th data-data="description" data-th-text="#{label_plannergroup_technicalobjects_description}">description</th>
                               <th data-data="descriptionLocal" data-th-text="#{label_plannergroup_technicalobjects_descriptionlocal}">descriptionLocal</th>
                               <th data-data="abcIndicator" data-th-text="#{label_plannergroup_technicalobjects_abcindicator}">abcIndicator</th>
-                              <th data-data="mainWorkCenter" data-th-text="#{label_plannergroup_technicalobjects_mainworkcenter}">mainWorkCenter</th>
+                              <th data-data="organization" data-th-text="#{label_plannergroup_technicalobjects_organization}">organization</th>
                               <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
                         </tr>
                       </thead>
@@ -140,7 +140,7 @@
                               <td>description</td>
                               <td>descriptionLocal</td>
                               <td>abcIndicator</td>
-                              <td>mainWorkCenter</td>
+                              <td>organization</td>
                           <td data-th-text="#{label_tools}">Tools</td>
                         </tr>
                       </tbody>

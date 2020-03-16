@@ -5,30 +5,12 @@ package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.pm.configuration.AbcIndicator;
-import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
-import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.repository.TechnicalObjectRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect TechnicalObjectRepository_Roo_Jpa_Repository {
     
     declare @type: TechnicalObjectRepository: @Transactional(readOnly = true);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param mainWorkCenter
-     * @return Long
-     */
-    public abstract long TechnicalObjectRepository.countByMainWorkCenter(MainWorkCenter mainWorkCenter);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plannerGroup
-     * @return Long
-     */
-    public abstract long TechnicalObjectRepository.countByPlannerGroup(PlannerGroup plannerGroup);
     
     /**
      * TODO Auto-generated method documentation

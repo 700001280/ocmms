@@ -5,10 +5,7 @@ package com.ocmms.cmms.model.pm.technicalobject.regulatory;
 
 import com.ocmms.cmms.model.pm.technicalobject.regulatory.Hoist;
 import io.springlets.format.EntityFormat;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 privileged aspect Hoist_Roo_Jpa_Entity {
@@ -16,10 +13,6 @@ privileged aspect Hoist_Roo_Jpa_Entity {
     declare @type: Hoist: @Entity;
     
     declare @type: Hoist: @Table(name = "PM_REGULATORY_HOIST");
-    
-    declare @type: Hoist: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
-    
-    declare @type: Hoist: @DiscriminatorColumn;
     
     declare @type: Hoist: @EntityFormat(message = "entity_format_message_pm_regulatory_hoist");
     

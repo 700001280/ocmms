@@ -50,12 +50,6 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String BillOfMaterialRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String BillOfMaterialRepositoryImpl.ORGANIZATION = "organization";
     
     /**
@@ -75,12 +69,6 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String BillOfMaterialRepositoryImpl.MANUFACTURER_PART_NUMBER = "manufacturerPartNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String BillOfMaterialRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -134,7 +122,37 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String BillOfMaterialRepositoryImpl.SAFESTOCK = "safestock";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String BillOfMaterialRepositoryImpl.UNIT = "unit";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String BillOfMaterialRepositoryImpl.DRAWING_NUMBER = "drawingNumber";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String BillOfMaterialRepositoryImpl.TECH_POSITION_NUMBER = "techPositionNumber";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String BillOfMaterialRepositoryImpl.PARAMETER = "parameter";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String BillOfMaterialRepositoryImpl.POSITION_NUMBER = "positionNumber";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -155,7 +173,7 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<BillOfMaterial> query = from(billOfMaterial);
         
-        Path<?>[] paths = new Path<?>[] {billOfMaterial.tag,billOfMaterial.description,billOfMaterial.descriptionLocal,billOfMaterial.abcIndicator,billOfMaterial.mainWorkCenter,billOfMaterial.organization,billOfMaterial.manufacturerModelNumber,billOfMaterial.manufacturerSerialNumber,billOfMaterial.manufacturerPartNumber,billOfMaterial.plannerGroup,billOfMaterial.memo,billOfMaterial.recordStatus,billOfMaterial.createdDate,billOfMaterial.createdBy,billOfMaterial.lastModifiedDate,billOfMaterial.lastModifiedBy,billOfMaterial.bomComponent,billOfMaterial.setSize,billOfMaterial.unit,billOfMaterial.needStock};        
+        Path<?>[] paths = new Path<?>[] {billOfMaterial.tag,billOfMaterial.description,billOfMaterial.descriptionLocal,billOfMaterial.abcIndicator,billOfMaterial.organization,billOfMaterial.manufacturerModelNumber,billOfMaterial.manufacturerSerialNumber,billOfMaterial.manufacturerPartNumber,billOfMaterial.memo,billOfMaterial.recordStatus,billOfMaterial.createdDate,billOfMaterial.createdBy,billOfMaterial.lastModifiedDate,billOfMaterial.lastModifiedBy,billOfMaterial.bomComponent,billOfMaterial.setSize,billOfMaterial.safestock,billOfMaterial.unit,billOfMaterial.drawingNumber,billOfMaterial.techPositionNumber,billOfMaterial.parameter,billOfMaterial.positionNumber,billOfMaterial.needStock};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -163,12 +181,10 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, billOfMaterial.description)
 			.map(DESCRIPTION_LOCAL, billOfMaterial.descriptionLocal)
 			.map(ABC_INDICATOR, billOfMaterial.abcIndicator)
-			.map(MAIN_WORK_CENTER, billOfMaterial.mainWorkCenter)
 			.map(ORGANIZATION, billOfMaterial.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, billOfMaterial.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, billOfMaterial.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, billOfMaterial.manufacturerPartNumber)
-			.map(PLANNER_GROUP, billOfMaterial.plannerGroup)
 			.map(MEMO, billOfMaterial.memo)
 			.map(RECORD_STATUS, billOfMaterial.recordStatus)
 			.map(CREATED_DATE, billOfMaterial.createdDate)
@@ -177,7 +193,12 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(LAST_MODIFIED_BY, billOfMaterial.lastModifiedBy)
 			.map(BOM_COMPONENT, billOfMaterial.bomComponent)
 			.map(SET_SIZE, billOfMaterial.setSize)
+			.map(SAFESTOCK, billOfMaterial.safestock)
 			.map(UNIT, billOfMaterial.unit)
+			.map(DRAWING_NUMBER, billOfMaterial.drawingNumber)
+			.map(TECH_POSITION_NUMBER, billOfMaterial.techPositionNumber)
+			.map(PARAMETER, billOfMaterial.parameter)
+			.map(POSITION_NUMBER, billOfMaterial.positionNumber)
 			.map(NEED_STOCK, billOfMaterial.needStock);
         
         applyPagination(pageable, query, mapping);
@@ -200,7 +221,7 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<BillOfMaterial> query = from(billOfMaterial);
         
-        Path<?>[] paths = new Path<?>[] {billOfMaterial.tag,billOfMaterial.description,billOfMaterial.descriptionLocal,billOfMaterial.abcIndicator,billOfMaterial.mainWorkCenter,billOfMaterial.organization,billOfMaterial.manufacturerModelNumber,billOfMaterial.manufacturerSerialNumber,billOfMaterial.manufacturerPartNumber,billOfMaterial.plannerGroup,billOfMaterial.memo,billOfMaterial.recordStatus,billOfMaterial.createdDate,billOfMaterial.createdBy,billOfMaterial.lastModifiedDate,billOfMaterial.lastModifiedBy,billOfMaterial.bomComponent,billOfMaterial.setSize,billOfMaterial.unit,billOfMaterial.needStock};        
+        Path<?>[] paths = new Path<?>[] {billOfMaterial.tag,billOfMaterial.description,billOfMaterial.descriptionLocal,billOfMaterial.abcIndicator,billOfMaterial.organization,billOfMaterial.manufacturerModelNumber,billOfMaterial.manufacturerSerialNumber,billOfMaterial.manufacturerPartNumber,billOfMaterial.memo,billOfMaterial.recordStatus,billOfMaterial.createdDate,billOfMaterial.createdBy,billOfMaterial.lastModifiedDate,billOfMaterial.lastModifiedBy,billOfMaterial.bomComponent,billOfMaterial.setSize,billOfMaterial.safestock,billOfMaterial.unit,billOfMaterial.drawingNumber,billOfMaterial.techPositionNumber,billOfMaterial.parameter,billOfMaterial.positionNumber,billOfMaterial.needStock};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -211,12 +232,10 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, billOfMaterial.description)
 			.map(DESCRIPTION_LOCAL, billOfMaterial.descriptionLocal)
 			.map(ABC_INDICATOR, billOfMaterial.abcIndicator)
-			.map(MAIN_WORK_CENTER, billOfMaterial.mainWorkCenter)
 			.map(ORGANIZATION, billOfMaterial.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, billOfMaterial.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, billOfMaterial.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, billOfMaterial.manufacturerPartNumber)
-			.map(PLANNER_GROUP, billOfMaterial.plannerGroup)
 			.map(MEMO, billOfMaterial.memo)
 			.map(RECORD_STATUS, billOfMaterial.recordStatus)
 			.map(CREATED_DATE, billOfMaterial.createdDate)
@@ -225,7 +244,12 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(LAST_MODIFIED_BY, billOfMaterial.lastModifiedBy)
 			.map(BOM_COMPONENT, billOfMaterial.bomComponent)
 			.map(SET_SIZE, billOfMaterial.setSize)
+			.map(SAFESTOCK, billOfMaterial.safestock)
 			.map(UNIT, billOfMaterial.unit)
+			.map(DRAWING_NUMBER, billOfMaterial.drawingNumber)
+			.map(TECH_POSITION_NUMBER, billOfMaterial.techPositionNumber)
+			.map(PARAMETER, billOfMaterial.parameter)
+			.map(POSITION_NUMBER, billOfMaterial.positionNumber)
 			.map(NEED_STOCK, billOfMaterial.needStock);
         
         applyPagination(pageable, query, mapping);
@@ -251,7 +275,7 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(bomComponent, "bomComponent is required");
         
         query.where(billOfMaterial.bomComponent.eq(bomComponent));
-        Path<?>[] paths = new Path<?>[] {billOfMaterial.tag,billOfMaterial.description,billOfMaterial.descriptionLocal,billOfMaterial.abcIndicator,billOfMaterial.mainWorkCenter,billOfMaterial.organization,billOfMaterial.manufacturerModelNumber,billOfMaterial.manufacturerSerialNumber,billOfMaterial.manufacturerPartNumber,billOfMaterial.plannerGroup,billOfMaterial.memo,billOfMaterial.recordStatus,billOfMaterial.createdDate,billOfMaterial.createdBy,billOfMaterial.lastModifiedDate,billOfMaterial.lastModifiedBy,billOfMaterial.bomComponent,billOfMaterial.setSize,billOfMaterial.unit,billOfMaterial.needStock};        
+        Path<?>[] paths = new Path<?>[] {billOfMaterial.tag,billOfMaterial.description,billOfMaterial.descriptionLocal,billOfMaterial.abcIndicator,billOfMaterial.organization,billOfMaterial.manufacturerModelNumber,billOfMaterial.manufacturerSerialNumber,billOfMaterial.manufacturerPartNumber,billOfMaterial.memo,billOfMaterial.recordStatus,billOfMaterial.createdDate,billOfMaterial.createdBy,billOfMaterial.lastModifiedDate,billOfMaterial.lastModifiedBy,billOfMaterial.bomComponent,billOfMaterial.setSize,billOfMaterial.safestock,billOfMaterial.unit,billOfMaterial.drawingNumber,billOfMaterial.techPositionNumber,billOfMaterial.parameter,billOfMaterial.positionNumber,billOfMaterial.needStock};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -259,12 +283,10 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, billOfMaterial.description)
 			.map(DESCRIPTION_LOCAL, billOfMaterial.descriptionLocal)
 			.map(ABC_INDICATOR, billOfMaterial.abcIndicator)
-			.map(MAIN_WORK_CENTER, billOfMaterial.mainWorkCenter)
 			.map(ORGANIZATION, billOfMaterial.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, billOfMaterial.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, billOfMaterial.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, billOfMaterial.manufacturerPartNumber)
-			.map(PLANNER_GROUP, billOfMaterial.plannerGroup)
 			.map(MEMO, billOfMaterial.memo)
 			.map(RECORD_STATUS, billOfMaterial.recordStatus)
 			.map(CREATED_DATE, billOfMaterial.createdDate)
@@ -273,7 +295,12 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(LAST_MODIFIED_BY, billOfMaterial.lastModifiedBy)
 			.map(BOM_COMPONENT, billOfMaterial.bomComponent)
 			.map(SET_SIZE, billOfMaterial.setSize)
+			.map(SAFESTOCK, billOfMaterial.safestock)
 			.map(UNIT, billOfMaterial.unit)
+			.map(DRAWING_NUMBER, billOfMaterial.drawingNumber)
+			.map(TECH_POSITION_NUMBER, billOfMaterial.techPositionNumber)
+			.map(PARAMETER, billOfMaterial.parameter)
+			.map(POSITION_NUMBER, billOfMaterial.positionNumber)
 			.map(NEED_STOCK, billOfMaterial.needStock);
         
         applyPagination(pageable, query, mapping);
@@ -299,7 +326,7 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(technicalObjects, "technicalObjects is required");
         
         query.where(billOfMaterial.technicalObjects.contains(technicalObjects));
-        Path<?>[] paths = new Path<?>[] {billOfMaterial.tag,billOfMaterial.description,billOfMaterial.descriptionLocal,billOfMaterial.abcIndicator,billOfMaterial.mainWorkCenter,billOfMaterial.organization,billOfMaterial.manufacturerModelNumber,billOfMaterial.manufacturerSerialNumber,billOfMaterial.manufacturerPartNumber,billOfMaterial.plannerGroup,billOfMaterial.memo,billOfMaterial.recordStatus,billOfMaterial.createdDate,billOfMaterial.createdBy,billOfMaterial.lastModifiedDate,billOfMaterial.lastModifiedBy,billOfMaterial.bomComponent,billOfMaterial.setSize,billOfMaterial.unit,billOfMaterial.needStock};        
+        Path<?>[] paths = new Path<?>[] {billOfMaterial.tag,billOfMaterial.description,billOfMaterial.descriptionLocal,billOfMaterial.abcIndicator,billOfMaterial.organization,billOfMaterial.manufacturerModelNumber,billOfMaterial.manufacturerSerialNumber,billOfMaterial.manufacturerPartNumber,billOfMaterial.memo,billOfMaterial.recordStatus,billOfMaterial.createdDate,billOfMaterial.createdBy,billOfMaterial.lastModifiedDate,billOfMaterial.lastModifiedBy,billOfMaterial.bomComponent,billOfMaterial.setSize,billOfMaterial.safestock,billOfMaterial.unit,billOfMaterial.drawingNumber,billOfMaterial.techPositionNumber,billOfMaterial.parameter,billOfMaterial.positionNumber,billOfMaterial.needStock};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -307,12 +334,10 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, billOfMaterial.description)
 			.map(DESCRIPTION_LOCAL, billOfMaterial.descriptionLocal)
 			.map(ABC_INDICATOR, billOfMaterial.abcIndicator)
-			.map(MAIN_WORK_CENTER, billOfMaterial.mainWorkCenter)
 			.map(ORGANIZATION, billOfMaterial.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, billOfMaterial.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, billOfMaterial.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, billOfMaterial.manufacturerPartNumber)
-			.map(PLANNER_GROUP, billOfMaterial.plannerGroup)
 			.map(MEMO, billOfMaterial.memo)
 			.map(RECORD_STATUS, billOfMaterial.recordStatus)
 			.map(CREATED_DATE, billOfMaterial.createdDate)
@@ -321,7 +346,12 @@ privileged aspect BillOfMaterialRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(LAST_MODIFIED_BY, billOfMaterial.lastModifiedBy)
 			.map(BOM_COMPONENT, billOfMaterial.bomComponent)
 			.map(SET_SIZE, billOfMaterial.setSize)
+			.map(SAFESTOCK, billOfMaterial.safestock)
 			.map(UNIT, billOfMaterial.unit)
+			.map(DRAWING_NUMBER, billOfMaterial.drawingNumber)
+			.map(TECH_POSITION_NUMBER, billOfMaterial.techPositionNumber)
+			.map(PARAMETER, billOfMaterial.parameter)
+			.map(POSITION_NUMBER, billOfMaterial.positionNumber)
 			.map(NEED_STOCK, billOfMaterial.needStock);
         
         applyPagination(pageable, query, mapping);

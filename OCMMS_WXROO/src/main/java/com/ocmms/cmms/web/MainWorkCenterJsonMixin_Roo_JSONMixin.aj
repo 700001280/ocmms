@@ -10,7 +10,7 @@ import com.ocmms.cmms.model.hrm.Department;
 import com.ocmms.cmms.model.pm.configuration.HierarchyWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.OperationalWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.WorkCenterResponsible;
-import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.CostCenterDeserializer;
 import com.ocmms.cmms.web.DepartmentDeserializer;
@@ -34,7 +34,7 @@ privileged aspect MainWorkCenterJsonMixin_Roo_JSONMixin {
      * 
      */
     @JsonIgnore
-    private Set<TechnicalObject> MainWorkCenterJsonMixin.technicalObjects;
+    private Set<Equipment> MainWorkCenterJsonMixin.technicalObjects;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -94,7 +94,7 @@ privileged aspect MainWorkCenterJsonMixin_Roo_JSONMixin {
      * 
      * @return Set
      */
-    public Set<TechnicalObject> MainWorkCenterJsonMixin.getTechnicalObjects() {
+    public Set<Equipment> MainWorkCenterJsonMixin.getTechnicalObjects() {
         return technicalObjects;
     }
     
@@ -103,7 +103,7 @@ privileged aspect MainWorkCenterJsonMixin_Roo_JSONMixin {
      * 
      * @param technicalObjects
      */
-    public void MainWorkCenterJsonMixin.setTechnicalObjects(Set<TechnicalObject> technicalObjects) {
+    public void MainWorkCenterJsonMixin.setTechnicalObjects(Set<Equipment> technicalObjects) {
         this.technicalObjects = technicalObjects;
     }
     

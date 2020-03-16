@@ -56,8 +56,8 @@ public class NotificationSystemStatus {
 	 * 
 	 */
 	@Id
-	@SequenceGenerator(name = "systemStatusGen", sequenceName = "SEQ_PM_NOTIFICATION_SYSTEMSTATUS_ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "systemStatusGen")
+	@SequenceGenerator(name = "NotificationSystemStatusGen", sequenceName = "SEQ_PM_NOTIFICATION_SYSTEMSTATUS_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NotificationSystemStatusGen")
 	@Column(name = "ID")
 	private Long id;
 

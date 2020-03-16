@@ -5,10 +5,7 @@ package com.ocmms.cmms.model.pm.technicalobject.regulatory;
 
 import com.ocmms.cmms.model.pm.technicalobject.regulatory.ReliefValve;
 import io.springlets.format.EntityFormat;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 privileged aspect ReliefValve_Roo_Jpa_Entity {
@@ -16,10 +13,6 @@ privileged aspect ReliefValve_Roo_Jpa_Entity {
     declare @type: ReliefValve: @Entity;
     
     declare @type: ReliefValve: @Table(name = "PM_REGULATORY_RELIEFVALVE");
-    
-    declare @type: ReliefValve: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
-    
-    declare @type: ReliefValve: @DiscriminatorColumn;
     
     declare @type: ReliefValve: @EntityFormat(message = "entity_format_message_pm_regulatory_reliefvalve");
     

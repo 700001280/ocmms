@@ -8,10 +8,7 @@ import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.model.pm.technicalobject.FunctionalLocation;
 import io.springlets.format.EntityFormat;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import org.springframework.util.Assert;
 
@@ -20,10 +17,6 @@ privileged aspect FunctionalLocation_Roo_Jpa_Entity {
     declare @type: FunctionalLocation: @Entity;
     
     declare @type: FunctionalLocation: @Table(name = "PM_TECHNICALOBJECT_FUNCTIONLOCATION");
-    
-    declare @type: FunctionalLocation: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
-    
-    declare @type: FunctionalLocation: @DiscriminatorColumn;
     
     declare @type: FunctionalLocation: @EntityFormat(message = "entity_format_message_pm_technicalobject_functionlocation");
     

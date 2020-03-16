@@ -63,8 +63,8 @@ public class WorkOrderSystemStatus {
 	 * @since 3.0.0.0
 	 */
 	@Id
-	@SequenceGenerator(name = "systemStatusGen", sequenceName = "SEQ_PM_WORKORDER_SYSTEMSTATUS_ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "systemStatusGen")
+	@SequenceGenerator(name = "WorkOrderSystemStatusGen", sequenceName = "SEQ_PM_WORKORDER_SYSTEMSTATUS_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "WorkOrderSystemStatusGen")
 	@Column(name = "ID")
 	private Long id;
 

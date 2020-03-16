@@ -49,12 +49,6 @@ privileged aspect ProcurementRequestRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String ProcurementRequestRepositoryImpl.DESCRIPTION = "description";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String ProcurementRequestRepositoryImpl.REQUEST_DATE = "requestDate";
     
     /**
@@ -124,7 +118,7 @@ privileged aspect ProcurementRequestRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ProcurementRequest> query = from(procurementRequest);
         
-        Path<?>[] paths = new Path<?>[] {procurementRequest.priorityType,procurementRequest.catalogType,procurementRequest.requester,procurementRequest.submitDate,procurementRequest.description,procurementRequest.requestDate,procurementRequest.requestNumber,procurementRequest.organization,procurementRequest.memo,procurementRequest.closed,procurementRequest.recordStatus,procurementRequest.createdDate,procurementRequest.createdBy,procurementRequest.lastModifiedDate,procurementRequest.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {procurementRequest.priorityType,procurementRequest.catalogType,procurementRequest.requester,procurementRequest.submitDate,procurementRequest.requestDate,procurementRequest.requestNumber,procurementRequest.organization,procurementRequest.memo,procurementRequest.closed,procurementRequest.recordStatus,procurementRequest.createdDate,procurementRequest.createdBy,procurementRequest.lastModifiedDate,procurementRequest.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -132,7 +126,6 @@ privileged aspect ProcurementRequestRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(CATALOG_TYPE, procurementRequest.catalogType)
 			.map(REQUESTER, procurementRequest.requester)
 			.map(SUBMIT_DATE, procurementRequest.submitDate)
-			.map(DESCRIPTION, procurementRequest.description)
 			.map(REQUEST_DATE, procurementRequest.requestDate)
 			.map(REQUEST_NUMBER, procurementRequest.requestNumber)
 			.map(ORGANIZATION, procurementRequest.organization)
@@ -164,7 +157,7 @@ privileged aspect ProcurementRequestRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ProcurementRequest> query = from(procurementRequest);
         
-        Path<?>[] paths = new Path<?>[] {procurementRequest.priorityType,procurementRequest.catalogType,procurementRequest.requester,procurementRequest.submitDate,procurementRequest.description,procurementRequest.requestDate,procurementRequest.requestNumber,procurementRequest.organization,procurementRequest.memo,procurementRequest.closed,procurementRequest.recordStatus,procurementRequest.createdDate,procurementRequest.createdBy,procurementRequest.lastModifiedDate,procurementRequest.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {procurementRequest.priorityType,procurementRequest.catalogType,procurementRequest.requester,procurementRequest.submitDate,procurementRequest.requestDate,procurementRequest.requestNumber,procurementRequest.organization,procurementRequest.memo,procurementRequest.closed,procurementRequest.recordStatus,procurementRequest.createdDate,procurementRequest.createdBy,procurementRequest.lastModifiedDate,procurementRequest.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -175,7 +168,6 @@ privileged aspect ProcurementRequestRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(CATALOG_TYPE, procurementRequest.catalogType)
 			.map(REQUESTER, procurementRequest.requester)
 			.map(SUBMIT_DATE, procurementRequest.submitDate)
-			.map(DESCRIPTION, procurementRequest.description)
 			.map(REQUEST_DATE, procurementRequest.requestDate)
 			.map(REQUEST_NUMBER, procurementRequest.requestNumber)
 			.map(ORGANIZATION, procurementRequest.organization)
@@ -210,7 +202,7 @@ privileged aspect ProcurementRequestRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(requester, "requester is required");
         
         query.where(procurementRequest.requester.eq(requester));
-        Path<?>[] paths = new Path<?>[] {procurementRequest.priorityType,procurementRequest.catalogType,procurementRequest.requester,procurementRequest.submitDate,procurementRequest.description,procurementRequest.requestDate,procurementRequest.requestNumber,procurementRequest.organization,procurementRequest.memo,procurementRequest.closed,procurementRequest.recordStatus,procurementRequest.createdDate,procurementRequest.createdBy,procurementRequest.lastModifiedDate,procurementRequest.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {procurementRequest.priorityType,procurementRequest.catalogType,procurementRequest.requester,procurementRequest.submitDate,procurementRequest.requestDate,procurementRequest.requestNumber,procurementRequest.organization,procurementRequest.memo,procurementRequest.closed,procurementRequest.recordStatus,procurementRequest.createdDate,procurementRequest.createdBy,procurementRequest.lastModifiedDate,procurementRequest.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -218,7 +210,6 @@ privileged aspect ProcurementRequestRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(CATALOG_TYPE, procurementRequest.catalogType)
 			.map(REQUESTER, procurementRequest.requester)
 			.map(SUBMIT_DATE, procurementRequest.submitDate)
-			.map(DESCRIPTION, procurementRequest.description)
 			.map(REQUEST_DATE, procurementRequest.requestDate)
 			.map(REQUEST_NUMBER, procurementRequest.requestNumber)
 			.map(ORGANIZATION, procurementRequest.organization)

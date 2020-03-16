@@ -47,12 +47,6 @@ privileged aspect PressureVesselRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String PressureVesselRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String PressureVesselRepositoryImpl.ORGANIZATION = "organization";
     
     /**
@@ -72,12 +66,6 @@ privileged aspect PressureVesselRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String PressureVesselRepositoryImpl.MANUFACTURER_PART_NUMBER = "manufacturerPartNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String PressureVesselRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -132,6 +120,18 @@ privileged aspect PressureVesselRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String PressureVesselRepositoryImpl.SUPERIOR_EQUIPMENT = "superiorEquipment";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String PressureVesselRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String PressureVesselRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -380,7 +380,7 @@ privileged aspect PressureVesselRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<PressureVessel> query = from(pressureVessel);
         
-        Path<?>[] paths = new Path<?>[] {pressureVessel.tag,pressureVessel.description,pressureVessel.descriptionLocal,pressureVessel.abcIndicator,pressureVessel.mainWorkCenter,pressureVessel.organization,pressureVessel.manufacturerModelNumber,pressureVessel.manufacturerSerialNumber,pressureVessel.manufacturerPartNumber,pressureVessel.plannerGroup,pressureVessel.memo,pressureVessel.recordStatus,pressureVessel.createdDate,pressureVessel.createdBy,pressureVessel.lastModifiedDate,pressureVessel.lastModifiedBy,pressureVessel.functionalLocation,pressureVessel.equipmentNumber,pressureVessel.superiorEquipment,pressureVessel.constructionDate,pressureVessel.countryOfManufacture,pressureVessel.manufacturer,pressureVessel.plantSection,pressureVessel.equipmentCategory,pressureVessel.objectType,pressureVessel.drawingNumber,pressureVessel.catalogProfile,pressureVessel.plantLocation,pressureVessel.constTypeMaterial,pressureVessel.sizeDimension,pressureVessel.grossWeight,pressureVessel.weightUnit,pressureVessel.acquisitionDate,pressureVessel.acquisitionValue,pressureVessel.acquisitionValueCurrency,pressureVessel.beginGuaranteeDate,pressureVessel.warrantyEndDate,pressureVessel.supplier,pressureVessel.contract,pressureVessel.ehssCritical,pressureVessel.criticalClassification,pressureVessel.assetCode,pressureVessel.startDepreciationCost,pressureVessel.depreciationYear,pressureVessel.capitalizedDate,pressureVessel.currentBookValue,pressureVessel.originalAssetId,pressureVessel.assetValueCurrency,pressureVessel.assetClassification,pressureVessel.lastInspectionDate,pressureVessel.nextInspectionDate,pressureVessel.serviceRegistrationNumber,pressureVessel.manufacturerName,pressureVessel.manufactureDate,pressureVessel.designedServiceLife,pressureVessel.designPressure,pressureVessel.maximumAllowableWorkingPressure,pressureVessel.pressureVesselCategory};        
+        Path<?>[] paths = new Path<?>[] {pressureVessel.tag,pressureVessel.description,pressureVessel.descriptionLocal,pressureVessel.abcIndicator,pressureVessel.organization,pressureVessel.manufacturerModelNumber,pressureVessel.manufacturerSerialNumber,pressureVessel.manufacturerPartNumber,pressureVessel.memo,pressureVessel.recordStatus,pressureVessel.createdDate,pressureVessel.createdBy,pressureVessel.lastModifiedDate,pressureVessel.lastModifiedBy,pressureVessel.functionalLocation,pressureVessel.equipmentNumber,pressureVessel.superiorEquipment,pressureVessel.mainWorkCenter,pressureVessel.plannerGroup,pressureVessel.constructionDate,pressureVessel.countryOfManufacture,pressureVessel.manufacturer,pressureVessel.plantSection,pressureVessel.equipmentCategory,pressureVessel.objectType,pressureVessel.drawingNumber,pressureVessel.catalogProfile,pressureVessel.plantLocation,pressureVessel.constTypeMaterial,pressureVessel.sizeDimension,pressureVessel.grossWeight,pressureVessel.weightUnit,pressureVessel.acquisitionDate,pressureVessel.acquisitionValue,pressureVessel.acquisitionValueCurrency,pressureVessel.beginGuaranteeDate,pressureVessel.warrantyEndDate,pressureVessel.supplier,pressureVessel.contract,pressureVessel.ehssCritical,pressureVessel.criticalClassification,pressureVessel.assetCode,pressureVessel.startDepreciationCost,pressureVessel.depreciationYear,pressureVessel.capitalizedDate,pressureVessel.currentBookValue,pressureVessel.originalAssetId,pressureVessel.assetValueCurrency,pressureVessel.assetClassification,pressureVessel.lastInspectionDate,pressureVessel.nextInspectionDate,pressureVessel.serviceRegistrationNumber,pressureVessel.manufacturerName,pressureVessel.manufactureDate,pressureVessel.designedServiceLife,pressureVessel.designPressure,pressureVessel.maximumAllowableWorkingPressure,pressureVessel.pressureVesselCategory};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -388,12 +388,10 @@ privileged aspect PressureVesselRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, pressureVessel.description)
 			.map(DESCRIPTION_LOCAL, pressureVessel.descriptionLocal)
 			.map(ABC_INDICATOR, pressureVessel.abcIndicator)
-			.map(MAIN_WORK_CENTER, pressureVessel.mainWorkCenter)
 			.map(ORGANIZATION, pressureVessel.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, pressureVessel.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, pressureVessel.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, pressureVessel.manufacturerPartNumber)
-			.map(PLANNER_GROUP, pressureVessel.plannerGroup)
 			.map(MEMO, pressureVessel.memo)
 			.map(RECORD_STATUS, pressureVessel.recordStatus)
 			.map(CREATED_DATE, pressureVessel.createdDate)
@@ -403,6 +401,8 @@ privileged aspect PressureVesselRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, pressureVessel.functionalLocation)
 			.map(EQUIPMENT_NUMBER, pressureVessel.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, pressureVessel.superiorEquipment)
+			.map(MAIN_WORK_CENTER, pressureVessel.mainWorkCenter)
+			.map(PLANNER_GROUP, pressureVessel.plannerGroup)
 			.map(CONSTRUCTION_DATE, pressureVessel.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, pressureVessel.countryOfManufacture)
 			.map(MANUFACTURER, pressureVessel.manufacturer)
@@ -463,7 +463,7 @@ privileged aspect PressureVesselRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<PressureVessel> query = from(pressureVessel);
         
-        Path<?>[] paths = new Path<?>[] {pressureVessel.tag,pressureVessel.description,pressureVessel.descriptionLocal,pressureVessel.abcIndicator,pressureVessel.mainWorkCenter,pressureVessel.organization,pressureVessel.manufacturerModelNumber,pressureVessel.manufacturerSerialNumber,pressureVessel.manufacturerPartNumber,pressureVessel.plannerGroup,pressureVessel.memo,pressureVessel.recordStatus,pressureVessel.createdDate,pressureVessel.createdBy,pressureVessel.lastModifiedDate,pressureVessel.lastModifiedBy,pressureVessel.functionalLocation,pressureVessel.equipmentNumber,pressureVessel.superiorEquipment,pressureVessel.constructionDate,pressureVessel.countryOfManufacture,pressureVessel.manufacturer,pressureVessel.plantSection,pressureVessel.equipmentCategory,pressureVessel.objectType,pressureVessel.drawingNumber,pressureVessel.catalogProfile,pressureVessel.plantLocation,pressureVessel.constTypeMaterial,pressureVessel.sizeDimension,pressureVessel.grossWeight,pressureVessel.weightUnit,pressureVessel.acquisitionDate,pressureVessel.acquisitionValue,pressureVessel.acquisitionValueCurrency,pressureVessel.beginGuaranteeDate,pressureVessel.warrantyEndDate,pressureVessel.supplier,pressureVessel.contract,pressureVessel.ehssCritical,pressureVessel.criticalClassification,pressureVessel.assetCode,pressureVessel.startDepreciationCost,pressureVessel.depreciationYear,pressureVessel.capitalizedDate,pressureVessel.currentBookValue,pressureVessel.originalAssetId,pressureVessel.assetValueCurrency,pressureVessel.assetClassification,pressureVessel.lastInspectionDate,pressureVessel.nextInspectionDate,pressureVessel.serviceRegistrationNumber,pressureVessel.manufacturerName,pressureVessel.manufactureDate,pressureVessel.designedServiceLife,pressureVessel.designPressure,pressureVessel.maximumAllowableWorkingPressure,pressureVessel.pressureVesselCategory};        
+        Path<?>[] paths = new Path<?>[] {pressureVessel.tag,pressureVessel.description,pressureVessel.descriptionLocal,pressureVessel.abcIndicator,pressureVessel.organization,pressureVessel.manufacturerModelNumber,pressureVessel.manufacturerSerialNumber,pressureVessel.manufacturerPartNumber,pressureVessel.memo,pressureVessel.recordStatus,pressureVessel.createdDate,pressureVessel.createdBy,pressureVessel.lastModifiedDate,pressureVessel.lastModifiedBy,pressureVessel.functionalLocation,pressureVessel.equipmentNumber,pressureVessel.superiorEquipment,pressureVessel.mainWorkCenter,pressureVessel.plannerGroup,pressureVessel.constructionDate,pressureVessel.countryOfManufacture,pressureVessel.manufacturer,pressureVessel.plantSection,pressureVessel.equipmentCategory,pressureVessel.objectType,pressureVessel.drawingNumber,pressureVessel.catalogProfile,pressureVessel.plantLocation,pressureVessel.constTypeMaterial,pressureVessel.sizeDimension,pressureVessel.grossWeight,pressureVessel.weightUnit,pressureVessel.acquisitionDate,pressureVessel.acquisitionValue,pressureVessel.acquisitionValueCurrency,pressureVessel.beginGuaranteeDate,pressureVessel.warrantyEndDate,pressureVessel.supplier,pressureVessel.contract,pressureVessel.ehssCritical,pressureVessel.criticalClassification,pressureVessel.assetCode,pressureVessel.startDepreciationCost,pressureVessel.depreciationYear,pressureVessel.capitalizedDate,pressureVessel.currentBookValue,pressureVessel.originalAssetId,pressureVessel.assetValueCurrency,pressureVessel.assetClassification,pressureVessel.lastInspectionDate,pressureVessel.nextInspectionDate,pressureVessel.serviceRegistrationNumber,pressureVessel.manufacturerName,pressureVessel.manufactureDate,pressureVessel.designedServiceLife,pressureVessel.designPressure,pressureVessel.maximumAllowableWorkingPressure,pressureVessel.pressureVesselCategory};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -474,12 +474,10 @@ privileged aspect PressureVesselRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, pressureVessel.description)
 			.map(DESCRIPTION_LOCAL, pressureVessel.descriptionLocal)
 			.map(ABC_INDICATOR, pressureVessel.abcIndicator)
-			.map(MAIN_WORK_CENTER, pressureVessel.mainWorkCenter)
 			.map(ORGANIZATION, pressureVessel.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, pressureVessel.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, pressureVessel.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, pressureVessel.manufacturerPartNumber)
-			.map(PLANNER_GROUP, pressureVessel.plannerGroup)
 			.map(MEMO, pressureVessel.memo)
 			.map(RECORD_STATUS, pressureVessel.recordStatus)
 			.map(CREATED_DATE, pressureVessel.createdDate)
@@ -489,6 +487,8 @@ privileged aspect PressureVesselRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, pressureVessel.functionalLocation)
 			.map(EQUIPMENT_NUMBER, pressureVessel.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, pressureVessel.superiorEquipment)
+			.map(MAIN_WORK_CENTER, pressureVessel.mainWorkCenter)
+			.map(PLANNER_GROUP, pressureVessel.plannerGroup)
 			.map(CONSTRUCTION_DATE, pressureVessel.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, pressureVessel.countryOfManufacture)
 			.map(MANUFACTURER, pressureVessel.manufacturer)

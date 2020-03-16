@@ -5,10 +5,7 @@ package com.ocmms.cmms.model.mm.master;
 
 import com.ocmms.cmms.model.mm.master.ScrewElement;
 import io.springlets.format.EntityFormat;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 privileged aspect ScrewElement_Roo_Jpa_Entity {
@@ -16,10 +13,6 @@ privileged aspect ScrewElement_Roo_Jpa_Entity {
     declare @type: ScrewElement: @Entity;
     
     declare @type: ScrewElement: @Table(name = "MM_MASTER_SCREWELEMENT");
-    
-    declare @type: ScrewElement: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
-    
-    declare @type: ScrewElement: @DiscriminatorColumn;
     
     declare @type: ScrewElement: @EntityFormat(message = "entity_format_message_mm_master_screwelement");
     

@@ -10,7 +10,9 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.eshem.CriticalClassification;
 import com.ocmms.cmms.model.loto.LotoInfo;
+import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.ObjectType;
+import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
@@ -1097,6 +1099,11 @@ privileged aspect EquipmentServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void EquipmentServiceImpl.delete(Equipment equipment) {
+        // Clear bidirectional many-to-one child relationship with PlannerGroup
+        if (equipment.getPlannerGroup() != null) {
+            equipment.getPlannerGroup().getTechnicalObjects().remove(equipment);
+        }
+        
         // Clear bidirectional many-to-one child relationship with PlantSection
         if (equipment.getPlantSection() != null) {
             equipment.getPlantSection().getEquipments().remove(equipment);
@@ -1120,6 +1127,11 @@ privileged aspect EquipmentServiceImpl_Roo_Service_Impl {
         // Clear bidirectional many-to-one child relationship with ObjectType
         if (equipment.getObjectType() != null) {
             equipment.getObjectType().getEquipments().remove(equipment);
+        }
+        
+        // Clear bidirectional many-to-one child relationship with MainWorkCenter
+        if (equipment.getMainWorkCenter() != null) {
+            equipment.getMainWorkCenter().getTechnicalObjects().remove(equipment);
         }
         
         // Clear bidirectional many-to-one child relationship with CriticalClassification
@@ -1355,6 +1367,18 @@ privileged aspect EquipmentServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param mainWorkCenter
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<Equipment> EquipmentServiceImpl.findByMainWorkCenter(MainWorkCenter mainWorkCenter, GlobalSearch globalSearch, Pageable pageable) {
+        return getEquipmentRepository().findByMainWorkCenter(mainWorkCenter, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param objectType
      * @param globalSearch
      * @param pageable
@@ -1362,6 +1386,18 @@ privileged aspect EquipmentServiceImpl_Roo_Service_Impl {
      */
     public Page<Equipment> EquipmentServiceImpl.findByObjectType(ObjectType objectType, GlobalSearch globalSearch, Pageable pageable) {
         return getEquipmentRepository().findByObjectType(objectType, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param plannerGroup
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<Equipment> EquipmentServiceImpl.findByPlannerGroup(PlannerGroup plannerGroup, GlobalSearch globalSearch, Pageable pageable) {
+        return getEquipmentRepository().findByPlannerGroup(plannerGroup, globalSearch, pageable);
     }
     
     /**
@@ -1443,11 +1479,31 @@ privileged aspect EquipmentServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param mainWorkCenter
+     * @return Long
+     */
+    public long EquipmentServiceImpl.countByMainWorkCenter(MainWorkCenter mainWorkCenter) {
+        return getEquipmentRepository().countByMainWorkCenter(mainWorkCenter);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param objectType
      * @return Long
      */
     public long EquipmentServiceImpl.countByObjectType(ObjectType objectType) {
         return getEquipmentRepository().countByObjectType(objectType);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param plannerGroup
+     * @return Long
+     */
+    public long EquipmentServiceImpl.countByPlannerGroup(PlannerGroup plannerGroup) {
+        return getEquipmentRepository().countByPlannerGroup(plannerGroup);
     }
     
     /**

@@ -5,7 +5,9 @@ package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.asset.AssetClassification;
 import com.ocmms.cmms.model.eshem.CriticalClassification;
+import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.ObjectType;
+import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import com.ocmms.cmms.model.pm.technicalobject.EquipmentCategory;
@@ -17,6 +19,14 @@ import org.springframework.transaction.annotation.Transactional;
 privileged aspect EquipmentRepository_Roo_Jpa_Repository {
     
     declare @type: EquipmentRepository: @Transactional(readOnly = true);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param plannerGroup
+     * @return Long
+     */
+    public abstract long EquipmentRepository.countByPlannerGroup(PlannerGroup plannerGroup);
     
     /**
      * TODO Auto-generated method documentation
@@ -57,6 +67,14 @@ privileged aspect EquipmentRepository_Roo_Jpa_Repository {
      * @return Long
      */
     public abstract long EquipmentRepository.countByObjectType(ObjectType objectType);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param mainWorkCenter
+     * @return Long
+     */
+    public abstract long EquipmentRepository.countByMainWorkCenter(MainWorkCenter mainWorkCenter);
     
     /**
      * TODO Auto-generated method documentation

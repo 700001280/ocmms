@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.pm.configuration.OperationalWorkCenter;
-import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.OrganizationDeserializer;
 import com.ocmms.cmms.web.PlannerGroupJsonMixin;
@@ -28,7 +28,7 @@ privileged aspect PlannerGroupJsonMixin_Roo_JSONMixin {
      * 
      */
     @JsonIgnore
-    private Set<TechnicalObject> PlannerGroupJsonMixin.technicalObjects;
+    private Set<Equipment> PlannerGroupJsonMixin.technicalObjects;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -67,7 +67,7 @@ privileged aspect PlannerGroupJsonMixin_Roo_JSONMixin {
      * 
      * @return Set
      */
-    public Set<TechnicalObject> PlannerGroupJsonMixin.getTechnicalObjects() {
+    public Set<Equipment> PlannerGroupJsonMixin.getTechnicalObjects() {
         return technicalObjects;
     }
     
@@ -76,7 +76,7 @@ privileged aspect PlannerGroupJsonMixin_Roo_JSONMixin {
      * 
      * @param technicalObjects
      */
-    public void PlannerGroupJsonMixin.setTechnicalObjects(Set<TechnicalObject> technicalObjects) {
+    public void PlannerGroupJsonMixin.setTechnicalObjects(Set<Equipment> technicalObjects) {
         this.technicalObjects = technicalObjects;
     }
     

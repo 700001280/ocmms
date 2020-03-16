@@ -5,7 +5,9 @@ package com.ocmms.cmms.service.api;
 
 import com.ocmms.cmms.model.asset.AssetClassification;
 import com.ocmms.cmms.model.eshem.CriticalClassification;
+import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.ObjectType;
+import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import com.ocmms.cmms.model.pm.technicalobject.Equipment;
@@ -474,12 +476,32 @@ privileged aspect EquipmentService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param mainWorkCenter
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<Equipment> EquipmentService.findByMainWorkCenter(MainWorkCenter mainWorkCenter, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param objectType
      * @param globalSearch
      * @param pageable
      * @return Page
      */
     public abstract Page<Equipment> EquipmentService.findByObjectType(ObjectType objectType, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param plannerGroup
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<Equipment> EquipmentService.findByPlannerGroup(PlannerGroup plannerGroup, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
@@ -546,10 +568,26 @@ privileged aspect EquipmentService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param mainWorkCenter
+     * @return Long
+     */
+    public abstract long EquipmentService.countByMainWorkCenter(MainWorkCenter mainWorkCenter);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param objectType
      * @return Long
      */
     public abstract long EquipmentService.countByObjectType(ObjectType objectType);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param plannerGroup
+     * @return Long
+     */
+    public abstract long EquipmentService.countByPlannerGroup(PlannerGroup plannerGroup);
     
     /**
      * TODO Auto-generated method documentation

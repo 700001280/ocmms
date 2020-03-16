@@ -21,11 +21,7 @@ import org.springframework.roo.addon.javabean.annotations.RooSerializable;
 import org.springframework.roo.addon.javabean.annotations.RooToString;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,7 +36,6 @@ import org.springframework.roo.addon.jpa.annotations.entity.JpaRelationType;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
 import io.springlets.format.EntityFormat;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.NumberFormat;
@@ -49,28 +44,18 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Version;
-
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.ocmms.cmms.model.common.UnitOfMeasure;
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.eshem.CriticalClassification;
-import com.ocmms.cmms.model.fico.CostCenter;
-import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.loto.LotoInfo;
 import com.ocmms.cmms.model.common.Currency;
 import com.ocmms.cmms.model.asset.AssetClassification;
 import com.ocmms.cmms.model.asset.AssetInventoryRecord;
-import com.ocmms.cmms.model.asset.AssetStatus;
 import com.ocmms.cmms.model.asset.AssetStatusChangeRecord;
 import com.ocmms.cmms.model.common.Country;
 import com.ocmms.cmms.model.srm.Vendor;
-import com.ocmms.cmms.model.pm.configuration.AbcIndicator;
 import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.ObjectType;
 import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
@@ -78,8 +63,6 @@ import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringRecord;
-import com.ocmms.cmms.model.pm.notification.NotificationHeader;
-import com.ocmms.cmms.model.pm.pm.PreventiveMaintenanceStandard;
 import com.ocmms.cmms.model.pm.routine.EquipmentMaintenanceRecord;
 import com.ocmms.cmms.model.pm.routine.EquipmentReplaceRecord;
 
@@ -134,7 +117,24 @@ public class Equipment  extends TechnicalObject {
 	@EntityFormat
 	private TechnicalObject superiorEquipment;
 	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "MAINWORKCENTER")
+	@EntityFormat
+	private MainWorkCenter mainWorkCenter;	
 	
+	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PLANNERGROUP")
+	@EntityFormat
+	private PlannerGroup plannerGroup;	
 	
 	
 	/**

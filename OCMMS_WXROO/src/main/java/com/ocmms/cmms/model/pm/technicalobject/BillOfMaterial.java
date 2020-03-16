@@ -107,10 +107,46 @@ public class BillOfMaterial  extends TechnicalObject {
 	 * TODO Auto-generated attribute documentation
 	 *
 	 */
+	@Column(name = "SAFESTOCK")
+	@NumberFormat
+	private BigDecimal safestock;	
+	
+	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "UNIT")
-	@EntityFormat("#{description}")
 	private UnitOfMeasure unit;
+	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@Column(name = "DRAWINGNUMBER")
+	private String drawingNumber;	
+	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@Column(name = "TECHPOSITIONNUMBER")
+	private String techPositionNumber;		
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@Column(name = "PARAMETER")
+	private String parameter;
+	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@Column(name = "POSITIONNUMBER")
+	private String positionNumber;	
 	
 	
 	/**

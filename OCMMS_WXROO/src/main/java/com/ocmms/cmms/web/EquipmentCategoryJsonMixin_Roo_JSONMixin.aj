@@ -4,8 +4,11 @@
 package com.ocmms.cmms.web;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.ocmms.cmms.model.pm.technicalobject.Equipment;
+import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.EquipmentCategoryJsonMixin;
+import com.ocmms.cmms.web.RecordStatusDeserializer;
 import java.util.Set;
 
 privileged aspect EquipmentCategoryJsonMixin_Roo_JSONMixin {
@@ -16,6 +19,13 @@ privileged aspect EquipmentCategoryJsonMixin_Roo_JSONMixin {
      */
     @JsonIgnore
     private Set<Equipment> EquipmentCategoryJsonMixin.equipments;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = RecordStatusDeserializer.class)
+    private RecordStatus EquipmentCategoryJsonMixin.recordStatus;
     
     /**
      * TODO Auto-generated method documentation
@@ -33,6 +43,24 @@ privileged aspect EquipmentCategoryJsonMixin_Roo_JSONMixin {
      */
     public void EquipmentCategoryJsonMixin.setEquipments(Set<Equipment> equipments) {
         this.equipments = equipments;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return RecordStatus
+     */
+    public RecordStatus EquipmentCategoryJsonMixin.getRecordStatus() {
+        return recordStatus;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param recordStatus
+     */
+    public void EquipmentCategoryJsonMixin.setRecordStatus(RecordStatus recordStatus) {
+        this.recordStatus = recordStatus;
     }
     
 }

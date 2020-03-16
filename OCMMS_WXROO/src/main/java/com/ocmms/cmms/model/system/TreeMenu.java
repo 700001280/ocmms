@@ -56,8 +56,8 @@ public class TreeMenu {
      *
      */
     @NotNull
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "DESCRIPTION")
+    private String description;
 
     /**
      * TODO Auto-generated attribute documentation

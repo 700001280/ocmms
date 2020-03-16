@@ -9,10 +9,10 @@ import com.ocmms.cmms.model.pm.configuration.HierarchyWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.OperationalWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.WorkCenterResponsible;
-import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.repository.MainWorkCenterRepository;
+import com.ocmms.cmms.service.api.EquipmentService;
 import com.ocmms.cmms.service.api.OperationalWorkCenterService;
-import com.ocmms.cmms.service.api.TechnicalObjectService;
 import com.ocmms.cmms.service.impl.MainWorkCenterServiceImpl;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.MessageI18n;
@@ -50,20 +50,20 @@ privileged aspect MainWorkCenterServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    private TechnicalObjectService MainWorkCenterServiceImpl.technicalObjectService;
+    private EquipmentService MainWorkCenterServiceImpl.equipmentService;
     
     /**
      * TODO Auto-generated constructor documentation
      * 
      * @param mainWorkCenterRepository
      * @param operationalWorkCenterService
-     * @param technicalObjectService
+     * @param equipmentService
      */
     @Autowired
-    public MainWorkCenterServiceImpl.new(MainWorkCenterRepository mainWorkCenterRepository, @Lazy OperationalWorkCenterService operationalWorkCenterService, @Lazy TechnicalObjectService technicalObjectService) {
+    public MainWorkCenterServiceImpl.new(MainWorkCenterRepository mainWorkCenterRepository, @Lazy OperationalWorkCenterService operationalWorkCenterService, @Lazy EquipmentService equipmentService) {
         setMainWorkCenterRepository(mainWorkCenterRepository);
         setOperationalWorkCenterService(operationalWorkCenterService);
-        setTechnicalObjectService(technicalObjectService);
+        setEquipmentService(equipmentService);
     }
 
     /**
@@ -105,19 +105,19 @@ privileged aspect MainWorkCenterServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return TechnicalObjectService
+     * @return EquipmentService
      */
-    public TechnicalObjectService MainWorkCenterServiceImpl.getTechnicalObjectService() {
-        return technicalObjectService;
+    public EquipmentService MainWorkCenterServiceImpl.getEquipmentService() {
+        return equipmentService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param technicalObjectService
+     * @param equipmentService
      */
-    public void MainWorkCenterServiceImpl.setTechnicalObjectService(TechnicalObjectService technicalObjectService) {
-        this.technicalObjectService = technicalObjectService;
+    public void MainWorkCenterServiceImpl.setEquipmentService(EquipmentService equipmentService) {
+        this.equipmentService = equipmentService;
     }
     
     /**
@@ -157,7 +157,7 @@ privileged aspect MainWorkCenterServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public MainWorkCenter MainWorkCenterServiceImpl.addToTechnicalObjects(MainWorkCenter mainWorkCenter, Iterable<Long> technicalObjectsToAdd) {
-        List<TechnicalObject> technicalObjects = getTechnicalObjectService().findAll(technicalObjectsToAdd);
+        List<Equipment> technicalObjects = getEquipmentService().findAll(technicalObjectsToAdd);
         mainWorkCenter.addToTechnicalObjects(technicalObjects);
         return getMainWorkCenterRepository().save(mainWorkCenter);
     }
@@ -185,7 +185,7 @@ privileged aspect MainWorkCenterServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public MainWorkCenter MainWorkCenterServiceImpl.removeFromTechnicalObjects(MainWorkCenter mainWorkCenter, Iterable<Long> technicalObjectsToRemove) {
-        List<TechnicalObject> technicalObjects = getTechnicalObjectService().findAll(technicalObjectsToRemove);
+        List<Equipment> technicalObjects = getEquipmentService().findAll(technicalObjectsToRemove);
         mainWorkCenter.removeFromTechnicalObjects(technicalObjects);
         return getMainWorkCenterRepository().save(mainWorkCenter);
     }
@@ -227,15 +227,15 @@ privileged aspect MainWorkCenterServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public MainWorkCenter MainWorkCenterServiceImpl.setTechnicalObjects(MainWorkCenter mainWorkCenter, Iterable<Long> technicalObjects) {
-        List<TechnicalObject> items = getTechnicalObjectService().findAll(technicalObjects);
-        Set<TechnicalObject> currents = mainWorkCenter.getTechnicalObjects();
-        Set<TechnicalObject> toRemove = new HashSet<TechnicalObject>();
-        for (Iterator<TechnicalObject> iterator = currents.iterator(); iterator.hasNext();) {
-            TechnicalObject nextTechnicalObject = iterator.next();
-            if (items.contains(nextTechnicalObject)) {
-                items.remove(nextTechnicalObject);
+        List<Equipment> items = getEquipmentService().findAll(technicalObjects);
+        Set<Equipment> currents = mainWorkCenter.getTechnicalObjects();
+        Set<Equipment> toRemove = new HashSet<Equipment>();
+        for (Iterator<Equipment> iterator = currents.iterator(); iterator.hasNext();) {
+            Equipment nextEquipment = iterator.next();
+            if (items.contains(nextEquipment)) {
+                items.remove(nextEquipment);
             } else {
-                toRemove.add(nextTechnicalObject);
+                toRemove.add(nextEquipment);
             }
         }
         mainWorkCenter.removeFromTechnicalObjects(toRemove);
@@ -278,8 +278,8 @@ privileged aspect MainWorkCenterServiceImpl_Roo_Service_Impl {
             item.setMainWorkCenter(null);
         }
         
-        // Clear bidirectional one-to-many parent relationship with TechnicalObject
-        for (TechnicalObject item : mainWorkCenter.getTechnicalObjects()) {
+        // Clear bidirectional one-to-many parent relationship with Equipment
+        for (Equipment item : mainWorkCenter.getTechnicalObjects()) {
             item.setMainWorkCenter(null);
         }
         

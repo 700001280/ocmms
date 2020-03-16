@@ -5,7 +5,7 @@ package com.ocmms.cmms.model.pm.configuration;
 
 import com.ocmms.cmms.model.pm.configuration.OperationalWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
-import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import io.springlets.format.EntityFormat;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -36,9 +36,9 @@ privileged aspect PlannerGroup_Roo_Jpa_Entity {
      * 
      * @param technicalObjectsToAdd
      */
-    public void PlannerGroup.addToTechnicalObjects(Iterable<TechnicalObject> technicalObjectsToAdd) {
+    public void PlannerGroup.addToTechnicalObjects(Iterable<Equipment> technicalObjectsToAdd) {
         Assert.notNull(technicalObjectsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
-        for (TechnicalObject item : technicalObjectsToAdd) {
+        for (Equipment item : technicalObjectsToAdd) {
             this.technicalObjects.add(item);
             item.setPlannerGroup(this);
         }
@@ -49,9 +49,9 @@ privileged aspect PlannerGroup_Roo_Jpa_Entity {
      * 
      * @param technicalObjectsToRemove
      */
-    public void PlannerGroup.removeFromTechnicalObjects(Iterable<TechnicalObject> technicalObjectsToRemove) {
+    public void PlannerGroup.removeFromTechnicalObjects(Iterable<Equipment> technicalObjectsToRemove) {
         Assert.notNull(technicalObjectsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
-        for (TechnicalObject item : technicalObjectsToRemove) {
+        for (Equipment item : technicalObjectsToRemove) {
             this.technicalObjects.remove(item);
             item.setPlannerGroup(null);
         }

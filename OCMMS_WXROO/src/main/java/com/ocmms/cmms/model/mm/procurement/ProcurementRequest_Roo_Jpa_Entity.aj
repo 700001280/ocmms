@@ -9,10 +9,7 @@ import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import io.springlets.format.EntityFormat;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import org.springframework.util.Assert;
 
@@ -21,10 +18,6 @@ privileged aspect ProcurementRequest_Roo_Jpa_Entity {
     declare @type: ProcurementRequest: @Entity;
     
     declare @type: ProcurementRequest: @Table(name = "MM_PROCUREMENT_REQUEST");
-    
-    declare @type: ProcurementRequest: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
-    
-    declare @type: ProcurementRequest: @DiscriminatorColumn;
     
     declare @type: ProcurementRequest: @EntityFormat(message = "entity_format_message_mm_procurement_request");
     

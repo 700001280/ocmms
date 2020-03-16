@@ -33,7 +33,7 @@ import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
 
 import com.ocmms.cmms.model.hrm.Organization;
-import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.model.system.RecordStatus;
 
 import io.springlets.format.EntityFormat;
@@ -96,7 +96,7 @@ public class PlannerGroup {
     @OneToMany(cascade = {javax.persistence.CascadeType.MERGE,
         javax.persistence.CascadeType.PERSIST}, fetch = FetchType.LAZY, mappedBy = "plannerGroup")
     @RooJpaRelation(type = JpaRelationType.AGGREGATION)
-    private Set<TechnicalObject> technicalObjects = new HashSet<TechnicalObject>();
+    private Set<Equipment> technicalObjects = new HashSet<Equipment>();
 
     /**
      * TODO Auto-generated attribute documentation

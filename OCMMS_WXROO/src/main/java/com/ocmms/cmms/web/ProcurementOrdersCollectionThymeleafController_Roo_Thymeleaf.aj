@@ -519,9 +519,6 @@ privileged aspect ProcurementOrdersCollectionThymeleafController_Roo_Thymeleaf {
         if (columnName.equals("id")) {
             builder.addColumn(getMessageSource().getMessage("label_procurementorder_id", null, "Id", locale), "id", Long.class.getName(), 50);
         }
-        else if (columnName.equals("description")) {
-            builder.addColumn(getMessageSource().getMessage("label_procurementorder_description", null, "Description", locale), "description", String.class.getName(), 100);
-        }
         else if (columnName.equals("orderDate")) {
             builder.addColumn(getMessageSource().getMessage("label_procurementorder_orderdate", null, "Order Date", locale), "orderDate", Calendar.class.getName(), 100);
         }

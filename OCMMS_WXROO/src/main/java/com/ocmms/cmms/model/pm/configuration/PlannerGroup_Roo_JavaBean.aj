@@ -6,7 +6,7 @@ package com.ocmms.cmms.model.pm.configuration;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.pm.configuration.OperationalWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
-import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.model.system.RecordStatus;
 import java.util.Calendar;
 import java.util.Objects;
@@ -119,7 +119,7 @@ privileged aspect PlannerGroup_Roo_JavaBean {
      * 
      * @return Set
      */
-    public Set<TechnicalObject> PlannerGroup.getTechnicalObjects() {
+    public Set<Equipment> PlannerGroup.getTechnicalObjects() {
         return this.technicalObjects;
     }
     
@@ -129,7 +129,7 @@ privileged aspect PlannerGroup_Roo_JavaBean {
      * @param technicalObjects
      * @return PlannerGroup
      */
-    public PlannerGroup PlannerGroup.setTechnicalObjects(Set<TechnicalObject> technicalObjects) {
+    public PlannerGroup PlannerGroup.setTechnicalObjects(Set<Equipment> technicalObjects) {
         this.technicalObjects = technicalObjects;
         return this;
     }

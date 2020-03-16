@@ -47,7 +47,7 @@ privileged aspect MachineWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String MachineWorkCenterRepositoryImpl.NAME = "name";
+    public static final String MachineWorkCenterRepositoryImpl.DESCRIPTION = "description";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -158,7 +158,7 @@ privileged aspect MachineWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<MachineWorkCenter> query = from(machineWorkCenter);
         
-        Path<?>[] paths = new Path<?>[] {machineWorkCenter.organization,machineWorkCenter.operationalWorkCenter,machineWorkCenter.code,machineWorkCenter.category,machineWorkCenter.name,machineWorkCenter.responsible,machineWorkCenter.controlKey,machineWorkCenter.plannerGroup,machineWorkCenter.capacityUnitOfMeasure,machineWorkCenter.capacityStartTime,machineWorkCenter.capacityEndTime,machineWorkCenter.capacityUtilization,machineWorkCenter.numberofCapacities,machineWorkCenter.validityStartDate,machineWorkCenter.validityEndDate,machineWorkCenter.costCenter,machineWorkCenter.recordStatus,machineWorkCenter.createdDate,machineWorkCenter.createdBy,machineWorkCenter.lastModifiedDate,machineWorkCenter.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {machineWorkCenter.organization,machineWorkCenter.operationalWorkCenter,machineWorkCenter.code,machineWorkCenter.category,machineWorkCenter.description,machineWorkCenter.responsible,machineWorkCenter.controlKey,machineWorkCenter.plannerGroup,machineWorkCenter.capacityUnitOfMeasure,machineWorkCenter.capacityStartTime,machineWorkCenter.capacityEndTime,machineWorkCenter.capacityUtilization,machineWorkCenter.numberofCapacities,machineWorkCenter.validityStartDate,machineWorkCenter.validityEndDate,machineWorkCenter.costCenter,machineWorkCenter.recordStatus,machineWorkCenter.createdDate,machineWorkCenter.createdBy,machineWorkCenter.lastModifiedDate,machineWorkCenter.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -166,7 +166,7 @@ privileged aspect MachineWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(OPERATIONAL_WORK_CENTER, machineWorkCenter.operationalWorkCenter)
 			.map(CODE, machineWorkCenter.code)
 			.map(CATEGORY, machineWorkCenter.category)
-			.map(NAME, machineWorkCenter.name)
+			.map(DESCRIPTION, machineWorkCenter.description)
 			.map(RESPONSIBLE, machineWorkCenter.responsible)
 			.map(CONTROL_KEY, machineWorkCenter.controlKey)
 			.map(PLANNER_GROUP, machineWorkCenter.plannerGroup)
@@ -204,7 +204,7 @@ privileged aspect MachineWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<MachineWorkCenter> query = from(machineWorkCenter);
         
-        Path<?>[] paths = new Path<?>[] {machineWorkCenter.organization,machineWorkCenter.operationalWorkCenter,machineWorkCenter.code,machineWorkCenter.category,machineWorkCenter.name,machineWorkCenter.responsible,machineWorkCenter.controlKey,machineWorkCenter.plannerGroup,machineWorkCenter.capacityUnitOfMeasure,machineWorkCenter.capacityStartTime,machineWorkCenter.capacityEndTime,machineWorkCenter.capacityUtilization,machineWorkCenter.numberofCapacities,machineWorkCenter.validityStartDate,machineWorkCenter.validityEndDate,machineWorkCenter.costCenter,machineWorkCenter.recordStatus,machineWorkCenter.createdDate,machineWorkCenter.createdBy,machineWorkCenter.lastModifiedDate,machineWorkCenter.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {machineWorkCenter.organization,machineWorkCenter.operationalWorkCenter,machineWorkCenter.code,machineWorkCenter.category,machineWorkCenter.description,machineWorkCenter.responsible,machineWorkCenter.controlKey,machineWorkCenter.plannerGroup,machineWorkCenter.capacityUnitOfMeasure,machineWorkCenter.capacityStartTime,machineWorkCenter.capacityEndTime,machineWorkCenter.capacityUtilization,machineWorkCenter.numberofCapacities,machineWorkCenter.validityStartDate,machineWorkCenter.validityEndDate,machineWorkCenter.costCenter,machineWorkCenter.recordStatus,machineWorkCenter.createdDate,machineWorkCenter.createdBy,machineWorkCenter.lastModifiedDate,machineWorkCenter.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -215,7 +215,7 @@ privileged aspect MachineWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(OPERATIONAL_WORK_CENTER, machineWorkCenter.operationalWorkCenter)
 			.map(CODE, machineWorkCenter.code)
 			.map(CATEGORY, machineWorkCenter.category)
-			.map(NAME, machineWorkCenter.name)
+			.map(DESCRIPTION, machineWorkCenter.description)
 			.map(RESPONSIBLE, machineWorkCenter.responsible)
 			.map(CONTROL_KEY, machineWorkCenter.controlKey)
 			.map(PLANNER_GROUP, machineWorkCenter.plannerGroup)

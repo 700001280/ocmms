@@ -9,7 +9,7 @@ import com.ocmms.cmms.model.pm.configuration.HierarchyWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.OperationalWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.WorkCenterResponsible;
-import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.model.system.RecordStatus;
 import java.util.Calendar;
 import java.util.Objects;
@@ -98,22 +98,22 @@ privileged aspect MainWorkCenter_Roo_JavaBean {
     }
     
     /**
-     * Gets name value
+     * Gets description value
      * 
      * @return String
      */
-    public String MainWorkCenter.getName() {
-        return this.name;
+    public String MainWorkCenter.getDescription() {
+        return this.description;
     }
     
     /**
-     * Sets name value
+     * Sets description value
      * 
-     * @param name
+     * @param description
      * @return MainWorkCenter
      */
-    public MainWorkCenter MainWorkCenter.setName(String name) {
-        this.name = name;
+    public MainWorkCenter MainWorkCenter.setDescription(String description) {
+        this.description = description;
         return this;
     }
     
@@ -242,7 +242,7 @@ privileged aspect MainWorkCenter_Roo_JavaBean {
      * 
      * @return Set
      */
-    public Set<TechnicalObject> MainWorkCenter.getTechnicalObjects() {
+    public Set<Equipment> MainWorkCenter.getTechnicalObjects() {
         return this.technicalObjects;
     }
     
@@ -252,7 +252,7 @@ privileged aspect MainWorkCenter_Roo_JavaBean {
      * @param technicalObjects
      * @return MainWorkCenter
      */
-    public MainWorkCenter MainWorkCenter.setTechnicalObjects(Set<TechnicalObject> technicalObjects) {
+    public MainWorkCenter MainWorkCenter.setTechnicalObjects(Set<Equipment> technicalObjects) {
         this.technicalObjects = technicalObjects;
         return this;
     }
@@ -437,7 +437,7 @@ privileged aspect MainWorkCenter_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", code='" + code + '\'' + 
                 ", category='" + category + '\'' + 
-                ", name='" + name + '\'' + 
+                ", description='" + description + '\'' + 
                 ", controlKey='" + controlKey + '\'' + 
                 ", validityStartDate='" + validityStartDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(validityStartDate.getTime()) + '\'' + 
                 ", validityEndDate='" + validityEndDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(validityEndDate.getTime()) + '\'' + 

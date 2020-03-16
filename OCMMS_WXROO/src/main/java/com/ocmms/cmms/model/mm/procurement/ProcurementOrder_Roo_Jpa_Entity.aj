@@ -10,10 +10,7 @@ import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import io.springlets.format.EntityFormat;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import org.springframework.util.Assert;
 
@@ -22,10 +19,6 @@ privileged aspect ProcurementOrder_Roo_Jpa_Entity {
     declare @type: ProcurementOrder: @Entity;
     
     declare @type: ProcurementOrder: @Table(name = "MM_PROCUREMENT_ORDER");
-    
-    declare @type: ProcurementOrder: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
-    
-    declare @type: ProcurementOrder: @DiscriminatorColumn;
     
     declare @type: ProcurementOrder: @EntityFormat(message = "entity_format_message_mm_procurement_order");
     

@@ -5,8 +5,6 @@ package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.pm.configuration.AbcIndicator;
-import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
-import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.technicalobject.QTechnicalObject;
 import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
 import com.ocmms.cmms.repository.TechnicalObjectRepositoryImpl;
@@ -52,12 +50,6 @@ privileged aspect TechnicalObjectRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String TechnicalObjectRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String TechnicalObjectRepositoryImpl.ORGANIZATION = "organization";
     
     /**
@@ -77,12 +69,6 @@ privileged aspect TechnicalObjectRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String TechnicalObjectRepositoryImpl.MANUFACTURER_PART_NUMBER = "manufacturerPartNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String TechnicalObjectRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -133,7 +119,7 @@ privileged aspect TechnicalObjectRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<TechnicalObject> query = from(technicalObject);
         
-        Path<?>[] paths = new Path<?>[] {technicalObject.tag,technicalObject.description,technicalObject.descriptionLocal,technicalObject.abcIndicator,technicalObject.mainWorkCenter,technicalObject.organization,technicalObject.manufacturerModelNumber,technicalObject.manufacturerSerialNumber,technicalObject.manufacturerPartNumber,technicalObject.plannerGroup,technicalObject.memo,technicalObject.recordStatus,technicalObject.createdDate,technicalObject.createdBy,technicalObject.lastModifiedDate,technicalObject.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {technicalObject.tag,technicalObject.description,technicalObject.descriptionLocal,technicalObject.abcIndicator,technicalObject.organization,technicalObject.manufacturerModelNumber,technicalObject.manufacturerSerialNumber,technicalObject.manufacturerPartNumber,technicalObject.memo,technicalObject.recordStatus,technicalObject.createdDate,technicalObject.createdBy,technicalObject.lastModifiedDate,technicalObject.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -141,12 +127,10 @@ privileged aspect TechnicalObjectRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, technicalObject.description)
 			.map(DESCRIPTION_LOCAL, technicalObject.descriptionLocal)
 			.map(ABC_INDICATOR, technicalObject.abcIndicator)
-			.map(MAIN_WORK_CENTER, technicalObject.mainWorkCenter)
 			.map(ORGANIZATION, technicalObject.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, technicalObject.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, technicalObject.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, technicalObject.manufacturerPartNumber)
-			.map(PLANNER_GROUP, technicalObject.plannerGroup)
 			.map(MEMO, technicalObject.memo)
 			.map(RECORD_STATUS, technicalObject.recordStatus)
 			.map(CREATED_DATE, technicalObject.createdDate)
@@ -174,7 +158,7 @@ privileged aspect TechnicalObjectRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<TechnicalObject> query = from(technicalObject);
         
-        Path<?>[] paths = new Path<?>[] {technicalObject.tag,technicalObject.description,technicalObject.descriptionLocal,technicalObject.abcIndicator,technicalObject.mainWorkCenter,technicalObject.organization,technicalObject.manufacturerModelNumber,technicalObject.manufacturerSerialNumber,technicalObject.manufacturerPartNumber,technicalObject.plannerGroup,technicalObject.memo,technicalObject.recordStatus,technicalObject.createdDate,technicalObject.createdBy,technicalObject.lastModifiedDate,technicalObject.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {technicalObject.tag,technicalObject.description,technicalObject.descriptionLocal,technicalObject.abcIndicator,technicalObject.organization,technicalObject.manufacturerModelNumber,technicalObject.manufacturerSerialNumber,technicalObject.manufacturerPartNumber,technicalObject.memo,technicalObject.recordStatus,technicalObject.createdDate,technicalObject.createdBy,technicalObject.lastModifiedDate,technicalObject.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -185,12 +169,10 @@ privileged aspect TechnicalObjectRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, technicalObject.description)
 			.map(DESCRIPTION_LOCAL, technicalObject.descriptionLocal)
 			.map(ABC_INDICATOR, technicalObject.abcIndicator)
-			.map(MAIN_WORK_CENTER, technicalObject.mainWorkCenter)
 			.map(ORGANIZATION, technicalObject.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, technicalObject.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, technicalObject.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, technicalObject.manufacturerPartNumber)
-			.map(PLANNER_GROUP, technicalObject.plannerGroup)
 			.map(MEMO, technicalObject.memo)
 			.map(RECORD_STATUS, technicalObject.recordStatus)
 			.map(CREATED_DATE, technicalObject.createdDate)
@@ -221,7 +203,7 @@ privileged aspect TechnicalObjectRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(abcIndicator, "abcIndicator is required");
         
         query.where(technicalObject.abcIndicator.eq(abcIndicator));
-        Path<?>[] paths = new Path<?>[] {technicalObject.tag,technicalObject.description,technicalObject.descriptionLocal,technicalObject.abcIndicator,technicalObject.mainWorkCenter,technicalObject.organization,technicalObject.manufacturerModelNumber,technicalObject.manufacturerSerialNumber,technicalObject.manufacturerPartNumber,technicalObject.plannerGroup,technicalObject.memo,technicalObject.recordStatus,technicalObject.createdDate,technicalObject.createdBy,technicalObject.lastModifiedDate,technicalObject.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {technicalObject.tag,technicalObject.description,technicalObject.descriptionLocal,technicalObject.abcIndicator,technicalObject.organization,technicalObject.manufacturerModelNumber,technicalObject.manufacturerSerialNumber,technicalObject.manufacturerPartNumber,technicalObject.memo,technicalObject.recordStatus,technicalObject.createdDate,technicalObject.createdBy,technicalObject.lastModifiedDate,technicalObject.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -229,56 +211,10 @@ privileged aspect TechnicalObjectRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, technicalObject.description)
 			.map(DESCRIPTION_LOCAL, technicalObject.descriptionLocal)
 			.map(ABC_INDICATOR, technicalObject.abcIndicator)
-			.map(MAIN_WORK_CENTER, technicalObject.mainWorkCenter)
 			.map(ORGANIZATION, technicalObject.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, technicalObject.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, technicalObject.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, technicalObject.manufacturerPartNumber)
-			.map(PLANNER_GROUP, technicalObject.plannerGroup)
-			.map(MEMO, technicalObject.memo)
-			.map(RECORD_STATUS, technicalObject.recordStatus)
-			.map(CREATED_DATE, technicalObject.createdDate)
-			.map(CREATED_BY, technicalObject.createdBy)
-			.map(LAST_MODIFIED_DATE, technicalObject.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, technicalObject.lastModifiedBy);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, technicalObject);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param mainWorkCenter
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<TechnicalObject> TechnicalObjectRepositoryImpl.findByMainWorkCenter(MainWorkCenter mainWorkCenter, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QTechnicalObject technicalObject = QTechnicalObject.technicalObject;
-        
-        JPQLQuery<TechnicalObject> query = from(technicalObject);
-        
-        Assert.notNull(mainWorkCenter, "mainWorkCenter is required");
-        
-        query.where(technicalObject.mainWorkCenter.eq(mainWorkCenter));
-        Path<?>[] paths = new Path<?>[] {technicalObject.tag,technicalObject.description,technicalObject.descriptionLocal,technicalObject.abcIndicator,technicalObject.mainWorkCenter,technicalObject.organization,technicalObject.manufacturerModelNumber,technicalObject.manufacturerSerialNumber,technicalObject.manufacturerPartNumber,technicalObject.plannerGroup,technicalObject.memo,technicalObject.recordStatus,technicalObject.createdDate,technicalObject.createdBy,technicalObject.lastModifiedDate,technicalObject.lastModifiedBy};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(TAG, technicalObject.tag)
-			.map(DESCRIPTION, technicalObject.description)
-			.map(DESCRIPTION_LOCAL, technicalObject.descriptionLocal)
-			.map(ABC_INDICATOR, technicalObject.abcIndicator)
-			.map(MAIN_WORK_CENTER, technicalObject.mainWorkCenter)
-			.map(ORGANIZATION, technicalObject.organization)
-			.map(MANUFACTURER_MODEL_NUMBER, technicalObject.manufacturerModelNumber)
-			.map(MANUFACTURER_SERIAL_NUMBER, technicalObject.manufacturerSerialNumber)
-			.map(MANUFACTURER_PART_NUMBER, technicalObject.manufacturerPartNumber)
-			.map(PLANNER_GROUP, technicalObject.plannerGroup)
 			.map(MEMO, technicalObject.memo)
 			.map(RECORD_STATUS, technicalObject.recordStatus)
 			.map(CREATED_DATE, technicalObject.createdDate)
@@ -309,7 +245,7 @@ privileged aspect TechnicalObjectRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(organization, "organization is required");
         
         query.where(technicalObject.organization.eq(organization));
-        Path<?>[] paths = new Path<?>[] {technicalObject.tag,technicalObject.description,technicalObject.descriptionLocal,technicalObject.abcIndicator,technicalObject.mainWorkCenter,technicalObject.organization,technicalObject.manufacturerModelNumber,technicalObject.manufacturerSerialNumber,technicalObject.manufacturerPartNumber,technicalObject.plannerGroup,technicalObject.memo,technicalObject.recordStatus,technicalObject.createdDate,technicalObject.createdBy,technicalObject.lastModifiedDate,technicalObject.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {technicalObject.tag,technicalObject.description,technicalObject.descriptionLocal,technicalObject.abcIndicator,technicalObject.organization,technicalObject.manufacturerModelNumber,technicalObject.manufacturerSerialNumber,technicalObject.manufacturerPartNumber,technicalObject.memo,technicalObject.recordStatus,technicalObject.createdDate,technicalObject.createdBy,technicalObject.lastModifiedDate,technicalObject.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -317,56 +253,10 @@ privileged aspect TechnicalObjectRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, technicalObject.description)
 			.map(DESCRIPTION_LOCAL, technicalObject.descriptionLocal)
 			.map(ABC_INDICATOR, technicalObject.abcIndicator)
-			.map(MAIN_WORK_CENTER, technicalObject.mainWorkCenter)
 			.map(ORGANIZATION, technicalObject.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, technicalObject.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, technicalObject.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, technicalObject.manufacturerPartNumber)
-			.map(PLANNER_GROUP, technicalObject.plannerGroup)
-			.map(MEMO, technicalObject.memo)
-			.map(RECORD_STATUS, technicalObject.recordStatus)
-			.map(CREATED_DATE, technicalObject.createdDate)
-			.map(CREATED_BY, technicalObject.createdBy)
-			.map(LAST_MODIFIED_DATE, technicalObject.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, technicalObject.lastModifiedBy);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, technicalObject);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plannerGroup
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<TechnicalObject> TechnicalObjectRepositoryImpl.findByPlannerGroup(PlannerGroup plannerGroup, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QTechnicalObject technicalObject = QTechnicalObject.technicalObject;
-        
-        JPQLQuery<TechnicalObject> query = from(technicalObject);
-        
-        Assert.notNull(plannerGroup, "plannerGroup is required");
-        
-        query.where(technicalObject.plannerGroup.eq(plannerGroup));
-        Path<?>[] paths = new Path<?>[] {technicalObject.tag,technicalObject.description,technicalObject.descriptionLocal,technicalObject.abcIndicator,technicalObject.mainWorkCenter,technicalObject.organization,technicalObject.manufacturerModelNumber,technicalObject.manufacturerSerialNumber,technicalObject.manufacturerPartNumber,technicalObject.plannerGroup,technicalObject.memo,technicalObject.recordStatus,technicalObject.createdDate,technicalObject.createdBy,technicalObject.lastModifiedDate,technicalObject.lastModifiedBy};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(TAG, technicalObject.tag)
-			.map(DESCRIPTION, technicalObject.description)
-			.map(DESCRIPTION_LOCAL, technicalObject.descriptionLocal)
-			.map(ABC_INDICATOR, technicalObject.abcIndicator)
-			.map(MAIN_WORK_CENTER, technicalObject.mainWorkCenter)
-			.map(ORGANIZATION, technicalObject.organization)
-			.map(MANUFACTURER_MODEL_NUMBER, technicalObject.manufacturerModelNumber)
-			.map(MANUFACTURER_SERIAL_NUMBER, technicalObject.manufacturerSerialNumber)
-			.map(MANUFACTURER_PART_NUMBER, technicalObject.manufacturerPartNumber)
-			.map(PLANNER_GROUP, technicalObject.plannerGroup)
 			.map(MEMO, technicalObject.memo)
 			.map(RECORD_STATUS, technicalObject.recordStatus)
 			.map(CREATED_DATE, technicalObject.createdDate)

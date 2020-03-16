@@ -526,8 +526,8 @@ privileged aspect MainWorkCentersCollectionThymeleafController_Roo_Thymeleaf {
         else if (columnName.equals("category")) {
             builder.addColumn(getMessageSource().getMessage("label_mainworkcenter_category", null, "Category", locale), "category", String.class.getName(), 100);
         }
-        else if (columnName.equals("name")) {
-            builder.addColumn(getMessageSource().getMessage("label_mainworkcenter_name", null, "Name", locale), "name", String.class.getName(), 100);
+        else if (columnName.equals("description")) {
+            builder.addColumn(getMessageSource().getMessage("label_mainworkcenter_description", null, "Description", locale), "description", String.class.getName(), 100);
         }
         else if (columnName.equals("controlKey")) {
             builder.addColumn(getMessageSource().getMessage("label_mainworkcenter_controlkey", null, "Control Key", locale), "controlKey", String.class.getName(), 100);

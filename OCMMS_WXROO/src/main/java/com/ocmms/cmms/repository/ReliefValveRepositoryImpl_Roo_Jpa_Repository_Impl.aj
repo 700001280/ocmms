@@ -47,12 +47,6 @@ privileged aspect ReliefValveRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String ReliefValveRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String ReliefValveRepositoryImpl.ORGANIZATION = "organization";
     
     /**
@@ -72,12 +66,6 @@ privileged aspect ReliefValveRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String ReliefValveRepositoryImpl.MANUFACTURER_PART_NUMBER = "manufacturerPartNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String ReliefValveRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -218,7 +206,7 @@ privileged aspect ReliefValveRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ReliefValve> query = from(reliefValve);
         
-        Path<?>[] paths = new Path<?>[] {reliefValve.tag,reliefValve.description,reliefValve.descriptionLocal,reliefValve.abcIndicator,reliefValve.mainWorkCenter,reliefValve.organization,reliefValve.manufacturerModelNumber,reliefValve.manufacturerSerialNumber,reliefValve.manufacturerPartNumber,reliefValve.plannerGroup,reliefValve.memo,reliefValve.recordStatus,reliefValve.createdDate,reliefValve.createdBy,reliefValve.lastModifiedDate,reliefValve.lastModifiedBy,reliefValve.lastInspectionDate,reliefValve.nextInspectionDate,reliefValve.nominalPressure,reliefValve.workingPressure,reliefValve.settingPressure,reliefValve.nominalDiameter,reliefValve.designTemperature,reliefValve.workingTemperature,reliefValve.connectionType,reliefValve.medium,reliefValve.fluidState,reliefValve.dischargeLocation,reliefValve.manufactureDate,reliefValve.designedServiceLife,reliefValve.classificationCategory};        
+        Path<?>[] paths = new Path<?>[] {reliefValve.tag,reliefValve.description,reliefValve.descriptionLocal,reliefValve.abcIndicator,reliefValve.organization,reliefValve.manufacturerModelNumber,reliefValve.manufacturerSerialNumber,reliefValve.manufacturerPartNumber,reliefValve.memo,reliefValve.recordStatus,reliefValve.createdDate,reliefValve.createdBy,reliefValve.lastModifiedDate,reliefValve.lastModifiedBy,reliefValve.lastInspectionDate,reliefValve.nextInspectionDate,reliefValve.nominalPressure,reliefValve.workingPressure,reliefValve.settingPressure,reliefValve.nominalDiameter,reliefValve.designTemperature,reliefValve.workingTemperature,reliefValve.connectionType,reliefValve.medium,reliefValve.fluidState,reliefValve.dischargeLocation,reliefValve.manufactureDate,reliefValve.designedServiceLife,reliefValve.classificationCategory};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -226,12 +214,10 @@ privileged aspect ReliefValveRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, reliefValve.description)
 			.map(DESCRIPTION_LOCAL, reliefValve.descriptionLocal)
 			.map(ABC_INDICATOR, reliefValve.abcIndicator)
-			.map(MAIN_WORK_CENTER, reliefValve.mainWorkCenter)
 			.map(ORGANIZATION, reliefValve.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, reliefValve.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, reliefValve.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, reliefValve.manufacturerPartNumber)
-			.map(PLANNER_GROUP, reliefValve.plannerGroup)
 			.map(MEMO, reliefValve.memo)
 			.map(RECORD_STATUS, reliefValve.recordStatus)
 			.map(CREATED_DATE, reliefValve.createdDate)
@@ -274,7 +260,7 @@ privileged aspect ReliefValveRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ReliefValve> query = from(reliefValve);
         
-        Path<?>[] paths = new Path<?>[] {reliefValve.tag,reliefValve.description,reliefValve.descriptionLocal,reliefValve.abcIndicator,reliefValve.mainWorkCenter,reliefValve.organization,reliefValve.manufacturerModelNumber,reliefValve.manufacturerSerialNumber,reliefValve.manufacturerPartNumber,reliefValve.plannerGroup,reliefValve.memo,reliefValve.recordStatus,reliefValve.createdDate,reliefValve.createdBy,reliefValve.lastModifiedDate,reliefValve.lastModifiedBy,reliefValve.lastInspectionDate,reliefValve.nextInspectionDate,reliefValve.nominalPressure,reliefValve.workingPressure,reliefValve.settingPressure,reliefValve.nominalDiameter,reliefValve.designTemperature,reliefValve.workingTemperature,reliefValve.connectionType,reliefValve.medium,reliefValve.fluidState,reliefValve.dischargeLocation,reliefValve.manufactureDate,reliefValve.designedServiceLife,reliefValve.classificationCategory};        
+        Path<?>[] paths = new Path<?>[] {reliefValve.tag,reliefValve.description,reliefValve.descriptionLocal,reliefValve.abcIndicator,reliefValve.organization,reliefValve.manufacturerModelNumber,reliefValve.manufacturerSerialNumber,reliefValve.manufacturerPartNumber,reliefValve.memo,reliefValve.recordStatus,reliefValve.createdDate,reliefValve.createdBy,reliefValve.lastModifiedDate,reliefValve.lastModifiedBy,reliefValve.lastInspectionDate,reliefValve.nextInspectionDate,reliefValve.nominalPressure,reliefValve.workingPressure,reliefValve.settingPressure,reliefValve.nominalDiameter,reliefValve.designTemperature,reliefValve.workingTemperature,reliefValve.connectionType,reliefValve.medium,reliefValve.fluidState,reliefValve.dischargeLocation,reliefValve.manufactureDate,reliefValve.designedServiceLife,reliefValve.classificationCategory};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -285,12 +271,10 @@ privileged aspect ReliefValveRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, reliefValve.description)
 			.map(DESCRIPTION_LOCAL, reliefValve.descriptionLocal)
 			.map(ABC_INDICATOR, reliefValve.abcIndicator)
-			.map(MAIN_WORK_CENTER, reliefValve.mainWorkCenter)
 			.map(ORGANIZATION, reliefValve.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, reliefValve.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, reliefValve.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, reliefValve.manufacturerPartNumber)
-			.map(PLANNER_GROUP, reliefValve.plannerGroup)
 			.map(MEMO, reliefValve.memo)
 			.map(RECORD_STATUS, reliefValve.recordStatus)
 			.map(CREATED_DATE, reliefValve.createdDate)

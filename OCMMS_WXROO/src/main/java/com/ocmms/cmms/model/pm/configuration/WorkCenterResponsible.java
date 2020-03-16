@@ -70,7 +70,7 @@ public class WorkCenterResponsible {
 	 *
 	 */
 	@NotNull
-	@Column(name = "RESPONSIBLE", unique = true, length=3)
+	@Column(name = "RESPONSIBLE", unique = true)
 	private String responsible;
 
 	/**
@@ -78,7 +78,7 @@ public class WorkCenterResponsible {
 	 *
 	 */
 	@NotNull
-	@Column(name = "DESCRIPTION", unique = true, length=40)
+	@Column(name = "DESCRIPTION", unique = true)
 	private String description;
 	
 	

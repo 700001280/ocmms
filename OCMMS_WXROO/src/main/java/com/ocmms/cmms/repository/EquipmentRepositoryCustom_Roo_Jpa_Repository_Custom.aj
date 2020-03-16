@@ -5,7 +5,9 @@ package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.asset.AssetClassification;
 import com.ocmms.cmms.model.eshem.CriticalClassification;
+import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.ObjectType;
+import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import com.ocmms.cmms.model.pm.technicalobject.Equipment;
@@ -19,6 +21,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 privileged aspect EquipmentRepositoryCustom_Roo_Jpa_Repository_Custom {
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param plannerGroup
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<Equipment> EquipmentRepositoryCustom.findByPlannerGroup(PlannerGroup plannerGroup, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
@@ -69,6 +81,16 @@ privileged aspect EquipmentRepositoryCustom_Roo_Jpa_Repository_Custom {
      * @return Page
      */
     public abstract Page<Equipment> EquipmentRepositoryCustom.findByObjectType(ObjectType objectType, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param mainWorkCenter
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<Equipment> EquipmentRepositoryCustom.findByMainWorkCenter(MainWorkCenter mainWorkCenter, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

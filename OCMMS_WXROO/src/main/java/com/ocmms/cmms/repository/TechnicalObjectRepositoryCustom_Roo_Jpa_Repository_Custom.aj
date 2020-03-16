@@ -5,8 +5,6 @@ package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.pm.configuration.AbcIndicator;
-import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
-import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
 import com.ocmms.cmms.repository.TechnicalObjectRepositoryCustom;
 import io.springlets.data.domain.GlobalSearch;
@@ -15,26 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 privileged aspect TechnicalObjectRepositoryCustom_Roo_Jpa_Repository_Custom {
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param mainWorkCenter
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<TechnicalObject> TechnicalObjectRepositoryCustom.findByMainWorkCenter(MainWorkCenter mainWorkCenter, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plannerGroup
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<TechnicalObject> TechnicalObjectRepositoryCustom.findByPlannerGroup(PlannerGroup plannerGroup, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

@@ -82,14 +82,6 @@
      <span id="submitDate-error" class="help-block" data-th-if="${#fields.hasErrors('submitDate')}" data-th-errors="*{submitDate}">Error message.</span>
   </div>
 </div>
-<div class="form-group has-error has-feedback" data-z="5345df4" id="procurementrequest-description-field" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'" data-th-class="form-group">
-  <label for="description" class="col-md-3 control-label" data-th-text="#{label_procurementrequest_description}">description</label>
-  <div class="col-md-6">
-    <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_procurementrequest_description}" data-toggle="tooltip" aria-describedby="descriptionStatus" required="required" />
-      <span data-th-classappend="${#fields.hasErrors('description')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('description')}" aria-hidden="true"></span>
-      <span id="description-error" class="help-block" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Error message.</span>
-  </div>
-</div>
 <div class="form-group has-error has-feedback" id="procurementrequest-requestdate-field" data-z="dcc475f4" data-th-classappend="${#fields.hasErrors('requestDate')}? 'has-error has-feedback'" data-th-class="form-group">
   <label for="requestDate" class="col-md-3 control-label" data-th-text="#{label_procurementrequest_requestdate}">requestDate</label>
   <div class="col-md-3">

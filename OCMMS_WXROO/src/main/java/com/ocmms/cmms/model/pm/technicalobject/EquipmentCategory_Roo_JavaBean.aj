@@ -5,6 +5,7 @@ package com.ocmms.cmms.model.pm.technicalobject;
 
 import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.model.pm.technicalobject.EquipmentCategory;
+import com.ocmms.cmms.model.system.RecordStatus;
 import java.util.Calendar;
 import java.util.Objects;
 import java.util.Set;
@@ -88,6 +89,26 @@ privileged aspect EquipmentCategory_Roo_JavaBean {
      */
     public EquipmentCategory EquipmentCategory.setEquipments(Set<Equipment> equipments) {
         this.equipments = equipments;
+        return this;
+    }
+    
+    /**
+     * Gets recordStatus value
+     * 
+     * @return RecordStatus
+     */
+    public RecordStatus EquipmentCategory.getRecordStatus() {
+        return this.recordStatus;
+    }
+    
+    /**
+     * Sets recordStatus value
+     * 
+     * @param recordStatus
+     * @return EquipmentCategory
+     */
+    public EquipmentCategory EquipmentCategory.setRecordStatus(RecordStatus recordStatus) {
+        this.recordStatus = recordStatus;
         return this;
     }
     

@@ -47,12 +47,6 @@ privileged aspect ElevatorRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String ElevatorRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String ElevatorRepositoryImpl.ORGANIZATION = "organization";
     
     /**
@@ -72,12 +66,6 @@ privileged aspect ElevatorRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String ElevatorRepositoryImpl.MANUFACTURER_PART_NUMBER = "manufacturerPartNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String ElevatorRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -132,6 +120,18 @@ privileged aspect ElevatorRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String ElevatorRepositoryImpl.SUPERIOR_EQUIPMENT = "superiorEquipment";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String ElevatorRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String ElevatorRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -344,7 +344,7 @@ privileged aspect ElevatorRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Elevator> query = from(elevator);
         
-        Path<?>[] paths = new Path<?>[] {elevator.tag,elevator.description,elevator.descriptionLocal,elevator.abcIndicator,elevator.mainWorkCenter,elevator.organization,elevator.manufacturerModelNumber,elevator.manufacturerSerialNumber,elevator.manufacturerPartNumber,elevator.plannerGroup,elevator.memo,elevator.recordStatus,elevator.createdDate,elevator.createdBy,elevator.lastModifiedDate,elevator.lastModifiedBy,elevator.functionalLocation,elevator.equipmentNumber,elevator.superiorEquipment,elevator.constructionDate,elevator.countryOfManufacture,elevator.manufacturer,elevator.plantSection,elevator.equipmentCategory,elevator.objectType,elevator.drawingNumber,elevator.catalogProfile,elevator.plantLocation,elevator.constTypeMaterial,elevator.sizeDimension,elevator.grossWeight,elevator.weightUnit,elevator.acquisitionDate,elevator.acquisitionValue,elevator.acquisitionValueCurrency,elevator.beginGuaranteeDate,elevator.warrantyEndDate,elevator.supplier,elevator.contract,elevator.ehssCritical,elevator.criticalClassification,elevator.assetCode,elevator.startDepreciationCost,elevator.depreciationYear,elevator.capitalizedDate,elevator.currentBookValue,elevator.originalAssetId,elevator.assetValueCurrency,elevator.assetClassification,elevator.lastInspectionDate,elevator.nextInspectionDate,elevator.parameter};        
+        Path<?>[] paths = new Path<?>[] {elevator.tag,elevator.description,elevator.descriptionLocal,elevator.abcIndicator,elevator.organization,elevator.manufacturerModelNumber,elevator.manufacturerSerialNumber,elevator.manufacturerPartNumber,elevator.memo,elevator.recordStatus,elevator.createdDate,elevator.createdBy,elevator.lastModifiedDate,elevator.lastModifiedBy,elevator.functionalLocation,elevator.equipmentNumber,elevator.superiorEquipment,elevator.mainWorkCenter,elevator.plannerGroup,elevator.constructionDate,elevator.countryOfManufacture,elevator.manufacturer,elevator.plantSection,elevator.equipmentCategory,elevator.objectType,elevator.drawingNumber,elevator.catalogProfile,elevator.plantLocation,elevator.constTypeMaterial,elevator.sizeDimension,elevator.grossWeight,elevator.weightUnit,elevator.acquisitionDate,elevator.acquisitionValue,elevator.acquisitionValueCurrency,elevator.beginGuaranteeDate,elevator.warrantyEndDate,elevator.supplier,elevator.contract,elevator.ehssCritical,elevator.criticalClassification,elevator.assetCode,elevator.startDepreciationCost,elevator.depreciationYear,elevator.capitalizedDate,elevator.currentBookValue,elevator.originalAssetId,elevator.assetValueCurrency,elevator.assetClassification,elevator.lastInspectionDate,elevator.nextInspectionDate,elevator.parameter};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -352,12 +352,10 @@ privileged aspect ElevatorRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, elevator.description)
 			.map(DESCRIPTION_LOCAL, elevator.descriptionLocal)
 			.map(ABC_INDICATOR, elevator.abcIndicator)
-			.map(MAIN_WORK_CENTER, elevator.mainWorkCenter)
 			.map(ORGANIZATION, elevator.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, elevator.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, elevator.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, elevator.manufacturerPartNumber)
-			.map(PLANNER_GROUP, elevator.plannerGroup)
 			.map(MEMO, elevator.memo)
 			.map(RECORD_STATUS, elevator.recordStatus)
 			.map(CREATED_DATE, elevator.createdDate)
@@ -367,6 +365,8 @@ privileged aspect ElevatorRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, elevator.functionalLocation)
 			.map(EQUIPMENT_NUMBER, elevator.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, elevator.superiorEquipment)
+			.map(MAIN_WORK_CENTER, elevator.mainWorkCenter)
+			.map(PLANNER_GROUP, elevator.plannerGroup)
 			.map(CONSTRUCTION_DATE, elevator.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, elevator.countryOfManufacture)
 			.map(MANUFACTURER, elevator.manufacturer)
@@ -421,7 +421,7 @@ privileged aspect ElevatorRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Elevator> query = from(elevator);
         
-        Path<?>[] paths = new Path<?>[] {elevator.tag,elevator.description,elevator.descriptionLocal,elevator.abcIndicator,elevator.mainWorkCenter,elevator.organization,elevator.manufacturerModelNumber,elevator.manufacturerSerialNumber,elevator.manufacturerPartNumber,elevator.plannerGroup,elevator.memo,elevator.recordStatus,elevator.createdDate,elevator.createdBy,elevator.lastModifiedDate,elevator.lastModifiedBy,elevator.functionalLocation,elevator.equipmentNumber,elevator.superiorEquipment,elevator.constructionDate,elevator.countryOfManufacture,elevator.manufacturer,elevator.plantSection,elevator.equipmentCategory,elevator.objectType,elevator.drawingNumber,elevator.catalogProfile,elevator.plantLocation,elevator.constTypeMaterial,elevator.sizeDimension,elevator.grossWeight,elevator.weightUnit,elevator.acquisitionDate,elevator.acquisitionValue,elevator.acquisitionValueCurrency,elevator.beginGuaranteeDate,elevator.warrantyEndDate,elevator.supplier,elevator.contract,elevator.ehssCritical,elevator.criticalClassification,elevator.assetCode,elevator.startDepreciationCost,elevator.depreciationYear,elevator.capitalizedDate,elevator.currentBookValue,elevator.originalAssetId,elevator.assetValueCurrency,elevator.assetClassification,elevator.lastInspectionDate,elevator.nextInspectionDate,elevator.parameter};        
+        Path<?>[] paths = new Path<?>[] {elevator.tag,elevator.description,elevator.descriptionLocal,elevator.abcIndicator,elevator.organization,elevator.manufacturerModelNumber,elevator.manufacturerSerialNumber,elevator.manufacturerPartNumber,elevator.memo,elevator.recordStatus,elevator.createdDate,elevator.createdBy,elevator.lastModifiedDate,elevator.lastModifiedBy,elevator.functionalLocation,elevator.equipmentNumber,elevator.superiorEquipment,elevator.mainWorkCenter,elevator.plannerGroup,elevator.constructionDate,elevator.countryOfManufacture,elevator.manufacturer,elevator.plantSection,elevator.equipmentCategory,elevator.objectType,elevator.drawingNumber,elevator.catalogProfile,elevator.plantLocation,elevator.constTypeMaterial,elevator.sizeDimension,elevator.grossWeight,elevator.weightUnit,elevator.acquisitionDate,elevator.acquisitionValue,elevator.acquisitionValueCurrency,elevator.beginGuaranteeDate,elevator.warrantyEndDate,elevator.supplier,elevator.contract,elevator.ehssCritical,elevator.criticalClassification,elevator.assetCode,elevator.startDepreciationCost,elevator.depreciationYear,elevator.capitalizedDate,elevator.currentBookValue,elevator.originalAssetId,elevator.assetValueCurrency,elevator.assetClassification,elevator.lastInspectionDate,elevator.nextInspectionDate,elevator.parameter};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -432,12 +432,10 @@ privileged aspect ElevatorRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, elevator.description)
 			.map(DESCRIPTION_LOCAL, elevator.descriptionLocal)
 			.map(ABC_INDICATOR, elevator.abcIndicator)
-			.map(MAIN_WORK_CENTER, elevator.mainWorkCenter)
 			.map(ORGANIZATION, elevator.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, elevator.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, elevator.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, elevator.manufacturerPartNumber)
-			.map(PLANNER_GROUP, elevator.plannerGroup)
 			.map(MEMO, elevator.memo)
 			.map(RECORD_STATUS, elevator.recordStatus)
 			.map(CREATED_DATE, elevator.createdDate)
@@ -447,6 +445,8 @@ privileged aspect ElevatorRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, elevator.functionalLocation)
 			.map(EQUIPMENT_NUMBER, elevator.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, elevator.superiorEquipment)
+			.map(MAIN_WORK_CENTER, elevator.mainWorkCenter)
+			.map(PLANNER_GROUP, elevator.plannerGroup)
 			.map(CONSTRUCTION_DATE, elevator.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, elevator.countryOfManufacture)
 			.map(MANUFACTURER, elevator.manufacturer)

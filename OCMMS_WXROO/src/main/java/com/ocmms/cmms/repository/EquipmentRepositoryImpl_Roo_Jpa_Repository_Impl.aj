@@ -5,7 +5,9 @@ package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.asset.AssetClassification;
 import com.ocmms.cmms.model.eshem.CriticalClassification;
+import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.ObjectType;
+import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import com.ocmms.cmms.model.pm.technicalobject.Equipment;
@@ -56,12 +58,6 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String EquipmentRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String EquipmentRepositoryImpl.ORGANIZATION = "organization";
     
     /**
@@ -81,12 +77,6 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String EquipmentRepositoryImpl.MANUFACTURER_PART_NUMBER = "manufacturerPartNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String EquipmentRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -141,6 +131,18 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String EquipmentRepositoryImpl.SUPERIOR_EQUIPMENT = "superiorEquipment";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String EquipmentRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String EquipmentRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -335,7 +337,7 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Equipment> query = from(equipment);
         
-        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.mainWorkCenter,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.plannerGroup,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -343,12 +345,10 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, equipment.description)
 			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
 			.map(ABC_INDICATOR, equipment.abcIndicator)
-			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
 			.map(ORGANIZATION, equipment.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
-			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(MEMO, equipment.memo)
 			.map(RECORD_STATUS, equipment.recordStatus)
 			.map(CREATED_DATE, equipment.createdDate)
@@ -358,6 +358,8 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
 			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(CONSTRUCTION_DATE, equipment.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
 			.map(MANUFACTURER, equipment.manufacturer)
@@ -409,7 +411,7 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Equipment> query = from(equipment);
         
-        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.mainWorkCenter,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.plannerGroup,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -420,12 +422,10 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, equipment.description)
 			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
 			.map(ABC_INDICATOR, equipment.abcIndicator)
-			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
 			.map(ORGANIZATION, equipment.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
-			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(MEMO, equipment.memo)
 			.map(RECORD_STATUS, equipment.recordStatus)
 			.map(CREATED_DATE, equipment.createdDate)
@@ -435,6 +435,8 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
 			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(CONSTRUCTION_DATE, equipment.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
 			.map(MANUFACTURER, equipment.manufacturer)
@@ -489,7 +491,7 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(assetClassification, "assetClassification is required");
         
         query.where(equipment.assetClassification.eq(assetClassification));
-        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.mainWorkCenter,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.plannerGroup,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -497,12 +499,10 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, equipment.description)
 			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
 			.map(ABC_INDICATOR, equipment.abcIndicator)
-			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
 			.map(ORGANIZATION, equipment.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
-			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(MEMO, equipment.memo)
 			.map(RECORD_STATUS, equipment.recordStatus)
 			.map(CREATED_DATE, equipment.createdDate)
@@ -512,6 +512,8 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
 			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(CONSTRUCTION_DATE, equipment.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
 			.map(MANUFACTURER, equipment.manufacturer)
@@ -566,7 +568,7 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(criticalClassification, "criticalClassification is required");
         
         query.where(equipment.criticalClassification.eq(criticalClassification));
-        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.mainWorkCenter,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.plannerGroup,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -574,12 +576,10 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, equipment.description)
 			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
 			.map(ABC_INDICATOR, equipment.abcIndicator)
-			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
 			.map(ORGANIZATION, equipment.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
-			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(MEMO, equipment.memo)
 			.map(RECORD_STATUS, equipment.recordStatus)
 			.map(CREATED_DATE, equipment.createdDate)
@@ -589,6 +589,8 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
 			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(CONSTRUCTION_DATE, equipment.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
 			.map(MANUFACTURER, equipment.manufacturer)
@@ -643,7 +645,7 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentCategory, "equipmentCategory is required");
         
         query.where(equipment.equipmentCategory.eq(equipmentCategory));
-        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.mainWorkCenter,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.plannerGroup,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -651,12 +653,10 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, equipment.description)
 			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
 			.map(ABC_INDICATOR, equipment.abcIndicator)
-			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
 			.map(ORGANIZATION, equipment.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
-			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(MEMO, equipment.memo)
 			.map(RECORD_STATUS, equipment.recordStatus)
 			.map(CREATED_DATE, equipment.createdDate)
@@ -666,6 +666,8 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
 			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(CONSTRUCTION_DATE, equipment.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
 			.map(MANUFACTURER, equipment.manufacturer)
@@ -720,7 +722,7 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(functionalLocation, "functionalLocation is required");
         
         query.where(equipment.functionalLocation.eq(functionalLocation));
-        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.mainWorkCenter,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.plannerGroup,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -728,12 +730,10 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, equipment.description)
 			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
 			.map(ABC_INDICATOR, equipment.abcIndicator)
-			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
 			.map(ORGANIZATION, equipment.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
-			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(MEMO, equipment.memo)
 			.map(RECORD_STATUS, equipment.recordStatus)
 			.map(CREATED_DATE, equipment.createdDate)
@@ -743,6 +743,85 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
 			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
+			.map(CONSTRUCTION_DATE, equipment.constructionDate)
+			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
+			.map(MANUFACTURER, equipment.manufacturer)
+			.map(PLANT_SECTION, equipment.plantSection)
+			.map(EQUIPMENT_CATEGORY, equipment.equipmentCategory)
+			.map(OBJECT_TYPE, equipment.objectType)
+			.map(DRAWING_NUMBER, equipment.drawingNumber)
+			.map(CATALOG_PROFILE, equipment.catalogProfile)
+			.map(PLANT_LOCATION, equipment.plantLocation)
+			.map(CONST_TYPE_MATERIAL, equipment.constTypeMaterial)
+			.map(SIZE_DIMENSION, equipment.sizeDimension)
+			.map(GROSS_WEIGHT, equipment.grossWeight)
+			.map(WEIGHT_UNIT, equipment.weightUnit)
+			.map(ACQUISITION_DATE, equipment.acquisitionDate)
+			.map(ACQUISITION_VALUE, equipment.acquisitionValue)
+			.map(ACQUISITION_VALUE_CURRENCY, equipment.acquisitionValueCurrency)
+			.map(BEGIN_GUARANTEE_DATE, equipment.beginGuaranteeDate)
+			.map(WARRANTY_END_DATE, equipment.warrantyEndDate)
+			.map(SUPPLIER, equipment.supplier)
+			.map(CONTRACT, equipment.contract)
+			.map(EHSS_CRITICAL, equipment.ehssCritical)
+			.map(CRITICAL_CLASSIFICATION, equipment.criticalClassification)
+			.map(ASSET_CODE, equipment.assetCode)
+			.map(START_DEPRECIATION_COST, equipment.startDepreciationCost)
+			.map(DEPRECIATION_YEAR, equipment.depreciationYear)
+			.map(CAPITALIZED_DATE, equipment.capitalizedDate)
+			.map(CURRENT_BOOK_VALUE, equipment.currentBookValue)
+			.map(ORIGINAL_ASSET_ID, equipment.originalAssetId)
+			.map(ASSET_VALUE_CURRENCY, equipment.assetValueCurrency)
+			.map(ASSET_CLASSIFICATION, equipment.assetClassification);
+        
+        applyPagination(pageable, query, mapping);
+        applyOrderById(query);
+        
+        return loadPage(query, pageable, equipment);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param mainWorkCenter
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<Equipment> EquipmentRepositoryImpl.findByMainWorkCenter(MainWorkCenter mainWorkCenter, GlobalSearch globalSearch, Pageable pageable) {
+        
+        QEquipment equipment = QEquipment.equipment;
+        
+        JPQLQuery<Equipment> query = from(equipment);
+        
+        Assert.notNull(mainWorkCenter, "mainWorkCenter is required");
+        
+        query.where(equipment.mainWorkCenter.eq(mainWorkCenter));
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        applyGlobalSearch(globalSearch, query, paths);
+        
+        AttributeMappingBuilder mapping = buildMapper()
+			.map(TAG, equipment.tag)
+			.map(DESCRIPTION, equipment.description)
+			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
+			.map(ABC_INDICATOR, equipment.abcIndicator)
+			.map(ORGANIZATION, equipment.organization)
+			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
+			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
+			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
+			.map(MEMO, equipment.memo)
+			.map(RECORD_STATUS, equipment.recordStatus)
+			.map(CREATED_DATE, equipment.createdDate)
+			.map(CREATED_BY, equipment.createdBy)
+			.map(LAST_MODIFIED_DATE, equipment.lastModifiedDate)
+			.map(LAST_MODIFIED_BY, equipment.lastModifiedBy)
+			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
+			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
+			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(CONSTRUCTION_DATE, equipment.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
 			.map(MANUFACTURER, equipment.manufacturer)
@@ -797,7 +876,7 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(objectType, "objectType is required");
         
         query.where(equipment.objectType.eq(objectType));
-        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.mainWorkCenter,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.plannerGroup,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -805,12 +884,10 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, equipment.description)
 			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
 			.map(ABC_INDICATOR, equipment.abcIndicator)
-			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
 			.map(ORGANIZATION, equipment.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
-			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(MEMO, equipment.memo)
 			.map(RECORD_STATUS, equipment.recordStatus)
 			.map(CREATED_DATE, equipment.createdDate)
@@ -820,6 +897,85 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
 			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
+			.map(CONSTRUCTION_DATE, equipment.constructionDate)
+			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
+			.map(MANUFACTURER, equipment.manufacturer)
+			.map(PLANT_SECTION, equipment.plantSection)
+			.map(EQUIPMENT_CATEGORY, equipment.equipmentCategory)
+			.map(OBJECT_TYPE, equipment.objectType)
+			.map(DRAWING_NUMBER, equipment.drawingNumber)
+			.map(CATALOG_PROFILE, equipment.catalogProfile)
+			.map(PLANT_LOCATION, equipment.plantLocation)
+			.map(CONST_TYPE_MATERIAL, equipment.constTypeMaterial)
+			.map(SIZE_DIMENSION, equipment.sizeDimension)
+			.map(GROSS_WEIGHT, equipment.grossWeight)
+			.map(WEIGHT_UNIT, equipment.weightUnit)
+			.map(ACQUISITION_DATE, equipment.acquisitionDate)
+			.map(ACQUISITION_VALUE, equipment.acquisitionValue)
+			.map(ACQUISITION_VALUE_CURRENCY, equipment.acquisitionValueCurrency)
+			.map(BEGIN_GUARANTEE_DATE, equipment.beginGuaranteeDate)
+			.map(WARRANTY_END_DATE, equipment.warrantyEndDate)
+			.map(SUPPLIER, equipment.supplier)
+			.map(CONTRACT, equipment.contract)
+			.map(EHSS_CRITICAL, equipment.ehssCritical)
+			.map(CRITICAL_CLASSIFICATION, equipment.criticalClassification)
+			.map(ASSET_CODE, equipment.assetCode)
+			.map(START_DEPRECIATION_COST, equipment.startDepreciationCost)
+			.map(DEPRECIATION_YEAR, equipment.depreciationYear)
+			.map(CAPITALIZED_DATE, equipment.capitalizedDate)
+			.map(CURRENT_BOOK_VALUE, equipment.currentBookValue)
+			.map(ORIGINAL_ASSET_ID, equipment.originalAssetId)
+			.map(ASSET_VALUE_CURRENCY, equipment.assetValueCurrency)
+			.map(ASSET_CLASSIFICATION, equipment.assetClassification);
+        
+        applyPagination(pageable, query, mapping);
+        applyOrderById(query);
+        
+        return loadPage(query, pageable, equipment);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param plannerGroup
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<Equipment> EquipmentRepositoryImpl.findByPlannerGroup(PlannerGroup plannerGroup, GlobalSearch globalSearch, Pageable pageable) {
+        
+        QEquipment equipment = QEquipment.equipment;
+        
+        JPQLQuery<Equipment> query = from(equipment);
+        
+        Assert.notNull(plannerGroup, "plannerGroup is required");
+        
+        query.where(equipment.plannerGroup.eq(plannerGroup));
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        applyGlobalSearch(globalSearch, query, paths);
+        
+        AttributeMappingBuilder mapping = buildMapper()
+			.map(TAG, equipment.tag)
+			.map(DESCRIPTION, equipment.description)
+			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
+			.map(ABC_INDICATOR, equipment.abcIndicator)
+			.map(ORGANIZATION, equipment.organization)
+			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
+			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
+			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
+			.map(MEMO, equipment.memo)
+			.map(RECORD_STATUS, equipment.recordStatus)
+			.map(CREATED_DATE, equipment.createdDate)
+			.map(CREATED_BY, equipment.createdBy)
+			.map(LAST_MODIFIED_DATE, equipment.lastModifiedDate)
+			.map(LAST_MODIFIED_BY, equipment.lastModifiedBy)
+			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
+			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
+			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(CONSTRUCTION_DATE, equipment.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
 			.map(MANUFACTURER, equipment.manufacturer)
@@ -874,7 +1030,7 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(plantLocation, "plantLocation is required");
         
         query.where(equipment.plantLocation.eq(plantLocation));
-        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.mainWorkCenter,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.plannerGroup,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -882,12 +1038,10 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, equipment.description)
 			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
 			.map(ABC_INDICATOR, equipment.abcIndicator)
-			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
 			.map(ORGANIZATION, equipment.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
-			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(MEMO, equipment.memo)
 			.map(RECORD_STATUS, equipment.recordStatus)
 			.map(CREATED_DATE, equipment.createdDate)
@@ -897,6 +1051,8 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
 			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(CONSTRUCTION_DATE, equipment.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
 			.map(MANUFACTURER, equipment.manufacturer)
@@ -951,7 +1107,7 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(plantSection, "plantSection is required");
         
         query.where(equipment.plantSection.eq(plantSection));
-        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.mainWorkCenter,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.plannerGroup,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -959,12 +1115,10 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, equipment.description)
 			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
 			.map(ABC_INDICATOR, equipment.abcIndicator)
-			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
 			.map(ORGANIZATION, equipment.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
-			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(MEMO, equipment.memo)
 			.map(RECORD_STATUS, equipment.recordStatus)
 			.map(CREATED_DATE, equipment.createdDate)
@@ -974,6 +1128,8 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
 			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(CONSTRUCTION_DATE, equipment.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
 			.map(MANUFACTURER, equipment.manufacturer)
@@ -1028,7 +1184,7 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(superiorEquipment, "superiorEquipment is required");
         
         query.where(equipment.superiorEquipment.eq(superiorEquipment));
-        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.mainWorkCenter,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.plannerGroup,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
+        Path<?>[] paths = new Path<?>[] {equipment.tag,equipment.description,equipment.descriptionLocal,equipment.abcIndicator,equipment.organization,equipment.manufacturerModelNumber,equipment.manufacturerSerialNumber,equipment.manufacturerPartNumber,equipment.memo,equipment.recordStatus,equipment.createdDate,equipment.createdBy,equipment.lastModifiedDate,equipment.lastModifiedBy,equipment.functionalLocation,equipment.equipmentNumber,equipment.superiorEquipment,equipment.mainWorkCenter,equipment.plannerGroup,equipment.constructionDate,equipment.countryOfManufacture,equipment.manufacturer,equipment.plantSection,equipment.equipmentCategory,equipment.objectType,equipment.drawingNumber,equipment.catalogProfile,equipment.plantLocation,equipment.constTypeMaterial,equipment.sizeDimension,equipment.grossWeight,equipment.weightUnit,equipment.acquisitionDate,equipment.acquisitionValue,equipment.acquisitionValueCurrency,equipment.beginGuaranteeDate,equipment.warrantyEndDate,equipment.supplier,equipment.contract,equipment.ehssCritical,equipment.criticalClassification,equipment.assetCode,equipment.startDepreciationCost,equipment.depreciationYear,equipment.capitalizedDate,equipment.currentBookValue,equipment.originalAssetId,equipment.assetValueCurrency,equipment.assetClassification};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1036,12 +1192,10 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, equipment.description)
 			.map(DESCRIPTION_LOCAL, equipment.descriptionLocal)
 			.map(ABC_INDICATOR, equipment.abcIndicator)
-			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
 			.map(ORGANIZATION, equipment.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, equipment.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, equipment.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, equipment.manufacturerPartNumber)
-			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(MEMO, equipment.memo)
 			.map(RECORD_STATUS, equipment.recordStatus)
 			.map(CREATED_DATE, equipment.createdDate)
@@ -1051,6 +1205,8 @@ privileged aspect EquipmentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, equipment.functionalLocation)
 			.map(EQUIPMENT_NUMBER, equipment.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, equipment.superiorEquipment)
+			.map(MAIN_WORK_CENTER, equipment.mainWorkCenter)
+			.map(PLANNER_GROUP, equipment.plannerGroup)
 			.map(CONSTRUCTION_DATE, equipment.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, equipment.countryOfManufacture)
 			.map(MANUFACTURER, equipment.manufacturer)

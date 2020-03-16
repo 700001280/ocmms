@@ -34,8 +34,7 @@ import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
 
 import com.ocmms.cmms.model.fico.CostCenter;
 import com.ocmms.cmms.model.hrm.Department;
-import com.ocmms.cmms.model.hrm.Organization;
-import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.model.system.RecordStatus;
 
 import io.springlets.format.EntityFormat;
@@ -101,8 +100,8 @@ public class MainWorkCenter {
      *
      */
     @NotNull
-    @Column(name = "NAME", unique = true, length = 40)
-    private String name;
+    @Column(name = "DESCRIPTION", unique = true, length = 40)
+    private String description;
 
     /**
      * TODO Auto-generated attribute documentation
@@ -168,7 +167,7 @@ public class MainWorkCenter {
     @OneToMany(cascade = {javax.persistence.CascadeType.MERGE,
         javax.persistence.CascadeType.PERSIST}, fetch = FetchType.LAZY, mappedBy = "mainWorkCenter")
     @RooJpaRelation(type = JpaRelationType.AGGREGATION)
-    private Set<TechnicalObject> technicalObjects = new HashSet<TechnicalObject>();
+    private Set<Equipment> technicalObjects = new HashSet<Equipment>();
 
     /**
      * TODO Auto-generated attribute documentation

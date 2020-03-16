@@ -180,26 +180,6 @@ privileged aspect ProcurementOrder_Roo_JavaBean {
     }
     
     /**
-     * Gets description value
-     * 
-     * @return String
-     */
-    public String ProcurementOrder.getDescription() {
-        return this.description;
-    }
-    
-    /**
-     * Sets description value
-     * 
-     * @param description
-     * @return ProcurementOrder
-     */
-    public ProcurementOrder ProcurementOrder.setDescription(String description) {
-        this.description = description;
-        return this;
-    }
-    
-    /**
      * Gets supplier value
      * 
      * @return Vendor
@@ -457,7 +437,6 @@ privileged aspect ProcurementOrder_Roo_JavaBean {
     public String ProcurementOrder.toString() {
         return "ProcurementOrder {" + 
                 "id='" + id + '\'' + 
-                ", description='" + description + '\'' + 
                 ", orderDate='" + orderDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(orderDate.getTime()) + '\'' + 
                 ", orderNumber='" + orderNumber + '\'' + 
                 ", memo='" + memo + '\'' + 

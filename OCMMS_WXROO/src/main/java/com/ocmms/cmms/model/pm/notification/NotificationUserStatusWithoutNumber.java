@@ -74,8 +74,8 @@ public class NotificationUserStatusWithoutNumber {
 	 * @since 3.0.0.0
 	 */
 	@Id
-	@SequenceGenerator(name = "userStatusWithoutNumberGen", sequenceName = "SEQ_PM_NOTIFICATION_USERSTATUSWITHOUTNUMBER_ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userStatusWithoutNumberGen")
+	@SequenceGenerator(name = "NotificationUserStatusWithoutNumberGen", sequenceName = "SEQ_PM_NOTIFICATION_USERSTATUSWITHOUTNUMBER_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NotificationUserStatusWithoutNumberGen")
 	@Column(name = "ID")
 	private Long id;
 

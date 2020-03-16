@@ -5,10 +5,7 @@ package com.ocmms.cmms.model.pm.technicalobject.regulatory;
 
 import com.ocmms.cmms.model.pm.technicalobject.regulatory.PressureVessel;
 import io.springlets.format.EntityFormat;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 privileged aspect PressureVessel_Roo_Jpa_Entity {
@@ -16,10 +13,6 @@ privileged aspect PressureVessel_Roo_Jpa_Entity {
     declare @type: PressureVessel: @Entity;
     
     declare @type: PressureVessel: @Table(name = "PM_REGULATORY_PRESSUREVESSEL");
-    
-    declare @type: PressureVessel: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
-    
-    declare @type: PressureVessel: @DiscriminatorColumn;
     
     declare @type: PressureVessel: @EntityFormat(message = "entity_format_message_pm_regulatory_pressurevessel");
     

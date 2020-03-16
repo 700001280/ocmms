@@ -120,26 +120,6 @@ privileged aspect ProcurementRequest_Roo_JavaBean {
     }
     
     /**
-     * Gets description value
-     * 
-     * @return String
-     */
-    public String ProcurementRequest.getDescription() {
-        return this.description;
-    }
-    
-    /**
-     * Sets description value
-     * 
-     * @param description
-     * @return ProcurementRequest
-     */
-    public ProcurementRequest ProcurementRequest.setDescription(String description) {
-        this.description = description;
-        return this;
-    }
-    
-    /**
      * Gets requestDate value
      * 
      * @return Calendar
@@ -478,7 +458,6 @@ privileged aspect ProcurementRequest_Roo_JavaBean {
         return "ProcurementRequest {" + 
                 "id='" + id + '\'' + 
                 ", submitDate='" + submitDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(submitDate.getTime()) + '\'' + 
-                ", description='" + description + '\'' + 
                 ", requestDate='" + requestDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(requestDate.getTime()) + '\'' + 
                 ", requestNumber='" + requestNumber + '\'' + 
                 ", memo='" + memo + '\'' + 

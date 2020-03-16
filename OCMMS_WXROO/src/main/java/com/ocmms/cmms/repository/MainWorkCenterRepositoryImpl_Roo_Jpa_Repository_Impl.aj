@@ -46,7 +46,7 @@ privileged aspect MainWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String MainWorkCenterRepositoryImpl.NAME = "name";
+    public static final String MainWorkCenterRepositoryImpl.DESCRIPTION = "description";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -127,14 +127,14 @@ privileged aspect MainWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<MainWorkCenter> query = from(mainWorkCenter);
         
-        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.name,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.description,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(DEPARTMENT, mainWorkCenter.department)
 			.map(CODE, mainWorkCenter.code)
 			.map(CATEGORY, mainWorkCenter.category)
-			.map(NAME, mainWorkCenter.name)
+			.map(DESCRIPTION, mainWorkCenter.description)
 			.map(RESPONSIBLE, mainWorkCenter.responsible)
 			.map(CONTROL_KEY, mainWorkCenter.controlKey)
 			.map(VALIDITY_START_DATE, mainWorkCenter.validityStartDate)
@@ -167,7 +167,7 @@ privileged aspect MainWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<MainWorkCenter> query = from(mainWorkCenter);
         
-        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.name,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.description,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -177,7 +177,7 @@ privileged aspect MainWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DEPARTMENT, mainWorkCenter.department)
 			.map(CODE, mainWorkCenter.code)
 			.map(CATEGORY, mainWorkCenter.category)
-			.map(NAME, mainWorkCenter.name)
+			.map(DESCRIPTION, mainWorkCenter.description)
 			.map(RESPONSIBLE, mainWorkCenter.responsible)
 			.map(CONTROL_KEY, mainWorkCenter.controlKey)
 			.map(VALIDITY_START_DATE, mainWorkCenter.validityStartDate)
@@ -213,14 +213,14 @@ privileged aspect MainWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(costCenter, "costCenter is required");
         
         query.where(mainWorkCenter.costCenter.eq(costCenter));
-        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.name,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.description,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(DEPARTMENT, mainWorkCenter.department)
 			.map(CODE, mainWorkCenter.code)
 			.map(CATEGORY, mainWorkCenter.category)
-			.map(NAME, mainWorkCenter.name)
+			.map(DESCRIPTION, mainWorkCenter.description)
 			.map(RESPONSIBLE, mainWorkCenter.responsible)
 			.map(CONTROL_KEY, mainWorkCenter.controlKey)
 			.map(VALIDITY_START_DATE, mainWorkCenter.validityStartDate)
@@ -256,14 +256,14 @@ privileged aspect MainWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(department, "department is required");
         
         query.where(mainWorkCenter.department.eq(department));
-        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.name,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.description,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(DEPARTMENT, mainWorkCenter.department)
 			.map(CODE, mainWorkCenter.code)
 			.map(CATEGORY, mainWorkCenter.category)
-			.map(NAME, mainWorkCenter.name)
+			.map(DESCRIPTION, mainWorkCenter.description)
 			.map(RESPONSIBLE, mainWorkCenter.responsible)
 			.map(CONTROL_KEY, mainWorkCenter.controlKey)
 			.map(VALIDITY_START_DATE, mainWorkCenter.validityStartDate)
@@ -299,14 +299,14 @@ privileged aspect MainWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(hierarchyWorkCenter, "hierarchyWorkCenter is required");
         
         query.where(mainWorkCenter.hierarchyWorkCenter.eq(hierarchyWorkCenter));
-        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.name,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.description,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(DEPARTMENT, mainWorkCenter.department)
 			.map(CODE, mainWorkCenter.code)
 			.map(CATEGORY, mainWorkCenter.category)
-			.map(NAME, mainWorkCenter.name)
+			.map(DESCRIPTION, mainWorkCenter.description)
 			.map(RESPONSIBLE, mainWorkCenter.responsible)
 			.map(CONTROL_KEY, mainWorkCenter.controlKey)
 			.map(VALIDITY_START_DATE, mainWorkCenter.validityStartDate)
@@ -342,14 +342,14 @@ privileged aspect MainWorkCenterRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(responsible, "responsible is required");
         
         query.where(mainWorkCenter.responsible.eq(responsible));
-        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.name,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {mainWorkCenter.department,mainWorkCenter.code,mainWorkCenter.category,mainWorkCenter.description,mainWorkCenter.responsible,mainWorkCenter.controlKey,mainWorkCenter.validityStartDate,mainWorkCenter.validityEndDate,mainWorkCenter.costCenter,mainWorkCenter.hierarchyWorkCenter,mainWorkCenter.recordStatus,mainWorkCenter.createdDate,mainWorkCenter.createdBy,mainWorkCenter.lastModifiedDate,mainWorkCenter.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(DEPARTMENT, mainWorkCenter.department)
 			.map(CODE, mainWorkCenter.code)
 			.map(CATEGORY, mainWorkCenter.category)
-			.map(NAME, mainWorkCenter.name)
+			.map(DESCRIPTION, mainWorkCenter.description)
 			.map(RESPONSIBLE, mainWorkCenter.responsible)
 			.map(CONTROL_KEY, mainWorkCenter.controlKey)
 			.map(VALIDITY_START_DATE, mainWorkCenter.validityStartDate)

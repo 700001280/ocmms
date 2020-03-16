@@ -7,8 +7,6 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.pm.configuration.AbcIndicator;
-import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
-import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.notification.NotificationHeader;
 import com.ocmms.cmms.model.pm.pm.PreventiveMaintenanceExecution;
 import com.ocmms.cmms.model.pm.pm.PreventiveMaintenanceStandard;
@@ -124,26 +122,6 @@ privileged aspect TechnicalObject_Roo_JavaBean {
     }
     
     /**
-     * Gets mainWorkCenter value
-     * 
-     * @return MainWorkCenter
-     */
-    public MainWorkCenter TechnicalObject.getMainWorkCenter() {
-        return this.mainWorkCenter;
-    }
-    
-    /**
-     * Sets mainWorkCenter value
-     * 
-     * @param mainWorkCenter
-     * @return TechnicalObject
-     */
-    public TechnicalObject TechnicalObject.setMainWorkCenter(MainWorkCenter mainWorkCenter) {
-        this.mainWorkCenter = mainWorkCenter;
-        return this;
-    }
-    
-    /**
      * Gets organization value
      * 
      * @return Organization
@@ -220,26 +198,6 @@ privileged aspect TechnicalObject_Roo_JavaBean {
      */
     public TechnicalObject TechnicalObject.setManufacturerPartNumber(String manufacturerPartNumber) {
         this.manufacturerPartNumber = manufacturerPartNumber;
-        return this;
-    }
-    
-    /**
-     * Gets plannerGroup value
-     * 
-     * @return PlannerGroup
-     */
-    public PlannerGroup TechnicalObject.getPlannerGroup() {
-        return this.plannerGroup;
-    }
-    
-    /**
-     * Sets plannerGroup value
-     * 
-     * @param plannerGroup
-     * @return TechnicalObject
-     */
-    public TechnicalObject TechnicalObject.setPlannerGroup(PlannerGroup plannerGroup) {
-        this.plannerGroup = plannerGroup;
         return this;
     }
     

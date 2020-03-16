@@ -9,8 +9,6 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.pm.configuration.AbcIndicator;
-import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
-import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.notification.NotificationHeader;
 import com.ocmms.cmms.model.pm.pm.PreventiveMaintenanceExecution;
 import com.ocmms.cmms.model.pm.pm.PreventiveMaintenanceStandard;
@@ -19,9 +17,7 @@ import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.AbcIndicatorDeserializer;
-import com.ocmms.cmms.web.MainWorkCenterDeserializer;
 import com.ocmms.cmms.web.OrganizationDeserializer;
-import com.ocmms.cmms.web.PlannerGroupDeserializer;
 import com.ocmms.cmms.web.RecordStatusDeserializer;
 import com.ocmms.cmms.web.TechnicalObjectJsonMixin;
 import java.util.Set;
@@ -95,22 +91,8 @@ privileged aspect TechnicalObjectJsonMixin_Roo_JSONMixin {
      * TODO Auto-generated attribute documentation
      * 
      */
-    @JsonDeserialize(using = MainWorkCenterDeserializer.class)
-    private MainWorkCenter TechnicalObjectJsonMixin.mainWorkCenter;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     @JsonDeserialize(using = OrganizationDeserializer.class)
     private Organization TechnicalObjectJsonMixin.organization;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonDeserialize(using = PlannerGroupDeserializer.class)
-    private PlannerGroup TechnicalObjectJsonMixin.plannerGroup;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -284,24 +266,6 @@ privileged aspect TechnicalObjectJsonMixin_Roo_JSONMixin {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return MainWorkCenter
-     */
-    public MainWorkCenter TechnicalObjectJsonMixin.getMainWorkCenter() {
-        return mainWorkCenter;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param mainWorkCenter
-     */
-    public void TechnicalObjectJsonMixin.setMainWorkCenter(MainWorkCenter mainWorkCenter) {
-        this.mainWorkCenter = mainWorkCenter;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @return Organization
      */
     public Organization TechnicalObjectJsonMixin.getOrganization() {
@@ -315,24 +279,6 @@ privileged aspect TechnicalObjectJsonMixin_Roo_JSONMixin {
      */
     public void TechnicalObjectJsonMixin.setOrganization(Organization organization) {
         this.organization = organization;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return PlannerGroup
-     */
-    public PlannerGroup TechnicalObjectJsonMixin.getPlannerGroup() {
-        return plannerGroup;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plannerGroup
-     */
-    public void TechnicalObjectJsonMixin.setPlannerGroup(PlannerGroup plannerGroup) {
-        this.plannerGroup = plannerGroup;
     }
     
     /**

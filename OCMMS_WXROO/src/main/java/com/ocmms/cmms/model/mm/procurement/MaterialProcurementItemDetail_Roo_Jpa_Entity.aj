@@ -6,10 +6,7 @@ package com.ocmms.cmms.model.mm.procurement;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import io.springlets.format.EntityFormat;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import org.springframework.util.Assert;
 
@@ -18,10 +15,6 @@ privileged aspect MaterialProcurementItemDetail_Roo_Jpa_Entity {
     declare @type: MaterialProcurementItemDetail: @Entity;
     
     declare @type: MaterialProcurementItemDetail: @Table(name = "MM_PROCUREMENT_ MATERIALITEMDETAIL");
-    
-    declare @type: MaterialProcurementItemDetail: @Inheritance(strategy = InheritanceType.SINGLE_TABLE);
-    
-    declare @type: MaterialProcurementItemDetail: @DiscriminatorColumn;
     
     declare @type: MaterialProcurementItemDetail: @EntityFormat(message = "entity_format_message_mm_procurement_materialitemdetail");
     

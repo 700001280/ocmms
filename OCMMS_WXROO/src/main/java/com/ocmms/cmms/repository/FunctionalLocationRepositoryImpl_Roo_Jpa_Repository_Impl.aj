@@ -47,12 +47,6 @@ privileged aspect FunctionalLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String FunctionalLocationRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String FunctionalLocationRepositoryImpl.ORGANIZATION = "organization";
     
     /**
@@ -72,12 +66,6 @@ privileged aspect FunctionalLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String FunctionalLocationRepositoryImpl.MANUFACTURER_PART_NUMBER = "manufacturerPartNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String FunctionalLocationRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -158,7 +146,7 @@ privileged aspect FunctionalLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<FunctionalLocation> query = from(functionalLocation);
         
-        Path<?>[] paths = new Path<?>[] {functionalLocation.tag,functionalLocation.description,functionalLocation.descriptionLocal,functionalLocation.abcIndicator,functionalLocation.mainWorkCenter,functionalLocation.organization,functionalLocation.manufacturerModelNumber,functionalLocation.manufacturerSerialNumber,functionalLocation.manufacturerPartNumber,functionalLocation.plannerGroup,functionalLocation.memo,functionalLocation.recordStatus,functionalLocation.createdDate,functionalLocation.createdBy,functionalLocation.lastModifiedDate,functionalLocation.lastModifiedBy,functionalLocation.location,functionalLocation.equipmentAllowedInd,functionalLocation.strIndicator,functionalLocation.functionalLocationCcategory,functionalLocation.superiorFunctionalLocation};        
+        Path<?>[] paths = new Path<?>[] {functionalLocation.tag,functionalLocation.description,functionalLocation.descriptionLocal,functionalLocation.abcIndicator,functionalLocation.organization,functionalLocation.manufacturerModelNumber,functionalLocation.manufacturerSerialNumber,functionalLocation.manufacturerPartNumber,functionalLocation.memo,functionalLocation.recordStatus,functionalLocation.createdDate,functionalLocation.createdBy,functionalLocation.lastModifiedDate,functionalLocation.lastModifiedBy,functionalLocation.location,functionalLocation.equipmentAllowedInd,functionalLocation.strIndicator,functionalLocation.functionalLocationCcategory,functionalLocation.superiorFunctionalLocation};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -166,12 +154,10 @@ privileged aspect FunctionalLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, functionalLocation.description)
 			.map(DESCRIPTION_LOCAL, functionalLocation.descriptionLocal)
 			.map(ABC_INDICATOR, functionalLocation.abcIndicator)
-			.map(MAIN_WORK_CENTER, functionalLocation.mainWorkCenter)
 			.map(ORGANIZATION, functionalLocation.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, functionalLocation.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, functionalLocation.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, functionalLocation.manufacturerPartNumber)
-			.map(PLANNER_GROUP, functionalLocation.plannerGroup)
 			.map(MEMO, functionalLocation.memo)
 			.map(RECORD_STATUS, functionalLocation.recordStatus)
 			.map(CREATED_DATE, functionalLocation.createdDate)
@@ -204,7 +190,7 @@ privileged aspect FunctionalLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<FunctionalLocation> query = from(functionalLocation);
         
-        Path<?>[] paths = new Path<?>[] {functionalLocation.tag,functionalLocation.description,functionalLocation.descriptionLocal,functionalLocation.abcIndicator,functionalLocation.mainWorkCenter,functionalLocation.organization,functionalLocation.manufacturerModelNumber,functionalLocation.manufacturerSerialNumber,functionalLocation.manufacturerPartNumber,functionalLocation.plannerGroup,functionalLocation.memo,functionalLocation.recordStatus,functionalLocation.createdDate,functionalLocation.createdBy,functionalLocation.lastModifiedDate,functionalLocation.lastModifiedBy,functionalLocation.location,functionalLocation.equipmentAllowedInd,functionalLocation.strIndicator,functionalLocation.functionalLocationCcategory,functionalLocation.superiorFunctionalLocation};        
+        Path<?>[] paths = new Path<?>[] {functionalLocation.tag,functionalLocation.description,functionalLocation.descriptionLocal,functionalLocation.abcIndicator,functionalLocation.organization,functionalLocation.manufacturerModelNumber,functionalLocation.manufacturerSerialNumber,functionalLocation.manufacturerPartNumber,functionalLocation.memo,functionalLocation.recordStatus,functionalLocation.createdDate,functionalLocation.createdBy,functionalLocation.lastModifiedDate,functionalLocation.lastModifiedBy,functionalLocation.location,functionalLocation.equipmentAllowedInd,functionalLocation.strIndicator,functionalLocation.functionalLocationCcategory,functionalLocation.superiorFunctionalLocation};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -215,12 +201,10 @@ privileged aspect FunctionalLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, functionalLocation.description)
 			.map(DESCRIPTION_LOCAL, functionalLocation.descriptionLocal)
 			.map(ABC_INDICATOR, functionalLocation.abcIndicator)
-			.map(MAIN_WORK_CENTER, functionalLocation.mainWorkCenter)
 			.map(ORGANIZATION, functionalLocation.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, functionalLocation.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, functionalLocation.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, functionalLocation.manufacturerPartNumber)
-			.map(PLANNER_GROUP, functionalLocation.plannerGroup)
 			.map(MEMO, functionalLocation.memo)
 			.map(RECORD_STATUS, functionalLocation.recordStatus)
 			.map(CREATED_DATE, functionalLocation.createdDate)

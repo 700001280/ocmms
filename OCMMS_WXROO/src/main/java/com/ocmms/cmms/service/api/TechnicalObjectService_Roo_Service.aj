@@ -5,8 +5,6 @@ package com.ocmms.cmms.service.api;
 
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.pm.configuration.AbcIndicator;
-import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
-import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.technicalobject.TechnicalObject;
 import com.ocmms.cmms.service.api.TechnicalObjectService;
 import io.springlets.data.domain.GlobalSearch;
@@ -332,32 +330,12 @@ privileged aspect TechnicalObjectService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param mainWorkCenter
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<TechnicalObject> TechnicalObjectService.findByMainWorkCenter(MainWorkCenter mainWorkCenter, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param organization
      * @param globalSearch
      * @param pageable
      * @return Page
      */
     public abstract Page<TechnicalObject> TechnicalObjectService.findByOrganization(Organization organization, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plannerGroup
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<TechnicalObject> TechnicalObjectService.findByPlannerGroup(PlannerGroup plannerGroup, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
@@ -370,25 +348,9 @@ privileged aspect TechnicalObjectService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param mainWorkCenter
-     * @return Long
-     */
-    public abstract long TechnicalObjectService.countByMainWorkCenter(MainWorkCenter mainWorkCenter);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param organization
      * @return Long
      */
     public abstract long TechnicalObjectService.countByOrganization(Organization organization);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plannerGroup
-     * @return Long
-     */
-    public abstract long TechnicalObjectService.countByPlannerGroup(PlannerGroup plannerGroup);
     
 }

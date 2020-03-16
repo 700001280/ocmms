@@ -15,7 +15,9 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.eshem.CriticalClassification;
 import com.ocmms.cmms.model.loto.LotoInfo;
+import com.ocmms.cmms.model.pm.configuration.MainWorkCenter;
 import com.ocmms.cmms.model.pm.configuration.ObjectType;
+import com.ocmms.cmms.model.pm.configuration.PlannerGroup;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
@@ -36,7 +38,9 @@ import com.ocmms.cmms.web.CurrencyDeserializer;
 import com.ocmms.cmms.web.EquipmentCategoryDeserializer;
 import com.ocmms.cmms.web.EquipmentJsonMixin;
 import com.ocmms.cmms.web.FunctionalLocationDeserializer;
+import com.ocmms.cmms.web.MainWorkCenterDeserializer;
 import com.ocmms.cmms.web.ObjectTypeDeserializer;
+import com.ocmms.cmms.web.PlannerGroupDeserializer;
 import com.ocmms.cmms.web.PlantLocationDeserializer;
 import com.ocmms.cmms.web.PlantSectionDeserializer;
 import com.ocmms.cmms.web.TechnicalObjectDeserializer;
@@ -183,6 +187,13 @@ privileged aspect EquipmentJsonMixin_Roo_JSONMixin {
      * TODO Auto-generated attribute documentation
      * 
      */
+    @JsonDeserialize(using = MainWorkCenterDeserializer.class)
+    private MainWorkCenter EquipmentJsonMixin.mainWorkCenter;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     @JsonDeserialize(using = VendorDeserializer.class)
     private Vendor EquipmentJsonMixin.manufacturer;
     
@@ -192,6 +203,13 @@ privileged aspect EquipmentJsonMixin_Roo_JSONMixin {
      */
     @JsonDeserialize(using = ObjectTypeDeserializer.class)
     private ObjectType EquipmentJsonMixin.objectType;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = PlannerGroupDeserializer.class)
+    private PlannerGroup EquipmentJsonMixin.plannerGroup;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -573,6 +591,24 @@ privileged aspect EquipmentJsonMixin_Roo_JSONMixin {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @return MainWorkCenter
+     */
+    public MainWorkCenter EquipmentJsonMixin.getMainWorkCenter() {
+        return mainWorkCenter;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param mainWorkCenter
+     */
+    public void EquipmentJsonMixin.setMainWorkCenter(MainWorkCenter mainWorkCenter) {
+        this.mainWorkCenter = mainWorkCenter;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @return Vendor
      */
     public Vendor EquipmentJsonMixin.getManufacturer() {
@@ -604,6 +640,24 @@ privileged aspect EquipmentJsonMixin_Roo_JSONMixin {
      */
     public void EquipmentJsonMixin.setObjectType(ObjectType objectType) {
         this.objectType = objectType;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return PlannerGroup
+     */
+    public PlannerGroup EquipmentJsonMixin.getPlannerGroup() {
+        return plannerGroup;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param plannerGroup
+     */
+    public void EquipmentJsonMixin.setPlannerGroup(PlannerGroup plannerGroup) {
+        this.plannerGroup = plannerGroup;
     }
     
     /**

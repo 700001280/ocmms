@@ -94,6 +94,26 @@ privileged aspect BillOfMaterial_Roo_JavaBean {
     }
     
     /**
+     * Gets safestock value
+     * 
+     * @return BigDecimal
+     */
+    public BigDecimal BillOfMaterial.getSafestock() {
+        return this.safestock;
+    }
+    
+    /**
+     * Sets safestock value
+     * 
+     * @param safestock
+     * @return BillOfMaterial
+     */
+    public BillOfMaterial BillOfMaterial.setSafestock(BigDecimal safestock) {
+        this.safestock = safestock;
+        return this;
+    }
+    
+    /**
      * Gets unit value
      * 
      * @return UnitOfMeasure
@@ -110,6 +130,86 @@ privileged aspect BillOfMaterial_Roo_JavaBean {
      */
     public BillOfMaterial BillOfMaterial.setUnit(UnitOfMeasure unit) {
         this.unit = unit;
+        return this;
+    }
+    
+    /**
+     * Gets drawingNumber value
+     * 
+     * @return String
+     */
+    public String BillOfMaterial.getDrawingNumber() {
+        return this.drawingNumber;
+    }
+    
+    /**
+     * Sets drawingNumber value
+     * 
+     * @param drawingNumber
+     * @return BillOfMaterial
+     */
+    public BillOfMaterial BillOfMaterial.setDrawingNumber(String drawingNumber) {
+        this.drawingNumber = drawingNumber;
+        return this;
+    }
+    
+    /**
+     * Gets techPositionNumber value
+     * 
+     * @return String
+     */
+    public String BillOfMaterial.getTechPositionNumber() {
+        return this.techPositionNumber;
+    }
+    
+    /**
+     * Sets techPositionNumber value
+     * 
+     * @param techPositionNumber
+     * @return BillOfMaterial
+     */
+    public BillOfMaterial BillOfMaterial.setTechPositionNumber(String techPositionNumber) {
+        this.techPositionNumber = techPositionNumber;
+        return this;
+    }
+    
+    /**
+     * Gets parameter value
+     * 
+     * @return String
+     */
+    public String BillOfMaterial.getParameter() {
+        return this.parameter;
+    }
+    
+    /**
+     * Sets parameter value
+     * 
+     * @param parameter
+     * @return BillOfMaterial
+     */
+    public BillOfMaterial BillOfMaterial.setParameter(String parameter) {
+        this.parameter = parameter;
+        return this;
+    }
+    
+    /**
+     * Gets positionNumber value
+     * 
+     * @return String
+     */
+    public String BillOfMaterial.getPositionNumber() {
+        return this.positionNumber;
+    }
+    
+    /**
+     * Sets positionNumber value
+     * 
+     * @param positionNumber
+     * @return BillOfMaterial
+     */
+    public BillOfMaterial BillOfMaterial.setPositionNumber(String positionNumber) {
+        this.positionNumber = positionNumber;
         return this;
     }
     
@@ -172,6 +272,11 @@ privileged aspect BillOfMaterial_Roo_JavaBean {
         return "BillOfMaterial {" + 
                 "id='" + id + '\'' + 
                 ", setSize='" + setSize + '\'' + 
+                ", safestock='" + safestock + '\'' + 
+                ", drawingNumber='" + drawingNumber + '\'' + 
+                ", techPositionNumber='" + techPositionNumber + '\'' + 
+                ", parameter='" + parameter + '\'' + 
+                ", positionNumber='" + positionNumber + '\'' + 
                 ", needStock='" + needStock + '\'' + "}" + super.toString();
     }
     

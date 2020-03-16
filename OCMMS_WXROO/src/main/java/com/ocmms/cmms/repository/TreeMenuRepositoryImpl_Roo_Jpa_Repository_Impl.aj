@@ -23,7 +23,7 @@ privileged aspect TreeMenuRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String TreeMenuRepositoryImpl.NAME = "name";
+    public static final String TreeMenuRepositoryImpl.DESCRIPTION = "description";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -92,11 +92,11 @@ privileged aspect TreeMenuRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<TreeMenu> query = from(treeMenu);
         
-        Path<?>[] paths = new Path<?>[] {treeMenu.name,treeMenu.urlLink,treeMenu.visible,treeMenu.parentMenu,treeMenu.loginRoles,treeMenu.recordStatus,treeMenu.createdDate,treeMenu.createdBy,treeMenu.lastModifiedDate,treeMenu.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {treeMenu.description,treeMenu.urlLink,treeMenu.visible,treeMenu.parentMenu,treeMenu.loginRoles,treeMenu.recordStatus,treeMenu.createdDate,treeMenu.createdBy,treeMenu.lastModifiedDate,treeMenu.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(NAME, treeMenu.name)
+			.map(DESCRIPTION, treeMenu.description)
 			.map(URL_LINK, treeMenu.urlLink)
 			.map(VISIBLE, treeMenu.visible)
 			.map(PARENT_MENU, treeMenu.parentMenu)
@@ -127,14 +127,14 @@ privileged aspect TreeMenuRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<TreeMenu> query = from(treeMenu);
         
-        Path<?>[] paths = new Path<?>[] {treeMenu.name,treeMenu.urlLink,treeMenu.visible,treeMenu.parentMenu,treeMenu.loginRoles,treeMenu.recordStatus,treeMenu.createdDate,treeMenu.createdBy,treeMenu.lastModifiedDate,treeMenu.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {treeMenu.description,treeMenu.urlLink,treeMenu.visible,treeMenu.parentMenu,treeMenu.loginRoles,treeMenu.recordStatus,treeMenu.createdDate,treeMenu.createdBy,treeMenu.lastModifiedDate,treeMenu.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
         query.where(treeMenu.id.in(ids));
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(NAME, treeMenu.name)
+			.map(DESCRIPTION, treeMenu.description)
 			.map(URL_LINK, treeMenu.urlLink)
 			.map(VISIBLE, treeMenu.visible)
 			.map(PARENT_MENU, treeMenu.parentMenu)

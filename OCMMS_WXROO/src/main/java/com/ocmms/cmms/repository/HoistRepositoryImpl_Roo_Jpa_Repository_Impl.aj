@@ -47,12 +47,6 @@ privileged aspect HoistRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String HoistRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String HoistRepositoryImpl.ORGANIZATION = "organization";
     
     /**
@@ -72,12 +66,6 @@ privileged aspect HoistRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String HoistRepositoryImpl.MANUFACTURER_PART_NUMBER = "manufacturerPartNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String HoistRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -132,6 +120,18 @@ privileged aspect HoistRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String HoistRepositoryImpl.SUPERIOR_EQUIPMENT = "superiorEquipment";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String HoistRepositoryImpl.MAIN_WORK_CENTER = "mainWorkCenter";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String HoistRepositoryImpl.PLANNER_GROUP = "plannerGroup";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -362,7 +362,7 @@ privileged aspect HoistRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Hoist> query = from(hoist);
         
-        Path<?>[] paths = new Path<?>[] {hoist.tag,hoist.description,hoist.descriptionLocal,hoist.abcIndicator,hoist.mainWorkCenter,hoist.organization,hoist.manufacturerModelNumber,hoist.manufacturerSerialNumber,hoist.manufacturerPartNumber,hoist.plannerGroup,hoist.memo,hoist.recordStatus,hoist.createdDate,hoist.createdBy,hoist.lastModifiedDate,hoist.lastModifiedBy,hoist.functionalLocation,hoist.equipmentNumber,hoist.superiorEquipment,hoist.constructionDate,hoist.countryOfManufacture,hoist.manufacturer,hoist.plantSection,hoist.equipmentCategory,hoist.objectType,hoist.drawingNumber,hoist.catalogProfile,hoist.plantLocation,hoist.constTypeMaterial,hoist.sizeDimension,hoist.grossWeight,hoist.weightUnit,hoist.acquisitionDate,hoist.acquisitionValue,hoist.acquisitionValueCurrency,hoist.beginGuaranteeDate,hoist.warrantyEndDate,hoist.supplier,hoist.contract,hoist.ehssCritical,hoist.criticalClassification,hoist.assetCode,hoist.startDepreciationCost,hoist.depreciationYear,hoist.capitalizedDate,hoist.currentBookValue,hoist.originalAssetId,hoist.assetValueCurrency,hoist.assetClassification,hoist.lastInspectionDate,hoist.nextInspectionDate,hoist.parameter,hoist.manufacturerName,hoist.installationDate,hoist.onServiceDate};        
+        Path<?>[] paths = new Path<?>[] {hoist.tag,hoist.description,hoist.descriptionLocal,hoist.abcIndicator,hoist.organization,hoist.manufacturerModelNumber,hoist.manufacturerSerialNumber,hoist.manufacturerPartNumber,hoist.memo,hoist.recordStatus,hoist.createdDate,hoist.createdBy,hoist.lastModifiedDate,hoist.lastModifiedBy,hoist.functionalLocation,hoist.equipmentNumber,hoist.superiorEquipment,hoist.mainWorkCenter,hoist.plannerGroup,hoist.constructionDate,hoist.countryOfManufacture,hoist.manufacturer,hoist.plantSection,hoist.equipmentCategory,hoist.objectType,hoist.drawingNumber,hoist.catalogProfile,hoist.plantLocation,hoist.constTypeMaterial,hoist.sizeDimension,hoist.grossWeight,hoist.weightUnit,hoist.acquisitionDate,hoist.acquisitionValue,hoist.acquisitionValueCurrency,hoist.beginGuaranteeDate,hoist.warrantyEndDate,hoist.supplier,hoist.contract,hoist.ehssCritical,hoist.criticalClassification,hoist.assetCode,hoist.startDepreciationCost,hoist.depreciationYear,hoist.capitalizedDate,hoist.currentBookValue,hoist.originalAssetId,hoist.assetValueCurrency,hoist.assetClassification,hoist.lastInspectionDate,hoist.nextInspectionDate,hoist.parameter,hoist.manufacturerName,hoist.installationDate,hoist.onServiceDate};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -370,12 +370,10 @@ privileged aspect HoistRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, hoist.description)
 			.map(DESCRIPTION_LOCAL, hoist.descriptionLocal)
 			.map(ABC_INDICATOR, hoist.abcIndicator)
-			.map(MAIN_WORK_CENTER, hoist.mainWorkCenter)
 			.map(ORGANIZATION, hoist.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, hoist.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, hoist.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, hoist.manufacturerPartNumber)
-			.map(PLANNER_GROUP, hoist.plannerGroup)
 			.map(MEMO, hoist.memo)
 			.map(RECORD_STATUS, hoist.recordStatus)
 			.map(CREATED_DATE, hoist.createdDate)
@@ -385,6 +383,8 @@ privileged aspect HoistRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, hoist.functionalLocation)
 			.map(EQUIPMENT_NUMBER, hoist.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, hoist.superiorEquipment)
+			.map(MAIN_WORK_CENTER, hoist.mainWorkCenter)
+			.map(PLANNER_GROUP, hoist.plannerGroup)
 			.map(CONSTRUCTION_DATE, hoist.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, hoist.countryOfManufacture)
 			.map(MANUFACTURER, hoist.manufacturer)
@@ -442,7 +442,7 @@ privileged aspect HoistRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Hoist> query = from(hoist);
         
-        Path<?>[] paths = new Path<?>[] {hoist.tag,hoist.description,hoist.descriptionLocal,hoist.abcIndicator,hoist.mainWorkCenter,hoist.organization,hoist.manufacturerModelNumber,hoist.manufacturerSerialNumber,hoist.manufacturerPartNumber,hoist.plannerGroup,hoist.memo,hoist.recordStatus,hoist.createdDate,hoist.createdBy,hoist.lastModifiedDate,hoist.lastModifiedBy,hoist.functionalLocation,hoist.equipmentNumber,hoist.superiorEquipment,hoist.constructionDate,hoist.countryOfManufacture,hoist.manufacturer,hoist.plantSection,hoist.equipmentCategory,hoist.objectType,hoist.drawingNumber,hoist.catalogProfile,hoist.plantLocation,hoist.constTypeMaterial,hoist.sizeDimension,hoist.grossWeight,hoist.weightUnit,hoist.acquisitionDate,hoist.acquisitionValue,hoist.acquisitionValueCurrency,hoist.beginGuaranteeDate,hoist.warrantyEndDate,hoist.supplier,hoist.contract,hoist.ehssCritical,hoist.criticalClassification,hoist.assetCode,hoist.startDepreciationCost,hoist.depreciationYear,hoist.capitalizedDate,hoist.currentBookValue,hoist.originalAssetId,hoist.assetValueCurrency,hoist.assetClassification,hoist.lastInspectionDate,hoist.nextInspectionDate,hoist.parameter,hoist.manufacturerName,hoist.installationDate,hoist.onServiceDate};        
+        Path<?>[] paths = new Path<?>[] {hoist.tag,hoist.description,hoist.descriptionLocal,hoist.abcIndicator,hoist.organization,hoist.manufacturerModelNumber,hoist.manufacturerSerialNumber,hoist.manufacturerPartNumber,hoist.memo,hoist.recordStatus,hoist.createdDate,hoist.createdBy,hoist.lastModifiedDate,hoist.lastModifiedBy,hoist.functionalLocation,hoist.equipmentNumber,hoist.superiorEquipment,hoist.mainWorkCenter,hoist.plannerGroup,hoist.constructionDate,hoist.countryOfManufacture,hoist.manufacturer,hoist.plantSection,hoist.equipmentCategory,hoist.objectType,hoist.drawingNumber,hoist.catalogProfile,hoist.plantLocation,hoist.constTypeMaterial,hoist.sizeDimension,hoist.grossWeight,hoist.weightUnit,hoist.acquisitionDate,hoist.acquisitionValue,hoist.acquisitionValueCurrency,hoist.beginGuaranteeDate,hoist.warrantyEndDate,hoist.supplier,hoist.contract,hoist.ehssCritical,hoist.criticalClassification,hoist.assetCode,hoist.startDepreciationCost,hoist.depreciationYear,hoist.capitalizedDate,hoist.currentBookValue,hoist.originalAssetId,hoist.assetValueCurrency,hoist.assetClassification,hoist.lastInspectionDate,hoist.nextInspectionDate,hoist.parameter,hoist.manufacturerName,hoist.installationDate,hoist.onServiceDate};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -453,12 +453,10 @@ privileged aspect HoistRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(DESCRIPTION, hoist.description)
 			.map(DESCRIPTION_LOCAL, hoist.descriptionLocal)
 			.map(ABC_INDICATOR, hoist.abcIndicator)
-			.map(MAIN_WORK_CENTER, hoist.mainWorkCenter)
 			.map(ORGANIZATION, hoist.organization)
 			.map(MANUFACTURER_MODEL_NUMBER, hoist.manufacturerModelNumber)
 			.map(MANUFACTURER_SERIAL_NUMBER, hoist.manufacturerSerialNumber)
 			.map(MANUFACTURER_PART_NUMBER, hoist.manufacturerPartNumber)
-			.map(PLANNER_GROUP, hoist.plannerGroup)
 			.map(MEMO, hoist.memo)
 			.map(RECORD_STATUS, hoist.recordStatus)
 			.map(CREATED_DATE, hoist.createdDate)
@@ -468,6 +466,8 @@ privileged aspect HoistRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, hoist.functionalLocation)
 			.map(EQUIPMENT_NUMBER, hoist.equipmentNumber)
 			.map(SUPERIOR_EQUIPMENT, hoist.superiorEquipment)
+			.map(MAIN_WORK_CENTER, hoist.mainWorkCenter)
+			.map(PLANNER_GROUP, hoist.plannerGroup)
 			.map(CONSTRUCTION_DATE, hoist.constructionDate)
 			.map(COUNTRY_OF_MANUFACTURE, hoist.countryOfManufacture)
 			.map(MANUFACTURER, hoist.manufacturer)

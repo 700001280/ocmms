@@ -518,8 +518,8 @@ privileged aspect TreeMenusCollectionThymeleafController_Roo_Thymeleaf {
         if (columnName.equals("id")) {
             builder.addColumn(getMessageSource().getMessage("label_treemenu_id", null, "Id", locale), "id", Long.class.getName(), 50);
         }
-        else if (columnName.equals("name")) {
-            builder.addColumn(getMessageSource().getMessage("label_treemenu_name", null, "Name", locale), "name", String.class.getName(), 100);
+        else if (columnName.equals("description")) {
+            builder.addColumn(getMessageSource().getMessage("label_treemenu_description", null, "Description", locale), "description", String.class.getName(), 100);
         }
         else if (columnName.equals("urlLink")) {
             builder.addColumn(getMessageSource().getMessage("label_treemenu_urllink", null, "Url Link", locale), "urlLink", String.class.getName(), 100);
