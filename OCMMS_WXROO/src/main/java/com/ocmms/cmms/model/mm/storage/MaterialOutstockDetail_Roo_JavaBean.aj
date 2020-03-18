@@ -149,7 +149,7 @@ privileged aspect MaterialOutstockDetail_Roo_JavaBean {
     public String MaterialOutstockDetail.toString() {
         return "MaterialOutstockDetail {" + 
                 "id='" + id + '\'' + 
-                ", orderNo='" + orderNo + '\'' + 
+                ", orderNo='" + orderNo + "\'}"; 
 
     }
     

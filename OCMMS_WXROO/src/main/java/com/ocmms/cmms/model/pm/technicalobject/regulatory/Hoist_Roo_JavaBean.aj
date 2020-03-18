@@ -190,7 +190,7 @@ privileged aspect Hoist_Roo_JavaBean {
 
 
                 ", parameter='" + parameter + '\'' + 
-                ", manufacturerName='" + manufacturerName + '\'' + 
+                ", manufacturerName='" + manufacturerName + "\'}";
 
 
     }
