@@ -274,9 +274,9 @@ privileged aspect WorkOrderUserStatusWithNumber_Roo_JavaBean {
                 ", description='" + description + '\'' + 
                 ", status='" + status + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

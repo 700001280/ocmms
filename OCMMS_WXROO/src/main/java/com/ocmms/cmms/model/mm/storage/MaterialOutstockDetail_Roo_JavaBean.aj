@@ -150,7 +150,7 @@ privileged aspect MaterialOutstockDetail_Roo_JavaBean {
         return "MaterialOutstockDetail {" + 
                 "id='" + id + '\'' + 
                 ", orderNo='" + orderNo + '\'' + 
-                ", issueDate='" + issueDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(issueDate.getTime()) + '\'' + "}" + super.toString();
+
     }
     
 }

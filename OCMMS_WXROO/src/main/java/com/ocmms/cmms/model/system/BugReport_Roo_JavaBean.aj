@@ -414,15 +414,15 @@ privileged aspect BugReport_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", description='" + description + '\'' + 
                 ", title='" + title + '\'' + 
-                ", submitDate='" + submitDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(submitDate.getTime()) + '\'' + 
+
                 ", solved='" + solved + '\'' + 
                 ", closeDescription='" + closeDescription + '\'' + 
-                ", solvedDate='" + solvedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(solvedDate.getTime()) + '\'' + 
+
                 ", pics='" + pics + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

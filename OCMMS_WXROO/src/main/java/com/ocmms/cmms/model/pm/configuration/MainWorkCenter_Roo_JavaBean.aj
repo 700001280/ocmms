@@ -439,12 +439,12 @@ privileged aspect MainWorkCenter_Roo_JavaBean {
                 ", category='" + category + '\'' + 
                 ", description='" + description + '\'' + 
                 ", controlKey='" + controlKey + '\'' + 
-                ", validityStartDate='" + validityStartDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(validityStartDate.getTime()) + '\'' + 
-                ", validityEndDate='" + validityEndDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(validityEndDate.getTime()) + '\'' + 
+
+
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

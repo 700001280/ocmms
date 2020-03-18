@@ -317,9 +317,9 @@ privileged aspect WorkOrderMaterial_Roo_JavaBean {
                 ", quantity='" + quantity + '\'' + 
                 ", partName='" + partName + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

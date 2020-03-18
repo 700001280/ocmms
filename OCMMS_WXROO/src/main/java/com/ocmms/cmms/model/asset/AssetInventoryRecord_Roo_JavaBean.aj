@@ -473,20 +473,20 @@ privileged aspect AssetInventoryRecord_Roo_JavaBean {
     public String AssetInventoryRecord.toString() {
         return "AssetInventoryRecord {" + 
                 "id='" + id + '\'' + 
-                ", checkDate='" + checkDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(checkDate.getTime()) + '\'' + 
+
                 ", description='" + description + '\'' + 
                 ", assetStatus='" + assetStatus + '\'' + 
                 ", category='" + category + '\'' + 
                 ", subCategory='" + subCategory + '\'' + 
                 ", sparepart='" + sparepart + '\'' + 
-                ", idleBeginningDate='" + idleBeginningDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(idleBeginningDate.getTime()) + '\'' + 
+
                 ", rootCauseReason='" + rootCauseReason + '\'' + 
                 ", actionPlan='" + actionPlan + '\'' + 
                 ", checkResult='" + checkResult + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

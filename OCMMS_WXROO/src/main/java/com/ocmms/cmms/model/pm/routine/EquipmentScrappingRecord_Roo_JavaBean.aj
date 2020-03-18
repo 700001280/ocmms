@@ -354,13 +354,13 @@ privileged aspect EquipmentScrappingRecord_Roo_JavaBean {
     public String EquipmentScrappingRecord.toString() {
         return "EquipmentScrappingRecord {" + 
                 "id='" + id + '\'' + 
-                ", scrappingDate='" + scrappingDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(scrappingDate.getTime()) + '\'' + 
+
                 ", description='" + description + '\'' + 
                 ", location='" + location + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

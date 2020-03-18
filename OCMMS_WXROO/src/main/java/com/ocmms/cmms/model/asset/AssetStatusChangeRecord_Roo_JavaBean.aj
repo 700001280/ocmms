@@ -313,12 +313,12 @@ privileged aspect AssetStatusChangeRecord_Roo_JavaBean {
     public String AssetStatusChangeRecord.toString() {
         return "AssetStatusChangeRecord {" + 
                 "id='" + id + '\'' + 
-                ", changeDate='" + changeDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(changeDate.getTime()) + '\'' + 
+
                 ", description='" + description + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

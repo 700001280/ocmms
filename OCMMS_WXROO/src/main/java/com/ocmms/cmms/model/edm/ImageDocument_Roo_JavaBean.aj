@@ -1215,11 +1215,11 @@ privileged aspect ImageDocument_Roo_JavaBean {
                 ", description='" + description + '\'' + 
                 ", fileType='" + fileType + '\'' + 
                 ", imageEncode='" + imageEncode + '\'' + 
-                ", uploadDate='" + uploadDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(uploadDate.getTime()) + '\'' + 
+
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

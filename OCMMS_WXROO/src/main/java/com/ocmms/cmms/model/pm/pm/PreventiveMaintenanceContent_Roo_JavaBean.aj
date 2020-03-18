@@ -439,12 +439,12 @@ privileged aspect PreventiveMaintenanceContent_Roo_JavaBean {
                 ", method='" + method + '\'' + 
                 ", standard='" + standard + '\'' + 
                 ", tool='" + tool + '\'' + 
-                ", startDate='" + startDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(startDate.getTime()) + '\'' + 
+
                 ", singleCycle='" + singleCycle + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

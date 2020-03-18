@@ -415,16 +415,16 @@ privileged aspect EquipmentMaintenanceRecord_Roo_JavaBean {
     public String EquipmentMaintenanceRecord.toString() {
         return "EquipmentMaintenanceRecord {" + 
                 "id='" + id + '\'' + 
-                ", maintStartDate='" + maintStartDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(maintStartDate.getTime()) + '\'' + 
-                ", maintEndDate='" + maintEndDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(maintEndDate.getTime()) + '\'' + 
+
+
                 ", description='" + description + '\'' + 
                 ", downtime='" + downtime + '\'' + 
                 ", shutdown='" + shutdown + '\'' + 
                 ", interim='" + interim + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

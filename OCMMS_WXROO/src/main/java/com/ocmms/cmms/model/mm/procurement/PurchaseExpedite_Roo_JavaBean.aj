@@ -355,12 +355,12 @@ privileged aspect PurchaseExpedite_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", description='" + description + '\'' + 
                 ", memo='" + memo + '\'' + 
-                ", expediteDate='" + expediteDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(expediteDate.getTime()) + '\'' + 
-                ", planDeliverDate='" + planDeliverDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(planDeliverDate.getTime()) + '\'' + 
+
+
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

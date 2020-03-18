@@ -334,12 +334,12 @@ privileged aspect ProcurementOrderFinanceTracking_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", invoiceReceived='" + invoiceReceived + '\'' + 
                 ", paymentSubmit='" + paymentSubmit + '\'' + 
-                ", paymentSubmitDate='" + paymentSubmitDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(paymentSubmitDate.getTime()) + '\'' + 
+
                 ", description='" + description + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

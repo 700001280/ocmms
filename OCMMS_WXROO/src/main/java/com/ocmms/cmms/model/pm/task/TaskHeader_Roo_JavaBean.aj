@@ -419,11 +419,11 @@ privileged aspect TaskHeader_Roo_JavaBean {
                 ", taskCode='" + taskCode + '\'' + 
                 ", groupCounter='" + groupCounter + '\'' + 
                 ", taskTitle='" + taskTitle + '\'' + 
-                ", keyDate='" + keyDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(keyDate.getTime()) + '\'' + 
+
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

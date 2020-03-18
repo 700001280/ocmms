@@ -127,8 +127,8 @@ privileged aspect PressureGage_Roo_JavaBean {
     public String PressureGage.toString() {
         return "PressureGage {" + 
                 "id='" + id + '\'' + 
-                ", lastInspectionDate='" + lastInspectionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastInspectionDate.getTime()) + '\'' + 
-                ", nextInspectionDate='" + nextInspectionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(nextInspectionDate.getTime()) + '\'' + 
+
+
                 ", parameter='" + parameter + '\'' + "}" + super.toString();
     }
     

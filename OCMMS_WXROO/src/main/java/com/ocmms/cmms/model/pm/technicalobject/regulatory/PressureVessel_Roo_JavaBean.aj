@@ -248,11 +248,11 @@ privileged aspect PressureVessel_Roo_JavaBean {
     public String PressureVessel.toString() {
         return "PressureVessel {" + 
                 "id='" + id + '\'' + 
-                ", lastInspectionDate='" + lastInspectionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastInspectionDate.getTime()) + '\'' + 
-                ", nextInspectionDate='" + nextInspectionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(nextInspectionDate.getTime()) + '\'' + 
+
+
                 ", serviceRegistrationNumber='" + serviceRegistrationNumber + '\'' + 
                 ", manufacturerName='" + manufacturerName + '\'' + 
-                ", manufactureDate='" + manufactureDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(manufactureDate.getTime()) + '\'' + 
+
                 ", designedServiceLife='" + designedServiceLife + '\'' + 
                 ", designPressure='" + designPressure + '\'' + 
                 ", maximumAllowableWorkingPressure='" + maximumAllowableWorkingPressure + '\'' + 

@@ -417,9 +417,9 @@ privileged aspect Vendor_Roo_JavaBean {
                 ", web='" + web + '\'' + 
                 ", mail='" + mail + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + 
                 ", available='" + available + '\'' + 
                 ", responsible='" + responsible + '\'' + 

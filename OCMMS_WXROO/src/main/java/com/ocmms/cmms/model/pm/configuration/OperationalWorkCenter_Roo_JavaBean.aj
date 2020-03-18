@@ -538,17 +538,17 @@ privileged aspect OperationalWorkCenter_Roo_JavaBean {
                 ", category='" + category + '\'' + 
                 ", name='" + name + '\'' + 
                 ", controlKey='" + controlKey + '\'' + 
-                ", capacityStartTime='" + capacityStartTime == null ? null : java.text.DateFormat.getDateTimeInstance().format(capacityStartTime.getTime()) + '\'' + 
-                ", capacityEndTime='" + capacityEndTime == null ? null : java.text.DateFormat.getDateTimeInstance().format(capacityEndTime.getTime()) + '\'' + 
+
+
                 ", capacityUtilization='" + capacityUtilization + '\'' + 
                 ", numberofCapacities='" + numberofCapacities + '\'' + 
-                ", validityStartDate='" + validityStartDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(validityStartDate.getTime()) + '\'' + 
-                ", validityEndDate='" + validityEndDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(validityEndDate.getTime()) + '\'' + 
+
+
                 ", activityType='" + activityType + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

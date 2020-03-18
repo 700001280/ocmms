@@ -499,15 +499,15 @@ privileged aspect InstockDetail_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", quantity='" + quantity + '\'' + 
                 ", goodReceiveNo='" + goodReceiveNo + '\'' + 
-                ", receiveDate='" + receiveDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(receiveDate.getTime()) + '\'' + 
-                ", expirationDate='" + expirationDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(expirationDate.getTime()) + '\'' + 
+
+
                 ", serialNumber='" + serialNumber + '\'' + 
                 ", memo='" + memo + '\'' + 
                 ", closed='" + closed + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

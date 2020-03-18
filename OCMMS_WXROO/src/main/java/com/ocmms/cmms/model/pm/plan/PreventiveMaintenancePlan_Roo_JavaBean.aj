@@ -457,12 +457,12 @@ privileged aspect PreventiveMaintenancePlan_Roo_JavaBean {
                 ", description='" + description + '\'' + 
                 ", schedulingPeriod='" + schedulingPeriod + '\'' + 
                 ", callHorizon='" + callHorizon + '\'' + 
-                ", startDate='" + startDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(startDate.getTime()) + '\'' + 
+
                 ", startCounter='" + startCounter + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

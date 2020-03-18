@@ -100,8 +100,8 @@ privileged aspect EmployeeTask_Roo_JavaBean {
         return "EmployeeTask {" + 
                 "id='" + id + '\'' + 
                 ", description='" + description + '\'' + 
-                ", submitDate='" + submitDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(submitDate.getTime()) + '\'' + 
-                ", targetDate='" + targetDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(targetDate.getTime()) + '\'' + 
+
+
                 ", memo='" + memo + '\'' + "}" + super.toString();
     }
     

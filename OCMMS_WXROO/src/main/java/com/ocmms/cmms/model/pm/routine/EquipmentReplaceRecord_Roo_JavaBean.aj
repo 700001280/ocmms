@@ -435,15 +435,15 @@ privileged aspect EquipmentReplaceRecord_Roo_JavaBean {
         return "EquipmentReplaceRecord {" + 
                 "id='" + id + '\'' + 
                 ", description='" + description + '\'' + 
-                ", onlineDate='" + onlineDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(onlineDate.getTime()) + '\'' + 
+
                 ", onlinePlan='" + onlinePlan + '\'' + 
-                ", offlineDate='" + offlineDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(offlineDate.getTime()) + '\'' + 
+
                 ", offlinePlan='" + offlinePlan + '\'' + 
                 ", memo='" + memo + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

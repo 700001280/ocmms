@@ -435,15 +435,15 @@ privileged aspect ServiceReceiveDetail_Roo_JavaBean {
         return "ServiceReceiveDetail {" + 
                 "id='" + id + '\'' + 
                 ", quantity='" + quantity + '\'' + 
-                ", receiveDate='" + receiveDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(receiveDate.getTime()) + '\'' + 
-                ", invoiceDate='" + invoiceDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(invoiceDate.getTime()) + '\'' + 
-                ", paymentDate='" + paymentDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(paymentDate.getTime()) + '\'' + 
+
+
+
                 ", memo='" + memo + '\'' + 
                 ", closed='" + closed + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

@@ -645,16 +645,16 @@ privileged aspect NotificationHeader_Roo_JavaBean {
         return "NotificationHeader {" + 
                 "id='" + id + '\'' + 
                 ", notificationCode='" + notificationCode + '\'' + 
-                ", reportedDate='" + reportedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(reportedDate.getTime()) + '\'' + 
+
                 ", description='" + description + '\'' + 
                 ", longText='" + longText + '\'' + 
                 ", breakdown='" + breakdown + '\'' + 
-                ", requiredStart='" + requiredStart == null ? null : java.text.DateFormat.getDateTimeInstance().format(requiredStart.getTime()) + '\'' + 
-                ", requiredEnd='" + requiredEnd == null ? null : java.text.DateFormat.getDateTimeInstance().format(requiredEnd.getTime()) + '\'' + 
+
+
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

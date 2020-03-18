@@ -376,12 +376,12 @@ privileged aspect PreventiveMaintenanceExecution_Roo_JavaBean {
         return "PreventiveMaintenanceExecution {" + 
                 "id='" + id + '\'' + 
                 ", description='" + description + '\'' + 
-                ", startDate='" + startDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(startDate.getTime()) + '\'' + 
-                ", completeDate='" + completeDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(completeDate.getTime()) + '\'' + 
+
+
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

@@ -312,12 +312,12 @@ privileged aspect WorkOrderTimeSheet_Roo_JavaBean {
         return "WorkOrderTimeSheet {" + 
                 "id='" + id + '\'' + 
                 ", workHours='" + workHours + '\'' + 
-                ", workDate='" + workDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(workDate.getTime()) + '\'' + 
-                ", approveDate='" + approveDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(approveDate.getTime()) + '\'' + 
+
+
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

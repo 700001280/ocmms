@@ -368,8 +368,8 @@ privileged aspect ReliefValve_Roo_JavaBean {
     public String ReliefValve.toString() {
         return "ReliefValve {" + 
                 "id='" + id + '\'' + 
-                ", lastInspectionDate='" + lastInspectionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastInspectionDate.getTime()) + '\'' + 
-                ", nextInspectionDate='" + nextInspectionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(nextInspectionDate.getTime()) + '\'' + 
+
+
                 ", nominalPressure='" + nominalPressure + '\'' + 
                 ", workingPressure='" + workingPressure + '\'' + 
                 ", settingPressure='" + settingPressure + '\'' + 
@@ -380,7 +380,7 @@ privileged aspect ReliefValve_Roo_JavaBean {
                 ", medium='" + medium + '\'' + 
                 ", fluidState='" + fluidState + '\'' + 
                 ", dischargeLocation='" + dischargeLocation + '\'' + 
-                ", manufactureDate='" + manufactureDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(manufactureDate.getTime()) + '\'' + 
+
                 ", designedServiceLife='" + designedServiceLife + '\'' + 
                 ", classificationCategory='" + classificationCategory + '\'' + "}" + super.toString();
     }

@@ -127,8 +127,8 @@ privileged aspect Elevator_Roo_JavaBean {
     public String Elevator.toString() {
         return "Elevator {" + 
                 "id='" + id + '\'' + 
-                ", lastInspectionDate='" + lastInspectionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastInspectionDate.getTime()) + '\'' + 
-                ", nextInspectionDate='" + nextInspectionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(nextInspectionDate.getTime()) + '\'' + 
+
+
                 ", parameter='" + parameter + '\'' + "}" + super.toString();
     }
     

@@ -375,14 +375,14 @@ privileged aspect MeasuringRecord_Roo_JavaBean {
     public String MeasuringRecord.toString() {
         return "MeasuringRecord {" + 
                 "id='" + id + '\'' + 
-                ", measuringDate='" + measuringDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(measuringDate.getTime()) + '\'' + 
+
                 ", measuringValue='" + measuringValue + '\'' + 
                 ", description='" + description + '\'' + 
                 ", dcsValue='" + dcsValue + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

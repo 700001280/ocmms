@@ -456,15 +456,15 @@ privileged aspect PartReplaceRecord_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", serialNumber='" + serialNumber + '\'' + 
                 ", description='" + description + '\'' + 
-                ", onlineDate='" + onlineDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(onlineDate.getTime()) + '\'' + 
+
                 ", onlinePlan='" + onlinePlan + '\'' + 
-                ", offlineDate='" + offlineDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(offlineDate.getTime()) + '\'' + 
+
                 ", offlinePlan='" + offlinePlan + '\'' + 
                 ", memo='" + memo + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

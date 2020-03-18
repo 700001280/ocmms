@@ -649,12 +649,12 @@ privileged aspect Employee_Roo_JavaBean {
                 ", title='" + title + '\'' + 
                 ", fax='" + fax + '\'' + 
                 ", sex='" + sex + '\'' + 
-                ", birthday='" + birthday == null ? null : java.text.DateFormat.getDateTimeInstance().format(birthday.getTime()) + '\'' + 
+
                 ", memo='" + memo + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

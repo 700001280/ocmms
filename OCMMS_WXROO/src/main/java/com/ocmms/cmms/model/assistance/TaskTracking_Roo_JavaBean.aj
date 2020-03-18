@@ -517,17 +517,17 @@ privileged aspect TaskTracking_Roo_JavaBean {
     public String TaskTracking.toString() {
         return "TaskTracking {" + 
                 "id='" + id + '\'' + 
-                ", submitDate='" + submitDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(submitDate.getTime()) + '\'' + 
+
                 ", description='" + description + '\'' + 
-                ", targetDate='" + targetDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(targetDate.getTime()) + '\'' + 
-                ", assignDate='" + assignDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(assignDate.getTime()) + '\'' + 
-                ", completeDate='" + completeDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(completeDate.getTime()) + '\'' + 
+
+
+
                 ", reference='" + reference + '\'' + 
                 ", memo='" + memo + '\'' + 
                 ", version='" + version + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + "}" + super.toString();
     }
     

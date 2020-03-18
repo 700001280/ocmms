@@ -187,12 +187,12 @@ privileged aspect Hoist_Roo_JavaBean {
     public String Hoist.toString() {
         return "Hoist {" + 
                 "id='" + id + '\'' + 
-                ", lastInspectionDate='" + lastInspectionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastInspectionDate.getTime()) + '\'' + 
-                ", nextInspectionDate='" + nextInspectionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(nextInspectionDate.getTime()) + '\'' + 
+
+
                 ", parameter='" + parameter + '\'' + 
                 ", manufacturerName='" + manufacturerName + '\'' + 
-                ", installationDate='" + installationDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(installationDate.getTime()) + '\'' + 
-                ", onServiceDate='" + onServiceDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(onServiceDate.getTime()) + '\'' + "}" + super.toString();
+
+
     }
     
 }

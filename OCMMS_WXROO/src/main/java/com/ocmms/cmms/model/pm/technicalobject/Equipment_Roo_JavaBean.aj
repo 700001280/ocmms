@@ -1036,22 +1036,22 @@ privileged aspect Equipment_Roo_JavaBean {
         return "Equipment {" + 
                 "id='" + id + '\'' + 
                 ", equipmentNumber='" + equipmentNumber + '\'' + 
-                ", constructionDate='" + constructionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(constructionDate.getTime()) + '\'' + 
+
                 ", drawingNumber='" + drawingNumber + '\'' + 
                 ", catalogProfile='" + catalogProfile + '\'' + 
                 ", constTypeMaterial='" + constTypeMaterial + '\'' + 
                 ", sizeDimension='" + sizeDimension + '\'' + 
                 ", grossWeight='" + grossWeight + '\'' + 
-                ", acquisitionDate='" + acquisitionDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(acquisitionDate.getTime()) + '\'' + 
+
                 ", acquisitionValue='" + acquisitionValue + '\'' + 
-                ", beginGuaranteeDate='" + beginGuaranteeDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(beginGuaranteeDate.getTime()) + '\'' + 
-                ", warrantyEndDate='" + warrantyEndDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(warrantyEndDate.getTime()) + '\'' + 
+
+
                 ", contract='" + contract + '\'' + 
                 ", ehssCritical='" + ehssCritical + '\'' + 
                 ", assetCode='" + assetCode + '\'' + 
                 ", startDepreciationCost='" + startDepreciationCost + '\'' + 
                 ", depreciationYear='" + depreciationYear + '\'' + 
-                ", capitalizedDate='" + capitalizedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(capitalizedDate.getTime()) + '\'' + 
+
                 ", currentBookValue='" + currentBookValue + '\'' + 
                 ", originalAssetId='" + originalAssetId + '\'' + "}" + super.toString();
     }

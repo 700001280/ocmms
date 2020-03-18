@@ -730,15 +730,15 @@ privileged aspect WorkOrderHeader_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", workOrderCode='" + workOrderCode + '\'' + 
                 ", description='" + description + '\'' + 
-                ", planStartDate='" + planStartDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(planStartDate.getTime()) + '\'' + 
-                ", planFinishDate='" + planFinishDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(planFinishDate.getTime()) + '\'' + 
-                ", actStartDate='" + actStartDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(actStartDate.getTime()) + '\'' + 
-                ", actFinishDate='" + actFinishDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(actFinishDate.getTime()) + '\'' + 
+
+
+
+
                 ", breakdown='" + breakdown + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

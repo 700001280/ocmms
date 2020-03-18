@@ -457,15 +457,15 @@ privileged aspect ProcurementRequest_Roo_JavaBean {
     public String ProcurementRequest.toString() {
         return "ProcurementRequest {" + 
                 "id='" + id + '\'' + 
-                ", submitDate='" + submitDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(submitDate.getTime()) + '\'' + 
-                ", requestDate='" + requestDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(requestDate.getTime()) + '\'' + 
+
+
                 ", requestNumber='" + requestNumber + '\'' + 
                 ", memo='" + memo + '\'' + 
                 ", closed='" + closed + '\'' + 
                 ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+
                 ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     
