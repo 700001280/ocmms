@@ -14,6 +14,8 @@ import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.master.MaterialType;
 import com.ocmms.cmms.model.mm.master.MaterialVendorInfo;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 import com.ocmms.cmms.web.MaterialCatalogJsonMixin;
 import com.ocmms.cmms.web.MaterialDisciplineDeserializer;
@@ -49,6 +51,13 @@ privileged aspect MaterialCatalogJsonMixin_Roo_JSONMixin {
      * 
      */
     @JsonIgnore
+    private Set<InstockDetail> MaterialCatalogJsonMixin.instockDetails;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonIgnore
     private Set<MaterialAttribute> MaterialCatalogJsonMixin.materialAttributes;
     
     /**
@@ -71,6 +80,13 @@ privileged aspect MaterialCatalogJsonMixin_Roo_JSONMixin {
      */
     @JsonIgnore
     private Set<MaterialVendorInfo> MaterialCatalogJsonMixin.materialVendorInfos;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonIgnore
+    private Set<OutstockDetail> MaterialCatalogJsonMixin.outstockDetails;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -152,6 +168,24 @@ privileged aspect MaterialCatalogJsonMixin_Roo_JSONMixin {
      * 
      * @return Set
      */
+    public Set<InstockDetail> MaterialCatalogJsonMixin.getInstockDetails() {
+        return instockDetails;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param instockDetails
+     */
+    public void MaterialCatalogJsonMixin.setInstockDetails(Set<InstockDetail> instockDetails) {
+        this.instockDetails = instockDetails;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Set
+     */
     public Set<MaterialAttribute> MaterialCatalogJsonMixin.getMaterialAttributes() {
         return materialAttributes;
     }
@@ -217,6 +251,24 @@ privileged aspect MaterialCatalogJsonMixin_Roo_JSONMixin {
      */
     public void MaterialCatalogJsonMixin.setMaterialVendorInfos(Set<MaterialVendorInfo> materialVendorInfos) {
         this.materialVendorInfos = materialVendorInfos;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Set
+     */
+    public Set<OutstockDetail> MaterialCatalogJsonMixin.getOutstockDetails() {
+        return outstockDetails;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetails
+     */
+    public void MaterialCatalogJsonMixin.setOutstockDetails(Set<OutstockDetail> outstockDetails) {
+        this.outstockDetails = outstockDetails;
     }
     
     /**

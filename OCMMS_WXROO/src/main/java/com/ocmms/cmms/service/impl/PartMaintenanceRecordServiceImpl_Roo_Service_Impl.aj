@@ -6,11 +6,13 @@ package com.ocmms.cmms.service.impl;
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.RepairMaterialInstockDetail;
 import com.ocmms.cmms.model.pm.routine.PartMaintenanceRecord;
 import com.ocmms.cmms.repository.PartMaintenanceRecordRepository;
 import com.ocmms.cmms.service.api.DocumentService;
 import com.ocmms.cmms.service.api.ImageDocumentService;
 import com.ocmms.cmms.service.api.MaterialOutstockDetailService;
+import com.ocmms.cmms.service.api.RepairMaterialInstockDetailService;
 import com.ocmms.cmms.service.impl.PartMaintenanceRecordServiceImpl;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.MessageI18n;
@@ -57,19 +59,27 @@ privileged aspect PartMaintenanceRecordServiceImpl_Roo_Service_Impl {
     private MaterialOutstockDetailService PartMaintenanceRecordServiceImpl.materialOutstockDetailService;
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private RepairMaterialInstockDetailService PartMaintenanceRecordServiceImpl.repairMaterialInstockDetailService;
+    
+    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param partMaintenanceRecordRepository
      * @param documentService
      * @param imageDocumentService
      * @param materialOutstockDetailService
+     * @param repairMaterialInstockDetailService
      */
     @Autowired
-    public PartMaintenanceRecordServiceImpl.new(PartMaintenanceRecordRepository partMaintenanceRecordRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService, @Lazy MaterialOutstockDetailService materialOutstockDetailService) {
+    public PartMaintenanceRecordServiceImpl.new(PartMaintenanceRecordRepository partMaintenanceRecordRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService, @Lazy MaterialOutstockDetailService materialOutstockDetailService, @Lazy RepairMaterialInstockDetailService repairMaterialInstockDetailService) {
         setPartMaintenanceRecordRepository(partMaintenanceRecordRepository);
         setDocumentService(documentService);
         setImageDocumentService(imageDocumentService);
         setMaterialOutstockDetailService(materialOutstockDetailService);
+        setRepairMaterialInstockDetailService(repairMaterialInstockDetailService);
     }
 
     /**
@@ -147,6 +157,24 @@ privileged aspect PartMaintenanceRecordServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @return RepairMaterialInstockDetailService
+     */
+    public RepairMaterialInstockDetailService PartMaintenanceRecordServiceImpl.getRepairMaterialInstockDetailService() {
+        return repairMaterialInstockDetailService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param repairMaterialInstockDetailService
+     */
+    public void PartMaintenanceRecordServiceImpl.setRepairMaterialInstockDetailService(RepairMaterialInstockDetailService repairMaterialInstockDetailService) {
+        this.repairMaterialInstockDetailService = repairMaterialInstockDetailService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param partmaintenancerecord
      * @return Map
      */
@@ -204,6 +232,20 @@ privileged aspect PartMaintenanceRecordServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param partMaintenanceRecord
+     * @param repairMaterialInstockDetailsToAdd
+     * @return PartMaintenanceRecord
+     */
+    @Transactional
+    public PartMaintenanceRecord PartMaintenanceRecordServiceImpl.addToRepairMaterialInstockDetails(PartMaintenanceRecord partMaintenanceRecord, Iterable<Long> repairMaterialInstockDetailsToAdd) {
+        List<RepairMaterialInstockDetail> repairMaterialInstockDetails = getRepairMaterialInstockDetailService().findAll(repairMaterialInstockDetailsToAdd);
+        partMaintenanceRecord.addToRepairMaterialInstockDetails(repairMaterialInstockDetails);
+        return getPartMaintenanceRecordRepository().save(partMaintenanceRecord);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partMaintenanceRecord
      * @param documentsToRemove
      * @return PartMaintenanceRecord
      */
@@ -239,6 +281,20 @@ privileged aspect PartMaintenanceRecordServiceImpl_Roo_Service_Impl {
     public PartMaintenanceRecord PartMaintenanceRecordServiceImpl.removeFromMaterialOutstockDetails(PartMaintenanceRecord partMaintenanceRecord, Iterable<Long> materialOutstockDetailsToRemove) {
         List<MaterialOutstockDetail> materialOutstockDetails = getMaterialOutstockDetailService().findAll(materialOutstockDetailsToRemove);
         partMaintenanceRecord.removeFromMaterialOutstockDetails(materialOutstockDetails);
+        return getPartMaintenanceRecordRepository().save(partMaintenanceRecord);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partMaintenanceRecord
+     * @param repairMaterialInstockDetailsToRemove
+     * @return PartMaintenanceRecord
+     */
+    @Transactional
+    public PartMaintenanceRecord PartMaintenanceRecordServiceImpl.removeFromRepairMaterialInstockDetails(PartMaintenanceRecord partMaintenanceRecord, Iterable<Long> repairMaterialInstockDetailsToRemove) {
+        List<RepairMaterialInstockDetail> repairMaterialInstockDetails = getRepairMaterialInstockDetailService().findAll(repairMaterialInstockDetailsToRemove);
+        partMaintenanceRecord.removeFromRepairMaterialInstockDetails(repairMaterialInstockDetails);
         return getPartMaintenanceRecordRepository().save(partMaintenanceRecord);
     }
     
@@ -330,6 +386,34 @@ privileged aspect PartMaintenanceRecordServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param partMaintenanceRecord
+     * @param repairMaterialInstockDetails
+     * @return PartMaintenanceRecord
+     */
+    @Transactional
+    public PartMaintenanceRecord PartMaintenanceRecordServiceImpl.setRepairMaterialInstockDetails(PartMaintenanceRecord partMaintenanceRecord, Iterable<Long> repairMaterialInstockDetails) {
+        List<RepairMaterialInstockDetail> items = getRepairMaterialInstockDetailService().findAll(repairMaterialInstockDetails);
+        Set<RepairMaterialInstockDetail> currents = partMaintenanceRecord.getRepairMaterialInstockDetails();
+        Set<RepairMaterialInstockDetail> toRemove = new HashSet<RepairMaterialInstockDetail>();
+        for (Iterator<RepairMaterialInstockDetail> iterator = currents.iterator(); iterator.hasNext();) {
+            RepairMaterialInstockDetail nextRepairMaterialInstockDetail = iterator.next();
+            if (items.contains(nextRepairMaterialInstockDetail)) {
+                items.remove(nextRepairMaterialInstockDetail);
+            } else {
+                toRemove.add(nextRepairMaterialInstockDetail);
+            }
+        }
+        partMaintenanceRecord.removeFromRepairMaterialInstockDetails(toRemove);
+        partMaintenanceRecord.addToRepairMaterialInstockDetails(items);
+        // Force the version update of the parent side to know that the parent has changed
+        // because it has new books assigned
+        partMaintenanceRecord.setVersion(partMaintenanceRecord.getVersion() + 1);
+        return getPartMaintenanceRecordRepository().save(partMaintenanceRecord);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partMaintenanceRecord
      */
     @Transactional
     public void PartMaintenanceRecordServiceImpl.delete(PartMaintenanceRecord partMaintenanceRecord) {
@@ -345,6 +429,11 @@ privileged aspect PartMaintenanceRecordServiceImpl_Roo_Service_Impl {
         
         // Clear bidirectional one-to-many parent relationship with MaterialOutstockDetail
         for (MaterialOutstockDetail item : partMaintenanceRecord.getMaterialOutstockDetails()) {
+            item.setPartMaintenanceRecord(null);
+        }
+        
+        // Clear bidirectional one-to-many parent relationship with RepairMaterialInstockDetail
+        for (RepairMaterialInstockDetail item : partMaintenanceRecord.getRepairMaterialInstockDetails()) {
             item.setPartMaintenanceRecord(null);
         }
         

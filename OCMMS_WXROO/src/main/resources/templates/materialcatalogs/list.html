@@ -79,6 +79,9 @@
                   <a id="images-detail-table-tab" data-toggle="tab" href="#detail-images-detail" data-z="304cd75f">Images</a>
                 </li>
                 <li class="active">
+                  <a id="instockdetails-detail-table-tab" data-toggle="tab" href="#detail-instockdetails-detail" data-z="a790412c">InstockDetails</a>
+                </li>
+                <li class="active">
                   <a id="materialattributes-detail-table-tab" data-toggle="tab" href="#detail-materialattributes-detail" data-z="6e4eb3c6">MaterialAttributes</a>
                 </li>
                 <li class="active">
@@ -89,6 +92,9 @@
                 </li>
                 <li class="active">
                   <a id="materialvendorinfos-detail-table-tab" data-toggle="tab" href="#detail-materialvendorinfos-detail" data-z="c1308f56">MaterialVendorInfos</a>
+                </li>
+                <li class="active">
+                  <a id="outstockdetails-detail-table-tab" data-toggle="tab" href="#detail-outstockdetails-detail" data-z="9086e17e">OutstockDetails</a>
                 </li>
             </ul>
 
@@ -209,6 +215,46 @@
                     </div>
                     <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='images-detail-table',
                         title=#{label_export_empty_error(#{label_materialcatalog_images})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-instockdetails-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('MaterialCatalogsItemInstockDetailsThymeleafController')},detailItemLink=${@linkBuilder.of('InstockDetailsItemThymeleafController')}">
+                    <table id="instockdetails-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="materialcatalog-entity-table" data-row-id="id" data-z="a790412c" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('materialCatalog', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('instockDetail', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('materialCatalog', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('instockDetail', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromInstockDetails').with('materialCatalog', '_PARENTID_').with('instockDetailsToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromInstockDetailsBatch').with('materialCatalog', '_PARENTID_').with('instockDetailsToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_materialcatalog_instockdetails})}">InstockDetails List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="materialCatalog" data-th-text="#{label_materialcatalog_instockdetails_materialcatalog}">materialCatalog</th>
+                              <th data-data="storageLocation" data-th-text="#{label_materialcatalog_instockdetails_storagelocation}">storageLocation</th>
+                              <th data-data="quantity" data-th-text="#{label_materialcatalog_instockdetails_quantity}">quantity</th>
+                              <th data-data="storageType" data-th-text="#{label_materialcatalog_instockdetails_storagetype}">storageType</th>
+                              <th data-data="movementType" data-th-text="#{label_materialcatalog_instockdetails_movementtype}">movementType</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>materialCatalog</td>
+                              <td>storageLocation</td>
+                              <td>quantity</td>
+                              <td>storageType</td>
+                              <td>movementType</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='instockdetails-detail-table',
+                        title=#{label_delete_entity(#{label_materialcatalog_instockdetails})}, message=#{info_delete_item_confirm}, content=~{materialcatalogs/instockDetails/listDeleteModal :: instockdetails-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='instockdetails-detail-table',
+                        title=#{label_delete_entity(#{label_materialcatalog_instockdetails})}, message=#{info_delete_batch_confirm}, content=~{materialcatalogs/instockDetails/listDeleteModalBatch :: instockdetails-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='instockdetails-detail-table',
+                        title=#{label_export_empty_error(#{label_materialcatalog_instockdetails})}, message=#{info_export_empty_error})}">
                     </div>
                 </div> <!--/table-responsive">
                 <!--END TABLE-->
@@ -369,6 +415,46 @@
                     </div>
                     <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='materialvendorinfos-detail-table',
                         title=#{label_export_empty_error(#{label_materialcatalog_materialvendorinfos})}, message=#{info_export_empty_error})}">
+                    </div>
+                </div> <!--/table-responsive">
+                <!--END TABLE-->
+              </div> <!--/tab-pane -->
+              <div id="detail-outstockdetails-detail" class="tab-pane">
+                <!--START DETAIL TABLE-->
+                <div class="table-responsive" data-th-with="detailCollectionLink=${@linkBuilder.of('MaterialCatalogsItemOutstockDetailsThymeleafController')},detailItemLink=${@linkBuilder.of('OutstockDetailsItemThymeleafController')}">
+                    <table id="outstockdetails-detail-table" style="width: 99.7%" class="table table-striped table-hover table-bordered" data-datatables="true" data-parent-table="materialcatalog-entity-table" data-row-id="id" data-z="9086e17e" data-order="[[ 1, &quot;asc&quot; ]]" data-data-load-url="${detailCollectionLink.to('datatables').with('materialCatalog', '_PARENTID_')}" data-data-show-url="${detailItemLink.to('show').with('outstockDetail', '_ID_')}" data-data-create-url="${detailCollectionLink.to('createForm').with('materialCatalog', '_PARENTID_')}" data-data-edit-url="${detailItemLink.to('editForm').with('outstockDetail', '_ID_')}" data-data-delete-url="${detailCollectionLink.to('removeFromOutstockDetails').with('materialCatalog', '_PARENTID_').with('outstockDetailsToRemove', '_ID_')}" data-data-delete-batch-url="${detailCollectionLink.to('removeFromOutstockDetailsBatch').with('materialCatalog', '_PARENTID_').with('outstockDetailsToRemove', '_ID_')}">
+                      <caption class="sr-only" data-th-text="#{label_list_of_entity(#{label_materialcatalog_outstockdetails})}">OutstockDetails List</caption>
+                      <thead>
+                        <tr>
+                          <th data-data="id" data-checkboxes="true"></th>
+                              <th data-data="organization" data-th-text="#{label_materialcatalog_outstockdetails_organization}">organization</th>
+                              <th data-data="materialCatalog" data-th-text="#{label_materialcatalog_outstockdetails_materialcatalog}">materialCatalog</th>
+                              <th data-data="storageLocation" data-th-text="#{label_materialcatalog_outstockdetails_storagelocation}">storageLocation</th>
+                              <th data-data="storageType" data-th-text="#{label_materialcatalog_outstockdetails_storagetype}">storageType</th>
+                              <th data-data="serialNumber" data-th-text="#{label_materialcatalog_outstockdetails_serialnumber}">serialNumber</th>
+                              <th data-data="id" data-orderable="false" data-searchable="false" class="dttools" data-th-text="#{label_tools}">Tools</th>
+                        </tr>
+                      </thead>
+                      <tbody data-th-remove="all">
+                        <tr>
+                              <td>organization</td>
+                              <td>materialCatalog</td>
+                              <td>storageLocation</td>
+                              <td>storageType</td>
+                              <td>serialNumber</td>
+                          <td data-th-text="#{label_tools}">Tools</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- content replaced by modal-confirm fragment of modal-confirm.html -->
+                    <div data-th-replace="~{fragments/modal-confirm-delete :: modalConfirmDelete(tableId='outstockdetails-detail-table',
+                        title=#{label_delete_entity(#{label_materialcatalog_outstockdetails})}, message=#{info_delete_item_confirm}, content=~{materialcatalogs/outstockDetails/listDeleteModal :: outstockdetails-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-confirm-delete-batch :: modalConfirmDeleteBatch(tableId='outstockdetails-detail-table',
+                        title=#{label_delete_entity(#{label_materialcatalog_outstockdetails})}, message=#{info_delete_batch_confirm}, content=~{materialcatalogs/outstockDetails/listDeleteModalBatch :: outstockdetails-detailModalConfirmBody})}">
+                    </div>
+                    <div data-th-replace="~{fragments/modal-export-empty-error :: modalExportEmptyError(tableId='outstockdetails-detail-table',
+                        title=#{label_export_empty_error(#{label_materialcatalog_outstockdetails})}, message=#{info_export_empty_error})}">
                     </div>
                 </div> <!--/table-responsive">
                 <!--END TABLE-->

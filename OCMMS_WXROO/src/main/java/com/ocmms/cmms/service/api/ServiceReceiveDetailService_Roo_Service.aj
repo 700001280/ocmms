@@ -103,6 +103,60 @@ privileged aspect ServiceReceiveDetailService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param serviceReceiveDetail
+     * @param documentsToAdd
+     * @return ServiceReceiveDetail
+     */
+    public abstract ServiceReceiveDetail ServiceReceiveDetailService.addToDocuments(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> documentsToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param documentsToRemove
+     * @return ServiceReceiveDetail
+     */
+    public abstract ServiceReceiveDetail ServiceReceiveDetailService.removeFromDocuments(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> documentsToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param documents
+     * @return ServiceReceiveDetail
+     */
+    public abstract ServiceReceiveDetail ServiceReceiveDetailService.setDocuments(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> documents);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param imagesToAdd
+     * @return ServiceReceiveDetail
+     */
+    public abstract ServiceReceiveDetail ServiceReceiveDetailService.addToImages(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> imagesToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param imagesToRemove
+     * @return ServiceReceiveDetail
+     */
+    public abstract ServiceReceiveDetail ServiceReceiveDetailService.removeFromImages(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> imagesToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param images
+     * @return ServiceReceiveDetail
+     */
+    public abstract ServiceReceiveDetail ServiceReceiveDetailService.setImages(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> images);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param serviceProcurementItemDetail
      * @param globalSearch
      * @param pageable

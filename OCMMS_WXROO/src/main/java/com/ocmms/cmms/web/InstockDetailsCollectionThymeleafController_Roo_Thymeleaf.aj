@@ -301,8 +301,7 @@ privileged aspect InstockDetailsCollectionThymeleafController_Roo_Thymeleaf {
     public void InstockDetailsCollectionThymeleafController.populateFormats(Model model) {
         model.addAttribute("application_locale", LocaleContextHolder.getLocale().getLanguage());
         model.addAttribute("receiveDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        model.addAttribute("invoiceDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        model.addAttribute("paymentDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        model.addAttribute("expirationDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         model.addAttribute("createdDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         model.addAttribute("lastModifiedDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
@@ -522,14 +521,8 @@ privileged aspect InstockDetailsCollectionThymeleafController_Roo_Thymeleaf {
         if (columnName.equals("id")) {
             builder.addColumn(getMessageSource().getMessage("label_instockdetail_id", null, "Id", locale), "id", Long.class.getName(), 50);
         }
-        else if (columnName.equals("orderNo")) {
-            builder.addColumn(getMessageSource().getMessage("label_instockdetail_orderno", null, "Order No", locale), "orderNo", String.class.getName(), 100);
-        }
         else if (columnName.equals("quantity")) {
             builder.addColumn(getMessageSource().getMessage("label_instockdetail_quantity", null, "Quantity", locale), "quantity", BigDecimal.class.getName(), 100);
-        }
-        else if (columnName.equals("unitPrice")) {
-            builder.addColumn(getMessageSource().getMessage("label_instockdetail_unitprice", null, "Unit Price", locale), "unitPrice", BigDecimal.class.getName(), 100);
         }
         else if (columnName.equals("goodReceiveNo")) {
             builder.addColumn(getMessageSource().getMessage("label_instockdetail_goodreceiveno", null, "Good Receive No", locale), "goodReceiveNo", String.class.getName(), 100);
@@ -537,11 +530,11 @@ privileged aspect InstockDetailsCollectionThymeleafController_Roo_Thymeleaf {
         else if (columnName.equals("receiveDate")) {
             builder.addColumn(getMessageSource().getMessage("label_instockdetail_receivedate", null, "Receive Date", locale), "receiveDate", Calendar.class.getName(), 100);
         }
-        else if (columnName.equals("invoiceDate")) {
-            builder.addColumn(getMessageSource().getMessage("label_instockdetail_invoicedate", null, "Invoice Date", locale), "invoiceDate", Calendar.class.getName(), 100);
+        else if (columnName.equals("expirationDate")) {
+            builder.addColumn(getMessageSource().getMessage("label_instockdetail_expirationdate", null, "Expiration Date", locale), "expirationDate", Calendar.class.getName(), 100);
         }
-        else if (columnName.equals("paymentDate")) {
-            builder.addColumn(getMessageSource().getMessage("label_instockdetail_paymentdate", null, "Payment Date", locale), "paymentDate", Calendar.class.getName(), 100);
+        else if (columnName.equals("serialNumber")) {
+            builder.addColumn(getMessageSource().getMessage("label_instockdetail_serialnumber", null, "Serial Number", locale), "serialNumber", String.class.getName(), 100);
         }
         else if (columnName.equals("memo")) {
             builder.addColumn(getMessageSource().getMessage("label_instockdetail_memo", null, "Memo", locale), "memo", String.class.getName(), 100);

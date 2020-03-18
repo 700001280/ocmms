@@ -3,12 +3,12 @@
 
 package com.ocmms.cmms.service.impl;
 
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.repository.StorageTypeRepository;
-import com.ocmms.cmms.service.api.MaterialInstockDetailService;
-import com.ocmms.cmms.service.api.MaterialOutstockDetailService;
+import com.ocmms.cmms.service.api.InstockDetailService;
+import com.ocmms.cmms.service.api.OutstockDetailService;
 import com.ocmms.cmms.service.impl.StorageTypeServiceImpl;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.MessageI18n;
@@ -40,26 +40,26 @@ privileged aspect StorageTypeServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    private MaterialInstockDetailService StorageTypeServiceImpl.materialInstockDetailService;
+    private InstockDetailService StorageTypeServiceImpl.instockDetailService;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    private MaterialOutstockDetailService StorageTypeServiceImpl.materialOutstockDetailService;
+    private OutstockDetailService StorageTypeServiceImpl.outstockDetailService;
     
     /**
      * TODO Auto-generated constructor documentation
      * 
      * @param storageTypeRepository
-     * @param materialInstockDetailService
-     * @param materialOutstockDetailService
+     * @param instockDetailService
+     * @param outstockDetailService
      */
     @Autowired
-    public StorageTypeServiceImpl.new(StorageTypeRepository storageTypeRepository, @Lazy MaterialInstockDetailService materialInstockDetailService, @Lazy MaterialOutstockDetailService materialOutstockDetailService) {
+    public StorageTypeServiceImpl.new(StorageTypeRepository storageTypeRepository, @Lazy InstockDetailService instockDetailService, @Lazy OutstockDetailService outstockDetailService) {
         setStorageTypeRepository(storageTypeRepository);
-        setMaterialInstockDetailService(materialInstockDetailService);
-        setMaterialOutstockDetailService(materialOutstockDetailService);
+        setInstockDetailService(instockDetailService);
+        setOutstockDetailService(outstockDetailService);
     }
 
     /**
@@ -83,37 +83,37 @@ privileged aspect StorageTypeServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return MaterialInstockDetailService
+     * @return InstockDetailService
      */
-    public MaterialInstockDetailService StorageTypeServiceImpl.getMaterialInstockDetailService() {
-        return materialInstockDetailService;
+    public InstockDetailService StorageTypeServiceImpl.getInstockDetailService() {
+        return instockDetailService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialInstockDetailService
+     * @param instockDetailService
      */
-    public void StorageTypeServiceImpl.setMaterialInstockDetailService(MaterialInstockDetailService materialInstockDetailService) {
-        this.materialInstockDetailService = materialInstockDetailService;
+    public void StorageTypeServiceImpl.setInstockDetailService(InstockDetailService instockDetailService) {
+        this.instockDetailService = instockDetailService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return MaterialOutstockDetailService
+     * @return OutstockDetailService
      */
-    public MaterialOutstockDetailService StorageTypeServiceImpl.getMaterialOutstockDetailService() {
-        return materialOutstockDetailService;
+    public OutstockDetailService StorageTypeServiceImpl.getOutstockDetailService() {
+        return outstockDetailService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialOutstockDetailService
+     * @param outstockDetailService
      */
-    public void StorageTypeServiceImpl.setMaterialOutstockDetailService(MaterialOutstockDetailService materialOutstockDetailService) {
-        this.materialOutstockDetailService = materialOutstockDetailService;
+    public void StorageTypeServiceImpl.setOutstockDetailService(OutstockDetailService outstockDetailService) {
+        this.outstockDetailService = outstockDetailService;
     }
     
     /**
@@ -134,13 +134,13 @@ privileged aspect StorageTypeServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialInstockDetailsToAdd
+     * @param instockDetailsToAdd
      * @return StorageType
      */
     @Transactional
-    public StorageType StorageTypeServiceImpl.addToMaterialInstockDetails(StorageType storageType, Iterable<Long> materialInstockDetailsToAdd) {
-        List<MaterialInstockDetail> materialInstockDetails = getMaterialInstockDetailService().findAll(materialInstockDetailsToAdd);
-        storageType.addToMaterialInstockDetails(materialInstockDetails);
+    public StorageType StorageTypeServiceImpl.addToInstockDetails(StorageType storageType, Iterable<Long> instockDetailsToAdd) {
+        List<InstockDetail> instockDetails = getInstockDetailService().findAll(instockDetailsToAdd);
+        storageType.addToInstockDetails(instockDetails);
         return getStorageTypeRepository().save(storageType);
     }
     
@@ -148,13 +148,13 @@ privileged aspect StorageTypeServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialOutstockDetailsToAdd
+     * @param outstockDetailsToAdd
      * @return StorageType
      */
     @Transactional
-    public StorageType StorageTypeServiceImpl.addToMaterialOutstockDetails(StorageType storageType, Iterable<Long> materialOutstockDetailsToAdd) {
-        List<MaterialOutstockDetail> materialOutstockDetails = getMaterialOutstockDetailService().findAll(materialOutstockDetailsToAdd);
-        storageType.addToMaterialOutstockDetails(materialOutstockDetails);
+    public StorageType StorageTypeServiceImpl.addToOutstockDetails(StorageType storageType, Iterable<Long> outstockDetailsToAdd) {
+        List<OutstockDetail> outstockDetails = getOutstockDetailService().findAll(outstockDetailsToAdd);
+        storageType.addToOutstockDetails(outstockDetails);
         return getStorageTypeRepository().save(storageType);
     }
     
@@ -162,13 +162,13 @@ privileged aspect StorageTypeServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialInstockDetailsToRemove
+     * @param instockDetailsToRemove
      * @return StorageType
      */
     @Transactional
-    public StorageType StorageTypeServiceImpl.removeFromMaterialInstockDetails(StorageType storageType, Iterable<Long> materialInstockDetailsToRemove) {
-        List<MaterialInstockDetail> materialInstockDetails = getMaterialInstockDetailService().findAll(materialInstockDetailsToRemove);
-        storageType.removeFromMaterialInstockDetails(materialInstockDetails);
+    public StorageType StorageTypeServiceImpl.removeFromInstockDetails(StorageType storageType, Iterable<Long> instockDetailsToRemove) {
+        List<InstockDetail> instockDetails = getInstockDetailService().findAll(instockDetailsToRemove);
+        storageType.removeFromInstockDetails(instockDetails);
         return getStorageTypeRepository().save(storageType);
     }
     
@@ -176,13 +176,13 @@ privileged aspect StorageTypeServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialOutstockDetailsToRemove
+     * @param outstockDetailsToRemove
      * @return StorageType
      */
     @Transactional
-    public StorageType StorageTypeServiceImpl.removeFromMaterialOutstockDetails(StorageType storageType, Iterable<Long> materialOutstockDetailsToRemove) {
-        List<MaterialOutstockDetail> materialOutstockDetails = getMaterialOutstockDetailService().findAll(materialOutstockDetailsToRemove);
-        storageType.removeFromMaterialOutstockDetails(materialOutstockDetails);
+    public StorageType StorageTypeServiceImpl.removeFromOutstockDetails(StorageType storageType, Iterable<Long> outstockDetailsToRemove) {
+        List<OutstockDetail> outstockDetails = getOutstockDetailService().findAll(outstockDetailsToRemove);
+        storageType.removeFromOutstockDetails(outstockDetails);
         return getStorageTypeRepository().save(storageType);
     }
     
@@ -190,24 +190,24 @@ privileged aspect StorageTypeServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialInstockDetails
+     * @param instockDetails
      * @return StorageType
      */
     @Transactional
-    public StorageType StorageTypeServiceImpl.setMaterialInstockDetails(StorageType storageType, Iterable<Long> materialInstockDetails) {
-        List<MaterialInstockDetail> items = getMaterialInstockDetailService().findAll(materialInstockDetails);
-        Set<MaterialInstockDetail> currents = storageType.getMaterialInstockDetails();
-        Set<MaterialInstockDetail> toRemove = new HashSet<MaterialInstockDetail>();
-        for (Iterator<MaterialInstockDetail> iterator = currents.iterator(); iterator.hasNext();) {
-            MaterialInstockDetail nextMaterialInstockDetail = iterator.next();
-            if (items.contains(nextMaterialInstockDetail)) {
-                items.remove(nextMaterialInstockDetail);
+    public StorageType StorageTypeServiceImpl.setInstockDetails(StorageType storageType, Iterable<Long> instockDetails) {
+        List<InstockDetail> items = getInstockDetailService().findAll(instockDetails);
+        Set<InstockDetail> currents = storageType.getInstockDetails();
+        Set<InstockDetail> toRemove = new HashSet<InstockDetail>();
+        for (Iterator<InstockDetail> iterator = currents.iterator(); iterator.hasNext();) {
+            InstockDetail nextInstockDetail = iterator.next();
+            if (items.contains(nextInstockDetail)) {
+                items.remove(nextInstockDetail);
             } else {
-                toRemove.add(nextMaterialInstockDetail);
+                toRemove.add(nextInstockDetail);
             }
         }
-        storageType.removeFromMaterialInstockDetails(toRemove);
-        storageType.addToMaterialInstockDetails(items);
+        storageType.removeFromInstockDetails(toRemove);
+        storageType.addToInstockDetails(items);
         // Force the version update of the parent side to know that the parent has changed
         // because it has new books assigned
         storageType.setVersion(storageType.getVersion() + 1);
@@ -218,24 +218,24 @@ privileged aspect StorageTypeServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialOutstockDetails
+     * @param outstockDetails
      * @return StorageType
      */
     @Transactional
-    public StorageType StorageTypeServiceImpl.setMaterialOutstockDetails(StorageType storageType, Iterable<Long> materialOutstockDetails) {
-        List<MaterialOutstockDetail> items = getMaterialOutstockDetailService().findAll(materialOutstockDetails);
-        Set<MaterialOutstockDetail> currents = storageType.getMaterialOutstockDetails();
-        Set<MaterialOutstockDetail> toRemove = new HashSet<MaterialOutstockDetail>();
-        for (Iterator<MaterialOutstockDetail> iterator = currents.iterator(); iterator.hasNext();) {
-            MaterialOutstockDetail nextMaterialOutstockDetail = iterator.next();
-            if (items.contains(nextMaterialOutstockDetail)) {
-                items.remove(nextMaterialOutstockDetail);
+    public StorageType StorageTypeServiceImpl.setOutstockDetails(StorageType storageType, Iterable<Long> outstockDetails) {
+        List<OutstockDetail> items = getOutstockDetailService().findAll(outstockDetails);
+        Set<OutstockDetail> currents = storageType.getOutstockDetails();
+        Set<OutstockDetail> toRemove = new HashSet<OutstockDetail>();
+        for (Iterator<OutstockDetail> iterator = currents.iterator(); iterator.hasNext();) {
+            OutstockDetail nextOutstockDetail = iterator.next();
+            if (items.contains(nextOutstockDetail)) {
+                items.remove(nextOutstockDetail);
             } else {
-                toRemove.add(nextMaterialOutstockDetail);
+                toRemove.add(nextOutstockDetail);
             }
         }
-        storageType.removeFromMaterialOutstockDetails(toRemove);
-        storageType.addToMaterialOutstockDetails(items);
+        storageType.removeFromOutstockDetails(toRemove);
+        storageType.addToOutstockDetails(items);
         // Force the version update of the parent side to know that the parent has changed
         // because it has new books assigned
         storageType.setVersion(storageType.getVersion() + 1);
@@ -249,13 +249,13 @@ privileged aspect StorageTypeServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void StorageTypeServiceImpl.delete(StorageType storageType) {
-        // Clear bidirectional one-to-many parent relationship with MaterialInstockDetail
-        for (MaterialInstockDetail item : storageType.getMaterialInstockDetails()) {
+        // Clear bidirectional one-to-many parent relationship with InstockDetail
+        for (InstockDetail item : storageType.getInstockDetails()) {
             item.setStorageType(null);
         }
         
-        // Clear bidirectional one-to-many parent relationship with MaterialOutstockDetail
-        for (MaterialOutstockDetail item : storageType.getMaterialOutstockDetails()) {
+        // Clear bidirectional one-to-many parent relationship with OutstockDetail
+        for (OutstockDetail item : storageType.getOutstockDetails()) {
             item.setStorageType(null);
         }
         

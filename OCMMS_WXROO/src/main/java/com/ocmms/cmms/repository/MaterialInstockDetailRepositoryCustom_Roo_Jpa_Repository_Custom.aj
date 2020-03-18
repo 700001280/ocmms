@@ -5,8 +5,6 @@ package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.repository.MaterialInstockDetailRepositoryCustom;
 import io.springlets.data.domain.GlobalSearch;
 import java.util.List;
@@ -24,26 +22,6 @@ privileged aspect MaterialInstockDetailRepositoryCustom_Roo_Jpa_Repository_Custo
      * @return Page
      */
     public abstract Page<MaterialInstockDetail> MaterialInstockDetailRepositoryCustom.findByMaterialProcurementItemDetail(MaterialProcurementItemDetail materialProcurementItemDetail, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageLocation
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialInstockDetail> MaterialInstockDetailRepositoryCustom.findByStorageLocation(StorageLocation storageLocation, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialInstockDetail> MaterialInstockDetailRepositoryCustom.findByStorageType(StorageType storageType, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

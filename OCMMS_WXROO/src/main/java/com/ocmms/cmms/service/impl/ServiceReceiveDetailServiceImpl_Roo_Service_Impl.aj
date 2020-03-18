@@ -3,15 +3,23 @@
 
 package com.ocmms.cmms.service.impl;
 
+import com.ocmms.cmms.model.edm.Document;
+import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import com.ocmms.cmms.repository.ServiceReceiveDetailRepository;
+import com.ocmms.cmms.service.api.DocumentService;
+import com.ocmms.cmms.service.api.ImageDocumentService;
 import com.ocmms.cmms.service.impl.ServiceReceiveDetailServiceImpl;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.MessageI18n;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -30,13 +38,29 @@ privileged aspect ServiceReceiveDetailServiceImpl_Roo_Service_Impl {
     private ServiceReceiveDetailRepository ServiceReceiveDetailServiceImpl.serviceReceiveDetailRepository;
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private DocumentService ServiceReceiveDetailServiceImpl.documentService;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private ImageDocumentService ServiceReceiveDetailServiceImpl.imageDocumentService;
+    
+    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param serviceReceiveDetailRepository
+     * @param documentService
+     * @param imageDocumentService
      */
     @Autowired
-    public ServiceReceiveDetailServiceImpl.new(ServiceReceiveDetailRepository serviceReceiveDetailRepository) {
+    public ServiceReceiveDetailServiceImpl.new(ServiceReceiveDetailRepository serviceReceiveDetailRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService) {
         setServiceReceiveDetailRepository(serviceReceiveDetailRepository);
+        setDocumentService(documentService);
+        setImageDocumentService(imageDocumentService);
     }
 
     /**
@@ -60,6 +84,42 @@ privileged aspect ServiceReceiveDetailServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @return DocumentService
+     */
+    public DocumentService ServiceReceiveDetailServiceImpl.getDocumentService() {
+        return documentService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param documentService
+     */
+    public void ServiceReceiveDetailServiceImpl.setDocumentService(DocumentService documentService) {
+        this.documentService = documentService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ImageDocumentService
+     */
+    public ImageDocumentService ServiceReceiveDetailServiceImpl.getImageDocumentService() {
+        return imageDocumentService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param imageDocumentService
+     */
+    public void ServiceReceiveDetailServiceImpl.setImageDocumentService(ImageDocumentService imageDocumentService) {
+        this.imageDocumentService = imageDocumentService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param servicereceivedetail
      * @return Map
      */
@@ -75,12 +135,134 @@ privileged aspect ServiceReceiveDetailServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param serviceReceiveDetail
+     * @param documentsToAdd
+     * @return ServiceReceiveDetail
+     */
+    @Transactional
+    public ServiceReceiveDetail ServiceReceiveDetailServiceImpl.addToDocuments(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> documentsToAdd) {
+        List<Document> documents = getDocumentService().findAll(documentsToAdd);
+        serviceReceiveDetail.addToDocuments(documents);
+        return getServiceReceiveDetailRepository().save(serviceReceiveDetail);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param imagesToAdd
+     * @return ServiceReceiveDetail
+     */
+    @Transactional
+    public ServiceReceiveDetail ServiceReceiveDetailServiceImpl.addToImages(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> imagesToAdd) {
+        List<ImageDocument> images = getImageDocumentService().findAll(imagesToAdd);
+        serviceReceiveDetail.addToImages(images);
+        return getServiceReceiveDetailRepository().save(serviceReceiveDetail);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param documentsToRemove
+     * @return ServiceReceiveDetail
+     */
+    @Transactional
+    public ServiceReceiveDetail ServiceReceiveDetailServiceImpl.removeFromDocuments(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> documentsToRemove) {
+        List<Document> documents = getDocumentService().findAll(documentsToRemove);
+        serviceReceiveDetail.removeFromDocuments(documents);
+        return getServiceReceiveDetailRepository().save(serviceReceiveDetail);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param imagesToRemove
+     * @return ServiceReceiveDetail
+     */
+    @Transactional
+    public ServiceReceiveDetail ServiceReceiveDetailServiceImpl.removeFromImages(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> imagesToRemove) {
+        List<ImageDocument> images = getImageDocumentService().findAll(imagesToRemove);
+        serviceReceiveDetail.removeFromImages(images);
+        return getServiceReceiveDetailRepository().save(serviceReceiveDetail);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param documents
+     * @return ServiceReceiveDetail
+     */
+    @Transactional
+    public ServiceReceiveDetail ServiceReceiveDetailServiceImpl.setDocuments(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> documents) {
+        List<Document> items = getDocumentService().findAll(documents);
+        Set<Document> currents = serviceReceiveDetail.getDocuments();
+        Set<Document> toRemove = new HashSet<Document>();
+        for (Iterator<Document> iterator = currents.iterator(); iterator.hasNext();) {
+            Document nextDocument = iterator.next();
+            if (items.contains(nextDocument)) {
+                items.remove(nextDocument);
+            } else {
+                toRemove.add(nextDocument);
+            }
+        }
+        serviceReceiveDetail.removeFromDocuments(toRemove);
+        serviceReceiveDetail.addToDocuments(items);
+        // Force the version update of the parent side to know that the parent has changed
+        // because it has new books assigned
+        serviceReceiveDetail.setVersion(serviceReceiveDetail.getVersion() + 1);
+        return getServiceReceiveDetailRepository().save(serviceReceiveDetail);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param images
+     * @return ServiceReceiveDetail
+     */
+    @Transactional
+    public ServiceReceiveDetail ServiceReceiveDetailServiceImpl.setImages(ServiceReceiveDetail serviceReceiveDetail, Iterable<Long> images) {
+        List<ImageDocument> items = getImageDocumentService().findAll(images);
+        Set<ImageDocument> currents = serviceReceiveDetail.getImages();
+        Set<ImageDocument> toRemove = new HashSet<ImageDocument>();
+        for (Iterator<ImageDocument> iterator = currents.iterator(); iterator.hasNext();) {
+            ImageDocument nextImageDocument = iterator.next();
+            if (items.contains(nextImageDocument)) {
+                items.remove(nextImageDocument);
+            } else {
+                toRemove.add(nextImageDocument);
+            }
+        }
+        serviceReceiveDetail.removeFromImages(toRemove);
+        serviceReceiveDetail.addToImages(items);
+        // Force the version update of the parent side to know that the parent has changed
+        // because it has new books assigned
+        serviceReceiveDetail.setVersion(serviceReceiveDetail.getVersion() + 1);
+        return getServiceReceiveDetailRepository().save(serviceReceiveDetail);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
      */
     @Transactional
     public void ServiceReceiveDetailServiceImpl.delete(ServiceReceiveDetail serviceReceiveDetail) {
         // Clear bidirectional many-to-one child relationship with ServiceProcurementItemDetail
         if (serviceReceiveDetail.getServiceProcurementItemDetail() != null) {
             serviceReceiveDetail.getServiceProcurementItemDetail().getServiceReceiveDetails().remove(serviceReceiveDetail);
+        }
+        
+        // Clear bidirectional one-to-many parent relationship with Document
+        for (Document item : serviceReceiveDetail.getDocuments()) {
+            item.setServiceReceiveDetail(null);
+        }
+        
+        // Clear bidirectional one-to-many parent relationship with ImageDocument
+        for (ImageDocument item : serviceReceiveDetail.getImages()) {
+            item.setServiceReceiveDetail(null);
         }
         
         getServiceReceiveDetailRepository().delete(serviceReceiveDetail);

@@ -20,11 +20,12 @@ import com.ocmms.cmms.model.loto.LotoIssueReport;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringRecord;
 import com.ocmms.cmms.model.pm.notification.NotificationItem;
@@ -192,12 +193,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String ImageDocumentRepositoryImpl.MATERIAL_INSTOCK_DETAIL = "materialInstockDetail";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String ImageDocumentRepositoryImpl.MEASURING_POINT = "measuringPoint";
     
     /**
@@ -336,7 +331,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String ImageDocumentRepositoryImpl.MATERIAL_OUTSTOCK_DETAIL = "materialOutstockDetail";
+    public static final String ImageDocumentRepositoryImpl.OUTSTOCK_DETAIL = "outstockDetail";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -349,6 +344,18 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String ImageDocumentRepositoryImpl.EQUIPMENT_LUBRICATION = "equipmentLubrication";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String ImageDocumentRepositoryImpl.SERVICE_RECEIVE_DETAIL = "serviceReceiveDetail";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String ImageDocumentRepositoryImpl.PROCUREMENT_ORDER_FINANCE_TRACKING = "procurementOrderFinanceTracking";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -393,7 +400,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ImageDocument> query = from(imageDocument);
         
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -418,7 +425,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -442,9 +448,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -471,7 +479,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ImageDocument> query = from(imageDocument);
         
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -499,7 +507,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -523,9 +530,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -555,7 +564,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(assetClassification, "assetClassification is required");
         
         query.where(imageDocument.assetClassification.eq(assetClassification));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -580,7 +589,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -604,9 +612,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -636,7 +646,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(assetInventoryRecord, "assetInventoryRecord is required");
         
         query.where(imageDocument.assetInventoryRecord.eq(assetInventoryRecord));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -661,7 +671,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -685,9 +694,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -717,7 +728,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(assetStatus, "assetStatus is required");
         
         query.where(imageDocument.assetStatus.eq(assetStatus));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -742,7 +753,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -766,9 +776,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -798,7 +810,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(assetStatusChangeRecord, "assetStatusChangeRecord is required");
         
         query.where(imageDocument.assetStatusChangeRecord.eq(assetStatusChangeRecord));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -823,7 +835,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -847,9 +858,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -879,7 +892,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(autonomousMaintenanceFinding, "autonomousMaintenanceFinding is required");
         
         query.where(imageDocument.autonomousMaintenanceFinding.eq(autonomousMaintenanceFinding));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -904,7 +917,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -928,9 +940,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -960,7 +974,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(costCenter, "costCenter is required");
         
         query.where(imageDocument.costCenter.eq(costCenter));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -985,7 +999,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1009,9 +1022,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1041,7 +1056,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(criticalClassification, "criticalClassification is required");
         
         query.where(imageDocument.criticalClassification.eq(criticalClassification));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1066,7 +1081,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1090,9 +1104,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1122,7 +1138,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(employee, "employee is required");
         
         query.where(imageDocument.employee.eq(employee));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1147,7 +1163,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1171,9 +1186,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1203,7 +1220,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipment, "equipment is required");
         
         query.where(imageDocument.equipment.eq(equipment));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1228,7 +1245,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1252,9 +1268,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1284,7 +1302,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentLubrication, "equipmentLubrication is required");
         
         query.where(imageDocument.equipmentLubrication.eq(equipmentLubrication));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1309,7 +1327,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1333,9 +1350,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1365,7 +1384,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentMaintenanceRecord, "equipmentMaintenanceRecord is required");
         
         query.where(imageDocument.equipmentMaintenanceRecord.eq(equipmentMaintenanceRecord));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1390,7 +1409,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1414,9 +1432,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1446,7 +1466,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentParameter, "equipmentParameter is required");
         
         query.where(imageDocument.equipmentParameter.eq(equipmentParameter));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1471,7 +1491,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1495,9 +1514,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1527,7 +1548,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentReplaceRecord, "equipmentReplaceRecord is required");
         
         query.where(imageDocument.equipmentReplaceRecord.eq(equipmentReplaceRecord));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1552,7 +1573,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1576,9 +1596,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1608,7 +1630,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentScrappingRecord, "equipmentScrappingRecord is required");
         
         query.where(imageDocument.equipmentScrappingRecord.eq(equipmentScrappingRecord));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1633,7 +1655,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1657,9 +1678,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1689,7 +1712,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(failureMaintenanceReport, "failureMaintenanceReport is required");
         
         query.where(imageDocument.failureMaintenanceReport.eq(failureMaintenanceReport));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1714,7 +1737,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1738,9 +1760,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1770,7 +1794,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(functionalLocation, "functionalLocation is required");
         
         query.where(imageDocument.functionalLocation.eq(functionalLocation));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1795,7 +1819,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1819,9 +1842,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1851,7 +1876,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(instockDetail, "instockDetail is required");
         
         query.where(imageDocument.instockDetail.eq(instockDetail));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1876,7 +1901,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1900,9 +1924,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -1932,7 +1958,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(lotoDetail, "lotoDetail is required");
         
         query.where(imageDocument.lotoDetail.eq(lotoDetail));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1957,7 +1983,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -1981,9 +2006,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2013,7 +2040,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(lotoInfo, "lotoInfo is required");
         
         query.where(imageDocument.lotoInfo.eq(lotoInfo));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2038,7 +2065,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -2062,9 +2088,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2094,7 +2122,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(lotoIssueReport, "lotoIssueReport is required");
         
         query.where(imageDocument.lotoIssueReport.eq(lotoIssueReport));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2119,7 +2147,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -2143,9 +2170,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2175,7 +2204,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(materialCatalog, "materialCatalog is required");
         
         query.where(imageDocument.materialCatalog.eq(materialCatalog));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2200,7 +2229,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -2224,171 +2252,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
-			.map(RECORD_STATUS, imageDocument.recordStatus)
-			.map(CREATED_DATE, imageDocument.createdDate)
-			.map(CREATED_BY, imageDocument.createdBy)
-			.map(LAST_MODIFIED_DATE, imageDocument.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, imageDocument.lastModifiedBy);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, imageDocument);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialInstockDetail
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<ImageDocument> ImageDocumentRepositoryImpl.findByMaterialInstockDetail(MaterialInstockDetail materialInstockDetail, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QImageDocument imageDocument = QImageDocument.imageDocument;
-        
-        JPQLQuery<ImageDocument> query = from(imageDocument);
-        
-        Assert.notNull(materialInstockDetail, "materialInstockDetail is required");
-        
-        query.where(imageDocument.materialInstockDetail.eq(materialInstockDetail));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(FILE_NAME, imageDocument.fileName)
-			.map(DESCRIPTION, imageDocument.description)
-			.map(FILE_TYPE, imageDocument.fileType)
-			.map(IMAGE_ENCODE, imageDocument.imageEncode)
-			.map(UPLOAD_DATE, imageDocument.uploadDate)
-			.map(LOTO_INFO, imageDocument.lotoInfo)
-			.map(LOTO_ISSUE_REPORT, imageDocument.lotoIssueReport)
-			.map(ASSET_INVENTORY_RECORD, imageDocument.assetInventoryRecord)
-			.map(LOTO_DETAIL, imageDocument.lotoDetail)
-			.map(UPLOADER, imageDocument.uploader)
-			.map(NOTIFICATION_ITEM, imageDocument.notificationItem)
-			.map(SYSTEM_BUG_REPORT, imageDocument.systemBugReport)
-			.map(TASK_TRACKING, imageDocument.taskTracking)
-			.map(WORK_LOG, imageDocument.workLog)
-			.map(PREVENTIVE_MAINTENANCE_FINDING, imageDocument.preventiveMaintenanceFinding)
-			.map(AUTONOMOUS_MAINTENANCE_FINDING, imageDocument.autonomousMaintenanceFinding)
-			.map(FAILURE_MAINTENANCE_REPORT, imageDocument.failureMaintenanceReport)
-			.map(WORK_ORDER_HEADER, imageDocument.workOrderHeader)
-			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
-			.map(EQUIPMENT, imageDocument.equipment)
-			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
-			.map(MEASURING_POINT, imageDocument.measuringPoint)
-			.map(MEASURING_RECORD, imageDocument.measuringRecord)
-			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
-			.map(PART_MAINTENANCE_RECORD, imageDocument.partMaintenanceRecord)
-			.map(EQUIPMENT_REPLACE_RECORD, imageDocument.equipmentReplaceRecord)
-			.map(PART_REPLACE_RECORD, imageDocument.partReplaceRecord)
-			.map(EQUIPMENT_SCRAPPING_RECORD, imageDocument.equipmentScrappingRecord)
-			.map(PART_SCRAPPING_RECORD, imageDocument.partScrappingRecord)
-			.map(EQUIPMENT_PARAMETER, imageDocument.equipmentParameter)
-			.map(PREVENTIVE_MAINTENANCE_STANDARD, imageDocument.preventiveMaintenanceStandard)
-			.map(PREVENTIVE_MAINTENANCE_CONTENT, imageDocument.preventiveMaintenanceContent)
-			.map(PREVENTIVE_MAINTENANCE_EXECUTION, imageDocument.preventiveMaintenanceExecution)
-			.map(PROCUREMENT_REQUEST, imageDocument.procurementRequest)
-			.map(PROCUREMENT_ORDER, imageDocument.procurementOrder)
-			.map(PROCUREMENT_ITEM_DETAIL, imageDocument.procurementItemDetail)
-			.map(ASSET_CLASSIFICATION, imageDocument.assetClassification)
-			.map(ASSET_STATUS, imageDocument.assetStatus)
-			.map(ASSET_STATUS_CHANGE_RECORD, imageDocument.assetStatusChangeRecord)
-			.map(CRITICAL_CLASSIFICATION, imageDocument.criticalClassification)
-			.map(COST_CENTER, imageDocument.costCenter)
-			.map(EMPLOYEE, imageDocument.employee)
-			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
-			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
-			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
-			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
-			.map(RECORD_STATUS, imageDocument.recordStatus)
-			.map(CREATED_DATE, imageDocument.createdDate)
-			.map(CREATED_BY, imageDocument.createdBy)
-			.map(LAST_MODIFIED_DATE, imageDocument.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, imageDocument.lastModifiedBy);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, imageDocument);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<ImageDocument> ImageDocumentRepositoryImpl.findByMaterialOutstockDetail(MaterialOutstockDetail materialOutstockDetail, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QImageDocument imageDocument = QImageDocument.imageDocument;
-        
-        JPQLQuery<ImageDocument> query = from(imageDocument);
-        
-        Assert.notNull(materialOutstockDetail, "materialOutstockDetail is required");
-        
-        query.where(imageDocument.materialOutstockDetail.eq(materialOutstockDetail));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(FILE_NAME, imageDocument.fileName)
-			.map(DESCRIPTION, imageDocument.description)
-			.map(FILE_TYPE, imageDocument.fileType)
-			.map(IMAGE_ENCODE, imageDocument.imageEncode)
-			.map(UPLOAD_DATE, imageDocument.uploadDate)
-			.map(LOTO_INFO, imageDocument.lotoInfo)
-			.map(LOTO_ISSUE_REPORT, imageDocument.lotoIssueReport)
-			.map(ASSET_INVENTORY_RECORD, imageDocument.assetInventoryRecord)
-			.map(LOTO_DETAIL, imageDocument.lotoDetail)
-			.map(UPLOADER, imageDocument.uploader)
-			.map(NOTIFICATION_ITEM, imageDocument.notificationItem)
-			.map(SYSTEM_BUG_REPORT, imageDocument.systemBugReport)
-			.map(TASK_TRACKING, imageDocument.taskTracking)
-			.map(WORK_LOG, imageDocument.workLog)
-			.map(PREVENTIVE_MAINTENANCE_FINDING, imageDocument.preventiveMaintenanceFinding)
-			.map(AUTONOMOUS_MAINTENANCE_FINDING, imageDocument.autonomousMaintenanceFinding)
-			.map(FAILURE_MAINTENANCE_REPORT, imageDocument.failureMaintenanceReport)
-			.map(WORK_ORDER_HEADER, imageDocument.workOrderHeader)
-			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
-			.map(EQUIPMENT, imageDocument.equipment)
-			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
-			.map(MEASURING_POINT, imageDocument.measuringPoint)
-			.map(MEASURING_RECORD, imageDocument.measuringRecord)
-			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
-			.map(PART_MAINTENANCE_RECORD, imageDocument.partMaintenanceRecord)
-			.map(EQUIPMENT_REPLACE_RECORD, imageDocument.equipmentReplaceRecord)
-			.map(PART_REPLACE_RECORD, imageDocument.partReplaceRecord)
-			.map(EQUIPMENT_SCRAPPING_RECORD, imageDocument.equipmentScrappingRecord)
-			.map(PART_SCRAPPING_RECORD, imageDocument.partScrappingRecord)
-			.map(EQUIPMENT_PARAMETER, imageDocument.equipmentParameter)
-			.map(PREVENTIVE_MAINTENANCE_STANDARD, imageDocument.preventiveMaintenanceStandard)
-			.map(PREVENTIVE_MAINTENANCE_CONTENT, imageDocument.preventiveMaintenanceContent)
-			.map(PREVENTIVE_MAINTENANCE_EXECUTION, imageDocument.preventiveMaintenanceExecution)
-			.map(PROCUREMENT_REQUEST, imageDocument.procurementRequest)
-			.map(PROCUREMENT_ORDER, imageDocument.procurementOrder)
-			.map(PROCUREMENT_ITEM_DETAIL, imageDocument.procurementItemDetail)
-			.map(ASSET_CLASSIFICATION, imageDocument.assetClassification)
-			.map(ASSET_STATUS, imageDocument.assetStatus)
-			.map(ASSET_STATUS_CHANGE_RECORD, imageDocument.assetStatusChangeRecord)
-			.map(CRITICAL_CLASSIFICATION, imageDocument.criticalClassification)
-			.map(COST_CENTER, imageDocument.costCenter)
-			.map(EMPLOYEE, imageDocument.employee)
-			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
-			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
-			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
-			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2418,7 +2286,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(measuringPoint, "measuringPoint is required");
         
         query.where(imageDocument.measuringPoint.eq(measuringPoint));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2443,7 +2311,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -2467,9 +2334,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2499,7 +2368,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(measuringRecord, "measuringRecord is required");
         
         query.where(imageDocument.measuringRecord.eq(measuringRecord));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2524,7 +2393,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -2548,9 +2416,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2580,7 +2450,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(notificationItem, "notificationItem is required");
         
         query.where(imageDocument.notificationItem.eq(notificationItem));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2605,7 +2475,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -2629,9 +2498,93 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
+			.map(RECORD_STATUS, imageDocument.recordStatus)
+			.map(CREATED_DATE, imageDocument.createdDate)
+			.map(CREATED_BY, imageDocument.createdBy)
+			.map(LAST_MODIFIED_DATE, imageDocument.lastModifiedDate)
+			.map(LAST_MODIFIED_BY, imageDocument.lastModifiedBy);
+        
+        applyPagination(pageable, query, mapping);
+        applyOrderById(query);
+        
+        return loadPage(query, pageable, imageDocument);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetail
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<ImageDocument> ImageDocumentRepositoryImpl.findByOutstockDetail(OutstockDetail outstockDetail, GlobalSearch globalSearch, Pageable pageable) {
+        
+        QImageDocument imageDocument = QImageDocument.imageDocument;
+        
+        JPQLQuery<ImageDocument> query = from(imageDocument);
+        
+        Assert.notNull(outstockDetail, "outstockDetail is required");
+        
+        query.where(imageDocument.outstockDetail.eq(outstockDetail));
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        applyGlobalSearch(globalSearch, query, paths);
+        
+        AttributeMappingBuilder mapping = buildMapper()
+			.map(FILE_NAME, imageDocument.fileName)
+			.map(DESCRIPTION, imageDocument.description)
+			.map(FILE_TYPE, imageDocument.fileType)
+			.map(IMAGE_ENCODE, imageDocument.imageEncode)
+			.map(UPLOAD_DATE, imageDocument.uploadDate)
+			.map(LOTO_INFO, imageDocument.lotoInfo)
+			.map(LOTO_ISSUE_REPORT, imageDocument.lotoIssueReport)
+			.map(ASSET_INVENTORY_RECORD, imageDocument.assetInventoryRecord)
+			.map(LOTO_DETAIL, imageDocument.lotoDetail)
+			.map(UPLOADER, imageDocument.uploader)
+			.map(NOTIFICATION_ITEM, imageDocument.notificationItem)
+			.map(SYSTEM_BUG_REPORT, imageDocument.systemBugReport)
+			.map(TASK_TRACKING, imageDocument.taskTracking)
+			.map(WORK_LOG, imageDocument.workLog)
+			.map(PREVENTIVE_MAINTENANCE_FINDING, imageDocument.preventiveMaintenanceFinding)
+			.map(AUTONOMOUS_MAINTENANCE_FINDING, imageDocument.autonomousMaintenanceFinding)
+			.map(FAILURE_MAINTENANCE_REPORT, imageDocument.failureMaintenanceReport)
+			.map(WORK_ORDER_HEADER, imageDocument.workOrderHeader)
+			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
+			.map(EQUIPMENT, imageDocument.equipment)
+			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
+			.map(MEASURING_POINT, imageDocument.measuringPoint)
+			.map(MEASURING_RECORD, imageDocument.measuringRecord)
+			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
+			.map(PART_MAINTENANCE_RECORD, imageDocument.partMaintenanceRecord)
+			.map(EQUIPMENT_REPLACE_RECORD, imageDocument.equipmentReplaceRecord)
+			.map(PART_REPLACE_RECORD, imageDocument.partReplaceRecord)
+			.map(EQUIPMENT_SCRAPPING_RECORD, imageDocument.equipmentScrappingRecord)
+			.map(PART_SCRAPPING_RECORD, imageDocument.partScrappingRecord)
+			.map(EQUIPMENT_PARAMETER, imageDocument.equipmentParameter)
+			.map(PREVENTIVE_MAINTENANCE_STANDARD, imageDocument.preventiveMaintenanceStandard)
+			.map(PREVENTIVE_MAINTENANCE_CONTENT, imageDocument.preventiveMaintenanceContent)
+			.map(PREVENTIVE_MAINTENANCE_EXECUTION, imageDocument.preventiveMaintenanceExecution)
+			.map(PROCUREMENT_REQUEST, imageDocument.procurementRequest)
+			.map(PROCUREMENT_ORDER, imageDocument.procurementOrder)
+			.map(PROCUREMENT_ITEM_DETAIL, imageDocument.procurementItemDetail)
+			.map(ASSET_CLASSIFICATION, imageDocument.assetClassification)
+			.map(ASSET_STATUS, imageDocument.assetStatus)
+			.map(ASSET_STATUS_CHANGE_RECORD, imageDocument.assetStatusChangeRecord)
+			.map(CRITICAL_CLASSIFICATION, imageDocument.criticalClassification)
+			.map(COST_CENTER, imageDocument.costCenter)
+			.map(EMPLOYEE, imageDocument.employee)
+			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
+			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
+			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
+			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2661,7 +2614,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(partMaintenanceRecord, "partMaintenanceRecord is required");
         
         query.where(imageDocument.partMaintenanceRecord.eq(partMaintenanceRecord));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2686,7 +2639,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -2710,9 +2662,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2742,7 +2696,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(partReplaceRecord, "partReplaceRecord is required");
         
         query.where(imageDocument.partReplaceRecord.eq(partReplaceRecord));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2767,7 +2721,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -2791,9 +2744,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2823,7 +2778,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(partScrappingRecord, "partScrappingRecord is required");
         
         query.where(imageDocument.partScrappingRecord.eq(partScrappingRecord));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2848,7 +2803,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -2872,9 +2826,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2904,7 +2860,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(preventiveMaintenanceContent, "preventiveMaintenanceContent is required");
         
         query.where(imageDocument.preventiveMaintenanceContent.eq(preventiveMaintenanceContent));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2929,7 +2885,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -2953,9 +2908,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -2985,7 +2942,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(preventiveMaintenanceExecution, "preventiveMaintenanceExecution is required");
         
         query.where(imageDocument.preventiveMaintenanceExecution.eq(preventiveMaintenanceExecution));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3010,7 +2967,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3034,9 +2990,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3066,7 +3024,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(preventiveMaintenanceFinding, "preventiveMaintenanceFinding is required");
         
         query.where(imageDocument.preventiveMaintenanceFinding.eq(preventiveMaintenanceFinding));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3091,7 +3049,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3115,9 +3072,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3147,7 +3106,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(preventiveMaintenanceStandard, "preventiveMaintenanceStandard is required");
         
         query.where(imageDocument.preventiveMaintenanceStandard.eq(preventiveMaintenanceStandard));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3172,7 +3131,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3196,9 +3154,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3228,7 +3188,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(procurementItemDetail, "procurementItemDetail is required");
         
         query.where(imageDocument.procurementItemDetail.eq(procurementItemDetail));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3253,7 +3213,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3277,9 +3236,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3309,7 +3270,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(procurementOrder, "procurementOrder is required");
         
         query.where(imageDocument.procurementOrder.eq(procurementOrder));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3334,7 +3295,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3358,9 +3318,93 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
+			.map(RECORD_STATUS, imageDocument.recordStatus)
+			.map(CREATED_DATE, imageDocument.createdDate)
+			.map(CREATED_BY, imageDocument.createdBy)
+			.map(LAST_MODIFIED_DATE, imageDocument.lastModifiedDate)
+			.map(LAST_MODIFIED_BY, imageDocument.lastModifiedBy);
+        
+        applyPagination(pageable, query, mapping);
+        applyOrderById(query);
+        
+        return loadPage(query, pageable, imageDocument);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrderFinanceTracking
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<ImageDocument> ImageDocumentRepositoryImpl.findByProcurementOrderFinanceTracking(ProcurementOrderFinanceTracking procurementOrderFinanceTracking, GlobalSearch globalSearch, Pageable pageable) {
+        
+        QImageDocument imageDocument = QImageDocument.imageDocument;
+        
+        JPQLQuery<ImageDocument> query = from(imageDocument);
+        
+        Assert.notNull(procurementOrderFinanceTracking, "procurementOrderFinanceTracking is required");
+        
+        query.where(imageDocument.procurementOrderFinanceTracking.eq(procurementOrderFinanceTracking));
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        applyGlobalSearch(globalSearch, query, paths);
+        
+        AttributeMappingBuilder mapping = buildMapper()
+			.map(FILE_NAME, imageDocument.fileName)
+			.map(DESCRIPTION, imageDocument.description)
+			.map(FILE_TYPE, imageDocument.fileType)
+			.map(IMAGE_ENCODE, imageDocument.imageEncode)
+			.map(UPLOAD_DATE, imageDocument.uploadDate)
+			.map(LOTO_INFO, imageDocument.lotoInfo)
+			.map(LOTO_ISSUE_REPORT, imageDocument.lotoIssueReport)
+			.map(ASSET_INVENTORY_RECORD, imageDocument.assetInventoryRecord)
+			.map(LOTO_DETAIL, imageDocument.lotoDetail)
+			.map(UPLOADER, imageDocument.uploader)
+			.map(NOTIFICATION_ITEM, imageDocument.notificationItem)
+			.map(SYSTEM_BUG_REPORT, imageDocument.systemBugReport)
+			.map(TASK_TRACKING, imageDocument.taskTracking)
+			.map(WORK_LOG, imageDocument.workLog)
+			.map(PREVENTIVE_MAINTENANCE_FINDING, imageDocument.preventiveMaintenanceFinding)
+			.map(AUTONOMOUS_MAINTENANCE_FINDING, imageDocument.autonomousMaintenanceFinding)
+			.map(FAILURE_MAINTENANCE_REPORT, imageDocument.failureMaintenanceReport)
+			.map(WORK_ORDER_HEADER, imageDocument.workOrderHeader)
+			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
+			.map(EQUIPMENT, imageDocument.equipment)
+			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
+			.map(MEASURING_POINT, imageDocument.measuringPoint)
+			.map(MEASURING_RECORD, imageDocument.measuringRecord)
+			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
+			.map(PART_MAINTENANCE_RECORD, imageDocument.partMaintenanceRecord)
+			.map(EQUIPMENT_REPLACE_RECORD, imageDocument.equipmentReplaceRecord)
+			.map(PART_REPLACE_RECORD, imageDocument.partReplaceRecord)
+			.map(EQUIPMENT_SCRAPPING_RECORD, imageDocument.equipmentScrappingRecord)
+			.map(PART_SCRAPPING_RECORD, imageDocument.partScrappingRecord)
+			.map(EQUIPMENT_PARAMETER, imageDocument.equipmentParameter)
+			.map(PREVENTIVE_MAINTENANCE_STANDARD, imageDocument.preventiveMaintenanceStandard)
+			.map(PREVENTIVE_MAINTENANCE_CONTENT, imageDocument.preventiveMaintenanceContent)
+			.map(PREVENTIVE_MAINTENANCE_EXECUTION, imageDocument.preventiveMaintenanceExecution)
+			.map(PROCUREMENT_REQUEST, imageDocument.procurementRequest)
+			.map(PROCUREMENT_ORDER, imageDocument.procurementOrder)
+			.map(PROCUREMENT_ITEM_DETAIL, imageDocument.procurementItemDetail)
+			.map(ASSET_CLASSIFICATION, imageDocument.assetClassification)
+			.map(ASSET_STATUS, imageDocument.assetStatus)
+			.map(ASSET_STATUS_CHANGE_RECORD, imageDocument.assetStatusChangeRecord)
+			.map(CRITICAL_CLASSIFICATION, imageDocument.criticalClassification)
+			.map(COST_CENTER, imageDocument.costCenter)
+			.map(EMPLOYEE, imageDocument.employee)
+			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
+			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
+			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
+			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3390,7 +3434,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(procurementRequest, "procurementRequest is required");
         
         query.where(imageDocument.procurementRequest.eq(procurementRequest));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3415,7 +3459,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3439,9 +3482,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3471,7 +3516,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(purchaseExpedite, "purchaseExpedite is required");
         
         query.where(imageDocument.purchaseExpedite.eq(purchaseExpedite));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3496,7 +3541,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3520,9 +3564,93 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
+			.map(RECORD_STATUS, imageDocument.recordStatus)
+			.map(CREATED_DATE, imageDocument.createdDate)
+			.map(CREATED_BY, imageDocument.createdBy)
+			.map(LAST_MODIFIED_DATE, imageDocument.lastModifiedDate)
+			.map(LAST_MODIFIED_BY, imageDocument.lastModifiedBy);
+        
+        applyPagination(pageable, query, mapping);
+        applyOrderById(query);
+        
+        return loadPage(query, pageable, imageDocument);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<ImageDocument> ImageDocumentRepositoryImpl.findByServiceReceiveDetail(ServiceReceiveDetail serviceReceiveDetail, GlobalSearch globalSearch, Pageable pageable) {
+        
+        QImageDocument imageDocument = QImageDocument.imageDocument;
+        
+        JPQLQuery<ImageDocument> query = from(imageDocument);
+        
+        Assert.notNull(serviceReceiveDetail, "serviceReceiveDetail is required");
+        
+        query.where(imageDocument.serviceReceiveDetail.eq(serviceReceiveDetail));
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        applyGlobalSearch(globalSearch, query, paths);
+        
+        AttributeMappingBuilder mapping = buildMapper()
+			.map(FILE_NAME, imageDocument.fileName)
+			.map(DESCRIPTION, imageDocument.description)
+			.map(FILE_TYPE, imageDocument.fileType)
+			.map(IMAGE_ENCODE, imageDocument.imageEncode)
+			.map(UPLOAD_DATE, imageDocument.uploadDate)
+			.map(LOTO_INFO, imageDocument.lotoInfo)
+			.map(LOTO_ISSUE_REPORT, imageDocument.lotoIssueReport)
+			.map(ASSET_INVENTORY_RECORD, imageDocument.assetInventoryRecord)
+			.map(LOTO_DETAIL, imageDocument.lotoDetail)
+			.map(UPLOADER, imageDocument.uploader)
+			.map(NOTIFICATION_ITEM, imageDocument.notificationItem)
+			.map(SYSTEM_BUG_REPORT, imageDocument.systemBugReport)
+			.map(TASK_TRACKING, imageDocument.taskTracking)
+			.map(WORK_LOG, imageDocument.workLog)
+			.map(PREVENTIVE_MAINTENANCE_FINDING, imageDocument.preventiveMaintenanceFinding)
+			.map(AUTONOMOUS_MAINTENANCE_FINDING, imageDocument.autonomousMaintenanceFinding)
+			.map(FAILURE_MAINTENANCE_REPORT, imageDocument.failureMaintenanceReport)
+			.map(WORK_ORDER_HEADER, imageDocument.workOrderHeader)
+			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
+			.map(EQUIPMENT, imageDocument.equipment)
+			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
+			.map(MEASURING_POINT, imageDocument.measuringPoint)
+			.map(MEASURING_RECORD, imageDocument.measuringRecord)
+			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
+			.map(PART_MAINTENANCE_RECORD, imageDocument.partMaintenanceRecord)
+			.map(EQUIPMENT_REPLACE_RECORD, imageDocument.equipmentReplaceRecord)
+			.map(PART_REPLACE_RECORD, imageDocument.partReplaceRecord)
+			.map(EQUIPMENT_SCRAPPING_RECORD, imageDocument.equipmentScrappingRecord)
+			.map(PART_SCRAPPING_RECORD, imageDocument.partScrappingRecord)
+			.map(EQUIPMENT_PARAMETER, imageDocument.equipmentParameter)
+			.map(PREVENTIVE_MAINTENANCE_STANDARD, imageDocument.preventiveMaintenanceStandard)
+			.map(PREVENTIVE_MAINTENANCE_CONTENT, imageDocument.preventiveMaintenanceContent)
+			.map(PREVENTIVE_MAINTENANCE_EXECUTION, imageDocument.preventiveMaintenanceExecution)
+			.map(PROCUREMENT_REQUEST, imageDocument.procurementRequest)
+			.map(PROCUREMENT_ORDER, imageDocument.procurementOrder)
+			.map(PROCUREMENT_ITEM_DETAIL, imageDocument.procurementItemDetail)
+			.map(ASSET_CLASSIFICATION, imageDocument.assetClassification)
+			.map(ASSET_STATUS, imageDocument.assetStatus)
+			.map(ASSET_STATUS_CHANGE_RECORD, imageDocument.assetStatusChangeRecord)
+			.map(CRITICAL_CLASSIFICATION, imageDocument.criticalClassification)
+			.map(COST_CENTER, imageDocument.costCenter)
+			.map(EMPLOYEE, imageDocument.employee)
+			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
+			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
+			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
+			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3552,7 +3680,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(systemBugReport, "systemBugReport is required");
         
         query.where(imageDocument.systemBugReport.eq(systemBugReport));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3577,7 +3705,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3601,9 +3728,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3633,7 +3762,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(taskTracking, "taskTracking is required");
         
         query.where(imageDocument.taskTracking.eq(taskTracking));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3658,7 +3787,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3682,9 +3810,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3714,7 +3844,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(technicalObject, "technicalObject is required");
         
         query.where(imageDocument.technicalObject.eq(technicalObject));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3739,7 +3869,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3763,9 +3892,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3795,7 +3926,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(workLog, "workLog is required");
         
         query.where(imageDocument.workLog.eq(workLog));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3820,7 +3951,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3844,9 +3974,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)
@@ -3876,7 +4008,7 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(workOrderHeader, "workOrderHeader is required");
         
         query.where(imageDocument.workOrderHeader.eq(workOrderHeader));
-        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.materialInstockDetail,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.materialOutstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {imageDocument.fileName,imageDocument.description,imageDocument.fileType,imageDocument.imageEncode,imageDocument.uploadDate,imageDocument.lotoInfo,imageDocument.lotoIssueReport,imageDocument.assetInventoryRecord,imageDocument.lotoDetail,imageDocument.uploader,imageDocument.notificationItem,imageDocument.systemBugReport,imageDocument.taskTracking,imageDocument.workLog,imageDocument.preventiveMaintenanceFinding,imageDocument.autonomousMaintenanceFinding,imageDocument.failureMaintenanceReport,imageDocument.workOrderHeader,imageDocument.functionalLocation,imageDocument.equipment,imageDocument.materialCatalog,imageDocument.measuringPoint,imageDocument.measuringRecord,imageDocument.equipmentMaintenanceRecord,imageDocument.partMaintenanceRecord,imageDocument.equipmentReplaceRecord,imageDocument.partReplaceRecord,imageDocument.equipmentScrappingRecord,imageDocument.partScrappingRecord,imageDocument.equipmentParameter,imageDocument.preventiveMaintenanceStandard,imageDocument.preventiveMaintenanceContent,imageDocument.preventiveMaintenanceExecution,imageDocument.procurementRequest,imageDocument.procurementOrder,imageDocument.procurementItemDetail,imageDocument.assetClassification,imageDocument.assetStatus,imageDocument.assetStatusChangeRecord,imageDocument.criticalClassification,imageDocument.costCenter,imageDocument.employee,imageDocument.purchaseExpedite,imageDocument.instockDetail,imageDocument.outstockDetail,imageDocument.technicalObject,imageDocument.equipmentLubrication,imageDocument.serviceReceiveDetail,imageDocument.procurementOrderFinanceTracking,imageDocument.recordStatus,imageDocument.createdDate,imageDocument.createdBy,imageDocument.lastModifiedDate,imageDocument.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3901,7 +4033,6 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, imageDocument.functionalLocation)
 			.map(EQUIPMENT, imageDocument.equipment)
 			.map(MATERIAL_CATALOG, imageDocument.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, imageDocument.materialInstockDetail)
 			.map(MEASURING_POINT, imageDocument.measuringPoint)
 			.map(MEASURING_RECORD, imageDocument.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, imageDocument.equipmentMaintenanceRecord)
@@ -3925,9 +4056,11 @@ privileged aspect ImageDocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, imageDocument.employee)
 			.map(PURCHASE_EXPEDITE, imageDocument.purchaseExpedite)
 			.map(INSTOCK_DETAIL, imageDocument.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, imageDocument.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, imageDocument.outstockDetail)
 			.map(TECHNICAL_OBJECT, imageDocument.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, imageDocument.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, imageDocument.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, imageDocument.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, imageDocument.recordStatus)
 			.map(CREATED_DATE, imageDocument.createdDate)
 			.map(CREATED_BY, imageDocument.createdBy)

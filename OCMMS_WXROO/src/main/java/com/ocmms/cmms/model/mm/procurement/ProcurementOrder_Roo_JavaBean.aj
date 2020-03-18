@@ -9,6 +9,7 @@ import com.ocmms.cmms.model.mm.procurement.CatalogType;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.PriorityType;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.model.srm.Vendor;
@@ -96,6 +97,26 @@ privileged aspect ProcurementOrder_Roo_JavaBean {
      */
     public ProcurementOrder ProcurementOrder.setPurchaseExpedites(Set<PurchaseExpedite> purchaseExpedites) {
         this.purchaseExpedites = purchaseExpedites;
+        return this;
+    }
+    
+    /**
+     * Gets procurementOrderFinanceTrackings value
+     * 
+     * @return Set
+     */
+    public Set<ProcurementOrderFinanceTracking> ProcurementOrder.getProcurementOrderFinanceTrackings() {
+        return this.procurementOrderFinanceTrackings;
+    }
+    
+    /**
+     * Sets procurementOrderFinanceTrackings value
+     * 
+     * @param procurementOrderFinanceTrackings
+     * @return ProcurementOrder
+     */
+    public ProcurementOrder ProcurementOrder.setProcurementOrderFinanceTrackings(Set<ProcurementOrderFinanceTracking> procurementOrderFinanceTrackings) {
+        this.procurementOrderFinanceTrackings = procurementOrderFinanceTrackings;
         return this;
     }
     

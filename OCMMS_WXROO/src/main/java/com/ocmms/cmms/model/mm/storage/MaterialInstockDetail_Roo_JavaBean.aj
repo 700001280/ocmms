@@ -3,17 +3,9 @@
 
 package com.ocmms.cmms.model.mm.storage;
 
-import com.ocmms.cmms.model.edm.Document;
-import com.ocmms.cmms.model.edm.ImageDocument;
-import com.ocmms.cmms.model.hrm.Employee;
-import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
-import java.util.Calendar;
 import java.util.Objects;
-import java.util.Set;
 
 privileged aspect MaterialInstockDetail_Roo_JavaBean {
     
@@ -58,166 +50,6 @@ privileged aspect MaterialInstockDetail_Roo_JavaBean {
     }
     
     /**
-     * Gets expirationDate value
-     * 
-     * @return Calendar
-     */
-    public Calendar MaterialInstockDetail.getExpirationDate() {
-        return this.expirationDate;
-    }
-    
-    /**
-     * Sets expirationDate value
-     * 
-     * @param expirationDate
-     * @return MaterialInstockDetail
-     */
-    public MaterialInstockDetail MaterialInstockDetail.setExpirationDate(Calendar expirationDate) {
-        this.expirationDate = expirationDate;
-        return this;
-    }
-    
-    /**
-     * Gets materialCatalog value
-     * 
-     * @return MaterialCatalog
-     */
-    public MaterialCatalog MaterialInstockDetail.getMaterialCatalog() {
-        return this.materialCatalog;
-    }
-    
-    /**
-     * Sets materialCatalog value
-     * 
-     * @param materialCatalog
-     * @return MaterialInstockDetail
-     */
-    public MaterialInstockDetail MaterialInstockDetail.setMaterialCatalog(MaterialCatalog materialCatalog) {
-        this.materialCatalog = materialCatalog;
-        return this;
-    }
-    
-    /**
-     * Gets storageLocation value
-     * 
-     * @return StorageLocation
-     */
-    public StorageLocation MaterialInstockDetail.getStorageLocation() {
-        return this.storageLocation;
-    }
-    
-    /**
-     * Sets storageLocation value
-     * 
-     * @param storageLocation
-     * @return MaterialInstockDetail
-     */
-    public MaterialInstockDetail MaterialInstockDetail.setStorageLocation(StorageLocation storageLocation) {
-        this.storageLocation = storageLocation;
-        return this;
-    }
-    
-    /**
-     * Gets serialNumber value
-     * 
-     * @return String
-     */
-    public String MaterialInstockDetail.getSerialNumber() {
-        return this.serialNumber;
-    }
-    
-    /**
-     * Sets serialNumber value
-     * 
-     * @param serialNumber
-     * @return MaterialInstockDetail
-     */
-    public MaterialInstockDetail MaterialInstockDetail.setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-        return this;
-    }
-    
-    /**
-     * Gets keeper value
-     * 
-     * @return Employee
-     */
-    public Employee MaterialInstockDetail.getKeeper() {
-        return this.keeper;
-    }
-    
-    /**
-     * Sets keeper value
-     * 
-     * @param keeper
-     * @return MaterialInstockDetail
-     */
-    public MaterialInstockDetail MaterialInstockDetail.setKeeper(Employee keeper) {
-        this.keeper = keeper;
-        return this;
-    }
-    
-    /**
-     * Gets documents value
-     * 
-     * @return Set
-     */
-    public Set<Document> MaterialInstockDetail.getDocuments() {
-        return this.documents;
-    }
-    
-    /**
-     * Sets documents value
-     * 
-     * @param documents
-     * @return MaterialInstockDetail
-     */
-    public MaterialInstockDetail MaterialInstockDetail.setDocuments(Set<Document> documents) {
-        this.documents = documents;
-        return this;
-    }
-    
-    /**
-     * Gets images value
-     * 
-     * @return Set
-     */
-    public Set<ImageDocument> MaterialInstockDetail.getImages() {
-        return this.images;
-    }
-    
-    /**
-     * Sets images value
-     * 
-     * @param images
-     * @return MaterialInstockDetail
-     */
-    public MaterialInstockDetail MaterialInstockDetail.setImages(Set<ImageDocument> images) {
-        this.images = images;
-        return this;
-    }
-    
-    /**
-     * Gets storageType value
-     * 
-     * @return StorageType
-     */
-    public StorageType MaterialInstockDetail.getStorageType() {
-        return this.storageType;
-    }
-    
-    /**
-     * Sets storageType value
-     * 
-     * @param storageType
-     * @return MaterialInstockDetail
-     */
-    public MaterialInstockDetail MaterialInstockDetail.setStorageType(StorageType storageType) {
-        this.storageType = storageType;
-        return this;
-    }
-    
-    /**
      * This `equals` implementation is specific for JPA entities and uses 
      * the entity identifier for it, following the article in 
      * https://vladmihalcea.com/2016/06/06/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
@@ -254,9 +86,7 @@ privileged aspect MaterialInstockDetail_Roo_JavaBean {
      */
     public String MaterialInstockDetail.toString() {
         return "MaterialInstockDetail {" + 
-                "id='" + id + '\'' + 
-                ", expirationDate='" + expirationDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(expirationDate.getTime()) + '\'' + 
-                ", serialNumber='" + serialNumber + '\'' + "}" + super.toString();
+                "id='" + id + '\'' + "}" + super.toString();
     }
     
 }

@@ -184,6 +184,33 @@ privileged aspect MaterialCatalogService_Roo_Service {
      * TODO Auto-generated method documentation
      * 
      * @param materialCatalog
+     * @param instockDetailsToAdd
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.addToInstockDetails(MaterialCatalog materialCatalog, Iterable<Long> instockDetailsToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param instockDetailsToRemove
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.removeFromInstockDetails(MaterialCatalog materialCatalog, Iterable<Long> instockDetailsToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param instockDetails
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.setInstockDetails(MaterialCatalog materialCatalog, Iterable<Long> instockDetails);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
      * @param materialAttributesToAdd
      * @return MaterialCatalog
      */
@@ -287,5 +314,32 @@ privileged aspect MaterialCatalogService_Roo_Service {
      * @return MaterialCatalog
      */
     public abstract MaterialCatalog MaterialCatalogService.setMaterialVendorInfos(MaterialCatalog materialCatalog, Iterable<Long> materialVendorInfos);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param outstockDetailsToAdd
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.addToOutstockDetails(MaterialCatalog materialCatalog, Iterable<Long> outstockDetailsToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param outstockDetailsToRemove
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.removeFromOutstockDetails(MaterialCatalog materialCatalog, Iterable<Long> outstockDetailsToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param outstockDetails
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.setOutstockDetails(MaterialCatalog materialCatalog, Iterable<Long> outstockDetails);
     
 }

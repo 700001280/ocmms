@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="outstockdetail-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('OutstockDetailsCollectionThymeleafController')},itemLink=${@linkBuilder.of('OutstockDetailsItemThymeleafController')}">
+    <table id="outstockdetail-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="organization" data-th-text="#{label_outstockdetail_organization}">organization</th>
+          <th data-data="materialCatalog" data-th-text="#{label_outstockdetail_materialcatalog}">materialCatalog</th>
+          <th data-data="storageLocation" data-th-text="#{label_outstockdetail_storagelocation}">storageLocation</th>
+          <th data-data="storageType" data-th-text="#{label_outstockdetail_storagetype}">storageType</th>
+          <th data-data="serialNumber" data-th-text="#{label_outstockdetail_serialnumber}">serialNumber</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>organization</td>
+          <td>materialCatalog</td>
+          <td>storageLocation</td>
+          <td>storageType</td>
+          <td>serialNumber</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

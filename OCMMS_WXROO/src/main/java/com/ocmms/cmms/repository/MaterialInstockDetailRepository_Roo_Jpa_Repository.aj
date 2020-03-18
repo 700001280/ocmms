@@ -4,8 +4,6 @@
 package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.repository.MaterialInstockDetailRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,21 +18,5 @@ privileged aspect MaterialInstockDetailRepository_Roo_Jpa_Repository {
      * @return Long
      */
     public abstract long MaterialInstockDetailRepository.countByMaterialProcurementItemDetail(MaterialProcurementItemDetail materialProcurementItemDetail);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageLocation
-     * @return Long
-     */
-    public abstract long MaterialInstockDetailRepository.countByStorageLocation(StorageLocation storageLocation);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @return Long
-     */
-    public abstract long MaterialInstockDetailRepository.countByStorageType(StorageType storageType);
     
 }

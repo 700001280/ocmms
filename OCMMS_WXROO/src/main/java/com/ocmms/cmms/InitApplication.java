@@ -20,7 +20,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.ocmms.cmms.batch.servicematerialdetail.ServiceMaterialDetailJobLauncher;
+//import com.ocmms.cmms.batch.servicematerialdetail.ServiceMaterialDetailJobLauncher;
 import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.service.api.EquipmentService;
 

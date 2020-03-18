@@ -3,7 +3,11 @@
 
 package com.ocmms.cmms.repository;
 
+import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.MovementType;
+import com.ocmms.cmms.model.mm.storage.StorageLocation;
+import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.repository.InstockDetailRepositoryCustom;
 import io.springlets.data.domain.GlobalSearch;
 import java.util.List;
@@ -11,6 +15,46 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 privileged aspect InstockDetailRepositoryCustom_Roo_Jpa_Repository_Custom {
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<InstockDetail> InstockDetailRepositoryCustom.findByMaterialCatalog(MaterialCatalog materialCatalog, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param movementType
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<InstockDetail> InstockDetailRepositoryCustom.findByMovementType(MovementType movementType, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<InstockDetail> InstockDetailRepositoryCustom.findByStorageLocation(StorageLocation storageLocation, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageType
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<InstockDetail> InstockDetailRepositoryCustom.findByStorageType(StorageType storageType, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

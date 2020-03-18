@@ -9,6 +9,7 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
+import com.ocmms.cmms.model.mm.storage.PartScrappingOutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.EmployeeDeserializer;
@@ -33,6 +34,13 @@ privileged aspect PartScrappingRecordJsonMixin_Roo_JSONMixin {
      */
     @JsonIgnore
     private Set<ImageDocument> PartScrappingRecordJsonMixin.images;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonIgnore
+    private Set<PartScrappingOutstockDetail> PartScrappingRecordJsonMixin.partScrappingOutstockDetails;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -96,6 +104,24 @@ privileged aspect PartScrappingRecordJsonMixin_Roo_JSONMixin {
      */
     public void PartScrappingRecordJsonMixin.setImages(Set<ImageDocument> images) {
         this.images = images;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Set
+     */
+    public Set<PartScrappingOutstockDetail> PartScrappingRecordJsonMixin.getPartScrappingOutstockDetails() {
+        return partScrappingOutstockDetails;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partScrappingOutstockDetails
+     */
+    public void PartScrappingRecordJsonMixin.setPartScrappingOutstockDetails(Set<PartScrappingOutstockDetail> partScrappingOutstockDetails) {
+        this.partScrappingOutstockDetails = partScrappingOutstockDetails;
     }
     
     /**

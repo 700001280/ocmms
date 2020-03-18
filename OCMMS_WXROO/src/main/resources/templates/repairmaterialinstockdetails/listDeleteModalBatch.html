@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="repairmaterialinstockdetail-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('RepairMaterialInstockDetailsCollectionThymeleafController')},itemLink=${@linkBuilder.of('RepairMaterialInstockDetailsItemThymeleafController')}">
+    <table id="repairmaterialinstockdetail-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="materialCatalog" data-th-text="#{label_repairmaterialinstockdetail_materialcatalog}">materialCatalog</th>
+          <th data-data="storageLocation" data-th-text="#{label_repairmaterialinstockdetail_storagelocation}">storageLocation</th>
+          <th data-data="quantity" data-th-text="#{label_repairmaterialinstockdetail_quantity}">quantity</th>
+          <th data-data="storageType" data-th-text="#{label_repairmaterialinstockdetail_storagetype}">storageType</th>
+          <th data-data="movementType" data-th-text="#{label_repairmaterialinstockdetail_movementtype}">movementType</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>materialCatalog</td>
+          <td>storageLocation</td>
+          <td>quantity</td>
+          <td>storageType</td>
+          <td>movementType</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

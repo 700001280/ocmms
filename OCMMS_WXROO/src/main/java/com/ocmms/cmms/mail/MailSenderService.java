@@ -57,7 +57,6 @@ import com.ocmms.cmms.service.api.PelletizerUpRollerReplaceRecordService;
 import com.ocmms.cmms.service.api.PelletizerReplaceRecordService;
 import com.ocmms.cmms.service.api.PreventiveMaintenanceExecutionService;
 import com.ocmms.cmms.service.api.UserInfoService;
-import com.ocmms.cmms.web.PreventiveMaintenanceExecutionJsonMixin;
 
 import io.springlets.security.jpa.domain.UserLogin;
 import io.springlets.security.jpa.service.api.UserLoginService;

@@ -221,11 +221,9 @@ privileged aspect MaterialInstockDetailsItemThymeleafController_Roo_Thymeleaf {
     public void MaterialInstockDetailsItemThymeleafController.populateFormats(Model model) {
         model.addAttribute("application_locale", LocaleContextHolder.getLocale().getLanguage());
         model.addAttribute("receiveDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        model.addAttribute("invoiceDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        model.addAttribute("paymentDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        model.addAttribute("expirationDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         model.addAttribute("createdDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         model.addAttribute("lastModifiedDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        model.addAttribute("expirationDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     /**

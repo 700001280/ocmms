@@ -5,8 +5,8 @@ package com.ocmms.cmms.web;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.RecordStatusDeserializer;
 import com.ocmms.cmms.web.StorageTypeJsonMixin;
@@ -19,14 +19,14 @@ privileged aspect StorageTypeJsonMixin_Roo_JSONMixin {
      * 
      */
     @JsonIgnore
-    private Set<MaterialInstockDetail> StorageTypeJsonMixin.materialInstockDetails;
+    private Set<InstockDetail> StorageTypeJsonMixin.instockDetails;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
     @JsonIgnore
-    private Set<MaterialOutstockDetail> StorageTypeJsonMixin.materialOutstockDetails;
+    private Set<OutstockDetail> StorageTypeJsonMixin.outstockDetails;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -40,17 +40,17 @@ privileged aspect StorageTypeJsonMixin_Roo_JSONMixin {
      * 
      * @return Set
      */
-    public Set<MaterialInstockDetail> StorageTypeJsonMixin.getMaterialInstockDetails() {
-        return materialInstockDetails;
+    public Set<InstockDetail> StorageTypeJsonMixin.getInstockDetails() {
+        return instockDetails;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialInstockDetails
+     * @param instockDetails
      */
-    public void StorageTypeJsonMixin.setMaterialInstockDetails(Set<MaterialInstockDetail> materialInstockDetails) {
-        this.materialInstockDetails = materialInstockDetails;
+    public void StorageTypeJsonMixin.setInstockDetails(Set<InstockDetail> instockDetails) {
+        this.instockDetails = instockDetails;
     }
     
     /**
@@ -58,17 +58,17 @@ privileged aspect StorageTypeJsonMixin_Roo_JSONMixin {
      * 
      * @return Set
      */
-    public Set<MaterialOutstockDetail> StorageTypeJsonMixin.getMaterialOutstockDetails() {
-        return materialOutstockDetails;
+    public Set<OutstockDetail> StorageTypeJsonMixin.getOutstockDetails() {
+        return outstockDetails;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialOutstockDetails
+     * @param outstockDetails
      */
-    public void StorageTypeJsonMixin.setMaterialOutstockDetails(Set<MaterialOutstockDetail> materialOutstockDetails) {
-        this.materialOutstockDetails = materialOutstockDetails;
+    public void StorageTypeJsonMixin.setOutstockDetails(Set<OutstockDetail> outstockDetails) {
+        this.outstockDetails = outstockDetails;
     }
     
     /**

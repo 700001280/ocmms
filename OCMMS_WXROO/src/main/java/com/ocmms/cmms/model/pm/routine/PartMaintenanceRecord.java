@@ -15,6 +15,7 @@ import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.RepairMaterialInstockDetail;
 import com.ocmms.cmms.model.srm.Vendor;
 import com.ocmms.cmms.model.system.RecordStatus;
 
@@ -162,6 +163,15 @@ public class PartMaintenanceRecord {
 			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "partMaintenanceRecord")
 	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
 	private Set<MaterialOutstockDetail> materialOutstockDetails = new HashSet<MaterialOutstockDetail>();
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@OneToMany(cascade = { javax.persistence.CascadeType.MERGE,
+			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "partMaintenanceRecord")
+	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
+	private Set<RepairMaterialInstockDetail> repairMaterialInstockDetails = new HashSet<RepairMaterialInstockDetail>();
 
 	
 	/**

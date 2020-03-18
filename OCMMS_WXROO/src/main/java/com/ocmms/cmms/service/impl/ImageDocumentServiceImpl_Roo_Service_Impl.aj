@@ -19,11 +19,12 @@ import com.ocmms.cmms.model.loto.LotoIssueReport;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringRecord;
 import com.ocmms.cmms.model.pm.notification.NotificationItem;
@@ -129,14 +130,14 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
             imageDocument.getAssetClassification().getImages().remove(imageDocument);
         }
         
+        // Clear bidirectional many-to-one child relationship with ServiceReceiveDetail
+        if (imageDocument.getServiceReceiveDetail() != null) {
+            imageDocument.getServiceReceiveDetail().getImages().remove(imageDocument);
+        }
+        
         // Clear bidirectional many-to-one child relationship with EquipmentMaintenanceRecord
         if (imageDocument.getEquipmentMaintenanceRecord() != null) {
             imageDocument.getEquipmentMaintenanceRecord().getImages().remove(imageDocument);
-        }
-        
-        // Clear bidirectional many-to-one child relationship with MaterialOutstockDetail
-        if (imageDocument.getMaterialOutstockDetail() != null) {
-            imageDocument.getMaterialOutstockDetail().getImages().remove(imageDocument);
         }
         
         // Clear bidirectional many-to-one child relationship with TechnicalObject
@@ -212,6 +213,16 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
         // Clear bidirectional many-to-one child relationship with AutonomousMaintenanceFinding
         if (imageDocument.getAutonomousMaintenanceFinding() != null) {
             imageDocument.getAutonomousMaintenanceFinding().getImages().remove(imageDocument);
+        }
+        
+        // Clear bidirectional many-to-one child relationship with OutstockDetail
+        if (imageDocument.getOutstockDetail() != null) {
+            imageDocument.getOutstockDetail().getImages().remove(imageDocument);
+        }
+        
+        // Clear bidirectional many-to-one child relationship with ProcurementOrderFinanceTracking
+        if (imageDocument.getProcurementOrderFinanceTracking() != null) {
+            imageDocument.getProcurementOrderFinanceTracking().getImages().remove(imageDocument);
         }
         
         // Clear bidirectional many-to-one child relationship with InstockDetail
@@ -297,11 +308,6 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
         // Clear bidirectional many-to-one child relationship with BugReport
         if (imageDocument.getSystemBugReport() != null) {
             imageDocument.getSystemBugReport().getImages().remove(imageDocument);
-        }
-        
-        // Clear bidirectional many-to-one child relationship with MaterialInstockDetail
-        if (imageDocument.getMaterialInstockDetail() != null) {
-            imageDocument.getMaterialInstockDetail().getImages().remove(imageDocument);
         }
         
         // Clear bidirectional many-to-one child relationship with PartMaintenanceRecord
@@ -691,30 +697,6 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialInstockDetail
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<ImageDocument> ImageDocumentServiceImpl.findByMaterialInstockDetail(MaterialInstockDetail materialInstockDetail, GlobalSearch globalSearch, Pageable pageable) {
-        return getImageDocumentRepository().findByMaterialInstockDetail(materialInstockDetail, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<ImageDocument> ImageDocumentServiceImpl.findByMaterialOutstockDetail(MaterialOutstockDetail materialOutstockDetail, GlobalSearch globalSearch, Pageable pageable) {
-        return getImageDocumentRepository().findByMaterialOutstockDetail(materialOutstockDetail, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param measuringPoint
      * @param globalSearch
      * @param pageable
@@ -746,6 +728,18 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
      */
     public Page<ImageDocument> ImageDocumentServiceImpl.findByNotificationItem(NotificationItem notificationItem, GlobalSearch globalSearch, Pageable pageable) {
         return getImageDocumentRepository().findByNotificationItem(notificationItem, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetail
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<ImageDocument> ImageDocumentServiceImpl.findByOutstockDetail(OutstockDetail outstockDetail, GlobalSearch globalSearch, Pageable pageable) {
+        return getImageDocumentRepository().findByOutstockDetail(outstockDetail, globalSearch, pageable);
     }
     
     /**
@@ -859,6 +853,18 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param procurementOrderFinanceTracking
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<ImageDocument> ImageDocumentServiceImpl.findByProcurementOrderFinanceTracking(ProcurementOrderFinanceTracking procurementOrderFinanceTracking, GlobalSearch globalSearch, Pageable pageable) {
+        return getImageDocumentRepository().findByProcurementOrderFinanceTracking(procurementOrderFinanceTracking, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param procurementRequest
      * @param globalSearch
      * @param pageable
@@ -878,6 +884,18 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
      */
     public Page<ImageDocument> ImageDocumentServiceImpl.findByPurchaseExpedite(PurchaseExpedite purchaseExpedite, GlobalSearch globalSearch, Pageable pageable) {
         return getImageDocumentRepository().findByPurchaseExpedite(purchaseExpedite, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<ImageDocument> ImageDocumentServiceImpl.findByServiceReceiveDetail(ServiceReceiveDetail serviceReceiveDetail, GlobalSearch globalSearch, Pageable pageable) {
+        return getImageDocumentRepository().findByServiceReceiveDetail(serviceReceiveDetail, globalSearch, pageable);
     }
     
     /**
@@ -1153,26 +1171,6 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialInstockDetail
-     * @return Long
-     */
-    public long ImageDocumentServiceImpl.countByMaterialInstockDetail(MaterialInstockDetail materialInstockDetail) {
-        return getImageDocumentRepository().countByMaterialInstockDetail(materialInstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @return Long
-     */
-    public long ImageDocumentServiceImpl.countByMaterialOutstockDetail(MaterialOutstockDetail materialOutstockDetail) {
-        return getImageDocumentRepository().countByMaterialOutstockDetail(materialOutstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param measuringPoint
      * @return Long
      */
@@ -1198,6 +1196,16 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
      */
     public long ImageDocumentServiceImpl.countByNotificationItem(NotificationItem notificationItem) {
         return getImageDocumentRepository().countByNotificationItem(notificationItem);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetail
+     * @return Long
+     */
+    public long ImageDocumentServiceImpl.countByOutstockDetail(OutstockDetail outstockDetail) {
+        return getImageDocumentRepository().countByOutstockDetail(outstockDetail);
     }
     
     /**
@@ -1293,6 +1301,16 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param procurementOrderFinanceTracking
+     * @return Long
+     */
+    public long ImageDocumentServiceImpl.countByProcurementOrderFinanceTracking(ProcurementOrderFinanceTracking procurementOrderFinanceTracking) {
+        return getImageDocumentRepository().countByProcurementOrderFinanceTracking(procurementOrderFinanceTracking);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param procurementRequest
      * @return Long
      */
@@ -1308,6 +1326,16 @@ privileged aspect ImageDocumentServiceImpl_Roo_Service_Impl {
      */
     public long ImageDocumentServiceImpl.countByPurchaseExpedite(PurchaseExpedite purchaseExpedite) {
         return getImageDocumentRepository().countByPurchaseExpedite(purchaseExpedite);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @return Long
+     */
+    public long ImageDocumentServiceImpl.countByServiceReceiveDetail(ServiceReceiveDetail serviceReceiveDetail) {
+        return getImageDocumentRepository().countByServiceReceiveDetail(serviceReceiveDetail);
     }
     
     /**

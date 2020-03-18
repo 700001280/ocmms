@@ -41,11 +41,15 @@ import com.ocmms.cmms.model.loto.LotoIssueReport;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.RepairMaterialInstockDetail;
+import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringRecord;
 import com.ocmms.cmms.model.pm.notification.NotificationItem;
@@ -247,15 +251,7 @@ public class Document {
     @EntityFormat
     private MaterialCatalog materialCatalog;
 
-    /**
-     * TODO Auto-generated attribute documentation
-     *
-     */
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MATERIALINSTOCKDETAIL")
-    @EntityFormat
-    private MaterialInstockDetail materialInstockDetail;
-
+    
     /**
      * TODO Auto-generated attribute documentation
      *
@@ -485,9 +481,9 @@ public class Document {
      *
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "materialOutstockDetail")
+    @JoinColumn(name = "outstockDetail")
     @EntityFormat
-    private MaterialOutstockDetail materialOutstockDetail;
+    private OutstockDetail outstockDetail;
     
      /**
      * TODO Auto-generated attribute documentation
@@ -506,6 +502,26 @@ public class Document {
     @JoinColumn(name = "equipmentLubrication")
     @EntityFormat
     private EquipmentLubrication equipmentLubrication;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "serviceReceiveDetail")
+    @EntityFormat
+    private ServiceReceiveDetail serviceReceiveDetail;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "procurementOrderFinanceTracking")
+    @EntityFormat
+    private ProcurementOrderFinanceTracking procurementOrderFinanceTracking;
+    
+    
     
             
     /**

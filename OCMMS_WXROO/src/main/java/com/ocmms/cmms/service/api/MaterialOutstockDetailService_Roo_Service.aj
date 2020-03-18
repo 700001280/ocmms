@@ -4,8 +4,6 @@
 package com.ocmms.cmms.service.api;
 
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.model.pm.routine.EquipmentMaintenanceRecord;
 import com.ocmms.cmms.model.pm.routine.PartMaintenanceRecord;
 import com.ocmms.cmms.service.api.MaterialOutstockDetailService;
@@ -106,60 +104,6 @@ privileged aspect MaterialOutstockDetailService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialOutstockDetail
-     * @param documentsToAdd
-     * @return MaterialOutstockDetail
-     */
-    public abstract MaterialOutstockDetail MaterialOutstockDetailService.addToDocuments(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> documentsToAdd);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param documentsToRemove
-     * @return MaterialOutstockDetail
-     */
-    public abstract MaterialOutstockDetail MaterialOutstockDetailService.removeFromDocuments(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> documentsToRemove);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param documents
-     * @return MaterialOutstockDetail
-     */
-    public abstract MaterialOutstockDetail MaterialOutstockDetailService.setDocuments(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> documents);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param imagesToAdd
-     * @return MaterialOutstockDetail
-     */
-    public abstract MaterialOutstockDetail MaterialOutstockDetailService.addToImages(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> imagesToAdd);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param imagesToRemove
-     * @return MaterialOutstockDetail
-     */
-    public abstract MaterialOutstockDetail MaterialOutstockDetailService.removeFromImages(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> imagesToRemove);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param images
-     * @return MaterialOutstockDetail
-     */
-    public abstract MaterialOutstockDetail MaterialOutstockDetailService.setImages(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> images);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param equipmentMaintenanceRecord
      * @param globalSearch
      * @param pageable
@@ -180,26 +124,6 @@ privileged aspect MaterialOutstockDetailService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param storageLocation
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialOutstockDetail> MaterialOutstockDetailService.findByStorageLocation(StorageLocation storageLocation, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialOutstockDetail> MaterialOutstockDetailService.findByStorageType(StorageType storageType, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param equipmentMaintenanceRecord
      * @return Long
      */
@@ -212,21 +136,5 @@ privileged aspect MaterialOutstockDetailService_Roo_Service {
      * @return Long
      */
     public abstract long MaterialOutstockDetailService.countByPartMaintenanceRecord(PartMaintenanceRecord partMaintenanceRecord);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageLocation
-     * @return Long
-     */
-    public abstract long MaterialOutstockDetailService.countByStorageLocation(StorageLocation storageLocation);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @return Long
-     */
-    public abstract long MaterialOutstockDetailService.countByStorageType(StorageType storageType);
     
 }

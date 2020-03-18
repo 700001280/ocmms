@@ -303,6 +303,7 @@ privileged aspect MaterialOutstockDetailsCollectionThymeleafController_Roo_Thyme
         model.addAttribute("issueDate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
         model.addAttribute("createdDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         model.addAttribute("lastModifiedDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        model.addAttribute("issueDate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
     }
     
     /**
@@ -520,9 +521,6 @@ privileged aspect MaterialOutstockDetailsCollectionThymeleafController_Roo_Thyme
         if (columnName.equals("id")) {
             builder.addColumn(getMessageSource().getMessage("label_materialoutstockdetail_id", null, "Id", locale), "id", Long.class.getName(), 50);
         }
-        else if (columnName.equals("orderNo")) {
-            builder.addColumn(getMessageSource().getMessage("label_materialoutstockdetail_orderno", null, "Order No", locale), "orderNo", String.class.getName(), 100);
-        }
         else if (columnName.equals("serialNumber")) {
             builder.addColumn(getMessageSource().getMessage("label_materialoutstockdetail_serialnumber", null, "Serial Number", locale), "serialNumber", String.class.getName(), 100);
         }
@@ -549,6 +547,15 @@ privileged aspect MaterialOutstockDetailsCollectionThymeleafController_Roo_Thyme
         }
         else if (columnName.equals("lastModifiedBy")) {
             builder.addColumn(getMessageSource().getMessage("label_materialoutstockdetail_lastmodifiedby", null, "Last Modified By", locale), "lastModifiedBy", String.class.getName(), 100);
+        }
+        else if (columnName.equals("id")) {
+            builder.addColumn(getMessageSource().getMessage("label_materialoutstockdetail_id", null, "Id", locale), "id", Long.class.getName(), 50);
+        }
+        else if (columnName.equals("orderNo")) {
+            builder.addColumn(getMessageSource().getMessage("label_materialoutstockdetail_orderno", null, "Order No", locale), "orderNo", String.class.getName(), 100);
+        }
+        else if (columnName.equals("issueDate")) {
+            builder.addColumn(getMessageSource().getMessage("label_materialoutstockdetail_issuedate", null, "Issue Date", locale), "issueDate", Calendar.class.getName(), 100);
         }
         }
         catch (ColumnBuilderException e) {

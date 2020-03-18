@@ -3,11 +3,47 @@
 
 package com.ocmms.cmms.repository;
 
+import com.ocmms.cmms.model.mm.master.MaterialCatalog;
+import com.ocmms.cmms.model.mm.storage.MovementType;
+import com.ocmms.cmms.model.mm.storage.StorageLocation;
+import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.repository.InstockDetailRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect InstockDetailRepository_Roo_Jpa_Repository {
     
     declare @type: InstockDetailRepository: @Transactional(readOnly = true);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @return Long
+     */
+    public abstract long InstockDetailRepository.countByMaterialCatalog(MaterialCatalog materialCatalog);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param movementType
+     * @return Long
+     */
+    public abstract long InstockDetailRepository.countByMovementType(MovementType movementType);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
+     * @return Long
+     */
+    public abstract long InstockDetailRepository.countByStorageLocation(StorageLocation storageLocation);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageType
+     * @return Long
+     */
+    public abstract long InstockDetailRepository.countByStorageType(StorageType storageType);
     
 }

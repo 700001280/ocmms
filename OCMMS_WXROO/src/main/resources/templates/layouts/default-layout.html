@@ -13,7 +13,7 @@
 
     <link rel="apple-touch-icon" href="../../static/public/img/apple-touch-icon.png" data-th-href="@{/public/img/apple-touch-icon.png}" />
 
-    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE" data-th-text="#{app_name}">Spring Roo application</title>
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE" data-th-text="OCMMSROO">Spring Roo application</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" data-th-href="@{/webjars/bootstrap/dist/css/bootstrap.css}" />
@@ -69,7 +69,7 @@
 
     <footer class="container" data-th-replace="~{fragments/footer :: footer}">
       <!-- Content replaced by the footer template fragment footer.html -->
-      ï¿½ 2016 Spring Roo (footer for example for direct display of the template)
+      © 2016 Spring Roo (footer for example for direct display of the template)
     </footer>
 
     <!-- JavaScript
@@ -88,7 +88,7 @@
     <!-- MomentJS - date format -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js" data-th-src="@{/webjars/momentjs/moment.min.js}">
       </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/es.js" data-th-src="@{/webjars/momentjs/2.13.0/locale}+ '/' + ${#locale.language}+'-cn.js'" data-th-if="${#locale.language} != 'en' and ${#locale.language} != 'es'">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/es.js" data-th-src="@{/webjars/momentjs/2.13.0/locale}+ '/' + ${#locale.language}+'.js'" data-th-if="${#locale.language} != 'en' and ${#locale.language} != 'es'">
       </script>
     <script src="../../static/public/js/moment-locale-es.js" data-th-src="@{/public/js/moment-locale-es.js}" data-th-if="${#locale.language} == 'es'">
       </script>

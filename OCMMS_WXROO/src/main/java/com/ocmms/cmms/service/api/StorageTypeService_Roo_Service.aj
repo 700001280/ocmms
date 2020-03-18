@@ -103,54 +103,54 @@ privileged aspect StorageTypeService_Roo_Service {
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialInstockDetailsToAdd
+     * @param instockDetailsToAdd
      * @return StorageType
      */
-    public abstract StorageType StorageTypeService.addToMaterialInstockDetails(StorageType storageType, Iterable<Long> materialInstockDetailsToAdd);
+    public abstract StorageType StorageTypeService.addToInstockDetails(StorageType storageType, Iterable<Long> instockDetailsToAdd);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialInstockDetailsToRemove
+     * @param instockDetailsToRemove
      * @return StorageType
      */
-    public abstract StorageType StorageTypeService.removeFromMaterialInstockDetails(StorageType storageType, Iterable<Long> materialInstockDetailsToRemove);
+    public abstract StorageType StorageTypeService.removeFromInstockDetails(StorageType storageType, Iterable<Long> instockDetailsToRemove);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialInstockDetails
+     * @param instockDetails
      * @return StorageType
      */
-    public abstract StorageType StorageTypeService.setMaterialInstockDetails(StorageType storageType, Iterable<Long> materialInstockDetails);
+    public abstract StorageType StorageTypeService.setInstockDetails(StorageType storageType, Iterable<Long> instockDetails);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialOutstockDetailsToAdd
+     * @param outstockDetailsToAdd
      * @return StorageType
      */
-    public abstract StorageType StorageTypeService.addToMaterialOutstockDetails(StorageType storageType, Iterable<Long> materialOutstockDetailsToAdd);
+    public abstract StorageType StorageTypeService.addToOutstockDetails(StorageType storageType, Iterable<Long> outstockDetailsToAdd);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialOutstockDetailsToRemove
+     * @param outstockDetailsToRemove
      * @return StorageType
      */
-    public abstract StorageType StorageTypeService.removeFromMaterialOutstockDetails(StorageType storageType, Iterable<Long> materialOutstockDetailsToRemove);
+    public abstract StorageType StorageTypeService.removeFromOutstockDetails(StorageType storageType, Iterable<Long> outstockDetailsToRemove);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param storageType
-     * @param materialOutstockDetails
+     * @param outstockDetails
      * @return StorageType
      */
-    public abstract StorageType StorageTypeService.setMaterialOutstockDetails(StorageType storageType, Iterable<Long> materialOutstockDetails);
+    public abstract StorageType StorageTypeService.setOutstockDetails(StorageType storageType, Iterable<Long> outstockDetails);
     
 }

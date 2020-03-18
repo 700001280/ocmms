@@ -5,10 +5,12 @@ package com.ocmms.cmms.service.impl;
 
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
+import com.ocmms.cmms.model.mm.storage.PartScrappingOutstockDetail;
 import com.ocmms.cmms.model.pm.routine.PartScrappingRecord;
 import com.ocmms.cmms.repository.PartScrappingRecordRepository;
 import com.ocmms.cmms.service.api.DocumentService;
 import com.ocmms.cmms.service.api.ImageDocumentService;
+import com.ocmms.cmms.service.api.PartScrappingOutstockDetailService;
 import com.ocmms.cmms.service.impl.PartScrappingRecordServiceImpl;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.MessageI18n;
@@ -49,17 +51,25 @@ privileged aspect PartScrappingRecordServiceImpl_Roo_Service_Impl {
     private ImageDocumentService PartScrappingRecordServiceImpl.imageDocumentService;
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private PartScrappingOutstockDetailService PartScrappingRecordServiceImpl.partScrappingOutstockDetailService;
+    
+    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param partScrappingRecordRepository
      * @param documentService
      * @param imageDocumentService
+     * @param partScrappingOutstockDetailService
      */
     @Autowired
-    public PartScrappingRecordServiceImpl.new(PartScrappingRecordRepository partScrappingRecordRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService) {
+    public PartScrappingRecordServiceImpl.new(PartScrappingRecordRepository partScrappingRecordRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService, @Lazy PartScrappingOutstockDetailService partScrappingOutstockDetailService) {
         setPartScrappingRecordRepository(partScrappingRecordRepository);
         setDocumentService(documentService);
         setImageDocumentService(imageDocumentService);
+        setPartScrappingOutstockDetailService(partScrappingOutstockDetailService);
     }
 
     /**
@@ -119,6 +129,24 @@ privileged aspect PartScrappingRecordServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @return PartScrappingOutstockDetailService
+     */
+    public PartScrappingOutstockDetailService PartScrappingRecordServiceImpl.getPartScrappingOutstockDetailService() {
+        return partScrappingOutstockDetailService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partScrappingOutstockDetailService
+     */
+    public void PartScrappingRecordServiceImpl.setPartScrappingOutstockDetailService(PartScrappingOutstockDetailService partScrappingOutstockDetailService) {
+        this.partScrappingOutstockDetailService = partScrappingOutstockDetailService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param partscrappingrecord
      * @return Map
      */
@@ -162,6 +190,20 @@ privileged aspect PartScrappingRecordServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param partScrappingRecord
+     * @param partScrappingOutstockDetailsToAdd
+     * @return PartScrappingRecord
+     */
+    @Transactional
+    public PartScrappingRecord PartScrappingRecordServiceImpl.addToPartScrappingOutstockDetails(PartScrappingRecord partScrappingRecord, Iterable<Long> partScrappingOutstockDetailsToAdd) {
+        List<PartScrappingOutstockDetail> partScrappingOutstockDetails = getPartScrappingOutstockDetailService().findAll(partScrappingOutstockDetailsToAdd);
+        partScrappingRecord.addToPartScrappingOutstockDetails(partScrappingOutstockDetails);
+        return getPartScrappingRecordRepository().save(partScrappingRecord);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partScrappingRecord
      * @param documentsToRemove
      * @return PartScrappingRecord
      */
@@ -183,6 +225,20 @@ privileged aspect PartScrappingRecordServiceImpl_Roo_Service_Impl {
     public PartScrappingRecord PartScrappingRecordServiceImpl.removeFromImages(PartScrappingRecord partScrappingRecord, Iterable<Long> imagesToRemove) {
         List<ImageDocument> images = getImageDocumentService().findAll(imagesToRemove);
         partScrappingRecord.removeFromImages(images);
+        return getPartScrappingRecordRepository().save(partScrappingRecord);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partScrappingRecord
+     * @param partScrappingOutstockDetailsToRemove
+     * @return PartScrappingRecord
+     */
+    @Transactional
+    public PartScrappingRecord PartScrappingRecordServiceImpl.removeFromPartScrappingOutstockDetails(PartScrappingRecord partScrappingRecord, Iterable<Long> partScrappingOutstockDetailsToRemove) {
+        List<PartScrappingOutstockDetail> partScrappingOutstockDetails = getPartScrappingOutstockDetailService().findAll(partScrappingOutstockDetailsToRemove);
+        partScrappingRecord.removeFromPartScrappingOutstockDetails(partScrappingOutstockDetails);
         return getPartScrappingRecordRepository().save(partScrappingRecord);
     }
     
@@ -246,6 +302,34 @@ privileged aspect PartScrappingRecordServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param partScrappingRecord
+     * @param partScrappingOutstockDetails
+     * @return PartScrappingRecord
+     */
+    @Transactional
+    public PartScrappingRecord PartScrappingRecordServiceImpl.setPartScrappingOutstockDetails(PartScrappingRecord partScrappingRecord, Iterable<Long> partScrappingOutstockDetails) {
+        List<PartScrappingOutstockDetail> items = getPartScrappingOutstockDetailService().findAll(partScrappingOutstockDetails);
+        Set<PartScrappingOutstockDetail> currents = partScrappingRecord.getPartScrappingOutstockDetails();
+        Set<PartScrappingOutstockDetail> toRemove = new HashSet<PartScrappingOutstockDetail>();
+        for (Iterator<PartScrappingOutstockDetail> iterator = currents.iterator(); iterator.hasNext();) {
+            PartScrappingOutstockDetail nextPartScrappingOutstockDetail = iterator.next();
+            if (items.contains(nextPartScrappingOutstockDetail)) {
+                items.remove(nextPartScrappingOutstockDetail);
+            } else {
+                toRemove.add(nextPartScrappingOutstockDetail);
+            }
+        }
+        partScrappingRecord.removeFromPartScrappingOutstockDetails(toRemove);
+        partScrappingRecord.addToPartScrappingOutstockDetails(items);
+        // Force the version update of the parent side to know that the parent has changed
+        // because it has new books assigned
+        partScrappingRecord.setVersion(partScrappingRecord.getVersion() + 1);
+        return getPartScrappingRecordRepository().save(partScrappingRecord);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partScrappingRecord
      */
     @Transactional
     public void PartScrappingRecordServiceImpl.delete(PartScrappingRecord partScrappingRecord) {
@@ -256,6 +340,11 @@ privileged aspect PartScrappingRecordServiceImpl_Roo_Service_Impl {
         
         // Clear bidirectional one-to-many parent relationship with ImageDocument
         for (ImageDocument item : partScrappingRecord.getImages()) {
+            item.setPartScrappingRecord(null);
+        }
+        
+        // Clear bidirectional one-to-many parent relationship with PartScrappingOutstockDetail
+        for (PartScrappingOutstockDetail item : partScrappingRecord.getPartScrappingOutstockDetails()) {
             item.setPartScrappingRecord(null);
         }
         

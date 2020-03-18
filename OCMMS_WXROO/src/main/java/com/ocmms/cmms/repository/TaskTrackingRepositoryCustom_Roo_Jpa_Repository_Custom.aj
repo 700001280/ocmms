@@ -3,7 +3,6 @@
 
 package com.ocmms.cmms.repository;
 
-import com.ocmms.cmms.model.assistance.TaskFormBean;
 import com.ocmms.cmms.model.assistance.TaskTracking;
 import com.ocmms.cmms.model.assistance.TaskTrackingPriority;
 import com.ocmms.cmms.model.assistance.TaskTrackingStatus;
@@ -75,23 +74,5 @@ privileged aspect TaskTrackingRepositoryCustom_Roo_Jpa_Repository_Custom {
      * @return Page
      */
     public abstract Page<TaskTracking> TaskTrackingRepositoryCustom.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param formBean
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<TaskTracking> TaskTrackingRepositoryCustom.findByTaskOwner(TaskFormBean formBean, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param formBean
-     * @return Long
-     */
-    public abstract long TaskTrackingRepositoryCustom.countByTaskOwner(TaskFormBean formBean);
     
 }

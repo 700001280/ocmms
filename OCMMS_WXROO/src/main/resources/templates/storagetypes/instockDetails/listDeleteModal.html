@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="instockdetails-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('StorageTypesItemInstockDetailsThymeleafController')}">
+    <table id="instockdetails-detail-table-item-to-remove" data-parent-table="storagetype-entity-table" data-data-parent-id="${storageType != null ? storageType.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('storageType', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="materialCatalog" data-th-text="#{label_storagetype_instockdetails_materialcatalog}">materialCatalog</th>
+              <th data-data="storageLocation" data-th-text="#{label_storagetype_instockdetails_storagelocation}">storageLocation</th>
+              <th data-data="quantity" data-th-text="#{label_storagetype_instockdetails_quantity}">quantity</th>
+              <th data-data="storageType" data-th-text="#{label_storagetype_instockdetails_storagetype}">storageType</th>
+              <th data-data="movementType" data-th-text="#{label_storagetype_instockdetails_movementtype}">movementType</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>materialCatalog</td>
+              <td>storageLocation</td>
+              <td>quantity</td>
+              <td>storageType</td>
+              <td>movementType</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

@@ -3,13 +3,10 @@
 
 package com.ocmms.cmms.model.mm.storage;
 
-import com.ocmms.cmms.model.edm.Document;
-import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import io.springlets.format.EntityFormat;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import org.springframework.util.Assert;
 
 privileged aspect MaterialInstockDetail_Roo_Jpa_Entity {
     
@@ -30,57 +27,5 @@ privileged aspect MaterialInstockDetail_Roo_Jpa_Entity {
      * 
      */
     public static final String MaterialInstockDetail.ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE = "The given Iterable of items to add can't be null!";
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param documentsToAdd
-     */
-    public void MaterialInstockDetail.addToDocuments(Iterable<Document> documentsToAdd) {
-        Assert.notNull(documentsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
-        for (Document item : documentsToAdd) {
-            this.documents.add(item);
-            item.setMaterialInstockDetail(this);
-        }
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param documentsToRemove
-     */
-    public void MaterialInstockDetail.removeFromDocuments(Iterable<Document> documentsToRemove) {
-        Assert.notNull(documentsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
-        for (Document item : documentsToRemove) {
-            this.documents.remove(item);
-            item.setMaterialInstockDetail(null);
-        }
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param imagesToAdd
-     */
-    public void MaterialInstockDetail.addToImages(Iterable<ImageDocument> imagesToAdd) {
-        Assert.notNull(imagesToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
-        for (ImageDocument item : imagesToAdd) {
-            this.images.add(item);
-            item.setMaterialInstockDetail(this);
-        }
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param imagesToRemove
-     */
-    public void MaterialInstockDetail.removeFromImages(Iterable<ImageDocument> imagesToRemove) {
-        Assert.notNull(imagesToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
-        for (ImageDocument item : imagesToRemove) {
-            this.images.remove(item);
-            item.setMaterialInstockDetail(null);
-        }
-    }
     
 }

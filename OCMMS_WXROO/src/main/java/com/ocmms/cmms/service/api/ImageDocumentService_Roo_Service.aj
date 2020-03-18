@@ -19,11 +19,12 @@ import com.ocmms.cmms.model.loto.LotoIssueReport;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringRecord;
 import com.ocmms.cmms.model.pm.notification.NotificationItem;
@@ -354,26 +355,6 @@ privileged aspect ImageDocumentService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialInstockDetail
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<ImageDocument> ImageDocumentService.findByMaterialInstockDetail(MaterialInstockDetail materialInstockDetail, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<ImageDocument> ImageDocumentService.findByMaterialOutstockDetail(MaterialOutstockDetail materialOutstockDetail, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param measuringPoint
      * @param globalSearch
      * @param pageable
@@ -400,6 +381,16 @@ privileged aspect ImageDocumentService_Roo_Service {
      * @return Page
      */
     public abstract Page<ImageDocument> ImageDocumentService.findByNotificationItem(NotificationItem notificationItem, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetail
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<ImageDocument> ImageDocumentService.findByOutstockDetail(OutstockDetail outstockDetail, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
@@ -494,6 +485,16 @@ privileged aspect ImageDocumentService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param procurementOrderFinanceTracking
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<ImageDocument> ImageDocumentService.findByProcurementOrderFinanceTracking(ProcurementOrderFinanceTracking procurementOrderFinanceTracking, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param procurementRequest
      * @param globalSearch
      * @param pageable
@@ -510,6 +511,16 @@ privileged aspect ImageDocumentService_Roo_Service {
      * @return Page
      */
     public abstract Page<ImageDocument> ImageDocumentService.findByPurchaseExpedite(PurchaseExpedite purchaseExpedite, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<ImageDocument> ImageDocumentService.findByServiceReceiveDetail(ServiceReceiveDetail serviceReceiveDetail, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
@@ -732,22 +743,6 @@ privileged aspect ImageDocumentService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialInstockDetail
-     * @return Long
-     */
-    public abstract long ImageDocumentService.countByMaterialInstockDetail(MaterialInstockDetail materialInstockDetail);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @return Long
-     */
-    public abstract long ImageDocumentService.countByMaterialOutstockDetail(MaterialOutstockDetail materialOutstockDetail);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param measuringPoint
      * @return Long
      */
@@ -768,6 +763,14 @@ privileged aspect ImageDocumentService_Roo_Service {
      * @return Long
      */
     public abstract long ImageDocumentService.countByNotificationItem(NotificationItem notificationItem);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetail
+     * @return Long
+     */
+    public abstract long ImageDocumentService.countByOutstockDetail(OutstockDetail outstockDetail);
     
     /**
      * TODO Auto-generated method documentation
@@ -844,6 +847,14 @@ privileged aspect ImageDocumentService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param procurementOrderFinanceTracking
+     * @return Long
+     */
+    public abstract long ImageDocumentService.countByProcurementOrderFinanceTracking(ProcurementOrderFinanceTracking procurementOrderFinanceTracking);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param procurementRequest
      * @return Long
      */
@@ -856,6 +867,14 @@ privileged aspect ImageDocumentService_Roo_Service {
      * @return Long
      */
     public abstract long ImageDocumentService.countByPurchaseExpedite(PurchaseExpedite purchaseExpedite);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @return Long
+     */
+    public abstract long ImageDocumentService.countByServiceReceiveDetail(ServiceReceiveDetail serviceReceiveDetail);
     
     /**
      * TODO Auto-generated method documentation

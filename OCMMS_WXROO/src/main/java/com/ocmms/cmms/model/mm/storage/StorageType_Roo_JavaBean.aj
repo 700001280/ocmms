@@ -3,8 +3,8 @@
 
 package com.ocmms.cmms.model.mm.storage;
 
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.model.system.RecordStatus;
 import java.util.Calendar;
@@ -94,42 +94,42 @@ privileged aspect StorageType_Roo_JavaBean {
     }
     
     /**
-     * Gets materialInstockDetails value
+     * Gets instockDetails value
      * 
      * @return Set
      */
-    public Set<MaterialInstockDetail> StorageType.getMaterialInstockDetails() {
-        return this.materialInstockDetails;
+    public Set<InstockDetail> StorageType.getInstockDetails() {
+        return this.instockDetails;
     }
     
     /**
-     * Sets materialInstockDetails value
+     * Sets instockDetails value
      * 
-     * @param materialInstockDetails
+     * @param instockDetails
      * @return StorageType
      */
-    public StorageType StorageType.setMaterialInstockDetails(Set<MaterialInstockDetail> materialInstockDetails) {
-        this.materialInstockDetails = materialInstockDetails;
+    public StorageType StorageType.setInstockDetails(Set<InstockDetail> instockDetails) {
+        this.instockDetails = instockDetails;
         return this;
     }
     
     /**
-     * Gets materialOutstockDetails value
+     * Gets outstockDetails value
      * 
      * @return Set
      */
-    public Set<MaterialOutstockDetail> StorageType.getMaterialOutstockDetails() {
-        return this.materialOutstockDetails;
+    public Set<OutstockDetail> StorageType.getOutstockDetails() {
+        return this.outstockDetails;
     }
     
     /**
-     * Sets materialOutstockDetails value
+     * Sets outstockDetails value
      * 
-     * @param materialOutstockDetails
+     * @param outstockDetails
      * @return StorageType
      */
-    public StorageType StorageType.setMaterialOutstockDetails(Set<MaterialOutstockDetail> materialOutstockDetails) {
-        this.materialOutstockDetails = materialOutstockDetails;
+    public StorageType StorageType.setOutstockDetails(Set<OutstockDetail> outstockDetails) {
+        this.outstockDetails = outstockDetails;
         return this;
     }
     

@@ -5,6 +5,7 @@ package com.ocmms.cmms.model.pm.routine;
 
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
+import com.ocmms.cmms.model.mm.storage.PartScrappingOutstockDetail;
 import com.ocmms.cmms.model.pm.routine.PartScrappingRecord;
 import io.springlets.format.EntityFormat;
 import javax.persistence.Entity;
@@ -30,6 +31,32 @@ privileged aspect PartScrappingRecord_Roo_Jpa_Entity {
      * 
      */
     public static final String PartScrappingRecord.ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE = "The given Iterable of items to add can't be null!";
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partScrappingOutstockDetailsToAdd
+     */
+    public void PartScrappingRecord.addToPartScrappingOutstockDetails(Iterable<PartScrappingOutstockDetail> partScrappingOutstockDetailsToAdd) {
+        Assert.notNull(partScrappingOutstockDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (PartScrappingOutstockDetail item : partScrappingOutstockDetailsToAdd) {
+            this.partScrappingOutstockDetails.add(item);
+            item.setPartScrappingRecord(this);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partScrappingOutstockDetailsToRemove
+     */
+    public void PartScrappingRecord.removeFromPartScrappingOutstockDetails(Iterable<PartScrappingOutstockDetail> partScrappingOutstockDetailsToRemove) {
+        Assert.notNull(partScrappingOutstockDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (PartScrappingOutstockDetail item : partScrappingOutstockDetailsToRemove) {
+            this.partScrappingOutstockDetails.remove(item);
+            item.setPartScrappingRecord(null);
+        }
+    }
     
     /**
      * TODO Auto-generated method documentation

@@ -5,7 +5,11 @@ package com.ocmms.cmms.service.impl;
 
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
+import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.MovementType;
+import com.ocmms.cmms.model.mm.storage.StorageLocation;
+import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.repository.InstockDetailRepository;
 import com.ocmms.cmms.service.api.DocumentService;
 import com.ocmms.cmms.service.api.ImageDocumentService;
@@ -249,6 +253,26 @@ privileged aspect InstockDetailServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void InstockDetailServiceImpl.delete(InstockDetail instockDetail) {
+        // Clear bidirectional many-to-one child relationship with MaterialCatalog
+        if (instockDetail.getMaterialCatalog() != null) {
+            instockDetail.getMaterialCatalog().getInstockDetails().remove(instockDetail);
+        }
+        
+        // Clear bidirectional many-to-one child relationship with MovementType
+        if (instockDetail.getMovementType() != null) {
+            instockDetail.getMovementType().getInstockDetails().remove(instockDetail);
+        }
+        
+        // Clear bidirectional many-to-one child relationship with StorageLocation
+        if (instockDetail.getStorageLocation() != null) {
+            instockDetail.getStorageLocation().getInstockDetails().remove(instockDetail);
+        }
+        
+        // Clear bidirectional many-to-one child relationship with StorageType
+        if (instockDetail.getStorageType() != null) {
+            instockDetail.getStorageType().getInstockDetails().remove(instockDetail);
+        }
+        
         // Clear bidirectional one-to-many parent relationship with Document
         for (Document item : instockDetail.getDocuments()) {
             item.setInstockDetail(null);
@@ -364,6 +388,94 @@ privileged aspect InstockDetailServiceImpl_Roo_Service_Impl {
      */
     public Page<InstockDetail> InstockDetailServiceImpl.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable) {
         return getInstockDetailRepository().findAllByIdsIn(ids, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<InstockDetail> InstockDetailServiceImpl.findByMaterialCatalog(MaterialCatalog materialCatalog, GlobalSearch globalSearch, Pageable pageable) {
+        return getInstockDetailRepository().findByMaterialCatalog(materialCatalog, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param movementType
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<InstockDetail> InstockDetailServiceImpl.findByMovementType(MovementType movementType, GlobalSearch globalSearch, Pageable pageable) {
+        return getInstockDetailRepository().findByMovementType(movementType, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<InstockDetail> InstockDetailServiceImpl.findByStorageLocation(StorageLocation storageLocation, GlobalSearch globalSearch, Pageable pageable) {
+        return getInstockDetailRepository().findByStorageLocation(storageLocation, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageType
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<InstockDetail> InstockDetailServiceImpl.findByStorageType(StorageType storageType, GlobalSearch globalSearch, Pageable pageable) {
+        return getInstockDetailRepository().findByStorageType(storageType, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @return Long
+     */
+    public long InstockDetailServiceImpl.countByMaterialCatalog(MaterialCatalog materialCatalog) {
+        return getInstockDetailRepository().countByMaterialCatalog(materialCatalog);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param movementType
+     * @return Long
+     */
+    public long InstockDetailServiceImpl.countByMovementType(MovementType movementType) {
+        return getInstockDetailRepository().countByMovementType(movementType);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
+     * @return Long
+     */
+    public long InstockDetailServiceImpl.countByStorageLocation(StorageLocation storageLocation) {
+        return getInstockDetailRepository().countByStorageLocation(storageLocation);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageType
+     * @return Long
+     */
+    public long InstockDetailServiceImpl.countByStorageType(StorageType storageType) {
+        return getInstockDetailRepository().countByStorageType(storageType);
     }
     
     /**

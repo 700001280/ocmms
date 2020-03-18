@@ -19,11 +19,12 @@ import com.ocmms.cmms.model.loto.LotoIssueReport;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringRecord;
 import com.ocmms.cmms.model.pm.notification.NotificationItem;
@@ -429,26 +430,6 @@ privileged aspect Document_Roo_JavaBean {
      */
     public Document Document.setMaterialCatalog(MaterialCatalog materialCatalog) {
         this.materialCatalog = materialCatalog;
-        return this;
-    }
-    
-    /**
-     * Gets materialInstockDetail value
-     * 
-     * @return MaterialInstockDetail
-     */
-    public MaterialInstockDetail Document.getMaterialInstockDetail() {
-        return this.materialInstockDetail;
-    }
-    
-    /**
-     * Sets materialInstockDetail value
-     * 
-     * @param materialInstockDetail
-     * @return Document
-     */
-    public Document Document.setMaterialInstockDetail(MaterialInstockDetail materialInstockDetail) {
-        this.materialInstockDetail = materialInstockDetail;
         return this;
     }
     
@@ -953,22 +934,22 @@ privileged aspect Document_Roo_JavaBean {
     }
     
     /**
-     * Gets materialOutstockDetail value
+     * Gets outstockDetail value
      * 
-     * @return MaterialOutstockDetail
+     * @return OutstockDetail
      */
-    public MaterialOutstockDetail Document.getMaterialOutstockDetail() {
-        return this.materialOutstockDetail;
+    public OutstockDetail Document.getOutstockDetail() {
+        return this.outstockDetail;
     }
     
     /**
-     * Sets materialOutstockDetail value
+     * Sets outstockDetail value
      * 
-     * @param materialOutstockDetail
+     * @param outstockDetail
      * @return Document
      */
-    public Document Document.setMaterialOutstockDetail(MaterialOutstockDetail materialOutstockDetail) {
-        this.materialOutstockDetail = materialOutstockDetail;
+    public Document Document.setOutstockDetail(OutstockDetail outstockDetail) {
+        this.outstockDetail = outstockDetail;
         return this;
     }
     
@@ -1009,6 +990,46 @@ privileged aspect Document_Roo_JavaBean {
      */
     public Document Document.setEquipmentLubrication(EquipmentLubrication equipmentLubrication) {
         this.equipmentLubrication = equipmentLubrication;
+        return this;
+    }
+    
+    /**
+     * Gets serviceReceiveDetail value
+     * 
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail Document.getServiceReceiveDetail() {
+        return this.serviceReceiveDetail;
+    }
+    
+    /**
+     * Sets serviceReceiveDetail value
+     * 
+     * @param serviceReceiveDetail
+     * @return Document
+     */
+    public Document Document.setServiceReceiveDetail(ServiceReceiveDetail serviceReceiveDetail) {
+        this.serviceReceiveDetail = serviceReceiveDetail;
+        return this;
+    }
+    
+    /**
+     * Gets procurementOrderFinanceTracking value
+     * 
+     * @return ProcurementOrderFinanceTracking
+     */
+    public ProcurementOrderFinanceTracking Document.getProcurementOrderFinanceTracking() {
+        return this.procurementOrderFinanceTracking;
+    }
+    
+    /**
+     * Sets procurementOrderFinanceTracking value
+     * 
+     * @param procurementOrderFinanceTracking
+     * @return Document
+     */
+    public Document Document.setProcurementOrderFinanceTracking(ProcurementOrderFinanceTracking procurementOrderFinanceTracking) {
+        this.procurementOrderFinanceTracking = procurementOrderFinanceTracking;
         return this;
     }
     

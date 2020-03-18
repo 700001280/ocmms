@@ -5,8 +5,8 @@ package com.ocmms.cmms.web;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.RecordStatusDeserializer;
@@ -21,14 +21,14 @@ privileged aspect StorageLocationJsonMixin_Roo_JSONMixin {
      * 
      */
     @JsonIgnore
-    private Set<MaterialInstockDetail> StorageLocationJsonMixin.materialInstockDetails;
+    private Set<InstockDetail> StorageLocationJsonMixin.instockDetails;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
     @JsonIgnore
-    private Set<MaterialOutstockDetail> StorageLocationJsonMixin.materialOutstockDetails;
+    private Set<OutstockDetail> StorageLocationJsonMixin.outstockDetails;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -49,17 +49,17 @@ privileged aspect StorageLocationJsonMixin_Roo_JSONMixin {
      * 
      * @return Set
      */
-    public Set<MaterialInstockDetail> StorageLocationJsonMixin.getMaterialInstockDetails() {
-        return materialInstockDetails;
+    public Set<InstockDetail> StorageLocationJsonMixin.getInstockDetails() {
+        return instockDetails;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialInstockDetails
+     * @param instockDetails
      */
-    public void StorageLocationJsonMixin.setMaterialInstockDetails(Set<MaterialInstockDetail> materialInstockDetails) {
-        this.materialInstockDetails = materialInstockDetails;
+    public void StorageLocationJsonMixin.setInstockDetails(Set<InstockDetail> instockDetails) {
+        this.instockDetails = instockDetails;
     }
     
     /**
@@ -67,17 +67,17 @@ privileged aspect StorageLocationJsonMixin_Roo_JSONMixin {
      * 
      * @return Set
      */
-    public Set<MaterialOutstockDetail> StorageLocationJsonMixin.getMaterialOutstockDetails() {
-        return materialOutstockDetails;
+    public Set<OutstockDetail> StorageLocationJsonMixin.getOutstockDetails() {
+        return outstockDetails;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialOutstockDetails
+     * @param outstockDetails
      */
-    public void StorageLocationJsonMixin.setMaterialOutstockDetails(Set<MaterialOutstockDetail> materialOutstockDetails) {
-        this.materialOutstockDetails = materialOutstockDetails;
+    public void StorageLocationJsonMixin.setOutstockDetails(Set<OutstockDetail> outstockDetails) {
+        this.outstockDetails = outstockDetails;
     }
     
     /**

@@ -24,7 +24,7 @@ privileged aspect InstockDetail_Roo_Jpa_Entity {
     
     declare @type: InstockDetail: @DiscriminatorColumn;
     
-    declare @type: InstockDetail: @EntityFormat(message = "entity_format_message_mm_storage_materialinstockdetail");
+    declare @type: InstockDetail: @EntityFormat(message = "entity_format_message_mm_storage_instockdetail");
     
     /**
      * TODO Auto-generated attribute documentation

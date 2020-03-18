@@ -3,9 +3,16 @@
 
 package com.ocmms.cmms.model.mm.storage;
 
+import com.ocmms.cmms.model.edm.Document;
+import com.ocmms.cmms.model.edm.ImageDocument;
+import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
+import com.ocmms.cmms.model.system.RecordStatus;
+import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Objects;
+import java.util.Set;
 
 privileged aspect ServiceReceiveDetail_Roo_JavaBean {
     
@@ -30,6 +37,86 @@ privileged aspect ServiceReceiveDetail_Roo_JavaBean {
     }
     
     /**
+     * Gets quantity value
+     * 
+     * @return BigDecimal
+     */
+    public BigDecimal ServiceReceiveDetail.getQuantity() {
+        return this.quantity;
+    }
+    
+    /**
+     * Sets quantity value
+     * 
+     * @param quantity
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setQuantity(BigDecimal quantity) {
+        this.quantity = quantity;
+        return this;
+    }
+    
+    /**
+     * Gets receiveDate value
+     * 
+     * @return Calendar
+     */
+    public Calendar ServiceReceiveDetail.getReceiveDate() {
+        return this.receiveDate;
+    }
+    
+    /**
+     * Sets receiveDate value
+     * 
+     * @param receiveDate
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setReceiveDate(Calendar receiveDate) {
+        this.receiveDate = receiveDate;
+        return this;
+    }
+    
+    /**
+     * Gets receiver value
+     * 
+     * @return Employee
+     */
+    public Employee ServiceReceiveDetail.getReceiver() {
+        return this.receiver;
+    }
+    
+    /**
+     * Sets receiver value
+     * 
+     * @param receiver
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setReceiver(Employee receiver) {
+        this.receiver = receiver;
+        return this;
+    }
+    
+    /**
+     * Gets keeper value
+     * 
+     * @return Employee
+     */
+    public Employee ServiceReceiveDetail.getKeeper() {
+        return this.keeper;
+    }
+    
+    /**
+     * Sets keeper value
+     * 
+     * @param keeper
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setKeeper(Employee keeper) {
+        this.keeper = keeper;
+        return this;
+    }
+    
+    /**
      * Gets serviceProcurementItemDetail value
      * 
      * @return ServiceProcurementItemDetail
@@ -46,6 +133,266 @@ privileged aspect ServiceReceiveDetail_Roo_JavaBean {
      */
     public ServiceReceiveDetail ServiceReceiveDetail.setServiceProcurementItemDetail(ServiceProcurementItemDetail serviceProcurementItemDetail) {
         this.serviceProcurementItemDetail = serviceProcurementItemDetail;
+        return this;
+    }
+    
+    /**
+     * Gets invoiceDate value
+     * 
+     * @return Calendar
+     */
+    public Calendar ServiceReceiveDetail.getInvoiceDate() {
+        return this.invoiceDate;
+    }
+    
+    /**
+     * Sets invoiceDate value
+     * 
+     * @param invoiceDate
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setInvoiceDate(Calendar invoiceDate) {
+        this.invoiceDate = invoiceDate;
+        return this;
+    }
+    
+    /**
+     * Gets paymentSubmitter value
+     * 
+     * @return Employee
+     */
+    public Employee ServiceReceiveDetail.getPaymentSubmitter() {
+        return this.paymentSubmitter;
+    }
+    
+    /**
+     * Sets paymentSubmitter value
+     * 
+     * @param paymentSubmitter
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setPaymentSubmitter(Employee paymentSubmitter) {
+        this.paymentSubmitter = paymentSubmitter;
+        return this;
+    }
+    
+    /**
+     * Gets paymentDate value
+     * 
+     * @return Calendar
+     */
+    public Calendar ServiceReceiveDetail.getPaymentDate() {
+        return this.paymentDate;
+    }
+    
+    /**
+     * Sets paymentDate value
+     * 
+     * @param paymentDate
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setPaymentDate(Calendar paymentDate) {
+        this.paymentDate = paymentDate;
+        return this;
+    }
+    
+    /**
+     * Gets memo value
+     * 
+     * @return String
+     */
+    public String ServiceReceiveDetail.getMemo() {
+        return this.memo;
+    }
+    
+    /**
+     * Sets memo value
+     * 
+     * @param memo
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setMemo(String memo) {
+        this.memo = memo;
+        return this;
+    }
+    
+    /**
+     * Gets closed value
+     * 
+     * @return Boolean
+     */
+    public Boolean ServiceReceiveDetail.getClosed() {
+        return this.closed;
+    }
+    
+    /**
+     * Sets closed value
+     * 
+     * @param closed
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setClosed(Boolean closed) {
+        this.closed = closed;
+        return this;
+    }
+    
+    /**
+     * Gets documents value
+     * 
+     * @return Set
+     */
+    public Set<Document> ServiceReceiveDetail.getDocuments() {
+        return this.documents;
+    }
+    
+    /**
+     * Sets documents value
+     * 
+     * @param documents
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setDocuments(Set<Document> documents) {
+        this.documents = documents;
+        return this;
+    }
+    
+    /**
+     * Gets images value
+     * 
+     * @return Set
+     */
+    public Set<ImageDocument> ServiceReceiveDetail.getImages() {
+        return this.images;
+    }
+    
+    /**
+     * Sets images value
+     * 
+     * @param images
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setImages(Set<ImageDocument> images) {
+        this.images = images;
+        return this;
+    }
+    
+    /**
+     * Gets recordStatus value
+     * 
+     * @return RecordStatus
+     */
+    public RecordStatus ServiceReceiveDetail.getRecordStatus() {
+        return this.recordStatus;
+    }
+    
+    /**
+     * Sets recordStatus value
+     * 
+     * @param recordStatus
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setRecordStatus(RecordStatus recordStatus) {
+        this.recordStatus = recordStatus;
+        return this;
+    }
+    
+    /**
+     * Gets version value
+     * 
+     * @return Long
+     */
+    public Long ServiceReceiveDetail.getVersion() {
+        return this.version;
+    }
+    
+    /**
+     * Sets version value
+     * 
+     * @param version
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setVersion(Long version) {
+        this.version = version;
+        return this;
+    }
+    
+    /**
+     * Gets createdDate value
+     * 
+     * @return Calendar
+     */
+    public Calendar ServiceReceiveDetail.getCreatedDate() {
+        return this.createdDate;
+    }
+    
+    /**
+     * Sets createdDate value
+     * 
+     * @param createdDate
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setCreatedDate(Calendar createdDate) {
+        this.createdDate = createdDate;
+        return this;
+    }
+    
+    /**
+     * Gets createdBy value
+     * 
+     * @return String
+     */
+    public String ServiceReceiveDetail.getCreatedBy() {
+        return this.createdBy;
+    }
+    
+    /**
+     * Sets createdBy value
+     * 
+     * @param createdBy
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+        return this;
+    }
+    
+    /**
+     * Gets lastModifiedDate value
+     * 
+     * @return Calendar
+     */
+    public Calendar ServiceReceiveDetail.getLastModifiedDate() {
+        return this.lastModifiedDate;
+    }
+    
+    /**
+     * Sets lastModifiedDate value
+     * 
+     * @param lastModifiedDate
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setLastModifiedDate(Calendar lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+        return this;
+    }
+    
+    /**
+     * Gets lastModifiedBy value
+     * 
+     * @return String
+     */
+    public String ServiceReceiveDetail.getLastModifiedBy() {
+        return this.lastModifiedBy;
+    }
+    
+    /**
+     * Sets lastModifiedBy value
+     * 
+     * @param lastModifiedBy
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ServiceReceiveDetail.setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
         return this;
     }
     
@@ -86,7 +433,18 @@ privileged aspect ServiceReceiveDetail_Roo_JavaBean {
      */
     public String ServiceReceiveDetail.toString() {
         return "ServiceReceiveDetail {" + 
-                "id='" + id + '\'' + "}" + super.toString();
+                "id='" + id + '\'' + 
+                ", quantity='" + quantity + '\'' + 
+                ", receiveDate='" + receiveDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(receiveDate.getTime()) + '\'' + 
+                ", invoiceDate='" + invoiceDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(invoiceDate.getTime()) + '\'' + 
+                ", paymentDate='" + paymentDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(paymentDate.getTime()) + '\'' + 
+                ", memo='" + memo + '\'' + 
+                ", closed='" + closed + '\'' + 
+                ", version='" + version + '\'' + 
+                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
+                ", createdBy='" + createdBy + '\'' + 
+                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
+                ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     
 }

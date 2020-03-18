@@ -6,6 +6,7 @@ package com.ocmms.cmms.model.pm.routine;
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.RepairMaterialInstockDetail;
 import com.ocmms.cmms.model.pm.routine.PartMaintenanceRecord;
 import io.springlets.format.EntityFormat;
 import javax.persistence.DiscriminatorColumn;
@@ -61,6 +62,32 @@ privileged aspect PartMaintenanceRecord_Roo_Jpa_Entity {
         Assert.notNull(materialOutstockDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
         for (MaterialOutstockDetail item : materialOutstockDetailsToRemove) {
             this.materialOutstockDetails.remove(item);
+            item.setPartMaintenanceRecord(null);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param repairMaterialInstockDetailsToAdd
+     */
+    public void PartMaintenanceRecord.addToRepairMaterialInstockDetails(Iterable<RepairMaterialInstockDetail> repairMaterialInstockDetailsToAdd) {
+        Assert.notNull(repairMaterialInstockDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (RepairMaterialInstockDetail item : repairMaterialInstockDetailsToAdd) {
+            this.repairMaterialInstockDetails.add(item);
+            item.setPartMaintenanceRecord(this);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param repairMaterialInstockDetailsToRemove
+     */
+    public void PartMaintenanceRecord.removeFromRepairMaterialInstockDetails(Iterable<RepairMaterialInstockDetail> repairMaterialInstockDetailsToRemove) {
+        Assert.notNull(repairMaterialInstockDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (RepairMaterialInstockDetail item : repairMaterialInstockDetailsToRemove) {
+            this.repairMaterialInstockDetails.remove(item);
             item.setPartMaintenanceRecord(null);
         }
     }

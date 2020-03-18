@@ -153,4 +153,31 @@ privileged aspect PartScrappingRecordService_Roo_Service {
      */
     public abstract PartScrappingRecord PartScrappingRecordService.setImages(PartScrappingRecord partScrappingRecord, Iterable<Long> images);
     
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partScrappingRecord
+     * @param partScrappingOutstockDetailsToAdd
+     * @return PartScrappingRecord
+     */
+    public abstract PartScrappingRecord PartScrappingRecordService.addToPartScrappingOutstockDetails(PartScrappingRecord partScrappingRecord, Iterable<Long> partScrappingOutstockDetailsToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partScrappingRecord
+     * @param partScrappingOutstockDetailsToRemove
+     * @return PartScrappingRecord
+     */
+    public abstract PartScrappingRecord PartScrappingRecordService.removeFromPartScrappingOutstockDetails(PartScrappingRecord partScrappingRecord, Iterable<Long> partScrappingOutstockDetailsToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partScrappingRecord
+     * @param partScrappingOutstockDetails
+     * @return PartScrappingRecord
+     */
+    public abstract PartScrappingRecord PartScrappingRecordService.setPartScrappingOutstockDetails(PartScrappingRecord partScrappingRecord, Iterable<Long> partScrappingOutstockDetails);
+    
 }

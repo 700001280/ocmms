@@ -7,12 +7,14 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.repository.ProcurementOrderRepository;
 import com.ocmms.cmms.service.api.DocumentService;
 import com.ocmms.cmms.service.api.ImageDocumentService;
 import com.ocmms.cmms.service.api.MaterialProcurementItemDetailService;
+import com.ocmms.cmms.service.api.ProcurementOrderFinanceTrackingService;
 import com.ocmms.cmms.service.api.PurchaseExpediteService;
 import com.ocmms.cmms.service.api.ServiceProcurementItemDetailService;
 import com.ocmms.cmms.service.impl.ProcurementOrderServiceImpl;
@@ -64,6 +66,12 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
+    private ProcurementOrderFinanceTrackingService ProcurementOrderServiceImpl.procurementOrderFinanceTrackingService;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     private PurchaseExpediteService ProcurementOrderServiceImpl.purchaseExpediteService;
     
     /**
@@ -79,15 +87,17 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      * @param documentService
      * @param imageDocumentService
      * @param materialProcurementItemDetailService
+     * @param procurementOrderFinanceTrackingService
      * @param purchaseExpediteService
      * @param serviceProcurementItemDetailService
      */
     @Autowired
-    public ProcurementOrderServiceImpl.new(ProcurementOrderRepository procurementOrderRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService, @Lazy MaterialProcurementItemDetailService materialProcurementItemDetailService, @Lazy PurchaseExpediteService purchaseExpediteService, @Lazy ServiceProcurementItemDetailService serviceProcurementItemDetailService) {
+    public ProcurementOrderServiceImpl.new(ProcurementOrderRepository procurementOrderRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService, @Lazy MaterialProcurementItemDetailService materialProcurementItemDetailService, @Lazy ProcurementOrderFinanceTrackingService procurementOrderFinanceTrackingService, @Lazy PurchaseExpediteService purchaseExpediteService, @Lazy ServiceProcurementItemDetailService serviceProcurementItemDetailService) {
         setProcurementOrderRepository(procurementOrderRepository);
         setDocumentService(documentService);
         setImageDocumentService(imageDocumentService);
         setMaterialProcurementItemDetailService(materialProcurementItemDetailService);
+        setProcurementOrderFinanceTrackingService(procurementOrderFinanceTrackingService);
         setPurchaseExpediteService(purchaseExpediteService);
         setServiceProcurementItemDetailService(serviceProcurementItemDetailService);
     }
@@ -162,6 +172,24 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      */
     public void ProcurementOrderServiceImpl.setMaterialProcurementItemDetailService(MaterialProcurementItemDetailService materialProcurementItemDetailService) {
         this.materialProcurementItemDetailService = materialProcurementItemDetailService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ProcurementOrderFinanceTrackingService
+     */
+    public ProcurementOrderFinanceTrackingService ProcurementOrderServiceImpl.getProcurementOrderFinanceTrackingService() {
+        return procurementOrderFinanceTrackingService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrderFinanceTrackingService
+     */
+    public void ProcurementOrderServiceImpl.setProcurementOrderFinanceTrackingService(ProcurementOrderFinanceTrackingService procurementOrderFinanceTrackingService) {
+        this.procurementOrderFinanceTrackingService = procurementOrderFinanceTrackingService;
     }
     
     /**
@@ -260,6 +288,20 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
+     * @param procurementOrderFinanceTrackingsToAdd
+     * @return ProcurementOrder
+     */
+    @Transactional
+    public ProcurementOrder ProcurementOrderServiceImpl.addToProcurementOrderFinanceTrackings(ProcurementOrder procurementOrder, Iterable<Long> procurementOrderFinanceTrackingsToAdd) {
+        List<ProcurementOrderFinanceTracking> procurementOrderFinanceTrackings = getProcurementOrderFinanceTrackingService().findAll(procurementOrderFinanceTrackingsToAdd);
+        procurementOrder.addToProcurementOrderFinanceTrackings(procurementOrderFinanceTrackings);
+        return getProcurementOrderRepository().save(procurementOrder);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrder
      * @param purchaseExpeditesToAdd
      * @return ProcurementOrder
      */
@@ -323,6 +365,20 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
     public ProcurementOrder ProcurementOrderServiceImpl.removeFromMaterialProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> materialProcurementItemDetailsToRemove) {
         List<MaterialProcurementItemDetail> materialProcurementItemDetails = getMaterialProcurementItemDetailService().findAll(materialProcurementItemDetailsToRemove);
         procurementOrder.removeFromMaterialProcurementItemDetails(materialProcurementItemDetails);
+        return getProcurementOrderRepository().save(procurementOrder);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrder
+     * @param procurementOrderFinanceTrackingsToRemove
+     * @return ProcurementOrder
+     */
+    @Transactional
+    public ProcurementOrder ProcurementOrderServiceImpl.removeFromProcurementOrderFinanceTrackings(ProcurementOrder procurementOrder, Iterable<Long> procurementOrderFinanceTrackingsToRemove) {
+        List<ProcurementOrderFinanceTracking> procurementOrderFinanceTrackings = getProcurementOrderFinanceTrackingService().findAll(procurementOrderFinanceTrackingsToRemove);
+        procurementOrder.removeFromProcurementOrderFinanceTrackings(procurementOrderFinanceTrackings);
         return getProcurementOrderRepository().save(procurementOrder);
     }
     
@@ -442,6 +498,34 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
+     * @param procurementOrderFinanceTrackings
+     * @return ProcurementOrder
+     */
+    @Transactional
+    public ProcurementOrder ProcurementOrderServiceImpl.setProcurementOrderFinanceTrackings(ProcurementOrder procurementOrder, Iterable<Long> procurementOrderFinanceTrackings) {
+        List<ProcurementOrderFinanceTracking> items = getProcurementOrderFinanceTrackingService().findAll(procurementOrderFinanceTrackings);
+        Set<ProcurementOrderFinanceTracking> currents = procurementOrder.getProcurementOrderFinanceTrackings();
+        Set<ProcurementOrderFinanceTracking> toRemove = new HashSet<ProcurementOrderFinanceTracking>();
+        for (Iterator<ProcurementOrderFinanceTracking> iterator = currents.iterator(); iterator.hasNext();) {
+            ProcurementOrderFinanceTracking nextProcurementOrderFinanceTracking = iterator.next();
+            if (items.contains(nextProcurementOrderFinanceTracking)) {
+                items.remove(nextProcurementOrderFinanceTracking);
+            } else {
+                toRemove.add(nextProcurementOrderFinanceTracking);
+            }
+        }
+        procurementOrder.removeFromProcurementOrderFinanceTrackings(toRemove);
+        procurementOrder.addToProcurementOrderFinanceTrackings(items);
+        // Force the version update of the parent side to know that the parent has changed
+        // because it has new books assigned
+        procurementOrder.setVersion(procurementOrder.getVersion() + 1);
+        return getProcurementOrderRepository().save(procurementOrder);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrder
      * @param purchaseExpedites
      * @return ProcurementOrder
      */
@@ -513,6 +597,11 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
         
         // Clear bidirectional one-to-many parent relationship with MaterialProcurementItemDetail
         for (MaterialProcurementItemDetail item : procurementOrder.getMaterialProcurementItemDetails()) {
+            item.setProcurementOrder(null);
+        }
+        
+        // Clear bidirectional one-to-many parent relationship with ProcurementOrderFinanceTracking
+        for (ProcurementOrderFinanceTracking item : procurementOrder.getProcurementOrderFinanceTrackings()) {
             item.setProcurementOrder(null);
         }
         

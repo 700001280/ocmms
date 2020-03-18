@@ -6,8 +6,6 @@ package com.ocmms.cmms.repository;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import com.ocmms.cmms.model.mm.storage.QMaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.repository.MaterialInstockDetailRepositoryImpl;
 import com.querydsl.core.types.Path;
 import com.querydsl.jpa.JPQLQuery;
@@ -27,7 +25,13 @@ privileged aspect MaterialInstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String MaterialInstockDetailRepositoryImpl.ORDER_NO = "orderNo";
+    public static final String MaterialInstockDetailRepositoryImpl.MATERIAL_CATALOG = "materialCatalog";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String MaterialInstockDetailRepositoryImpl.STORAGE_LOCATION = "storageLocation";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -39,13 +43,13 @@ privileged aspect MaterialInstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String MaterialInstockDetailRepositoryImpl.UNIT_PRICE = "unitPrice";
+    public static final String MaterialInstockDetailRepositoryImpl.STORAGE_TYPE = "storageType";
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String MaterialInstockDetailRepositoryImpl.CURRENCY_UNIT = "currencyUnit";
+    public static final String MaterialInstockDetailRepositoryImpl.MOVEMENT_TYPE = "movementType";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -63,25 +67,25 @@ privileged aspect MaterialInstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String MaterialInstockDetailRepositoryImpl.EXPIRATION_DATE = "expirationDate";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String MaterialInstockDetailRepositoryImpl.SERIAL_NUMBER = "serialNumber";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String MaterialInstockDetailRepositoryImpl.RECEIVER = "receiver";
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String MaterialInstockDetailRepositoryImpl.INVOICE_DATE = "invoiceDate";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialInstockDetailRepositoryImpl.PAYMENT_SUBMITTER = "paymentSubmitter";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialInstockDetailRepositoryImpl.PAYMENT_DATE = "paymentDate";
+    public static final String MaterialInstockDetailRepositoryImpl.KEEPER = "keeper";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -132,42 +136,6 @@ privileged aspect MaterialInstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
     public static final String MaterialInstockDetailRepositoryImpl.MATERIAL_PROCUREMENT_ITEM_DETAIL = "materialProcurementItemDetail";
     
     /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialInstockDetailRepositoryImpl.EXPIRATION_DATE = "expirationDate";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialInstockDetailRepositoryImpl.MATERIAL_CATALOG = "materialCatalog";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialInstockDetailRepositoryImpl.STORAGE_LOCATION = "storageLocation";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialInstockDetailRepositoryImpl.SERIAL_NUMBER = "serialNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialInstockDetailRepositoryImpl.KEEPER = "keeper";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialInstockDetailRepositoryImpl.STORAGE_TYPE = "storageType";
-    
-    /**
      * TODO Auto-generated method documentation
      * 
      * @param globalSearch
@@ -180,20 +148,21 @@ privileged aspect MaterialInstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<MaterialInstockDetail> query = from(materialInstockDetail);
         
-        Path<?>[] paths = new Path<?>[] {materialInstockDetail.orderNo,materialInstockDetail.quantity,materialInstockDetail.unitPrice,materialInstockDetail.currencyUnit,materialInstockDetail.goodReceiveNo,materialInstockDetail.receiveDate,materialInstockDetail.receiver,materialInstockDetail.invoiceDate,materialInstockDetail.paymentSubmitter,materialInstockDetail.paymentDate,materialInstockDetail.memo,materialInstockDetail.closed,materialInstockDetail.recordStatus,materialInstockDetail.createdDate,materialInstockDetail.createdBy,materialInstockDetail.lastModifiedDate,materialInstockDetail.lastModifiedBy,materialInstockDetail.materialProcurementItemDetail,materialInstockDetail.expirationDate,materialInstockDetail.materialCatalog,materialInstockDetail.storageLocation,materialInstockDetail.serialNumber,materialInstockDetail.keeper,materialInstockDetail.storageType};        
+        Path<?>[] paths = new Path<?>[] {materialInstockDetail.materialCatalog,materialInstockDetail.storageLocation,materialInstockDetail.quantity,materialInstockDetail.storageType,materialInstockDetail.movementType,materialInstockDetail.goodReceiveNo,materialInstockDetail.receiveDate,materialInstockDetail.expirationDate,materialInstockDetail.serialNumber,materialInstockDetail.receiver,materialInstockDetail.keeper,materialInstockDetail.memo,materialInstockDetail.closed,materialInstockDetail.recordStatus,materialInstockDetail.createdDate,materialInstockDetail.createdBy,materialInstockDetail.lastModifiedDate,materialInstockDetail.lastModifiedBy,materialInstockDetail.materialProcurementItemDetail};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(ORDER_NO, materialInstockDetail.orderNo)
+			.map(MATERIAL_CATALOG, materialInstockDetail.materialCatalog)
+			.map(STORAGE_LOCATION, materialInstockDetail.storageLocation)
 			.map(QUANTITY, materialInstockDetail.quantity)
-			.map(UNIT_PRICE, materialInstockDetail.unitPrice)
-			.map(CURRENCY_UNIT, materialInstockDetail.currencyUnit)
+			.map(STORAGE_TYPE, materialInstockDetail.storageType)
+			.map(MOVEMENT_TYPE, materialInstockDetail.movementType)
 			.map(GOOD_RECEIVE_NO, materialInstockDetail.goodReceiveNo)
 			.map(RECEIVE_DATE, materialInstockDetail.receiveDate)
+			.map(EXPIRATION_DATE, materialInstockDetail.expirationDate)
+			.map(SERIAL_NUMBER, materialInstockDetail.serialNumber)
 			.map(RECEIVER, materialInstockDetail.receiver)
-			.map(INVOICE_DATE, materialInstockDetail.invoiceDate)
-			.map(PAYMENT_SUBMITTER, materialInstockDetail.paymentSubmitter)
-			.map(PAYMENT_DATE, materialInstockDetail.paymentDate)
+			.map(KEEPER, materialInstockDetail.keeper)
 			.map(MEMO, materialInstockDetail.memo)
 			.map(CLOSED, materialInstockDetail.closed)
 			.map(RECORD_STATUS, materialInstockDetail.recordStatus)
@@ -201,13 +170,7 @@ privileged aspect MaterialInstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(CREATED_BY, materialInstockDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialInstockDetail.lastModifiedDate)
 			.map(LAST_MODIFIED_BY, materialInstockDetail.lastModifiedBy)
-			.map(MATERIAL_PROCUREMENT_ITEM_DETAIL, materialInstockDetail.materialProcurementItemDetail)
-			.map(EXPIRATION_DATE, materialInstockDetail.expirationDate)
-			.map(MATERIAL_CATALOG, materialInstockDetail.materialCatalog)
-			.map(STORAGE_LOCATION, materialInstockDetail.storageLocation)
-			.map(SERIAL_NUMBER, materialInstockDetail.serialNumber)
-			.map(KEEPER, materialInstockDetail.keeper)
-			.map(STORAGE_TYPE, materialInstockDetail.storageType);
+			.map(MATERIAL_PROCUREMENT_ITEM_DETAIL, materialInstockDetail.materialProcurementItemDetail);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -229,23 +192,24 @@ privileged aspect MaterialInstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<MaterialInstockDetail> query = from(materialInstockDetail);
         
-        Path<?>[] paths = new Path<?>[] {materialInstockDetail.orderNo,materialInstockDetail.quantity,materialInstockDetail.unitPrice,materialInstockDetail.currencyUnit,materialInstockDetail.goodReceiveNo,materialInstockDetail.receiveDate,materialInstockDetail.receiver,materialInstockDetail.invoiceDate,materialInstockDetail.paymentSubmitter,materialInstockDetail.paymentDate,materialInstockDetail.memo,materialInstockDetail.closed,materialInstockDetail.recordStatus,materialInstockDetail.createdDate,materialInstockDetail.createdBy,materialInstockDetail.lastModifiedDate,materialInstockDetail.lastModifiedBy,materialInstockDetail.materialProcurementItemDetail,materialInstockDetail.expirationDate,materialInstockDetail.materialCatalog,materialInstockDetail.storageLocation,materialInstockDetail.serialNumber,materialInstockDetail.keeper,materialInstockDetail.storageType};        
+        Path<?>[] paths = new Path<?>[] {materialInstockDetail.materialCatalog,materialInstockDetail.storageLocation,materialInstockDetail.quantity,materialInstockDetail.storageType,materialInstockDetail.movementType,materialInstockDetail.goodReceiveNo,materialInstockDetail.receiveDate,materialInstockDetail.expirationDate,materialInstockDetail.serialNumber,materialInstockDetail.receiver,materialInstockDetail.keeper,materialInstockDetail.memo,materialInstockDetail.closed,materialInstockDetail.recordStatus,materialInstockDetail.createdDate,materialInstockDetail.createdBy,materialInstockDetail.lastModifiedDate,materialInstockDetail.lastModifiedBy,materialInstockDetail.materialProcurementItemDetail};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
         query.where(materialInstockDetail.id.in(ids));
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(ORDER_NO, materialInstockDetail.orderNo)
+			.map(MATERIAL_CATALOG, materialInstockDetail.materialCatalog)
+			.map(STORAGE_LOCATION, materialInstockDetail.storageLocation)
 			.map(QUANTITY, materialInstockDetail.quantity)
-			.map(UNIT_PRICE, materialInstockDetail.unitPrice)
-			.map(CURRENCY_UNIT, materialInstockDetail.currencyUnit)
+			.map(STORAGE_TYPE, materialInstockDetail.storageType)
+			.map(MOVEMENT_TYPE, materialInstockDetail.movementType)
 			.map(GOOD_RECEIVE_NO, materialInstockDetail.goodReceiveNo)
 			.map(RECEIVE_DATE, materialInstockDetail.receiveDate)
+			.map(EXPIRATION_DATE, materialInstockDetail.expirationDate)
+			.map(SERIAL_NUMBER, materialInstockDetail.serialNumber)
 			.map(RECEIVER, materialInstockDetail.receiver)
-			.map(INVOICE_DATE, materialInstockDetail.invoiceDate)
-			.map(PAYMENT_SUBMITTER, materialInstockDetail.paymentSubmitter)
-			.map(PAYMENT_DATE, materialInstockDetail.paymentDate)
+			.map(KEEPER, materialInstockDetail.keeper)
 			.map(MEMO, materialInstockDetail.memo)
 			.map(CLOSED, materialInstockDetail.closed)
 			.map(RECORD_STATUS, materialInstockDetail.recordStatus)
@@ -253,13 +217,7 @@ privileged aspect MaterialInstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(CREATED_BY, materialInstockDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialInstockDetail.lastModifiedDate)
 			.map(LAST_MODIFIED_BY, materialInstockDetail.lastModifiedBy)
-			.map(MATERIAL_PROCUREMENT_ITEM_DETAIL, materialInstockDetail.materialProcurementItemDetail)
-			.map(EXPIRATION_DATE, materialInstockDetail.expirationDate)
-			.map(MATERIAL_CATALOG, materialInstockDetail.materialCatalog)
-			.map(STORAGE_LOCATION, materialInstockDetail.storageLocation)
-			.map(SERIAL_NUMBER, materialInstockDetail.serialNumber)
-			.map(KEEPER, materialInstockDetail.keeper)
-			.map(STORAGE_TYPE, materialInstockDetail.storageType);
+			.map(MATERIAL_PROCUREMENT_ITEM_DETAIL, materialInstockDetail.materialProcurementItemDetail);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -284,20 +242,21 @@ privileged aspect MaterialInstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(materialProcurementItemDetail, "materialProcurementItemDetail is required");
         
         query.where(materialInstockDetail.materialProcurementItemDetail.eq(materialProcurementItemDetail));
-        Path<?>[] paths = new Path<?>[] {materialInstockDetail.orderNo,materialInstockDetail.quantity,materialInstockDetail.unitPrice,materialInstockDetail.currencyUnit,materialInstockDetail.goodReceiveNo,materialInstockDetail.receiveDate,materialInstockDetail.receiver,materialInstockDetail.invoiceDate,materialInstockDetail.paymentSubmitter,materialInstockDetail.paymentDate,materialInstockDetail.memo,materialInstockDetail.closed,materialInstockDetail.recordStatus,materialInstockDetail.createdDate,materialInstockDetail.createdBy,materialInstockDetail.lastModifiedDate,materialInstockDetail.lastModifiedBy,materialInstockDetail.materialProcurementItemDetail,materialInstockDetail.expirationDate,materialInstockDetail.materialCatalog,materialInstockDetail.storageLocation,materialInstockDetail.serialNumber,materialInstockDetail.keeper,materialInstockDetail.storageType};        
+        Path<?>[] paths = new Path<?>[] {materialInstockDetail.materialCatalog,materialInstockDetail.storageLocation,materialInstockDetail.quantity,materialInstockDetail.storageType,materialInstockDetail.movementType,materialInstockDetail.goodReceiveNo,materialInstockDetail.receiveDate,materialInstockDetail.expirationDate,materialInstockDetail.serialNumber,materialInstockDetail.receiver,materialInstockDetail.keeper,materialInstockDetail.memo,materialInstockDetail.closed,materialInstockDetail.recordStatus,materialInstockDetail.createdDate,materialInstockDetail.createdBy,materialInstockDetail.lastModifiedDate,materialInstockDetail.lastModifiedBy,materialInstockDetail.materialProcurementItemDetail};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(ORDER_NO, materialInstockDetail.orderNo)
+			.map(MATERIAL_CATALOG, materialInstockDetail.materialCatalog)
+			.map(STORAGE_LOCATION, materialInstockDetail.storageLocation)
 			.map(QUANTITY, materialInstockDetail.quantity)
-			.map(UNIT_PRICE, materialInstockDetail.unitPrice)
-			.map(CURRENCY_UNIT, materialInstockDetail.currencyUnit)
+			.map(STORAGE_TYPE, materialInstockDetail.storageType)
+			.map(MOVEMENT_TYPE, materialInstockDetail.movementType)
 			.map(GOOD_RECEIVE_NO, materialInstockDetail.goodReceiveNo)
 			.map(RECEIVE_DATE, materialInstockDetail.receiveDate)
+			.map(EXPIRATION_DATE, materialInstockDetail.expirationDate)
+			.map(SERIAL_NUMBER, materialInstockDetail.serialNumber)
 			.map(RECEIVER, materialInstockDetail.receiver)
-			.map(INVOICE_DATE, materialInstockDetail.invoiceDate)
-			.map(PAYMENT_SUBMITTER, materialInstockDetail.paymentSubmitter)
-			.map(PAYMENT_DATE, materialInstockDetail.paymentDate)
+			.map(KEEPER, materialInstockDetail.keeper)
 			.map(MEMO, materialInstockDetail.memo)
 			.map(CLOSED, materialInstockDetail.closed)
 			.map(RECORD_STATUS, materialInstockDetail.recordStatus)
@@ -305,117 +264,7 @@ privileged aspect MaterialInstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(CREATED_BY, materialInstockDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialInstockDetail.lastModifiedDate)
 			.map(LAST_MODIFIED_BY, materialInstockDetail.lastModifiedBy)
-			.map(MATERIAL_PROCUREMENT_ITEM_DETAIL, materialInstockDetail.materialProcurementItemDetail)
-			.map(EXPIRATION_DATE, materialInstockDetail.expirationDate)
-			.map(MATERIAL_CATALOG, materialInstockDetail.materialCatalog)
-			.map(STORAGE_LOCATION, materialInstockDetail.storageLocation)
-			.map(SERIAL_NUMBER, materialInstockDetail.serialNumber)
-			.map(KEEPER, materialInstockDetail.keeper)
-			.map(STORAGE_TYPE, materialInstockDetail.storageType);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, materialInstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageLocation
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<MaterialInstockDetail> MaterialInstockDetailRepositoryImpl.findByStorageLocation(StorageLocation storageLocation, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QMaterialInstockDetail materialInstockDetail = QMaterialInstockDetail.materialInstockDetail;
-        
-        JPQLQuery<MaterialInstockDetail> query = from(materialInstockDetail);
-        
-        Assert.notNull(storageLocation, "storageLocation is required");
-        
-        query.where(materialInstockDetail.storageLocation.eq(storageLocation));
-        Path<?>[] paths = new Path<?>[] {materialInstockDetail.orderNo,materialInstockDetail.quantity,materialInstockDetail.unitPrice,materialInstockDetail.currencyUnit,materialInstockDetail.goodReceiveNo,materialInstockDetail.receiveDate,materialInstockDetail.receiver,materialInstockDetail.invoiceDate,materialInstockDetail.paymentSubmitter,materialInstockDetail.paymentDate,materialInstockDetail.memo,materialInstockDetail.closed,materialInstockDetail.recordStatus,materialInstockDetail.createdDate,materialInstockDetail.createdBy,materialInstockDetail.lastModifiedDate,materialInstockDetail.lastModifiedBy,materialInstockDetail.materialProcurementItemDetail,materialInstockDetail.expirationDate,materialInstockDetail.materialCatalog,materialInstockDetail.storageLocation,materialInstockDetail.serialNumber,materialInstockDetail.keeper,materialInstockDetail.storageType};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(ORDER_NO, materialInstockDetail.orderNo)
-			.map(QUANTITY, materialInstockDetail.quantity)
-			.map(UNIT_PRICE, materialInstockDetail.unitPrice)
-			.map(CURRENCY_UNIT, materialInstockDetail.currencyUnit)
-			.map(GOOD_RECEIVE_NO, materialInstockDetail.goodReceiveNo)
-			.map(RECEIVE_DATE, materialInstockDetail.receiveDate)
-			.map(RECEIVER, materialInstockDetail.receiver)
-			.map(INVOICE_DATE, materialInstockDetail.invoiceDate)
-			.map(PAYMENT_SUBMITTER, materialInstockDetail.paymentSubmitter)
-			.map(PAYMENT_DATE, materialInstockDetail.paymentDate)
-			.map(MEMO, materialInstockDetail.memo)
-			.map(CLOSED, materialInstockDetail.closed)
-			.map(RECORD_STATUS, materialInstockDetail.recordStatus)
-			.map(CREATED_DATE, materialInstockDetail.createdDate)
-			.map(CREATED_BY, materialInstockDetail.createdBy)
-			.map(LAST_MODIFIED_DATE, materialInstockDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, materialInstockDetail.lastModifiedBy)
-			.map(MATERIAL_PROCUREMENT_ITEM_DETAIL, materialInstockDetail.materialProcurementItemDetail)
-			.map(EXPIRATION_DATE, materialInstockDetail.expirationDate)
-			.map(MATERIAL_CATALOG, materialInstockDetail.materialCatalog)
-			.map(STORAGE_LOCATION, materialInstockDetail.storageLocation)
-			.map(SERIAL_NUMBER, materialInstockDetail.serialNumber)
-			.map(KEEPER, materialInstockDetail.keeper)
-			.map(STORAGE_TYPE, materialInstockDetail.storageType);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, materialInstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<MaterialInstockDetail> MaterialInstockDetailRepositoryImpl.findByStorageType(StorageType storageType, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QMaterialInstockDetail materialInstockDetail = QMaterialInstockDetail.materialInstockDetail;
-        
-        JPQLQuery<MaterialInstockDetail> query = from(materialInstockDetail);
-        
-        Assert.notNull(storageType, "storageType is required");
-        
-        query.where(materialInstockDetail.storageType.eq(storageType));
-        Path<?>[] paths = new Path<?>[] {materialInstockDetail.orderNo,materialInstockDetail.quantity,materialInstockDetail.unitPrice,materialInstockDetail.currencyUnit,materialInstockDetail.goodReceiveNo,materialInstockDetail.receiveDate,materialInstockDetail.receiver,materialInstockDetail.invoiceDate,materialInstockDetail.paymentSubmitter,materialInstockDetail.paymentDate,materialInstockDetail.memo,materialInstockDetail.closed,materialInstockDetail.recordStatus,materialInstockDetail.createdDate,materialInstockDetail.createdBy,materialInstockDetail.lastModifiedDate,materialInstockDetail.lastModifiedBy,materialInstockDetail.materialProcurementItemDetail,materialInstockDetail.expirationDate,materialInstockDetail.materialCatalog,materialInstockDetail.storageLocation,materialInstockDetail.serialNumber,materialInstockDetail.keeper,materialInstockDetail.storageType};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(ORDER_NO, materialInstockDetail.orderNo)
-			.map(QUANTITY, materialInstockDetail.quantity)
-			.map(UNIT_PRICE, materialInstockDetail.unitPrice)
-			.map(CURRENCY_UNIT, materialInstockDetail.currencyUnit)
-			.map(GOOD_RECEIVE_NO, materialInstockDetail.goodReceiveNo)
-			.map(RECEIVE_DATE, materialInstockDetail.receiveDate)
-			.map(RECEIVER, materialInstockDetail.receiver)
-			.map(INVOICE_DATE, materialInstockDetail.invoiceDate)
-			.map(PAYMENT_SUBMITTER, materialInstockDetail.paymentSubmitter)
-			.map(PAYMENT_DATE, materialInstockDetail.paymentDate)
-			.map(MEMO, materialInstockDetail.memo)
-			.map(CLOSED, materialInstockDetail.closed)
-			.map(RECORD_STATUS, materialInstockDetail.recordStatus)
-			.map(CREATED_DATE, materialInstockDetail.createdDate)
-			.map(CREATED_BY, materialInstockDetail.createdBy)
-			.map(LAST_MODIFIED_DATE, materialInstockDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, materialInstockDetail.lastModifiedBy)
-			.map(MATERIAL_PROCUREMENT_ITEM_DETAIL, materialInstockDetail.materialProcurementItemDetail)
-			.map(EXPIRATION_DATE, materialInstockDetail.expirationDate)
-			.map(MATERIAL_CATALOG, materialInstockDetail.materialCatalog)
-			.map(STORAGE_LOCATION, materialInstockDetail.storageLocation)
-			.map(SERIAL_NUMBER, materialInstockDetail.serialNumber)
-			.map(KEEPER, materialInstockDetail.keeper)
-			.map(STORAGE_TYPE, materialInstockDetail.storageType);
+			.map(MATERIAL_PROCUREMENT_ITEM_DETAIL, materialInstockDetail.materialProcurementItemDetail);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);

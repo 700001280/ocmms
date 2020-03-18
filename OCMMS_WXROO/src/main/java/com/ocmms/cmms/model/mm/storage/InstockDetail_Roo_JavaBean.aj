@@ -3,11 +3,14 @@
 
 package com.ocmms.cmms.model.mm.storage;
 
-import com.ocmms.cmms.model.common.Currency;
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Employee;
+import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.MovementType;
+import com.ocmms.cmms.model.mm.storage.StorageLocation;
+import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.model.system.RecordStatus;
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -37,22 +40,42 @@ privileged aspect InstockDetail_Roo_JavaBean {
     }
     
     /**
-     * Gets orderNo value
+     * Gets materialCatalog value
      * 
-     * @return String
+     * @return MaterialCatalog
      */
-    public String InstockDetail.getOrderNo() {
-        return this.orderNo;
+    public MaterialCatalog InstockDetail.getMaterialCatalog() {
+        return this.materialCatalog;
     }
     
     /**
-     * Sets orderNo value
+     * Sets materialCatalog value
      * 
-     * @param orderNo
+     * @param materialCatalog
      * @return InstockDetail
      */
-    public InstockDetail InstockDetail.setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
+    public InstockDetail InstockDetail.setMaterialCatalog(MaterialCatalog materialCatalog) {
+        this.materialCatalog = materialCatalog;
+        return this;
+    }
+    
+    /**
+     * Gets storageLocation value
+     * 
+     * @return StorageLocation
+     */
+    public StorageLocation InstockDetail.getStorageLocation() {
+        return this.storageLocation;
+    }
+    
+    /**
+     * Sets storageLocation value
+     * 
+     * @param storageLocation
+     * @return InstockDetail
+     */
+    public InstockDetail InstockDetail.setStorageLocation(StorageLocation storageLocation) {
+        this.storageLocation = storageLocation;
         return this;
     }
     
@@ -77,42 +100,42 @@ privileged aspect InstockDetail_Roo_JavaBean {
     }
     
     /**
-     * Gets unitPrice value
+     * Gets storageType value
      * 
-     * @return BigDecimal
+     * @return StorageType
      */
-    public BigDecimal InstockDetail.getUnitPrice() {
-        return this.unitPrice;
+    public StorageType InstockDetail.getStorageType() {
+        return this.storageType;
     }
     
     /**
-     * Sets unitPrice value
+     * Sets storageType value
      * 
-     * @param unitPrice
+     * @param storageType
      * @return InstockDetail
      */
-    public InstockDetail InstockDetail.setUnitPrice(BigDecimal unitPrice) {
-        this.unitPrice = unitPrice;
+    public InstockDetail InstockDetail.setStorageType(StorageType storageType) {
+        this.storageType = storageType;
         return this;
     }
     
     /**
-     * Gets currencyUnit value
+     * Gets movementType value
      * 
-     * @return Currency
+     * @return MovementType
      */
-    public Currency InstockDetail.getCurrencyUnit() {
-        return this.currencyUnit;
+    public MovementType InstockDetail.getMovementType() {
+        return this.movementType;
     }
     
     /**
-     * Sets currencyUnit value
+     * Sets movementType value
      * 
-     * @param currencyUnit
+     * @param movementType
      * @return InstockDetail
      */
-    public InstockDetail InstockDetail.setCurrencyUnit(Currency currencyUnit) {
-        this.currencyUnit = currencyUnit;
+    public InstockDetail InstockDetail.setMovementType(MovementType movementType) {
+        this.movementType = movementType;
         return this;
     }
     
@@ -157,6 +180,46 @@ privileged aspect InstockDetail_Roo_JavaBean {
     }
     
     /**
+     * Gets expirationDate value
+     * 
+     * @return Calendar
+     */
+    public Calendar InstockDetail.getExpirationDate() {
+        return this.expirationDate;
+    }
+    
+    /**
+     * Sets expirationDate value
+     * 
+     * @param expirationDate
+     * @return InstockDetail
+     */
+    public InstockDetail InstockDetail.setExpirationDate(Calendar expirationDate) {
+        this.expirationDate = expirationDate;
+        return this;
+    }
+    
+    /**
+     * Gets serialNumber value
+     * 
+     * @return String
+     */
+    public String InstockDetail.getSerialNumber() {
+        return this.serialNumber;
+    }
+    
+    /**
+     * Sets serialNumber value
+     * 
+     * @param serialNumber
+     * @return InstockDetail
+     */
+    public InstockDetail InstockDetail.setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
+        return this;
+    }
+    
+    /**
      * Gets receiver value
      * 
      * @return Employee
@@ -177,62 +240,22 @@ privileged aspect InstockDetail_Roo_JavaBean {
     }
     
     /**
-     * Gets invoiceDate value
-     * 
-     * @return Calendar
-     */
-    public Calendar InstockDetail.getInvoiceDate() {
-        return this.invoiceDate;
-    }
-    
-    /**
-     * Sets invoiceDate value
-     * 
-     * @param invoiceDate
-     * @return InstockDetail
-     */
-    public InstockDetail InstockDetail.setInvoiceDate(Calendar invoiceDate) {
-        this.invoiceDate = invoiceDate;
-        return this;
-    }
-    
-    /**
-     * Gets paymentSubmitter value
+     * Gets keeper value
      * 
      * @return Employee
      */
-    public Employee InstockDetail.getPaymentSubmitter() {
-        return this.paymentSubmitter;
+    public Employee InstockDetail.getKeeper() {
+        return this.keeper;
     }
     
     /**
-     * Sets paymentSubmitter value
+     * Sets keeper value
      * 
-     * @param paymentSubmitter
+     * @param keeper
      * @return InstockDetail
      */
-    public InstockDetail InstockDetail.setPaymentSubmitter(Employee paymentSubmitter) {
-        this.paymentSubmitter = paymentSubmitter;
-        return this;
-    }
-    
-    /**
-     * Gets paymentDate value
-     * 
-     * @return Calendar
-     */
-    public Calendar InstockDetail.getPaymentDate() {
-        return this.paymentDate;
-    }
-    
-    /**
-     * Sets paymentDate value
-     * 
-     * @param paymentDate
-     * @return InstockDetail
-     */
-    public InstockDetail InstockDetail.setPaymentDate(Calendar paymentDate) {
-        this.paymentDate = paymentDate;
+    public InstockDetail InstockDetail.setKeeper(Employee keeper) {
+        this.keeper = keeper;
         return this;
     }
     
@@ -474,13 +497,11 @@ privileged aspect InstockDetail_Roo_JavaBean {
     public String InstockDetail.toString() {
         return "InstockDetail {" + 
                 "id='" + id + '\'' + 
-                ", orderNo='" + orderNo + '\'' + 
                 ", quantity='" + quantity + '\'' + 
-                ", unitPrice='" + unitPrice + '\'' + 
                 ", goodReceiveNo='" + goodReceiveNo + '\'' + 
                 ", receiveDate='" + receiveDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(receiveDate.getTime()) + '\'' + 
-                ", invoiceDate='" + invoiceDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(invoiceDate.getTime()) + '\'' + 
-                ", paymentDate='" + paymentDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(paymentDate.getTime()) + '\'' + 
+                ", expirationDate='" + expirationDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(expirationDate.getTime()) + '\'' + 
+                ", serialNumber='" + serialNumber + '\'' + 
                 ", memo='" + memo + '\'' + 
                 ", closed='" + closed + '\'' + 
                 ", version='" + version + '\'' + 

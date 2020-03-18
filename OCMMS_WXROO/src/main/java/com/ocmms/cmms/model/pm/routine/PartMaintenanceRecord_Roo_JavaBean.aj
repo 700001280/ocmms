@@ -9,6 +9,7 @@ import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.RepairMaterialInstockDetail;
 import com.ocmms.cmms.model.pm.routine.PartMaintenanceRecord;
 import com.ocmms.cmms.model.srm.Vendor;
 import com.ocmms.cmms.model.system.RecordStatus;
@@ -256,6 +257,26 @@ privileged aspect PartMaintenanceRecord_Roo_JavaBean {
      */
     public PartMaintenanceRecord PartMaintenanceRecord.setMaterialOutstockDetails(Set<MaterialOutstockDetail> materialOutstockDetails) {
         this.materialOutstockDetails = materialOutstockDetails;
+        return this;
+    }
+    
+    /**
+     * Gets repairMaterialInstockDetails value
+     * 
+     * @return Set
+     */
+    public Set<RepairMaterialInstockDetail> PartMaintenanceRecord.getRepairMaterialInstockDetails() {
+        return this.repairMaterialInstockDetails;
+    }
+    
+    /**
+     * Sets repairMaterialInstockDetails value
+     * 
+     * @param repairMaterialInstockDetails
+     * @return PartMaintenanceRecord
+     */
+    public PartMaintenanceRecord PartMaintenanceRecord.setRepairMaterialInstockDetails(Set<RepairMaterialInstockDetail> repairMaterialInstockDetails) {
+        this.repairMaterialInstockDetails = repairMaterialInstockDetails;
         return this;
     }
     

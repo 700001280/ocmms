@@ -180,4 +180,31 @@ privileged aspect PartMaintenanceRecordService_Roo_Service {
      */
     public abstract PartMaintenanceRecord PartMaintenanceRecordService.setMaterialOutstockDetails(PartMaintenanceRecord partMaintenanceRecord, Iterable<Long> materialOutstockDetails);
     
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partMaintenanceRecord
+     * @param repairMaterialInstockDetailsToAdd
+     * @return PartMaintenanceRecord
+     */
+    public abstract PartMaintenanceRecord PartMaintenanceRecordService.addToRepairMaterialInstockDetails(PartMaintenanceRecord partMaintenanceRecord, Iterable<Long> repairMaterialInstockDetailsToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partMaintenanceRecord
+     * @param repairMaterialInstockDetailsToRemove
+     * @return PartMaintenanceRecord
+     */
+    public abstract PartMaintenanceRecord PartMaintenanceRecordService.removeFromRepairMaterialInstockDetails(PartMaintenanceRecord partMaintenanceRecord, Iterable<Long> repairMaterialInstockDetailsToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param partMaintenanceRecord
+     * @param repairMaterialInstockDetails
+     * @return PartMaintenanceRecord
+     */
+    public abstract PartMaintenanceRecord PartMaintenanceRecordService.setRepairMaterialInstockDetails(PartMaintenanceRecord partMaintenanceRecord, Iterable<Long> repairMaterialInstockDetails);
+    
 }

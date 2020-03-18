@@ -10,6 +10,7 @@ import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.procurement.CatalogType;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.PriorityType;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.model.srm.Vendor;
@@ -43,6 +44,13 @@ privileged aspect ProcurementOrderJsonMixin_Roo_JSONMixin {
      */
     @JsonIgnore
     private Set<MaterialProcurementItemDetail> ProcurementOrderJsonMixin.materialProcurementItemDetails;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonIgnore
+    private Set<ProcurementOrderFinanceTracking> ProcurementOrderJsonMixin.procurementOrderFinanceTrackings;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -138,6 +146,24 @@ privileged aspect ProcurementOrderJsonMixin_Roo_JSONMixin {
      */
     public void ProcurementOrderJsonMixin.setMaterialProcurementItemDetails(Set<MaterialProcurementItemDetail> materialProcurementItemDetails) {
         this.materialProcurementItemDetails = materialProcurementItemDetails;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Set
+     */
+    public Set<ProcurementOrderFinanceTracking> ProcurementOrderJsonMixin.getProcurementOrderFinanceTrackings() {
+        return procurementOrderFinanceTrackings;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrderFinanceTrackings
+     */
+    public void ProcurementOrderJsonMixin.setProcurementOrderFinanceTrackings(Set<ProcurementOrderFinanceTracking> procurementOrderFinanceTrackings) {
+        this.procurementOrderFinanceTrackings = procurementOrderFinanceTrackings;
     }
     
     /**

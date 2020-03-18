@@ -7,6 +7,7 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import io.springlets.format.EntityFormat;
@@ -56,6 +57,32 @@ privileged aspect ProcurementOrder_Roo_Jpa_Entity {
         Assert.notNull(purchaseExpeditesToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
         for (PurchaseExpedite item : purchaseExpeditesToRemove) {
             this.purchaseExpedites.remove(item);
+            item.setProcurementOrder(null);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrderFinanceTrackingsToAdd
+     */
+    public void ProcurementOrder.addToProcurementOrderFinanceTrackings(Iterable<ProcurementOrderFinanceTracking> procurementOrderFinanceTrackingsToAdd) {
+        Assert.notNull(procurementOrderFinanceTrackingsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (ProcurementOrderFinanceTracking item : procurementOrderFinanceTrackingsToAdd) {
+            this.procurementOrderFinanceTrackings.add(item);
+            item.setProcurementOrder(this);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrderFinanceTrackingsToRemove
+     */
+    public void ProcurementOrder.removeFromProcurementOrderFinanceTrackings(Iterable<ProcurementOrderFinanceTracking> procurementOrderFinanceTrackingsToRemove) {
+        Assert.notNull(procurementOrderFinanceTrackingsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (ProcurementOrderFinanceTracking item : procurementOrderFinanceTrackingsToRemove) {
+            this.procurementOrderFinanceTrackings.remove(item);
             item.setProcurementOrder(null);
         }
     }

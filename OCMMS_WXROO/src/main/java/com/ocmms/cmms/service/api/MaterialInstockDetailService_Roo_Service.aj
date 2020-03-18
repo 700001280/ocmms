@@ -5,8 +5,6 @@ package com.ocmms.cmms.service.api;
 
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.service.api.MaterialInstockDetailService;
 import io.springlets.data.domain.GlobalSearch;
 import java.util.List;
@@ -105,60 +103,6 @@ privileged aspect MaterialInstockDetailService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialInstockDetail
-     * @param documentsToAdd
-     * @return MaterialInstockDetail
-     */
-    public abstract MaterialInstockDetail MaterialInstockDetailService.addToDocuments(MaterialInstockDetail materialInstockDetail, Iterable<Long> documentsToAdd);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialInstockDetail
-     * @param documentsToRemove
-     * @return MaterialInstockDetail
-     */
-    public abstract MaterialInstockDetail MaterialInstockDetailService.removeFromDocuments(MaterialInstockDetail materialInstockDetail, Iterable<Long> documentsToRemove);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialInstockDetail
-     * @param documents
-     * @return MaterialInstockDetail
-     */
-    public abstract MaterialInstockDetail MaterialInstockDetailService.setDocuments(MaterialInstockDetail materialInstockDetail, Iterable<Long> documents);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialInstockDetail
-     * @param imagesToAdd
-     * @return MaterialInstockDetail
-     */
-    public abstract MaterialInstockDetail MaterialInstockDetailService.addToImages(MaterialInstockDetail materialInstockDetail, Iterable<Long> imagesToAdd);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialInstockDetail
-     * @param imagesToRemove
-     * @return MaterialInstockDetail
-     */
-    public abstract MaterialInstockDetail MaterialInstockDetailService.removeFromImages(MaterialInstockDetail materialInstockDetail, Iterable<Long> imagesToRemove);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialInstockDetail
-     * @param images
-     * @return MaterialInstockDetail
-     */
-    public abstract MaterialInstockDetail MaterialInstockDetailService.setImages(MaterialInstockDetail materialInstockDetail, Iterable<Long> images);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param materialProcurementItemDetail
      * @param globalSearch
      * @param pageable
@@ -169,45 +113,9 @@ privileged aspect MaterialInstockDetailService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param storageLocation
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialInstockDetail> MaterialInstockDetailService.findByStorageLocation(StorageLocation storageLocation, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialInstockDetail> MaterialInstockDetailService.findByStorageType(StorageType storageType, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param materialProcurementItemDetail
      * @return Long
      */
     public abstract long MaterialInstockDetailService.countByMaterialProcurementItemDetail(MaterialProcurementItemDetail materialProcurementItemDetail);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageLocation
-     * @return Long
-     */
-    public abstract long MaterialInstockDetailService.countByStorageLocation(StorageLocation storageLocation);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @return Long
-     */
-    public abstract long MaterialInstockDetailService.countByStorageType(StorageType storageType);
     
 }

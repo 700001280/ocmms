@@ -13,6 +13,8 @@ import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.master.MaterialType;
 import com.ocmms.cmms.model.mm.master.MaterialVendorInfo;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 import java.util.Objects;
 import java.util.Set;
@@ -236,6 +238,46 @@ privileged aspect MaterialCatalog_Roo_JavaBean {
      */
     public MaterialCatalog MaterialCatalog.setMaterialProcurementItemDetails(Set<MaterialProcurementItemDetail> materialProcurementItemDetails) {
         this.materialProcurementItemDetails = materialProcurementItemDetails;
+        return this;
+    }
+    
+    /**
+     * Gets outstockDetails value
+     * 
+     * @return Set
+     */
+    public Set<OutstockDetail> MaterialCatalog.getOutstockDetails() {
+        return this.outstockDetails;
+    }
+    
+    /**
+     * Sets outstockDetails value
+     * 
+     * @param outstockDetails
+     * @return MaterialCatalog
+     */
+    public MaterialCatalog MaterialCatalog.setOutstockDetails(Set<OutstockDetail> outstockDetails) {
+        this.outstockDetails = outstockDetails;
+        return this;
+    }
+    
+    /**
+     * Gets instockDetails value
+     * 
+     * @return Set
+     */
+    public Set<InstockDetail> MaterialCatalog.getInstockDetails() {
+        return this.instockDetails;
+    }
+    
+    /**
+     * Sets instockDetails value
+     * 
+     * @param instockDetails
+     * @return MaterialCatalog
+     */
+    public MaterialCatalog MaterialCatalog.setInstockDetails(Set<InstockDetail> instockDetails) {
+        this.instockDetails = instockDetails;
         return this;
     }
     

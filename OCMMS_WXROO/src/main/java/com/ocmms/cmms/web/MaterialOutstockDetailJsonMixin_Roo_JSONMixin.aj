@@ -3,44 +3,14 @@
 
 package com.ocmms.cmms.web;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.ocmms.cmms.model.edm.Document;
-import com.ocmms.cmms.model.edm.ImageDocument;
-import com.ocmms.cmms.model.hrm.Employee;
-import com.ocmms.cmms.model.hrm.Organization;
-import com.ocmms.cmms.model.mm.master.MaterialCatalog;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.model.pm.routine.EquipmentMaintenanceRecord;
 import com.ocmms.cmms.model.pm.routine.PartMaintenanceRecord;
-import com.ocmms.cmms.model.system.RecordStatus;
-import com.ocmms.cmms.web.EmployeeDeserializer;
 import com.ocmms.cmms.web.EquipmentMaintenanceRecordDeserializer;
-import com.ocmms.cmms.web.MaterialCatalogDeserializer;
 import com.ocmms.cmms.web.MaterialOutstockDetailJsonMixin;
-import com.ocmms.cmms.web.OrganizationDeserializer;
 import com.ocmms.cmms.web.PartMaintenanceRecordDeserializer;
-import com.ocmms.cmms.web.RecordStatusDeserializer;
-import com.ocmms.cmms.web.StorageLocationDeserializer;
-import com.ocmms.cmms.web.StorageTypeDeserializer;
-import java.util.Set;
 
 privileged aspect MaterialOutstockDetailJsonMixin_Roo_JSONMixin {
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonIgnore
-    private Set<Document> MaterialOutstockDetailJsonMixin.documents;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonIgnore
-    private Set<ImageDocument> MaterialOutstockDetailJsonMixin.images;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -53,93 +23,8 @@ privileged aspect MaterialOutstockDetailJsonMixin_Roo_JSONMixin {
      * TODO Auto-generated attribute documentation
      * 
      */
-    @JsonDeserialize(using = EmployeeDeserializer.class)
-    private Employee MaterialOutstockDetailJsonMixin.keeper;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonDeserialize(using = MaterialCatalogDeserializer.class)
-    private MaterialCatalog MaterialOutstockDetailJsonMixin.materialCatalog;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonDeserialize(using = OrganizationDeserializer.class)
-    private Organization MaterialOutstockDetailJsonMixin.organization;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     @JsonDeserialize(using = PartMaintenanceRecordDeserializer.class)
     private PartMaintenanceRecord MaterialOutstockDetailJsonMixin.partMaintenanceRecord;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonDeserialize(using = EmployeeDeserializer.class)
-    private Employee MaterialOutstockDetailJsonMixin.receiver;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonDeserialize(using = RecordStatusDeserializer.class)
-    private RecordStatus MaterialOutstockDetailJsonMixin.recordStatus;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonDeserialize(using = StorageLocationDeserializer.class)
-    private StorageLocation MaterialOutstockDetailJsonMixin.storageLocation;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonDeserialize(using = StorageTypeDeserializer.class)
-    private StorageType MaterialOutstockDetailJsonMixin.storageType;
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return Set
-     */
-    public Set<Document> MaterialOutstockDetailJsonMixin.getDocuments() {
-        return documents;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param documents
-     */
-    public void MaterialOutstockDetailJsonMixin.setDocuments(Set<Document> documents) {
-        this.documents = documents;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return Set
-     */
-    public Set<ImageDocument> MaterialOutstockDetailJsonMixin.getImages() {
-        return images;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param images
-     */
-    public void MaterialOutstockDetailJsonMixin.setImages(Set<ImageDocument> images) {
-        this.images = images;
-    }
     
     /**
      * TODO Auto-generated method documentation
@@ -162,60 +47,6 @@ privileged aspect MaterialOutstockDetailJsonMixin_Roo_JSONMixin {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return Employee
-     */
-    public Employee MaterialOutstockDetailJsonMixin.getKeeper() {
-        return keeper;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param keeper
-     */
-    public void MaterialOutstockDetailJsonMixin.setKeeper(Employee keeper) {
-        this.keeper = keeper;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return MaterialCatalog
-     */
-    public MaterialCatalog MaterialOutstockDetailJsonMixin.getMaterialCatalog() {
-        return materialCatalog;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialCatalog
-     */
-    public void MaterialOutstockDetailJsonMixin.setMaterialCatalog(MaterialCatalog materialCatalog) {
-        this.materialCatalog = materialCatalog;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return Organization
-     */
-    public Organization MaterialOutstockDetailJsonMixin.getOrganization() {
-        return organization;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param organization
-     */
-    public void MaterialOutstockDetailJsonMixin.setOrganization(Organization organization) {
-        this.organization = organization;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @return PartMaintenanceRecord
      */
     public PartMaintenanceRecord MaterialOutstockDetailJsonMixin.getPartMaintenanceRecord() {
@@ -229,78 +60,6 @@ privileged aspect MaterialOutstockDetailJsonMixin_Roo_JSONMixin {
      */
     public void MaterialOutstockDetailJsonMixin.setPartMaintenanceRecord(PartMaintenanceRecord partMaintenanceRecord) {
         this.partMaintenanceRecord = partMaintenanceRecord;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return Employee
-     */
-    public Employee MaterialOutstockDetailJsonMixin.getReceiver() {
-        return receiver;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param receiver
-     */
-    public void MaterialOutstockDetailJsonMixin.setReceiver(Employee receiver) {
-        this.receiver = receiver;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return RecordStatus
-     */
-    public RecordStatus MaterialOutstockDetailJsonMixin.getRecordStatus() {
-        return recordStatus;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param recordStatus
-     */
-    public void MaterialOutstockDetailJsonMixin.setRecordStatus(RecordStatus recordStatus) {
-        this.recordStatus = recordStatus;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return StorageLocation
-     */
-    public StorageLocation MaterialOutstockDetailJsonMixin.getStorageLocation() {
-        return storageLocation;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageLocation
-     */
-    public void MaterialOutstockDetailJsonMixin.setStorageLocation(StorageLocation storageLocation) {
-        this.storageLocation = storageLocation;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return StorageType
-     */
-    public StorageType MaterialOutstockDetailJsonMixin.getStorageType() {
-        return storageType;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     */
-    public void MaterialOutstockDetailJsonMixin.setStorageType(StorageType storageType) {
-        this.storageType = storageType;
     }
     
 }

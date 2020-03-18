@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="repairmaterialinstockdetails-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('PartMaintenanceRecordsItemRepairMaterialInstockDetailsThymeleafController')}">
+    <table id="repairmaterialinstockdetails-detail-table-items-to-remove-batch" data-parent-table="partmaintenancerecord-entity-table" data-data-parent-id="${partMaintenanceRecord != null ? partMaintenanceRecord.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('partMaintenanceRecord', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="materialCatalog" data-th-text="#{label_partmaintenancerecord_repairmaterialinstockdetails_materialcatalog}">materialCatalog</th>
+              <th data-data="storageLocation" data-th-text="#{label_partmaintenancerecord_repairmaterialinstockdetails_storagelocation}">storageLocation</th>
+              <th data-data="quantity" data-th-text="#{label_partmaintenancerecord_repairmaterialinstockdetails_quantity}">quantity</th>
+              <th data-data="storageType" data-th-text="#{label_partmaintenancerecord_repairmaterialinstockdetails_storagetype}">storageType</th>
+              <th data-data="movementType" data-th-text="#{label_partmaintenancerecord_repairmaterialinstockdetails_movementtype}">movementType</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>materialCatalog</td>
+              <td>storageLocation</td>
+              <td>quantity</td>
+              <td>storageType</td>
+              <td>movementType</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

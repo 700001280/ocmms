@@ -18,11 +18,12 @@ import com.ocmms.cmms.model.loto.LotoIssueReport;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringRecord;
 import com.ocmms.cmms.model.pm.notification.NotificationItem;
@@ -71,18 +72,18 @@ privileged aspect ImageDocumentRepository_Roo_Jpa_Repository {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param equipmentMaintenanceRecord
+     * @param serviceReceiveDetail
      * @return Long
      */
-    public abstract long ImageDocumentRepository.countByEquipmentMaintenanceRecord(EquipmentMaintenanceRecord equipmentMaintenanceRecord);
+    public abstract long ImageDocumentRepository.countByServiceReceiveDetail(ServiceReceiveDetail serviceReceiveDetail);
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialOutstockDetail
+     * @param equipmentMaintenanceRecord
      * @return Long
      */
-    public abstract long ImageDocumentRepository.countByMaterialOutstockDetail(MaterialOutstockDetail materialOutstockDetail);
+    public abstract long ImageDocumentRepository.countByEquipmentMaintenanceRecord(EquipmentMaintenanceRecord equipmentMaintenanceRecord);
     
     /**
      * TODO Auto-generated method documentation
@@ -203,6 +204,22 @@ privileged aspect ImageDocumentRepository_Roo_Jpa_Repository {
      * @return Long
      */
     public abstract long ImageDocumentRepository.countByAutonomousMaintenanceFinding(AutonomousMaintenanceFinding autonomousMaintenanceFinding);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetail
+     * @return Long
+     */
+    public abstract long ImageDocumentRepository.countByOutstockDetail(OutstockDetail outstockDetail);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrderFinanceTracking
+     * @return Long
+     */
+    public abstract long ImageDocumentRepository.countByProcurementOrderFinanceTracking(ProcurementOrderFinanceTracking procurementOrderFinanceTracking);
     
     /**
      * TODO Auto-generated method documentation
@@ -339,14 +356,6 @@ privileged aspect ImageDocumentRepository_Roo_Jpa_Repository {
      * @return Long
      */
     public abstract long ImageDocumentRepository.countBySystemBugReport(BugReport systemBugReport);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialInstockDetail
-     * @return Long
-     */
-    public abstract long ImageDocumentRepository.countByMaterialInstockDetail(MaterialInstockDetail materialInstockDetail);
     
     /**
      * TODO Auto-generated method documentation

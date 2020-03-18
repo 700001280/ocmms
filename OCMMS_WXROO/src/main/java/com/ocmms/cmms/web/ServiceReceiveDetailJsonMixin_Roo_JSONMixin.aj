@@ -3,10 +3,18 @@
 
 package com.ocmms.cmms.web;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.ocmms.cmms.model.edm.Document;
+import com.ocmms.cmms.model.edm.ImageDocument;
+import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
+import com.ocmms.cmms.model.system.RecordStatus;
+import com.ocmms.cmms.web.EmployeeDeserializer;
+import com.ocmms.cmms.web.RecordStatusDeserializer;
 import com.ocmms.cmms.web.ServiceProcurementItemDetailDeserializer;
 import com.ocmms.cmms.web.ServiceReceiveDetailJsonMixin;
+import java.util.Set;
 
 privileged aspect ServiceReceiveDetailJsonMixin_Roo_JSONMixin {
     
@@ -14,8 +22,158 @@ privileged aspect ServiceReceiveDetailJsonMixin_Roo_JSONMixin {
      * TODO Auto-generated attribute documentation
      * 
      */
+    @JsonIgnore
+    private Set<Document> ServiceReceiveDetailJsonMixin.documents;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonIgnore
+    private Set<ImageDocument> ServiceReceiveDetailJsonMixin.images;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = EmployeeDeserializer.class)
+    private Employee ServiceReceiveDetailJsonMixin.keeper;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = EmployeeDeserializer.class)
+    private Employee ServiceReceiveDetailJsonMixin.paymentSubmitter;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = EmployeeDeserializer.class)
+    private Employee ServiceReceiveDetailJsonMixin.receiver;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = RecordStatusDeserializer.class)
+    private RecordStatus ServiceReceiveDetailJsonMixin.recordStatus;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     @JsonDeserialize(using = ServiceProcurementItemDetailDeserializer.class)
     private ServiceProcurementItemDetail ServiceReceiveDetailJsonMixin.serviceProcurementItemDetail;
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Set
+     */
+    public Set<Document> ServiceReceiveDetailJsonMixin.getDocuments() {
+        return documents;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param documents
+     */
+    public void ServiceReceiveDetailJsonMixin.setDocuments(Set<Document> documents) {
+        this.documents = documents;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Set
+     */
+    public Set<ImageDocument> ServiceReceiveDetailJsonMixin.getImages() {
+        return images;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param images
+     */
+    public void ServiceReceiveDetailJsonMixin.setImages(Set<ImageDocument> images) {
+        this.images = images;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Employee
+     */
+    public Employee ServiceReceiveDetailJsonMixin.getKeeper() {
+        return keeper;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param keeper
+     */
+    public void ServiceReceiveDetailJsonMixin.setKeeper(Employee keeper) {
+        this.keeper = keeper;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Employee
+     */
+    public Employee ServiceReceiveDetailJsonMixin.getPaymentSubmitter() {
+        return paymentSubmitter;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param paymentSubmitter
+     */
+    public void ServiceReceiveDetailJsonMixin.setPaymentSubmitter(Employee paymentSubmitter) {
+        this.paymentSubmitter = paymentSubmitter;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Employee
+     */
+    public Employee ServiceReceiveDetailJsonMixin.getReceiver() {
+        return receiver;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param receiver
+     */
+    public void ServiceReceiveDetailJsonMixin.setReceiver(Employee receiver) {
+        this.receiver = receiver;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return RecordStatus
+     */
+    public RecordStatus ServiceReceiveDetailJsonMixin.getRecordStatus() {
+        return recordStatus;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param recordStatus
+     */
+    public void ServiceReceiveDetailJsonMixin.setRecordStatus(RecordStatus recordStatus) {
+        this.recordStatus = recordStatus;
+    }
     
     /**
      * TODO Auto-generated method documentation

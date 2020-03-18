@@ -3,7 +3,6 @@
 
 package com.ocmms.cmms.service.impl;
 
-import com.ocmms.cmms.model.assistance.TaskFormBean;
 import com.ocmms.cmms.model.assistance.TaskTracking;
 import com.ocmms.cmms.model.assistance.TaskTrackingPriority;
 import com.ocmms.cmms.model.assistance.TaskTrackingStatus;
@@ -477,28 +476,6 @@ privileged aspect TaskTrackingServiceImpl_Roo_Service_Impl {
      */
     public long TaskTrackingServiceImpl.countByTaskTrackingType(TaskTrackingType taskTrackingType) {
         return getTaskTrackingRepository().countByTaskTrackingType(taskTrackingType);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param formBean
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<TaskTracking> TaskTrackingServiceImpl.findByTaskOwner(TaskFormBean formBean, GlobalSearch globalSearch, Pageable pageable) {
-        return getTaskTrackingRepository().findByTaskOwner(formBean, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param formBean
-     * @return Long
-     */
-    public long TaskTrackingServiceImpl.countByTaskOwner(TaskFormBean formBean) {
-        return getTaskTrackingRepository().countByTaskOwner(formBean);
     }
     
     /**

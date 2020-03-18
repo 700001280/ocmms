@@ -7,6 +7,7 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
+import com.ocmms.cmms.model.mm.storage.PartScrappingOutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.pm.routine.PartScrappingRecord;
 import com.ocmms.cmms.model.system.RecordStatus;
@@ -153,6 +154,26 @@ privileged aspect PartScrappingRecord_Roo_JavaBean {
      */
     public PartScrappingRecord PartScrappingRecord.setStorageLocation(StorageLocation storageLocation) {
         this.storageLocation = storageLocation;
+        return this;
+    }
+    
+    /**
+     * Gets partScrappingOutstockDetails value
+     * 
+     * @return Set
+     */
+    public Set<PartScrappingOutstockDetail> PartScrappingRecord.getPartScrappingOutstockDetails() {
+        return this.partScrappingOutstockDetails;
+    }
+    
+    /**
+     * Sets partScrappingOutstockDetails value
+     * 
+     * @param partScrappingOutstockDetails
+     * @return PartScrappingRecord
+     */
+    public PartScrappingRecord PartScrappingRecord.setPartScrappingOutstockDetails(Set<PartScrappingOutstockDetail> partScrappingOutstockDetails) {
+        this.partScrappingOutstockDetails = partScrappingOutstockDetails;
         return this;
     }
     

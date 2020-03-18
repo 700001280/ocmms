@@ -19,11 +19,12 @@ import com.ocmms.cmms.model.loto.LotoIssueReport;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringRecord;
 import com.ocmms.cmms.model.pm.notification.NotificationItem;
@@ -70,11 +71,10 @@ import com.ocmms.cmms.web.LotoDetailDeserializer;
 import com.ocmms.cmms.web.LotoInfoDeserializer;
 import com.ocmms.cmms.web.LotoIssueReportDeserializer;
 import com.ocmms.cmms.web.MaterialCatalogDeserializer;
-import com.ocmms.cmms.web.MaterialInstockDetailDeserializer;
-import com.ocmms.cmms.web.MaterialOutstockDetailDeserializer;
 import com.ocmms.cmms.web.MeasuringPointDeserializer;
 import com.ocmms.cmms.web.MeasuringRecordDeserializer;
 import com.ocmms.cmms.web.NotificationItemDeserializer;
+import com.ocmms.cmms.web.OutstockDetailDeserializer;
 import com.ocmms.cmms.web.PartMaintenanceRecordDeserializer;
 import com.ocmms.cmms.web.PartReplaceRecordDeserializer;
 import com.ocmms.cmms.web.PartScrappingRecordDeserializer;
@@ -84,9 +84,11 @@ import com.ocmms.cmms.web.PreventiveMaintenanceFindingDeserializer;
 import com.ocmms.cmms.web.PreventiveMaintenanceStandardDeserializer;
 import com.ocmms.cmms.web.ProcurementItemDetailDeserializer;
 import com.ocmms.cmms.web.ProcurementOrderDeserializer;
+import com.ocmms.cmms.web.ProcurementOrderFinanceTrackingDeserializer;
 import com.ocmms.cmms.web.ProcurementRequestDeserializer;
 import com.ocmms.cmms.web.PurchaseExpediteDeserializer;
 import com.ocmms.cmms.web.RecordStatusDeserializer;
+import com.ocmms.cmms.web.ServiceReceiveDetailDeserializer;
 import com.ocmms.cmms.web.TaskTrackingDeserializer;
 import com.ocmms.cmms.web.TechnicalObjectDeserializer;
 import com.ocmms.cmms.web.WorkLogDeserializer;
@@ -245,20 +247,6 @@ privileged aspect ImageDocumentJsonMixin_Roo_JSONMixin {
      * TODO Auto-generated attribute documentation
      * 
      */
-    @JsonDeserialize(using = MaterialInstockDetailDeserializer.class)
-    private MaterialInstockDetail ImageDocumentJsonMixin.materialInstockDetail;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonDeserialize(using = MaterialOutstockDetailDeserializer.class)
-    private MaterialOutstockDetail ImageDocumentJsonMixin.materialOutstockDetail;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     @JsonDeserialize(using = MeasuringPointDeserializer.class)
     private MeasuringPoint ImageDocumentJsonMixin.measuringPoint;
     
@@ -275,6 +263,13 @@ privileged aspect ImageDocumentJsonMixin_Roo_JSONMixin {
      */
     @JsonDeserialize(using = NotificationItemDeserializer.class)
     private NotificationItem ImageDocumentJsonMixin.notificationItem;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = OutstockDetailDeserializer.class)
+    private OutstockDetail ImageDocumentJsonMixin.outstockDetail;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -343,6 +338,13 @@ privileged aspect ImageDocumentJsonMixin_Roo_JSONMixin {
      * TODO Auto-generated attribute documentation
      * 
      */
+    @JsonDeserialize(using = ProcurementOrderFinanceTrackingDeserializer.class)
+    private ProcurementOrderFinanceTracking ImageDocumentJsonMixin.procurementOrderFinanceTracking;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     @JsonDeserialize(using = ProcurementRequestDeserializer.class)
     private ProcurementRequest ImageDocumentJsonMixin.procurementRequest;
     
@@ -359,6 +361,13 @@ privileged aspect ImageDocumentJsonMixin_Roo_JSONMixin {
      */
     @JsonDeserialize(using = RecordStatusDeserializer.class)
     private RecordStatus ImageDocumentJsonMixin.recordStatus;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = ServiceReceiveDetailDeserializer.class)
+    private ServiceReceiveDetail ImageDocumentJsonMixin.serviceReceiveDetail;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -783,42 +792,6 @@ privileged aspect ImageDocumentJsonMixin_Roo_JSONMixin {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return MaterialInstockDetail
-     */
-    public MaterialInstockDetail ImageDocumentJsonMixin.getMaterialInstockDetail() {
-        return materialInstockDetail;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialInstockDetail
-     */
-    public void ImageDocumentJsonMixin.setMaterialInstockDetail(MaterialInstockDetail materialInstockDetail) {
-        this.materialInstockDetail = materialInstockDetail;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail ImageDocumentJsonMixin.getMaterialOutstockDetail() {
-        return materialOutstockDetail;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     */
-    public void ImageDocumentJsonMixin.setMaterialOutstockDetail(MaterialOutstockDetail materialOutstockDetail) {
-        this.materialOutstockDetail = materialOutstockDetail;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @return MeasuringPoint
      */
     public MeasuringPoint ImageDocumentJsonMixin.getMeasuringPoint() {
@@ -868,6 +841,24 @@ privileged aspect ImageDocumentJsonMixin_Roo_JSONMixin {
      */
     public void ImageDocumentJsonMixin.setNotificationItem(NotificationItem notificationItem) {
         this.notificationItem = notificationItem;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return OutstockDetail
+     */
+    public OutstockDetail ImageDocumentJsonMixin.getOutstockDetail() {
+        return outstockDetail;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetail
+     */
+    public void ImageDocumentJsonMixin.setOutstockDetail(OutstockDetail outstockDetail) {
+        this.outstockDetail = outstockDetail;
     }
     
     /**
@@ -1035,6 +1026,24 @@ privileged aspect ImageDocumentJsonMixin_Roo_JSONMixin {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @return ProcurementOrderFinanceTracking
+     */
+    public ProcurementOrderFinanceTracking ImageDocumentJsonMixin.getProcurementOrderFinanceTracking() {
+        return procurementOrderFinanceTracking;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrderFinanceTracking
+     */
+    public void ImageDocumentJsonMixin.setProcurementOrderFinanceTracking(ProcurementOrderFinanceTracking procurementOrderFinanceTracking) {
+        this.procurementOrderFinanceTracking = procurementOrderFinanceTracking;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @return ProcurementRequest
      */
     public ProcurementRequest ImageDocumentJsonMixin.getProcurementRequest() {
@@ -1084,6 +1093,24 @@ privileged aspect ImageDocumentJsonMixin_Roo_JSONMixin {
      */
     public void ImageDocumentJsonMixin.setRecordStatus(RecordStatus recordStatus) {
         this.recordStatus = recordStatus;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ServiceReceiveDetail
+     */
+    public ServiceReceiveDetail ImageDocumentJsonMixin.getServiceReceiveDetail() {
+        return serviceReceiveDetail;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     */
+    public void ImageDocumentJsonMixin.setServiceReceiveDetail(ServiceReceiveDetail serviceReceiveDetail) {
+        this.serviceReceiveDetail = serviceReceiveDetail;
     }
     
     /**

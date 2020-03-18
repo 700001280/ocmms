@@ -3,26 +3,16 @@
 
 package com.ocmms.cmms.service.impl;
 
-import com.ocmms.cmms.model.edm.Document;
-import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.model.pm.routine.EquipmentMaintenanceRecord;
 import com.ocmms.cmms.model.pm.routine.PartMaintenanceRecord;
 import com.ocmms.cmms.repository.MaterialOutstockDetailRepository;
-import com.ocmms.cmms.service.api.DocumentService;
-import com.ocmms.cmms.service.api.ImageDocumentService;
 import com.ocmms.cmms.service.impl.MaterialOutstockDetailServiceImpl;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.MessageI18n;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -41,29 +31,13 @@ privileged aspect MaterialOutstockDetailServiceImpl_Roo_Service_Impl {
     private MaterialOutstockDetailRepository MaterialOutstockDetailServiceImpl.materialOutstockDetailRepository;
     
     /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    private DocumentService MaterialOutstockDetailServiceImpl.documentService;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    private ImageDocumentService MaterialOutstockDetailServiceImpl.imageDocumentService;
-    
-    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param materialOutstockDetailRepository
-     * @param documentService
-     * @param imageDocumentService
      */
     @Autowired
-    public MaterialOutstockDetailServiceImpl.new(MaterialOutstockDetailRepository materialOutstockDetailRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService) {
+    public MaterialOutstockDetailServiceImpl.new(MaterialOutstockDetailRepository materialOutstockDetailRepository) {
         setMaterialOutstockDetailRepository(materialOutstockDetailRepository);
-        setDocumentService(documentService);
-        setImageDocumentService(imageDocumentService);
     }
 
     /**
@@ -87,42 +61,6 @@ privileged aspect MaterialOutstockDetailServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return DocumentService
-     */
-    public DocumentService MaterialOutstockDetailServiceImpl.getDocumentService() {
-        return documentService;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param documentService
-     */
-    public void MaterialOutstockDetailServiceImpl.setDocumentService(DocumentService documentService) {
-        this.documentService = documentService;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return ImageDocumentService
-     */
-    public ImageDocumentService MaterialOutstockDetailServiceImpl.getImageDocumentService() {
-        return imageDocumentService;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param imageDocumentService
-     */
-    public void MaterialOutstockDetailServiceImpl.setImageDocumentService(ImageDocumentService imageDocumentService) {
-        this.imageDocumentService = imageDocumentService;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param materialoutstockdetail
      * @return Map
      */
@@ -138,131 +76,9 @@ privileged aspect MaterialOutstockDetailServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param materialOutstockDetail
-     * @param documentsToAdd
-     * @return MaterialOutstockDetail
-     */
-    @Transactional
-    public MaterialOutstockDetail MaterialOutstockDetailServiceImpl.addToDocuments(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> documentsToAdd) {
-        List<Document> documents = getDocumentService().findAll(documentsToAdd);
-        materialOutstockDetail.addToDocuments(documents);
-        return getMaterialOutstockDetailRepository().save(materialOutstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param imagesToAdd
-     * @return MaterialOutstockDetail
-     */
-    @Transactional
-    public MaterialOutstockDetail MaterialOutstockDetailServiceImpl.addToImages(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> imagesToAdd) {
-        List<ImageDocument> images = getImageDocumentService().findAll(imagesToAdd);
-        materialOutstockDetail.addToImages(images);
-        return getMaterialOutstockDetailRepository().save(materialOutstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param documentsToRemove
-     * @return MaterialOutstockDetail
-     */
-    @Transactional
-    public MaterialOutstockDetail MaterialOutstockDetailServiceImpl.removeFromDocuments(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> documentsToRemove) {
-        List<Document> documents = getDocumentService().findAll(documentsToRemove);
-        materialOutstockDetail.removeFromDocuments(documents);
-        return getMaterialOutstockDetailRepository().save(materialOutstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param imagesToRemove
-     * @return MaterialOutstockDetail
-     */
-    @Transactional
-    public MaterialOutstockDetail MaterialOutstockDetailServiceImpl.removeFromImages(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> imagesToRemove) {
-        List<ImageDocument> images = getImageDocumentService().findAll(imagesToRemove);
-        materialOutstockDetail.removeFromImages(images);
-        return getMaterialOutstockDetailRepository().save(materialOutstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param documents
-     * @return MaterialOutstockDetail
-     */
-    @Transactional
-    public MaterialOutstockDetail MaterialOutstockDetailServiceImpl.setDocuments(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> documents) {
-        List<Document> items = getDocumentService().findAll(documents);
-        Set<Document> currents = materialOutstockDetail.getDocuments();
-        Set<Document> toRemove = new HashSet<Document>();
-        for (Iterator<Document> iterator = currents.iterator(); iterator.hasNext();) {
-            Document nextDocument = iterator.next();
-            if (items.contains(nextDocument)) {
-                items.remove(nextDocument);
-            } else {
-                toRemove.add(nextDocument);
-            }
-        }
-        materialOutstockDetail.removeFromDocuments(toRemove);
-        materialOutstockDetail.addToDocuments(items);
-        // Force the version update of the parent side to know that the parent has changed
-        // because it has new books assigned
-        materialOutstockDetail.setVersion(materialOutstockDetail.getVersion() + 1);
-        return getMaterialOutstockDetailRepository().save(materialOutstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param images
-     * @return MaterialOutstockDetail
-     */
-    @Transactional
-    public MaterialOutstockDetail MaterialOutstockDetailServiceImpl.setImages(MaterialOutstockDetail materialOutstockDetail, Iterable<Long> images) {
-        List<ImageDocument> items = getImageDocumentService().findAll(images);
-        Set<ImageDocument> currents = materialOutstockDetail.getImages();
-        Set<ImageDocument> toRemove = new HashSet<ImageDocument>();
-        for (Iterator<ImageDocument> iterator = currents.iterator(); iterator.hasNext();) {
-            ImageDocument nextImageDocument = iterator.next();
-            if (items.contains(nextImageDocument)) {
-                items.remove(nextImageDocument);
-            } else {
-                toRemove.add(nextImageDocument);
-            }
-        }
-        materialOutstockDetail.removeFromImages(toRemove);
-        materialOutstockDetail.addToImages(items);
-        // Force the version update of the parent side to know that the parent has changed
-        // because it has new books assigned
-        materialOutstockDetail.setVersion(materialOutstockDetail.getVersion() + 1);
-        return getMaterialOutstockDetailRepository().save(materialOutstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
      */
     @Transactional
     public void MaterialOutstockDetailServiceImpl.delete(MaterialOutstockDetail materialOutstockDetail) {
-        // Clear bidirectional many-to-one child relationship with StorageLocation
-        if (materialOutstockDetail.getStorageLocation() != null) {
-            materialOutstockDetail.getStorageLocation().getMaterialOutstockDetails().remove(materialOutstockDetail);
-        }
-        
-        // Clear bidirectional many-to-one child relationship with StorageType
-        if (materialOutstockDetail.getStorageType() != null) {
-            materialOutstockDetail.getStorageType().getMaterialOutstockDetails().remove(materialOutstockDetail);
-        }
-        
         // Clear bidirectional many-to-one child relationship with EquipmentMaintenanceRecord
         if (materialOutstockDetail.getEquipmentMaintenanceRecord() != null) {
             materialOutstockDetail.getEquipmentMaintenanceRecord().getMaterialOutstockDetails().remove(materialOutstockDetail);
@@ -271,16 +87,6 @@ privileged aspect MaterialOutstockDetailServiceImpl_Roo_Service_Impl {
         // Clear bidirectional many-to-one child relationship with PartMaintenanceRecord
         if (materialOutstockDetail.getPartMaintenanceRecord() != null) {
             materialOutstockDetail.getPartMaintenanceRecord().getMaterialOutstockDetails().remove(materialOutstockDetail);
-        }
-        
-        // Clear bidirectional one-to-many parent relationship with Document
-        for (Document item : materialOutstockDetail.getDocuments()) {
-            item.setMaterialOutstockDetail(null);
-        }
-        
-        // Clear bidirectional one-to-many parent relationship with ImageDocument
-        for (ImageDocument item : materialOutstockDetail.getImages()) {
-            item.setMaterialOutstockDetail(null);
         }
         
         getMaterialOutstockDetailRepository().delete(materialOutstockDetail);
@@ -417,30 +223,6 @@ privileged aspect MaterialOutstockDetailServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param storageLocation
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<MaterialOutstockDetail> MaterialOutstockDetailServiceImpl.findByStorageLocation(StorageLocation storageLocation, GlobalSearch globalSearch, Pageable pageable) {
-        return getMaterialOutstockDetailRepository().findByStorageLocation(storageLocation, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<MaterialOutstockDetail> MaterialOutstockDetailServiceImpl.findByStorageType(StorageType storageType, GlobalSearch globalSearch, Pageable pageable) {
-        return getMaterialOutstockDetailRepository().findByStorageType(storageType, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param equipmentMaintenanceRecord
      * @return Long
      */
@@ -456,26 +238,6 @@ privileged aspect MaterialOutstockDetailServiceImpl_Roo_Service_Impl {
      */
     public long MaterialOutstockDetailServiceImpl.countByPartMaintenanceRecord(PartMaintenanceRecord partMaintenanceRecord) {
         return getMaterialOutstockDetailRepository().countByPartMaintenanceRecord(partMaintenanceRecord);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageLocation
-     * @return Long
-     */
-    public long MaterialOutstockDetailServiceImpl.countByStorageLocation(StorageLocation storageLocation) {
-        return getMaterialOutstockDetailRepository().countByStorageLocation(storageLocation);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @return Long
-     */
-    public long MaterialOutstockDetailServiceImpl.countByStorageType(StorageType storageType) {
-        return getMaterialOutstockDetailRepository().countByStorageType(storageType);
     }
     
     /**

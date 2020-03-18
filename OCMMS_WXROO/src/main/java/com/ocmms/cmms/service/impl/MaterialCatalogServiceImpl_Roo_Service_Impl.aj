@@ -10,15 +10,19 @@ import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.master.MaterialVendorInfo;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 import com.ocmms.cmms.repository.MaterialCatalogRepository;
 import com.ocmms.cmms.service.api.BillOfMaterialService;
 import com.ocmms.cmms.service.api.DocumentService;
 import com.ocmms.cmms.service.api.ImageDocumentService;
+import com.ocmms.cmms.service.api.InstockDetailService;
 import com.ocmms.cmms.service.api.MaterialAttributeService;
 import com.ocmms.cmms.service.api.MaterialPlantInfoService;
 import com.ocmms.cmms.service.api.MaterialProcurementItemDetailService;
 import com.ocmms.cmms.service.api.MaterialVendorInfoService;
+import com.ocmms.cmms.service.api.OutstockDetailService;
 import com.ocmms.cmms.service.impl.MaterialCatalogServiceImpl;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.MessageI18n;
@@ -86,6 +90,18 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
+    private InstockDetailService MaterialCatalogServiceImpl.instockDetailService;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private OutstockDetailService MaterialCatalogServiceImpl.outstockDetailService;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     private BillOfMaterialService MaterialCatalogServiceImpl.billOfMaterialService;
     
     /**
@@ -98,10 +114,12 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
      * @param materialPlantInfoService
      * @param materialVendorInfoService
      * @param materialProcurementItemDetailService
+     * @param instockDetailService
+     * @param outstockDetailService
      * @param billOfMaterialService
      */
     @Autowired
-    public MaterialCatalogServiceImpl.new(MaterialCatalogRepository materialCatalogRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService, @Lazy MaterialAttributeService materialAttributeService, @Lazy MaterialPlantInfoService materialPlantInfoService, @Lazy MaterialVendorInfoService materialVendorInfoService, @Lazy MaterialProcurementItemDetailService materialProcurementItemDetailService, @Lazy BillOfMaterialService billOfMaterialService) {
+    public MaterialCatalogServiceImpl.new(MaterialCatalogRepository materialCatalogRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService, @Lazy MaterialAttributeService materialAttributeService, @Lazy MaterialPlantInfoService materialPlantInfoService, @Lazy MaterialVendorInfoService materialVendorInfoService, @Lazy MaterialProcurementItemDetailService materialProcurementItemDetailService, @Lazy InstockDetailService instockDetailService, @Lazy OutstockDetailService outstockDetailService, @Lazy BillOfMaterialService billOfMaterialService) {
         setMaterialCatalogRepository(materialCatalogRepository);
         setDocumentService(documentService);
         setImageDocumentService(imageDocumentService);
@@ -109,6 +127,8 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
         setMaterialPlantInfoService(materialPlantInfoService);
         setMaterialVendorInfoService(materialVendorInfoService);
         setMaterialProcurementItemDetailService(materialProcurementItemDetailService);
+        setInstockDetailService(instockDetailService);
+        setOutstockDetailService(outstockDetailService);
         setBillOfMaterialService(billOfMaterialService);
     }
 
@@ -241,6 +261,42 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @return InstockDetailService
+     */
+    public InstockDetailService MaterialCatalogServiceImpl.getInstockDetailService() {
+        return instockDetailService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param instockDetailService
+     */
+    public void MaterialCatalogServiceImpl.setInstockDetailService(InstockDetailService instockDetailService) {
+        this.instockDetailService = instockDetailService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return OutstockDetailService
+     */
+    public OutstockDetailService MaterialCatalogServiceImpl.getOutstockDetailService() {
+        return outstockDetailService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetailService
+     */
+    public void MaterialCatalogServiceImpl.setOutstockDetailService(OutstockDetailService outstockDetailService) {
+        this.outstockDetailService = outstockDetailService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @return BillOfMaterialService
      */
     public BillOfMaterialService MaterialCatalogServiceImpl.getBillOfMaterialService() {
@@ -316,6 +372,20 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param materialCatalog
+     * @param instockDetailsToAdd
+     * @return MaterialCatalog
+     */
+    @Transactional
+    public MaterialCatalog MaterialCatalogServiceImpl.addToInstockDetails(MaterialCatalog materialCatalog, Iterable<Long> instockDetailsToAdd) {
+        List<InstockDetail> instockDetails = getInstockDetailService().findAll(instockDetailsToAdd);
+        materialCatalog.addToInstockDetails(instockDetails);
+        return getMaterialCatalogRepository().save(materialCatalog);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
      * @param materialAttributesToAdd
      * @return MaterialCatalog
      */
@@ -372,6 +442,20 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param materialCatalog
+     * @param outstockDetailsToAdd
+     * @return MaterialCatalog
+     */
+    @Transactional
+    public MaterialCatalog MaterialCatalogServiceImpl.addToOutstockDetails(MaterialCatalog materialCatalog, Iterable<Long> outstockDetailsToAdd) {
+        List<OutstockDetail> outstockDetails = getOutstockDetailService().findAll(outstockDetailsToAdd);
+        materialCatalog.addToOutstockDetails(outstockDetails);
+        return getMaterialCatalogRepository().save(materialCatalog);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
      * @param documentsToRemove
      * @return MaterialCatalog
      */
@@ -407,6 +491,20 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
     public MaterialCatalog MaterialCatalogServiceImpl.removeFromImages(MaterialCatalog materialCatalog, Iterable<Long> imagesToRemove) {
         List<ImageDocument> images = getImageDocumentService().findAll(imagesToRemove);
         materialCatalog.removeFromImages(images);
+        return getMaterialCatalogRepository().save(materialCatalog);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param instockDetailsToRemove
+     * @return MaterialCatalog
+     */
+    @Transactional
+    public MaterialCatalog MaterialCatalogServiceImpl.removeFromInstockDetails(MaterialCatalog materialCatalog, Iterable<Long> instockDetailsToRemove) {
+        List<InstockDetail> instockDetails = getInstockDetailService().findAll(instockDetailsToRemove);
+        materialCatalog.removeFromInstockDetails(instockDetails);
         return getMaterialCatalogRepository().save(materialCatalog);
     }
     
@@ -463,6 +561,20 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
     public MaterialCatalog MaterialCatalogServiceImpl.removeFromMaterialVendorInfos(MaterialCatalog materialCatalog, Iterable<Long> materialVendorInfosToRemove) {
         List<MaterialVendorInfo> materialVendorInfos = getMaterialVendorInfoService().findAll(materialVendorInfosToRemove);
         materialCatalog.removeFromMaterialVendorInfos(materialVendorInfos);
+        return getMaterialCatalogRepository().save(materialCatalog);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param outstockDetailsToRemove
+     * @return MaterialCatalog
+     */
+    @Transactional
+    public MaterialCatalog MaterialCatalogServiceImpl.removeFromOutstockDetails(MaterialCatalog materialCatalog, Iterable<Long> outstockDetailsToRemove) {
+        List<OutstockDetail> outstockDetails = getOutstockDetailService().findAll(outstockDetailsToRemove);
+        materialCatalog.removeFromOutstockDetails(outstockDetails);
         return getMaterialCatalogRepository().save(materialCatalog);
     }
     
@@ -544,6 +656,34 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
         }
         materialCatalog.removeFromImages(toRemove);
         materialCatalog.addToImages(items);
+        // Force the version update of the parent side to know that the parent has changed
+        // because it has new books assigned
+        materialCatalog.setVersion(materialCatalog.getVersion() + 1);
+        return getMaterialCatalogRepository().save(materialCatalog);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param instockDetails
+     * @return MaterialCatalog
+     */
+    @Transactional
+    public MaterialCatalog MaterialCatalogServiceImpl.setInstockDetails(MaterialCatalog materialCatalog, Iterable<Long> instockDetails) {
+        List<InstockDetail> items = getInstockDetailService().findAll(instockDetails);
+        Set<InstockDetail> currents = materialCatalog.getInstockDetails();
+        Set<InstockDetail> toRemove = new HashSet<InstockDetail>();
+        for (Iterator<InstockDetail> iterator = currents.iterator(); iterator.hasNext();) {
+            InstockDetail nextInstockDetail = iterator.next();
+            if (items.contains(nextInstockDetail)) {
+                items.remove(nextInstockDetail);
+            } else {
+                toRemove.add(nextInstockDetail);
+            }
+        }
+        materialCatalog.removeFromInstockDetails(toRemove);
+        materialCatalog.addToInstockDetails(items);
         // Force the version update of the parent side to know that the parent has changed
         // because it has new books assigned
         materialCatalog.setVersion(materialCatalog.getVersion() + 1);
@@ -666,6 +806,34 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param materialCatalog
+     * @param outstockDetails
+     * @return MaterialCatalog
+     */
+    @Transactional
+    public MaterialCatalog MaterialCatalogServiceImpl.setOutstockDetails(MaterialCatalog materialCatalog, Iterable<Long> outstockDetails) {
+        List<OutstockDetail> items = getOutstockDetailService().findAll(outstockDetails);
+        Set<OutstockDetail> currents = materialCatalog.getOutstockDetails();
+        Set<OutstockDetail> toRemove = new HashSet<OutstockDetail>();
+        for (Iterator<OutstockDetail> iterator = currents.iterator(); iterator.hasNext();) {
+            OutstockDetail nextOutstockDetail = iterator.next();
+            if (items.contains(nextOutstockDetail)) {
+                items.remove(nextOutstockDetail);
+            } else {
+                toRemove.add(nextOutstockDetail);
+            }
+        }
+        materialCatalog.removeFromOutstockDetails(toRemove);
+        materialCatalog.addToOutstockDetails(items);
+        // Force the version update of the parent side to know that the parent has changed
+        // because it has new books assigned
+        materialCatalog.setVersion(materialCatalog.getVersion() + 1);
+        return getMaterialCatalogRepository().save(materialCatalog);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
      */
     @Transactional
     public void MaterialCatalogServiceImpl.delete(MaterialCatalog materialCatalog) {
@@ -681,6 +849,11 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
         
         // Clear bidirectional one-to-many parent relationship with ImageDocument
         for (ImageDocument item : materialCatalog.getImages()) {
+            item.setMaterialCatalog(null);
+        }
+        
+        // Clear bidirectional one-to-many parent relationship with InstockDetail
+        for (InstockDetail item : materialCatalog.getInstockDetails()) {
             item.setMaterialCatalog(null);
         }
         
@@ -701,6 +874,11 @@ privileged aspect MaterialCatalogServiceImpl_Roo_Service_Impl {
         
         // Clear bidirectional one-to-many parent relationship with MaterialVendorInfo
         for (MaterialVendorInfo item : materialCatalog.getMaterialVendorInfos()) {
+            item.setMaterialCatalog(null);
+        }
+        
+        // Clear bidirectional one-to-many parent relationship with OutstockDetail
+        for (OutstockDetail item : materialCatalog.getOutstockDetails()) {
             item.setMaterialCatalog(null);
         }
         

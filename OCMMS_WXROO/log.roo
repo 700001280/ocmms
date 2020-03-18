@@ -63,3 +63,48 @@ web mvc finder --all --responseType THYMELEAF
 // [failed]  web mvc finder --all --responseType THYMELEAF
 // Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-14 21:13:34
 // [failed] web mvc finder --all --responseType THYMELEAF
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-15 11:43:42
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-15 11:57:04
+// [failed] web mvc detail --all --responseType THYMELEAF --views list
+// [failed] quit
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-15 19:19:10
+web mvc detail --all --responseType THYMELEAF --views list
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-16 20:42:36
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-17 21:47:57
+repository jpa --all
+service --all
+web mvc controller --all --responseType THYMELEAF
+web mvc controller --all --responseType JSON --pathPrefix /api
+web mvc detail --all --responseType THYMELEAF --views list
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-17 22:33:16
+web mvc detail --all --responseType THYMELEAF --views list
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-17 23:12:07
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-18 19:00:28
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-18 19:52:25
+repository jpa --all
+service --all
+// [failed] web mvc controller --all --responseType THYMELEAF
+// [failed] web mvc controller --all --responseType THYMELEAF
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-18 19:56:00
+// [failed] web mvc controller --all --responseType THYMELEAF
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-18 20:02:29
+// [failed] web mvc controller --entity ~.model.mm.storage.InstockDetail --responseType THYMELEAF
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-18 20:20:16
+repository jpa --all
+service --all
+// [failed] web mvc controller --all --responseType THYMELEAF
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-18 20:24:59
+// [failed] web mvc controller --all --responseType THYMELEAF
+// [failed] quit
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-18 20:32:20
+repository jpa --all
+service --all
+// [failed] web mvc controller --all --responseType THYMELEAF
+// [failed] web mvc controller --all --responseType THYMELEAF
+// [failed] repository jpa --all
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-18 20:45:45
+repository jpa --all
+service --all
+// [failed] web mvc controller --all --responseType THYMELEAF
+// [failed] quit
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2020-03-18 22:25:11

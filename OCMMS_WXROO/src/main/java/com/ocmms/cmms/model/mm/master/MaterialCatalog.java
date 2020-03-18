@@ -17,6 +17,8 @@ import com.ocmms.cmms.model.common.UnitOfMeasure;
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 
 import io.springlets.format.EntityFormat;
@@ -131,6 +133,25 @@ public class MaterialCatalog extends MROCatalog {
 	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
 	private Set<MaterialProcurementItemDetail> materialProcurementItemDetails = new HashSet<MaterialProcurementItemDetail>();
 
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@OneToMany(cascade = { javax.persistence.CascadeType.MERGE,
+			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "materialCatalog")
+	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
+	private Set<OutstockDetail> outstockDetails = new HashSet<OutstockDetail>();
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@OneToMany(cascade = { javax.persistence.CascadeType.MERGE,
+			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "materialCatalog")
+	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
+	private Set<InstockDetail> instockDetails = new HashSet<InstockDetail>();
+	
+	
 	/**
 	 * TODO Auto-generated attribute documentation
 	 *

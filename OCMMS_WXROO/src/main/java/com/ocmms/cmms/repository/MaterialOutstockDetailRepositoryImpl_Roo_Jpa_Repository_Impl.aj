@@ -5,8 +5,6 @@ package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
 import com.ocmms.cmms.model.mm.storage.QMaterialOutstockDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.model.pm.routine.EquipmentMaintenanceRecord;
 import com.ocmms.cmms.model.pm.routine.PartMaintenanceRecord;
 import com.ocmms.cmms.repository.MaterialOutstockDetailRepositoryImpl;
@@ -29,12 +27,6 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String MaterialOutstockDetailRepositoryImpl.ORGANIZATION = "organization";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialOutstockDetailRepositoryImpl.ORDER_NO = "orderNo";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -88,19 +80,13 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String MaterialOutstockDetailRepositoryImpl.EQUIPMENT_MAINTENANCE_RECORD = "equipmentMaintenanceRecord";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialOutstockDetailRepositoryImpl.PART_MAINTENANCE_RECORD = "partMaintenanceRecord";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String MaterialOutstockDetailRepositoryImpl.MEMO = "memo";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String MaterialOutstockDetailRepositoryImpl.MOVEMENT_TYPE = "movementType";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -133,6 +119,24 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
     public static final String MaterialOutstockDetailRepositoryImpl.LAST_MODIFIED_BY = "lastModifiedBy";
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String MaterialOutstockDetailRepositoryImpl.ORDER_NO = "orderNo";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String MaterialOutstockDetailRepositoryImpl.EQUIPMENT_MAINTENANCE_RECORD = "equipmentMaintenanceRecord";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String MaterialOutstockDetailRepositoryImpl.PART_MAINTENANCE_RECORD = "partMaintenanceRecord";
+    
+    /**
      * TODO Auto-generated method documentation
      * 
      * @param globalSearch
@@ -145,12 +149,11 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<MaterialOutstockDetail> query = from(materialOutstockDetail);
         
-        Path<?>[] paths = new Path<?>[] {materialOutstockDetail.organization,materialOutstockDetail.orderNo,materialOutstockDetail.materialCatalog,materialOutstockDetail.storageLocation,materialOutstockDetail.storageType,materialOutstockDetail.serialNumber,materialOutstockDetail.outstockQuantity,materialOutstockDetail.issueDate,materialOutstockDetail.receiver,materialOutstockDetail.keeper,materialOutstockDetail.equipmentMaintenanceRecord,materialOutstockDetail.partMaintenanceRecord,materialOutstockDetail.memo,materialOutstockDetail.recordStatus,materialOutstockDetail.createdDate,materialOutstockDetail.createdBy,materialOutstockDetail.lastModifiedDate,materialOutstockDetail.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {materialOutstockDetail.organization,materialOutstockDetail.materialCatalog,materialOutstockDetail.storageLocation,materialOutstockDetail.storageType,materialOutstockDetail.serialNumber,materialOutstockDetail.outstockQuantity,materialOutstockDetail.issueDate,materialOutstockDetail.receiver,materialOutstockDetail.keeper,materialOutstockDetail.memo,materialOutstockDetail.movementType,materialOutstockDetail.recordStatus,materialOutstockDetail.createdDate,materialOutstockDetail.createdBy,materialOutstockDetail.lastModifiedDate,materialOutstockDetail.lastModifiedBy,materialOutstockDetail.orderNo,materialOutstockDetail.equipmentMaintenanceRecord,materialOutstockDetail.partMaintenanceRecord};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(ORGANIZATION, materialOutstockDetail.organization)
-			.map(ORDER_NO, materialOutstockDetail.orderNo)
 			.map(MATERIAL_CATALOG, materialOutstockDetail.materialCatalog)
 			.map(STORAGE_LOCATION, materialOutstockDetail.storageLocation)
 			.map(STORAGE_TYPE, materialOutstockDetail.storageType)
@@ -159,14 +162,17 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(ISSUE_DATE, materialOutstockDetail.issueDate)
 			.map(RECEIVER, materialOutstockDetail.receiver)
 			.map(KEEPER, materialOutstockDetail.keeper)
-			.map(EQUIPMENT_MAINTENANCE_RECORD, materialOutstockDetail.equipmentMaintenanceRecord)
-			.map(PART_MAINTENANCE_RECORD, materialOutstockDetail.partMaintenanceRecord)
 			.map(MEMO, materialOutstockDetail.memo)
+			.map(MOVEMENT_TYPE, materialOutstockDetail.movementType)
 			.map(RECORD_STATUS, materialOutstockDetail.recordStatus)
 			.map(CREATED_DATE, materialOutstockDetail.createdDate)
 			.map(CREATED_BY, materialOutstockDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialOutstockDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, materialOutstockDetail.lastModifiedBy);
+			.map(LAST_MODIFIED_BY, materialOutstockDetail.lastModifiedBy)
+			.map(ORDER_NO, materialOutstockDetail.orderNo)
+			.map(ISSUE_DATE, materialOutstockDetail.issueDate)
+			.map(EQUIPMENT_MAINTENANCE_RECORD, materialOutstockDetail.equipmentMaintenanceRecord)
+			.map(PART_MAINTENANCE_RECORD, materialOutstockDetail.partMaintenanceRecord);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -188,7 +194,7 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<MaterialOutstockDetail> query = from(materialOutstockDetail);
         
-        Path<?>[] paths = new Path<?>[] {materialOutstockDetail.organization,materialOutstockDetail.orderNo,materialOutstockDetail.materialCatalog,materialOutstockDetail.storageLocation,materialOutstockDetail.storageType,materialOutstockDetail.serialNumber,materialOutstockDetail.outstockQuantity,materialOutstockDetail.issueDate,materialOutstockDetail.receiver,materialOutstockDetail.keeper,materialOutstockDetail.equipmentMaintenanceRecord,materialOutstockDetail.partMaintenanceRecord,materialOutstockDetail.memo,materialOutstockDetail.recordStatus,materialOutstockDetail.createdDate,materialOutstockDetail.createdBy,materialOutstockDetail.lastModifiedDate,materialOutstockDetail.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {materialOutstockDetail.organization,materialOutstockDetail.materialCatalog,materialOutstockDetail.storageLocation,materialOutstockDetail.storageType,materialOutstockDetail.serialNumber,materialOutstockDetail.outstockQuantity,materialOutstockDetail.issueDate,materialOutstockDetail.receiver,materialOutstockDetail.keeper,materialOutstockDetail.memo,materialOutstockDetail.movementType,materialOutstockDetail.recordStatus,materialOutstockDetail.createdDate,materialOutstockDetail.createdBy,materialOutstockDetail.lastModifiedDate,materialOutstockDetail.lastModifiedBy,materialOutstockDetail.orderNo,materialOutstockDetail.equipmentMaintenanceRecord,materialOutstockDetail.partMaintenanceRecord};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -196,7 +202,6 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(ORGANIZATION, materialOutstockDetail.organization)
-			.map(ORDER_NO, materialOutstockDetail.orderNo)
 			.map(MATERIAL_CATALOG, materialOutstockDetail.materialCatalog)
 			.map(STORAGE_LOCATION, materialOutstockDetail.storageLocation)
 			.map(STORAGE_TYPE, materialOutstockDetail.storageType)
@@ -205,14 +210,17 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(ISSUE_DATE, materialOutstockDetail.issueDate)
 			.map(RECEIVER, materialOutstockDetail.receiver)
 			.map(KEEPER, materialOutstockDetail.keeper)
-			.map(EQUIPMENT_MAINTENANCE_RECORD, materialOutstockDetail.equipmentMaintenanceRecord)
-			.map(PART_MAINTENANCE_RECORD, materialOutstockDetail.partMaintenanceRecord)
 			.map(MEMO, materialOutstockDetail.memo)
+			.map(MOVEMENT_TYPE, materialOutstockDetail.movementType)
 			.map(RECORD_STATUS, materialOutstockDetail.recordStatus)
 			.map(CREATED_DATE, materialOutstockDetail.createdDate)
 			.map(CREATED_BY, materialOutstockDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialOutstockDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, materialOutstockDetail.lastModifiedBy);
+			.map(LAST_MODIFIED_BY, materialOutstockDetail.lastModifiedBy)
+			.map(ORDER_NO, materialOutstockDetail.orderNo)
+			.map(ISSUE_DATE, materialOutstockDetail.issueDate)
+			.map(EQUIPMENT_MAINTENANCE_RECORD, materialOutstockDetail.equipmentMaintenanceRecord)
+			.map(PART_MAINTENANCE_RECORD, materialOutstockDetail.partMaintenanceRecord);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -237,12 +245,11 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentMaintenanceRecord, "equipmentMaintenanceRecord is required");
         
         query.where(materialOutstockDetail.equipmentMaintenanceRecord.eq(equipmentMaintenanceRecord));
-        Path<?>[] paths = new Path<?>[] {materialOutstockDetail.organization,materialOutstockDetail.orderNo,materialOutstockDetail.materialCatalog,materialOutstockDetail.storageLocation,materialOutstockDetail.storageType,materialOutstockDetail.serialNumber,materialOutstockDetail.outstockQuantity,materialOutstockDetail.issueDate,materialOutstockDetail.receiver,materialOutstockDetail.keeper,materialOutstockDetail.equipmentMaintenanceRecord,materialOutstockDetail.partMaintenanceRecord,materialOutstockDetail.memo,materialOutstockDetail.recordStatus,materialOutstockDetail.createdDate,materialOutstockDetail.createdBy,materialOutstockDetail.lastModifiedDate,materialOutstockDetail.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {materialOutstockDetail.organization,materialOutstockDetail.materialCatalog,materialOutstockDetail.storageLocation,materialOutstockDetail.storageType,materialOutstockDetail.serialNumber,materialOutstockDetail.outstockQuantity,materialOutstockDetail.issueDate,materialOutstockDetail.receiver,materialOutstockDetail.keeper,materialOutstockDetail.memo,materialOutstockDetail.movementType,materialOutstockDetail.recordStatus,materialOutstockDetail.createdDate,materialOutstockDetail.createdBy,materialOutstockDetail.lastModifiedDate,materialOutstockDetail.lastModifiedBy,materialOutstockDetail.orderNo,materialOutstockDetail.equipmentMaintenanceRecord,materialOutstockDetail.partMaintenanceRecord};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(ORGANIZATION, materialOutstockDetail.organization)
-			.map(ORDER_NO, materialOutstockDetail.orderNo)
 			.map(MATERIAL_CATALOG, materialOutstockDetail.materialCatalog)
 			.map(STORAGE_LOCATION, materialOutstockDetail.storageLocation)
 			.map(STORAGE_TYPE, materialOutstockDetail.storageType)
@@ -251,14 +258,17 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(ISSUE_DATE, materialOutstockDetail.issueDate)
 			.map(RECEIVER, materialOutstockDetail.receiver)
 			.map(KEEPER, materialOutstockDetail.keeper)
-			.map(EQUIPMENT_MAINTENANCE_RECORD, materialOutstockDetail.equipmentMaintenanceRecord)
-			.map(PART_MAINTENANCE_RECORD, materialOutstockDetail.partMaintenanceRecord)
 			.map(MEMO, materialOutstockDetail.memo)
+			.map(MOVEMENT_TYPE, materialOutstockDetail.movementType)
 			.map(RECORD_STATUS, materialOutstockDetail.recordStatus)
 			.map(CREATED_DATE, materialOutstockDetail.createdDate)
 			.map(CREATED_BY, materialOutstockDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialOutstockDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, materialOutstockDetail.lastModifiedBy);
+			.map(LAST_MODIFIED_BY, materialOutstockDetail.lastModifiedBy)
+			.map(ORDER_NO, materialOutstockDetail.orderNo)
+			.map(ISSUE_DATE, materialOutstockDetail.issueDate)
+			.map(EQUIPMENT_MAINTENANCE_RECORD, materialOutstockDetail.equipmentMaintenanceRecord)
+			.map(PART_MAINTENANCE_RECORD, materialOutstockDetail.partMaintenanceRecord);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -283,12 +293,11 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(partMaintenanceRecord, "partMaintenanceRecord is required");
         
         query.where(materialOutstockDetail.partMaintenanceRecord.eq(partMaintenanceRecord));
-        Path<?>[] paths = new Path<?>[] {materialOutstockDetail.organization,materialOutstockDetail.orderNo,materialOutstockDetail.materialCatalog,materialOutstockDetail.storageLocation,materialOutstockDetail.storageType,materialOutstockDetail.serialNumber,materialOutstockDetail.outstockQuantity,materialOutstockDetail.issueDate,materialOutstockDetail.receiver,materialOutstockDetail.keeper,materialOutstockDetail.equipmentMaintenanceRecord,materialOutstockDetail.partMaintenanceRecord,materialOutstockDetail.memo,materialOutstockDetail.recordStatus,materialOutstockDetail.createdDate,materialOutstockDetail.createdBy,materialOutstockDetail.lastModifiedDate,materialOutstockDetail.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {materialOutstockDetail.organization,materialOutstockDetail.materialCatalog,materialOutstockDetail.storageLocation,materialOutstockDetail.storageType,materialOutstockDetail.serialNumber,materialOutstockDetail.outstockQuantity,materialOutstockDetail.issueDate,materialOutstockDetail.receiver,materialOutstockDetail.keeper,materialOutstockDetail.memo,materialOutstockDetail.movementType,materialOutstockDetail.recordStatus,materialOutstockDetail.createdDate,materialOutstockDetail.createdBy,materialOutstockDetail.lastModifiedDate,materialOutstockDetail.lastModifiedBy,materialOutstockDetail.orderNo,materialOutstockDetail.equipmentMaintenanceRecord,materialOutstockDetail.partMaintenanceRecord};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(ORGANIZATION, materialOutstockDetail.organization)
-			.map(ORDER_NO, materialOutstockDetail.orderNo)
 			.map(MATERIAL_CATALOG, materialOutstockDetail.materialCatalog)
 			.map(STORAGE_LOCATION, materialOutstockDetail.storageLocation)
 			.map(STORAGE_TYPE, materialOutstockDetail.storageType)
@@ -297,106 +306,17 @@ privileged aspect MaterialOutstockDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(ISSUE_DATE, materialOutstockDetail.issueDate)
 			.map(RECEIVER, materialOutstockDetail.receiver)
 			.map(KEEPER, materialOutstockDetail.keeper)
-			.map(EQUIPMENT_MAINTENANCE_RECORD, materialOutstockDetail.equipmentMaintenanceRecord)
-			.map(PART_MAINTENANCE_RECORD, materialOutstockDetail.partMaintenanceRecord)
 			.map(MEMO, materialOutstockDetail.memo)
+			.map(MOVEMENT_TYPE, materialOutstockDetail.movementType)
 			.map(RECORD_STATUS, materialOutstockDetail.recordStatus)
 			.map(CREATED_DATE, materialOutstockDetail.createdDate)
 			.map(CREATED_BY, materialOutstockDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialOutstockDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, materialOutstockDetail.lastModifiedBy);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, materialOutstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageLocation
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<MaterialOutstockDetail> MaterialOutstockDetailRepositoryImpl.findByStorageLocation(StorageLocation storageLocation, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QMaterialOutstockDetail materialOutstockDetail = QMaterialOutstockDetail.materialOutstockDetail;
-        
-        JPQLQuery<MaterialOutstockDetail> query = from(materialOutstockDetail);
-        
-        Assert.notNull(storageLocation, "storageLocation is required");
-        
-        query.where(materialOutstockDetail.storageLocation.eq(storageLocation));
-        Path<?>[] paths = new Path<?>[] {materialOutstockDetail.organization,materialOutstockDetail.orderNo,materialOutstockDetail.materialCatalog,materialOutstockDetail.storageLocation,materialOutstockDetail.storageType,materialOutstockDetail.serialNumber,materialOutstockDetail.outstockQuantity,materialOutstockDetail.issueDate,materialOutstockDetail.receiver,materialOutstockDetail.keeper,materialOutstockDetail.equipmentMaintenanceRecord,materialOutstockDetail.partMaintenanceRecord,materialOutstockDetail.memo,materialOutstockDetail.recordStatus,materialOutstockDetail.createdDate,materialOutstockDetail.createdBy,materialOutstockDetail.lastModifiedDate,materialOutstockDetail.lastModifiedBy};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(ORGANIZATION, materialOutstockDetail.organization)
+			.map(LAST_MODIFIED_BY, materialOutstockDetail.lastModifiedBy)
 			.map(ORDER_NO, materialOutstockDetail.orderNo)
-			.map(MATERIAL_CATALOG, materialOutstockDetail.materialCatalog)
-			.map(STORAGE_LOCATION, materialOutstockDetail.storageLocation)
-			.map(STORAGE_TYPE, materialOutstockDetail.storageType)
-			.map(SERIAL_NUMBER, materialOutstockDetail.serialNumber)
-			.map(OUTSTOCK_QUANTITY, materialOutstockDetail.outstockQuantity)
 			.map(ISSUE_DATE, materialOutstockDetail.issueDate)
-			.map(RECEIVER, materialOutstockDetail.receiver)
-			.map(KEEPER, materialOutstockDetail.keeper)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, materialOutstockDetail.equipmentMaintenanceRecord)
-			.map(PART_MAINTENANCE_RECORD, materialOutstockDetail.partMaintenanceRecord)
-			.map(MEMO, materialOutstockDetail.memo)
-			.map(RECORD_STATUS, materialOutstockDetail.recordStatus)
-			.map(CREATED_DATE, materialOutstockDetail.createdDate)
-			.map(CREATED_BY, materialOutstockDetail.createdBy)
-			.map(LAST_MODIFIED_DATE, materialOutstockDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, materialOutstockDetail.lastModifiedBy);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, materialOutstockDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<MaterialOutstockDetail> MaterialOutstockDetailRepositoryImpl.findByStorageType(StorageType storageType, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QMaterialOutstockDetail materialOutstockDetail = QMaterialOutstockDetail.materialOutstockDetail;
-        
-        JPQLQuery<MaterialOutstockDetail> query = from(materialOutstockDetail);
-        
-        Assert.notNull(storageType, "storageType is required");
-        
-        query.where(materialOutstockDetail.storageType.eq(storageType));
-        Path<?>[] paths = new Path<?>[] {materialOutstockDetail.organization,materialOutstockDetail.orderNo,materialOutstockDetail.materialCatalog,materialOutstockDetail.storageLocation,materialOutstockDetail.storageType,materialOutstockDetail.serialNumber,materialOutstockDetail.outstockQuantity,materialOutstockDetail.issueDate,materialOutstockDetail.receiver,materialOutstockDetail.keeper,materialOutstockDetail.equipmentMaintenanceRecord,materialOutstockDetail.partMaintenanceRecord,materialOutstockDetail.memo,materialOutstockDetail.recordStatus,materialOutstockDetail.createdDate,materialOutstockDetail.createdBy,materialOutstockDetail.lastModifiedDate,materialOutstockDetail.lastModifiedBy};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(ORGANIZATION, materialOutstockDetail.organization)
-			.map(ORDER_NO, materialOutstockDetail.orderNo)
-			.map(MATERIAL_CATALOG, materialOutstockDetail.materialCatalog)
-			.map(STORAGE_LOCATION, materialOutstockDetail.storageLocation)
-			.map(STORAGE_TYPE, materialOutstockDetail.storageType)
-			.map(SERIAL_NUMBER, materialOutstockDetail.serialNumber)
-			.map(OUTSTOCK_QUANTITY, materialOutstockDetail.outstockQuantity)
-			.map(ISSUE_DATE, materialOutstockDetail.issueDate)
-			.map(RECEIVER, materialOutstockDetail.receiver)
-			.map(KEEPER, materialOutstockDetail.keeper)
-			.map(EQUIPMENT_MAINTENANCE_RECORD, materialOutstockDetail.equipmentMaintenanceRecord)
-			.map(PART_MAINTENANCE_RECORD, materialOutstockDetail.partMaintenanceRecord)
-			.map(MEMO, materialOutstockDetail.memo)
-			.map(RECORD_STATUS, materialOutstockDetail.recordStatus)
-			.map(CREATED_DATE, materialOutstockDetail.createdDate)
-			.map(CREATED_BY, materialOutstockDetail.createdBy)
-			.map(LAST_MODIFIED_DATE, materialOutstockDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, materialOutstockDetail.lastModifiedBy);
+			.map(PART_MAINTENANCE_RECORD, materialOutstockDetail.partMaintenanceRecord);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);

@@ -522,17 +522,8 @@ privileged aspect ServiceReceiveDetailsCollectionThymeleafController_Roo_Thymele
         if (columnName.equals("id")) {
             builder.addColumn(getMessageSource().getMessage("label_servicereceivedetail_id", null, "Id", locale), "id", Long.class.getName(), 50);
         }
-        else if (columnName.equals("orderNo")) {
-            builder.addColumn(getMessageSource().getMessage("label_servicereceivedetail_orderno", null, "Order No", locale), "orderNo", String.class.getName(), 100);
-        }
         else if (columnName.equals("quantity")) {
             builder.addColumn(getMessageSource().getMessage("label_servicereceivedetail_quantity", null, "Quantity", locale), "quantity", BigDecimal.class.getName(), 100);
-        }
-        else if (columnName.equals("unitPrice")) {
-            builder.addColumn(getMessageSource().getMessage("label_servicereceivedetail_unitprice", null, "Unit Price", locale), "unitPrice", BigDecimal.class.getName(), 100);
-        }
-        else if (columnName.equals("goodReceiveNo")) {
-            builder.addColumn(getMessageSource().getMessage("label_servicereceivedetail_goodreceiveno", null, "Good Receive No", locale), "goodReceiveNo", String.class.getName(), 100);
         }
         else if (columnName.equals("receiveDate")) {
             builder.addColumn(getMessageSource().getMessage("label_servicereceivedetail_receivedate", null, "Receive Date", locale), "receiveDate", Calendar.class.getName(), 100);
@@ -563,9 +554,6 @@ privileged aspect ServiceReceiveDetailsCollectionThymeleafController_Roo_Thymele
         }
         else if (columnName.equals("lastModifiedBy")) {
             builder.addColumn(getMessageSource().getMessage("label_servicereceivedetail_lastmodifiedby", null, "Last Modified By", locale), "lastModifiedBy", String.class.getName(), 100);
-        }
-        else if (columnName.equals("id")) {
-            builder.addColumn(getMessageSource().getMessage("label_servicereceivedetail_id", null, "Id", locale), "id", Long.class.getName(), 50);
         }
         }
         catch (ColumnBuilderException e) {

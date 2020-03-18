@@ -3,21 +3,11 @@
 
 package com.ocmms.cmms.model.mm.storage;
 
-import com.ocmms.cmms.model.edm.Document;
-import com.ocmms.cmms.model.edm.ImageDocument;
-import com.ocmms.cmms.model.hrm.Employee;
-import com.ocmms.cmms.model.hrm.Organization;
-import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.model.pm.routine.EquipmentMaintenanceRecord;
 import com.ocmms.cmms.model.pm.routine.PartMaintenanceRecord;
-import com.ocmms.cmms.model.system.RecordStatus;
-import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Objects;
-import java.util.Set;
 
 privileged aspect MaterialOutstockDetail_Roo_JavaBean {
     
@@ -42,26 +32,6 @@ privileged aspect MaterialOutstockDetail_Roo_JavaBean {
     }
     
     /**
-     * Gets organization value
-     * 
-     * @return Organization
-     */
-    public Organization MaterialOutstockDetail.getOrganization() {
-        return this.organization;
-    }
-    
-    /**
-     * Sets organization value
-     * 
-     * @param organization
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setOrganization(Organization organization) {
-        this.organization = organization;
-        return this;
-    }
-    
-    /**
      * Gets orderNo value
      * 
      * @return String
@@ -82,106 +52,6 @@ privileged aspect MaterialOutstockDetail_Roo_JavaBean {
     }
     
     /**
-     * Gets materialCatalog value
-     * 
-     * @return MaterialCatalog
-     */
-    public MaterialCatalog MaterialOutstockDetail.getMaterialCatalog() {
-        return this.materialCatalog;
-    }
-    
-    /**
-     * Sets materialCatalog value
-     * 
-     * @param materialCatalog
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setMaterialCatalog(MaterialCatalog materialCatalog) {
-        this.materialCatalog = materialCatalog;
-        return this;
-    }
-    
-    /**
-     * Gets storageLocation value
-     * 
-     * @return StorageLocation
-     */
-    public StorageLocation MaterialOutstockDetail.getStorageLocation() {
-        return this.storageLocation;
-    }
-    
-    /**
-     * Sets storageLocation value
-     * 
-     * @param storageLocation
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setStorageLocation(StorageLocation storageLocation) {
-        this.storageLocation = storageLocation;
-        return this;
-    }
-    
-    /**
-     * Gets storageType value
-     * 
-     * @return StorageType
-     */
-    public StorageType MaterialOutstockDetail.getStorageType() {
-        return this.storageType;
-    }
-    
-    /**
-     * Sets storageType value
-     * 
-     * @param storageType
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setStorageType(StorageType storageType) {
-        this.storageType = storageType;
-        return this;
-    }
-    
-    /**
-     * Gets serialNumber value
-     * 
-     * @return String
-     */
-    public String MaterialOutstockDetail.getSerialNumber() {
-        return this.serialNumber;
-    }
-    
-    /**
-     * Sets serialNumber value
-     * 
-     * @param serialNumber
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-        return this;
-    }
-    
-    /**
-     * Gets outstockQuantity value
-     * 
-     * @return BigDecimal
-     */
-    public BigDecimal MaterialOutstockDetail.getOutstockQuantity() {
-        return this.outstockQuantity;
-    }
-    
-    /**
-     * Sets outstockQuantity value
-     * 
-     * @param outstockQuantity
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setOutstockQuantity(BigDecimal outstockQuantity) {
-        this.outstockQuantity = outstockQuantity;
-        return this;
-    }
-    
-    /**
      * Gets issueDate value
      * 
      * @return Calendar
@@ -198,46 +68,6 @@ privileged aspect MaterialOutstockDetail_Roo_JavaBean {
      */
     public MaterialOutstockDetail MaterialOutstockDetail.setIssueDate(Calendar issueDate) {
         this.issueDate = issueDate;
-        return this;
-    }
-    
-    /**
-     * Gets receiver value
-     * 
-     * @return Employee
-     */
-    public Employee MaterialOutstockDetail.getReceiver() {
-        return this.receiver;
-    }
-    
-    /**
-     * Sets receiver value
-     * 
-     * @param receiver
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setReceiver(Employee receiver) {
-        this.receiver = receiver;
-        return this;
-    }
-    
-    /**
-     * Gets keeper value
-     * 
-     * @return Employee
-     */
-    public Employee MaterialOutstockDetail.getKeeper() {
-        return this.keeper;
-    }
-    
-    /**
-     * Sets keeper value
-     * 
-     * @param keeper
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setKeeper(Employee keeper) {
-        this.keeper = keeper;
         return this;
     }
     
@@ -282,186 +112,6 @@ privileged aspect MaterialOutstockDetail_Roo_JavaBean {
     }
     
     /**
-     * Gets memo value
-     * 
-     * @return String
-     */
-    public String MaterialOutstockDetail.getMemo() {
-        return this.memo;
-    }
-    
-    /**
-     * Sets memo value
-     * 
-     * @param memo
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setMemo(String memo) {
-        this.memo = memo;
-        return this;
-    }
-    
-    /**
-     * Gets documents value
-     * 
-     * @return Set
-     */
-    public Set<Document> MaterialOutstockDetail.getDocuments() {
-        return this.documents;
-    }
-    
-    /**
-     * Sets documents value
-     * 
-     * @param documents
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setDocuments(Set<Document> documents) {
-        this.documents = documents;
-        return this;
-    }
-    
-    /**
-     * Gets images value
-     * 
-     * @return Set
-     */
-    public Set<ImageDocument> MaterialOutstockDetail.getImages() {
-        return this.images;
-    }
-    
-    /**
-     * Sets images value
-     * 
-     * @param images
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setImages(Set<ImageDocument> images) {
-        this.images = images;
-        return this;
-    }
-    
-    /**
-     * Gets recordStatus value
-     * 
-     * @return RecordStatus
-     */
-    public RecordStatus MaterialOutstockDetail.getRecordStatus() {
-        return this.recordStatus;
-    }
-    
-    /**
-     * Sets recordStatus value
-     * 
-     * @param recordStatus
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setRecordStatus(RecordStatus recordStatus) {
-        this.recordStatus = recordStatus;
-        return this;
-    }
-    
-    /**
-     * Gets version value
-     * 
-     * @return Long
-     */
-    public Long MaterialOutstockDetail.getVersion() {
-        return this.version;
-    }
-    
-    /**
-     * Sets version value
-     * 
-     * @param version
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setVersion(Long version) {
-        this.version = version;
-        return this;
-    }
-    
-    /**
-     * Gets createdDate value
-     * 
-     * @return Calendar
-     */
-    public Calendar MaterialOutstockDetail.getCreatedDate() {
-        return this.createdDate;
-    }
-    
-    /**
-     * Sets createdDate value
-     * 
-     * @param createdDate
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setCreatedDate(Calendar createdDate) {
-        this.createdDate = createdDate;
-        return this;
-    }
-    
-    /**
-     * Gets createdBy value
-     * 
-     * @return String
-     */
-    public String MaterialOutstockDetail.getCreatedBy() {
-        return this.createdBy;
-    }
-    
-    /**
-     * Sets createdBy value
-     * 
-     * @param createdBy
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-        return this;
-    }
-    
-    /**
-     * Gets lastModifiedDate value
-     * 
-     * @return Calendar
-     */
-    public Calendar MaterialOutstockDetail.getLastModifiedDate() {
-        return this.lastModifiedDate;
-    }
-    
-    /**
-     * Sets lastModifiedDate value
-     * 
-     * @param lastModifiedDate
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setLastModifiedDate(Calendar lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-        return this;
-    }
-    
-    /**
-     * Gets lastModifiedBy value
-     * 
-     * @return String
-     */
-    public String MaterialOutstockDetail.getLastModifiedBy() {
-        return this.lastModifiedBy;
-    }
-    
-    /**
-     * Sets lastModifiedBy value
-     * 
-     * @param lastModifiedBy
-     * @return MaterialOutstockDetail
-     */
-    public MaterialOutstockDetail MaterialOutstockDetail.setLastModifiedBy(String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-        return this;
-    }
-    
-    /**
      * This `equals` implementation is specific for JPA entities and uses 
      * the entity identifier for it, following the article in 
      * https://vladmihalcea.com/2016/06/06/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
@@ -500,15 +150,7 @@ privileged aspect MaterialOutstockDetail_Roo_JavaBean {
         return "MaterialOutstockDetail {" + 
                 "id='" + id + '\'' + 
                 ", orderNo='" + orderNo + '\'' + 
-                ", serialNumber='" + serialNumber + '\'' + 
-                ", outstockQuantity='" + outstockQuantity + '\'' + 
-                ", issueDate='" + issueDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(issueDate.getTime()) + '\'' + 
-                ", memo='" + memo + '\'' + 
-                ", version='" + version + '\'' + 
-                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
-                ", createdBy='" + createdBy + '\'' + 
-                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
-                ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
+                ", issueDate='" + issueDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(issueDate.getTime()) + '\'' + "}" + super.toString();
     }
     
 }

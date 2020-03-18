@@ -1,6 +1,6 @@
 package com.ocmms.cmms;
 
-import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
+//import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -18,7 +18,7 @@ import com.ocmms.cmms.file.service.StorageProperties;
 @SpringBootApplication
 @EnableAspectJAutoProxy
 @EnableScheduling
-@EnableBatchProcessing
+//@EnableBatchProcessing
 @EnableConfigurationProperties(StorageProperties.class)
 public class OCMMSROOApplication {
 

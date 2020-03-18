@@ -20,11 +20,12 @@ import com.ocmms.cmms.model.loto.LotoIssueReport;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringPoint;
 import com.ocmms.cmms.model.pm.measuringpoint.MeasuringRecord;
 import com.ocmms.cmms.model.pm.notification.NotificationItem;
@@ -169,12 +170,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String DocumentRepositoryImpl.MATERIAL_CATALOG = "materialCatalog";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String DocumentRepositoryImpl.MATERIAL_INSTOCK_DETAIL = "materialInstockDetail";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -330,7 +325,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String DocumentRepositoryImpl.MATERIAL_OUTSTOCK_DETAIL = "materialOutstockDetail";
+    public static final String DocumentRepositoryImpl.OUTSTOCK_DETAIL = "outstockDetail";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -343,6 +338,18 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String DocumentRepositoryImpl.EQUIPMENT_LUBRICATION = "equipmentLubrication";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String DocumentRepositoryImpl.SERVICE_RECEIVE_DETAIL = "serviceReceiveDetail";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String DocumentRepositoryImpl.PROCUREMENT_ORDER_FINANCE_TRACKING = "procurementOrderFinanceTracking";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -387,7 +394,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Document> query = from(document);
         
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -409,7 +416,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -435,9 +441,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -464,7 +472,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Document> query = from(document);
         
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -489,7 +497,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -515,9 +522,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -547,7 +556,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(assetClassification, "assetClassification is required");
         
         query.where(document.assetClassification.eq(assetClassification));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -569,7 +578,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -595,9 +603,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -627,7 +637,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(assetInventoryRecord, "assetInventoryRecord is required");
         
         query.where(document.assetInventoryRecord.eq(assetInventoryRecord));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -649,7 +659,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -675,9 +684,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -707,7 +718,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(assetStatus, "assetStatus is required");
         
         query.where(document.assetStatus.eq(assetStatus));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -729,7 +740,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -755,9 +765,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -787,7 +799,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(assetStatusChangeRecord, "assetStatusChangeRecord is required");
         
         query.where(document.assetStatusChangeRecord.eq(assetStatusChangeRecord));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -809,7 +821,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -835,9 +846,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -867,7 +880,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(autonomousMaintenanceFinding, "autonomousMaintenanceFinding is required");
         
         query.where(document.autonomousMaintenanceFinding.eq(autonomousMaintenanceFinding));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -889,7 +902,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -915,9 +927,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -947,7 +961,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(costCenter, "costCenter is required");
         
         query.where(document.costCenter.eq(costCenter));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -969,7 +983,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -995,9 +1008,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1027,7 +1042,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(criticalClassification, "criticalClassification is required");
         
         query.where(document.criticalClassification.eq(criticalClassification));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1049,7 +1064,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1075,9 +1089,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1107,7 +1123,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(employee, "employee is required");
         
         query.where(document.employee.eq(employee));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1129,7 +1145,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1155,9 +1170,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1187,7 +1204,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipment, "equipment is required");
         
         query.where(document.equipment.eq(equipment));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1209,7 +1226,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1235,9 +1251,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1267,7 +1285,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentLubrication, "equipmentLubrication is required");
         
         query.where(document.equipmentLubrication.eq(equipmentLubrication));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1289,7 +1307,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1315,9 +1332,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1347,7 +1366,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentMaintenanceRecord, "equipmentMaintenanceRecord is required");
         
         query.where(document.equipmentMaintenanceRecord.eq(equipmentMaintenanceRecord));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1369,7 +1388,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1395,9 +1413,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1427,7 +1447,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentParameter, "equipmentParameter is required");
         
         query.where(document.equipmentParameter.eq(equipmentParameter));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1449,7 +1469,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1475,9 +1494,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1507,7 +1528,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentReplaceRecord, "equipmentReplaceRecord is required");
         
         query.where(document.equipmentReplaceRecord.eq(equipmentReplaceRecord));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1529,7 +1550,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1555,9 +1575,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1587,7 +1609,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(equipmentScrappingRecord, "equipmentScrappingRecord is required");
         
         query.where(document.equipmentScrappingRecord.eq(equipmentScrappingRecord));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1609,7 +1631,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1635,9 +1656,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1667,7 +1690,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(failureMaintenanceReport, "failureMaintenanceReport is required");
         
         query.where(document.failureMaintenanceReport.eq(failureMaintenanceReport));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1689,7 +1712,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1715,9 +1737,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1747,7 +1771,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(functionalLocation, "functionalLocation is required");
         
         query.where(document.functionalLocation.eq(functionalLocation));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1769,7 +1793,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1795,9 +1818,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1827,7 +1852,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(instockDetail, "instockDetail is required");
         
         query.where(document.instockDetail.eq(instockDetail));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1849,7 +1874,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1875,9 +1899,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1907,7 +1933,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(lotoDetail, "lotoDetail is required");
         
         query.where(document.lotoDetail.eq(lotoDetail));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -1929,7 +1955,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -1955,9 +1980,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -1987,7 +2014,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(lotoInfo, "lotoInfo is required");
         
         query.where(document.lotoInfo.eq(lotoInfo));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2009,7 +2036,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2035,9 +2061,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -2067,7 +2095,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(lotoIssueReport, "lotoIssueReport is required");
         
         query.where(document.lotoIssueReport.eq(lotoIssueReport));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2089,7 +2117,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2115,9 +2142,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -2147,7 +2176,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(materialCatalog, "materialCatalog is required");
         
         query.where(document.materialCatalog.eq(materialCatalog));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2169,7 +2198,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2195,169 +2223,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
-			.map(RECORD_STATUS, document.recordStatus)
-			.map(CREATED_DATE, document.createdDate)
-			.map(CREATED_BY, document.createdBy)
-			.map(LAST_MODIFIED_DATE, document.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, document.lastModifiedBy);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, document);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialInstockDetail
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<Document> DocumentRepositoryImpl.findByMaterialInstockDetail(MaterialInstockDetail materialInstockDetail, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QDocument document = QDocument.document;
-        
-        JPQLQuery<Document> query = from(document);
-        
-        Assert.notNull(materialInstockDetail, "materialInstockDetail is required");
-        
-        query.where(document.materialInstockDetail.eq(materialInstockDetail));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(FILE_NAME, document.fileName)
-			.map(DESCRIPTION, document.description)
-			.map(FILE_TYPE, document.fileType)
-			.map(UPLOAD_DATE, document.uploadDate)
-			.map(LOTO_INFO, document.lotoInfo)
-			.map(LOTO_ISSUE_REPORT, document.lotoIssueReport)
-			.map(ASSET_INVENTORY_RECORD, document.assetInventoryRecord)
-			.map(LOTO_DETAIL, document.lotoDetail)
-			.map(UPLOADER, document.uploader)
-			.map(NOTIFICATION_ITEM, document.notificationItem)
-			.map(SYSTEM_BUG_REPORT, document.systemBugReport)
-			.map(PREVENTIVE_MAINTENANCE_FINDING, document.preventiveMaintenanceFinding)
-			.map(AUTONOMOUS_MAINTENANCE_FINDING, document.autonomousMaintenanceFinding)
-			.map(FAILURE_MAINTENANCE_REPORT, document.failureMaintenanceReport)
-			.map(WORK_ORDER_HEADER, document.workOrderHeader)
-			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
-			.map(EQUIPMENT, document.equipment)
-			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
-			.map(MEASURING_POINT, document.measuringPoint)
-			.map(MEASURING_RECORD, document.measuringRecord)
-			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
-			.map(PART_MAINTENANCE_RECORD, document.partMaintenanceRecord)
-			.map(EQUIPMENT_REPLACE_RECORD, document.equipmentReplaceRecord)
-			.map(PART_REPLACE_RECORD, document.partReplaceRecord)
-			.map(EQUIPMENT_SCRAPPING_RECORD, document.equipmentScrappingRecord)
-			.map(PART_SCRAPPING_RECORD, document.partScrappingRecord)
-			.map(EQUIPMENT_PARAMETER, document.equipmentParameter)
-			.map(PREVENTIVE_MAINTENANCE_STANDARD, document.preventiveMaintenanceStandard)
-			.map(PREVENTIVE_MAINTENANCE_CONTENT, document.preventiveMaintenanceContent)
-			.map(PREVENTIVE_MAINTENANCE_EXECUTION, document.preventiveMaintenanceExecution)
-			.map(TASK_TRACKING, document.taskTracking)
-			.map(WORK_LOG, document.workLog)
-			.map(PROCUREMENT_REQUEST, document.procurementRequest)
-			.map(PROCUREMENT_ORDER, document.procurementOrder)
-			.map(PROCUREMENT_ITEM_DETAIL, document.procurementItemDetail)
-			.map(ASSET_CLASSIFICATION, document.assetClassification)
-			.map(ASSET_STATUS, document.assetStatus)
-			.map(ASSET_STATUS_CHANGE_RECORD, document.assetStatusChangeRecord)
-			.map(CRITICAL_CLASSIFICATION, document.criticalClassification)
-			.map(COST_CENTER, document.costCenter)
-			.map(EMPLOYEE, document.employee)
-			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
-			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
-			.map(TECHNICAL_OBJECT, document.technicalObject)
-			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
-			.map(RECORD_STATUS, document.recordStatus)
-			.map(CREATED_DATE, document.createdDate)
-			.map(CREATED_BY, document.createdBy)
-			.map(LAST_MODIFIED_DATE, document.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, document.lastModifiedBy);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, document);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialOutstockDetail
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<Document> DocumentRepositoryImpl.findByMaterialOutstockDetail(MaterialOutstockDetail materialOutstockDetail, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QDocument document = QDocument.document;
-        
-        JPQLQuery<Document> query = from(document);
-        
-        Assert.notNull(materialOutstockDetail, "materialOutstockDetail is required");
-        
-        query.where(document.materialOutstockDetail.eq(materialOutstockDetail));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(FILE_NAME, document.fileName)
-			.map(DESCRIPTION, document.description)
-			.map(FILE_TYPE, document.fileType)
-			.map(UPLOAD_DATE, document.uploadDate)
-			.map(LOTO_INFO, document.lotoInfo)
-			.map(LOTO_ISSUE_REPORT, document.lotoIssueReport)
-			.map(ASSET_INVENTORY_RECORD, document.assetInventoryRecord)
-			.map(LOTO_DETAIL, document.lotoDetail)
-			.map(UPLOADER, document.uploader)
-			.map(NOTIFICATION_ITEM, document.notificationItem)
-			.map(SYSTEM_BUG_REPORT, document.systemBugReport)
-			.map(PREVENTIVE_MAINTENANCE_FINDING, document.preventiveMaintenanceFinding)
-			.map(AUTONOMOUS_MAINTENANCE_FINDING, document.autonomousMaintenanceFinding)
-			.map(FAILURE_MAINTENANCE_REPORT, document.failureMaintenanceReport)
-			.map(WORK_ORDER_HEADER, document.workOrderHeader)
-			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
-			.map(EQUIPMENT, document.equipment)
-			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
-			.map(MEASURING_POINT, document.measuringPoint)
-			.map(MEASURING_RECORD, document.measuringRecord)
-			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
-			.map(PART_MAINTENANCE_RECORD, document.partMaintenanceRecord)
-			.map(EQUIPMENT_REPLACE_RECORD, document.equipmentReplaceRecord)
-			.map(PART_REPLACE_RECORD, document.partReplaceRecord)
-			.map(EQUIPMENT_SCRAPPING_RECORD, document.equipmentScrappingRecord)
-			.map(PART_SCRAPPING_RECORD, document.partScrappingRecord)
-			.map(EQUIPMENT_PARAMETER, document.equipmentParameter)
-			.map(PREVENTIVE_MAINTENANCE_STANDARD, document.preventiveMaintenanceStandard)
-			.map(PREVENTIVE_MAINTENANCE_CONTENT, document.preventiveMaintenanceContent)
-			.map(PREVENTIVE_MAINTENANCE_EXECUTION, document.preventiveMaintenanceExecution)
-			.map(TASK_TRACKING, document.taskTracking)
-			.map(WORK_LOG, document.workLog)
-			.map(PROCUREMENT_REQUEST, document.procurementRequest)
-			.map(PROCUREMENT_ORDER, document.procurementOrder)
-			.map(PROCUREMENT_ITEM_DETAIL, document.procurementItemDetail)
-			.map(ASSET_CLASSIFICATION, document.assetClassification)
-			.map(ASSET_STATUS, document.assetStatus)
-			.map(ASSET_STATUS_CHANGE_RECORD, document.assetStatusChangeRecord)
-			.map(CRITICAL_CLASSIFICATION, document.criticalClassification)
-			.map(COST_CENTER, document.costCenter)
-			.map(EMPLOYEE, document.employee)
-			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
-			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
-			.map(TECHNICAL_OBJECT, document.technicalObject)
-			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -2387,7 +2257,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(measuringPoint, "measuringPoint is required");
         
         query.where(document.measuringPoint.eq(measuringPoint));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2409,7 +2279,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2435,9 +2304,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -2467,7 +2338,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(measuringRecord, "measuringRecord is required");
         
         query.where(document.measuringRecord.eq(measuringRecord));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2489,7 +2360,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2515,9 +2385,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -2547,7 +2419,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(notificationItem, "notificationItem is required");
         
         query.where(document.notificationItem.eq(notificationItem));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2569,7 +2441,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2595,9 +2466,92 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
+			.map(RECORD_STATUS, document.recordStatus)
+			.map(CREATED_DATE, document.createdDate)
+			.map(CREATED_BY, document.createdBy)
+			.map(LAST_MODIFIED_DATE, document.lastModifiedDate)
+			.map(LAST_MODIFIED_BY, document.lastModifiedBy);
+        
+        applyPagination(pageable, query, mapping);
+        applyOrderById(query);
+        
+        return loadPage(query, pageable, document);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetail
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<Document> DocumentRepositoryImpl.findByOutstockDetail(OutstockDetail outstockDetail, GlobalSearch globalSearch, Pageable pageable) {
+        
+        QDocument document = QDocument.document;
+        
+        JPQLQuery<Document> query = from(document);
+        
+        Assert.notNull(outstockDetail, "outstockDetail is required");
+        
+        query.where(document.outstockDetail.eq(outstockDetail));
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        applyGlobalSearch(globalSearch, query, paths);
+        
+        AttributeMappingBuilder mapping = buildMapper()
+			.map(FILE_NAME, document.fileName)
+			.map(DESCRIPTION, document.description)
+			.map(FILE_TYPE, document.fileType)
+			.map(UPLOAD_DATE, document.uploadDate)
+			.map(LOTO_INFO, document.lotoInfo)
+			.map(LOTO_ISSUE_REPORT, document.lotoIssueReport)
+			.map(ASSET_INVENTORY_RECORD, document.assetInventoryRecord)
+			.map(LOTO_DETAIL, document.lotoDetail)
+			.map(UPLOADER, document.uploader)
+			.map(NOTIFICATION_ITEM, document.notificationItem)
+			.map(SYSTEM_BUG_REPORT, document.systemBugReport)
+			.map(PREVENTIVE_MAINTENANCE_FINDING, document.preventiveMaintenanceFinding)
+			.map(AUTONOMOUS_MAINTENANCE_FINDING, document.autonomousMaintenanceFinding)
+			.map(FAILURE_MAINTENANCE_REPORT, document.failureMaintenanceReport)
+			.map(WORK_ORDER_HEADER, document.workOrderHeader)
+			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
+			.map(EQUIPMENT, document.equipment)
+			.map(MATERIAL_CATALOG, document.materialCatalog)
+			.map(MEASURING_POINT, document.measuringPoint)
+			.map(MEASURING_RECORD, document.measuringRecord)
+			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
+			.map(PART_MAINTENANCE_RECORD, document.partMaintenanceRecord)
+			.map(EQUIPMENT_REPLACE_RECORD, document.equipmentReplaceRecord)
+			.map(PART_REPLACE_RECORD, document.partReplaceRecord)
+			.map(EQUIPMENT_SCRAPPING_RECORD, document.equipmentScrappingRecord)
+			.map(PART_SCRAPPING_RECORD, document.partScrappingRecord)
+			.map(EQUIPMENT_PARAMETER, document.equipmentParameter)
+			.map(PREVENTIVE_MAINTENANCE_STANDARD, document.preventiveMaintenanceStandard)
+			.map(PREVENTIVE_MAINTENANCE_CONTENT, document.preventiveMaintenanceContent)
+			.map(PREVENTIVE_MAINTENANCE_EXECUTION, document.preventiveMaintenanceExecution)
+			.map(TASK_TRACKING, document.taskTracking)
+			.map(WORK_LOG, document.workLog)
+			.map(PROCUREMENT_REQUEST, document.procurementRequest)
+			.map(PROCUREMENT_ORDER, document.procurementOrder)
+			.map(PROCUREMENT_ITEM_DETAIL, document.procurementItemDetail)
+			.map(ASSET_CLASSIFICATION, document.assetClassification)
+			.map(ASSET_STATUS, document.assetStatus)
+			.map(ASSET_STATUS_CHANGE_RECORD, document.assetStatusChangeRecord)
+			.map(CRITICAL_CLASSIFICATION, document.criticalClassification)
+			.map(COST_CENTER, document.costCenter)
+			.map(EMPLOYEE, document.employee)
+			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
+			.map(INSTOCK_DETAIL, document.instockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
+			.map(TECHNICAL_OBJECT, document.technicalObject)
+			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -2627,7 +2581,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(partMaintenanceRecord, "partMaintenanceRecord is required");
         
         query.where(document.partMaintenanceRecord.eq(partMaintenanceRecord));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2649,7 +2603,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2675,9 +2628,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -2707,7 +2662,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(partReplaceRecord, "partReplaceRecord is required");
         
         query.where(document.partReplaceRecord.eq(partReplaceRecord));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2729,7 +2684,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2755,9 +2709,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -2787,7 +2743,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(partScrappingRecord, "partScrappingRecord is required");
         
         query.where(document.partScrappingRecord.eq(partScrappingRecord));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2809,7 +2765,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2835,9 +2790,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -2867,7 +2824,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(preventiveMaintenanceContent, "preventiveMaintenanceContent is required");
         
         query.where(document.preventiveMaintenanceContent.eq(preventiveMaintenanceContent));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2889,7 +2846,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2915,9 +2871,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -2947,7 +2905,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(preventiveMaintenanceExecution, "preventiveMaintenanceExecution is required");
         
         query.where(document.preventiveMaintenanceExecution.eq(preventiveMaintenanceExecution));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -2969,7 +2927,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -2995,9 +2952,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3027,7 +2986,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(preventiveMaintenanceFinding, "preventiveMaintenanceFinding is required");
         
         query.where(document.preventiveMaintenanceFinding.eq(preventiveMaintenanceFinding));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3049,7 +3008,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3075,9 +3033,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3107,7 +3067,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(preventiveMaintenanceStandard, "preventiveMaintenanceStandard is required");
         
         query.where(document.preventiveMaintenanceStandard.eq(preventiveMaintenanceStandard));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3129,7 +3089,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3155,9 +3114,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3187,7 +3148,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(procurementItemDetail, "procurementItemDetail is required");
         
         query.where(document.procurementItemDetail.eq(procurementItemDetail));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3209,7 +3170,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3235,9 +3195,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3267,7 +3229,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(procurementOrder, "procurementOrder is required");
         
         query.where(document.procurementOrder.eq(procurementOrder));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3289,7 +3251,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3315,9 +3276,92 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
+			.map(RECORD_STATUS, document.recordStatus)
+			.map(CREATED_DATE, document.createdDate)
+			.map(CREATED_BY, document.createdBy)
+			.map(LAST_MODIFIED_DATE, document.lastModifiedDate)
+			.map(LAST_MODIFIED_BY, document.lastModifiedBy);
+        
+        applyPagination(pageable, query, mapping);
+        applyOrderById(query);
+        
+        return loadPage(query, pageable, document);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrderFinanceTracking
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<Document> DocumentRepositoryImpl.findByProcurementOrderFinanceTracking(ProcurementOrderFinanceTracking procurementOrderFinanceTracking, GlobalSearch globalSearch, Pageable pageable) {
+        
+        QDocument document = QDocument.document;
+        
+        JPQLQuery<Document> query = from(document);
+        
+        Assert.notNull(procurementOrderFinanceTracking, "procurementOrderFinanceTracking is required");
+        
+        query.where(document.procurementOrderFinanceTracking.eq(procurementOrderFinanceTracking));
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        applyGlobalSearch(globalSearch, query, paths);
+        
+        AttributeMappingBuilder mapping = buildMapper()
+			.map(FILE_NAME, document.fileName)
+			.map(DESCRIPTION, document.description)
+			.map(FILE_TYPE, document.fileType)
+			.map(UPLOAD_DATE, document.uploadDate)
+			.map(LOTO_INFO, document.lotoInfo)
+			.map(LOTO_ISSUE_REPORT, document.lotoIssueReport)
+			.map(ASSET_INVENTORY_RECORD, document.assetInventoryRecord)
+			.map(LOTO_DETAIL, document.lotoDetail)
+			.map(UPLOADER, document.uploader)
+			.map(NOTIFICATION_ITEM, document.notificationItem)
+			.map(SYSTEM_BUG_REPORT, document.systemBugReport)
+			.map(PREVENTIVE_MAINTENANCE_FINDING, document.preventiveMaintenanceFinding)
+			.map(AUTONOMOUS_MAINTENANCE_FINDING, document.autonomousMaintenanceFinding)
+			.map(FAILURE_MAINTENANCE_REPORT, document.failureMaintenanceReport)
+			.map(WORK_ORDER_HEADER, document.workOrderHeader)
+			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
+			.map(EQUIPMENT, document.equipment)
+			.map(MATERIAL_CATALOG, document.materialCatalog)
+			.map(MEASURING_POINT, document.measuringPoint)
+			.map(MEASURING_RECORD, document.measuringRecord)
+			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
+			.map(PART_MAINTENANCE_RECORD, document.partMaintenanceRecord)
+			.map(EQUIPMENT_REPLACE_RECORD, document.equipmentReplaceRecord)
+			.map(PART_REPLACE_RECORD, document.partReplaceRecord)
+			.map(EQUIPMENT_SCRAPPING_RECORD, document.equipmentScrappingRecord)
+			.map(PART_SCRAPPING_RECORD, document.partScrappingRecord)
+			.map(EQUIPMENT_PARAMETER, document.equipmentParameter)
+			.map(PREVENTIVE_MAINTENANCE_STANDARD, document.preventiveMaintenanceStandard)
+			.map(PREVENTIVE_MAINTENANCE_CONTENT, document.preventiveMaintenanceContent)
+			.map(PREVENTIVE_MAINTENANCE_EXECUTION, document.preventiveMaintenanceExecution)
+			.map(TASK_TRACKING, document.taskTracking)
+			.map(WORK_LOG, document.workLog)
+			.map(PROCUREMENT_REQUEST, document.procurementRequest)
+			.map(PROCUREMENT_ORDER, document.procurementOrder)
+			.map(PROCUREMENT_ITEM_DETAIL, document.procurementItemDetail)
+			.map(ASSET_CLASSIFICATION, document.assetClassification)
+			.map(ASSET_STATUS, document.assetStatus)
+			.map(ASSET_STATUS_CHANGE_RECORD, document.assetStatusChangeRecord)
+			.map(CRITICAL_CLASSIFICATION, document.criticalClassification)
+			.map(COST_CENTER, document.costCenter)
+			.map(EMPLOYEE, document.employee)
+			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
+			.map(INSTOCK_DETAIL, document.instockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
+			.map(TECHNICAL_OBJECT, document.technicalObject)
+			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3347,7 +3391,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(procurementRequest, "procurementRequest is required");
         
         query.where(document.procurementRequest.eq(procurementRequest));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3369,7 +3413,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3395,9 +3438,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3427,7 +3472,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(purchaseExpedite, "purchaseExpedite is required");
         
         query.where(document.purchaseExpedite.eq(purchaseExpedite));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3449,7 +3494,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3475,9 +3519,92 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
+			.map(RECORD_STATUS, document.recordStatus)
+			.map(CREATED_DATE, document.createdDate)
+			.map(CREATED_BY, document.createdBy)
+			.map(LAST_MODIFIED_DATE, document.lastModifiedDate)
+			.map(LAST_MODIFIED_BY, document.lastModifiedBy);
+        
+        applyPagination(pageable, query, mapping);
+        applyOrderById(query);
+        
+        return loadPage(query, pageable, document);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param serviceReceiveDetail
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<Document> DocumentRepositoryImpl.findByServiceReceiveDetail(ServiceReceiveDetail serviceReceiveDetail, GlobalSearch globalSearch, Pageable pageable) {
+        
+        QDocument document = QDocument.document;
+        
+        JPQLQuery<Document> query = from(document);
+        
+        Assert.notNull(serviceReceiveDetail, "serviceReceiveDetail is required");
+        
+        query.where(document.serviceReceiveDetail.eq(serviceReceiveDetail));
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        applyGlobalSearch(globalSearch, query, paths);
+        
+        AttributeMappingBuilder mapping = buildMapper()
+			.map(FILE_NAME, document.fileName)
+			.map(DESCRIPTION, document.description)
+			.map(FILE_TYPE, document.fileType)
+			.map(UPLOAD_DATE, document.uploadDate)
+			.map(LOTO_INFO, document.lotoInfo)
+			.map(LOTO_ISSUE_REPORT, document.lotoIssueReport)
+			.map(ASSET_INVENTORY_RECORD, document.assetInventoryRecord)
+			.map(LOTO_DETAIL, document.lotoDetail)
+			.map(UPLOADER, document.uploader)
+			.map(NOTIFICATION_ITEM, document.notificationItem)
+			.map(SYSTEM_BUG_REPORT, document.systemBugReport)
+			.map(PREVENTIVE_MAINTENANCE_FINDING, document.preventiveMaintenanceFinding)
+			.map(AUTONOMOUS_MAINTENANCE_FINDING, document.autonomousMaintenanceFinding)
+			.map(FAILURE_MAINTENANCE_REPORT, document.failureMaintenanceReport)
+			.map(WORK_ORDER_HEADER, document.workOrderHeader)
+			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
+			.map(EQUIPMENT, document.equipment)
+			.map(MATERIAL_CATALOG, document.materialCatalog)
+			.map(MEASURING_POINT, document.measuringPoint)
+			.map(MEASURING_RECORD, document.measuringRecord)
+			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
+			.map(PART_MAINTENANCE_RECORD, document.partMaintenanceRecord)
+			.map(EQUIPMENT_REPLACE_RECORD, document.equipmentReplaceRecord)
+			.map(PART_REPLACE_RECORD, document.partReplaceRecord)
+			.map(EQUIPMENT_SCRAPPING_RECORD, document.equipmentScrappingRecord)
+			.map(PART_SCRAPPING_RECORD, document.partScrappingRecord)
+			.map(EQUIPMENT_PARAMETER, document.equipmentParameter)
+			.map(PREVENTIVE_MAINTENANCE_STANDARD, document.preventiveMaintenanceStandard)
+			.map(PREVENTIVE_MAINTENANCE_CONTENT, document.preventiveMaintenanceContent)
+			.map(PREVENTIVE_MAINTENANCE_EXECUTION, document.preventiveMaintenanceExecution)
+			.map(TASK_TRACKING, document.taskTracking)
+			.map(WORK_LOG, document.workLog)
+			.map(PROCUREMENT_REQUEST, document.procurementRequest)
+			.map(PROCUREMENT_ORDER, document.procurementOrder)
+			.map(PROCUREMENT_ITEM_DETAIL, document.procurementItemDetail)
+			.map(ASSET_CLASSIFICATION, document.assetClassification)
+			.map(ASSET_STATUS, document.assetStatus)
+			.map(ASSET_STATUS_CHANGE_RECORD, document.assetStatusChangeRecord)
+			.map(CRITICAL_CLASSIFICATION, document.criticalClassification)
+			.map(COST_CENTER, document.costCenter)
+			.map(EMPLOYEE, document.employee)
+			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
+			.map(INSTOCK_DETAIL, document.instockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
+			.map(TECHNICAL_OBJECT, document.technicalObject)
+			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3507,7 +3634,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(systemBugReport, "systemBugReport is required");
         
         query.where(document.systemBugReport.eq(systemBugReport));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3529,7 +3656,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3555,9 +3681,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3587,7 +3715,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(taskTracking, "taskTracking is required");
         
         query.where(document.taskTracking.eq(taskTracking));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3609,7 +3737,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3635,9 +3762,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3667,7 +3796,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(technicalObject, "technicalObject is required");
         
         query.where(document.technicalObject.eq(technicalObject));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3689,7 +3818,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3715,9 +3843,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3747,7 +3877,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(workLog, "workLog is required");
         
         query.where(document.workLog.eq(workLog));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3769,7 +3899,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3795,9 +3924,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)
@@ -3827,7 +3958,7 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(workOrderHeader, "workOrderHeader is required");
         
         query.where(document.workOrderHeader.eq(workOrderHeader));
-        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.materialInstockDetail,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.materialOutstockDetail,document.technicalObject,document.equipmentLubrication,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {document.fileName,document.description,document.fileType,document.uploadDate,document.lotoInfo,document.lotoIssueReport,document.assetInventoryRecord,document.lotoDetail,document.uploader,document.notificationItem,document.systemBugReport,document.preventiveMaintenanceFinding,document.autonomousMaintenanceFinding,document.failureMaintenanceReport,document.workOrderHeader,document.functionalLocation,document.equipment,document.materialCatalog,document.measuringPoint,document.measuringRecord,document.equipmentMaintenanceRecord,document.partMaintenanceRecord,document.equipmentReplaceRecord,document.partReplaceRecord,document.equipmentScrappingRecord,document.partScrappingRecord,document.equipmentParameter,document.preventiveMaintenanceStandard,document.preventiveMaintenanceContent,document.preventiveMaintenanceExecution,document.taskTracking,document.workLog,document.procurementRequest,document.procurementOrder,document.procurementItemDetail,document.assetClassification,document.assetStatus,document.assetStatusChangeRecord,document.criticalClassification,document.costCenter,document.employee,document.purchaseExpedite,document.instockDetail,document.outstockDetail,document.technicalObject,document.equipmentLubrication,document.serviceReceiveDetail,document.procurementOrderFinanceTracking,document.recordStatus,document.createdDate,document.createdBy,document.lastModifiedDate,document.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -3849,7 +3980,6 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(FUNCTIONAL_LOCATION, document.functionalLocation)
 			.map(EQUIPMENT, document.equipment)
 			.map(MATERIAL_CATALOG, document.materialCatalog)
-			.map(MATERIAL_INSTOCK_DETAIL, document.materialInstockDetail)
 			.map(MEASURING_POINT, document.measuringPoint)
 			.map(MEASURING_RECORD, document.measuringRecord)
 			.map(EQUIPMENT_MAINTENANCE_RECORD, document.equipmentMaintenanceRecord)
@@ -3875,9 +4005,11 @@ privileged aspect DocumentRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(EMPLOYEE, document.employee)
 			.map(PURCHASE_EXPEDITE, document.purchaseExpedite)
 			.map(INSTOCK_DETAIL, document.instockDetail)
-			.map(MATERIAL_OUTSTOCK_DETAIL, document.materialOutstockDetail)
+			.map(OUTSTOCK_DETAIL, document.outstockDetail)
 			.map(TECHNICAL_OBJECT, document.technicalObject)
 			.map(EQUIPMENT_LUBRICATION, document.equipmentLubrication)
+			.map(SERVICE_RECEIVE_DETAIL, document.serviceReceiveDetail)
+			.map(PROCUREMENT_ORDER_FINANCE_TRACKING, document.procurementOrderFinanceTracking)
 			.map(RECORD_STATUS, document.recordStatus)
 			.map(CREATED_DATE, document.createdDate)
 			.map(CREATED_BY, document.createdBy)

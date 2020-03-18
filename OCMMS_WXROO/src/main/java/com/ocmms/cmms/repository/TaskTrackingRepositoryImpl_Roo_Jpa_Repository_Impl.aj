@@ -4,14 +4,12 @@
 package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.assistance.QTaskTracking;
-import com.ocmms.cmms.model.assistance.TaskFormBean;
 import com.ocmms.cmms.model.assistance.TaskTracking;
 import com.ocmms.cmms.model.assistance.TaskTrackingPriority;
 import com.ocmms.cmms.model.assistance.TaskTrackingStatus;
 import com.ocmms.cmms.model.assistance.TaskTrackingType;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.repository.TaskTrackingRepositoryImpl;
-import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Path;
 import com.querydsl.jpa.JPQLQuery;
 import io.springlets.data.domain.GlobalSearch;
@@ -416,82 +414,6 @@ privileged aspect TaskTrackingRepositoryImpl_Roo_Jpa_Repository_Impl {
         applyOrderById(query);
         
         return loadPage(query, pageable, taskTracking);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param formBean
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<TaskTracking> TaskTrackingRepositoryImpl.findByTaskOwner(TaskFormBean formBean, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QTaskTracking taskTracking = QTaskTracking.taskTracking;
-        
-        JPQLQuery<TaskTracking> query = from(taskTracking);
-        
-        if (formBean != null) {
-        BooleanBuilder searchCondition = new BooleanBuilder();
-                if (formBean.getTaskOwner() != null) {
-                        searchCondition.and(taskTracking.taskOwner.eq(formBean.getTaskOwner()));
-                }
-        if (searchCondition.hasValue()) {
-            query.where(searchCondition);
-        }
-        }
-        
-        Path<?>[] paths = new Path<?>[] {taskTracking.submitDate,taskTracking.submitter,taskTracking.technicalObject,taskTracking.description,taskTracking.taskTrackingPriority,taskTracking.taskTrackingStatus,taskTracking.taskTrackingType,taskTracking.targetDate,taskTracking.assignDate,taskTracking.completeDate,taskTracking.reference,taskTracking.memo,taskTracking.taskOwner,taskTracking.supportVendor,taskTracking.recordStatus,taskTracking.lastModifiedDate,taskTracking.lastModifiedBy,taskTracking.createdDate,taskTracking.createdBy};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(SUBMIT_DATE, taskTracking.submitDate)
-			.map(SUBMITTER, taskTracking.submitter)
-			.map(TECHNICAL_OBJECT, taskTracking.technicalObject)
-			.map(DESCRIPTION, taskTracking.description)
-			.map(TASK_TRACKING_PRIORITY, taskTracking.taskTrackingPriority)
-			.map(TASK_TRACKING_STATUS, taskTracking.taskTrackingStatus)
-			.map(TASK_TRACKING_TYPE, taskTracking.taskTrackingType)
-			.map(TARGET_DATE, taskTracking.targetDate)
-			.map(ASSIGN_DATE, taskTracking.assignDate)
-			.map(COMPLETE_DATE, taskTracking.completeDate)
-			.map(REFERENCE, taskTracking.reference)
-			.map(MEMO, taskTracking.memo)
-			.map(TASK_OWNER, taskTracking.taskOwner)
-			.map(SUPPORT_VENDOR, taskTracking.supportVendor)
-			.map(RECORD_STATUS, taskTracking.recordStatus)
-			.map(LAST_MODIFIED_DATE, taskTracking.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, taskTracking.lastModifiedBy)
-			.map(CREATED_DATE, taskTracking.createdDate)
-			.map(CREATED_BY, taskTracking.createdBy);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, taskTracking);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param formBean
-     * @return Long
-     */
-    public long TaskTrackingRepositoryImpl.countByTaskOwner(TaskFormBean formBean) {
-        
-        QTaskTracking taskTracking = QTaskTracking.taskTracking;
-        
-        JPQLQuery<TaskTracking> query = from(taskTracking);
-        
-        BooleanBuilder searchCondition = new BooleanBuilder();
-                if (formBean.getTaskOwner() != null) {
-                        searchCondition.and(taskTracking.taskOwner.eq(formBean.getTaskOwner()));
-                }
-        if (searchCondition.hasValue()) {
-            query.where(searchCondition);
-        }
-        return query.fetchCount();
     }
     
 }

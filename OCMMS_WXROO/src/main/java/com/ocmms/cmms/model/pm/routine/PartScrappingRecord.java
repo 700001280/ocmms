@@ -14,6 +14,7 @@ import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
+import com.ocmms.cmms.model.mm.storage.PartScrappingOutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.system.RecordStatus;
 
@@ -117,6 +118,16 @@ public class PartScrappingRecord {
 	@JoinColumn(name = "STORAGELOCATION")
 	@EntityFormat
 	private StorageLocation storageLocation;
+	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@OneToMany(cascade = { javax.persistence.CascadeType.MERGE,
+			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "partScrappingRecord")
+	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
+	private Set<PartScrappingOutstockDetail> partScrappingOutstockDetails = new HashSet<PartScrappingOutstockDetail>();
+	
 
 	/**
 	 * TODO Auto-generated attribute documentation

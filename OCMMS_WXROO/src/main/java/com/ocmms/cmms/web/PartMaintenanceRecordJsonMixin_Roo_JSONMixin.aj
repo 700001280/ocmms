@@ -11,6 +11,7 @@ import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.RepairMaterialInstockDetail;
 import com.ocmms.cmms.model.srm.Vendor;
 import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.EmployeeDeserializer;
@@ -43,6 +44,13 @@ privileged aspect PartMaintenanceRecordJsonMixin_Roo_JSONMixin {
      */
     @JsonIgnore
     private Set<MaterialOutstockDetail> PartMaintenanceRecordJsonMixin.materialOutstockDetails;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonIgnore
+    private Set<RepairMaterialInstockDetail> PartMaintenanceRecordJsonMixin.repairMaterialInstockDetails;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -131,6 +139,24 @@ privileged aspect PartMaintenanceRecordJsonMixin_Roo_JSONMixin {
      */
     public void PartMaintenanceRecordJsonMixin.setMaterialOutstockDetails(Set<MaterialOutstockDetail> materialOutstockDetails) {
         this.materialOutstockDetails = materialOutstockDetails;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Set
+     */
+    public Set<RepairMaterialInstockDetail> PartMaintenanceRecordJsonMixin.getRepairMaterialInstockDetails() {
+        return repairMaterialInstockDetails;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param repairMaterialInstockDetails
+     */
+    public void PartMaintenanceRecordJsonMixin.setRepairMaterialInstockDetails(Set<RepairMaterialInstockDetail> repairMaterialInstockDetails) {
+        this.repairMaterialInstockDetails = repairMaterialInstockDetails;
     }
     
     /**

@@ -3,8 +3,8 @@
 
 package com.ocmms.cmms.model.mm.storage;
 
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.model.system.RecordStatus;
@@ -115,42 +115,42 @@ privileged aspect StorageLocation_Roo_JavaBean {
     }
     
     /**
-     * Gets materialInstockDetails value
+     * Gets instockDetails value
      * 
      * @return Set
      */
-    public Set<MaterialInstockDetail> StorageLocation.getMaterialInstockDetails() {
-        return this.materialInstockDetails;
+    public Set<InstockDetail> StorageLocation.getInstockDetails() {
+        return this.instockDetails;
     }
     
     /**
-     * Sets materialInstockDetails value
+     * Sets instockDetails value
      * 
-     * @param materialInstockDetails
+     * @param instockDetails
      * @return StorageLocation
      */
-    public StorageLocation StorageLocation.setMaterialInstockDetails(Set<MaterialInstockDetail> materialInstockDetails) {
-        this.materialInstockDetails = materialInstockDetails;
+    public StorageLocation StorageLocation.setInstockDetails(Set<InstockDetail> instockDetails) {
+        this.instockDetails = instockDetails;
         return this;
     }
     
     /**
-     * Gets materialOutstockDetails value
+     * Gets outstockDetails value
      * 
      * @return Set
      */
-    public Set<MaterialOutstockDetail> StorageLocation.getMaterialOutstockDetails() {
-        return this.materialOutstockDetails;
+    public Set<OutstockDetail> StorageLocation.getOutstockDetails() {
+        return this.outstockDetails;
     }
     
     /**
-     * Sets materialOutstockDetails value
+     * Sets outstockDetails value
      * 
-     * @param materialOutstockDetails
+     * @param outstockDetails
      * @return StorageLocation
      */
-    public StorageLocation StorageLocation.setMaterialOutstockDetails(Set<MaterialOutstockDetail> materialOutstockDetails) {
-        this.materialOutstockDetails = materialOutstockDetails;
+    public StorageLocation StorageLocation.setOutstockDetails(Set<OutstockDetail> outstockDetails) {
+        this.outstockDetails = outstockDetails;
         return this;
     }
     

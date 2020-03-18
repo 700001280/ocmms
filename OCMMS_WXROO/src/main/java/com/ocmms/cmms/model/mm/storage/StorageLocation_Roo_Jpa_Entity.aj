@@ -3,8 +3,8 @@
 
 package com.ocmms.cmms.model.mm.storage;
 
-import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
-import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import io.springlets.format.EntityFormat;
 import javax.persistence.Entity;
@@ -34,12 +34,12 @@ privileged aspect StorageLocation_Roo_Jpa_Entity {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialInstockDetailsToAdd
+     * @param instockDetailsToAdd
      */
-    public void StorageLocation.addToMaterialInstockDetails(Iterable<MaterialInstockDetail> materialInstockDetailsToAdd) {
-        Assert.notNull(materialInstockDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
-        for (MaterialInstockDetail item : materialInstockDetailsToAdd) {
-            this.materialInstockDetails.add(item);
+    public void StorageLocation.addToInstockDetails(Iterable<InstockDetail> instockDetailsToAdd) {
+        Assert.notNull(instockDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (InstockDetail item : instockDetailsToAdd) {
+            this.instockDetails.add(item);
             item.setStorageLocation(this);
         }
     }
@@ -47,12 +47,12 @@ privileged aspect StorageLocation_Roo_Jpa_Entity {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialInstockDetailsToRemove
+     * @param instockDetailsToRemove
      */
-    public void StorageLocation.removeFromMaterialInstockDetails(Iterable<MaterialInstockDetail> materialInstockDetailsToRemove) {
-        Assert.notNull(materialInstockDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
-        for (MaterialInstockDetail item : materialInstockDetailsToRemove) {
-            this.materialInstockDetails.remove(item);
+    public void StorageLocation.removeFromInstockDetails(Iterable<InstockDetail> instockDetailsToRemove) {
+        Assert.notNull(instockDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (InstockDetail item : instockDetailsToRemove) {
+            this.instockDetails.remove(item);
             item.setStorageLocation(null);
         }
     }
@@ -60,12 +60,12 @@ privileged aspect StorageLocation_Roo_Jpa_Entity {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialOutstockDetailsToAdd
+     * @param outstockDetailsToAdd
      */
-    public void StorageLocation.addToMaterialOutstockDetails(Iterable<MaterialOutstockDetail> materialOutstockDetailsToAdd) {
-        Assert.notNull(materialOutstockDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
-        for (MaterialOutstockDetail item : materialOutstockDetailsToAdd) {
-            this.materialOutstockDetails.add(item);
+    public void StorageLocation.addToOutstockDetails(Iterable<OutstockDetail> outstockDetailsToAdd) {
+        Assert.notNull(outstockDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (OutstockDetail item : outstockDetailsToAdd) {
+            this.outstockDetails.add(item);
             item.setStorageLocation(this);
         }
     }
@@ -73,12 +73,12 @@ privileged aspect StorageLocation_Roo_Jpa_Entity {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialOutstockDetailsToRemove
+     * @param outstockDetailsToRemove
      */
-    public void StorageLocation.removeFromMaterialOutstockDetails(Iterable<MaterialOutstockDetail> materialOutstockDetailsToRemove) {
-        Assert.notNull(materialOutstockDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
-        for (MaterialOutstockDetail item : materialOutstockDetailsToRemove) {
-            this.materialOutstockDetails.remove(item);
+    public void StorageLocation.removeFromOutstockDetails(Iterable<OutstockDetail> outstockDetailsToRemove) {
+        Assert.notNull(outstockDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (OutstockDetail item : outstockDetailsToRemove) {
+            this.outstockDetails.remove(item);
             item.setStorageLocation(null);
         }
     }

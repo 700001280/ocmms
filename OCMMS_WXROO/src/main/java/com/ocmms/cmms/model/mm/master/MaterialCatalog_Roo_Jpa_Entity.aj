@@ -10,6 +10,8 @@ import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.master.MaterialVendorInfo;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
+import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 import io.springlets.format.EntityFormat;
 import javax.persistence.Entity;
@@ -58,6 +60,58 @@ privileged aspect MaterialCatalog_Roo_Jpa_Entity {
         Assert.notNull(materialProcurementItemDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
         for (MaterialProcurementItemDetail item : materialProcurementItemDetailsToRemove) {
             this.materialProcurementItemDetails.remove(item);
+            item.setMaterialCatalog(null);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetailsToAdd
+     */
+    public void MaterialCatalog.addToOutstockDetails(Iterable<OutstockDetail> outstockDetailsToAdd) {
+        Assert.notNull(outstockDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (OutstockDetail item : outstockDetailsToAdd) {
+            this.outstockDetails.add(item);
+            item.setMaterialCatalog(this);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param outstockDetailsToRemove
+     */
+    public void MaterialCatalog.removeFromOutstockDetails(Iterable<OutstockDetail> outstockDetailsToRemove) {
+        Assert.notNull(outstockDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (OutstockDetail item : outstockDetailsToRemove) {
+            this.outstockDetails.remove(item);
+            item.setMaterialCatalog(null);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param instockDetailsToAdd
+     */
+    public void MaterialCatalog.addToInstockDetails(Iterable<InstockDetail> instockDetailsToAdd) {
+        Assert.notNull(instockDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (InstockDetail item : instockDetailsToAdd) {
+            this.instockDetails.add(item);
+            item.setMaterialCatalog(this);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param instockDetailsToRemove
+     */
+    public void MaterialCatalog.removeFromInstockDetails(Iterable<InstockDetail> instockDetailsToRemove) {
+        Assert.notNull(instockDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (InstockDetail item : instockDetailsToRemove) {
+            this.instockDetails.remove(item);
             item.setMaterialCatalog(null);
         }
     }

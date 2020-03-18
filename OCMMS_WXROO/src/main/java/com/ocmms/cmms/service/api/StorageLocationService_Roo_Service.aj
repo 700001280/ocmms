@@ -104,55 +104,55 @@ privileged aspect StorageLocationService_Roo_Service {
      * TODO Auto-generated method documentation
      * 
      * @param storageLocation
-     * @param materialInstockDetailsToAdd
+     * @param instockDetailsToAdd
      * @return StorageLocation
      */
-    public abstract StorageLocation StorageLocationService.addToMaterialInstockDetails(StorageLocation storageLocation, Iterable<Long> materialInstockDetailsToAdd);
+    public abstract StorageLocation StorageLocationService.addToInstockDetails(StorageLocation storageLocation, Iterable<Long> instockDetailsToAdd);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param storageLocation
-     * @param materialInstockDetailsToRemove
+     * @param instockDetailsToRemove
      * @return StorageLocation
      */
-    public abstract StorageLocation StorageLocationService.removeFromMaterialInstockDetails(StorageLocation storageLocation, Iterable<Long> materialInstockDetailsToRemove);
+    public abstract StorageLocation StorageLocationService.removeFromInstockDetails(StorageLocation storageLocation, Iterable<Long> instockDetailsToRemove);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param storageLocation
-     * @param materialInstockDetails
+     * @param instockDetails
      * @return StorageLocation
      */
-    public abstract StorageLocation StorageLocationService.setMaterialInstockDetails(StorageLocation storageLocation, Iterable<Long> materialInstockDetails);
+    public abstract StorageLocation StorageLocationService.setInstockDetails(StorageLocation storageLocation, Iterable<Long> instockDetails);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param storageLocation
-     * @param materialOutstockDetailsToAdd
+     * @param outstockDetailsToAdd
      * @return StorageLocation
      */
-    public abstract StorageLocation StorageLocationService.addToMaterialOutstockDetails(StorageLocation storageLocation, Iterable<Long> materialOutstockDetailsToAdd);
+    public abstract StorageLocation StorageLocationService.addToOutstockDetails(StorageLocation storageLocation, Iterable<Long> outstockDetailsToAdd);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param storageLocation
-     * @param materialOutstockDetailsToRemove
+     * @param outstockDetailsToRemove
      * @return StorageLocation
      */
-    public abstract StorageLocation StorageLocationService.removeFromMaterialOutstockDetails(StorageLocation storageLocation, Iterable<Long> materialOutstockDetailsToRemove);
+    public abstract StorageLocation StorageLocationService.removeFromOutstockDetails(StorageLocation storageLocation, Iterable<Long> outstockDetailsToRemove);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param storageLocation
-     * @param materialOutstockDetails
+     * @param outstockDetails
      * @return StorageLocation
      */
-    public abstract StorageLocation StorageLocationService.setMaterialOutstockDetails(StorageLocation storageLocation, Iterable<Long> materialOutstockDetails);
+    public abstract StorageLocation StorageLocationService.setOutstockDetails(StorageLocation storageLocation, Iterable<Long> outstockDetails);
     
     /**
      * TODO Auto-generated method documentation

@@ -223,6 +223,7 @@ privileged aspect MaterialOutstockDetailsItemThymeleafController_Roo_Thymeleaf {
         model.addAttribute("issueDate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
         model.addAttribute("createdDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         model.addAttribute("lastModifiedDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        model.addAttribute("issueDate_date_format", DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
     }
     
     /**

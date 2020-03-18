@@ -184,6 +184,33 @@ privileged aspect ProcurementOrderService_Roo_Service {
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
+     * @param procurementOrderFinanceTrackingsToAdd
+     * @return ProcurementOrder
+     */
+    public abstract ProcurementOrder ProcurementOrderService.addToProcurementOrderFinanceTrackings(ProcurementOrder procurementOrder, Iterable<Long> procurementOrderFinanceTrackingsToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrder
+     * @param procurementOrderFinanceTrackingsToRemove
+     * @return ProcurementOrder
+     */
+    public abstract ProcurementOrder ProcurementOrderService.removeFromProcurementOrderFinanceTrackings(ProcurementOrder procurementOrder, Iterable<Long> procurementOrderFinanceTrackingsToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrder
+     * @param procurementOrderFinanceTrackings
+     * @return ProcurementOrder
+     */
+    public abstract ProcurementOrder ProcurementOrderService.setProcurementOrderFinanceTrackings(ProcurementOrder procurementOrder, Iterable<Long> procurementOrderFinanceTrackings);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrder
      * @param purchaseExpeditesToAdd
      * @return ProcurementOrder
      */

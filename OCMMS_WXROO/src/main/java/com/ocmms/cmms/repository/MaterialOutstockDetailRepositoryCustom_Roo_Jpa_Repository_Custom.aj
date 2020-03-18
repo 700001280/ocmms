@@ -4,8 +4,6 @@
 package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
-import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.model.pm.routine.EquipmentMaintenanceRecord;
 import com.ocmms.cmms.model.pm.routine.PartMaintenanceRecord;
 import com.ocmms.cmms.repository.MaterialOutstockDetailRepositoryCustom;
@@ -15,26 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 privileged aspect MaterialOutstockDetailRepositoryCustom_Roo_Jpa_Repository_Custom {
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageLocation
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialOutstockDetail> MaterialOutstockDetailRepositoryCustom.findByStorageLocation(StorageLocation storageLocation, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param storageType
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialOutstockDetail> MaterialOutstockDetailRepositoryCustom.findByStorageType(StorageType storageType, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

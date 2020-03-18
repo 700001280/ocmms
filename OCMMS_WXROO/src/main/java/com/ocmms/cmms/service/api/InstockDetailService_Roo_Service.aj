@@ -3,7 +3,11 @@
 
 package com.ocmms.cmms.service.api;
 
+import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.MovementType;
+import com.ocmms.cmms.model.mm.storage.StorageLocation;
+import com.ocmms.cmms.model.mm.storage.StorageType;
 import com.ocmms.cmms.service.api.InstockDetailService;
 import io.springlets.data.domain.GlobalSearch;
 import java.util.List;
@@ -152,5 +156,77 @@ privileged aspect InstockDetailService_Roo_Service {
      * @return InstockDetail
      */
     public abstract InstockDetail InstockDetailService.setImages(InstockDetail instockDetail, Iterable<Long> images);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<InstockDetail> InstockDetailService.findByMaterialCatalog(MaterialCatalog materialCatalog, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param movementType
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<InstockDetail> InstockDetailService.findByMovementType(MovementType movementType, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<InstockDetail> InstockDetailService.findByStorageLocation(StorageLocation storageLocation, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageType
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<InstockDetail> InstockDetailService.findByStorageType(StorageType storageType, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @return Long
+     */
+    public abstract long InstockDetailService.countByMaterialCatalog(MaterialCatalog materialCatalog);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param movementType
+     * @return Long
+     */
+    public abstract long InstockDetailService.countByMovementType(MovementType movementType);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
+     * @return Long
+     */
+    public abstract long InstockDetailService.countByStorageLocation(StorageLocation storageLocation);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageType
+     * @return Long
+     */
+    public abstract long InstockDetailService.countByStorageType(StorageType storageType);
     
 }

@@ -25,31 +25,7 @@ privileged aspect ServiceReceiveDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String ServiceReceiveDetailRepositoryImpl.ORDER_NO = "orderNo";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String ServiceReceiveDetailRepositoryImpl.QUANTITY = "quantity";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String ServiceReceiveDetailRepositoryImpl.UNIT_PRICE = "unitPrice";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String ServiceReceiveDetailRepositoryImpl.CURRENCY_UNIT = "currencyUnit";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String ServiceReceiveDetailRepositoryImpl.GOOD_RECEIVE_NO = "goodReceiveNo";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -62,6 +38,18 @@ privileged aspect ServiceReceiveDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String ServiceReceiveDetailRepositoryImpl.RECEIVER = "receiver";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String ServiceReceiveDetailRepositoryImpl.KEEPER = "keeper";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String ServiceReceiveDetailRepositoryImpl.SERVICE_PROCUREMENT_ITEM_DETAIL = "serviceProcurementItemDetail";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -124,12 +112,6 @@ privileged aspect ServiceReceiveDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
     public static final String ServiceReceiveDetailRepositoryImpl.LAST_MODIFIED_BY = "lastModifiedBy";
     
     /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String ServiceReceiveDetailRepositoryImpl.SERVICE_PROCUREMENT_ITEM_DETAIL = "serviceProcurementItemDetail";
-    
-    /**
      * TODO Auto-generated method documentation
      * 
      * @param globalSearch
@@ -142,17 +124,15 @@ privileged aspect ServiceReceiveDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ServiceReceiveDetail> query = from(serviceReceiveDetail);
         
-        Path<?>[] paths = new Path<?>[] {serviceReceiveDetail.orderNo,serviceReceiveDetail.quantity,serviceReceiveDetail.unitPrice,serviceReceiveDetail.currencyUnit,serviceReceiveDetail.goodReceiveNo,serviceReceiveDetail.receiveDate,serviceReceiveDetail.receiver,serviceReceiveDetail.invoiceDate,serviceReceiveDetail.paymentSubmitter,serviceReceiveDetail.paymentDate,serviceReceiveDetail.memo,serviceReceiveDetail.closed,serviceReceiveDetail.recordStatus,serviceReceiveDetail.createdDate,serviceReceiveDetail.createdBy,serviceReceiveDetail.lastModifiedDate,serviceReceiveDetail.lastModifiedBy,serviceReceiveDetail.serviceProcurementItemDetail};        
+        Path<?>[] paths = new Path<?>[] {serviceReceiveDetail.quantity,serviceReceiveDetail.receiveDate,serviceReceiveDetail.receiver,serviceReceiveDetail.keeper,serviceReceiveDetail.serviceProcurementItemDetail,serviceReceiveDetail.invoiceDate,serviceReceiveDetail.paymentSubmitter,serviceReceiveDetail.paymentDate,serviceReceiveDetail.memo,serviceReceiveDetail.closed,serviceReceiveDetail.recordStatus,serviceReceiveDetail.createdDate,serviceReceiveDetail.createdBy,serviceReceiveDetail.lastModifiedDate,serviceReceiveDetail.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(ORDER_NO, serviceReceiveDetail.orderNo)
 			.map(QUANTITY, serviceReceiveDetail.quantity)
-			.map(UNIT_PRICE, serviceReceiveDetail.unitPrice)
-			.map(CURRENCY_UNIT, serviceReceiveDetail.currencyUnit)
-			.map(GOOD_RECEIVE_NO, serviceReceiveDetail.goodReceiveNo)
 			.map(RECEIVE_DATE, serviceReceiveDetail.receiveDate)
 			.map(RECEIVER, serviceReceiveDetail.receiver)
+			.map(KEEPER, serviceReceiveDetail.keeper)
+			.map(SERVICE_PROCUREMENT_ITEM_DETAIL, serviceReceiveDetail.serviceProcurementItemDetail)
 			.map(INVOICE_DATE, serviceReceiveDetail.invoiceDate)
 			.map(PAYMENT_SUBMITTER, serviceReceiveDetail.paymentSubmitter)
 			.map(PAYMENT_DATE, serviceReceiveDetail.paymentDate)
@@ -162,8 +142,7 @@ privileged aspect ServiceReceiveDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(CREATED_DATE, serviceReceiveDetail.createdDate)
 			.map(CREATED_BY, serviceReceiveDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, serviceReceiveDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, serviceReceiveDetail.lastModifiedBy)
-			.map(SERVICE_PROCUREMENT_ITEM_DETAIL, serviceReceiveDetail.serviceProcurementItemDetail);
+			.map(LAST_MODIFIED_BY, serviceReceiveDetail.lastModifiedBy);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -185,20 +164,18 @@ privileged aspect ServiceReceiveDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ServiceReceiveDetail> query = from(serviceReceiveDetail);
         
-        Path<?>[] paths = new Path<?>[] {serviceReceiveDetail.orderNo,serviceReceiveDetail.quantity,serviceReceiveDetail.unitPrice,serviceReceiveDetail.currencyUnit,serviceReceiveDetail.goodReceiveNo,serviceReceiveDetail.receiveDate,serviceReceiveDetail.receiver,serviceReceiveDetail.invoiceDate,serviceReceiveDetail.paymentSubmitter,serviceReceiveDetail.paymentDate,serviceReceiveDetail.memo,serviceReceiveDetail.closed,serviceReceiveDetail.recordStatus,serviceReceiveDetail.createdDate,serviceReceiveDetail.createdBy,serviceReceiveDetail.lastModifiedDate,serviceReceiveDetail.lastModifiedBy,serviceReceiveDetail.serviceProcurementItemDetail};        
+        Path<?>[] paths = new Path<?>[] {serviceReceiveDetail.quantity,serviceReceiveDetail.receiveDate,serviceReceiveDetail.receiver,serviceReceiveDetail.keeper,serviceReceiveDetail.serviceProcurementItemDetail,serviceReceiveDetail.invoiceDate,serviceReceiveDetail.paymentSubmitter,serviceReceiveDetail.paymentDate,serviceReceiveDetail.memo,serviceReceiveDetail.closed,serviceReceiveDetail.recordStatus,serviceReceiveDetail.createdDate,serviceReceiveDetail.createdBy,serviceReceiveDetail.lastModifiedDate,serviceReceiveDetail.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
         query.where(serviceReceiveDetail.id.in(ids));
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(ORDER_NO, serviceReceiveDetail.orderNo)
 			.map(QUANTITY, serviceReceiveDetail.quantity)
-			.map(UNIT_PRICE, serviceReceiveDetail.unitPrice)
-			.map(CURRENCY_UNIT, serviceReceiveDetail.currencyUnit)
-			.map(GOOD_RECEIVE_NO, serviceReceiveDetail.goodReceiveNo)
 			.map(RECEIVE_DATE, serviceReceiveDetail.receiveDate)
 			.map(RECEIVER, serviceReceiveDetail.receiver)
+			.map(KEEPER, serviceReceiveDetail.keeper)
+			.map(SERVICE_PROCUREMENT_ITEM_DETAIL, serviceReceiveDetail.serviceProcurementItemDetail)
 			.map(INVOICE_DATE, serviceReceiveDetail.invoiceDate)
 			.map(PAYMENT_SUBMITTER, serviceReceiveDetail.paymentSubmitter)
 			.map(PAYMENT_DATE, serviceReceiveDetail.paymentDate)
@@ -208,8 +185,7 @@ privileged aspect ServiceReceiveDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(CREATED_DATE, serviceReceiveDetail.createdDate)
 			.map(CREATED_BY, serviceReceiveDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, serviceReceiveDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, serviceReceiveDetail.lastModifiedBy)
-			.map(SERVICE_PROCUREMENT_ITEM_DETAIL, serviceReceiveDetail.serviceProcurementItemDetail);
+			.map(LAST_MODIFIED_BY, serviceReceiveDetail.lastModifiedBy);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -234,17 +210,15 @@ privileged aspect ServiceReceiveDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(serviceProcurementItemDetail, "serviceProcurementItemDetail is required");
         
         query.where(serviceReceiveDetail.serviceProcurementItemDetail.eq(serviceProcurementItemDetail));
-        Path<?>[] paths = new Path<?>[] {serviceReceiveDetail.orderNo,serviceReceiveDetail.quantity,serviceReceiveDetail.unitPrice,serviceReceiveDetail.currencyUnit,serviceReceiveDetail.goodReceiveNo,serviceReceiveDetail.receiveDate,serviceReceiveDetail.receiver,serviceReceiveDetail.invoiceDate,serviceReceiveDetail.paymentSubmitter,serviceReceiveDetail.paymentDate,serviceReceiveDetail.memo,serviceReceiveDetail.closed,serviceReceiveDetail.recordStatus,serviceReceiveDetail.createdDate,serviceReceiveDetail.createdBy,serviceReceiveDetail.lastModifiedDate,serviceReceiveDetail.lastModifiedBy,serviceReceiveDetail.serviceProcurementItemDetail};        
+        Path<?>[] paths = new Path<?>[] {serviceReceiveDetail.quantity,serviceReceiveDetail.receiveDate,serviceReceiveDetail.receiver,serviceReceiveDetail.keeper,serviceReceiveDetail.serviceProcurementItemDetail,serviceReceiveDetail.invoiceDate,serviceReceiveDetail.paymentSubmitter,serviceReceiveDetail.paymentDate,serviceReceiveDetail.memo,serviceReceiveDetail.closed,serviceReceiveDetail.recordStatus,serviceReceiveDetail.createdDate,serviceReceiveDetail.createdBy,serviceReceiveDetail.lastModifiedDate,serviceReceiveDetail.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(ORDER_NO, serviceReceiveDetail.orderNo)
 			.map(QUANTITY, serviceReceiveDetail.quantity)
-			.map(UNIT_PRICE, serviceReceiveDetail.unitPrice)
-			.map(CURRENCY_UNIT, serviceReceiveDetail.currencyUnit)
-			.map(GOOD_RECEIVE_NO, serviceReceiveDetail.goodReceiveNo)
 			.map(RECEIVE_DATE, serviceReceiveDetail.receiveDate)
 			.map(RECEIVER, serviceReceiveDetail.receiver)
+			.map(KEEPER, serviceReceiveDetail.keeper)
+			.map(SERVICE_PROCUREMENT_ITEM_DETAIL, serviceReceiveDetail.serviceProcurementItemDetail)
 			.map(INVOICE_DATE, serviceReceiveDetail.invoiceDate)
 			.map(PAYMENT_SUBMITTER, serviceReceiveDetail.paymentSubmitter)
 			.map(PAYMENT_DATE, serviceReceiveDetail.paymentDate)
@@ -254,8 +228,7 @@ privileged aspect ServiceReceiveDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(CREATED_DATE, serviceReceiveDetail.createdDate)
 			.map(CREATED_BY, serviceReceiveDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, serviceReceiveDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, serviceReceiveDetail.lastModifiedBy)
-			.map(SERVICE_PROCUREMENT_ITEM_DETAIL, serviceReceiveDetail.serviceProcurementItemDetail);
+			.map(LAST_MODIFIED_BY, serviceReceiveDetail.lastModifiedBy);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
