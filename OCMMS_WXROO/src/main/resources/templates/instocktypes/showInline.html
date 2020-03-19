@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_instocktype})}|">Show InstockType - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${instockType}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="instocktype-description-field" data-z="de81a7be">
+            	      <strong data-th-text="#{label_instocktype_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="instocktype-type-field" data-z="16079f20">
+            	      <strong data-th-text="#{label_instocktype_type}">type</strong>
+                    <span data-th-text="*{{type}}">typeValue</span>
+         	        </li>
+                  <li id="instocktype-recordstatus-field" data-z="db600d20">
+            	      <strong data-th-text="#{label_instocktype_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="instocktype-createddate-field" data-z="ecfa289e">
+            	      <strong data-th-text="#{label_instocktype_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="instocktype-createdby-field" data-z="e08bab3e">
+            	      <strong data-th-text="#{label_instocktype_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="instocktype-lastmodifieddate-field" data-z="95819f80">
+            	      <strong data-th-text="#{label_instocktype_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="instocktype-lastmodifiedby-field" data-z="30e772a0">
+            	      <strong data-th-text="#{label_instocktype_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

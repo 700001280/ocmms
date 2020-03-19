@@ -75,8 +75,10 @@ public class MaterialCatalog extends MROCatalog {
 	 * TODO Auto-generated attribute documentation
 	 *
 	 */
-	@Column(name = "INSTOCKTYPE")
-	private Boolean instockType;	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "INSTOCKTYPE")
+	@EntityFormat	
+	private InstockType instockType;	
 
 	/**
 	 * TODO Auto-generated attribute documentation

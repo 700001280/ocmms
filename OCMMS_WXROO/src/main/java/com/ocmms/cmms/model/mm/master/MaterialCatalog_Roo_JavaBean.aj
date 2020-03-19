@@ -6,6 +6,7 @@ package com.ocmms.cmms.model.mm.master;
 import com.ocmms.cmms.model.common.UnitOfMeasure;
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
+import com.ocmms.cmms.model.mm.master.InstockType;
 import com.ocmms.cmms.model.mm.master.MaterialAttribute;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialDiscipline;
@@ -84,9 +85,9 @@ privileged aspect MaterialCatalog_Roo_JavaBean {
     /**
      * Gets instockType value
      * 
-     * @return Boolean
+     * @return InstockType
      */
-    public Boolean MaterialCatalog.getInstockType() {
+    public InstockType MaterialCatalog.getInstockType() {
         return this.instockType;
     }
     
@@ -96,7 +97,7 @@ privileged aspect MaterialCatalog_Roo_JavaBean {
      * @param instockType
      * @return MaterialCatalog
      */
-    public MaterialCatalog MaterialCatalog.setInstockType(Boolean instockType) {
+    public MaterialCatalog MaterialCatalog.setInstockType(InstockType instockType) {
         this.instockType = instockType;
         return this;
     }
@@ -439,7 +440,6 @@ privileged aspect MaterialCatalog_Roo_JavaBean {
     public String MaterialCatalog.toString() {
         return "MaterialCatalog {" + 
                 "id='" + id + '\'' + 
-                ", instockType='" + instockType + '\'' + 
                 ", usefulLife='" + usefulLife + '\'' + 
                 ", shelfLifeDays='" + shelfLifeDays + '\'' + 
                 ", shortDescription='" + shortDescription + '\'' + 
