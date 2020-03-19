@@ -211,6 +211,26 @@
     </div>
   </div>
 </div>
+
+<div class="form-group has-error has-feedback" data-z="1fc7e33f" id="billofmaterial-technicalobjects-field" data-th-classappend="${#fields.hasErrors('technicalObjects')}? 'has-error has-feedback'"  data-th-class="form-group">
+	<label for="technicalobjects" class="col-md-3 control-label"  data-th-text="#{label_billofmaterial_technicalobjects}">technicalObjects</label>
+	<div class="col-md-6">
+		<select data-th-field="*{technicalObjects}" class="form-control dropdown-select-ajax"
+                                            data-allow-clear="true"
+                                            multiple = "multiple"
+                                            data-data-ajax--url="${(#mvc.url('TechnicalObjectsCollectionThymeleafController#select2')).build()}"
+                                            data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json"
+                                            data-data-placeholder="#{info_select_an_option}">
+                                        <option data-th-unless="*{technicalObjects} == null" data-th-each="eqm:*{technicalObjects}" data-th-value="${eqm.id}" data-th-selected="selected" data-th-text="${{eqm}}">technicalObjects</option> 
+                                    </select>
+                                    <span data-th-classappend="${#fields.hasErrors('technicalObjects')}? 'glyphicon glyphicon-remove form-control-feedback'"
+                                          class="glyphicon glyphicon-remove form-control-feedback"
+                                          data-th-if="${#fields.hasErrors('technicalObjects')}" aria-hidden="true"></span>
+                                    <span id="technicalobjects-error" class="help-block" data-th-if="${#fields.hasErrors('technicalObjects')}"
+                                          data-th-errors="*{technicalObjects}">Error message.</span>
+                                </div>
+                            </div>
+                            
              </fieldset>
 
 

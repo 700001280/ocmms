@@ -46,7 +46,7 @@ public class InstockType {
 	 */
 	@Id
 	@SequenceGenerator(name = "instockTypeGen", sequenceName = "SEQ_MM_MASTER_INSTOCKTYPE_ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instockTypeGenn")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instockTypeGen")
 	@Column(name = "ID")
 	private Long id;
 
