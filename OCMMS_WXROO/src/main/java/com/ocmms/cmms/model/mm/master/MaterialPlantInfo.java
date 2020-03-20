@@ -73,13 +73,13 @@ public class MaterialPlantInfo {
 	private MaterialCatalog materialCatalog;
 
 	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PLANT")
-	@EntityFormat
-	private Plant plant;
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ORGANIZATION")
+    @EntityFormat
+    private Organization organization;
 
 	/**
 	 * TODO Auto-generated attribute documentation

@@ -69,14 +69,6 @@ public class Plant extends Organization {
 	private Set<PlantSection> plantSections = new HashSet<PlantSection>();
 
 	
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@OneToMany(cascade = { javax.persistence.CascadeType.MERGE,
-			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "plant")
-	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
-	private Set<MaterialPlantInfo> materialPlantInfos = new HashSet<MaterialPlantInfo>();
 	
 
 	/**
