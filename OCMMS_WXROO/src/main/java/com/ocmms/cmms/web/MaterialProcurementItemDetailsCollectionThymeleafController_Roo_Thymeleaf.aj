@@ -9,6 +9,7 @@ import ar.com.fdvs.dj.domain.builders.ColumnBuilderException;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.service.api.MaterialProcurementItemDetailService;
+import com.ocmms.cmms.service.api.UserInfoService;
 import com.ocmms.cmms.web.MaterialProcurementItemDetailsCollectionThymeleafController;
 import com.ocmms.cmms.web.MaterialProcurementItemDetailsItemThymeleafController;
 import com.ocmms.cmms.web.MaterialProcurementItemDetailsItemThymeleafLinkFactory;
@@ -103,6 +104,12 @@ privileged aspect MaterialProcurementItemDetailsCollectionThymeleafController_Ro
     private ConversionService MaterialProcurementItemDetailsCollectionThymeleafController.conversionService;
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private UserInfoService MaterialProcurementItemDetailsCollectionThymeleafController.userInfoService;
+    
+    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param materialProcurementItemDetailService
@@ -111,14 +118,34 @@ privileged aspect MaterialProcurementItemDetailsCollectionThymeleafController_Ro
      * @param linkBuilder
      */
     @Autowired
-    public MaterialProcurementItemDetailsCollectionThymeleafController.new(MaterialProcurementItemDetailService materialProcurementItemDetailService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
-        setMaterialProcurementItemDetailService(materialProcurementItemDetailService);
+    public MaterialProcurementItemDetailsCollectionThymeleafController.new(UserInfoService userInfoService,MaterialProcurementItemDetailService materialProcurementItemDetailService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    	setUserInfoService(userInfoService);
+    	setMaterialProcurementItemDetailService(materialProcurementItemDetailService);
         setConversionService(conversionService);
         setMessageSource(messageSource);
         setItemLink(linkBuilder.of(MaterialProcurementItemDetailsItemThymeleafController.class));
         setCollectionLink(linkBuilder.of(MaterialProcurementItemDetailsCollectionThymeleafController.class));
     }
 
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ProcurementRequestService
+     */
+    public UserInfoService MaterialProcurementItemDetailsCollectionThymeleafController.getUserInfoService() {
+        return userInfoService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequestService
+     */
+    public void MaterialProcurementItemDetailsCollectionThymeleafController.setUserInfoService(UserInfoService userInfoService) {
+        this.userInfoService = userInfoService;
+    }
+    
     /**
      * TODO Auto-generated method documentation
      * 
@@ -329,6 +356,9 @@ privileged aspect MaterialProcurementItemDetailsCollectionThymeleafController_Ro
             
             return new ModelAndView("materialprocurementitemdetails/create");
         }
+        materialProcurementItemDetail.setRequester(getUserInfoService().getCurrentEmployee());
+        materialProcurementItemDetail.setSubmitDate(Calendar.getInstance());
+        
         MaterialProcurementItemDetail newMaterialProcurementItemDetail = getMaterialProcurementItemDetailService().save(materialProcurementItemDetail);
         UriComponents showURI = getItemLink().to(MaterialProcurementItemDetailsItemThymeleafLinkFactory.SHOW).with("materialProcurementItemDetail", newMaterialProcurementItemDetail.getId()).toUri();
         return new ModelAndView("redirect:" + showURI.toUriString());

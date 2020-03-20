@@ -9,6 +9,7 @@ import ar.com.fdvs.dj.domain.builders.ColumnBuilderException;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import com.ocmms.cmms.service.api.MaterialInstockDetailService;
+import com.ocmms.cmms.service.api.UserInfoService;
 import com.ocmms.cmms.web.MaterialInstockDetailsCollectionThymeleafController;
 import com.ocmms.cmms.web.MaterialInstockDetailsItemThymeleafController;
 import com.ocmms.cmms.web.MaterialInstockDetailsItemThymeleafLinkFactory;
@@ -103,6 +104,13 @@ privileged aspect MaterialInstockDetailsCollectionThymeleafController_Roo_Thymel
     private ConversionService MaterialInstockDetailsCollectionThymeleafController.conversionService;
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private UserInfoService MaterialInstockDetailsCollectionThymeleafController.userInfoService;
+   
+    
+    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param materialInstockDetailService
@@ -111,14 +119,33 @@ privileged aspect MaterialInstockDetailsCollectionThymeleafController_Roo_Thymel
      * @param linkBuilder
      */
     @Autowired
-    public MaterialInstockDetailsCollectionThymeleafController.new(MaterialInstockDetailService materialInstockDetailService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
-        setMaterialInstockDetailService(materialInstockDetailService);
+    public MaterialInstockDetailsCollectionThymeleafController.new(UserInfoService userInfoService,MaterialInstockDetailService materialInstockDetailService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    	setUserInfoService(userInfoService);
+    	setMaterialInstockDetailService(materialInstockDetailService);
         setConversionService(conversionService);
         setMessageSource(messageSource);
         setItemLink(linkBuilder.of(MaterialInstockDetailsItemThymeleafController.class));
         setCollectionLink(linkBuilder.of(MaterialInstockDetailsCollectionThymeleafController.class));
     }
 
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ProcurementRequestService
+     */
+    public UserInfoService MaterialInstockDetailsCollectionThymeleafController.getUserInfoService() {
+        return userInfoService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequestService
+     */
+    public void MaterialInstockDetailsCollectionThymeleafController.setUserInfoService(UserInfoService userInfoService) {
+        this.userInfoService = userInfoService;
+    }
+    
     /**
      * TODO Auto-generated method documentation
      * 
@@ -329,6 +356,18 @@ privileged aspect MaterialInstockDetailsCollectionThymeleafController_Roo_Thymel
             populateForm(model);
             
             return new ModelAndView("materialinstockdetails/create");
+        }
+        materialInstockDetail.setMaterialCatalog(materialInstockDetail.getMaterialProcurementItemDetail().getMaterialCatalog());
+        materialInstockDetail.setReceiver(getUserInfoService().getCurrentEmployee());
+        materialInstockDetail.setReceiveDate(Calendar.getInstance());
+        
+        if(materialInstockDetail.getMaterialProcurementItemDetail().getMaterialCatalog().getInstockType()!=null&&materialInstockDetail.getMaterialProcurementItemDetail().getMaterialCatalog().getInstockType().getType()=="EACH") {
+        	materialInstockDetail.setSerialNumber(materialInstockDetail.getMaterialProcurementItemDetail().getProcurementOrder().getOrderNumber()+"-"+materialInstockDetail.getMaterialProcurementItemDetail().getMaterialCatalog().getCode()+"-"+materialInstockDetail.getQuantity());
+            
+        }else {     	
+        	
+        	materialInstockDetail.setSerialNumber(materialInstockDetail.getMaterialProcurementItemDetail().getProcurementOrder().getOrderNumber()+"-"+materialInstockDetail.getMaterialProcurementItemDetail().getMaterialCatalog().getCode());
+
         }
         MaterialInstockDetail newMaterialInstockDetail = getMaterialInstockDetailService().save(materialInstockDetail);
         UriComponents showURI = getItemLink().to(MaterialInstockDetailsItemThymeleafLinkFactory.SHOW).with("materialInstockDetail", newMaterialInstockDetail.getId()).toUri();

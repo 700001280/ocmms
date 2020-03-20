@@ -10,6 +10,7 @@ import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
 
 import com.ocmms.cmms.model.fico.CostCenter;
+import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.model.pm.configuration.HierarchyWorkCenter;
@@ -116,6 +117,14 @@ public class Organization extends OrgComInformation {
 	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
 	private Set<Warehouse> warehouses = new HashSet<Warehouse>();
 	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@OneToMany(cascade = { javax.persistence.CascadeType.MERGE,
+			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "organization")
+	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
+	private Set<MaterialPlantInfo> materialPlantInfos = new HashSet<MaterialPlantInfo>();
 	
 		
 	/**
