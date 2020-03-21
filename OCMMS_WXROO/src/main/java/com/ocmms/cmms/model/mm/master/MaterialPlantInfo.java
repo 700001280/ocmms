@@ -34,6 +34,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.DecimalMin;
+
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -87,6 +89,7 @@ public class MaterialPlantInfo {
 	 */
 	@Column(name = "STOCK", columnDefinition = "Decimal(10,2) default '0.00'")
 	@NumberFormat
+	@DecimalMin("0.00")
 	private BigDecimal stock;
 
 	/**
@@ -95,6 +98,7 @@ public class MaterialPlantInfo {
 	 */
 	@Column(name = "SAFETYSTOCK", columnDefinition = "Decimal(10,2) default '0.00'")
 	@NumberFormat
+	@DecimalMin("0.00")
 	private BigDecimal safetyStock;
 
 	/**
@@ -103,6 +107,7 @@ public class MaterialPlantInfo {
 	 */
 	@Column(name = "REQREORDERPOINT", columnDefinition = "Decimal(10,2) default '0.00'")
 	@NumberFormat
+	@DecimalMin("0.00")
 	private BigDecimal reqReorderPoint;
 
 	/**

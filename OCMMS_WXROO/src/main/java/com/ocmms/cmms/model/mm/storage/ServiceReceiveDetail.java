@@ -40,6 +40,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.DecimalMin;
 
 /**
  * = MaterialInstockDetail TODO Auto-generated class documentation
@@ -70,6 +71,7 @@ public class ServiceReceiveDetail{
 	 */
 	@Column(name = "QUANTITY", columnDefinition = "Decimal(10,2) default '0.00'")
 	@NumberFormat
+	@DecimalMin("0.00")
 	private BigDecimal quantity;
 
 	/**

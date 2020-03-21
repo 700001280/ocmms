@@ -1,5 +1,6 @@
 package com.ocmms.cmms.model.hrm;
 
+import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -117,7 +118,7 @@ public class OrgComInformation {
 	 * TODO Auto-generated attribute documentation
 	 *
 	 */
-	
+	@Email
 	@Column(name = "MAIL")
 	private String mail;		
 	

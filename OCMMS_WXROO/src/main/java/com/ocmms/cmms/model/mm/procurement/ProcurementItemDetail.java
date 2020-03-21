@@ -33,6 +33,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.DecimalMin;
+
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -91,6 +93,7 @@ public class ProcurementItemDetail {
 	 */
 	@Column(name = "QUANTITY", columnDefinition = "Decimal(10,2) default '0.00'")
 	@NumberFormat
+	@DecimalMin("0.00")
 	private BigDecimal quantity;
 	
 	/**
@@ -117,6 +120,7 @@ public class ProcurementItemDetail {
 	 */
 	@Column(name = "UNITPRICE", columnDefinition = "Decimal(10,2) default '0.00'")
 	@NumberFormat
+	@DecimalMin("0.00")
 	private BigDecimal unitPrice;
 
 	/**

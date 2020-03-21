@@ -357,6 +357,7 @@ privileged aspect MaterialInstockDetailsCollectionThymeleafController_Roo_Thymel
             
             return new ModelAndView("materialinstockdetails/create");
         }
+        
         materialInstockDetail.setMaterialCatalog(materialInstockDetail.getMaterialProcurementItemDetail().getMaterialCatalog());
         materialInstockDetail.setReceiver(getUserInfoService().getCurrentEmployee());
         materialInstockDetail.setReceiveDate(Calendar.getInstance());
@@ -370,8 +371,17 @@ privileged aspect MaterialInstockDetailsCollectionThymeleafController_Roo_Thymel
 
         }
         MaterialInstockDetail newMaterialInstockDetail = getMaterialInstockDetailService().save(materialInstockDetail);
-        UriComponents showURI = getItemLink().to(MaterialInstockDetailsItemThymeleafLinkFactory.SHOW).with("materialInstockDetail", newMaterialInstockDetail.getId()).toUri();
-        return new ModelAndView("redirect:" + showURI.toUriString());
+        if(getUserInfoService().addMaterialInstockQuantity(newMaterialInstockDetail)){
+        	UriComponents showURI = getItemLink().to(MaterialInstockDetailsItemThymeleafLinkFactory.SHOW).with("materialInstockDetail", newMaterialInstockDetail.getId()).toUri();
+            return new ModelAndView("redirect:" + showURI.toUriString());
+        }else{
+        	populateForm(model);
+            
+            model.addAttribute("materialInstockDetail", materialInstockDetail);
+            return new ModelAndView("materialinstockdetails/create");
+        }
+        
+        
     }
     
     /**

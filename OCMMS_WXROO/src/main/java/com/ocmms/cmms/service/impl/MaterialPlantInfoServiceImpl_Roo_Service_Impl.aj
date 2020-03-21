@@ -243,6 +243,29 @@ privileged aspect MaterialPlantInfoServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param materialCatalog
+     * @param organization
+     * @param pageable
+     * @return Page
+     */
+    public Page<MaterialPlantInfo> MaterialPlantInfoServiceImpl.findByMaterialCatalogAndOrganization(MaterialCatalog materialCatalog, Organization organization, Pageable pageable) {
+        return getMaterialPlantInfoRepository().findByMaterialCatalogAndOrganization(materialCatalog, organization, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param organization
+     * @return Long
+     */
+    public long MaterialPlantInfoServiceImpl.countByMaterialCatalogAndOrganization(MaterialCatalog materialCatalog, Organization organization) {
+        return getMaterialPlantInfoRepository().countByMaterialCatalogAndOrganization(materialCatalog, organization);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @return Class
      */
     public Class<MaterialPlantInfo> MaterialPlantInfoServiceImpl.getEntityType() {

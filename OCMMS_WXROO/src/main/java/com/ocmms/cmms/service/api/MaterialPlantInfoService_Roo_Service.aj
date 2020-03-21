@@ -137,4 +137,23 @@ privileged aspect MaterialPlantInfoService_Roo_Service {
      */
     public abstract long MaterialPlantInfoService.countByOrganization(Organization organization);
     
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param organization
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<MaterialPlantInfo> MaterialPlantInfoService.findByMaterialCatalogAndOrganization(MaterialCatalog materialCatalog, Organization organization, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param organization
+     * @return Long
+     */
+    public abstract long MaterialPlantInfoService.countByMaterialCatalogAndOrganization(MaterialCatalog materialCatalog, Organization organization);
+    
 }

@@ -4,6 +4,8 @@ import com.ocmms.cmms.model.assistance.TaskTracking;
 import com.ocmms.cmms.model.assistance.WorkLog;
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
+
+import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -112,6 +114,7 @@ public class Employee {
      * TODO Auto-generated attribute documentation
      *
      */
+    @Email
     @Column(name = "EMAIL")
     private String email;
 

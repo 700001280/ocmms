@@ -32,6 +32,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.DecimalMin;
+
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -113,6 +115,7 @@ public class OutstockDetail {
 	 */
 	@Column(name = "OUTSTOCKQUANTITY", columnDefinition = "Decimal(10,2) default '0.00'")
 	@NumberFormat
+	@DecimalMin("0.00")
 	private BigDecimal outstockQuantity;
 
 	/**

@@ -9,6 +9,7 @@ import ar.com.fdvs.dj.domain.builders.ColumnBuilderException;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
 import com.ocmms.cmms.service.api.MaterialOutstockDetailService;
+import com.ocmms.cmms.service.api.UserInfoService;
 import com.ocmms.cmms.web.MaterialOutstockDetailsCollectionThymeleafController;
 import com.ocmms.cmms.web.MaterialOutstockDetailsItemThymeleafController;
 import com.ocmms.cmms.web.MaterialOutstockDetailsItemThymeleafLinkFactory;
@@ -103,6 +104,12 @@ privileged aspect MaterialOutstockDetailsCollectionThymeleafController_Roo_Thyme
     private ConversionService MaterialOutstockDetailsCollectionThymeleafController.conversionService;
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private UserInfoService MaterialOutstockDetailsCollectionThymeleafController.userInfoService;
+   
+    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param materialOutstockDetailService
@@ -111,12 +118,31 @@ privileged aspect MaterialOutstockDetailsCollectionThymeleafController_Roo_Thyme
      * @param linkBuilder
      */
     @Autowired
-    public MaterialOutstockDetailsCollectionThymeleafController.new(MaterialOutstockDetailService materialOutstockDetailService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
-        setMaterialOutstockDetailService(materialOutstockDetailService);
+    public MaterialOutstockDetailsCollectionThymeleafController.new(UserInfoService userInfoService,MaterialOutstockDetailService materialOutstockDetailService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    	setUserInfoService(userInfoService);
+    	setMaterialOutstockDetailService(materialOutstockDetailService);
         setConversionService(conversionService);
         setMessageSource(messageSource);
         setItemLink(linkBuilder.of(MaterialOutstockDetailsItemThymeleafController.class));
         setCollectionLink(linkBuilder.of(MaterialOutstockDetailsCollectionThymeleafController.class));
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ProcurementRequestService
+     */
+    public UserInfoService MaterialOutstockDetailsCollectionThymeleafController.getUserInfoService() {
+        return userInfoService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequestService
+     */
+    public void MaterialOutstockDetailsCollectionThymeleafController.setUserInfoService(UserInfoService userInfoService) {
+        this.userInfoService = userInfoService;
     }
 
     /**
@@ -330,9 +356,19 @@ privileged aspect MaterialOutstockDetailsCollectionThymeleafController_Roo_Thyme
             
             return new ModelAndView("materialoutstockdetails/create");
         }
-        MaterialOutstockDetail newMaterialOutstockDetail = getMaterialOutstockDetailService().save(materialOutstockDetail);
-        UriComponents showURI = getItemLink().to(MaterialOutstockDetailsItemThymeleafLinkFactory.SHOW).with("materialOutstockDetail", newMaterialOutstockDetail.getId()).toUri();
-        return new ModelAndView("redirect:" + showURI.toUriString());
+        if(getUserInfoService().subMaterialOutstockQuantity(materialOutstockDetail)) {
+        	MaterialOutstockDetail newMaterialOutstockDetail = getMaterialOutstockDetailService().save(materialOutstockDetail);
+            
+            UriComponents showURI = getItemLink().to(MaterialOutstockDetailsItemThymeleafLinkFactory.SHOW).with("materialOutstockDetail", newMaterialOutstockDetail.getId()).toUri();
+            return new ModelAndView("redirect:" + showURI.toUriString());
+        }else {
+        	 populateForm(model);
+             
+             model.addAttribute("materialOutstockDetail", materialOutstockDetail);
+             return new ModelAndView("materialoutstockdetails/create");
+        }
+                
+        
     }
     
     /**
