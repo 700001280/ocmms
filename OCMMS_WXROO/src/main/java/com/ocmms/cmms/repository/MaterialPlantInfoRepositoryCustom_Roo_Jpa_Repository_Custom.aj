@@ -3,7 +3,7 @@
 
 package com.ocmms.cmms.repository;
 
-import com.ocmms.cmms.model.hrm.Plant;
+import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.repository.MaterialPlantInfoRepositoryCustom;
@@ -27,12 +27,12 @@ privileged aspect MaterialPlantInfoRepositoryCustom_Roo_Jpa_Repository_Custom {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public abstract Page<MaterialPlantInfo> MaterialPlantInfoRepositoryCustom.findByPlant(Plant plant, GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<MaterialPlantInfo> MaterialPlantInfoRepositoryCustom.findByOrganization(Organization organization, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

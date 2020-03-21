@@ -10,6 +10,7 @@ import com.ocmms.cmms.model.fico.CostCenter;
 import com.ocmms.cmms.model.hrm.Department;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.OrganizationCatalog;
+import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.model.pm.configuration.HierarchyWorkCenter;
@@ -50,6 +51,13 @@ privileged aspect OrganizationJsonMixin_Roo_JSONMixin {
      */
     @JsonIgnore
     private Set<HierarchyWorkCenter> OrganizationJsonMixin.hierarchyWorkCenters;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonIgnore
+    private Set<MaterialPlantInfo> OrganizationJsonMixin.materialPlantInfos;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -170,6 +178,24 @@ privileged aspect OrganizationJsonMixin_Roo_JSONMixin {
      */
     public void OrganizationJsonMixin.setHierarchyWorkCenters(Set<HierarchyWorkCenter> hierarchyWorkCenters) {
         this.hierarchyWorkCenters = hierarchyWorkCenters;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Set
+     */
+    public Set<MaterialPlantInfo> OrganizationJsonMixin.getMaterialPlantInfos() {
+        return materialPlantInfos;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialPlantInfos
+     */
+    public void OrganizationJsonMixin.setMaterialPlantInfos(Set<MaterialPlantInfo> materialPlantInfos) {
+        this.materialPlantInfos = materialPlantInfos;
     }
     
     /**

@@ -1,17 +1,17 @@
 package com.ocmms.cmms.web;
-import com.ocmms.cmms.model.hrm.Plant;
+import com.ocmms.cmms.model.hrm.Organization;
 import org.springframework.roo.addon.web.mvc.controller.annotations.ControllerType;
 import org.springframework.roo.addon.web.mvc.controller.annotations.RooController;
 import org.springframework.roo.addon.web.mvc.controller.annotations.RooDetail;
 import org.springframework.roo.addon.web.mvc.thymeleaf.annotations.RooThymeleaf;
 
 /**
- * = PlantsItemMaterialPlantInfosThymeleafController
+ * = OrganizationsItemMaterialPlantInfosThymeleafController
  TODO Auto-generated class documentation
  *
  */
-@RooController(entity = Plant.class, type = ControllerType.DETAIL)
+@RooController(entity = Organization.class, type = ControllerType.DETAIL)
 @RooDetail(relationField = "materialPlantInfos", views = { "list" })
 @RooThymeleaf
-public class PlantsItemMaterialPlantInfosThymeleafController {
+public class OrganizationsItemMaterialPlantInfosThymeleafController {
 }

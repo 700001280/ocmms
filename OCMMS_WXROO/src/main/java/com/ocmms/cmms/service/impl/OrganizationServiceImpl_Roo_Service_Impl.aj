@@ -8,6 +8,7 @@ import com.ocmms.cmms.model.hrm.Department;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.hrm.OrganizationCatalog;
+import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.model.pm.configuration.HierarchyWorkCenter;
@@ -19,6 +20,7 @@ import com.ocmms.cmms.service.api.CostCenterService;
 import com.ocmms.cmms.service.api.DepartmentService;
 import com.ocmms.cmms.service.api.EmployeeService;
 import com.ocmms.cmms.service.api.HierarchyWorkCenterService;
+import com.ocmms.cmms.service.api.MaterialPlantInfoService;
 import com.ocmms.cmms.service.api.OperationalWorkCenterService;
 import com.ocmms.cmms.service.api.ProcurementItemDetailService;
 import com.ocmms.cmms.service.api.TechnicalObjectService;
@@ -73,6 +75,12 @@ privileged aspect OrganizationServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
+    private MaterialPlantInfoService OrganizationServiceImpl.materialPlantInfoService;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     private ProcurementItemDetailService OrganizationServiceImpl.procurementItemDetailService;
     
     /**
@@ -112,6 +120,7 @@ privileged aspect OrganizationServiceImpl_Roo_Service_Impl {
      * @param costCenterService
      * @param departmentService
      * @param employeeService
+     * @param materialPlantInfoService
      * @param procurementItemDetailService
      * @param warehouseService
      * @param hierarchyWorkCenterService
@@ -120,11 +129,12 @@ privileged aspect OrganizationServiceImpl_Roo_Service_Impl {
      * @param technicalObjectService
      */
     @Autowired
-    public OrganizationServiceImpl.new(OrganizationRepository organizationRepository, @Lazy CostCenterService costCenterService, @Lazy DepartmentService departmentService, @Lazy EmployeeService employeeService, @Lazy ProcurementItemDetailService procurementItemDetailService, @Lazy WarehouseService warehouseService, @Lazy HierarchyWorkCenterService hierarchyWorkCenterService, @Lazy OperationalWorkCenterService operationalWorkCenterService, @Lazy WorkCenterResponsibleService workCenterResponsibleService, @Lazy TechnicalObjectService technicalObjectService) {
+    public OrganizationServiceImpl.new(OrganizationRepository organizationRepository, @Lazy CostCenterService costCenterService, @Lazy DepartmentService departmentService, @Lazy EmployeeService employeeService, @Lazy MaterialPlantInfoService materialPlantInfoService, @Lazy ProcurementItemDetailService procurementItemDetailService, @Lazy WarehouseService warehouseService, @Lazy HierarchyWorkCenterService hierarchyWorkCenterService, @Lazy OperationalWorkCenterService operationalWorkCenterService, @Lazy WorkCenterResponsibleService workCenterResponsibleService, @Lazy TechnicalObjectService technicalObjectService) {
         setOrganizationRepository(organizationRepository);
         setCostCenterService(costCenterService);
         setDepartmentService(departmentService);
         setEmployeeService(employeeService);
+        setMaterialPlantInfoService(materialPlantInfoService);
         setProcurementItemDetailService(procurementItemDetailService);
         setWarehouseService(warehouseService);
         setHierarchyWorkCenterService(hierarchyWorkCenterService);
@@ -203,6 +213,24 @@ privileged aspect OrganizationServiceImpl_Roo_Service_Impl {
      */
     public void OrganizationServiceImpl.setEmployeeService(EmployeeService employeeService) {
         this.employeeService = employeeService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return MaterialPlantInfoService
+     */
+    public MaterialPlantInfoService OrganizationServiceImpl.getMaterialPlantInfoService() {
+        return materialPlantInfoService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialPlantInfoService
+     */
+    public void OrganizationServiceImpl.setMaterialPlantInfoService(MaterialPlantInfoService materialPlantInfoService) {
+        this.materialPlantInfoService = materialPlantInfoService;
     }
     
     /**
@@ -387,6 +415,20 @@ privileged aspect OrganizationServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param organization
+     * @param materialPlantInfosToAdd
+     * @return Organization
+     */
+    @Transactional
+    public Organization OrganizationServiceImpl.addToMaterialPlantInfos(Organization organization, Iterable<Long> materialPlantInfosToAdd) {
+        List<MaterialPlantInfo> materialPlantInfos = getMaterialPlantInfoService().findAll(materialPlantInfosToAdd);
+        organization.addToMaterialPlantInfos(materialPlantInfos);
+        return getOrganizationRepository().save(organization);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param organization
      * @param operationalWorkCentersToAdd
      * @return Organization
      */
@@ -506,6 +548,20 @@ privileged aspect OrganizationServiceImpl_Roo_Service_Impl {
     public Organization OrganizationServiceImpl.removeFromHierarchyWorkCenters(Organization organization, Iterable<Long> hierarchyWorkCentersToRemove) {
         List<HierarchyWorkCenter> hierarchyWorkCenters = getHierarchyWorkCenterService().findAll(hierarchyWorkCentersToRemove);
         organization.removeFromHierarchyWorkCenters(hierarchyWorkCenters);
+        return getOrganizationRepository().save(organization);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param organization
+     * @param materialPlantInfosToRemove
+     * @return Organization
+     */
+    @Transactional
+    public Organization OrganizationServiceImpl.removeFromMaterialPlantInfos(Organization organization, Iterable<Long> materialPlantInfosToRemove) {
+        List<MaterialPlantInfo> materialPlantInfos = getMaterialPlantInfoService().findAll(materialPlantInfosToRemove);
+        organization.removeFromMaterialPlantInfos(materialPlantInfos);
         return getOrganizationRepository().save(organization);
     }
     
@@ -695,6 +751,34 @@ privileged aspect OrganizationServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param organization
+     * @param materialPlantInfos
+     * @return Organization
+     */
+    @Transactional
+    public Organization OrganizationServiceImpl.setMaterialPlantInfos(Organization organization, Iterable<Long> materialPlantInfos) {
+        List<MaterialPlantInfo> items = getMaterialPlantInfoService().findAll(materialPlantInfos);
+        Set<MaterialPlantInfo> currents = organization.getMaterialPlantInfos();
+        Set<MaterialPlantInfo> toRemove = new HashSet<MaterialPlantInfo>();
+        for (Iterator<MaterialPlantInfo> iterator = currents.iterator(); iterator.hasNext();) {
+            MaterialPlantInfo nextMaterialPlantInfo = iterator.next();
+            if (items.contains(nextMaterialPlantInfo)) {
+                items.remove(nextMaterialPlantInfo);
+            } else {
+                toRemove.add(nextMaterialPlantInfo);
+            }
+        }
+        organization.removeFromMaterialPlantInfos(toRemove);
+        organization.addToMaterialPlantInfos(items);
+        // Force the version update of the parent side to know that the parent has changed
+        // because it has new books assigned
+        organization.setVersion(organization.getVersion() + 1);
+        return getOrganizationRepository().save(organization);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param organization
      * @param operationalWorkCenters
      * @return Organization
      */
@@ -860,6 +944,11 @@ privileged aspect OrganizationServiceImpl_Roo_Service_Impl {
         
         // Clear bidirectional one-to-many parent relationship with HierarchyWorkCenter
         for (HierarchyWorkCenter item : organization.getHierarchyWorkCenters()) {
+            item.setOrganization(null);
+        }
+        
+        // Clear bidirectional one-to-many parent relationship with MaterialPlantInfo
+        for (MaterialPlantInfo item : organization.getMaterialPlantInfos()) {
             item.setOrganization(null);
         }
         

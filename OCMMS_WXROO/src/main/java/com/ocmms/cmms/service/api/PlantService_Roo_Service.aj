@@ -104,33 +104,6 @@ privileged aspect PlantService_Roo_Service {
      * TODO Auto-generated method documentation
      * 
      * @param plant
-     * @param materialPlantInfosToAdd
-     * @return Plant
-     */
-    public abstract Plant PlantService.addToMaterialPlantInfos(Plant plant, Iterable<Long> materialPlantInfosToAdd);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plant
-     * @param materialPlantInfosToRemove
-     * @return Plant
-     */
-    public abstract Plant PlantService.removeFromMaterialPlantInfos(Plant plant, Iterable<Long> materialPlantInfosToRemove);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plant
-     * @param materialPlantInfos
-     * @return Plant
-     */
-    public abstract Plant PlantService.setMaterialPlantInfos(Plant plant, Iterable<Long> materialPlantInfos);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plant
      * @param plantLocationsToAdd
      * @return Plant
      */

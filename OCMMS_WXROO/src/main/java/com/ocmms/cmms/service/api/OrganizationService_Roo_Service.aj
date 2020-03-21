@@ -212,6 +212,33 @@ privileged aspect OrganizationService_Roo_Service {
      * TODO Auto-generated method documentation
      * 
      * @param organization
+     * @param materialPlantInfosToAdd
+     * @return Organization
+     */
+    public abstract Organization OrganizationService.addToMaterialPlantInfos(Organization organization, Iterable<Long> materialPlantInfosToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param organization
+     * @param materialPlantInfosToRemove
+     * @return Organization
+     */
+    public abstract Organization OrganizationService.removeFromMaterialPlantInfos(Organization organization, Iterable<Long> materialPlantInfosToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param organization
+     * @param materialPlantInfos
+     * @return Organization
+     */
+    public abstract Organization OrganizationService.setMaterialPlantInfos(Organization organization, Iterable<Long> materialPlantInfos);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param organization
      * @param operationalWorkCentersToAdd
      * @return Organization
      */

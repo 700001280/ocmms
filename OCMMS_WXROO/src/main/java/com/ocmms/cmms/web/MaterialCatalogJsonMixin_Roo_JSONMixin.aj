@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.ocmms.cmms.model.common.UnitOfMeasure;
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
+import com.ocmms.cmms.model.mm.master.InstockType;
 import com.ocmms.cmms.model.mm.master.MaterialAttribute;
 import com.ocmms.cmms.model.mm.master.MaterialDiscipline;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
@@ -17,6 +18,7 @@ import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
+import com.ocmms.cmms.web.InstockTypeDeserializer;
 import com.ocmms.cmms.web.MaterialCatalogJsonMixin;
 import com.ocmms.cmms.web.MaterialDisciplineDeserializer;
 import com.ocmms.cmms.web.MaterialTypeDeserializer;
@@ -94,6 +96,13 @@ privileged aspect MaterialCatalogJsonMixin_Roo_JSONMixin {
      */
     @JsonDeserialize(using = MaterialDisciplineDeserializer.class)
     private MaterialDiscipline MaterialCatalogJsonMixin.discipline;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = InstockTypeDeserializer.class)
+    private InstockType MaterialCatalogJsonMixin.instockType;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -287,6 +296,24 @@ privileged aspect MaterialCatalogJsonMixin_Roo_JSONMixin {
      */
     public void MaterialCatalogJsonMixin.setDiscipline(MaterialDiscipline discipline) {
         this.discipline = discipline;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return InstockType
+     */
+    public InstockType MaterialCatalogJsonMixin.getInstockType() {
+        return instockType;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param instockType
+     */
+    public void MaterialCatalogJsonMixin.setInstockType(InstockType instockType) {
+        this.instockType = instockType;
     }
     
     /**

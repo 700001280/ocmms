@@ -545,9 +545,6 @@ privileged aspect MaterialCatalogsCollectionThymeleafController_Roo_Thymeleaf {
         else if (columnName.equals("id")) {
             builder.addColumn(getMessageSource().getMessage("label_materialcatalog_id", null, "Id", locale), "id", Long.class.getName(), 50);
         }
-        else if (columnName.equals("instockType")) {
-            builder.addColumn(getMessageSource().getMessage("label_materialcatalog_instocktype", null, "Instock Type", locale), "instockType", Boolean.class.getName(), 100);
-        }
         else if (columnName.equals("usefulLife")) {
             builder.addColumn(getMessageSource().getMessage("label_materialcatalog_usefullife", null, "Useful Life", locale), "usefulLife", Boolean.class.getName(), 100);
         }

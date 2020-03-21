@@ -3,7 +3,7 @@
 
 package com.ocmms.cmms.service.impl;
 
-import com.ocmms.cmms.model.hrm.Plant;
+import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.repository.MaterialPlantInfoRepository;
@@ -84,9 +84,9 @@ privileged aspect MaterialPlantInfoServiceImpl_Roo_Service_Impl {
             materialPlantInfo.getMaterialCatalog().getMaterialPlantInfos().remove(materialPlantInfo);
         }
         
-        // Clear bidirectional many-to-one child relationship with Plant
-        if (materialPlantInfo.getPlant() != null) {
-            materialPlantInfo.getPlant().getMaterialPlantInfos().remove(materialPlantInfo);
+        // Clear bidirectional many-to-one child relationship with Organization
+        if (materialPlantInfo.getOrganization() != null) {
+            materialPlantInfo.getOrganization().getMaterialPlantInfos().remove(materialPlantInfo);
         }
         
         getMaterialPlantInfoRepository().delete(materialPlantInfo);
@@ -211,13 +211,13 @@ privileged aspect MaterialPlantInfoServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<MaterialPlantInfo> MaterialPlantInfoServiceImpl.findByPlant(Plant plant, GlobalSearch globalSearch, Pageable pageable) {
-        return getMaterialPlantInfoRepository().findByPlant(plant, globalSearch, pageable);
+    public Page<MaterialPlantInfo> MaterialPlantInfoServiceImpl.findByOrganization(Organization organization, GlobalSearch globalSearch, Pageable pageable) {
+        return getMaterialPlantInfoRepository().findByOrganization(organization, globalSearch, pageable);
     }
     
     /**
@@ -233,11 +233,11 @@ privileged aspect MaterialPlantInfoServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @return Long
      */
-    public long MaterialPlantInfoServiceImpl.countByPlant(Plant plant) {
-        return getMaterialPlantInfoRepository().countByPlant(plant);
+    public long MaterialPlantInfoServiceImpl.countByOrganization(Organization organization) {
+        return getMaterialPlantInfoRepository().countByOrganization(organization);
     }
     
     /**

@@ -29,7 +29,7 @@ privileged aspect ScrewElementRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String ScrewElementRepositoryImpl.PLANT = "plant";
+    public static final String ScrewElementRepositoryImpl.ORGANIZATION = "organization";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -152,12 +152,12 @@ privileged aspect ScrewElementRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ScrewElement> query = from(screwElement);
         
-        Path<?>[] paths = new Path<?>[] {screwElement.materialCatalog,screwElement.plant,screwElement.stock,screwElement.safetyStock,screwElement.reqReorderPoint,screwElement.consumableInventory,screwElement.critical,screwElement.usefulLife,screwElement.shelfLifeDays,screwElement.declarationNumber,screwElement.declarationName,screwElement.documentType,screwElement.recordStatus,screwElement.createdDate,screwElement.createdBy,screwElement.lastModifiedDate,screwElement.lastModifiedBy,screwElement.machineType,screwElement.screwType,screwElement.memo};        
+        Path<?>[] paths = new Path<?>[] {screwElement.materialCatalog,screwElement.organization,screwElement.stock,screwElement.safetyStock,screwElement.reqReorderPoint,screwElement.consumableInventory,screwElement.critical,screwElement.usefulLife,screwElement.shelfLifeDays,screwElement.declarationNumber,screwElement.declarationName,screwElement.documentType,screwElement.recordStatus,screwElement.createdDate,screwElement.createdBy,screwElement.lastModifiedDate,screwElement.lastModifiedBy,screwElement.machineType,screwElement.screwType,screwElement.memo};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(MATERIAL_CATALOG, screwElement.materialCatalog)
-			.map(PLANT, screwElement.plant)
+			.map(ORGANIZATION, screwElement.organization)
 			.map(STOCK, screwElement.stock)
 			.map(SAFETY_STOCK, screwElement.safetyStock)
 			.map(REQ_REORDER_POINT, screwElement.reqReorderPoint)
@@ -197,7 +197,7 @@ privileged aspect ScrewElementRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ScrewElement> query = from(screwElement);
         
-        Path<?>[] paths = new Path<?>[] {screwElement.materialCatalog,screwElement.plant,screwElement.stock,screwElement.safetyStock,screwElement.reqReorderPoint,screwElement.consumableInventory,screwElement.critical,screwElement.usefulLife,screwElement.shelfLifeDays,screwElement.declarationNumber,screwElement.declarationName,screwElement.documentType,screwElement.recordStatus,screwElement.createdDate,screwElement.createdBy,screwElement.lastModifiedDate,screwElement.lastModifiedBy,screwElement.machineType,screwElement.screwType,screwElement.memo};        
+        Path<?>[] paths = new Path<?>[] {screwElement.materialCatalog,screwElement.organization,screwElement.stock,screwElement.safetyStock,screwElement.reqReorderPoint,screwElement.consumableInventory,screwElement.critical,screwElement.usefulLife,screwElement.shelfLifeDays,screwElement.declarationNumber,screwElement.declarationName,screwElement.documentType,screwElement.recordStatus,screwElement.createdDate,screwElement.createdBy,screwElement.lastModifiedDate,screwElement.lastModifiedBy,screwElement.machineType,screwElement.screwType,screwElement.memo};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -205,7 +205,7 @@ privileged aspect ScrewElementRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(MATERIAL_CATALOG, screwElement.materialCatalog)
-			.map(PLANT, screwElement.plant)
+			.map(ORGANIZATION, screwElement.organization)
 			.map(STOCK, screwElement.stock)
 			.map(SAFETY_STOCK, screwElement.safetyStock)
 			.map(REQ_REORDER_POINT, screwElement.reqReorderPoint)

@@ -3,13 +3,13 @@
 
 package com.ocmms.cmms.web;
 
-import com.ocmms.cmms.model.hrm.Plant;
+import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.service.api.MaterialPlantInfoService;
-import com.ocmms.cmms.service.api.PlantService;
-import com.ocmms.cmms.web.PlantsCollectionThymeleafController;
-import com.ocmms.cmms.web.PlantsCollectionThymeleafLinkFactory;
-import com.ocmms.cmms.web.PlantsItemMaterialPlantInfosThymeleafController;
+import com.ocmms.cmms.service.api.OrganizationService;
+import com.ocmms.cmms.web.OrganizationsCollectionThymeleafController;
+import com.ocmms.cmms.web.OrganizationsCollectionThymeleafLinkFactory;
+import com.ocmms.cmms.web.OrganizationsItemMaterialPlantInfosThymeleafController;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.datatables.ConvertedDatatablesData;
 import io.springlets.data.web.datatables.Datatables;
@@ -47,76 +47,76 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf {
+privileged aspect OrganizationsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf {
     
-    declare @type: PlantsItemMaterialPlantInfosThymeleafController: @Controller;
+    declare @type: OrganizationsItemMaterialPlantInfosThymeleafController: @Controller;
     
-    declare @type: PlantsItemMaterialPlantInfosThymeleafController: @RequestMapping(value = "/plants/{plant}/materialPlantInfos", name = "PlantsItemMaterialPlantInfosThymeleafController", produces = MediaType.TEXT_HTML_VALUE);
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    private PlantService PlantsItemMaterialPlantInfosThymeleafController.plantService;
+    declare @type: OrganizationsItemMaterialPlantInfosThymeleafController: @RequestMapping(value = "/organizations/{organization}/materialPlantInfos", name = "OrganizationsItemMaterialPlantInfosThymeleafController", produces = MediaType.TEXT_HTML_VALUE);
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    private MaterialPlantInfoService PlantsItemMaterialPlantInfosThymeleafController.materialPlantInfoService;
+    private OrganizationService OrganizationsItemMaterialPlantInfosThymeleafController.organizationService;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    private MessageSource PlantsItemMaterialPlantInfosThymeleafController.messageSource;
+    private MaterialPlantInfoService OrganizationsItemMaterialPlantInfosThymeleafController.materialPlantInfoService;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    private MethodLinkBuilderFactory<PlantsCollectionThymeleafController> PlantsItemMaterialPlantInfosThymeleafController.collectionLink;
+    private MessageSource OrganizationsItemMaterialPlantInfosThymeleafController.messageSource;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    private ConversionService PlantsItemMaterialPlantInfosThymeleafController.conversionService;
+    private MethodLinkBuilderFactory<OrganizationsCollectionThymeleafController> OrganizationsItemMaterialPlantInfosThymeleafController.collectionLink;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private ConversionService OrganizationsItemMaterialPlantInfosThymeleafController.conversionService;
     
     /**
      * TODO Auto-generated constructor documentation
      * 
-     * @param plantService
+     * @param organizationService
      * @param materialPlantInfoService
      * @param conversionService
      * @param messageSource
      * @param linkBuilder
      */
     @Autowired
-    public PlantsItemMaterialPlantInfosThymeleafController.new(PlantService plantService, MaterialPlantInfoService materialPlantInfoService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
-        setPlantService(plantService);
+    public OrganizationsItemMaterialPlantInfosThymeleafController.new(OrganizationService organizationService, MaterialPlantInfoService materialPlantInfoService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+        setOrganizationService(organizationService);
         setMaterialPlantInfoService(materialPlantInfoService);
         setConversionService(conversionService);
         setMessageSource(messageSource);
-        setCollectionLink(linkBuilder.of(PlantsCollectionThymeleafController.class));
+        setCollectionLink(linkBuilder.of(OrganizationsCollectionThymeleafController.class));
     }
 
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return PlantService
+     * @return OrganizationService
      */
-    public PlantService PlantsItemMaterialPlantInfosThymeleafController.getPlantService() {
-        return plantService;
+    public OrganizationService OrganizationsItemMaterialPlantInfosThymeleafController.getOrganizationService() {
+        return organizationService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plantService
+     * @param organizationService
      */
-    public void PlantsItemMaterialPlantInfosThymeleafController.setPlantService(PlantService plantService) {
-        this.plantService = plantService;
+    public void OrganizationsItemMaterialPlantInfosThymeleafController.setOrganizationService(OrganizationService organizationService) {
+        this.organizationService = organizationService;
     }
     
     /**
@@ -124,7 +124,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * 
      * @return MaterialPlantInfoService
      */
-    public MaterialPlantInfoService PlantsItemMaterialPlantInfosThymeleafController.getMaterialPlantInfoService() {
+    public MaterialPlantInfoService OrganizationsItemMaterialPlantInfosThymeleafController.getMaterialPlantInfoService() {
         return materialPlantInfoService;
     }
     
@@ -133,7 +133,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * 
      * @param materialPlantInfoService
      */
-    public void PlantsItemMaterialPlantInfosThymeleafController.setMaterialPlantInfoService(MaterialPlantInfoService materialPlantInfoService) {
+    public void OrganizationsItemMaterialPlantInfosThymeleafController.setMaterialPlantInfoService(MaterialPlantInfoService materialPlantInfoService) {
         this.materialPlantInfoService = materialPlantInfoService;
     }
     
@@ -142,7 +142,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * 
      * @return MessageSource
      */
-    public MessageSource PlantsItemMaterialPlantInfosThymeleafController.getMessageSource() {
+    public MessageSource OrganizationsItemMaterialPlantInfosThymeleafController.getMessageSource() {
         return messageSource;
     }
     
@@ -151,7 +151,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * 
      * @param messageSource
      */
-    public void PlantsItemMaterialPlantInfosThymeleafController.setMessageSource(MessageSource messageSource) {
+    public void OrganizationsItemMaterialPlantInfosThymeleafController.setMessageSource(MessageSource messageSource) {
         this.messageSource = messageSource;
     }
     
@@ -160,7 +160,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * 
      * @return MethodLinkBuilderFactory
      */
-    public MethodLinkBuilderFactory<PlantsCollectionThymeleafController> PlantsItemMaterialPlantInfosThymeleafController.getCollectionLink() {
+    public MethodLinkBuilderFactory<OrganizationsCollectionThymeleafController> OrganizationsItemMaterialPlantInfosThymeleafController.getCollectionLink() {
         return collectionLink;
     }
     
@@ -169,7 +169,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * 
      * @param collectionLink
      */
-    public void PlantsItemMaterialPlantInfosThymeleafController.setCollectionLink(MethodLinkBuilderFactory<PlantsCollectionThymeleafController> collectionLink) {
+    public void OrganizationsItemMaterialPlantInfosThymeleafController.setCollectionLink(MethodLinkBuilderFactory<OrganizationsCollectionThymeleafController> collectionLink) {
         this.collectionLink = collectionLink;
     }
     
@@ -178,7 +178,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * 
      * @return ConversionService
      */
-    public ConversionService PlantsItemMaterialPlantInfosThymeleafController.getConversionService() {
+    public ConversionService OrganizationsItemMaterialPlantInfosThymeleafController.getConversionService() {
         return conversionService;
     }
     
@@ -187,7 +187,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * 
      * @param conversionService
      */
-    public void PlantsItemMaterialPlantInfosThymeleafController.setConversionService(ConversionService conversionService) {
+    public void OrganizationsItemMaterialPlantInfosThymeleafController.setConversionService(ConversionService conversionService) {
         this.conversionService = conversionService;
     }
     
@@ -197,22 +197,22 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * @param id
      * @param locale
      * @param method
-     * @return Plant
+     * @return Organization
      */
     @ModelAttribute
-    public Plant PlantsItemMaterialPlantInfosThymeleafController.getPlant(@PathVariable("plant") Long id, Locale locale, HttpMethod method) {
-        Plant plant = null;
+    public Organization OrganizationsItemMaterialPlantInfosThymeleafController.getOrganization(@PathVariable("organization") Long id, Locale locale, HttpMethod method) {
+        Organization organization = null;
         if (HttpMethod.PUT.equals(method)) {
-            plant = plantService.findOneForUpdate(id);
+            organization = organizationService.findOneForUpdate(id);
         } else {
-            plant = plantService.findOne(id);
+            organization = organizationService.findOne(id);
         }
         
-        if (plant == null) {
-            String message = messageSource.getMessage("error_NotFound", new Object[] {"Plant", id}, "The record couldn't be found", locale);
+        if (organization == null) {
+            String message = messageSource.getMessage("error_NotFound", new Object[] {"Organization", id}, "The record couldn't be found", locale);
             throw new NotFoundException(message);
         }
-        return plant;
+        return organization;
     }
     
     /**
@@ -220,7 +220,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * 
      * @param model
      */
-    public void PlantsItemMaterialPlantInfosThymeleafController.populateFormats(Model model) {
+    public void OrganizationsItemMaterialPlantInfosThymeleafController.populateFormats(Model model) {
         model.addAttribute("application_locale", LocaleContextHolder.getLocale().getLanguage());
         model.addAttribute("createdDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         model.addAttribute("lastModifiedDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
@@ -231,14 +231,14 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * 
      * @param model
      */
-    public void PlantsItemMaterialPlantInfosThymeleafController.populateForm(Model model) {
+    public void OrganizationsItemMaterialPlantInfosThymeleafController.populateForm(Model model) {
         populateFormats(model);
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @param datatablesColumns
      * @param search
      * @param pageable
@@ -247,10 +247,10 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      */
     @GetMapping(name = "datatables", produces = Datatables.MEDIA_TYPE, value = "/dt")
     @ResponseBody
-    public ResponseEntity<ConvertedDatatablesData<MaterialPlantInfo>> PlantsItemMaterialPlantInfosThymeleafController.datatables(@ModelAttribute Plant plant, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
+    public ResponseEntity<ConvertedDatatablesData<MaterialPlantInfo>> OrganizationsItemMaterialPlantInfosThymeleafController.datatables(@ModelAttribute Organization organization, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
         
-        Page<MaterialPlantInfo> materialPlantInfos = getMaterialPlantInfoService().findByPlant(plant, search, pageable);
-        long totalMaterialPlantInfosCount = getMaterialPlantInfoService().countByPlant(plant);
+        Page<MaterialPlantInfo> materialPlantInfos = getMaterialPlantInfoService().findByOrganization(organization, search, pageable);
+        long totalMaterialPlantInfosCount = getMaterialPlantInfoService().countByOrganization(organization);
         ConvertedDatatablesData<MaterialPlantInfo> data =  new ConvertedDatatablesData<MaterialPlantInfo>(materialPlantInfos, totalMaterialPlantInfosCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(data);
     }
@@ -267,7 +267,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      */
     @GetMapping(name = "datatablesByIdsIn", produces = Datatables.MEDIA_TYPE, value = "/dtByIdsIn")
     @ResponseBody
-    public ResponseEntity<ConvertedDatatablesData<MaterialPlantInfo>> PlantsItemMaterialPlantInfosThymeleafController.datatablesByIdsIn(@RequestParam("ids") List<Long> ids, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
+    public ResponseEntity<ConvertedDatatablesData<MaterialPlantInfo>> OrganizationsItemMaterialPlantInfosThymeleafController.datatablesByIdsIn(@RequestParam("ids") List<Long> ids, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
         
         Page<MaterialPlantInfo> materialPlantInfos = getMaterialPlantInfoService().findAllByIdsIn(ids, search, pageable);
         long totalMaterialPlantInfosCount = materialPlantInfos.getTotalElements();
@@ -278,49 +278,49 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @param model
      * @return ModelAndView
      */
     @GetMapping(value = "/create-form", name = "createForm")
-    public ModelAndView PlantsItemMaterialPlantInfosThymeleafController.createForm(@ModelAttribute Plant plant, Model model) {
+    public ModelAndView OrganizationsItemMaterialPlantInfosThymeleafController.createForm(@ModelAttribute Organization organization, Model model) {
         populateForm(model);
         model.addAttribute("materialPlantInfo", new MaterialPlantInfo());
-        return new ModelAndView("plants/materialPlantInfos/create");
+        return new ModelAndView("organizations/materialPlantInfos/create");
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @param materialPlantInfosToRemove
      * @return ResponseEntity
      */
     @DeleteMapping(name = "removeFromMaterialPlantInfos", value = "/{materialPlantInfosToRemove}")
     @ResponseBody
-    public ResponseEntity<?> PlantsItemMaterialPlantInfosThymeleafController.removeFromMaterialPlantInfos(@ModelAttribute Plant plant, @PathVariable("materialPlantInfosToRemove") Long materialPlantInfosToRemove) {
-        getPlantService().removeFromMaterialPlantInfos(plant,Collections.singleton(materialPlantInfosToRemove));
+    public ResponseEntity<?> OrganizationsItemMaterialPlantInfosThymeleafController.removeFromMaterialPlantInfos(@ModelAttribute Organization organization, @PathVariable("materialPlantInfosToRemove") Long materialPlantInfosToRemove) {
+        getOrganizationService().removeFromMaterialPlantInfos(organization,Collections.singleton(materialPlantInfosToRemove));
         return ResponseEntity.ok().build();
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @param materialPlantInfosToRemove
      * @return ResponseEntity
      */
     @DeleteMapping(name = "removeFromMaterialPlantInfosBatch", value = "/batch/{materialPlantInfosToRemove}")
     @ResponseBody
-    public ResponseEntity<?> PlantsItemMaterialPlantInfosThymeleafController.removeFromMaterialPlantInfosBatch(@ModelAttribute Plant plant, @PathVariable("materialPlantInfosToRemove") Collection<Long> materialPlantInfosToRemove) {
-        getPlantService().removeFromMaterialPlantInfos(plant, materialPlantInfosToRemove);
+    public ResponseEntity<?> OrganizationsItemMaterialPlantInfosThymeleafController.removeFromMaterialPlantInfosBatch(@ModelAttribute Organization organization, @PathVariable("materialPlantInfosToRemove") Collection<Long> materialPlantInfosToRemove) {
+        getOrganizationService().removeFromMaterialPlantInfos(organization, materialPlantInfosToRemove);
         return ResponseEntity.ok().build();
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @param materialPlantInfos
      * @param version
      * @param concurrencyControl
@@ -328,7 +328,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
      * @return ModelAndView
      */
     @PostMapping(name = "create")
-    public ModelAndView PlantsItemMaterialPlantInfosThymeleafController.create(@ModelAttribute Plant plant, @RequestParam(value = "materialPlantInfosIds", required = false) List<Long> materialPlantInfos, @RequestParam("parentVersion") Long version, @RequestParam(value = "concurrency", required = false, defaultValue = "") String concurrencyControl, Model model) {
+    public ModelAndView OrganizationsItemMaterialPlantInfosThymeleafController.create(@ModelAttribute Organization organization, @RequestParam(value = "materialPlantInfosIds", required = false) List<Long> materialPlantInfos, @RequestParam("parentVersion") Long version, @RequestParam(value = "concurrency", required = false, defaultValue = "") String concurrencyControl, Model model) {
         // Remove empty values
         if (materialPlantInfos != null) {
             for (Iterator<Long> iterator = materialPlantInfos.iterator(); iterator.hasNext();) {
@@ -338,30 +338,30 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafController_Roo_Thymeleaf 
             }
         }
         // Concurrency control
-        if(!Objects.equals(version, plant.getVersion()) && StringUtils.isEmpty(concurrencyControl)){
+        if(!Objects.equals(version, organization.getVersion()) && StringUtils.isEmpty(concurrencyControl)){
             populateForm(model);
             // Obtain the selected books and include them in the author that will be 
             // included in the view
             if (materialPlantInfos != null) {
-                plant.setMaterialPlantInfos(new HashSet<MaterialPlantInfo>(getMaterialPlantInfoService().findAll(materialPlantInfos)));
+                organization.setMaterialPlantInfos(new HashSet<MaterialPlantInfo>(getMaterialPlantInfoService().findAll(materialPlantInfos)));
             }else{
-                plant.setMaterialPlantInfos(new HashSet<MaterialPlantInfo>());
+                organization.setMaterialPlantInfos(new HashSet<MaterialPlantInfo>());
             }
             // Reset the version to prevent update
-             plant.setVersion(version);
+             organization.setVersion(version);
             // Include the updated element in the model
-            model.addAttribute("plant", plant);
+            model.addAttribute("organization", organization);
             model.addAttribute("concurrency", true);
-            return new ModelAndView("plants/materialPlantInfos/create");
-        }else if(!Objects.equals(version, plant.getVersion()) && "discard".equals(concurrencyControl)){
+            return new ModelAndView("organizations/materialPlantInfos/create");
+        }else if(!Objects.equals(version, organization.getVersion()) && "discard".equals(concurrencyControl)){
             populateForm(model);
             // Provide the original element from the Database
-            model.addAttribute("plant", plant);
+            model.addAttribute("organization", organization);
             model.addAttribute("concurrency", false);
-            return new ModelAndView("plants/materialPlantInfos/create");
+            return new ModelAndView("organizations/materialPlantInfos/create");
         }
-        getPlantService().setMaterialPlantInfos(plant,materialPlantInfos);
-        return new ModelAndView("redirect:" + getCollectionLink().to(PlantsCollectionThymeleafLinkFactory.LIST).toUriString());
+        getOrganizationService().setMaterialPlantInfos(organization,materialPlantInfos);
+        return new ModelAndView("redirect:" + getCollectionLink().to(OrganizationsCollectionThymeleafLinkFactory.LIST).toUriString());
     }
     
 }

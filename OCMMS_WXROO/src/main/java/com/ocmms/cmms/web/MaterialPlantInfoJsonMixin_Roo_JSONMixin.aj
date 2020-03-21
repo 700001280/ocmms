@@ -4,12 +4,12 @@
 package com.ocmms.cmms.web;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.ocmms.cmms.model.hrm.Plant;
+import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.MaterialCatalogDeserializer;
 import com.ocmms.cmms.web.MaterialPlantInfoJsonMixin;
-import com.ocmms.cmms.web.PlantDeserializer;
+import com.ocmms.cmms.web.OrganizationDeserializer;
 import com.ocmms.cmms.web.RecordStatusDeserializer;
 
 privileged aspect MaterialPlantInfoJsonMixin_Roo_JSONMixin {
@@ -25,8 +25,8 @@ privileged aspect MaterialPlantInfoJsonMixin_Roo_JSONMixin {
      * TODO Auto-generated attribute documentation
      * 
      */
-    @JsonDeserialize(using = PlantDeserializer.class)
-    private Plant MaterialPlantInfoJsonMixin.plant;
+    @JsonDeserialize(using = OrganizationDeserializer.class)
+    private Organization MaterialPlantInfoJsonMixin.organization;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -56,19 +56,19 @@ privileged aspect MaterialPlantInfoJsonMixin_Roo_JSONMixin {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return Plant
+     * @return Organization
      */
-    public Plant MaterialPlantInfoJsonMixin.getPlant() {
-        return plant;
+    public Organization MaterialPlantInfoJsonMixin.getOrganization() {
+        return organization;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      */
-    public void MaterialPlantInfoJsonMixin.setPlant(Plant plant) {
-        this.plant = plant;
+    public void MaterialPlantInfoJsonMixin.setOrganization(Organization organization) {
+        this.organization = organization;
     }
     
     /**

@@ -6,7 +6,6 @@ package com.ocmms.cmms.web;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.ocmms.cmms.model.hrm.Company;
-import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import com.ocmms.cmms.web.CompanyDeserializer;
@@ -14,13 +13,6 @@ import com.ocmms.cmms.web.PlantJsonMixin;
 import java.util.Set;
 
 privileged aspect PlantJsonMixin_Roo_JSONMixin {
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonIgnore
-    private Set<MaterialPlantInfo> PlantJsonMixin.materialPlantInfos;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -42,24 +34,6 @@ privileged aspect PlantJsonMixin_Roo_JSONMixin {
      */
     @JsonDeserialize(using = CompanyDeserializer.class)
     private Company PlantJsonMixin.company;
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return Set
-     */
-    public Set<MaterialPlantInfo> PlantJsonMixin.getMaterialPlantInfos() {
-        return materialPlantInfos;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialPlantInfos
-     */
-    public void PlantJsonMixin.setMaterialPlantInfos(Set<MaterialPlantInfo> materialPlantInfos) {
-        this.materialPlantInfos = materialPlantInfos;
-    }
     
     /**
      * TODO Auto-generated method documentation

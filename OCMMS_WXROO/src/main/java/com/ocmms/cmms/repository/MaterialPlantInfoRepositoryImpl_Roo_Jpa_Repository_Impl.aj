@@ -3,7 +3,7 @@
 
 package com.ocmms.cmms.repository;
 
-import com.ocmms.cmms.model.hrm.Plant;
+import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.master.QMaterialPlantInfo;
@@ -32,7 +32,7 @@ privileged aspect MaterialPlantInfoRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String MaterialPlantInfoRepositoryImpl.PLANT = "plant";
+    public static final String MaterialPlantInfoRepositoryImpl.ORGANIZATION = "organization";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -137,12 +137,12 @@ privileged aspect MaterialPlantInfoRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<MaterialPlantInfo> query = from(materialPlantInfo);
         
-        Path<?>[] paths = new Path<?>[] {materialPlantInfo.materialCatalog,materialPlantInfo.plant,materialPlantInfo.stock,materialPlantInfo.safetyStock,materialPlantInfo.reqReorderPoint,materialPlantInfo.consumableInventory,materialPlantInfo.critical,materialPlantInfo.usefulLife,materialPlantInfo.shelfLifeDays,materialPlantInfo.declarationNumber,materialPlantInfo.declarationName,materialPlantInfo.documentType,materialPlantInfo.recordStatus,materialPlantInfo.createdDate,materialPlantInfo.createdBy,materialPlantInfo.lastModifiedDate,materialPlantInfo.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {materialPlantInfo.materialCatalog,materialPlantInfo.organization,materialPlantInfo.stock,materialPlantInfo.safetyStock,materialPlantInfo.reqReorderPoint,materialPlantInfo.consumableInventory,materialPlantInfo.critical,materialPlantInfo.usefulLife,materialPlantInfo.shelfLifeDays,materialPlantInfo.declarationNumber,materialPlantInfo.declarationName,materialPlantInfo.documentType,materialPlantInfo.recordStatus,materialPlantInfo.createdDate,materialPlantInfo.createdBy,materialPlantInfo.lastModifiedDate,materialPlantInfo.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(MATERIAL_CATALOG, materialPlantInfo.materialCatalog)
-			.map(PLANT, materialPlantInfo.plant)
+			.map(ORGANIZATION, materialPlantInfo.organization)
 			.map(STOCK, materialPlantInfo.stock)
 			.map(SAFETY_STOCK, materialPlantInfo.safetyStock)
 			.map(REQ_REORDER_POINT, materialPlantInfo.reqReorderPoint)
@@ -179,7 +179,7 @@ privileged aspect MaterialPlantInfoRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<MaterialPlantInfo> query = from(materialPlantInfo);
         
-        Path<?>[] paths = new Path<?>[] {materialPlantInfo.materialCatalog,materialPlantInfo.plant,materialPlantInfo.stock,materialPlantInfo.safetyStock,materialPlantInfo.reqReorderPoint,materialPlantInfo.consumableInventory,materialPlantInfo.critical,materialPlantInfo.usefulLife,materialPlantInfo.shelfLifeDays,materialPlantInfo.declarationNumber,materialPlantInfo.declarationName,materialPlantInfo.documentType,materialPlantInfo.recordStatus,materialPlantInfo.createdDate,materialPlantInfo.createdBy,materialPlantInfo.lastModifiedDate,materialPlantInfo.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {materialPlantInfo.materialCatalog,materialPlantInfo.organization,materialPlantInfo.stock,materialPlantInfo.safetyStock,materialPlantInfo.reqReorderPoint,materialPlantInfo.consumableInventory,materialPlantInfo.critical,materialPlantInfo.usefulLife,materialPlantInfo.shelfLifeDays,materialPlantInfo.declarationNumber,materialPlantInfo.declarationName,materialPlantInfo.documentType,materialPlantInfo.recordStatus,materialPlantInfo.createdDate,materialPlantInfo.createdBy,materialPlantInfo.lastModifiedDate,materialPlantInfo.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -187,7 +187,7 @@ privileged aspect MaterialPlantInfoRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(MATERIAL_CATALOG, materialPlantInfo.materialCatalog)
-			.map(PLANT, materialPlantInfo.plant)
+			.map(ORGANIZATION, materialPlantInfo.organization)
 			.map(STOCK, materialPlantInfo.stock)
 			.map(SAFETY_STOCK, materialPlantInfo.safetyStock)
 			.map(REQ_REORDER_POINT, materialPlantInfo.reqReorderPoint)
@@ -227,12 +227,12 @@ privileged aspect MaterialPlantInfoRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(materialCatalog, "materialCatalog is required");
         
         query.where(materialPlantInfo.materialCatalog.eq(materialCatalog));
-        Path<?>[] paths = new Path<?>[] {materialPlantInfo.materialCatalog,materialPlantInfo.plant,materialPlantInfo.stock,materialPlantInfo.safetyStock,materialPlantInfo.reqReorderPoint,materialPlantInfo.consumableInventory,materialPlantInfo.critical,materialPlantInfo.usefulLife,materialPlantInfo.shelfLifeDays,materialPlantInfo.declarationNumber,materialPlantInfo.declarationName,materialPlantInfo.documentType,materialPlantInfo.recordStatus,materialPlantInfo.createdDate,materialPlantInfo.createdBy,materialPlantInfo.lastModifiedDate,materialPlantInfo.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {materialPlantInfo.materialCatalog,materialPlantInfo.organization,materialPlantInfo.stock,materialPlantInfo.safetyStock,materialPlantInfo.reqReorderPoint,materialPlantInfo.consumableInventory,materialPlantInfo.critical,materialPlantInfo.usefulLife,materialPlantInfo.shelfLifeDays,materialPlantInfo.declarationNumber,materialPlantInfo.declarationName,materialPlantInfo.documentType,materialPlantInfo.recordStatus,materialPlantInfo.createdDate,materialPlantInfo.createdBy,materialPlantInfo.lastModifiedDate,materialPlantInfo.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(MATERIAL_CATALOG, materialPlantInfo.materialCatalog)
-			.map(PLANT, materialPlantInfo.plant)
+			.map(ORGANIZATION, materialPlantInfo.organization)
 			.map(STOCK, materialPlantInfo.stock)
 			.map(SAFETY_STOCK, materialPlantInfo.safetyStock)
 			.map(REQ_REORDER_POINT, materialPlantInfo.reqReorderPoint)
@@ -258,26 +258,26 @@ privileged aspect MaterialPlantInfoRepositoryImpl_Roo_Jpa_Repository_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<MaterialPlantInfo> MaterialPlantInfoRepositoryImpl.findByPlant(Plant plant, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<MaterialPlantInfo> MaterialPlantInfoRepositoryImpl.findByOrganization(Organization organization, GlobalSearch globalSearch, Pageable pageable) {
         
         QMaterialPlantInfo materialPlantInfo = QMaterialPlantInfo.materialPlantInfo;
         
         JPQLQuery<MaterialPlantInfo> query = from(materialPlantInfo);
         
-        Assert.notNull(plant, "plant is required");
+        Assert.notNull(organization, "organization is required");
         
-        query.where(materialPlantInfo.plant.eq(plant));
-        Path<?>[] paths = new Path<?>[] {materialPlantInfo.materialCatalog,materialPlantInfo.plant,materialPlantInfo.stock,materialPlantInfo.safetyStock,materialPlantInfo.reqReorderPoint,materialPlantInfo.consumableInventory,materialPlantInfo.critical,materialPlantInfo.usefulLife,materialPlantInfo.shelfLifeDays,materialPlantInfo.declarationNumber,materialPlantInfo.declarationName,materialPlantInfo.documentType,materialPlantInfo.recordStatus,materialPlantInfo.createdDate,materialPlantInfo.createdBy,materialPlantInfo.lastModifiedDate,materialPlantInfo.lastModifiedBy};        
+        query.where(materialPlantInfo.organization.eq(organization));
+        Path<?>[] paths = new Path<?>[] {materialPlantInfo.materialCatalog,materialPlantInfo.organization,materialPlantInfo.stock,materialPlantInfo.safetyStock,materialPlantInfo.reqReorderPoint,materialPlantInfo.consumableInventory,materialPlantInfo.critical,materialPlantInfo.usefulLife,materialPlantInfo.shelfLifeDays,materialPlantInfo.declarationNumber,materialPlantInfo.declarationName,materialPlantInfo.documentType,materialPlantInfo.recordStatus,materialPlantInfo.createdDate,materialPlantInfo.createdBy,materialPlantInfo.lastModifiedDate,materialPlantInfo.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(MATERIAL_CATALOG, materialPlantInfo.materialCatalog)
-			.map(PLANT, materialPlantInfo.plant)
+			.map(ORGANIZATION, materialPlantInfo.organization)
 			.map(STOCK, materialPlantInfo.stock)
 			.map(SAFETY_STOCK, materialPlantInfo.safetyStock)
 			.map(REQ_REORDER_POINT, materialPlantInfo.reqReorderPoint)

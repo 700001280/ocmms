@@ -3,7 +3,7 @@
 
 package com.ocmms.cmms.service.api;
 
-import com.ocmms.cmms.model.hrm.Plant;
+import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.service.api.MaterialPlantInfoService;
@@ -114,12 +114,12 @@ privileged aspect MaterialPlantInfoService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public abstract Page<MaterialPlantInfo> MaterialPlantInfoService.findByPlant(Plant plant, GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<MaterialPlantInfo> MaterialPlantInfoService.findByOrganization(Organization organization, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
@@ -132,9 +132,9 @@ privileged aspect MaterialPlantInfoService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @return Long
      */
-    public abstract long MaterialPlantInfoService.countByPlant(Plant plant);
+    public abstract long MaterialPlantInfoService.countByOrganization(Organization organization);
     
 }

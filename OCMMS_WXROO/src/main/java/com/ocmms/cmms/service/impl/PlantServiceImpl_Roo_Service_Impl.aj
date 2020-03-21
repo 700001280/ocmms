@@ -5,11 +5,9 @@ package com.ocmms.cmms.service.impl;
 
 import com.ocmms.cmms.model.hrm.Company;
 import com.ocmms.cmms.model.hrm.Plant;
-import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import com.ocmms.cmms.repository.PlantRepository;
-import com.ocmms.cmms.service.api.MaterialPlantInfoService;
 import com.ocmms.cmms.service.api.PlantLocationService;
 import com.ocmms.cmms.service.api.PlantSectionService;
 import com.ocmms.cmms.service.impl.PlantServiceImpl;
@@ -43,12 +41,6 @@ privileged aspect PlantServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    private MaterialPlantInfoService PlantServiceImpl.materialPlantInfoService;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     private PlantLocationService PlantServiceImpl.plantLocationService;
     
     /**
@@ -61,14 +53,12 @@ privileged aspect PlantServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated constructor documentation
      * 
      * @param plantRepository
-     * @param materialPlantInfoService
      * @param plantLocationService
      * @param plantSectionService
      */
     @Autowired
-    public PlantServiceImpl.new(PlantRepository plantRepository, @Lazy MaterialPlantInfoService materialPlantInfoService, @Lazy PlantLocationService plantLocationService, @Lazy PlantSectionService plantSectionService) {
+    public PlantServiceImpl.new(PlantRepository plantRepository, @Lazy PlantLocationService plantLocationService, @Lazy PlantSectionService plantSectionService) {
         setPlantRepository(plantRepository);
-        setMaterialPlantInfoService(materialPlantInfoService);
         setPlantLocationService(plantLocationService);
         setPlantSectionService(plantSectionService);
     }
@@ -89,24 +79,6 @@ privileged aspect PlantServiceImpl_Roo_Service_Impl {
      */
     public void PlantServiceImpl.setPlantRepository(PlantRepository plantRepository) {
         this.plantRepository = plantRepository;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return MaterialPlantInfoService
-     */
-    public MaterialPlantInfoService PlantServiceImpl.getMaterialPlantInfoService() {
-        return materialPlantInfoService;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialPlantInfoService
-     */
-    public void PlantServiceImpl.setMaterialPlantInfoService(MaterialPlantInfoService materialPlantInfoService) {
-        this.materialPlantInfoService = materialPlantInfoService;
     }
     
     /**
@@ -163,20 +135,6 @@ privileged aspect PlantServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param plant
-     * @param materialPlantInfosToAdd
-     * @return Plant
-     */
-    @Transactional
-    public Plant PlantServiceImpl.addToMaterialPlantInfos(Plant plant, Iterable<Long> materialPlantInfosToAdd) {
-        List<MaterialPlantInfo> materialPlantInfos = getMaterialPlantInfoService().findAll(materialPlantInfosToAdd);
-        plant.addToMaterialPlantInfos(materialPlantInfos);
-        return getPlantRepository().save(plant);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plant
      * @param plantLocationsToAdd
      * @return Plant
      */
@@ -205,20 +163,6 @@ privileged aspect PlantServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param plant
-     * @param materialPlantInfosToRemove
-     * @return Plant
-     */
-    @Transactional
-    public Plant PlantServiceImpl.removeFromMaterialPlantInfos(Plant plant, Iterable<Long> materialPlantInfosToRemove) {
-        List<MaterialPlantInfo> materialPlantInfos = getMaterialPlantInfoService().findAll(materialPlantInfosToRemove);
-        plant.removeFromMaterialPlantInfos(materialPlantInfos);
-        return getPlantRepository().save(plant);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plant
      * @param plantLocationsToRemove
      * @return Plant
      */
@@ -240,34 +184,6 @@ privileged aspect PlantServiceImpl_Roo_Service_Impl {
     public Plant PlantServiceImpl.removeFromPlantSections(Plant plant, Iterable<Long> plantSectionsToRemove) {
         List<PlantSection> plantSections = getPlantSectionService().findAll(plantSectionsToRemove);
         plant.removeFromPlantSections(plantSections);
-        return getPlantRepository().save(plant);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param plant
-     * @param materialPlantInfos
-     * @return Plant
-     */
-    @Transactional
-    public Plant PlantServiceImpl.setMaterialPlantInfos(Plant plant, Iterable<Long> materialPlantInfos) {
-        List<MaterialPlantInfo> items = getMaterialPlantInfoService().findAll(materialPlantInfos);
-        Set<MaterialPlantInfo> currents = plant.getMaterialPlantInfos();
-        Set<MaterialPlantInfo> toRemove = new HashSet<MaterialPlantInfo>();
-        for (Iterator<MaterialPlantInfo> iterator = currents.iterator(); iterator.hasNext();) {
-            MaterialPlantInfo nextMaterialPlantInfo = iterator.next();
-            if (items.contains(nextMaterialPlantInfo)) {
-                items.remove(nextMaterialPlantInfo);
-            } else {
-                toRemove.add(nextMaterialPlantInfo);
-            }
-        }
-        plant.removeFromMaterialPlantInfos(toRemove);
-        plant.addToMaterialPlantInfos(items);
-        // Force the version update of the parent side to know that the parent has changed
-        // because it has new books assigned
-        plant.setVersion(plant.getVersion() + 1);
         return getPlantRepository().save(plant);
     }
     
@@ -337,11 +253,6 @@ privileged aspect PlantServiceImpl_Roo_Service_Impl {
         // Clear bidirectional many-to-one child relationship with Company
         if (plant.getCompany() != null) {
             plant.getCompany().getPlants().remove(plant);
-        }
-        
-        // Clear bidirectional one-to-many parent relationship with MaterialPlantInfo
-        for (MaterialPlantInfo item : plant.getMaterialPlantInfos()) {
-            item.setPlant(null);
         }
         
         // Clear bidirectional one-to-many parent relationship with PlantLocation

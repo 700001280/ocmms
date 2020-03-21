@@ -3,7 +3,7 @@
 
 package com.ocmms.cmms.repository;
 
-import com.ocmms.cmms.model.hrm.Plant;
+import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.repository.MaterialPlantInfoRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,9 +23,9 @@ privileged aspect MaterialPlantInfoRepository_Roo_Jpa_Repository {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param plant
+     * @param organization
      * @return Long
      */
-    public abstract long MaterialPlantInfoRepository.countByPlant(Plant plant);
+    public abstract long MaterialPlantInfoRepository.countByOrganization(Organization organization);
     
 }

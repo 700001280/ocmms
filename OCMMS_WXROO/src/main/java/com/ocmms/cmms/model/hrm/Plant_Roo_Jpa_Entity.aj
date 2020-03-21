@@ -4,7 +4,6 @@
 package com.ocmms.cmms.model.hrm;
 
 import com.ocmms.cmms.model.hrm.Plant;
-import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import io.springlets.format.EntityFormat;
@@ -80,32 +79,6 @@ privileged aspect Plant_Roo_Jpa_Entity {
         Assert.notNull(plantSectionsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
         for (PlantSection item : plantSectionsToRemove) {
             this.plantSections.remove(item);
-            item.setPlant(null);
-        }
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialPlantInfosToAdd
-     */
-    public void Plant.addToMaterialPlantInfos(Iterable<MaterialPlantInfo> materialPlantInfosToAdd) {
-        Assert.notNull(materialPlantInfosToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
-        for (MaterialPlantInfo item : materialPlantInfosToAdd) {
-            this.materialPlantInfos.add(item);
-            item.setPlant(this);
-        }
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialPlantInfosToRemove
-     */
-    public void Plant.removeFromMaterialPlantInfos(Iterable<MaterialPlantInfo> materialPlantInfosToRemove) {
-        Assert.notNull(materialPlantInfosToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
-        for (MaterialPlantInfo item : materialPlantInfosToRemove) {
-            this.materialPlantInfos.remove(item);
             item.setPlant(null);
         }
     }

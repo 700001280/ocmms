@@ -3,63 +3,63 @@
 
 package com.ocmms.cmms.web;
 
-import com.ocmms.cmms.web.PlantsItemMaterialPlantInfosThymeleafController;
-import com.ocmms.cmms.web.PlantsItemMaterialPlantInfosThymeleafLinkFactory;
+import com.ocmms.cmms.web.OrganizationsItemMaterialPlantInfosThymeleafController;
+import com.ocmms.cmms.web.OrganizationsItemMaterialPlantInfosThymeleafLinkFactory;
 import io.springlets.web.mvc.util.MethodLinkFactory;
 import io.springlets.web.mvc.util.SpringletsMvcUriComponentsBuilder;
 import java.util.Map;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponents;
 
-privileged aspect PlantsItemMaterialPlantInfosThymeleafLinkFactory_Roo_LinkFactory {
+privileged aspect OrganizationsItemMaterialPlantInfosThymeleafLinkFactory_Roo_LinkFactory {
     
-    declare parents: PlantsItemMaterialPlantInfosThymeleafLinkFactory implements MethodLinkFactory<PlantsItemMaterialPlantInfosThymeleafController>;
+    declare parents: OrganizationsItemMaterialPlantInfosThymeleafLinkFactory implements MethodLinkFactory<OrganizationsItemMaterialPlantInfosThymeleafController>;
     
-    declare @type: PlantsItemMaterialPlantInfosThymeleafLinkFactory: @Component;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String PlantsItemMaterialPlantInfosThymeleafLinkFactory.DATATABLES = "datatables";
+    declare @type: OrganizationsItemMaterialPlantInfosThymeleafLinkFactory: @Component;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String PlantsItemMaterialPlantInfosThymeleafLinkFactory.DATATABLESBYIDSIN = "datatablesByIdsIn";
+    public static final String OrganizationsItemMaterialPlantInfosThymeleafLinkFactory.DATATABLES = "datatables";
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String PlantsItemMaterialPlantInfosThymeleafLinkFactory.CREATEFORM = "createForm";
+    public static final String OrganizationsItemMaterialPlantInfosThymeleafLinkFactory.DATATABLESBYIDSIN = "datatablesByIdsIn";
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String PlantsItemMaterialPlantInfosThymeleafLinkFactory.REMOVEFROMMATERIALPLANTINFOS = "removeFromMaterialPlantInfos";
+    public static final String OrganizationsItemMaterialPlantInfosThymeleafLinkFactory.CREATEFORM = "createForm";
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String PlantsItemMaterialPlantInfosThymeleafLinkFactory.REMOVEFROMMATERIALPLANTINFOSBATCH = "removeFromMaterialPlantInfosBatch";
+    public static final String OrganizationsItemMaterialPlantInfosThymeleafLinkFactory.REMOVEFROMMATERIALPLANTINFOS = "removeFromMaterialPlantInfos";
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String PlantsItemMaterialPlantInfosThymeleafLinkFactory.CREATE = "create";
+    public static final String OrganizationsItemMaterialPlantInfosThymeleafLinkFactory.REMOVEFROMMATERIALPLANTINFOSBATCH = "removeFromMaterialPlantInfosBatch";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String OrganizationsItemMaterialPlantInfosThymeleafLinkFactory.CREATE = "create";
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @return Class
      */
-    public Class<PlantsItemMaterialPlantInfosThymeleafController> PlantsItemMaterialPlantInfosThymeleafLinkFactory.getControllerClass() {
-        return PlantsItemMaterialPlantInfosThymeleafController.class;
+    public Class<OrganizationsItemMaterialPlantInfosThymeleafController> OrganizationsItemMaterialPlantInfosThymeleafLinkFactory.getControllerClass() {
+        return OrganizationsItemMaterialPlantInfosThymeleafController.class;
     }
     
     /**
@@ -70,7 +70,7 @@ privileged aspect PlantsItemMaterialPlantInfosThymeleafLinkFactory_Roo_LinkFacto
      * @param pathVariables
      * @return UriComponents
      */
-    public UriComponents PlantsItemMaterialPlantInfosThymeleafLinkFactory.toUri(String methodName, Object[] parameters, Map<String, Object> pathVariables) {
+    public UriComponents OrganizationsItemMaterialPlantInfosThymeleafLinkFactory.toUri(String methodName, Object[] parameters, Map<String, Object> pathVariables) {
         if (methodName.equals(DATATABLES)) {
             return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).datatables(null, null, null, null, null)).buildAndExpand(pathVariables);
         }

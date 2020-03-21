@@ -9,6 +9,7 @@ import com.ocmms.cmms.model.hrm.Department;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.hrm.OrganizationCatalog;
+import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.model.pm.configuration.HierarchyWorkCenter;
@@ -157,6 +158,26 @@ privileged aspect Organization_Roo_JavaBean {
      */
     public Organization Organization.setWarehouses(Set<Warehouse> warehouses) {
         this.warehouses = warehouses;
+        return this;
+    }
+    
+    /**
+     * Gets materialPlantInfos value
+     * 
+     * @return Set
+     */
+    public Set<MaterialPlantInfo> Organization.getMaterialPlantInfos() {
+        return this.materialPlantInfos;
+    }
+    
+    /**
+     * Sets materialPlantInfos value
+     * 
+     * @param materialPlantInfos
+     * @return Organization
+     */
+    public Organization Organization.setMaterialPlantInfos(Set<MaterialPlantInfo> materialPlantInfos) {
+        this.materialPlantInfos = materialPlantInfos;
         return this;
     }
     

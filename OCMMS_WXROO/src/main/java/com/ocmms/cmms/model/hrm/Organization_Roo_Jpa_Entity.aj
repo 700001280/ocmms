@@ -7,6 +7,7 @@ import com.ocmms.cmms.model.fico.CostCenter;
 import com.ocmms.cmms.model.hrm.Department;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.Organization;
+import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.model.pm.configuration.HierarchyWorkCenter;
@@ -145,6 +146,32 @@ privileged aspect Organization_Roo_Jpa_Entity {
         Assert.notNull(warehousesToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
         for (Warehouse item : warehousesToRemove) {
             this.warehouses.remove(item);
+            item.setOrganization(null);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialPlantInfosToAdd
+     */
+    public void Organization.addToMaterialPlantInfos(Iterable<MaterialPlantInfo> materialPlantInfosToAdd) {
+        Assert.notNull(materialPlantInfosToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (MaterialPlantInfo item : materialPlantInfosToAdd) {
+            this.materialPlantInfos.add(item);
+            item.setOrganization(this);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialPlantInfosToRemove
+     */
+    public void Organization.removeFromMaterialPlantInfos(Iterable<MaterialPlantInfo> materialPlantInfosToRemove) {
+        Assert.notNull(materialPlantInfosToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (MaterialPlantInfo item : materialPlantInfosToRemove) {
+            this.materialPlantInfos.remove(item);
             item.setOrganization(null);
         }
     }

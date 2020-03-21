@@ -5,7 +5,6 @@ package com.ocmms.cmms.model.hrm;
 
 import com.ocmms.cmms.model.hrm.Company;
 import com.ocmms.cmms.model.hrm.Plant;
-import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.pm.configuration.PlantLocation;
 import com.ocmms.cmms.model.pm.configuration.PlantSection;
 import java.util.Objects;
@@ -70,26 +69,6 @@ privileged aspect Plant_Roo_JavaBean {
      */
     public Plant Plant.setPlantSections(Set<PlantSection> plantSections) {
         this.plantSections = plantSections;
-        return this;
-    }
-    
-    /**
-     * Gets materialPlantInfos value
-     * 
-     * @return Set
-     */
-    public Set<MaterialPlantInfo> Plant.getMaterialPlantInfos() {
-        return this.materialPlantInfos;
-    }
-    
-    /**
-     * Sets materialPlantInfos value
-     * 
-     * @param materialPlantInfos
-     * @return Plant
-     */
-    public Plant Plant.setMaterialPlantInfos(Set<MaterialPlantInfo> materialPlantInfos) {
-        this.materialPlantInfos = materialPlantInfos;
         return this;
     }
     
