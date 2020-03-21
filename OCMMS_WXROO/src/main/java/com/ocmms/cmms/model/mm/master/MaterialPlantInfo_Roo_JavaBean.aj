@@ -3,7 +3,7 @@
 
 package com.ocmms.cmms.model.mm.master;
 
-import com.ocmms.cmms.model.hrm.Plant;
+import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.system.RecordStatus;
@@ -54,22 +54,22 @@ privileged aspect MaterialPlantInfo_Roo_JavaBean {
     }
     
     /**
-     * Gets plant value
+     * Gets organization value
      * 
-     * @return Plant
+     * @return Organization
      */
-    public Plant MaterialPlantInfo.getPlant() {
-        return this.plant;
+    public Organization MaterialPlantInfo.getOrganization() {
+        return this.organization;
     }
     
     /**
-     * Sets plant value
+     * Sets organization value
      * 
-     * @param plant
+     * @param organization
      * @return MaterialPlantInfo
      */
-    public MaterialPlantInfo MaterialPlantInfo.setPlant(Plant plant) {
-        this.plant = plant;
+    public MaterialPlantInfo MaterialPlantInfo.setOrganization(Organization organization) {
+        this.organization = organization;
         return this;
     }
     
@@ -442,9 +442,9 @@ privileged aspect MaterialPlantInfo_Roo_JavaBean {
                 ", declarationName='" + declarationName + '\'' + 
                 ", documentType='" + documentType + '\'' + 
                 ", version='" + version + '\'' + 
-
+                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
                 ", createdBy='" + createdBy + '\'' + 
-
+                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     
