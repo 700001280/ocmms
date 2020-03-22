@@ -16,6 +16,7 @@ import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
 
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.hrm.Plant;
+import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.system.RecordStatus;
 
@@ -73,6 +74,7 @@ public class StorageLocation {
 	@EntityFormat
 	private Warehouse warehouse;
 	
+	
 	/**
 	 * TODO Auto-generated attribute documentation
 	 *
@@ -81,6 +83,15 @@ public class StorageLocation {
 	@Column(name = "LOCATION")
 	private String location;
 
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "MATERIALCATALOG")
+	@EntityFormat
+	private MaterialCatalog materialCatalog;
+	
 	/**
 	 * TODO Auto-generated attribute documentation
 	 *

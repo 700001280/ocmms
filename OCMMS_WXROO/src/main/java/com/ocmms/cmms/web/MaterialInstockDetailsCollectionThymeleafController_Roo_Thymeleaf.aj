@@ -7,6 +7,8 @@ import ar.com.fdvs.dj.core.DynamicJasperHelper;
 import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilderException;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
+
+import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import com.ocmms.cmms.service.api.MaterialInstockDetailService;
 import com.ocmms.cmms.service.api.UserInfoService;
@@ -47,6 +49,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
@@ -371,6 +374,8 @@ privileged aspect MaterialInstockDetailsCollectionThymeleafController_Roo_Thymel
 
         }
         MaterialInstockDetail newMaterialInstockDetail = getMaterialInstockDetailService().save(materialInstockDetail);
+        
+        
         if(getUserInfoService().addMaterialInstockQuantity(newMaterialInstockDetail)){
         	UriComponents showURI = getItemLink().to(MaterialInstockDetailsItemThymeleafLinkFactory.SHOW).with("materialInstockDetail", newMaterialInstockDetail.getId()).toUri();
             return new ModelAndView("redirect:" + showURI.toUriString());

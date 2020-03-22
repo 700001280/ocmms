@@ -2,22 +2,25 @@ package com.ocmms.cmms.service.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.ibm.icu.math.BigDecimal;
+import org.springframework.data.domain.PageRequest;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.repository.EmployeeRepository;
+import com.ocmms.cmms.repository.MaterialPlantInfoRepository;
 import com.ocmms.cmms.service.api.EmployeeService;
 import com.ocmms.cmms.service.api.MaterialPlantInfoService;
+import com.ocmms.cmms.service.api.RecordStatusService;
 import com.ocmms.cmms.service.api.UserInfoService;
 
 import io.springlets.security.jpa.domain.UserLogin;
 import io.springlets.security.jpa.repository.UserLoginRepository;
 import io.springlets.security.jpa.service.api.UserLoginService;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 import org.slf4j.Logger;
@@ -31,7 +34,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class UserInfoServiceImpl implements UserInfoService {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserInfoServiceImpl.class);
@@ -51,6 +54,10 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	@Autowired
 	private EmployeeService employeeService;
+	
+	@Autowired
+	private RecordStatusService recordStatusService;
+	
 
 	@Value("${spring.application.upload.savefilepath}")
 	private String fileSavePath;
@@ -106,14 +113,16 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	public Boolean addMaterialInstockQuantity(MaterialInstockDetail materialInstockDetail) {
 		Long count=materialPlantInfoService.countByMaterialCatalogAndOrganization(materialInstockDetail.getMaterialCatalog(), materialInstockDetail.getReceiver().getOrganization());
+		logger.info("count {}",count);
+		MaterialPlantInfo materialPlantInfo;
 		if(count>0) {
-			Page<MaterialPlantInfo> materialPlantInfoes=materialPlantInfoService.findByMaterialCatalogAndOrganization((materialInstockDetail.getMaterialCatalog(), materialInstockDetail.getReceiver().getOrganization()));
-			MaterialPlantInfo materialPlantInfo=materialPlantInfoes.getContent().get(0);
+			Page<MaterialPlantInfo> materialPlantInfoes=materialPlantInfoService.findByMaterialCatalogAndOrganization(materialInstockDetail.getMaterialCatalog(), materialInstockDetail.getReceiver().getOrganization(),new PageRequest(0, 10));
+			materialPlantInfo=materialPlantInfoes.getContent().get(0);
 			materialPlantInfo.setStock(materialPlantInfo.getStock().add(materialInstockDetail.getQuantity()));
 			materialPlantInfoService.save(materialPlantInfo);
-				
+			logger.info("count >0");	
 		}else {
-			MaterialPlantInfo materialPlantInfo=new MaterialPlantInfo();
+			materialPlantInfo=new MaterialPlantInfo();
 			materialPlantInfo.setMaterialCatalog(materialInstockDetail.getMaterialCatalog());
 			materialPlantInfo.setOrganization(materialInstockDetail.getReceiver().getOrganization());
 			materialPlantInfo.setStock(materialInstockDetail.getQuantity());
@@ -124,9 +133,13 @@ public class UserInfoServiceImpl implements UserInfoService {
 			materialPlantInfo.setUsefulLife(false);
 			materialPlantInfo.setShelfLifeDays(0);
 			materialPlantInfo.setDeclarationNumber("-");
-			materialPlantInfo.setDeclarationName(materialInstockDetail.getMaterialCatalog().getDescription());
-			materialPlantInfo.setDocumentType("-");			
-			materialPlantInfoService.save(materialPlantInfo);
+			materialPlantInfo.setDeclarationName(materialInstockDetail.getMaterialCatalog().getMaterialName());
+			materialPlantInfo.setDocumentType("-");		
+			materialPlantInfo.setVersion(1L);
+			materialPlantInfo.setRecordStatus(recordStatusService.findOne(-7L));
+			MaterialPlantInfo newMaterialPlantInfo=materialPlantInfoService.save(materialPlantInfo);
+			logger.info("newMaterialPlantInfo {}", newMaterialPlantInfo.getId());			
+			logger.info("count <0");
 		}
 		return true;		
 	}
@@ -134,10 +147,10 @@ public class UserInfoServiceImpl implements UserInfoService {
 	public Boolean subMaterialOutstockQuantity(MaterialOutstockDetail materialOutstockDetail) {
 		Long count=materialPlantInfoService.countByMaterialCatalogAndOrganization(materialOutstockDetail.getMaterialCatalog(), materialOutstockDetail.getKeeper().getOrganization());
 		if(count>0) {
-			Page<MaterialPlantInfo> materialPlantInfoes=materialPlantInfoService.findByMaterialCatalogAndOrganization((materialOutstockDetail.getMaterialCatalog(), materialOutstockDetail.getReceiver().getOrganization()));
+			Page<MaterialPlantInfo> materialPlantInfoes=materialPlantInfoService.findByMaterialCatalogAndOrganization(materialOutstockDetail.getMaterialCatalog(),  materialOutstockDetail.getReceiver().getOrganization(),new PageRequest(0, 10));
 			MaterialPlantInfo materialPlantInfo=materialPlantInfoes.getContent().get(0);
-			if(materialPlantInfo.getStock().compareTo(materialOutstockDetail.getQuantity())>-1) {
-				materialPlantInfo.setStock(materialPlantInfo.getStock().subtract(materialOutstockDetail.getQuantity()));
+			if(materialPlantInfo.getStock().compareTo(materialOutstockDetail.getOutstockQuantity())>-1) {
+				materialPlantInfo.setStock(materialPlantInfo.getStock().subtract(materialOutstockDetail.getOutstockQuantity()));
 				materialPlantInfoService.save(materialPlantInfo);
 				return true;	
 			}else {

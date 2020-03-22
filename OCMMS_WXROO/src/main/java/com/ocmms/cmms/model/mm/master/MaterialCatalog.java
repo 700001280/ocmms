@@ -19,6 +19,7 @@ import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 
 import io.springlets.format.EntityFormat;
@@ -125,6 +126,15 @@ public class MaterialCatalog extends MROCatalog {
 	 */
 	@Column(name = "HAZARDOUSMATERIAL")
 	private Boolean hazardousMaterial;
+	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@OneToMany(cascade = { javax.persistence.CascadeType.MERGE,
+			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "materialCatalog")
+	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
+	private Set<StorageLocation> storageLocations = new HashSet<StorageLocation>();
 	
 	/**
 	 * TODO Auto-generated attribute documentation
