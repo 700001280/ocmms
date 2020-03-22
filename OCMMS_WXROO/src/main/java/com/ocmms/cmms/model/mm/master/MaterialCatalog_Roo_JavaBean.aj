@@ -16,6 +16,7 @@ import com.ocmms.cmms.model.mm.master.MaterialVendorInfo;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 import java.util.Objects;
 import java.util.Set;
@@ -219,6 +220,26 @@ privileged aspect MaterialCatalog_Roo_JavaBean {
      */
     public MaterialCatalog MaterialCatalog.setHazardousMaterial(Boolean hazardousMaterial) {
         this.hazardousMaterial = hazardousMaterial;
+        return this;
+    }
+    
+    /**
+     * Gets storageLocations value
+     * 
+     * @return Set
+     */
+    public Set<StorageLocation> MaterialCatalog.getStorageLocations() {
+        return this.storageLocations;
+    }
+    
+    /**
+     * Sets storageLocations value
+     * 
+     * @param storageLocations
+     * @return MaterialCatalog
+     */
+    public MaterialCatalog MaterialCatalog.setStorageLocations(Set<StorageLocation> storageLocations) {
+        this.storageLocations = storageLocations;
         return this;
     }
     

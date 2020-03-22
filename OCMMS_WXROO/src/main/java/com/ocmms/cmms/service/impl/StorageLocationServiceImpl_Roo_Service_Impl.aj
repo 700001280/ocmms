@@ -3,6 +3,7 @@
 
 package com.ocmms.cmms.service.impl;
 
+import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
@@ -250,6 +251,11 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void StorageLocationServiceImpl.delete(StorageLocation storageLocation) {
+        // Clear bidirectional many-to-one child relationship with MaterialCatalog
+        if (storageLocation.getMaterialCatalog() != null) {
+            storageLocation.getMaterialCatalog().getStorageLocations().remove(storageLocation);
+        }
+        
         // Clear bidirectional many-to-one child relationship with Warehouse
         if (storageLocation.getWarehouse() != null) {
             storageLocation.getWarehouse().getStorageLocations().remove(storageLocation);
@@ -375,6 +381,18 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param materialCatalog
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<StorageLocation> StorageLocationServiceImpl.findByMaterialCatalog(MaterialCatalog materialCatalog, GlobalSearch globalSearch, Pageable pageable) {
+        return getStorageLocationRepository().findByMaterialCatalog(materialCatalog, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param warehouse
      * @param globalSearch
      * @param pageable
@@ -382,6 +400,16 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
      */
     public Page<StorageLocation> StorageLocationServiceImpl.findByWarehouse(Warehouse warehouse, GlobalSearch globalSearch, Pageable pageable) {
         return getStorageLocationRepository().findByWarehouse(warehouse, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @return Long
+     */
+    public long StorageLocationServiceImpl.countByMaterialCatalog(MaterialCatalog materialCatalog) {
+        return getStorageLocationRepository().countByMaterialCatalog(materialCatalog);
     }
     
     /**

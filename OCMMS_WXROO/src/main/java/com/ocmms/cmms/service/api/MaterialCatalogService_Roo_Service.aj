@@ -342,4 +342,31 @@ privileged aspect MaterialCatalogService_Roo_Service {
      */
     public abstract MaterialCatalog MaterialCatalogService.setOutstockDetails(MaterialCatalog materialCatalog, Iterable<Long> outstockDetails);
     
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param storageLocationsToAdd
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.addToStorageLocations(MaterialCatalog materialCatalog, Iterable<Long> storageLocationsToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param storageLocationsToRemove
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.removeFromStorageLocations(MaterialCatalog materialCatalog, Iterable<Long> storageLocationsToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param storageLocations
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.setStorageLocations(MaterialCatalog materialCatalog, Iterable<Long> storageLocations);
+    
 }

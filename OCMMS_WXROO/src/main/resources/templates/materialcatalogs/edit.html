@@ -99,19 +99,16 @@
       <span id="discipline-error" class="help-block" data-th-if="${#fields.hasErrors('discipline')}" data-th-errors="*{discipline}">Error message.</span>
     </div>
 </div>
-
-<div class="form-group has-error has-feedback" id="materialcatalog-instocktype-field" data-z="75d93a97" data-th-classappend="${#fields.hasErrors('instockType')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('InstockTypesCollectionThymeleafController')}">
-  <label class="col-md-3 control-label" for="instockType" data-th-text="#{label_materialcatalog_instocktype}">instockType</label>
-  <div class="col-md-6">
-    <div class="checkbox">
+<div class="form-group has-error has-feedback" data-z="75d93a97" id="materialcatalog-instocktype-field" data-th-classappend="${#fields.hasErrors('instockType')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('InstockTypesCollectionThymeleafController')}">
+    <label for="instockType" class="col-md-3 control-label" data-th-text="#{label_materialcatalog_instocktype}">InstockType</label>
+    <div class="col-md-6">
       <!-- Select2 -->
       <select data-th-field="*{instockType}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
-          <option data-th-unless="*{instockType} == null" data-th-value="*{instockType.id}" data-th-text="*{{instockType}}" selected="selected">instockType</option>
+          <option data-th-unless="*{instockType} == null" data-th-value="*{instockType.id}" data-th-text="*{{instockType}}" selected="selected">InstockType</option>
       </select>
-       <span data-th-classappend="${#fields.hasErrors('instockType')}? 'form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('instockType')}" aria-hidden="true"></span>
-        <span id="instockType-error" class="help-block" data-th-if="${#fields.hasErrors('instockType')}" data-th-errors="*{instockType}">Error message.</span>
+      <span data-th-classappend="${#fields.hasErrors('instockType')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('instockType')}" aria-hidden="true"></span>
+      <span id="instockType-error" class="help-block" data-th-if="${#fields.hasErrors('instockType')}" data-th-errors="*{instockType}">Error message.</span>
     </div>
-  </div>
 </div>
 <div class="form-group has-error has-feedback" data-z="c06abd77" id="materialcatalog-uom-field" data-th-classappend="${#fields.hasErrors('uom')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('UnitOfMeasuresCollectionThymeleafController')}">
     <label for="uom" class="col-md-3 control-label" data-th-text="#{label_materialcatalog_uom}">UnitOfMeasure</label>

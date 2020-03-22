@@ -5,10 +5,12 @@ package com.ocmms.cmms.web;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.model.system.RecordStatus;
+import com.ocmms.cmms.web.MaterialCatalogDeserializer;
 import com.ocmms.cmms.web.RecordStatusDeserializer;
 import com.ocmms.cmms.web.StorageLocationJsonMixin;
 import com.ocmms.cmms.web.WarehouseDeserializer;
@@ -29,6 +31,13 @@ privileged aspect StorageLocationJsonMixin_Roo_JSONMixin {
      */
     @JsonIgnore
     private Set<OutstockDetail> StorageLocationJsonMixin.outstockDetails;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = MaterialCatalogDeserializer.class)
+    private MaterialCatalog StorageLocationJsonMixin.materialCatalog;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -78,6 +87,24 @@ privileged aspect StorageLocationJsonMixin_Roo_JSONMixin {
      */
     public void StorageLocationJsonMixin.setOutstockDetails(Set<OutstockDetail> outstockDetails) {
         this.outstockDetails = outstockDetails;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return MaterialCatalog
+     */
+    public MaterialCatalog StorageLocationJsonMixin.getMaterialCatalog() {
+        return materialCatalog;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     */
+    public void StorageLocationJsonMixin.setMaterialCatalog(MaterialCatalog materialCatalog) {
+        this.materialCatalog = materialCatalog;
     }
     
     /**

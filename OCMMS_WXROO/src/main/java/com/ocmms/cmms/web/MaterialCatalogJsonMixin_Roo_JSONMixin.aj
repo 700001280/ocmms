@@ -17,6 +17,7 @@ import com.ocmms.cmms.model.mm.master.MaterialVendorInfo;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
+import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 import com.ocmms.cmms.web.InstockTypeDeserializer;
 import com.ocmms.cmms.web.MaterialCatalogJsonMixin;
@@ -89,6 +90,13 @@ privileged aspect MaterialCatalogJsonMixin_Roo_JSONMixin {
      */
     @JsonIgnore
     private Set<OutstockDetail> MaterialCatalogJsonMixin.outstockDetails;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonIgnore
+    private Set<StorageLocation> MaterialCatalogJsonMixin.storageLocations;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -278,6 +286,24 @@ privileged aspect MaterialCatalogJsonMixin_Roo_JSONMixin {
      */
     public void MaterialCatalogJsonMixin.setOutstockDetails(Set<OutstockDetail> outstockDetails) {
         this.outstockDetails = outstockDetails;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return Set
+     */
+    public Set<StorageLocation> MaterialCatalogJsonMixin.getStorageLocations() {
+        return storageLocations;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocations
+     */
+    public void MaterialCatalogJsonMixin.setStorageLocations(Set<StorageLocation> storageLocations) {
+        this.storageLocations = storageLocations;
     }
     
     /**

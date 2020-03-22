@@ -53,6 +53,17 @@
       <span id="location-error" class="help-block" data-th-if="${#fields.hasErrors('location')}" data-th-errors="*{location}">Error message.</span>
   </div>
 </div>
+<div class="form-group has-error has-feedback" data-z="e1681f19" id="storagelocation-materialcatalog-field" data-th-classappend="${#fields.hasErrors('materialCatalog')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('MaterialCatalogsCollectionThymeleafController')}">
+    <label for="materialCatalog" class="col-md-3 control-label" data-th-text="#{label_storagelocation_materialcatalog}">MaterialCatalog</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{materialCatalog}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{materialCatalog} == null" data-th-value="*{materialCatalog.id}" data-th-text="*{{materialCatalog}}" selected="selected">MaterialCatalog</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('materialCatalog')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('materialCatalog')}" aria-hidden="true"></span>
+      <span id="materialCatalog-error" class="help-block" data-th-if="${#fields.hasErrors('materialCatalog')}" data-th-errors="*{materialCatalog}">Error message.</span>
+    </div>
+</div>
 <div class="form-group has-error has-feedback" data-z="35454559" id="storagelocation-binname-field" data-th-classappend="${#fields.hasErrors('binName')}? 'has-error has-feedback'" data-th-class="form-group">
   <label for="binName" class="col-md-3 control-label" data-th-text="#{label_storagelocation_binname}">binName</label>
   <div class="col-md-6">
