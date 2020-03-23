@@ -4,6 +4,7 @@
 package com.ocmms.cmms.model.mm.storage;
 
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.MaterialStorageLocationInfo;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import io.springlets.format.EntityFormat;
@@ -79,6 +80,32 @@ privileged aspect StorageLocation_Roo_Jpa_Entity {
         Assert.notNull(outstockDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
         for (OutstockDetail item : outstockDetailsToRemove) {
             this.outstockDetails.remove(item);
+            item.setStorageLocation(null);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialStorageLocationInfosToAdd
+     */
+    public void StorageLocation.addToMaterialStorageLocationInfos(Iterable<MaterialStorageLocationInfo> materialStorageLocationInfosToAdd) {
+        Assert.notNull(materialStorageLocationInfosToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (MaterialStorageLocationInfo item : materialStorageLocationInfosToAdd) {
+            this.materialStorageLocationInfos.add(item);
+            item.setStorageLocation(this);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialStorageLocationInfosToRemove
+     */
+    public void StorageLocation.removeFromMaterialStorageLocationInfos(Iterable<MaterialStorageLocationInfo> materialStorageLocationInfosToRemove) {
+        Assert.notNull(materialStorageLocationInfosToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (MaterialStorageLocationInfo item : materialStorageLocationInfosToRemove) {
+            this.materialStorageLocationInfos.remove(item);
             item.setStorageLocation(null);
         }
     }

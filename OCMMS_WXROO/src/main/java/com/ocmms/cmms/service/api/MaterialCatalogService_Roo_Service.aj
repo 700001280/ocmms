@@ -292,6 +292,33 @@ privileged aspect MaterialCatalogService_Roo_Service {
      * TODO Auto-generated method documentation
      * 
      * @param materialCatalog
+     * @param materialStorageLocationInfosToAdd
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.addToMaterialStorageLocationInfos(MaterialCatalog materialCatalog, Iterable<Long> materialStorageLocationInfosToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param materialStorageLocationInfosToRemove
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.removeFromMaterialStorageLocationInfos(MaterialCatalog materialCatalog, Iterable<Long> materialStorageLocationInfosToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param materialStorageLocationInfos
+     * @return MaterialCatalog
+     */
+    public abstract MaterialCatalog MaterialCatalogService.setMaterialStorageLocationInfos(MaterialCatalog materialCatalog, Iterable<Long> materialStorageLocationInfos);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
      * @param materialVendorInfosToAdd
      * @return MaterialCatalog
      */
@@ -341,32 +368,5 @@ privileged aspect MaterialCatalogService_Roo_Service {
      * @return MaterialCatalog
      */
     public abstract MaterialCatalog MaterialCatalogService.setOutstockDetails(MaterialCatalog materialCatalog, Iterable<Long> outstockDetails);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialCatalog
-     * @param storageLocationsToAdd
-     * @return MaterialCatalog
-     */
-    public abstract MaterialCatalog MaterialCatalogService.addToStorageLocations(MaterialCatalog materialCatalog, Iterable<Long> storageLocationsToAdd);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialCatalog
-     * @param storageLocationsToRemove
-     * @return MaterialCatalog
-     */
-    public abstract MaterialCatalog MaterialCatalogService.removeFromStorageLocations(MaterialCatalog materialCatalog, Iterable<Long> storageLocationsToRemove);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialCatalog
-     * @param storageLocations
-     * @return MaterialCatalog
-     */
-    public abstract MaterialCatalog MaterialCatalogService.setStorageLocations(MaterialCatalog materialCatalog, Iterable<Long> storageLocations);
     
 }

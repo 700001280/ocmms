@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="materialstoragelocationinfo-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('MaterialStorageLocationInfoesCollectionThymeleafController')},itemLink=${@linkBuilder.of('MaterialStorageLocationInfoesItemThymeleafController')}">
+    <table id="materialstoragelocationinfo-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="materialCatalog" data-th-text="#{label_materialstoragelocationinfo_materialcatalog}">materialCatalog</th>
+          <th data-data="storageLocation" data-th-text="#{label_materialstoragelocationinfo_storagelocation}">storageLocation</th>
+          <th data-data="stock" data-th-text="#{label_materialstoragelocationinfo_stock}">stock</th>
+          <th data-data="recordStatus" data-th-text="#{label_materialstoragelocationinfo_recordstatus}">recordStatus</th>
+          <th data-data="createdDate" data-th-text="#{label_materialstoragelocationinfo_createddate}">createdDate</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>materialCatalog</td>
+          <td>storageLocation</td>
+          <td>stock</td>
+          <td>recordStatus</td>
+          <td>createdDate</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

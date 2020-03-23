@@ -3,7 +3,6 @@
 
 package com.ocmms.cmms.repository;
 
-import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.repository.StorageLocationRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,14 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 privileged aspect StorageLocationRepository_Roo_Jpa_Repository {
     
     declare @type: StorageLocationRepository: @Transactional(readOnly = true);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialCatalog
-     * @return Long
-     */
-    public abstract long StorageLocationRepository.countByMaterialCatalog(MaterialCatalog materialCatalog);
     
     /**
      * TODO Auto-generated method documentation

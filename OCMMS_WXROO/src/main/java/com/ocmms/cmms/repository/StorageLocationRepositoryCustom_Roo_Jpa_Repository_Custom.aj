@@ -3,7 +3,6 @@
 
 package com.ocmms.cmms.repository;
 
-import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.repository.StorageLocationRepositoryCustom;
@@ -13,16 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 privileged aspect StorageLocationRepositoryCustom_Roo_Jpa_Repository_Custom {
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialCatalog
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<StorageLocation> StorageLocationRepositoryCustom.findByMaterialCatalog(MaterialCatalog materialCatalog, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

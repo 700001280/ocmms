@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_materialstoragelocationinfo})}|">Show MaterialStorageLocationInfo - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${materialStorageLocationInfo}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_materialstoragelocationinfo})}">Show MaterialStorageLocationInfo</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_materialstoragelocationinfo})}">MaterialStorageLocationInfo data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="materialstoragelocationinfo-materialcatalog-field" data-z="d0d79952">
+            	      <strong data-th-text="#{label_materialstoragelocationinfo_materialcatalog}">materialCatalog</strong>
+                    <span data-th-text="*{{materialCatalog}}">materialCatalogValue</span>
+         	        </li>
+                  <li id="materialstoragelocationinfo-storagelocation-field" data-z="822f09d2">
+            	      <strong data-th-text="#{label_materialstoragelocationinfo_storagelocation}">storageLocation</strong>
+                    <span data-th-text="*{{storageLocation}}">storageLocationValue</span>
+         	        </li>
+                  <li id="materialstoragelocationinfo-stock-field" data-z="d02144b2">
+            	      <strong data-th-text="#{label_materialstoragelocationinfo_stock}">stock</strong>
+                    <span data-th-text="*{{stock}}">stockValue</span>
+         	        </li>
+                  <li id="materialstoragelocationinfo-recordstatus-field" data-z="63f00dac">
+            	      <strong data-th-text="#{label_materialstoragelocationinfo_recordstatus}">recordStatus</strong>
+                    <span data-th-text="*{{recordStatus}}">recordStatusValue</span>
+         	        </li>
+                  <li id="materialstoragelocationinfo-createddate-field" data-z="f161e692">
+            	      <strong data-th-text="#{label_materialstoragelocationinfo_createddate}">createdDate</strong>
+                    <span data-th-text="*{{createdDate}}">createdDateValue</span>
+         	        </li>
+                  <li id="materialstoragelocationinfo-createdby-field" data-z="23f25632">
+            	      <strong data-th-text="#{label_materialstoragelocationinfo_createdby}">createdBy</strong>
+                    <span data-th-text="*{{createdBy}}">createdByValue</span>
+         	        </li>
+                  <li id="materialstoragelocationinfo-lastmodifieddate-field" data-z="5dc67a0c">
+            	      <strong data-th-text="#{label_materialstoragelocationinfo_lastmodifieddate}">lastModifiedDate</strong>
+                    <span data-th-text="*{{lastModifiedDate}}">lastModifiedDateValue</span>
+         	        </li>
+                  <li id="materialstoragelocationinfo-lastmodifiedby-field" data-z="d579802c">
+            	      <strong data-th-text="#{label_materialstoragelocationinfo_lastmodifiedby}">lastModifiedBy</strong>
+                    <span data-th-text="*{{lastModifiedBy}}">lastModifiedByValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="MaterialStorageLocationInfo_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('MaterialStorageLocationInfoesItemThymeleafController').to('editForm').with('materialStorageLocationInfo', materialStorageLocationInfo.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="MaterialStorageLocationInfo_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('MaterialStorageLocationInfoesCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

@@ -4,12 +4,12 @@
 package com.ocmms.cmms.web;
 
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
+import com.ocmms.cmms.model.mm.storage.MaterialStorageLocationInfo;
 import com.ocmms.cmms.service.api.MaterialCatalogService;
-import com.ocmms.cmms.service.api.StorageLocationService;
+import com.ocmms.cmms.service.api.MaterialStorageLocationInfoService;
 import com.ocmms.cmms.web.MaterialCatalogsCollectionThymeleafController;
 import com.ocmms.cmms.web.MaterialCatalogsCollectionThymeleafLinkFactory;
-import com.ocmms.cmms.web.MaterialCatalogsItemStorageLocationsThymeleafController;
+import com.ocmms.cmms.web.MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.datatables.ConvertedDatatablesData;
 import io.springlets.data.web.datatables.Datatables;
@@ -47,55 +47,55 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Thymeleaf {
+privileged aspect MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController_Roo_Thymeleaf {
     
-    declare @type: MaterialCatalogsItemStorageLocationsThymeleafController: @Controller;
+    declare @type: MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController: @Controller;
     
-    declare @type: MaterialCatalogsItemStorageLocationsThymeleafController: @RequestMapping(value = "/materialcatalogs/{materialCatalog}/storageLocations", name = "MaterialCatalogsItemStorageLocationsThymeleafController", produces = MediaType.TEXT_HTML_VALUE);
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    private MaterialCatalogService MaterialCatalogsItemStorageLocationsThymeleafController.materialCatalogService;
+    declare @type: MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController: @RequestMapping(value = "/materialcatalogs/{materialCatalog}/materialStorageLocationInfos", name = "MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController", produces = MediaType.TEXT_HTML_VALUE);
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    private StorageLocationService MaterialCatalogsItemStorageLocationsThymeleafController.storageLocationService;
+    private MaterialCatalogService MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.materialCatalogService;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    private MessageSource MaterialCatalogsItemStorageLocationsThymeleafController.messageSource;
+    private MaterialStorageLocationInfoService MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.materialStorageLocationInfoService;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    private MethodLinkBuilderFactory<MaterialCatalogsCollectionThymeleafController> MaterialCatalogsItemStorageLocationsThymeleafController.collectionLink;
+    private MessageSource MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.messageSource;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    private ConversionService MaterialCatalogsItemStorageLocationsThymeleafController.conversionService;
+    private MethodLinkBuilderFactory<MaterialCatalogsCollectionThymeleafController> MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.collectionLink;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private ConversionService MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.conversionService;
     
     /**
      * TODO Auto-generated constructor documentation
      * 
      * @param materialCatalogService
-     * @param storageLocationService
+     * @param materialStorageLocationInfoService
      * @param conversionService
      * @param messageSource
      * @param linkBuilder
      */
     @Autowired
-    public MaterialCatalogsItemStorageLocationsThymeleafController.new(MaterialCatalogService materialCatalogService, StorageLocationService storageLocationService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    public MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.new(MaterialCatalogService materialCatalogService, MaterialStorageLocationInfoService materialStorageLocationInfoService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
         setMaterialCatalogService(materialCatalogService);
-        setStorageLocationService(storageLocationService);
+        setMaterialStorageLocationInfoService(materialStorageLocationInfoService);
         setConversionService(conversionService);
         setMessageSource(messageSource);
         setCollectionLink(linkBuilder.of(MaterialCatalogsCollectionThymeleafController.class));
@@ -106,7 +106,7 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * 
      * @return MaterialCatalogService
      */
-    public MaterialCatalogService MaterialCatalogsItemStorageLocationsThymeleafController.getMaterialCatalogService() {
+    public MaterialCatalogService MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.getMaterialCatalogService() {
         return materialCatalogService;
     }
     
@@ -115,26 +115,26 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * 
      * @param materialCatalogService
      */
-    public void MaterialCatalogsItemStorageLocationsThymeleafController.setMaterialCatalogService(MaterialCatalogService materialCatalogService) {
+    public void MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.setMaterialCatalogService(MaterialCatalogService materialCatalogService) {
         this.materialCatalogService = materialCatalogService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return StorageLocationService
+     * @return MaterialStorageLocationInfoService
      */
-    public StorageLocationService MaterialCatalogsItemStorageLocationsThymeleafController.getStorageLocationService() {
-        return storageLocationService;
+    public MaterialStorageLocationInfoService MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.getMaterialStorageLocationInfoService() {
+        return materialStorageLocationInfoService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param storageLocationService
+     * @param materialStorageLocationInfoService
      */
-    public void MaterialCatalogsItemStorageLocationsThymeleafController.setStorageLocationService(StorageLocationService storageLocationService) {
-        this.storageLocationService = storageLocationService;
+    public void MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.setMaterialStorageLocationInfoService(MaterialStorageLocationInfoService materialStorageLocationInfoService) {
+        this.materialStorageLocationInfoService = materialStorageLocationInfoService;
     }
     
     /**
@@ -142,7 +142,7 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * 
      * @return MessageSource
      */
-    public MessageSource MaterialCatalogsItemStorageLocationsThymeleafController.getMessageSource() {
+    public MessageSource MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.getMessageSource() {
         return messageSource;
     }
     
@@ -151,7 +151,7 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * 
      * @param messageSource
      */
-    public void MaterialCatalogsItemStorageLocationsThymeleafController.setMessageSource(MessageSource messageSource) {
+    public void MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.setMessageSource(MessageSource messageSource) {
         this.messageSource = messageSource;
     }
     
@@ -160,7 +160,7 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * 
      * @return MethodLinkBuilderFactory
      */
-    public MethodLinkBuilderFactory<MaterialCatalogsCollectionThymeleafController> MaterialCatalogsItemStorageLocationsThymeleafController.getCollectionLink() {
+    public MethodLinkBuilderFactory<MaterialCatalogsCollectionThymeleafController> MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.getCollectionLink() {
         return collectionLink;
     }
     
@@ -169,7 +169,7 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * 
      * @param collectionLink
      */
-    public void MaterialCatalogsItemStorageLocationsThymeleafController.setCollectionLink(MethodLinkBuilderFactory<MaterialCatalogsCollectionThymeleafController> collectionLink) {
+    public void MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.setCollectionLink(MethodLinkBuilderFactory<MaterialCatalogsCollectionThymeleafController> collectionLink) {
         this.collectionLink = collectionLink;
     }
     
@@ -178,7 +178,7 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * 
      * @return ConversionService
      */
-    public ConversionService MaterialCatalogsItemStorageLocationsThymeleafController.getConversionService() {
+    public ConversionService MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.getConversionService() {
         return conversionService;
     }
     
@@ -187,7 +187,7 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * 
      * @param conversionService
      */
-    public void MaterialCatalogsItemStorageLocationsThymeleafController.setConversionService(ConversionService conversionService) {
+    public void MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.setConversionService(ConversionService conversionService) {
         this.conversionService = conversionService;
     }
     
@@ -200,7 +200,7 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * @return MaterialCatalog
      */
     @ModelAttribute
-    public MaterialCatalog MaterialCatalogsItemStorageLocationsThymeleafController.getMaterialCatalog(@PathVariable("materialCatalog") Long id, Locale locale, HttpMethod method) {
+    public MaterialCatalog MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.getMaterialCatalog(@PathVariable("materialCatalog") Long id, Locale locale, HttpMethod method) {
         MaterialCatalog materialCatalog = null;
         if (HttpMethod.PUT.equals(method)) {
             materialCatalog = materialCatalogService.findOneForUpdate(id);
@@ -220,7 +220,7 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * 
      * @param model
      */
-    public void MaterialCatalogsItemStorageLocationsThymeleafController.populateFormats(Model model) {
+    public void MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.populateFormats(Model model) {
         model.addAttribute("application_locale", LocaleContextHolder.getLocale().getLanguage());
         model.addAttribute("createdDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         model.addAttribute("lastModifiedDate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
@@ -231,7 +231,7 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * 
      * @param model
      */
-    public void MaterialCatalogsItemStorageLocationsThymeleafController.populateForm(Model model) {
+    public void MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.populateForm(Model model) {
         populateFormats(model);
     }
     
@@ -247,11 +247,11 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      */
     @GetMapping(name = "datatables", produces = Datatables.MEDIA_TYPE, value = "/dt")
     @ResponseBody
-    public ResponseEntity<ConvertedDatatablesData<StorageLocation>> MaterialCatalogsItemStorageLocationsThymeleafController.datatables(@ModelAttribute MaterialCatalog materialCatalog, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
+    public ResponseEntity<ConvertedDatatablesData<MaterialStorageLocationInfo>> MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.datatables(@ModelAttribute MaterialCatalog materialCatalog, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
         
-        Page<StorageLocation> storageLocations = getStorageLocationService().findByMaterialCatalog(materialCatalog, search, pageable);
-        long totalStorageLocationsCount = getStorageLocationService().countByMaterialCatalog(materialCatalog);
-        ConvertedDatatablesData<StorageLocation> data =  new ConvertedDatatablesData<StorageLocation>(storageLocations, totalStorageLocationsCount, draw, getConversionService(), datatablesColumns);
+        Page<MaterialStorageLocationInfo> materialStorageLocationInfos = getMaterialStorageLocationInfoService().findByMaterialCatalog(materialCatalog, search, pageable);
+        long totalMaterialStorageLocationInfosCount = getMaterialStorageLocationInfoService().countByMaterialCatalog(materialCatalog);
+        ConvertedDatatablesData<MaterialStorageLocationInfo> data =  new ConvertedDatatablesData<MaterialStorageLocationInfo>(materialStorageLocationInfos, totalMaterialStorageLocationInfosCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(data);
     }
     
@@ -267,11 +267,11 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      */
     @GetMapping(name = "datatablesByIdsIn", produces = Datatables.MEDIA_TYPE, value = "/dtByIdsIn")
     @ResponseBody
-    public ResponseEntity<ConvertedDatatablesData<StorageLocation>> MaterialCatalogsItemStorageLocationsThymeleafController.datatablesByIdsIn(@RequestParam("ids") List<Long> ids, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
+    public ResponseEntity<ConvertedDatatablesData<MaterialStorageLocationInfo>> MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.datatablesByIdsIn(@RequestParam("ids") List<Long> ids, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
         
-        Page<StorageLocation> storageLocations = getStorageLocationService().findAllByIdsIn(ids, search, pageable);
-        long totalStorageLocationsCount = storageLocations.getTotalElements();
-        ConvertedDatatablesData<StorageLocation> data =  new ConvertedDatatablesData<StorageLocation>(storageLocations, totalStorageLocationsCount, draw, getConversionService(), datatablesColumns);
+        Page<MaterialStorageLocationInfo> materialStorageLocationInfos = getMaterialStorageLocationInfoService().findAllByIdsIn(ids, search, pageable);
+        long totalMaterialStorageLocationInfosCount = materialStorageLocationInfos.getTotalElements();
+        ConvertedDatatablesData<MaterialStorageLocationInfo> data =  new ConvertedDatatablesData<MaterialStorageLocationInfo>(materialStorageLocationInfos, totalMaterialStorageLocationInfosCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(data);
     }
     
@@ -283,23 +283,23 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * @return ModelAndView
      */
     @GetMapping(value = "/create-form", name = "createForm")
-    public ModelAndView MaterialCatalogsItemStorageLocationsThymeleafController.createForm(@ModelAttribute MaterialCatalog materialCatalog, Model model) {
+    public ModelAndView MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.createForm(@ModelAttribute MaterialCatalog materialCatalog, Model model) {
         populateForm(model);
-        model.addAttribute("storageLocation", new StorageLocation());
-        return new ModelAndView("materialcatalogs/storageLocations/create");
+        model.addAttribute("materialStorageLocationInfo", new MaterialStorageLocationInfo());
+        return new ModelAndView("materialcatalogs/materialStorageLocationInfos/create");
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param materialCatalog
-     * @param storageLocationsToRemove
+     * @param materialStorageLocationInfosToRemove
      * @return ResponseEntity
      */
-    @DeleteMapping(name = "removeFromStorageLocations", value = "/{storageLocationsToRemove}")
+    @DeleteMapping(name = "removeFromMaterialStorageLocationInfos", value = "/{materialStorageLocationInfosToRemove}")
     @ResponseBody
-    public ResponseEntity<?> MaterialCatalogsItemStorageLocationsThymeleafController.removeFromStorageLocations(@ModelAttribute MaterialCatalog materialCatalog, @PathVariable("storageLocationsToRemove") Long storageLocationsToRemove) {
-        getMaterialCatalogService().removeFromStorageLocations(materialCatalog,Collections.singleton(storageLocationsToRemove));
+    public ResponseEntity<?> MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.removeFromMaterialStorageLocationInfos(@ModelAttribute MaterialCatalog materialCatalog, @PathVariable("materialStorageLocationInfosToRemove") Long materialStorageLocationInfosToRemove) {
+        getMaterialCatalogService().removeFromMaterialStorageLocationInfos(materialCatalog,Collections.singleton(materialStorageLocationInfosToRemove));
         return ResponseEntity.ok().build();
     }
     
@@ -307,13 +307,13 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * TODO Auto-generated method documentation
      * 
      * @param materialCatalog
-     * @param storageLocationsToRemove
+     * @param materialStorageLocationInfosToRemove
      * @return ResponseEntity
      */
-    @DeleteMapping(name = "removeFromStorageLocationsBatch", value = "/batch/{storageLocationsToRemove}")
+    @DeleteMapping(name = "removeFromMaterialStorageLocationInfosBatch", value = "/batch/{materialStorageLocationInfosToRemove}")
     @ResponseBody
-    public ResponseEntity<?> MaterialCatalogsItemStorageLocationsThymeleafController.removeFromStorageLocationsBatch(@ModelAttribute MaterialCatalog materialCatalog, @PathVariable("storageLocationsToRemove") Collection<Long> storageLocationsToRemove) {
-        getMaterialCatalogService().removeFromStorageLocations(materialCatalog, storageLocationsToRemove);
+    public ResponseEntity<?> MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.removeFromMaterialStorageLocationInfosBatch(@ModelAttribute MaterialCatalog materialCatalog, @PathVariable("materialStorageLocationInfosToRemove") Collection<Long> materialStorageLocationInfosToRemove) {
+        getMaterialCatalogService().removeFromMaterialStorageLocationInfos(materialCatalog, materialStorageLocationInfosToRemove);
         return ResponseEntity.ok().build();
     }
     
@@ -321,17 +321,17 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
      * TODO Auto-generated method documentation
      * 
      * @param materialCatalog
-     * @param storageLocations
+     * @param materialStorageLocationInfos
      * @param version
      * @param concurrencyControl
      * @param model
      * @return ModelAndView
      */
     @PostMapping(name = "create")
-    public ModelAndView MaterialCatalogsItemStorageLocationsThymeleafController.create(@ModelAttribute MaterialCatalog materialCatalog, @RequestParam(value = "storageLocationsIds", required = false) List<Long> storageLocations, @RequestParam("parentVersion") Long version, @RequestParam(value = "concurrency", required = false, defaultValue = "") String concurrencyControl, Model model) {
+    public ModelAndView MaterialCatalogsItemMaterialStorageLocationInfosThymeleafController.create(@ModelAttribute MaterialCatalog materialCatalog, @RequestParam(value = "materialStorageLocationInfosIds", required = false) List<Long> materialStorageLocationInfos, @RequestParam("parentVersion") Long version, @RequestParam(value = "concurrency", required = false, defaultValue = "") String concurrencyControl, Model model) {
         // Remove empty values
-        if (storageLocations != null) {
-            for (Iterator<Long> iterator = storageLocations.iterator(); iterator.hasNext();) {
+        if (materialStorageLocationInfos != null) {
+            for (Iterator<Long> iterator = materialStorageLocationInfos.iterator(); iterator.hasNext();) {
                 if (iterator.next() == null) {
                     iterator.remove();
                 }
@@ -342,25 +342,25 @@ privileged aspect MaterialCatalogsItemStorageLocationsThymeleafController_Roo_Th
             populateForm(model);
             // Obtain the selected books and include them in the author that will be 
             // included in the view
-            if (storageLocations != null) {
-                materialCatalog.setStorageLocations(new HashSet<StorageLocation>(getStorageLocationService().findAll(storageLocations)));
+            if (materialStorageLocationInfos != null) {
+                materialCatalog.setMaterialStorageLocationInfos(new HashSet<MaterialStorageLocationInfo>(getMaterialStorageLocationInfoService().findAll(materialStorageLocationInfos)));
             }else{
-                materialCatalog.setStorageLocations(new HashSet<StorageLocation>());
+                materialCatalog.setMaterialStorageLocationInfos(new HashSet<MaterialStorageLocationInfo>());
             }
             // Reset the version to prevent update
              materialCatalog.setVersion(version);
             // Include the updated element in the model
             model.addAttribute("materialCatalog", materialCatalog);
             model.addAttribute("concurrency", true);
-            return new ModelAndView("materialcatalogs/storageLocations/create");
+            return new ModelAndView("materialcatalogs/materialStorageLocationInfos/create");
         }else if(!Objects.equals(version, materialCatalog.getVersion()) && "discard".equals(concurrencyControl)){
             populateForm(model);
             // Provide the original element from the Database
             model.addAttribute("materialCatalog", materialCatalog);
             model.addAttribute("concurrency", false);
-            return new ModelAndView("materialcatalogs/storageLocations/create");
+            return new ModelAndView("materialcatalogs/materialStorageLocationInfos/create");
         }
-        getMaterialCatalogService().setStorageLocations(materialCatalog,storageLocations);
+        getMaterialCatalogService().setMaterialStorageLocationInfos(materialCatalog,materialStorageLocationInfos);
         return new ModelAndView("redirect:" + getCollectionLink().to(MaterialCatalogsCollectionThymeleafLinkFactory.LIST).toUriString());
     }
     

@@ -11,6 +11,7 @@ import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.master.MaterialVendorInfo;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.MaterialStorageLocationInfo;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 import io.springlets.format.EntityFormat;
@@ -37,6 +38,32 @@ privileged aspect MaterialCatalog_Roo_Jpa_Entity {
      * 
      */
     public static final String MaterialCatalog.ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE = "The given Iterable of items to add can't be null!";
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialStorageLocationInfosToAdd
+     */
+    public void MaterialCatalog.addToMaterialStorageLocationInfos(Iterable<MaterialStorageLocationInfo> materialStorageLocationInfosToAdd) {
+        Assert.notNull(materialStorageLocationInfosToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (MaterialStorageLocationInfo item : materialStorageLocationInfosToAdd) {
+            this.materialStorageLocationInfos.add(item);
+            item.setMaterialCatalog(this);
+        }
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialStorageLocationInfosToRemove
+     */
+    public void MaterialCatalog.removeFromMaterialStorageLocationInfos(Iterable<MaterialStorageLocationInfo> materialStorageLocationInfosToRemove) {
+        Assert.notNull(materialStorageLocationInfosToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (MaterialStorageLocationInfo item : materialStorageLocationInfosToRemove) {
+            this.materialStorageLocationInfos.remove(item);
+            item.setMaterialCatalog(null);
+        }
+    }
     
     /**
      * TODO Auto-generated method documentation

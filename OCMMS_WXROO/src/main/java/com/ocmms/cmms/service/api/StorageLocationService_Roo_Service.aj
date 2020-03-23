@@ -3,7 +3,6 @@
 
 package com.ocmms.cmms.service.api;
 
-import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.service.api.StorageLocationService;
@@ -132,6 +131,33 @@ privileged aspect StorageLocationService_Roo_Service {
      * TODO Auto-generated method documentation
      * 
      * @param storageLocation
+     * @param materialStorageLocationInfosToAdd
+     * @return StorageLocation
+     */
+    public abstract StorageLocation StorageLocationService.addToMaterialStorageLocationInfos(StorageLocation storageLocation, Iterable<Long> materialStorageLocationInfosToAdd);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
+     * @param materialStorageLocationInfosToRemove
+     * @return StorageLocation
+     */
+    public abstract StorageLocation StorageLocationService.removeFromMaterialStorageLocationInfos(StorageLocation storageLocation, Iterable<Long> materialStorageLocationInfosToRemove);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
+     * @param materialStorageLocationInfos
+     * @return StorageLocation
+     */
+    public abstract StorageLocation StorageLocationService.setMaterialStorageLocationInfos(StorageLocation storageLocation, Iterable<Long> materialStorageLocationInfos);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
      * @param outstockDetailsToAdd
      * @return StorageLocation
      */
@@ -158,30 +184,12 @@ privileged aspect StorageLocationService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialCatalog
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<StorageLocation> StorageLocationService.findByMaterialCatalog(MaterialCatalog materialCatalog, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param warehouse
      * @param globalSearch
      * @param pageable
      * @return Page
      */
     public abstract Page<StorageLocation> StorageLocationService.findByWarehouse(Warehouse warehouse, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialCatalog
-     * @return Long
-     */
-    public abstract long StorageLocationService.countByMaterialCatalog(MaterialCatalog materialCatalog);
     
     /**
      * TODO Auto-generated method documentation
