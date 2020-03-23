@@ -4,8 +4,11 @@
 package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
+import com.ocmms.cmms.model.mm.storage.MaterialStorageLocationInfo;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.repository.MaterialStorageLocationInfoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect MaterialStorageLocationInfoRepository_Roo_Jpa_Repository {
@@ -27,5 +30,24 @@ privileged aspect MaterialStorageLocationInfoRepository_Roo_Jpa_Repository {
      * @return Long
      */
     public abstract long MaterialStorageLocationInfoRepository.countByStorageLocation(StorageLocation storageLocation);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param storageLocation
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<MaterialStorageLocationInfo> MaterialStorageLocationInfoRepository.findByMaterialCatalogAndStorageLocation(MaterialCatalog materialCatalog, StorageLocation storageLocation, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param storageLocation
+     * @return Long
+     */
+    public abstract long MaterialStorageLocationInfoRepository.countByMaterialCatalogAndStorageLocation(MaterialCatalog materialCatalog, StorageLocation storageLocation);
     
 }

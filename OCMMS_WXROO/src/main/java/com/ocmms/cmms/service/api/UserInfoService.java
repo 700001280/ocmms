@@ -17,9 +17,9 @@ public interface UserInfoService{
 
 	public Boolean checkCurrentEmployeeRole(String role);
 	
-	public Boolean addMaterialInstockQuantity(MaterialInstockDetail materialInstockDetail);
+	public Boolean handleInstock(MaterialInstockDetail materialInstockDetail);
 	
-	public Boolean subMaterialOutstockQuantity(MaterialOutstockDetail materialOutstockDetail);
+	public Boolean handleOutstock(MaterialOutstockDetail materialOutstockDetail);
 	
 	public String getFileSavePath();	
 	

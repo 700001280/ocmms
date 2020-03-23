@@ -9,10 +9,12 @@ import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.MaterialPlantInfo;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import com.ocmms.cmms.model.mm.storage.MaterialOutstockDetail;
+import com.ocmms.cmms.model.mm.storage.MaterialStorageLocationInfo;
 import com.ocmms.cmms.repository.EmployeeRepository;
 import com.ocmms.cmms.repository.MaterialPlantInfoRepository;
 import com.ocmms.cmms.service.api.EmployeeService;
 import com.ocmms.cmms.service.api.MaterialPlantInfoService;
+import com.ocmms.cmms.service.api.MaterialStorageLocationInfoService;
 import com.ocmms.cmms.service.api.RecordStatusService;
 import com.ocmms.cmms.service.api.UserInfoService;
 
@@ -57,6 +59,9 @@ public class UserInfoServiceImpl implements UserInfoService {
 	
 	@Autowired
 	private RecordStatusService recordStatusService;
+	
+	@Autowired
+	private MaterialStorageLocationInfoService materialStorageLocationInfoService;
 	
 
 	@Value("${spring.application.upload.savefilepath}")
@@ -111,7 +116,15 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	}
 
-	public Boolean addMaterialInstockQuantity(MaterialInstockDetail materialInstockDetail) {
+	public Boolean handleInstock(MaterialInstockDetail materialInstockDetail) {
+		return addMaterialInstockQuantityToOrganization(materialInstockDetail)&&addMaterialInstockQuantityToStorageLocation( materialInstockDetail);
+	}
+	
+	public Boolean handleOutstock(MaterialOutstockDetail materialOutstockDetail) {
+		return subMaterialOutstockQuantityToOrganization(materialOutstockDetail)&&subMaterialOutstockQuantityToStorageLocation( materialOutstockDetail);
+	}
+	
+	public Boolean addMaterialInstockQuantityToOrganization(MaterialInstockDetail materialInstockDetail) {
 		Long count=materialPlantInfoService.countByMaterialCatalogAndOrganization(materialInstockDetail.getMaterialCatalog(), materialInstockDetail.getReceiver().getOrganization());
 		logger.info("count {}",count);
 		MaterialPlantInfo materialPlantInfo;
@@ -144,7 +157,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return true;		
 	}
 
-	public Boolean subMaterialOutstockQuantity(MaterialOutstockDetail materialOutstockDetail) {
+	public Boolean subMaterialOutstockQuantityToOrganization(MaterialOutstockDetail materialOutstockDetail) {
 		Long count=materialPlantInfoService.countByMaterialCatalogAndOrganization(materialOutstockDetail.getMaterialCatalog(), materialOutstockDetail.getKeeper().getOrganization());
 		if(count>0) {
 			Page<MaterialPlantInfo> materialPlantInfoes=materialPlantInfoService.findByMaterialCatalogAndOrganization(materialOutstockDetail.getMaterialCatalog(),  materialOutstockDetail.getReceiver().getOrganization(),new PageRequest(0, 10));
@@ -152,6 +165,49 @@ public class UserInfoServiceImpl implements UserInfoService {
 			if(materialPlantInfo.getStock().compareTo(materialOutstockDetail.getOutstockQuantity())>-1) {
 				materialPlantInfo.setStock(materialPlantInfo.getStock().subtract(materialOutstockDetail.getOutstockQuantity()));
 				materialPlantInfoService.save(materialPlantInfo);
+				return true;	
+			}else {
+				return false;
+			}		
+				
+		}else {
+			return false;
+		}		
+	}
+	
+	
+	
+	public Boolean addMaterialInstockQuantityToStorageLocation(MaterialInstockDetail materialInstockDetail) {
+		Long count=materialStorageLocationInfoService.countByMaterialCatalogAndStorageLocation(materialInstockDetail.getMaterialCatalog(), materialInstockDetail.getStorageLocation());
+		logger.info("count {}",count);
+		MaterialStorageLocationInfo materialStorageLocationInfo;
+		if(count>0) {
+			Page<MaterialStorageLocationInfo> materialStorageLocationInfoes=materialStorageLocationInfoService.findByMaterialCatalogAndStorageLocation(materialInstockDetail.getMaterialCatalog(), materialInstockDetail.getStorageLocation(),new PageRequest(0, 10));
+			materialStorageLocationInfo=materialStorageLocationInfoes.getContent().get(0);
+			materialStorageLocationInfo.setStock(materialStorageLocationInfo.getStock().add(materialInstockDetail.getQuantity()));
+			materialStorageLocationInfoService.save(materialStorageLocationInfo);
+			logger.info("count >0");	
+		}else {
+			materialStorageLocationInfo=new MaterialStorageLocationInfo();
+			materialStorageLocationInfo.setMaterialCatalog(materialInstockDetail.getMaterialCatalog());
+			materialStorageLocationInfo.setStorageLocation(materialInstockDetail.getStorageLocation());
+			materialStorageLocationInfo.setStock(materialInstockDetail.getQuantity());			
+			materialStorageLocationInfo.setVersion(1L);
+			materialStorageLocationInfo.setRecordStatus(recordStatusService.findOne(-6L));
+			materialStorageLocationInfoService.save(materialStorageLocationInfo);				
+			logger.info("count <0");
+		}
+		return true;		
+	}
+
+	public Boolean subMaterialOutstockQuantityToStorageLocation(MaterialOutstockDetail materialOutstockDetail) {
+		Long count=materialStorageLocationInfoService.countByMaterialCatalogAndStorageLocation(materialOutstockDetail.getMaterialCatalog(), materialOutstockDetail.getStorageLocation());
+		if(count>0) {
+			Page<MaterialStorageLocationInfo> materialStorageLocationInfoes=materialStorageLocationInfoService.findByMaterialCatalogAndStorageLocation(materialOutstockDetail.getMaterialCatalog(),  materialOutstockDetail.getStorageLocation(),new PageRequest(0, 10));
+			MaterialStorageLocationInfo materialStorageLocationInfo=materialStorageLocationInfoes.getContent().get(0);
+			if(materialStorageLocationInfo.getStock().compareTo(materialOutstockDetail.getOutstockQuantity())>-1) {
+				materialStorageLocationInfo.setStock(materialStorageLocationInfo.getStock().subtract(materialOutstockDetail.getOutstockQuantity()));
+				materialStorageLocationInfoService.save(materialStorageLocationInfo);
 				return true;	
 			}else {
 				return false;

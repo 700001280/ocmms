@@ -3,7 +3,6 @@
 
 package com.ocmms.cmms.repository;
 
-import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.QStorageLocation;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
@@ -33,12 +32,6 @@ privileged aspect StorageLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
      * 
      */
     public static final String StorageLocationRepositoryImpl.LOCATION = "location";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String StorageLocationRepositoryImpl.MATERIAL_CATALOG = "materialCatalog";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -95,13 +88,12 @@ privileged aspect StorageLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<StorageLocation> query = from(storageLocation);
         
-        Path<?>[] paths = new Path<?>[] {storageLocation.warehouse,storageLocation.location,storageLocation.materialCatalog,storageLocation.binName,storageLocation.description,storageLocation.recordStatus,storageLocation.createdDate,storageLocation.createdBy,storageLocation.lastModifiedDate,storageLocation.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {storageLocation.warehouse,storageLocation.location,storageLocation.binName,storageLocation.description,storageLocation.recordStatus,storageLocation.createdDate,storageLocation.createdBy,storageLocation.lastModifiedDate,storageLocation.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(WAREHOUSE, storageLocation.warehouse)
 			.map(LOCATION, storageLocation.location)
-			.map(MATERIAL_CATALOG, storageLocation.materialCatalog)
 			.map(BIN_NAME, storageLocation.binName)
 			.map(DESCRIPTION, storageLocation.description)
 			.map(RECORD_STATUS, storageLocation.recordStatus)
@@ -130,7 +122,7 @@ privileged aspect StorageLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<StorageLocation> query = from(storageLocation);
         
-        Path<?>[] paths = new Path<?>[] {storageLocation.warehouse,storageLocation.location,storageLocation.materialCatalog,storageLocation.binName,storageLocation.description,storageLocation.recordStatus,storageLocation.createdDate,storageLocation.createdBy,storageLocation.lastModifiedDate,storageLocation.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {storageLocation.warehouse,storageLocation.location,storageLocation.binName,storageLocation.description,storageLocation.recordStatus,storageLocation.createdDate,storageLocation.createdBy,storageLocation.lastModifiedDate,storageLocation.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -139,45 +131,6 @@ privileged aspect StorageLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
         AttributeMappingBuilder mapping = buildMapper()
 			.map(WAREHOUSE, storageLocation.warehouse)
 			.map(LOCATION, storageLocation.location)
-			.map(MATERIAL_CATALOG, storageLocation.materialCatalog)
-			.map(BIN_NAME, storageLocation.binName)
-			.map(DESCRIPTION, storageLocation.description)
-			.map(RECORD_STATUS, storageLocation.recordStatus)
-			.map(CREATED_DATE, storageLocation.createdDate)
-			.map(CREATED_BY, storageLocation.createdBy)
-			.map(LAST_MODIFIED_DATE, storageLocation.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, storageLocation.lastModifiedBy);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, storageLocation);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialCatalog
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<StorageLocation> StorageLocationRepositoryImpl.findByMaterialCatalog(MaterialCatalog materialCatalog, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QStorageLocation storageLocation = QStorageLocation.storageLocation;
-        
-        JPQLQuery<StorageLocation> query = from(storageLocation);
-        
-        Assert.notNull(materialCatalog, "materialCatalog is required");
-        
-        query.where(storageLocation.materialCatalog.eq(materialCatalog));
-        Path<?>[] paths = new Path<?>[] {storageLocation.warehouse,storageLocation.location,storageLocation.materialCatalog,storageLocation.binName,storageLocation.description,storageLocation.recordStatus,storageLocation.createdDate,storageLocation.createdBy,storageLocation.lastModifiedDate,storageLocation.lastModifiedBy};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(WAREHOUSE, storageLocation.warehouse)
-			.map(LOCATION, storageLocation.location)
-			.map(MATERIAL_CATALOG, storageLocation.materialCatalog)
 			.map(BIN_NAME, storageLocation.binName)
 			.map(DESCRIPTION, storageLocation.description)
 			.map(RECORD_STATUS, storageLocation.recordStatus)
@@ -209,13 +162,12 @@ privileged aspect StorageLocationRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(warehouse, "warehouse is required");
         
         query.where(storageLocation.warehouse.eq(warehouse));
-        Path<?>[] paths = new Path<?>[] {storageLocation.warehouse,storageLocation.location,storageLocation.materialCatalog,storageLocation.binName,storageLocation.description,storageLocation.recordStatus,storageLocation.createdDate,storageLocation.createdBy,storageLocation.lastModifiedDate,storageLocation.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {storageLocation.warehouse,storageLocation.location,storageLocation.binName,storageLocation.description,storageLocation.recordStatus,storageLocation.createdDate,storageLocation.createdBy,storageLocation.lastModifiedDate,storageLocation.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(WAREHOUSE, storageLocation.warehouse)
 			.map(LOCATION, storageLocation.location)
-			.map(MATERIAL_CATALOG, storageLocation.materialCatalog)
 			.map(BIN_NAME, storageLocation.binName)
 			.map(DESCRIPTION, storageLocation.description)
 			.map(RECORD_STATUS, storageLocation.recordStatus)

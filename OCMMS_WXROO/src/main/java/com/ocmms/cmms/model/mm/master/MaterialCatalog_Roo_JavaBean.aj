@@ -15,8 +15,8 @@ import com.ocmms.cmms.model.mm.master.MaterialType;
 import com.ocmms.cmms.model.mm.master.MaterialVendorInfo;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.MaterialStorageLocationInfo;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
-import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.pm.technicalobject.BillOfMaterial;
 import java.util.Objects;
 import java.util.Set;
@@ -224,22 +224,22 @@ privileged aspect MaterialCatalog_Roo_JavaBean {
     }
     
     /**
-     * Gets storageLocations value
+     * Gets materialStorageLocationInfos value
      * 
      * @return Set
      */
-    public Set<StorageLocation> MaterialCatalog.getStorageLocations() {
-        return this.storageLocations;
+    public Set<MaterialStorageLocationInfo> MaterialCatalog.getMaterialStorageLocationInfos() {
+        return this.materialStorageLocationInfos;
     }
     
     /**
-     * Sets storageLocations value
+     * Sets materialStorageLocationInfos value
      * 
-     * @param storageLocations
+     * @param materialStorageLocationInfos
      * @return MaterialCatalog
      */
-    public MaterialCatalog MaterialCatalog.setStorageLocations(Set<StorageLocation> storageLocations) {
-        this.storageLocations = storageLocations;
+    public MaterialCatalog MaterialCatalog.setMaterialStorageLocationInfos(Set<MaterialStorageLocationInfo> materialStorageLocationInfos) {
+        this.materialStorageLocationInfos = materialStorageLocationInfos;
         return this;
     }
     

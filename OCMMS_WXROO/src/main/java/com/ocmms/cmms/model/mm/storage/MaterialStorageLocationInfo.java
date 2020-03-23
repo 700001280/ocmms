@@ -82,7 +82,7 @@ public class MaterialStorageLocationInfo {
      *
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "StorageLocation")
+    @JoinColumn(name = "STORAGELOCATION")
     @EntityFormat
     private StorageLocation storageLocation;
 
@@ -90,7 +90,7 @@ public class MaterialStorageLocationInfo {
      * TODO Auto-generated attribute documentation
      *
      */
-    @Column(name = "stock", columnDefinition = "Decimal(10,2) default '0.00'")
+    @Column(name = "STOCK", columnDefinition = "Decimal(10,2) default '0.00'")
     @NumberFormat
     @DecimalMin("0.00")
     private BigDecimal stock;

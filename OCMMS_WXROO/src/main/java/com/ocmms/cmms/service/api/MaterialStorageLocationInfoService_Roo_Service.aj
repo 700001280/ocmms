@@ -137,4 +137,23 @@ privileged aspect MaterialStorageLocationInfoService_Roo_Service {
      */
     public abstract long MaterialStorageLocationInfoService.countByStorageLocation(StorageLocation storageLocation);
     
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param storageLocation
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<MaterialStorageLocationInfo> MaterialStorageLocationInfoService.findByMaterialCatalogAndStorageLocation(MaterialCatalog materialCatalog, StorageLocation storageLocation, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialCatalog
+     * @param storageLocation
+     * @return Long
+     */
+    public abstract long MaterialStorageLocationInfoService.countByMaterialCatalogAndStorageLocation(MaterialCatalog materialCatalog, StorageLocation storageLocation);
+    
 }

@@ -3,13 +3,14 @@
 
 package com.ocmms.cmms.service.impl;
 
-import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.MaterialStorageLocationInfo;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
 import com.ocmms.cmms.repository.StorageLocationRepository;
 import com.ocmms.cmms.service.api.InstockDetailService;
+import com.ocmms.cmms.service.api.MaterialStorageLocationInfoService;
 import com.ocmms.cmms.service.api.OutstockDetailService;
 import com.ocmms.cmms.service.impl.StorageLocationServiceImpl;
 import io.springlets.data.domain.GlobalSearch;
@@ -48,6 +49,12 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
+    private MaterialStorageLocationInfoService StorageLocationServiceImpl.materialStorageLocationInfoService;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     private OutstockDetailService StorageLocationServiceImpl.outstockDetailService;
     
     /**
@@ -55,12 +62,14 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
      * 
      * @param storageLocationRepository
      * @param instockDetailService
+     * @param materialStorageLocationInfoService
      * @param outstockDetailService
      */
     @Autowired
-    public StorageLocationServiceImpl.new(StorageLocationRepository storageLocationRepository, @Lazy InstockDetailService instockDetailService, @Lazy OutstockDetailService outstockDetailService) {
+    public StorageLocationServiceImpl.new(StorageLocationRepository storageLocationRepository, @Lazy InstockDetailService instockDetailService, @Lazy MaterialStorageLocationInfoService materialStorageLocationInfoService, @Lazy OutstockDetailService outstockDetailService) {
         setStorageLocationRepository(storageLocationRepository);
         setInstockDetailService(instockDetailService);
+        setMaterialStorageLocationInfoService(materialStorageLocationInfoService);
         setOutstockDetailService(outstockDetailService);
     }
 
@@ -98,6 +107,24 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
      */
     public void StorageLocationServiceImpl.setInstockDetailService(InstockDetailService instockDetailService) {
         this.instockDetailService = instockDetailService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return MaterialStorageLocationInfoService
+     */
+    public MaterialStorageLocationInfoService StorageLocationServiceImpl.getMaterialStorageLocationInfoService() {
+        return materialStorageLocationInfoService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param materialStorageLocationInfoService
+     */
+    public void StorageLocationServiceImpl.setMaterialStorageLocationInfoService(MaterialStorageLocationInfoService materialStorageLocationInfoService) {
+        this.materialStorageLocationInfoService = materialStorageLocationInfoService;
     }
     
     /**
@@ -150,6 +177,20 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param storageLocation
+     * @param materialStorageLocationInfosToAdd
+     * @return StorageLocation
+     */
+    @Transactional
+    public StorageLocation StorageLocationServiceImpl.addToMaterialStorageLocationInfos(StorageLocation storageLocation, Iterable<Long> materialStorageLocationInfosToAdd) {
+        List<MaterialStorageLocationInfo> materialStorageLocationInfos = getMaterialStorageLocationInfoService().findAll(materialStorageLocationInfosToAdd);
+        storageLocation.addToMaterialStorageLocationInfos(materialStorageLocationInfos);
+        return getStorageLocationRepository().save(storageLocation);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
      * @param outstockDetailsToAdd
      * @return StorageLocation
      */
@@ -171,6 +212,20 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
     public StorageLocation StorageLocationServiceImpl.removeFromInstockDetails(StorageLocation storageLocation, Iterable<Long> instockDetailsToRemove) {
         List<InstockDetail> instockDetails = getInstockDetailService().findAll(instockDetailsToRemove);
         storageLocation.removeFromInstockDetails(instockDetails);
+        return getStorageLocationRepository().save(storageLocation);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
+     * @param materialStorageLocationInfosToRemove
+     * @return StorageLocation
+     */
+    @Transactional
+    public StorageLocation StorageLocationServiceImpl.removeFromMaterialStorageLocationInfos(StorageLocation storageLocation, Iterable<Long> materialStorageLocationInfosToRemove) {
+        List<MaterialStorageLocationInfo> materialStorageLocationInfos = getMaterialStorageLocationInfoService().findAll(materialStorageLocationInfosToRemove);
+        storageLocation.removeFromMaterialStorageLocationInfos(materialStorageLocationInfos);
         return getStorageLocationRepository().save(storageLocation);
     }
     
@@ -220,6 +275,34 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param storageLocation
+     * @param materialStorageLocationInfos
+     * @return StorageLocation
+     */
+    @Transactional
+    public StorageLocation StorageLocationServiceImpl.setMaterialStorageLocationInfos(StorageLocation storageLocation, Iterable<Long> materialStorageLocationInfos) {
+        List<MaterialStorageLocationInfo> items = getMaterialStorageLocationInfoService().findAll(materialStorageLocationInfos);
+        Set<MaterialStorageLocationInfo> currents = storageLocation.getMaterialStorageLocationInfos();
+        Set<MaterialStorageLocationInfo> toRemove = new HashSet<MaterialStorageLocationInfo>();
+        for (Iterator<MaterialStorageLocationInfo> iterator = currents.iterator(); iterator.hasNext();) {
+            MaterialStorageLocationInfo nextMaterialStorageLocationInfo = iterator.next();
+            if (items.contains(nextMaterialStorageLocationInfo)) {
+                items.remove(nextMaterialStorageLocationInfo);
+            } else {
+                toRemove.add(nextMaterialStorageLocationInfo);
+            }
+        }
+        storageLocation.removeFromMaterialStorageLocationInfos(toRemove);
+        storageLocation.addToMaterialStorageLocationInfos(items);
+        // Force the version update of the parent side to know that the parent has changed
+        // because it has new books assigned
+        storageLocation.setVersion(storageLocation.getVersion() + 1);
+        return getStorageLocationRepository().save(storageLocation);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param storageLocation
      * @param outstockDetails
      * @return StorageLocation
      */
@@ -251,11 +334,6 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void StorageLocationServiceImpl.delete(StorageLocation storageLocation) {
-        // Clear bidirectional many-to-one child relationship with MaterialCatalog
-        if (storageLocation.getMaterialCatalog() != null) {
-            storageLocation.getMaterialCatalog().getStorageLocations().remove(storageLocation);
-        }
-        
         // Clear bidirectional many-to-one child relationship with Warehouse
         if (storageLocation.getWarehouse() != null) {
             storageLocation.getWarehouse().getStorageLocations().remove(storageLocation);
@@ -263,6 +341,11 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
         
         // Clear bidirectional one-to-many parent relationship with InstockDetail
         for (InstockDetail item : storageLocation.getInstockDetails()) {
+            item.setStorageLocation(null);
+        }
+        
+        // Clear bidirectional one-to-many parent relationship with MaterialStorageLocationInfo
+        for (MaterialStorageLocationInfo item : storageLocation.getMaterialStorageLocationInfos()) {
             item.setStorageLocation(null);
         }
         
@@ -381,18 +464,6 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialCatalog
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<StorageLocation> StorageLocationServiceImpl.findByMaterialCatalog(MaterialCatalog materialCatalog, GlobalSearch globalSearch, Pageable pageable) {
-        return getStorageLocationRepository().findByMaterialCatalog(materialCatalog, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param warehouse
      * @param globalSearch
      * @param pageable
@@ -400,16 +471,6 @@ privileged aspect StorageLocationServiceImpl_Roo_Service_Impl {
      */
     public Page<StorageLocation> StorageLocationServiceImpl.findByWarehouse(Warehouse warehouse, GlobalSearch globalSearch, Pageable pageable) {
         return getStorageLocationRepository().findByWarehouse(warehouse, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialCatalog
-     * @return Long
-     */
-    public long StorageLocationServiceImpl.countByMaterialCatalog(MaterialCatalog materialCatalog) {
-        return getStorageLocationRepository().countByMaterialCatalog(materialCatalog);
     }
     
     /**

@@ -3,8 +3,8 @@
 
 package com.ocmms.cmms.model.mm.storage;
 
-import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.storage.InstockDetail;
+import com.ocmms.cmms.model.mm.storage.MaterialStorageLocationInfo;
 import com.ocmms.cmms.model.mm.storage.OutstockDetail;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.mm.storage.Warehouse;
@@ -72,26 +72,6 @@ privileged aspect StorageLocation_Roo_JavaBean {
      */
     public StorageLocation StorageLocation.setLocation(String location) {
         this.location = location;
-        return this;
-    }
-    
-    /**
-     * Gets materialCatalog value
-     * 
-     * @return MaterialCatalog
-     */
-    public MaterialCatalog StorageLocation.getMaterialCatalog() {
-        return this.materialCatalog;
-    }
-    
-    /**
-     * Sets materialCatalog value
-     * 
-     * @param materialCatalog
-     * @return StorageLocation
-     */
-    public StorageLocation StorageLocation.setMaterialCatalog(MaterialCatalog materialCatalog) {
-        this.materialCatalog = materialCatalog;
         return this;
     }
     
@@ -172,6 +152,26 @@ privileged aspect StorageLocation_Roo_JavaBean {
      */
     public StorageLocation StorageLocation.setOutstockDetails(Set<OutstockDetail> outstockDetails) {
         this.outstockDetails = outstockDetails;
+        return this;
+    }
+    
+    /**
+     * Gets materialStorageLocationInfos value
+     * 
+     * @return Set
+     */
+    public Set<MaterialStorageLocationInfo> StorageLocation.getMaterialStorageLocationInfos() {
+        return this.materialStorageLocationInfos;
+    }
+    
+    /**
+     * Sets materialStorageLocationInfos value
+     * 
+     * @param materialStorageLocationInfos
+     * @return StorageLocation
+     */
+    public StorageLocation StorageLocation.setMaterialStorageLocationInfos(Set<MaterialStorageLocationInfo> materialStorageLocationInfos) {
+        this.materialStorageLocationInfos = materialStorageLocationInfos;
         return this;
     }
     
