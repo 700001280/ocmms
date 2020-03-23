@@ -70,13 +70,13 @@ public class UserInfoServiceImpl implements UserInfoService {
 	public UserLogin getCurrentUser() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName();
-		logger.info("get authentication name: " + name);
+		logger.debug("get authentication name: " + name);
 		if (name != null) {
 			UserLogin currentUser = userLoginService.findByUsername(name);
-			logger.info("get userLogin name: " + currentUser.toString());
+			logger.debug("get userLogin name: " + currentUser.toString());
 			return currentUser;
 		} else {
-			logger.info("get userLogin name: null");
+			logger.debug("get userLogin name: null");
 			return null;
 		}
 	}
@@ -85,7 +85,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		String username = getCurrentUser().getUsername();
 		Employee employee = employeeService.findOneByUsername(username);
 		String email = employee.getEmail();
-		logger.info("getUserEmail: {} ", email);
+		logger.debug("getUserEmail: {} ", email);
 		return email;
 
 	}
@@ -111,7 +111,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	public String getFileSavePath() {
-		logger.info("fileSavePath: {} ", fileSavePath);
+		logger.debug("fileSavePath: {} ", fileSavePath);
 		return fileSavePath;
 
 	}
@@ -125,15 +125,15 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 	
 	public Boolean addMaterialInstockQuantityToOrganization(MaterialInstockDetail materialInstockDetail) {
-		Long count=materialPlantInfoService.countByMaterialCatalogAndOrganization(materialInstockDetail.getMaterialCatalog(), materialInstockDetail.getReceiver().getOrganization());
-		logger.info("count {}",count);
+		Long count=materialPlantInfoService.countByMaterialCatalogAndOrganization(materialInstockDetail.getMaterialCatalog(), getCurrentEmployee().getOrganization());
+		logger.debug("count {}",count);
 		MaterialPlantInfo materialPlantInfo;
 		if(count>0) {
 			Page<MaterialPlantInfo> materialPlantInfoes=materialPlantInfoService.findByMaterialCatalogAndOrganization(materialInstockDetail.getMaterialCatalog(), materialInstockDetail.getReceiver().getOrganization(),new PageRequest(0, 10));
 			materialPlantInfo=materialPlantInfoes.getContent().get(0);
 			materialPlantInfo.setStock(materialPlantInfo.getStock().add(materialInstockDetail.getQuantity()));
 			materialPlantInfoService.save(materialPlantInfo);
-			logger.info("count >0");	
+			logger.debug("count >0");	
 		}else {
 			materialPlantInfo=new MaterialPlantInfo();
 			materialPlantInfo.setMaterialCatalog(materialInstockDetail.getMaterialCatalog());
@@ -150,15 +150,14 @@ public class UserInfoServiceImpl implements UserInfoService {
 			materialPlantInfo.setDocumentType("-");		
 			materialPlantInfo.setVersion(1L);
 			materialPlantInfo.setRecordStatus(recordStatusService.findOne(-7L));
-			MaterialPlantInfo newMaterialPlantInfo=materialPlantInfoService.save(materialPlantInfo);
-			logger.info("newMaterialPlantInfo {}", newMaterialPlantInfo.getId());			
-			logger.info("count <0");
+			MaterialPlantInfo newMaterialPlantInfo=materialPlantInfoService.save(materialPlantInfo);					
+			logger.debug("count <0");
 		}
 		return true;		
 	}
 
 	public Boolean subMaterialOutstockQuantityToOrganization(MaterialOutstockDetail materialOutstockDetail) {
-		Long count=materialPlantInfoService.countByMaterialCatalogAndOrganization(materialOutstockDetail.getMaterialCatalog(), materialOutstockDetail.getKeeper().getOrganization());
+		Long count=materialPlantInfoService.countByMaterialCatalogAndOrganization(materialOutstockDetail.getMaterialCatalog(), getCurrentEmployee().getOrganization());
 		if(count>0) {
 			Page<MaterialPlantInfo> materialPlantInfoes=materialPlantInfoService.findByMaterialCatalogAndOrganization(materialOutstockDetail.getMaterialCatalog(),  materialOutstockDetail.getReceiver().getOrganization(),new PageRequest(0, 10));
 			MaterialPlantInfo materialPlantInfo=materialPlantInfoes.getContent().get(0);
@@ -179,14 +178,14 @@ public class UserInfoServiceImpl implements UserInfoService {
 	
 	public Boolean addMaterialInstockQuantityToStorageLocation(MaterialInstockDetail materialInstockDetail) {
 		Long count=materialStorageLocationInfoService.countByMaterialCatalogAndStorageLocation(materialInstockDetail.getMaterialCatalog(), materialInstockDetail.getStorageLocation());
-		logger.info("count {}",count);
+		logger.debug("count {}",count);
 		MaterialStorageLocationInfo materialStorageLocationInfo;
 		if(count>0) {
 			Page<MaterialStorageLocationInfo> materialStorageLocationInfoes=materialStorageLocationInfoService.findByMaterialCatalogAndStorageLocation(materialInstockDetail.getMaterialCatalog(), materialInstockDetail.getStorageLocation(),new PageRequest(0, 10));
 			materialStorageLocationInfo=materialStorageLocationInfoes.getContent().get(0);
 			materialStorageLocationInfo.setStock(materialStorageLocationInfo.getStock().add(materialInstockDetail.getQuantity()));
 			materialStorageLocationInfoService.save(materialStorageLocationInfo);
-			logger.info("count >0");	
+			logger.debug("count >0");	
 		}else {
 			materialStorageLocationInfo=new MaterialStorageLocationInfo();
 			materialStorageLocationInfo.setMaterialCatalog(materialInstockDetail.getMaterialCatalog());
@@ -195,7 +194,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 			materialStorageLocationInfo.setVersion(1L);
 			materialStorageLocationInfo.setRecordStatus(recordStatusService.findOne(-6L));
 			materialStorageLocationInfoService.save(materialStorageLocationInfo);				
-			logger.info("count <0");
+			logger.debug("count <0");
 		}
 		return true;		
 	}

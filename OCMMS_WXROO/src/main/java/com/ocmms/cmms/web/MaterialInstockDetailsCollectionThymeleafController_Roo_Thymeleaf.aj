@@ -376,7 +376,7 @@ privileged aspect MaterialInstockDetailsCollectionThymeleafController_Roo_Thymel
         MaterialInstockDetail newMaterialInstockDetail = getMaterialInstockDetailService().save(materialInstockDetail);
         
         
-        if(getUserInfoService().addMaterialInstockQuantity(newMaterialInstockDetail)){
+        if(getUserInfoService().handleInstock(newMaterialInstockDetail)){
         	UriComponents showURI = getItemLink().to(MaterialInstockDetailsItemThymeleafLinkFactory.SHOW).with("materialInstockDetail", newMaterialInstockDetail.getId()).toUri();
             return new ModelAndView("redirect:" + showURI.toUriString());
         }else{

@@ -356,7 +356,13 @@ privileged aspect MaterialOutstockDetailsCollectionThymeleafController_Roo_Thyme
             
             return new ModelAndView("materialoutstockdetails/create");
         }
-        if(getUserInfoService().subMaterialOutstockQuantity(materialOutstockDetail)) {
+        
+        materialOutstockDetail.setOrganization(getUserInfoService().getCurrentEmployee().getOrganization());
+        
+        materialOutstockDetail.setKeeper(getUserInfoService().getCurrentEmployee());
+        materialOutstockDetail.setIssueDate(Calendar.getInstance());
+        
+        if(getUserInfoService().handleOutstock(materialOutstockDetail)) {
         	MaterialOutstockDetail newMaterialOutstockDetail = getMaterialOutstockDetailService().save(materialOutstockDetail);
             
             UriComponents showURI = getItemLink().to(MaterialOutstockDetailsItemThymeleafLinkFactory.SHOW).with("materialOutstockDetail", newMaterialOutstockDetail.getId()).toUri();

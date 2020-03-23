@@ -56,6 +56,12 @@ public class MaterialProcurementItemDetail extends ProcurementItemDetail{
 	@EntityFormat
 	private ProcurementRequest procurementRequest;
 	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@Column(name = "PRNUMBER")
+	private String prNumber;
 	
 	/**
 	 * TODO Auto-generated attribute documentation
@@ -70,11 +76,25 @@ public class MaterialProcurementItemDetail extends ProcurementItemDetail{
 	 * TODO Auto-generated attribute documentation
 	 *
 	 */
+	@Column(name = "PONUMBER")
+	private String poNumber;
+	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "MATERIALCATALOG")
 	@EntityFormat
 	private MaterialCatalog materialCatalog;
 		
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@Column(name = "MATERIAL")
+	private String material;
+	
 	/**
 	 * TODO Auto-generated attribute documentation
 	 *
