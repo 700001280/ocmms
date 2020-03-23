@@ -358,7 +358,15 @@ privileged aspect MaterialProcurementItemDetailsCollectionThymeleafController_Ro
         }
         materialProcurementItemDetail.setRequester(getUserInfoService().getCurrentEmployee());
         materialProcurementItemDetail.setSubmitDate(Calendar.getInstance());
-        
+        if(materialProcurementItemDetail.getProcurementRequest()!=null) {
+        	materialProcurementItemDetail.setPrNumber(materialProcurementItemDetail.getProcurementRequest().getRequestNumber());
+        }
+        if(materialProcurementItemDetail.getProcurementOrder()!=null) {
+        	materialProcurementItemDetail.setPoNumber(materialProcurementItemDetail.getProcurementOrder().getOrderNumber());
+        }
+        if(materialProcurementItemDetail.getMaterialCatalog()!=null) {
+        	materialProcurementItemDetail.setMaterial(materialProcurementItemDetail.getMaterialCatalog().getMaterialName());
+        }
         MaterialProcurementItemDetail newMaterialProcurementItemDetail = getMaterialProcurementItemDetailService().save(materialProcurementItemDetail);
         UriComponents showURI = getItemLink().to(MaterialProcurementItemDetailsItemThymeleafLinkFactory.SHOW).with("materialProcurementItemDetail", newMaterialProcurementItemDetail.getId()).toUri();
         return new ModelAndView("redirect:" + showURI.toUriString());

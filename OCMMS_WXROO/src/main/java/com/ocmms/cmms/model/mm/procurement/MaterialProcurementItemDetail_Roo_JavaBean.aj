@@ -55,6 +55,26 @@ privileged aspect MaterialProcurementItemDetail_Roo_JavaBean {
     }
     
     /**
+     * Gets prNumber value
+     * 
+     * @return String
+     */
+    public String MaterialProcurementItemDetail.getPrNumber() {
+        return this.prNumber;
+    }
+    
+    /**
+     * Sets prNumber value
+     * 
+     * @param prNumber
+     * @return MaterialProcurementItemDetail
+     */
+    public MaterialProcurementItemDetail MaterialProcurementItemDetail.setPrNumber(String prNumber) {
+        this.prNumber = prNumber;
+        return this;
+    }
+    
+    /**
      * Gets procurementOrder value
      * 
      * @return ProcurementOrder
@@ -75,6 +95,26 @@ privileged aspect MaterialProcurementItemDetail_Roo_JavaBean {
     }
     
     /**
+     * Gets poNumber value
+     * 
+     * @return String
+     */
+    public String MaterialProcurementItemDetail.getPoNumber() {
+        return this.poNumber;
+    }
+    
+    /**
+     * Sets poNumber value
+     * 
+     * @param poNumber
+     * @return MaterialProcurementItemDetail
+     */
+    public MaterialProcurementItemDetail MaterialProcurementItemDetail.setPoNumber(String poNumber) {
+        this.poNumber = poNumber;
+        return this;
+    }
+    
+    /**
      * Gets materialCatalog value
      * 
      * @return MaterialCatalog
@@ -91,6 +131,26 @@ privileged aspect MaterialProcurementItemDetail_Roo_JavaBean {
      */
     public MaterialProcurementItemDetail MaterialProcurementItemDetail.setMaterialCatalog(MaterialCatalog materialCatalog) {
         this.materialCatalog = materialCatalog;
+        return this;
+    }
+    
+    /**
+     * Gets material value
+     * 
+     * @return String
+     */
+    public String MaterialProcurementItemDetail.getMaterial() {
+        return this.material;
+    }
+    
+    /**
+     * Sets material value
+     * 
+     * @param material
+     * @return MaterialProcurementItemDetail
+     */
+    public MaterialProcurementItemDetail MaterialProcurementItemDetail.setMaterial(String material) {
+        this.material = material;
         return this;
     }
     
@@ -171,7 +231,10 @@ privileged aspect MaterialProcurementItemDetail_Roo_JavaBean {
      */
     public String MaterialProcurementItemDetail.toString() {
         return "MaterialProcurementItemDetail {" + 
-                "id='" + id + '\'' + "}" + super.toString();
+                "id='" + id + '\'' + 
+                ", prNumber='" + prNumber + '\'' + 
+                ", poNumber='" + poNumber + '\'' + 
+                ", material='" + material + '\'' + "}" + super.toString();
     }
     
 }
