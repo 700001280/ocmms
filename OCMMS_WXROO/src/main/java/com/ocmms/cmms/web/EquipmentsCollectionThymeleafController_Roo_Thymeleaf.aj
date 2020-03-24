@@ -65,7 +65,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponents;
-
+import java.util.HashMap;
+import java.util.Map;
 privileged aspect EquipmentsCollectionThymeleafController_Roo_Thymeleaf {
     
     declare @type: EquipmentsCollectionThymeleafController: @Controller;
@@ -490,7 +491,12 @@ privileged aspect EquipmentsCollectionThymeleafController_Roo_Thymeleaf {
     @GetMapping(name = "exportPdf", value = "/export/pdf")
     @ResponseBody
     public ResponseEntity<?> EquipmentsCollectionThymeleafController.exportPdf(GlobalSearch search, @PageableDefault(size = 2147483647) Pageable pageable, @RequestParam("datatablesColumns") String[] datatablesColumns, HttpServletResponse response, Locale locale) {
-        export(search, pageable, datatablesColumns, response, new JasperReportsPdfExporter(), "equipments_report.pdf", locale);
+    	Map<String, Object> parameters = new HashMap<>();
+        parameters.put("title", "EQUIPMENT TAG");   	
+   	customReportProcessor.exportEquipmentTemplate(search,pageable,
+   			response, new JasperReportsPdfExporter(), getEquipmentService(),
+   			parameters, locale);
+   	//export(search, pageable, datatablesColumns, response, new JasperReportsPdfExporter(), "equipments_report.pdf", locale);
         return ResponseEntity.ok().build();
     }
     
@@ -538,11 +544,9 @@ privileged aspect EquipmentsCollectionThymeleafController_Roo_Thymeleaf {
         }
         else if (columnName.equals("manufacturerSerialNumber")) {
             builder.addColumn(getMessageSource().getMessage("label_equipment_manufacturerserialnumber", null, "Manufacturer Serial Number", locale), "manufacturerSerialNumber", String.class.getName(), 100);
-        }
-        else if (columnName.equals("manufacturerPartNumber")) {
+        }else if (columnName.equals("manufacturerPartNumber")) {
             builder.addColumn(getMessageSource().getMessage("label_equipment_manufacturerpartnumber", null, "Manufacturer Part Number", locale), "manufacturerPartNumber", String.class.getName(), 100);
-        }
-        else if (columnName.equals("memo")) {
+        }else if (columnName.equals("memo")) {
             builder.addColumn(getMessageSource().getMessage("label_equipment_memo", null, "Memo", locale), "memo", String.class.getName(), 100);
         }
         else if (columnName.equals("version")) {
@@ -619,22 +623,19 @@ privileged aspect EquipmentsCollectionThymeleafController_Roo_Thymeleaf {
         }
         else if (columnName.equals("originalAssetId")) {
             builder.addColumn(getMessageSource().getMessage("label_equipment_originalassetid", null, "Original Asset Id", locale), "originalAssetId", String.class.getName(), 100);
-        }
-        }
-        catch (ColumnBuilderException e) {
+        }        
+        }catch (ColumnBuilderException e) {
             String errorMessage = getMessageSource().getMessage("error_exportingErrorException", 
                 new Object[] {StringUtils.substringAfterLast(fileName, ".").toUpperCase()}, 
                 String.format("Error while exporting data to StringUtils file", StringUtils.
                     substringAfterLast(fileName, ".").toUpperCase()), locale);
             throw new ExportingErrorException(errorMessage);
-        }
-        catch (ClassNotFoundException e) {
+        }catch (ClassNotFoundException e) {
             String errorMessage = getMessageSource().getMessage("error_exportingErrorException", 
                 new Object[] {StringUtils.substringAfterLast(fileName, ".").toUpperCase()}, 
                 String.format("Error while exporting data to StringUtils file", StringUtils.
                     substringAfterLast(fileName, ".").toUpperCase()), locale);
             throw new ExportingErrorException(errorMessage);
-        }
+      }
     }
-    
 }

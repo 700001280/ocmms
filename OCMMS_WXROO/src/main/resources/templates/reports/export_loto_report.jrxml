@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LotoOneReport" pageWidth="595" pageHeight="420" orientation="Landscape" columnWidth="567" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="7161010e-51d4-4619-b989-b3c1837bbe00">
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<property name="net.sf.jasperreports.components.barcode4j.image.producer" value="image"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<parameter name="reviewedBy" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="revisedBy" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="lotoTag" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="description" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="equipmentTag" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="functionLocation" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="equipmentLocation" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="version" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="source" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="sourceTag" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="device" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="location" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="method" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="verification" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="note" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="subReportObject" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="developedBy" class="com.ocmms.cmms.model.hrm.Employee"/>
+	<field name="reviewedBy" class="com.ocmms.cmms.model.hrm.Employee"/>
+	<field name="revisedBy" class="com.ocmms.cmms.model.hrm.Employee"/>
+	<field name="lotoTag" class="java.lang.String"/>
+	<field name="barUrl" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="equipment" class="com.ocmms.cmms.model.pm.technicalobject.Equipment"/>
+	<field name="note" class="java.lang.String"/>
+	<field name="version" class="java.lang.Long"/>
+	<field name="lotoDetails" class="java.util.Set"/>
+	<field name="nextAuditDate" class="java.util.Calendar"/>
+	<field name="lotoBaseInfo" class="com.ocmms.cmms.model.loto.LotoBaseInfo"/>
+	<variable name="lotoCount" class="java.lang.Integer"/>
+	<detail>
+		<band height="244" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout"/>
+			<rectangle>
+				<reportElement x="496" y="0" width="71" height="58" uuid="8f659a07-3b0f-44ba-aed6-54fa9b7e433d"/>
+			</rectangle>
+			<textField>
+				<reportElement x="30" y="58" width="110" height="18" uuid="2be6e264-2fee-4aae-a2e4-14e182f2dcde">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lotoTag}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="2" width="90" height="38" uuid="fd1fda8a-b309-4313-8365-51fb66e8983c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["https://www.ocmms.com/public/img/sabic.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="40" width="110" height="18" uuid="666dbcd5-f5b5-41a5-ad0e-78f92a61d53c">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lotoBaseInfo}.getOrganization().getOrgName()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="246" height="58" uuid="8a86bf20-f562-4e70-bec3-37f8d6b35abc">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lotoBaseInfo}.getTitle()]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="504" y="2" width="56" height="56" uuid="f9ee726b-906a-4855-a637-bb36d3fcf1ac">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA["LOTO"+$F{id}.toString()]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField>
+				<reportElement x="0" y="58" width="30" height="18" uuid="9784eaa1-77ec-4919-af16-7a3d3f2d9c1d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lotoTag}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="76" width="45" height="18" uuid="e2b4d9c7-5992-45ff-8c2a-f475d737517a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{functionLocation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="76" width="155" height="18" uuid="d791e3ac-4364-4df3-a4e0-598e06e98df3">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{equipment}.getFunctionalLocation().getLocation()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="58" width="45" height="18" uuid="9c7b9b46-7689-4d10-8e78-ac10f38fab18">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{equipmentTag}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="76" width="45" height="18" uuid="894c23c3-ac56-484d-b4cc-9cdf6c371ca7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{equipmentLocation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="245" y="76" width="181" height="18" uuid="b8e6d77a-3bc8-404f-9d44-68c578b045a4">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{equipment}.getPlantLocation().getLocation()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="58" width="97" height="18" uuid="0f5c0db7-88bc-4566-af0e-0fe3249cc994">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{equipment}.getTag()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Page">
+				<reportElement x="0" y="100" width="30" height="42" forecolor="#FA0E0A" uuid="10885c48-71f2-4b5a-9c2e-3d9d717a90c0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#080707"/>
+					<topPen lineWidth="1.0" lineColor="#050505"/>
+					<leftPen lineWidth="1.0" lineColor="#050505"/>
+					<bottomPen lineWidth="1.0" lineColor="#050505"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="27" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{lotoCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="100" width="70" height="42" uuid="a13b460c-1935-42ac-ae1a-7e8e5fee1135">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lotoBaseInfo}.getLotoCountReminder()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="140" y="100" width="427" height="15" forecolor="#0A0A09" backcolor="#FFF705" uuid="29db74a8-be62-418e-b823-72747e8f6ccc">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#080808"/>
+					<leftPen lineWidth="1.0" lineColor="#080808"/>
+					<bottomPen lineWidth="1.0" lineColor="#080808"/>
+					<rightPen lineWidth="1.0" lineColor="#080808"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{note}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="58" width="256" height="18" uuid="1de8988b-7d1a-4648-93b7-847e09f479f8">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="58" width="30" height="18" uuid="aa878cb4-4a62-4321-8a7b-6016fbdecad9">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="76" width="44" height="18" uuid="2bbd346f-ea87-4897-8c38-c3116eb6f5df">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{version}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="76" width="26" height="18" uuid="fca075c2-da3b-4a67-985c-36da2d0e1732">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{version}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="0" width="70" height="18" uuid="f397e3aa-e869-4acd-bfa5-16f98f879ad5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reviewedBy}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="18" width="70" height="40" uuid="9a976e62-b0a4-49b7-8775-c42052403afb">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reviewedBy}.getLastName()+", "+$F{reviewedBy}.getFirstName()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="18" width="70" height="40" uuid="0bdd268d-ef78-4a8e-a46a-7ef97142338c">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{revisedBy}.getLastName()+", "+$F{revisedBy}.getFirstName()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="0" width="70" height="18" uuid="da86b1e4-d9fa-437e-b527-26bc6fa74b0e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{revisedBy}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="496" y="76" width="71" height="18" uuid="9f40e9be-8676-4598-8a2f-ab96eae65506"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="140" y="115" width="427" height="27" backcolor="#F7EC19" uuid="b7bb65d4-fc50-420f-97c4-f252a683d58a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{note}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="30" y="100" width="40" height="42" uuid="03b7c246-dad2-43ee-9770-0a7c22d58be3"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<imageExpression><![CDATA["https://www.ocmms.com/public/img/loto.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="172" width="567" height="15" uuid="91b738cd-ecbf-4f9e-9f0d-00a4663d2d6e">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lotoBaseInfo}.getLotoExecution()]]></textFieldExpression>
+			</textField>
+			<subreport overflowType="Stretch">
+				<reportElement positionType="Float" x="1" y="188" width="564" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="3cc4feae-79d1-4a82-a9b8-80376ea8c0b7">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="sourceTag">
+					<subreportParameterExpression><![CDATA[$P{sourceTag}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="source">
+					<subreportParameterExpression><![CDATA[$P{source}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="device">
+					<subreportParameterExpression><![CDATA[$P{device}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="location">
+					<subreportParameterExpression><![CDATA[$P{location}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="method">
+					<subreportParameterExpression><![CDATA[$P{method}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="verification">
+					<subreportParameterExpression><![CDATA[$P{verification}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource
+                  ($F{lotoDetails})]]></dataSourceExpression>
+				<returnValue subreportVariable="REPORT_COUNT" toVariable="lotoCount"/>
+				<subreportExpression><![CDATA[$P{subReportObject}]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="142" width="567" height="15" uuid="b9f70955-307f-4565-a769-aecc03dab129">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lotoBaseInfo}.getPreparation()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="157" width="567" height="15" uuid="36e5c20c-b89c-452a-bb31-a82c5f8e8b3e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lotoBaseInfo}.getShutdown()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="0" y="228" width="567" height="15" uuid="5a564ab5-0a14-4663-9c9f-743c329c0307">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lotoBaseInfo}.getRestorationEnergySource()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="40">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="100" height="40" uuid="a6db5786-5c56-4c88-b32b-43790084753e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["https://www.ocmms.com/public/img/danger.png"]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="467" y="0" width="100" height="40" uuid="78e45451-7568-4357-9f51-0f29473f5c0a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["https://www.ocmms.com/public/img/danger.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement positionType="Float" x="110" y="0" width="350" height="29" uuid="c36fd24c-49f4-4aad-b914-ec9dfc8acd3e">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Unicode MS" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lotoBaseInfo}.getSafetyReminder()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="150" y="29" width="250" height="11" uuid="49950e5a-5a27-422f-8522-14719629304d"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Developed By OCMMS.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

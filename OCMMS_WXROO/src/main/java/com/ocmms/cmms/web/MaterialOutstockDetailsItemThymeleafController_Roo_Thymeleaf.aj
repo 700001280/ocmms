@@ -24,6 +24,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -333,6 +334,7 @@ privileged aspect MaterialOutstockDetailsItemThymeleafController_Roo_Thymeleaf {
      * @return ModelAndView
      */
     @PutMapping(name = "update")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ModelAndView MaterialOutstockDetailsItemThymeleafController.update(@Valid @ModelAttribute MaterialOutstockDetail materialOutstockDetail, BindingResult result, @RequestParam("version") Long version, @RequestParam(value = "concurrency", required = false, defaultValue = "") String concurrencyControl, Model model) {
         // Check if provided form contain errors
         if (result.hasErrors()) {

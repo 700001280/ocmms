@@ -8,6 +8,7 @@ import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilderException;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import com.ocmms.cmms.model.assistance.WorkLog;
+import com.ocmms.cmms.service.api.UserInfoService;
 import com.ocmms.cmms.service.api.WorkLogService;
 import com.ocmms.cmms.web.WorkLogsCollectionThymeleafController;
 import com.ocmms.cmms.web.WorkLogsItemThymeleafController;
@@ -102,6 +103,12 @@ privileged aspect WorkLogsCollectionThymeleafController_Roo_Thymeleaf {
     private ConversionService WorkLogsCollectionThymeleafController.conversionService;
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private UserInfoService WorkLogsCollectionThymeleafController.userInfoService;
+    
+    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param workLogService
@@ -110,12 +117,31 @@ privileged aspect WorkLogsCollectionThymeleafController_Roo_Thymeleaf {
      * @param linkBuilder
      */
     @Autowired
-    public WorkLogsCollectionThymeleafController.new(WorkLogService workLogService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
-        setWorkLogService(workLogService);
+    public WorkLogsCollectionThymeleafController.new(UserInfoService userInfoService,WorkLogService workLogService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    	 setUserInfoService(userInfoService);
+    	setWorkLogService(workLogService);
         setConversionService(conversionService);
         setMessageSource(messageSource);
         setItemLink(linkBuilder.of(WorkLogsItemThymeleafController.class));
         setCollectionLink(linkBuilder.of(WorkLogsCollectionThymeleafController.class));
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ProcurementRequestService
+     */
+    public UserInfoService WorkLogsCollectionThymeleafController.getUserInfoService() {
+        return userInfoService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequestService
+     */
+    public void WorkLogsCollectionThymeleafController.setUserInfoService(UserInfoService userInfoService) {
+        this.userInfoService = userInfoService;
     }
 
     /**
@@ -231,11 +257,31 @@ privileged aspect WorkLogsCollectionThymeleafController_Roo_Thymeleaf {
     @GetMapping(produces = Datatables.MEDIA_TYPE, name = "datatables", value = "/dt")
     @ResponseBody
     public ResponseEntity<ConvertedDatatablesData<WorkLog>> WorkLogsCollectionThymeleafController.datatables(DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
-        Page<WorkLog> workLogs = getWorkLogService().findAll(search, pageable);
+        /*Page<WorkLog> workLogs = getWorkLogService().findAll(search, pageable);
         long totalWorkLogsCount = workLogs.getTotalElements();
         if (search != null && StringUtils.isNotBlank(search.getText())) {
             totalWorkLogsCount = getWorkLogService().count();
         }
+        ConvertedDatatablesData<WorkLog> datatablesData = new ConvertedDatatablesData<WorkLog>(workLogs, totalWorkLogsCount, draw, getConversionService(), datatablesColumns);
+        return ResponseEntity.ok(datatablesData);*/
+        
+        Page<WorkLog> workLogs=null;
+    	long totalWorkLogsCount=0;
+    	if(getUserInfoService().checkCurrentEmployeeRole("ROLE_ADMIN")){
+        	workLogs = getWorkLogService().findAll(search, pageable);
+            totalWorkLogsCount = workLogs.getTotalElements();
+            if (search != null && StringUtils.isNotBlank(search.getText())) {
+                totalWorkLogsCount = getWorkLogService().count();
+            }
+        }else{
+        	workLogs = getWorkLogService().findByLogger(userInfoService.getCurrentEmployee(),search, pageable);
+            totalWorkLogsCount = getWorkLogService().countByLogger(userInfoService.getCurrentEmployee());
+            if (search != null && StringUtils.isNotBlank(search.getText())) {
+                totalWorkLogsCount = getWorkLogService().count();
+            }
+        }   	
+    	
+    	
         ConvertedDatatablesData<WorkLog> datatablesData = new ConvertedDatatablesData<WorkLog>(workLogs, totalWorkLogsCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(datatablesData);
     }

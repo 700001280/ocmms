@@ -9,6 +9,8 @@ import ar.com.fdvs.dj.domain.builders.ColumnBuilderException;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import com.ocmms.cmms.model.assistance.TaskTracking;
 import com.ocmms.cmms.service.api.TaskTrackingService;
+import com.ocmms.cmms.mail.MailSenderService;
+import com.ocmms.cmms.service.api.UserInfoService;
 import com.ocmms.cmms.web.TaskTrackingsCollectionThymeleafController;
 import com.ocmms.cmms.web.TaskTrackingsItemThymeleafController;
 import com.ocmms.cmms.web.TaskTrackingsItemThymeleafLinkFactory;
@@ -100,6 +102,14 @@ privileged aspect TaskTrackingsCollectionThymeleafController_Roo_Thymeleaf {
      * 
      */
     private ConversionService TaskTrackingsCollectionThymeleafController.conversionService;
+    
+    
+    @Autowired
+	private MailSenderService TaskTrackingsCollectionThymeleafController.mailSenderService;
+    
+
+	@Autowired
+	private UserInfoService TaskTrackingsCollectionThymeleafController.userInfoService;
     
     /**
      * TODO Auto-generated constructor documentation
@@ -231,11 +241,29 @@ privileged aspect TaskTrackingsCollectionThymeleafController_Roo_Thymeleaf {
     @GetMapping(produces = Datatables.MEDIA_TYPE, name = "datatables", value = "/dt")
     @ResponseBody
     public ResponseEntity<ConvertedDatatablesData<TaskTracking>> TaskTrackingsCollectionThymeleafController.datatables(DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
-        Page<TaskTracking> taskTrackings = getTaskTrackingService().findAll(search, pageable);
-        long totalTaskTrackingsCount = taskTrackings.getTotalElements();
-        if (search != null && StringUtils.isNotBlank(search.getText())) {
-            totalTaskTrackingsCount = getTaskTrackingService().count();
-        }
+    	
+    	Page<TaskTracking> taskTrackings=null;
+    	long totalTaskTrackingsCount=0;
+    	if(userInfoService.checkCurrentEmployeeRole("ROLE_ADMIN")){
+        	taskTrackings = getTaskTrackingService().findAll(search, pageable);
+            totalTaskTrackingsCount = taskTrackings.getTotalElements();
+            if (search != null && StringUtils.isNotBlank(search.getText())) {
+                totalTaskTrackingsCount = getTaskTrackingService().count();
+            }
+        }else{
+        	taskTrackings = getTaskTrackingService().findByTaskOwner(userInfoService.getCurrentEmployee(),search, pageable);
+            totalTaskTrackingsCount = getTaskTrackingService().countByTaskOwner(userInfoService.getCurrentEmployee());
+            if (search != null && StringUtils.isNotBlank(search.getText())) {
+                totalTaskTrackingsCount = getTaskTrackingService().count();
+            }
+        }   	
+
+    	
+        //Page<TaskTracking> taskTrackings = getTaskTrackingService().findAll(search, pageable);
+        //long totalTaskTrackingsCount = taskTrackings.getTotalElements();
+        //if (search != null && StringUtils.isNotBlank(search.getText())) {
+        //    totalTaskTrackingsCount = getTaskTrackingService().count();
+        //}
         ConvertedDatatablesData<TaskTracking> datatablesData = new ConvertedDatatablesData<TaskTracking>(taskTrackings, totalTaskTrackingsCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(datatablesData);
     }
@@ -331,7 +359,14 @@ privileged aspect TaskTrackingsCollectionThymeleafController_Roo_Thymeleaf {
             
             return new ModelAndView("tasktrackings/create");
         }
+        taskTracking.setSubmitDate(Calendar.getInstance());
+        taskTracking.setAssignDate(Calendar.getInstance());
+        taskTracking.setSubmitter(userInfoService.getCurrentEmployee());
+
         TaskTracking newTaskTracking = getTaskTrackingService().save(taskTracking);
+        
+        mailSenderService.sendTaskNotification(newTaskTracking);
+        
         UriComponents showURI = getItemLink().to(TaskTrackingsItemThymeleafLinkFactory.SHOW).with("taskTracking", newTaskTracking.getId()).toUri();
         return new ModelAndView("redirect:" + showURI.toUriString());
     }
@@ -525,8 +560,23 @@ privileged aspect TaskTrackingsCollectionThymeleafController_Roo_Thymeleaf {
         else if (columnName.equals("submitDate")) {
             builder.addColumn(getMessageSource().getMessage("label_tasktracking_submitdate", null, "Submit Date", locale), "submitDate", Calendar.class.getName(), 100);
         }
+        else if (columnName.equals("submitterStr")) {
+            builder.addColumn(getMessageSource().getMessage("label_tasktracking_submitterstr", null, "Submitter Str", locale), "submitterStr", String.class.getName(), 100);
+        }
+        else if (columnName.equals("technicalObjectStr")) {
+            builder.addColumn(getMessageSource().getMessage("label_tasktracking_technicalobjectstr", null, "Technical Object Str", locale), "technicalObjectStr", String.class.getName(), 100);
+        }
         else if (columnName.equals("description")) {
             builder.addColumn(getMessageSource().getMessage("label_tasktracking_description", null, "Description", locale), "description", String.class.getName(), 100);
+        }
+        else if (columnName.equals("taskPriorityStr")) {
+            builder.addColumn(getMessageSource().getMessage("label_tasktracking_taskprioritystr", null, "Task Priority Str", locale), "taskPriorityStr", String.class.getName(), 100);
+        }
+        else if (columnName.equals("taskStatusStr")) {
+            builder.addColumn(getMessageSource().getMessage("label_tasktracking_taskstatusstr", null, "Task Status Str", locale), "taskStatusStr", String.class.getName(), 100);
+        }
+        else if (columnName.equals("taskTypeStr")) {
+            builder.addColumn(getMessageSource().getMessage("label_tasktracking_tasktypestr", null, "Task Type Str", locale), "taskTypeStr", String.class.getName(), 100);
         }
         else if (columnName.equals("targetDate")) {
             builder.addColumn(getMessageSource().getMessage("label_tasktracking_targetdate", null, "Target Date", locale), "targetDate", Calendar.class.getName(), 100);
@@ -542,6 +592,12 @@ privileged aspect TaskTrackingsCollectionThymeleafController_Roo_Thymeleaf {
         }
         else if (columnName.equals("memo")) {
             builder.addColumn(getMessageSource().getMessage("label_tasktracking_memo", null, "Memo", locale), "memo", String.class.getName(), 100);
+        }
+        else if (columnName.equals("taskOwnerStr")) {
+            builder.addColumn(getMessageSource().getMessage("label_tasktracking_taskownerstr", null, "Task Owner Str", locale), "taskOwnerStr", String.class.getName(), 100);
+        }
+        else if (columnName.equals("supportVendorStr")) {
+            builder.addColumn(getMessageSource().getMessage("label_tasktracking_supportvendorstr", null, "Support Vendor Str", locale), "supportVendorStr", String.class.getName(), 100);
         }
         else if (columnName.equals("version")) {
             builder.addColumn(getMessageSource().getMessage("label_tasktracking_version", null, "Version", locale), "version", Long.class.getName(), 100);

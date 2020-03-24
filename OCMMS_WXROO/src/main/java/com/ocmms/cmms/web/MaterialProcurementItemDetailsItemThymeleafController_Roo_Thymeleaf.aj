@@ -100,7 +100,7 @@ privileged aspect MaterialProcurementItemDetailsItemThymeleafController_Roo_Thym
         setCollectionLink(linkBuilder.of(MaterialProcurementItemDetailsCollectionThymeleafController.class));
     }
 
-/**
+    /**
      * TODO Auto-generated method documentation
      * 
      * @return ProcurementRequestService

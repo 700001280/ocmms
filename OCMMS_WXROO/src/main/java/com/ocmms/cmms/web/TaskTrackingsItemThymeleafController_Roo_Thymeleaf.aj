@@ -5,6 +5,7 @@ package com.ocmms.cmms.web;
 
 import com.ocmms.cmms.model.assistance.TaskTracking;
 import com.ocmms.cmms.service.api.TaskTrackingService;
+import com.ocmms.cmms.mail.MailSenderService;
 import com.ocmms.cmms.web.TaskTrackingsCollectionThymeleafController;
 import com.ocmms.cmms.web.TaskTrackingsItemThymeleafController;
 import com.ocmms.cmms.web.TaskTrackingsItemThymeleafLinkFactory;
@@ -69,6 +70,9 @@ privileged aspect TaskTrackingsItemThymeleafController_Roo_Thymeleaf {
      * 
      */
     private MethodLinkBuilderFactory<TaskTrackingsCollectionThymeleafController> TaskTrackingsItemThymeleafController.collectionLink;
+    
+    @Autowired
+   	private MailSenderService TaskTrackingsItemThymeleafController.mailSenderService;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -350,6 +354,10 @@ privileged aspect TaskTrackingsItemThymeleafController_Roo_Thymeleaf {
                 return getTaskTrackingService().save(taskTracking);
             }
         });
+        if(!(savedTaskTracking.getCompleteDate() == null)) {
+        	mailSenderService.taskCompleteNotification(savedTaskTracking);
+        }
+        
         UriComponents showURI = getItemLink().to(TaskTrackingsItemThymeleafLinkFactory.SHOW).with("taskTracking", savedTaskTracking.getId()).toUri();
         return new ModelAndView("redirect:" + showURI.toUriString());
     }
