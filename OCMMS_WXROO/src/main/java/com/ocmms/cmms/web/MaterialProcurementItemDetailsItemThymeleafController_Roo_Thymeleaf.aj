@@ -3,6 +3,8 @@
 
 package com.ocmms.cmms.web;
 
+
+import com.ocmms.cmms.service.api.UserInfoService;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.service.api.MaterialProcurementItemDetailService;
 import com.ocmms.cmms.web.MaterialProcurementItemDetailsCollectionThymeleafController;
@@ -76,21 +78,46 @@ privileged aspect MaterialProcurementItemDetailsItemThymeleafController_Roo_Thym
      */
     private final ConcurrencyTemplate<MaterialProcurementItemDetail> MaterialProcurementItemDetailsItemThymeleafController.concurrencyTemplate = new ConcurrencyTemplate<MaterialProcurementItemDetail>(this);
     
+     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private UserInfoService MaterialProcurementItemDetailsItemThymeleafController.userInfoService;
+   
     /**
      * TODO Auto-generated constructor documentation
      * 
      * @param materialProcurementItemDetailService
-     * @param messageSource
+    * @param messageSource
      * @param linkBuilder
      */
     @Autowired
-    public MaterialProcurementItemDetailsItemThymeleafController.new(MaterialProcurementItemDetailService materialProcurementItemDetailService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    public MaterialProcurementItemDetailsItemThymeleafController.new(UserInfoService userInfoService,MaterialProcurementItemDetailService materialProcurementItemDetailService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+        setUserInfoService(userInfoService);
         setMaterialProcurementItemDetailService(materialProcurementItemDetailService);
         setMessageSource(messageSource);
         setItemLink(linkBuilder.of(MaterialProcurementItemDetailsItemThymeleafController.class));
         setCollectionLink(linkBuilder.of(MaterialProcurementItemDetailsCollectionThymeleafController.class));
     }
 
+/**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ProcurementRequestService
+     */
+    public UserInfoService MaterialProcurementItemDetailsItemThymeleafController.getUserInfoService() {
+        return userInfoService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequestService
+     */
+    public void MaterialProcurementItemDetailsItemThymeleafController.setUserInfoService(UserInfoService userInfoService) {
+        this.userInfoService = userInfoService;
+    }
+    
     /**
      * TODO Auto-generated method documentation
      * 
@@ -344,6 +371,15 @@ privileged aspect MaterialProcurementItemDetailsItemThymeleafController_Roo_Thym
         MaterialProcurementItemDetail savedMaterialProcurementItemDetail = getConcurrencyTemplate().execute(materialProcurementItemDetail, model, new ConcurrencyCallback<MaterialProcurementItemDetail>() {
             @Override
             public MaterialProcurementItemDetail doInConcurrency(MaterialProcurementItemDetail materialProcurementItemDetail) throws Exception {
+                if(materialProcurementItemDetail.getProcurementRequest()!=null) {
+                     materialProcurementItemDetail.setPrNumber(materialProcurementItemDetail.getProcurementRequest().getRequestNumber());
+                }
+                if(materialProcurementItemDetail.getProcurementOrder()!=null) {
+                     materialProcurementItemDetail.setPoNumber(materialProcurementItemDetail.getProcurementOrder().getOrderNumber());
+                }
+                if(materialProcurementItemDetail.getMaterialCatalog()!=null) {
+                     materialProcurementItemDetail.setMaterial(materialProcurementItemDetail.getMaterialCatalog().getMaterialName());
+                }
                 return getMaterialProcurementItemDetailService().save(materialProcurementItemDetail);
             }
         });
