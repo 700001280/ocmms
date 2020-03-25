@@ -94,7 +94,8 @@ privileged aspect ServiceProcurementItemDetailsItemThymeleafController_Roo_Thyme
      */
     @Autowired
     public ServiceProcurementItemDetailsItemThymeleafController.new(UserInfoService userInfoService,ServiceProcurementItemDetailService serviceProcurementItemDetailService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
-        setServiceProcurementItemDetailService(serviceProcurementItemDetailService);
+    	setUserInfoService(userInfoService);
+    	setServiceProcurementItemDetailService(serviceProcurementItemDetailService);
         setMessageSource(messageSource);
         setItemLink(linkBuilder.of(ServiceProcurementItemDetailsItemThymeleafController.class));
         setCollectionLink(linkBuilder.of(ServiceProcurementItemDetailsCollectionThymeleafController.class));
@@ -373,7 +374,7 @@ privileged aspect ServiceProcurementItemDetailsItemThymeleafController_Roo_Thyme
             @Override
             public ServiceProcurementItemDetail doInConcurrency(ServiceProcurementItemDetail serviceProcurementItemDetail) throws Exception {
                 
-            	serviceProcurementItemDetail.setRequester(getUserInfoService().getCurrentEmployee());
+            	//serviceProcurementItemDetail.setRequester(getUserInfoService().getCurrentEmployee());
             	serviceProcurementItemDetail.setSubmitDate(Calendar.getInstance());
                 if(serviceProcurementItemDetail.getProcurementRequest()!=null) {
                 	serviceProcurementItemDetail.setPrNumber(serviceProcurementItemDetail.getProcurementRequest().getRequestNumber());
@@ -381,9 +382,7 @@ privileged aspect ServiceProcurementItemDetailsItemThymeleafController_Roo_Thyme
                 if(serviceProcurementItemDetail.getProcurementOrder()!=null) {
                 	serviceProcurementItemDetail.setPoNumber(serviceProcurementItemDetail.getProcurementOrder().getOrderNumber());
                 }
-                if(serviceProcurementItemDetail.getMaterialCatalog()!=null) {
-                	serviceProcurementItemDetail.setMaterial(serviceProcurementItemDetail.getServiceCatalog().getCode());
-                }
+                
             	
             	return getServiceProcurementItemDetailService().save(serviceProcurementItemDetail);
             }
