@@ -365,7 +365,7 @@ privileged aspect MaterialProcurementItemDetailsCollectionThymeleafController_Ro
         	materialProcurementItemDetail.setPoNumber(materialProcurementItemDetail.getProcurementOrder().getOrderNumber());
         }
         if(materialProcurementItemDetail.getMaterialCatalog()!=null) {
-        	materialProcurementItemDetail.setMaterial(materialProcurementItemDetail.getMaterialCatalog().getMaterialName());
+        	materialProcurementItemDetail.setMaterial(materialProcurementItemDetail.getMaterialCatalog().getCode());
         }
         MaterialProcurementItemDetail newMaterialProcurementItemDetail = getMaterialProcurementItemDetailService().save(materialProcurementItemDetail);
         UriComponents showURI = getItemLink().to(MaterialProcurementItemDetailsItemThymeleafLinkFactory.SHOW).with("materialProcurementItemDetail", newMaterialProcurementItemDetail.getId()).toUri();

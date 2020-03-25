@@ -109,6 +109,9 @@ privileged aspect ServiceProcurementItemDetailsCollectionThymeleafController_Roo
      */
     private UserInfoService ServiceProcurementItemDetailsCollectionThymeleafController.userInfoService;
    
+    
+   
+    
     /**
      * TODO Auto-generated constructor documentation
      * 
@@ -358,7 +361,16 @@ privileged aspect ServiceProcurementItemDetailsCollectionThymeleafController_Roo
         
         serviceProcurementItemDetail.setRequester(getUserInfoService().getCurrentEmployee());
         serviceProcurementItemDetail.setSubmitDate(Calendar.getInstance());
-        
+        if(serviceProcurementItemDetail.getProcurementRequest()!=null) {
+        	serviceProcurementItemDetail.setPrNumber(serviceProcurementItemDetail.getProcurementRequest().getRequestNumber());
+        }
+        if(serviceProcurementItemDetail.getProcurementOrder()!=null) {
+        	serviceProcurementItemDetail.setPoNumber(serviceProcurementItemDetail.getProcurementOrder().getOrderNumber());
+        }
+        if(serviceProcurementItemDetail.getMaterialCatalog()!=null) {
+        	serviceProcurementItemDetail.setMaterial(serviceProcurementItemDetail.getServiceCatalog().getCode());
+        }
+    	
         ServiceProcurementItemDetail newServiceProcurementItemDetail = getServiceProcurementItemDetailService().save(serviceProcurementItemDetail);
         UriComponents showURI = getItemLink().to(ServiceProcurementItemDetailsItemThymeleafLinkFactory.SHOW).with("serviceProcurementItemDetail", newServiceProcurementItemDetail.getId()).toUri();
         return new ModelAndView("redirect:" + showURI.toUriString());

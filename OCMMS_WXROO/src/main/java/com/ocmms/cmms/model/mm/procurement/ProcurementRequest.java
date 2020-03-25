@@ -154,7 +154,7 @@ public class ProcurementRequest {
 	@OneToMany(cascade = { javax.persistence.CascadeType.MERGE,
 			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "procurementRequest")
 	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
-	private Set<ServiceProcurementItemDetail> serviceProcurementItemDetails = new HashSet<ServiceProcurementItemDetail>();
+	private Set<ProcurementItemDetail> serviceProcurementItemDetails = new HashSet<ServiceProcurementItemDetail>();
 	
 	/**
 	 * TODO Auto-generated attribute documentation

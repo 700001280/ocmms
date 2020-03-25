@@ -23,6 +23,7 @@ import org.springframework.roo.addon.jpa.annotations.entity.JpaRelationType;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
 
+import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.master.ServiceCatalog;
 import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 
@@ -47,27 +48,6 @@ public class ServiceProcurementItemDetail  extends ProcurementItemDetail{
 	private Long id;
 
 
-	
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PROCUREMENTREQUEST")
-	@EntityFormat
-	private ProcurementRequest procurementRequest;
-	
-	
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PROCUREMENTORDER")
-	@EntityFormat
-	private ProcurementOrder procurementOrder;
-	
-	
 	/**
 	 * TODO Auto-generated attribute documentation
 	 *
@@ -75,8 +55,8 @@ public class ServiceProcurementItemDetail  extends ProcurementItemDetail{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "SERVICECATALOG")
 	@EntityFormat
-	private ServiceCatalog serviceCatalog;
-	
+	private ServiceCatalog serviceCatalog;	
+
 	
 	/**
 	 * TODO Auto-generated attribute documentation

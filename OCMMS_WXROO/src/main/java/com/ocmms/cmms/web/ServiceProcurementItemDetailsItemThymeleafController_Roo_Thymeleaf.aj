@@ -5,6 +5,7 @@ package com.ocmms.cmms.web;
 
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.service.api.ServiceProcurementItemDetailService;
+import com.ocmms.cmms.service.api.UserInfoService;
 import com.ocmms.cmms.web.ServiceProcurementItemDetailsCollectionThymeleafController;
 import com.ocmms.cmms.web.ServiceProcurementItemDetailsItemThymeleafController;
 import com.ocmms.cmms.web.ServiceProcurementItemDetailsItemThymeleafLinkFactory;
@@ -15,6 +16,8 @@ import io.springlets.web.mvc.util.MethodLinkBuilderFactory;
 import io.springlets.web.mvc.util.concurrency.ConcurrencyCallback;
 import io.springlets.web.mvc.util.concurrency.ConcurrencyManager;
 import io.springlets.web.mvc.util.concurrency.ConcurrencyTemplate;
+
+import java.util.Calendar;
 import java.util.Locale;
 import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
@@ -77,6 +80,12 @@ privileged aspect ServiceProcurementItemDetailsItemThymeleafController_Roo_Thyme
     private final ConcurrencyTemplate<ServiceProcurementItemDetail> ServiceProcurementItemDetailsItemThymeleafController.concurrencyTemplate = new ConcurrencyTemplate<ServiceProcurementItemDetail>(this);
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    private UserInfoService ServiceProcurementItemDetailsItemThymeleafController.userInfoService;
+   
+    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param serviceProcurementItemDetailService
@@ -84,13 +93,32 @@ privileged aspect ServiceProcurementItemDetailsItemThymeleafController_Roo_Thyme
      * @param linkBuilder
      */
     @Autowired
-    public ServiceProcurementItemDetailsItemThymeleafController.new(ServiceProcurementItemDetailService serviceProcurementItemDetailService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    public ServiceProcurementItemDetailsItemThymeleafController.new(UserInfoService userInfoService,ServiceProcurementItemDetailService serviceProcurementItemDetailService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
         setServiceProcurementItemDetailService(serviceProcurementItemDetailService);
         setMessageSource(messageSource);
         setItemLink(linkBuilder.of(ServiceProcurementItemDetailsItemThymeleafController.class));
         setCollectionLink(linkBuilder.of(ServiceProcurementItemDetailsCollectionThymeleafController.class));
     }
 
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ProcurementRequestService
+     */
+    public UserInfoService ServiceProcurementItemDetailsItemThymeleafController.getUserInfoService() {
+        return userInfoService;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequestService
+     */
+    public void ServiceProcurementItemDetailsItemThymeleafController.setUserInfoService(UserInfoService userInfoService) {
+        this.userInfoService = userInfoService;
+    }
+    
     /**
      * TODO Auto-generated method documentation
      * 
@@ -344,7 +372,20 @@ privileged aspect ServiceProcurementItemDetailsItemThymeleafController_Roo_Thyme
         ServiceProcurementItemDetail savedServiceProcurementItemDetail = getConcurrencyTemplate().execute(serviceProcurementItemDetail, model, new ConcurrencyCallback<ServiceProcurementItemDetail>() {
             @Override
             public ServiceProcurementItemDetail doInConcurrency(ServiceProcurementItemDetail serviceProcurementItemDetail) throws Exception {
-                return getServiceProcurementItemDetailService().save(serviceProcurementItemDetail);
+                
+            	serviceProcurementItemDetail.setRequester(getUserInfoService().getCurrentEmployee());
+            	serviceProcurementItemDetail.setSubmitDate(Calendar.getInstance());
+                if(serviceProcurementItemDetail.getProcurementRequest()!=null) {
+                	serviceProcurementItemDetail.setPrNumber(serviceProcurementItemDetail.getProcurementRequest().getRequestNumber());
+                }
+                if(serviceProcurementItemDetail.getProcurementOrder()!=null) {
+                	serviceProcurementItemDetail.setPoNumber(serviceProcurementItemDetail.getProcurementOrder().getOrderNumber());
+                }
+                if(serviceProcurementItemDetail.getMaterialCatalog()!=null) {
+                	serviceProcurementItemDetail.setMaterial(serviceProcurementItemDetail.getServiceCatalog().getCode());
+                }
+            	
+            	return getServiceProcurementItemDetailService().save(serviceProcurementItemDetail);
             }
         });
         UriComponents showURI = getItemLink().to(ServiceProcurementItemDetailsItemThymeleafLinkFactory.SHOW).with("serviceProcurementItemDetail", savedServiceProcurementItemDetail.getId()).toUri();

@@ -45,39 +45,6 @@ public class MaterialProcurementItemDetail extends ProcurementItemDetail{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "materialProcurementItemDetailGen")
 	@Column(name = "ID")
 	private Long id;
-
-	
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PROCUREMENTREQUEST")
-	@EntityFormat
-	private ProcurementRequest procurementRequest;
-	
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@Column(name = "PRNUMBER")
-	private String prNumber;
-	
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PROCUREMENTORDER")
-	@EntityFormat
-	private ProcurementOrder procurementOrder;
-		
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@Column(name = "PONUMBER")
-	private String poNumber;
 	
 	/**
 	 * TODO Auto-generated attribute documentation

@@ -378,7 +378,7 @@ privileged aspect MaterialProcurementItemDetailsItemThymeleafController_Roo_Thym
                      materialProcurementItemDetail.setPoNumber(materialProcurementItemDetail.getProcurementOrder().getOrderNumber());
                 }
                 if(materialProcurementItemDetail.getMaterialCatalog()!=null) {
-                     materialProcurementItemDetail.setMaterial(materialProcurementItemDetail.getMaterialCatalog().getMaterialName());
+                     materialProcurementItemDetail.setMaterial(materialProcurementItemDetail.getMaterialCatalog().getCode());
                 }
                 return getMaterialProcurementItemDetailService().save(materialProcurementItemDetail);
             }
