@@ -5,8 +5,6 @@ package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.pm.workorder.WorkOrderMaterial;
 import com.ocmms.cmms.repository.MaterialProcurementItemDetailRepositoryCustom;
 import io.springlets.data.domain.GlobalSearch;
@@ -19,32 +17,12 @@ privileged aspect MaterialProcurementItemDetailRepositoryCustom_Roo_Jpa_Reposito
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param procurementRequest
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialProcurementItemDetail> MaterialProcurementItemDetailRepositoryCustom.findByProcurementRequest(ProcurementRequest procurementRequest, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param materialCatalog
      * @param globalSearch
      * @param pageable
      * @return Page
      */
     public abstract Page<MaterialProcurementItemDetail> MaterialProcurementItemDetailRepositoryCustom.findByMaterialCatalog(MaterialCatalog materialCatalog, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialProcurementItemDetail> MaterialProcurementItemDetailRepositoryCustom.findByProcurementOrder(ProcurementOrder procurementOrder, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

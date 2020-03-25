@@ -4,8 +4,6 @@
 package com.ocmms.cmms.model.mm.procurement;
 
 import com.ocmms.cmms.model.mm.master.ServiceCatalog;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import java.util.Objects;
@@ -30,46 +28,6 @@ privileged aspect ServiceProcurementItemDetail_Roo_JavaBean {
      */
     public ServiceProcurementItemDetail ServiceProcurementItemDetail.setId(Long id) {
         this.id = id;
-        return this;
-    }
-    
-    /**
-     * Gets procurementRequest value
-     * 
-     * @return ProcurementRequest
-     */
-    public ProcurementRequest ServiceProcurementItemDetail.getProcurementRequest() {
-        return this.procurementRequest;
-    }
-    
-    /**
-     * Sets procurementRequest value
-     * 
-     * @param procurementRequest
-     * @return ServiceProcurementItemDetail
-     */
-    public ServiceProcurementItemDetail ServiceProcurementItemDetail.setProcurementRequest(ProcurementRequest procurementRequest) {
-        this.procurementRequest = procurementRequest;
-        return this;
-    }
-    
-    /**
-     * Gets procurementOrder value
-     * 
-     * @return ProcurementOrder
-     */
-    public ProcurementOrder ServiceProcurementItemDetail.getProcurementOrder() {
-        return this.procurementOrder;
-    }
-    
-    /**
-     * Sets procurementOrder value
-     * 
-     * @param procurementOrder
-     * @return ServiceProcurementItemDetail
-     */
-    public ServiceProcurementItemDetail ServiceProcurementItemDetail.setProcurementOrder(ProcurementOrder procurementOrder) {
-        this.procurementOrder = procurementOrder;
         return this;
     }
     

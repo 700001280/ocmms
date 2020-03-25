@@ -21,6 +21,12 @@ privileged aspect StorageLocationsCollectionThymeleafLinkFactory_Roo_LinkFactory
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String StorageLocationsCollectionThymeleafLinkFactory.EXPORTSTORAGELOCATIONPDF = "exportStorageLocationPdf";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String StorageLocationsCollectionThymeleafLinkFactory.LIST = "list";
     
     /**
@@ -95,6 +101,9 @@ privileged aspect StorageLocationsCollectionThymeleafLinkFactory_Roo_LinkFactory
      * @return UriComponents
      */
     public UriComponents StorageLocationsCollectionThymeleafLinkFactory.toUri(String methodName, Object[] parameters, Map<String, Object> pathVariables) {
+        if (methodName.equals(EXPORTSTORAGELOCATIONPDF)) {
+            return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).exportStorageLocationPdf(null, null, null, null, null)).buildAndExpand(pathVariables);
+        }
         if (methodName.equals(LIST)) {
             return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).list(null)).buildAndExpand(pathVariables);
         }

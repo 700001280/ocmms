@@ -5,8 +5,6 @@ package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.QMaterialProcurementItemDetail;
 import com.ocmms.cmms.model.pm.workorder.WorkOrderMaterial;
 import com.ocmms.cmms.repository.MaterialProcurementItemDetailRepositoryImpl;
@@ -28,7 +26,31 @@ privileged aspect MaterialProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String MaterialProcurementItemDetailRepositoryImpl.PROCUREMENT_REQUEST = "procurementRequest";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String MaterialProcurementItemDetailRepositoryImpl.PROCUREMENT_ORDER = "procurementOrder";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String MaterialProcurementItemDetailRepositoryImpl.REQUESTER = "requester";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String MaterialProcurementItemDetailRepositoryImpl.PR_NUMBER = "prNumber";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String MaterialProcurementItemDetailRepositoryImpl.PO_NUMBER = "poNumber";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -112,30 +134,6 @@ privileged aspect MaterialProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String MaterialProcurementItemDetailRepositoryImpl.PROCUREMENT_REQUEST = "procurementRequest";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialProcurementItemDetailRepositoryImpl.PR_NUMBER = "prNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialProcurementItemDetailRepositoryImpl.PROCUREMENT_ORDER = "procurementOrder";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String MaterialProcurementItemDetailRepositoryImpl.PO_NUMBER = "poNumber";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
     public static final String MaterialProcurementItemDetailRepositoryImpl.MATERIAL_CATALOG = "materialCatalog";
     
     /**
@@ -163,11 +161,15 @@ privileged aspect MaterialProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository
         
         JPQLQuery<MaterialProcurementItemDetail> query = from(materialProcurementItemDetail);
         
-        Path<?>[] paths = new Path<?>[] {materialProcurementItemDetail.requester,materialProcurementItemDetail.submitDate,materialProcurementItemDetail.quantity,materialProcurementItemDetail.uom,materialProcurementItemDetail.organization,materialProcurementItemDetail.unitPrice,materialProcurementItemDetail.currencyUnit,materialProcurementItemDetail.memo,materialProcurementItemDetail.closed,materialProcurementItemDetail.recordStatus,materialProcurementItemDetail.createdDate,materialProcurementItemDetail.createdBy,materialProcurementItemDetail.lastModifiedDate,materialProcurementItemDetail.lastModifiedBy,materialProcurementItemDetail.procurementRequest,materialProcurementItemDetail.prNumber,materialProcurementItemDetail.procurementOrder,materialProcurementItemDetail.poNumber,materialProcurementItemDetail.materialCatalog,materialProcurementItemDetail.material,materialProcurementItemDetail.workOrderMaterial};        
+        Path<?>[] paths = new Path<?>[] {materialProcurementItemDetail.procurementRequest,materialProcurementItemDetail.procurementOrder,materialProcurementItemDetail.requester,materialProcurementItemDetail.prNumber,materialProcurementItemDetail.poNumber,materialProcurementItemDetail.submitDate,materialProcurementItemDetail.quantity,materialProcurementItemDetail.uom,materialProcurementItemDetail.organization,materialProcurementItemDetail.unitPrice,materialProcurementItemDetail.currencyUnit,materialProcurementItemDetail.memo,materialProcurementItemDetail.closed,materialProcurementItemDetail.recordStatus,materialProcurementItemDetail.createdDate,materialProcurementItemDetail.createdBy,materialProcurementItemDetail.lastModifiedDate,materialProcurementItemDetail.lastModifiedBy,materialProcurementItemDetail.materialCatalog,materialProcurementItemDetail.material,materialProcurementItemDetail.workOrderMaterial};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
+			.map(PROCUREMENT_REQUEST, materialProcurementItemDetail.procurementRequest)
+			.map(PROCUREMENT_ORDER, materialProcurementItemDetail.procurementOrder)
 			.map(REQUESTER, materialProcurementItemDetail.requester)
+			.map(PR_NUMBER, materialProcurementItemDetail.prNumber)
+			.map(PO_NUMBER, materialProcurementItemDetail.poNumber)
 			.map(SUBMIT_DATE, materialProcurementItemDetail.submitDate)
 			.map(QUANTITY, materialProcurementItemDetail.quantity)
 			.map(UOM, materialProcurementItemDetail.uom)
@@ -181,10 +183,6 @@ privileged aspect MaterialProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository
 			.map(CREATED_BY, materialProcurementItemDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialProcurementItemDetail.lastModifiedDate)
 			.map(LAST_MODIFIED_BY, materialProcurementItemDetail.lastModifiedBy)
-			.map(PROCUREMENT_REQUEST, materialProcurementItemDetail.procurementRequest)
-			.map(PR_NUMBER, materialProcurementItemDetail.prNumber)
-			.map(PROCUREMENT_ORDER, materialProcurementItemDetail.procurementOrder)
-			.map(PO_NUMBER, materialProcurementItemDetail.poNumber)
 			.map(MATERIAL_CATALOG, materialProcurementItemDetail.materialCatalog)
 			.map(MATERIAL, materialProcurementItemDetail.material)
 			.map(WORK_ORDER_MATERIAL, materialProcurementItemDetail.workOrderMaterial);
@@ -209,14 +207,18 @@ privileged aspect MaterialProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository
         
         JPQLQuery<MaterialProcurementItemDetail> query = from(materialProcurementItemDetail);
         
-        Path<?>[] paths = new Path<?>[] {materialProcurementItemDetail.requester,materialProcurementItemDetail.submitDate,materialProcurementItemDetail.quantity,materialProcurementItemDetail.uom,materialProcurementItemDetail.organization,materialProcurementItemDetail.unitPrice,materialProcurementItemDetail.currencyUnit,materialProcurementItemDetail.memo,materialProcurementItemDetail.closed,materialProcurementItemDetail.recordStatus,materialProcurementItemDetail.createdDate,materialProcurementItemDetail.createdBy,materialProcurementItemDetail.lastModifiedDate,materialProcurementItemDetail.lastModifiedBy,materialProcurementItemDetail.procurementRequest,materialProcurementItemDetail.prNumber,materialProcurementItemDetail.procurementOrder,materialProcurementItemDetail.poNumber,materialProcurementItemDetail.materialCatalog,materialProcurementItemDetail.material,materialProcurementItemDetail.workOrderMaterial};        
+        Path<?>[] paths = new Path<?>[] {materialProcurementItemDetail.procurementRequest,materialProcurementItemDetail.procurementOrder,materialProcurementItemDetail.requester,materialProcurementItemDetail.prNumber,materialProcurementItemDetail.poNumber,materialProcurementItemDetail.submitDate,materialProcurementItemDetail.quantity,materialProcurementItemDetail.uom,materialProcurementItemDetail.organization,materialProcurementItemDetail.unitPrice,materialProcurementItemDetail.currencyUnit,materialProcurementItemDetail.memo,materialProcurementItemDetail.closed,materialProcurementItemDetail.recordStatus,materialProcurementItemDetail.createdDate,materialProcurementItemDetail.createdBy,materialProcurementItemDetail.lastModifiedDate,materialProcurementItemDetail.lastModifiedBy,materialProcurementItemDetail.materialCatalog,materialProcurementItemDetail.material,materialProcurementItemDetail.workOrderMaterial};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
         query.where(materialProcurementItemDetail.id.in(ids));
         
         AttributeMappingBuilder mapping = buildMapper()
+			.map(PROCUREMENT_REQUEST, materialProcurementItemDetail.procurementRequest)
+			.map(PROCUREMENT_ORDER, materialProcurementItemDetail.procurementOrder)
 			.map(REQUESTER, materialProcurementItemDetail.requester)
+			.map(PR_NUMBER, materialProcurementItemDetail.prNumber)
+			.map(PO_NUMBER, materialProcurementItemDetail.poNumber)
 			.map(SUBMIT_DATE, materialProcurementItemDetail.submitDate)
 			.map(QUANTITY, materialProcurementItemDetail.quantity)
 			.map(UOM, materialProcurementItemDetail.uom)
@@ -230,10 +232,6 @@ privileged aspect MaterialProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository
 			.map(CREATED_BY, materialProcurementItemDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialProcurementItemDetail.lastModifiedDate)
 			.map(LAST_MODIFIED_BY, materialProcurementItemDetail.lastModifiedBy)
-			.map(PROCUREMENT_REQUEST, materialProcurementItemDetail.procurementRequest)
-			.map(PR_NUMBER, materialProcurementItemDetail.prNumber)
-			.map(PROCUREMENT_ORDER, materialProcurementItemDetail.procurementOrder)
-			.map(PO_NUMBER, materialProcurementItemDetail.poNumber)
 			.map(MATERIAL_CATALOG, materialProcurementItemDetail.materialCatalog)
 			.map(MATERIAL, materialProcurementItemDetail.material)
 			.map(WORK_ORDER_MATERIAL, materialProcurementItemDetail.workOrderMaterial);
@@ -261,11 +259,15 @@ privileged aspect MaterialProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository
         Assert.notNull(materialCatalog, "materialCatalog is required");
         
         query.where(materialProcurementItemDetail.materialCatalog.eq(materialCatalog));
-        Path<?>[] paths = new Path<?>[] {materialProcurementItemDetail.requester,materialProcurementItemDetail.submitDate,materialProcurementItemDetail.quantity,materialProcurementItemDetail.uom,materialProcurementItemDetail.organization,materialProcurementItemDetail.unitPrice,materialProcurementItemDetail.currencyUnit,materialProcurementItemDetail.memo,materialProcurementItemDetail.closed,materialProcurementItemDetail.recordStatus,materialProcurementItemDetail.createdDate,materialProcurementItemDetail.createdBy,materialProcurementItemDetail.lastModifiedDate,materialProcurementItemDetail.lastModifiedBy,materialProcurementItemDetail.procurementRequest,materialProcurementItemDetail.prNumber,materialProcurementItemDetail.procurementOrder,materialProcurementItemDetail.poNumber,materialProcurementItemDetail.materialCatalog,materialProcurementItemDetail.material,materialProcurementItemDetail.workOrderMaterial};        
+        Path<?>[] paths = new Path<?>[] {materialProcurementItemDetail.procurementRequest,materialProcurementItemDetail.procurementOrder,materialProcurementItemDetail.requester,materialProcurementItemDetail.prNumber,materialProcurementItemDetail.poNumber,materialProcurementItemDetail.submitDate,materialProcurementItemDetail.quantity,materialProcurementItemDetail.uom,materialProcurementItemDetail.organization,materialProcurementItemDetail.unitPrice,materialProcurementItemDetail.currencyUnit,materialProcurementItemDetail.memo,materialProcurementItemDetail.closed,materialProcurementItemDetail.recordStatus,materialProcurementItemDetail.createdDate,materialProcurementItemDetail.createdBy,materialProcurementItemDetail.lastModifiedDate,materialProcurementItemDetail.lastModifiedBy,materialProcurementItemDetail.materialCatalog,materialProcurementItemDetail.material,materialProcurementItemDetail.workOrderMaterial};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
+			.map(PROCUREMENT_REQUEST, materialProcurementItemDetail.procurementRequest)
+			.map(PROCUREMENT_ORDER, materialProcurementItemDetail.procurementOrder)
 			.map(REQUESTER, materialProcurementItemDetail.requester)
+			.map(PR_NUMBER, materialProcurementItemDetail.prNumber)
+			.map(PO_NUMBER, materialProcurementItemDetail.poNumber)
 			.map(SUBMIT_DATE, materialProcurementItemDetail.submitDate)
 			.map(QUANTITY, materialProcurementItemDetail.quantity)
 			.map(UOM, materialProcurementItemDetail.uom)
@@ -279,108 +281,6 @@ privileged aspect MaterialProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository
 			.map(CREATED_BY, materialProcurementItemDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialProcurementItemDetail.lastModifiedDate)
 			.map(LAST_MODIFIED_BY, materialProcurementItemDetail.lastModifiedBy)
-			.map(PROCUREMENT_REQUEST, materialProcurementItemDetail.procurementRequest)
-			.map(PR_NUMBER, materialProcurementItemDetail.prNumber)
-			.map(PROCUREMENT_ORDER, materialProcurementItemDetail.procurementOrder)
-			.map(PO_NUMBER, materialProcurementItemDetail.poNumber)
-			.map(MATERIAL_CATALOG, materialProcurementItemDetail.materialCatalog)
-			.map(MATERIAL, materialProcurementItemDetail.material)
-			.map(WORK_ORDER_MATERIAL, materialProcurementItemDetail.workOrderMaterial);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, materialProcurementItemDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<MaterialProcurementItemDetail> MaterialProcurementItemDetailRepositoryImpl.findByProcurementOrder(ProcurementOrder procurementOrder, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QMaterialProcurementItemDetail materialProcurementItemDetail = QMaterialProcurementItemDetail.materialProcurementItemDetail;
-        
-        JPQLQuery<MaterialProcurementItemDetail> query = from(materialProcurementItemDetail);
-        
-        Assert.notNull(procurementOrder, "procurementOrder is required");
-        
-        query.where(materialProcurementItemDetail.procurementOrder.eq(procurementOrder));
-        Path<?>[] paths = new Path<?>[] {materialProcurementItemDetail.requester,materialProcurementItemDetail.submitDate,materialProcurementItemDetail.quantity,materialProcurementItemDetail.uom,materialProcurementItemDetail.organization,materialProcurementItemDetail.unitPrice,materialProcurementItemDetail.currencyUnit,materialProcurementItemDetail.memo,materialProcurementItemDetail.closed,materialProcurementItemDetail.recordStatus,materialProcurementItemDetail.createdDate,materialProcurementItemDetail.createdBy,materialProcurementItemDetail.lastModifiedDate,materialProcurementItemDetail.lastModifiedBy,materialProcurementItemDetail.procurementRequest,materialProcurementItemDetail.prNumber,materialProcurementItemDetail.procurementOrder,materialProcurementItemDetail.poNumber,materialProcurementItemDetail.materialCatalog,materialProcurementItemDetail.material,materialProcurementItemDetail.workOrderMaterial};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(REQUESTER, materialProcurementItemDetail.requester)
-			.map(SUBMIT_DATE, materialProcurementItemDetail.submitDate)
-			.map(QUANTITY, materialProcurementItemDetail.quantity)
-			.map(UOM, materialProcurementItemDetail.uom)
-			.map(ORGANIZATION, materialProcurementItemDetail.organization)
-			.map(UNIT_PRICE, materialProcurementItemDetail.unitPrice)
-			.map(CURRENCY_UNIT, materialProcurementItemDetail.currencyUnit)
-			.map(MEMO, materialProcurementItemDetail.memo)
-			.map(CLOSED, materialProcurementItemDetail.closed)
-			.map(RECORD_STATUS, materialProcurementItemDetail.recordStatus)
-			.map(CREATED_DATE, materialProcurementItemDetail.createdDate)
-			.map(CREATED_BY, materialProcurementItemDetail.createdBy)
-			.map(LAST_MODIFIED_DATE, materialProcurementItemDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, materialProcurementItemDetail.lastModifiedBy)
-			.map(PROCUREMENT_REQUEST, materialProcurementItemDetail.procurementRequest)
-			.map(PR_NUMBER, materialProcurementItemDetail.prNumber)
-			.map(PROCUREMENT_ORDER, materialProcurementItemDetail.procurementOrder)
-			.map(PO_NUMBER, materialProcurementItemDetail.poNumber)
-			.map(MATERIAL_CATALOG, materialProcurementItemDetail.materialCatalog)
-			.map(MATERIAL, materialProcurementItemDetail.material)
-			.map(WORK_ORDER_MATERIAL, materialProcurementItemDetail.workOrderMaterial);
-        
-        applyPagination(pageable, query, mapping);
-        applyOrderById(query);
-        
-        return loadPage(query, pageable, materialProcurementItemDetail);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<MaterialProcurementItemDetail> MaterialProcurementItemDetailRepositoryImpl.findByProcurementRequest(ProcurementRequest procurementRequest, GlobalSearch globalSearch, Pageable pageable) {
-        
-        QMaterialProcurementItemDetail materialProcurementItemDetail = QMaterialProcurementItemDetail.materialProcurementItemDetail;
-        
-        JPQLQuery<MaterialProcurementItemDetail> query = from(materialProcurementItemDetail);
-        
-        Assert.notNull(procurementRequest, "procurementRequest is required");
-        
-        query.where(materialProcurementItemDetail.procurementRequest.eq(procurementRequest));
-        Path<?>[] paths = new Path<?>[] {materialProcurementItemDetail.requester,materialProcurementItemDetail.submitDate,materialProcurementItemDetail.quantity,materialProcurementItemDetail.uom,materialProcurementItemDetail.organization,materialProcurementItemDetail.unitPrice,materialProcurementItemDetail.currencyUnit,materialProcurementItemDetail.memo,materialProcurementItemDetail.closed,materialProcurementItemDetail.recordStatus,materialProcurementItemDetail.createdDate,materialProcurementItemDetail.createdBy,materialProcurementItemDetail.lastModifiedDate,materialProcurementItemDetail.lastModifiedBy,materialProcurementItemDetail.procurementRequest,materialProcurementItemDetail.prNumber,materialProcurementItemDetail.procurementOrder,materialProcurementItemDetail.poNumber,materialProcurementItemDetail.materialCatalog,materialProcurementItemDetail.material,materialProcurementItemDetail.workOrderMaterial};        
-        applyGlobalSearch(globalSearch, query, paths);
-        
-        AttributeMappingBuilder mapping = buildMapper()
-			.map(REQUESTER, materialProcurementItemDetail.requester)
-			.map(SUBMIT_DATE, materialProcurementItemDetail.submitDate)
-			.map(QUANTITY, materialProcurementItemDetail.quantity)
-			.map(UOM, materialProcurementItemDetail.uom)
-			.map(ORGANIZATION, materialProcurementItemDetail.organization)
-			.map(UNIT_PRICE, materialProcurementItemDetail.unitPrice)
-			.map(CURRENCY_UNIT, materialProcurementItemDetail.currencyUnit)
-			.map(MEMO, materialProcurementItemDetail.memo)
-			.map(CLOSED, materialProcurementItemDetail.closed)
-			.map(RECORD_STATUS, materialProcurementItemDetail.recordStatus)
-			.map(CREATED_DATE, materialProcurementItemDetail.createdDate)
-			.map(CREATED_BY, materialProcurementItemDetail.createdBy)
-			.map(LAST_MODIFIED_DATE, materialProcurementItemDetail.lastModifiedDate)
-			.map(LAST_MODIFIED_BY, materialProcurementItemDetail.lastModifiedBy)
-			.map(PROCUREMENT_REQUEST, materialProcurementItemDetail.procurementRequest)
-			.map(PR_NUMBER, materialProcurementItemDetail.prNumber)
-			.map(PROCUREMENT_ORDER, materialProcurementItemDetail.procurementOrder)
-			.map(PO_NUMBER, materialProcurementItemDetail.poNumber)
 			.map(MATERIAL_CATALOG, materialProcurementItemDetail.materialCatalog)
 			.map(MATERIAL, materialProcurementItemDetail.material)
 			.map(WORK_ORDER_MATERIAL, materialProcurementItemDetail.workOrderMaterial);
@@ -408,11 +308,15 @@ privileged aspect MaterialProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository
         Assert.notNull(workOrderMaterial, "workOrderMaterial is required");
         
         query.where(materialProcurementItemDetail.workOrderMaterial.eq(workOrderMaterial));
-        Path<?>[] paths = new Path<?>[] {materialProcurementItemDetail.requester,materialProcurementItemDetail.submitDate,materialProcurementItemDetail.quantity,materialProcurementItemDetail.uom,materialProcurementItemDetail.organization,materialProcurementItemDetail.unitPrice,materialProcurementItemDetail.currencyUnit,materialProcurementItemDetail.memo,materialProcurementItemDetail.closed,materialProcurementItemDetail.recordStatus,materialProcurementItemDetail.createdDate,materialProcurementItemDetail.createdBy,materialProcurementItemDetail.lastModifiedDate,materialProcurementItemDetail.lastModifiedBy,materialProcurementItemDetail.procurementRequest,materialProcurementItemDetail.prNumber,materialProcurementItemDetail.procurementOrder,materialProcurementItemDetail.poNumber,materialProcurementItemDetail.materialCatalog,materialProcurementItemDetail.material,materialProcurementItemDetail.workOrderMaterial};        
+        Path<?>[] paths = new Path<?>[] {materialProcurementItemDetail.procurementRequest,materialProcurementItemDetail.procurementOrder,materialProcurementItemDetail.requester,materialProcurementItemDetail.prNumber,materialProcurementItemDetail.poNumber,materialProcurementItemDetail.submitDate,materialProcurementItemDetail.quantity,materialProcurementItemDetail.uom,materialProcurementItemDetail.organization,materialProcurementItemDetail.unitPrice,materialProcurementItemDetail.currencyUnit,materialProcurementItemDetail.memo,materialProcurementItemDetail.closed,materialProcurementItemDetail.recordStatus,materialProcurementItemDetail.createdDate,materialProcurementItemDetail.createdBy,materialProcurementItemDetail.lastModifiedDate,materialProcurementItemDetail.lastModifiedBy,materialProcurementItemDetail.materialCatalog,materialProcurementItemDetail.material,materialProcurementItemDetail.workOrderMaterial};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
+			.map(PROCUREMENT_REQUEST, materialProcurementItemDetail.procurementRequest)
+			.map(PROCUREMENT_ORDER, materialProcurementItemDetail.procurementOrder)
 			.map(REQUESTER, materialProcurementItemDetail.requester)
+			.map(PR_NUMBER, materialProcurementItemDetail.prNumber)
+			.map(PO_NUMBER, materialProcurementItemDetail.poNumber)
 			.map(SUBMIT_DATE, materialProcurementItemDetail.submitDate)
 			.map(QUANTITY, materialProcurementItemDetail.quantity)
 			.map(UOM, materialProcurementItemDetail.uom)
@@ -426,10 +330,6 @@ privileged aspect MaterialProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository
 			.map(CREATED_BY, materialProcurementItemDetail.createdBy)
 			.map(LAST_MODIFIED_DATE, materialProcurementItemDetail.lastModifiedDate)
 			.map(LAST_MODIFIED_BY, materialProcurementItemDetail.lastModifiedBy)
-			.map(PROCUREMENT_REQUEST, materialProcurementItemDetail.procurementRequest)
-			.map(PR_NUMBER, materialProcurementItemDetail.prNumber)
-			.map(PROCUREMENT_ORDER, materialProcurementItemDetail.procurementOrder)
-			.map(PO_NUMBER, materialProcurementItemDetail.poNumber)
 			.map(MATERIAL_CATALOG, materialProcurementItemDetail.materialCatalog)
 			.map(MATERIAL, materialProcurementItemDetail.material)
 			.map(WORK_ORDER_MATERIAL, materialProcurementItemDetail.workOrderMaterial);

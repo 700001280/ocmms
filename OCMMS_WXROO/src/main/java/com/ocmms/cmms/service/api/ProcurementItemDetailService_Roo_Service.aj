@@ -6,6 +6,8 @@ package com.ocmms.cmms.service.api;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.service.api.ProcurementItemDetailService;
 import io.springlets.data.domain.GlobalSearch;
 import java.util.List;
@@ -168,6 +170,26 @@ privileged aspect ProcurementItemDetailService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param procurementOrder
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<ProcurementItemDetail> ProcurementItemDetailService.findByProcurementOrder(ProcurementOrder procurementOrder, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequest
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<ProcurementItemDetail> ProcurementItemDetailService.findByProcurementRequest(ProcurementRequest procurementRequest, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param requester
      * @param globalSearch
      * @param pageable
@@ -182,6 +204,22 @@ privileged aspect ProcurementItemDetailService_Roo_Service {
      * @return Long
      */
     public abstract long ProcurementItemDetailService.countByOrganization(Organization organization);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrder
+     * @return Long
+     */
+    public abstract long ProcurementItemDetailService.countByProcurementOrder(ProcurementOrder procurementOrder);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequest
+     * @return Long
+     */
+    public abstract long ProcurementItemDetailService.countByProcurementRequest(ProcurementRequest procurementRequest);
     
     /**
      * TODO Auto-generated method documentation

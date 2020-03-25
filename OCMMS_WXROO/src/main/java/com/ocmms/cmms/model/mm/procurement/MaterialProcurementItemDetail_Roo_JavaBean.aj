@@ -5,8 +5,6 @@ package com.ocmms.cmms.model.mm.procurement;
 
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import com.ocmms.cmms.model.pm.workorder.WorkOrderMaterial;
 import java.util.Objects;
@@ -31,86 +29,6 @@ privileged aspect MaterialProcurementItemDetail_Roo_JavaBean {
      */
     public MaterialProcurementItemDetail MaterialProcurementItemDetail.setId(Long id) {
         this.id = id;
-        return this;
-    }
-    
-    /**
-     * Gets procurementRequest value
-     * 
-     * @return ProcurementRequest
-     */
-    public ProcurementRequest MaterialProcurementItemDetail.getProcurementRequest() {
-        return this.procurementRequest;
-    }
-    
-    /**
-     * Sets procurementRequest value
-     * 
-     * @param procurementRequest
-     * @return MaterialProcurementItemDetail
-     */
-    public MaterialProcurementItemDetail MaterialProcurementItemDetail.setProcurementRequest(ProcurementRequest procurementRequest) {
-        this.procurementRequest = procurementRequest;
-        return this;
-    }
-    
-    /**
-     * Gets prNumber value
-     * 
-     * @return String
-     */
-    public String MaterialProcurementItemDetail.getPrNumber() {
-        return this.prNumber;
-    }
-    
-    /**
-     * Sets prNumber value
-     * 
-     * @param prNumber
-     * @return MaterialProcurementItemDetail
-     */
-    public MaterialProcurementItemDetail MaterialProcurementItemDetail.setPrNumber(String prNumber) {
-        this.prNumber = prNumber;
-        return this;
-    }
-    
-    /**
-     * Gets procurementOrder value
-     * 
-     * @return ProcurementOrder
-     */
-    public ProcurementOrder MaterialProcurementItemDetail.getProcurementOrder() {
-        return this.procurementOrder;
-    }
-    
-    /**
-     * Sets procurementOrder value
-     * 
-     * @param procurementOrder
-     * @return MaterialProcurementItemDetail
-     */
-    public MaterialProcurementItemDetail MaterialProcurementItemDetail.setProcurementOrder(ProcurementOrder procurementOrder) {
-        this.procurementOrder = procurementOrder;
-        return this;
-    }
-    
-    /**
-     * Gets poNumber value
-     * 
-     * @return String
-     */
-    public String MaterialProcurementItemDetail.getPoNumber() {
-        return this.poNumber;
-    }
-    
-    /**
-     * Sets poNumber value
-     * 
-     * @param poNumber
-     * @return MaterialProcurementItemDetail
-     */
-    public MaterialProcurementItemDetail MaterialProcurementItemDetail.setPoNumber(String poNumber) {
-        this.poNumber = poNumber;
         return this;
     }
     
@@ -232,8 +150,6 @@ privileged aspect MaterialProcurementItemDetail_Roo_JavaBean {
     public String MaterialProcurementItemDetail.toString() {
         return "MaterialProcurementItemDetail {" + 
                 "id='" + id + '\'' + 
-                ", prNumber='" + prNumber + '\'' + 
-                ", poNumber='" + poNumber + '\'' + 
                 ", material='" + material + '\'' + "}" + super.toString();
     }
     

@@ -4,8 +4,6 @@
 package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.pm.workorder.WorkOrderMaterial;
 import com.ocmms.cmms.repository.MaterialProcurementItemDetailRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,26 +15,10 @@ privileged aspect MaterialProcurementItemDetailRepository_Roo_Jpa_Repository {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param procurementRequest
-     * @return Long
-     */
-    public abstract long MaterialProcurementItemDetailRepository.countByProcurementRequest(ProcurementRequest procurementRequest);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param materialCatalog
      * @return Long
      */
     public abstract long MaterialProcurementItemDetailRepository.countByMaterialCatalog(MaterialCatalog materialCatalog);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @return Long
-     */
-    public abstract long MaterialProcurementItemDetailRepository.countByProcurementOrder(ProcurementOrder procurementOrder);
     
     /**
      * TODO Auto-generated method documentation

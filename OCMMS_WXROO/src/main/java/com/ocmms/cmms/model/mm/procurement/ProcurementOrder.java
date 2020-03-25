@@ -112,17 +112,8 @@ public class ProcurementOrder {
 	@OneToMany(cascade = { javax.persistence.CascadeType.MERGE,
 			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "procurementOrder")
 	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
-	private Set<ServiceProcurementItemDetail> serviceProcurementItemDetails = new HashSet<ServiceProcurementItemDetail>();
-	
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@OneToMany(cascade = { javax.persistence.CascadeType.MERGE,
-			javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "procurementOrder")
-	@RooJpaRelation(type = JpaRelationType.AGGREGATION)
-	private Set<MaterialProcurementItemDetail> materialProcurementItemDetails = new HashSet<MaterialProcurementItemDetail>();
-        
+	private Set<ProcurementItemDetail> pocurementItemDetails = new HashSet<ProcurementItemDetail>();
+	        
         /**
 	 * TODO Auto-generated attribute documentation
 	 *

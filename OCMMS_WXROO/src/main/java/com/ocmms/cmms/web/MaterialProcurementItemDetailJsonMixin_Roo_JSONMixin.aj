@@ -6,14 +6,10 @@ package com.ocmms.cmms.web;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import com.ocmms.cmms.model.pm.workorder.WorkOrderMaterial;
 import com.ocmms.cmms.web.MaterialCatalogDeserializer;
 import com.ocmms.cmms.web.MaterialProcurementItemDetailJsonMixin;
-import com.ocmms.cmms.web.ProcurementOrderDeserializer;
-import com.ocmms.cmms.web.ProcurementRequestDeserializer;
 import com.ocmms.cmms.web.WorkOrderMaterialDeserializer;
 import java.util.Set;
 
@@ -32,20 +28,6 @@ privileged aspect MaterialProcurementItemDetailJsonMixin_Roo_JSONMixin {
      */
     @JsonDeserialize(using = MaterialCatalogDeserializer.class)
     private MaterialCatalog MaterialProcurementItemDetailJsonMixin.materialCatalog;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonDeserialize(using = ProcurementOrderDeserializer.class)
-    private ProcurementOrder MaterialProcurementItemDetailJsonMixin.procurementOrder;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonDeserialize(using = ProcurementRequestDeserializer.class)
-    private ProcurementRequest MaterialProcurementItemDetailJsonMixin.procurementRequest;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -88,42 +70,6 @@ privileged aspect MaterialProcurementItemDetailJsonMixin_Roo_JSONMixin {
      */
     public void MaterialProcurementItemDetailJsonMixin.setMaterialCatalog(MaterialCatalog materialCatalog) {
         this.materialCatalog = materialCatalog;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return ProcurementOrder
-     */
-    public ProcurementOrder MaterialProcurementItemDetailJsonMixin.getProcurementOrder() {
-        return procurementOrder;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     */
-    public void MaterialProcurementItemDetailJsonMixin.setProcurementOrder(ProcurementOrder procurementOrder) {
-        this.procurementOrder = procurementOrder;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return ProcurementRequest
-     */
-    public ProcurementRequest MaterialProcurementItemDetailJsonMixin.getProcurementRequest() {
-        return procurementRequest;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     */
-    public void MaterialProcurementItemDetailJsonMixin.setProcurementRequest(ProcurementRequest procurementRequest) {
-        this.procurementRequest = procurementRequest;
     }
     
     /**

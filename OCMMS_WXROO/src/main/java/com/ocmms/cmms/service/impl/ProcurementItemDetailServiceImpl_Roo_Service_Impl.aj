@@ -8,6 +8,8 @@ import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.repository.ProcurementItemDetailRepository;
 import com.ocmms.cmms.service.api.DocumentService;
 import com.ocmms.cmms.service.api.ImageDocumentService;
@@ -256,9 +258,19 @@ privileged aspect ProcurementItemDetailServiceImpl_Roo_Service_Impl {
             procurementItemDetail.getRequester().getProcurementItemDetails().remove(procurementItemDetail);
         }
         
+        // Clear bidirectional many-to-one child relationship with ProcurementRequest
+        if (procurementItemDetail.getProcurementRequest() != null) {
+            procurementItemDetail.getProcurementRequest().getProcurementItemDetails().remove(procurementItemDetail);
+        }
+        
         // Clear bidirectional many-to-one child relationship with Organization
         if (procurementItemDetail.getOrganization() != null) {
             procurementItemDetail.getOrganization().getProcurementItemDetails().remove(procurementItemDetail);
+        }
+        
+        // Clear bidirectional many-to-one child relationship with ProcurementOrder
+        if (procurementItemDetail.getProcurementOrder() != null) {
+            procurementItemDetail.getProcurementOrder().getPocurementItemDetails().remove(procurementItemDetail);
         }
         
         // Clear bidirectional one-to-many parent relationship with Document
@@ -393,6 +405,30 @@ privileged aspect ProcurementItemDetailServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param procurementOrder
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<ProcurementItemDetail> ProcurementItemDetailServiceImpl.findByProcurementOrder(ProcurementOrder procurementOrder, GlobalSearch globalSearch, Pageable pageable) {
+        return getProcurementItemDetailRepository().findByProcurementOrder(procurementOrder, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequest
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public Page<ProcurementItemDetail> ProcurementItemDetailServiceImpl.findByProcurementRequest(ProcurementRequest procurementRequest, GlobalSearch globalSearch, Pageable pageable) {
+        return getProcurementItemDetailRepository().findByProcurementRequest(procurementRequest, globalSearch, pageable);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param requester
      * @param globalSearch
      * @param pageable
@@ -410,6 +446,26 @@ privileged aspect ProcurementItemDetailServiceImpl_Roo_Service_Impl {
      */
     public long ProcurementItemDetailServiceImpl.countByOrganization(Organization organization) {
         return getProcurementItemDetailRepository().countByOrganization(organization);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrder
+     * @return Long
+     */
+    public long ProcurementItemDetailServiceImpl.countByProcurementOrder(ProcurementOrder procurementOrder) {
+        return getProcurementItemDetailRepository().countByProcurementOrder(procurementOrder);
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequest
+     * @return Long
+     */
+    public long ProcurementItemDetailServiceImpl.countByProcurementRequest(ProcurementRequest procurementRequest) {
+        return getProcurementItemDetailRepository().countByProcurementRequest(procurementRequest);
     }
     
     /**

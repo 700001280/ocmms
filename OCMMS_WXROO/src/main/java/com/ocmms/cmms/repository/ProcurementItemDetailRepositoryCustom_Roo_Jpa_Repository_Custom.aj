@@ -6,6 +6,8 @@ package com.ocmms.cmms.repository;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.repository.ProcurementItemDetailRepositoryCustom;
 import io.springlets.data.domain.GlobalSearch;
 import java.util.List;
@@ -27,12 +29,32 @@ privileged aspect ProcurementItemDetailRepositoryCustom_Roo_Jpa_Repository_Custo
     /**
      * TODO Auto-generated method documentation
      * 
+     * @param procurementRequest
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<ProcurementItemDetail> ProcurementItemDetailRepositoryCustom.findByProcurementRequest(ProcurementRequest procurementRequest, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
      * @param organization
      * @param globalSearch
      * @param pageable
      * @return Page
      */
     public abstract Page<ProcurementItemDetail> ProcurementItemDetailRepositoryCustom.findByOrganization(Organization organization, GlobalSearch globalSearch, Pageable pageable);
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrder
+     * @param globalSearch
+     * @param pageable
+     * @return Page
+     */
+    public abstract Page<ProcurementItemDetail> ProcurementItemDetailRepositoryCustom.findByProcurementOrder(ProcurementOrder procurementOrder, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

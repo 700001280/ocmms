@@ -4,8 +4,6 @@
 package com.ocmms.cmms.service.impl;
 
 import com.ocmms.cmms.model.mm.master.ServiceCatalog;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.model.mm.storage.ServiceReceiveDetail;
 import com.ocmms.cmms.repository.ServiceProcurementItemDetailRepository;
@@ -168,16 +166,6 @@ privileged aspect ServiceProcurementItemDetailServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void ServiceProcurementItemDetailServiceImpl.delete(ServiceProcurementItemDetail serviceProcurementItemDetail) {
-        // Clear bidirectional many-to-one child relationship with ProcurementRequest
-        if (serviceProcurementItemDetail.getProcurementRequest() != null) {
-            serviceProcurementItemDetail.getProcurementRequest().getServiceProcurementItemDetails().remove(serviceProcurementItemDetail);
-        }
-        
-        // Clear bidirectional many-to-one child relationship with ProcurementOrder
-        if (serviceProcurementItemDetail.getProcurementOrder() != null) {
-            serviceProcurementItemDetail.getProcurementOrder().getServiceProcurementItemDetails().remove(serviceProcurementItemDetail);
-        }
-        
         // Clear bidirectional many-to-one child relationship with ServiceCatalog
         if (serviceProcurementItemDetail.getServiceCatalog() != null) {
             serviceProcurementItemDetail.getServiceCatalog().getServiceProcurementItemDetails().remove(serviceProcurementItemDetail);
@@ -298,30 +286,6 @@ privileged aspect ServiceProcurementItemDetailServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param procurementOrder
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<ServiceProcurementItemDetail> ServiceProcurementItemDetailServiceImpl.findByProcurementOrder(ProcurementOrder procurementOrder, GlobalSearch globalSearch, Pageable pageable) {
-        return getServiceProcurementItemDetailRepository().findByProcurementOrder(procurementOrder, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<ServiceProcurementItemDetail> ServiceProcurementItemDetailServiceImpl.findByProcurementRequest(ProcurementRequest procurementRequest, GlobalSearch globalSearch, Pageable pageable) {
-        return getServiceProcurementItemDetailRepository().findByProcurementRequest(procurementRequest, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param serviceCatalog
      * @param globalSearch
      * @param pageable
@@ -329,26 +293,6 @@ privileged aspect ServiceProcurementItemDetailServiceImpl_Roo_Service_Impl {
      */
     public Page<ServiceProcurementItemDetail> ServiceProcurementItemDetailServiceImpl.findByServiceCatalog(ServiceCatalog serviceCatalog, GlobalSearch globalSearch, Pageable pageable) {
         return getServiceProcurementItemDetailRepository().findByServiceCatalog(serviceCatalog, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @return Long
-     */
-    public long ServiceProcurementItemDetailServiceImpl.countByProcurementOrder(ProcurementOrder procurementOrder) {
-        return getServiceProcurementItemDetailRepository().countByProcurementOrder(procurementOrder);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @return Long
-     */
-    public long ServiceProcurementItemDetailServiceImpl.countByProcurementRequest(ProcurementRequest procurementRequest) {
-        return getServiceProcurementItemDetailRepository().countByProcurementRequest(procurementRequest);
     }
     
     /**

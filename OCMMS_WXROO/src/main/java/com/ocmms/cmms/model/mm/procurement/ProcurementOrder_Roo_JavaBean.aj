@@ -6,12 +6,11 @@ package com.ocmms.cmms.model.mm.procurement;
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.mm.procurement.CatalogType;
-import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.PriorityType;
+import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
-import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.model.srm.Vendor;
 import com.ocmms.cmms.model.system.RecordStatus;
 import java.util.Calendar;
@@ -121,42 +120,22 @@ privileged aspect ProcurementOrder_Roo_JavaBean {
     }
     
     /**
-     * Gets serviceProcurementItemDetails value
+     * Gets pocurementItemDetails value
      * 
      * @return Set
      */
-    public Set<ServiceProcurementItemDetail> ProcurementOrder.getServiceProcurementItemDetails() {
-        return this.serviceProcurementItemDetails;
+    public Set<ProcurementItemDetail> ProcurementOrder.getPocurementItemDetails() {
+        return this.pocurementItemDetails;
     }
     
     /**
-     * Sets serviceProcurementItemDetails value
+     * Sets pocurementItemDetails value
      * 
-     * @param serviceProcurementItemDetails
+     * @param pocurementItemDetails
      * @return ProcurementOrder
      */
-    public ProcurementOrder ProcurementOrder.setServiceProcurementItemDetails(Set<ServiceProcurementItemDetail> serviceProcurementItemDetails) {
-        this.serviceProcurementItemDetails = serviceProcurementItemDetails;
-        return this;
-    }
-    
-    /**
-     * Gets materialProcurementItemDetails value
-     * 
-     * @return Set
-     */
-    public Set<MaterialProcurementItemDetail> ProcurementOrder.getMaterialProcurementItemDetails() {
-        return this.materialProcurementItemDetails;
-    }
-    
-    /**
-     * Sets materialProcurementItemDetails value
-     * 
-     * @param materialProcurementItemDetails
-     * @return ProcurementOrder
-     */
-    public ProcurementOrder ProcurementOrder.setMaterialProcurementItemDetails(Set<MaterialProcurementItemDetail> materialProcurementItemDetails) {
-        this.materialProcurementItemDetails = materialProcurementItemDetails;
+    public ProcurementOrder ProcurementOrder.setPocurementItemDetails(Set<ProcurementItemDetail> pocurementItemDetails) {
+        this.pocurementItemDetails = pocurementItemDetails;
         return this;
     }
     
@@ -458,14 +437,14 @@ privileged aspect ProcurementOrder_Roo_JavaBean {
     public String ProcurementOrder.toString() {
         return "ProcurementOrder {" + 
                 "id='" + id + '\'' + 
-
+                ", orderDate='" + orderDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(orderDate.getTime()) + '\'' + 
                 ", orderNumber='" + orderNumber + '\'' + 
                 ", memo='" + memo + '\'' + 
                 ", closed='" + closed + '\'' + 
                 ", version='" + version + '\'' + 
-
+                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
                 ", createdBy='" + createdBy + '\'' + 
-
+                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     

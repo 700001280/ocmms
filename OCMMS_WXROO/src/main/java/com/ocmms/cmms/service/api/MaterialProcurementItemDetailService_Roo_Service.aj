@@ -5,8 +5,6 @@ package com.ocmms.cmms.service.api;
 
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.pm.workorder.WorkOrderMaterial;
 import com.ocmms.cmms.service.api.MaterialProcurementItemDetailService;
 import io.springlets.data.domain.GlobalSearch;
@@ -143,26 +141,6 @@ privileged aspect MaterialProcurementItemDetailService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param procurementOrder
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialProcurementItemDetail> MaterialProcurementItemDetailService.findByProcurementOrder(ProcurementOrder procurementOrder, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<MaterialProcurementItemDetail> MaterialProcurementItemDetailService.findByProcurementRequest(ProcurementRequest procurementRequest, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param workOrderMaterial
      * @param globalSearch
      * @param pageable
@@ -177,22 +155,6 @@ privileged aspect MaterialProcurementItemDetailService_Roo_Service {
      * @return Long
      */
     public abstract long MaterialProcurementItemDetailService.countByMaterialCatalog(MaterialCatalog materialCatalog);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @return Long
-     */
-    public abstract long MaterialProcurementItemDetailService.countByProcurementOrder(ProcurementOrder procurementOrder);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @return Long
-     */
-    public abstract long MaterialProcurementItemDetailService.countByProcurementRequest(ProcurementRequest procurementRequest);
     
     /**
      * TODO Auto-generated method documentation

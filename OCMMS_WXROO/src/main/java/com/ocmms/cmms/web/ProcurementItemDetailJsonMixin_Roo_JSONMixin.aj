@@ -11,11 +11,15 @@ import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.Organization;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.CurrencyDeserializer;
 import com.ocmms.cmms.web.EmployeeDeserializer;
 import com.ocmms.cmms.web.OrganizationDeserializer;
 import com.ocmms.cmms.web.ProcurementItemDetailJsonMixin;
+import com.ocmms.cmms.web.ProcurementOrderDeserializer;
+import com.ocmms.cmms.web.ProcurementRequestDeserializer;
 import com.ocmms.cmms.web.RecordStatusDeserializer;
 import com.ocmms.cmms.web.UnitOfMeasureDeserializer;
 import java.util.Set;
@@ -49,6 +53,20 @@ privileged aspect ProcurementItemDetailJsonMixin_Roo_JSONMixin {
      */
     @JsonDeserialize(using = OrganizationDeserializer.class)
     private Organization ProcurementItemDetailJsonMixin.organization;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = ProcurementOrderDeserializer.class)
+    private ProcurementOrder ProcurementItemDetailJsonMixin.procurementOrder;
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    @JsonDeserialize(using = ProcurementRequestDeserializer.class)
+    private ProcurementRequest ProcurementItemDetailJsonMixin.procurementRequest;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -141,6 +159,42 @@ privileged aspect ProcurementItemDetailJsonMixin_Roo_JSONMixin {
      */
     public void ProcurementItemDetailJsonMixin.setOrganization(Organization organization) {
         this.organization = organization;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ProcurementOrder
+     */
+    public ProcurementOrder ProcurementItemDetailJsonMixin.getProcurementOrder() {
+        return procurementOrder;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementOrder
+     */
+    public void ProcurementItemDetailJsonMixin.setProcurementOrder(ProcurementOrder procurementOrder) {
+        this.procurementOrder = procurementOrder;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @return ProcurementRequest
+     */
+    public ProcurementRequest ProcurementItemDetailJsonMixin.getProcurementRequest() {
+        return procurementRequest;
+    }
+    
+    /**
+     * TODO Auto-generated method documentation
+     * 
+     * @param procurementRequest
+     */
+    public void ProcurementItemDetailJsonMixin.setProcurementRequest(ProcurementRequest procurementRequest) {
+        this.procurementRequest = procurementRequest;
     }
     
     /**

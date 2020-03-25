@@ -5,11 +5,10 @@ package com.ocmms.cmms.model.mm.procurement;
 
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
-import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
+import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
-import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import io.springlets.format.EntityFormat;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -90,12 +89,12 @@ privileged aspect ProcurementOrder_Roo_Jpa_Entity {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param serviceProcurementItemDetailsToAdd
+     * @param pocurementItemDetailsToAdd
      */
-    public void ProcurementOrder.addToServiceProcurementItemDetails(Iterable<ServiceProcurementItemDetail> serviceProcurementItemDetailsToAdd) {
-        Assert.notNull(serviceProcurementItemDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
-        for (ServiceProcurementItemDetail item : serviceProcurementItemDetailsToAdd) {
-            this.serviceProcurementItemDetails.add(item);
+    public void ProcurementOrder.addToPocurementItemDetails(Iterable<ProcurementItemDetail> pocurementItemDetailsToAdd) {
+        Assert.notNull(pocurementItemDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
+        for (ProcurementItemDetail item : pocurementItemDetailsToAdd) {
+            this.pocurementItemDetails.add(item);
             item.setProcurementOrder(this);
         }
     }
@@ -103,38 +102,12 @@ privileged aspect ProcurementOrder_Roo_Jpa_Entity {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param serviceProcurementItemDetailsToRemove
+     * @param pocurementItemDetailsToRemove
      */
-    public void ProcurementOrder.removeFromServiceProcurementItemDetails(Iterable<ServiceProcurementItemDetail> serviceProcurementItemDetailsToRemove) {
-        Assert.notNull(serviceProcurementItemDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
-        for (ServiceProcurementItemDetail item : serviceProcurementItemDetailsToRemove) {
-            this.serviceProcurementItemDetails.remove(item);
-            item.setProcurementOrder(null);
-        }
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialProcurementItemDetailsToAdd
-     */
-    public void ProcurementOrder.addToMaterialProcurementItemDetails(Iterable<MaterialProcurementItemDetail> materialProcurementItemDetailsToAdd) {
-        Assert.notNull(materialProcurementItemDetailsToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
-        for (MaterialProcurementItemDetail item : materialProcurementItemDetailsToAdd) {
-            this.materialProcurementItemDetails.add(item);
-            item.setProcurementOrder(this);
-        }
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param materialProcurementItemDetailsToRemove
-     */
-    public void ProcurementOrder.removeFromMaterialProcurementItemDetails(Iterable<MaterialProcurementItemDetail> materialProcurementItemDetailsToRemove) {
-        Assert.notNull(materialProcurementItemDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
-        for (MaterialProcurementItemDetail item : materialProcurementItemDetailsToRemove) {
-            this.materialProcurementItemDetails.remove(item);
+    public void ProcurementOrder.removeFromPocurementItemDetails(Iterable<ProcurementItemDetail> pocurementItemDetailsToRemove) {
+        Assert.notNull(pocurementItemDetailsToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
+        for (ProcurementItemDetail item : pocurementItemDetailsToRemove) {
+            this.pocurementItemDetails.remove(item);
             item.setProcurementOrder(null);
         }
     }

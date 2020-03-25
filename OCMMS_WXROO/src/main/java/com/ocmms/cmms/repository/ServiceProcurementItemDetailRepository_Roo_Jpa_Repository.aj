@@ -4,30 +4,12 @@
 package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.mm.master.ServiceCatalog;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.repository.ServiceProcurementItemDetailRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect ServiceProcurementItemDetailRepository_Roo_Jpa_Repository {
     
     declare @type: ServiceProcurementItemDetailRepository: @Transactional(readOnly = true);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @return Long
-     */
-    public abstract long ServiceProcurementItemDetailRepository.countByProcurementRequest(ProcurementRequest procurementRequest);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @return Long
-     */
-    public abstract long ServiceProcurementItemDetailRepository.countByProcurementOrder(ProcurementOrder procurementOrder);
     
     /**
      * TODO Auto-generated method documentation

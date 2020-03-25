@@ -5,8 +5,6 @@ package com.ocmms.cmms.service.impl;
 
 import com.ocmms.cmms.model.mm.master.MaterialCatalog;
 import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.storage.MaterialInstockDetail;
 import com.ocmms.cmms.model.pm.workorder.WorkOrderMaterial;
 import com.ocmms.cmms.repository.MaterialProcurementItemDetailRepository;
@@ -169,19 +167,9 @@ privileged aspect MaterialProcurementItemDetailServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void MaterialProcurementItemDetailServiceImpl.delete(MaterialProcurementItemDetail materialProcurementItemDetail) {
-        // Clear bidirectional many-to-one child relationship with ProcurementRequest
-        if (materialProcurementItemDetail.getProcurementRequest() != null) {
-            materialProcurementItemDetail.getProcurementRequest().getMaterialProcurementItemDetails().remove(materialProcurementItemDetail);
-        }
-        
         // Clear bidirectional many-to-one child relationship with MaterialCatalog
         if (materialProcurementItemDetail.getMaterialCatalog() != null) {
             materialProcurementItemDetail.getMaterialCatalog().getMaterialProcurementItemDetails().remove(materialProcurementItemDetail);
-        }
-        
-        // Clear bidirectional many-to-one child relationship with ProcurementOrder
-        if (materialProcurementItemDetail.getProcurementOrder() != null) {
-            materialProcurementItemDetail.getProcurementOrder().getMaterialProcurementItemDetails().remove(materialProcurementItemDetail);
         }
         
         // Clear bidirectional many-to-one child relationship with WorkOrderMaterial
@@ -316,30 +304,6 @@ privileged aspect MaterialProcurementItemDetailServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param procurementOrder
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<MaterialProcurementItemDetail> MaterialProcurementItemDetailServiceImpl.findByProcurementOrder(ProcurementOrder procurementOrder, GlobalSearch globalSearch, Pageable pageable) {
-        return getMaterialProcurementItemDetailRepository().findByProcurementOrder(procurementOrder, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public Page<MaterialProcurementItemDetail> MaterialProcurementItemDetailServiceImpl.findByProcurementRequest(ProcurementRequest procurementRequest, GlobalSearch globalSearch, Pageable pageable) {
-        return getMaterialProcurementItemDetailRepository().findByProcurementRequest(procurementRequest, globalSearch, pageable);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param workOrderMaterial
      * @param globalSearch
      * @param pageable
@@ -357,26 +321,6 @@ privileged aspect MaterialProcurementItemDetailServiceImpl_Roo_Service_Impl {
      */
     public long MaterialProcurementItemDetailServiceImpl.countByMaterialCatalog(MaterialCatalog materialCatalog) {
         return getMaterialProcurementItemDetailRepository().countByMaterialCatalog(materialCatalog);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @return Long
-     */
-    public long MaterialProcurementItemDetailServiceImpl.countByProcurementOrder(ProcurementOrder procurementOrder) {
-        return getMaterialProcurementItemDetailRepository().countByProcurementOrder(procurementOrder);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @return Long
-     */
-    public long MaterialProcurementItemDetailServiceImpl.countByProcurementRequest(ProcurementRequest procurementRequest) {
-        return getMaterialProcurementItemDetailRepository().countByProcurementRequest(procurementRequest);
     }
     
     /**

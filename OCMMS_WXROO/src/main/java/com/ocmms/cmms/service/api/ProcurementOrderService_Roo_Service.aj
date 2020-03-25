@@ -157,28 +157,28 @@ privileged aspect ProcurementOrderService_Roo_Service {
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
-     * @param materialProcurementItemDetailsToAdd
+     * @param pocurementItemDetailsToAdd
      * @return ProcurementOrder
      */
-    public abstract ProcurementOrder ProcurementOrderService.addToMaterialProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> materialProcurementItemDetailsToAdd);
+    public abstract ProcurementOrder ProcurementOrderService.addToPocurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> pocurementItemDetailsToAdd);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
-     * @param materialProcurementItemDetailsToRemove
+     * @param pocurementItemDetailsToRemove
      * @return ProcurementOrder
      */
-    public abstract ProcurementOrder ProcurementOrderService.removeFromMaterialProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> materialProcurementItemDetailsToRemove);
+    public abstract ProcurementOrder ProcurementOrderService.removeFromPocurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> pocurementItemDetailsToRemove);
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
-     * @param materialProcurementItemDetails
+     * @param pocurementItemDetails
      * @return ProcurementOrder
      */
-    public abstract ProcurementOrder ProcurementOrderService.setMaterialProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> materialProcurementItemDetails);
+    public abstract ProcurementOrder ProcurementOrderService.setPocurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> pocurementItemDetails);
     
     /**
      * TODO Auto-generated method documentation
@@ -233,32 +233,5 @@ privileged aspect ProcurementOrderService_Roo_Service {
      * @return ProcurementOrder
      */
     public abstract ProcurementOrder ProcurementOrderService.setPurchaseExpedites(ProcurementOrder procurementOrder, Iterable<Long> purchaseExpedites);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @param serviceProcurementItemDetailsToAdd
-     * @return ProcurementOrder
-     */
-    public abstract ProcurementOrder ProcurementOrderService.addToServiceProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> serviceProcurementItemDetailsToAdd);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @param serviceProcurementItemDetailsToRemove
-     * @return ProcurementOrder
-     */
-    public abstract ProcurementOrder ProcurementOrderService.removeFromServiceProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> serviceProcurementItemDetailsToRemove);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @param serviceProcurementItemDetails
-     * @return ProcurementOrder
-     */
-    public abstract ProcurementOrder ProcurementOrderService.setServiceProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> serviceProcurementItemDetails);
     
 }

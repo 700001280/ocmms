@@ -5,18 +5,16 @@ package com.ocmms.cmms.service.impl;
 
 import com.ocmms.cmms.model.edm.Document;
 import com.ocmms.cmms.model.edm.ImageDocument;
-import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
+import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrderFinanceTracking;
 import com.ocmms.cmms.model.mm.procurement.PurchaseExpedite;
-import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.repository.ProcurementOrderRepository;
 import com.ocmms.cmms.service.api.DocumentService;
 import com.ocmms.cmms.service.api.ImageDocumentService;
-import com.ocmms.cmms.service.api.MaterialProcurementItemDetailService;
+import com.ocmms.cmms.service.api.ProcurementItemDetailService;
 import com.ocmms.cmms.service.api.ProcurementOrderFinanceTrackingService;
 import com.ocmms.cmms.service.api.PurchaseExpediteService;
-import com.ocmms.cmms.service.api.ServiceProcurementItemDetailService;
 import com.ocmms.cmms.service.impl.ProcurementOrderServiceImpl;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.web.validation.MessageI18n;
@@ -60,7 +58,7 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    private MaterialProcurementItemDetailService ProcurementOrderServiceImpl.materialProcurementItemDetailService;
+    private ProcurementItemDetailService ProcurementOrderServiceImpl.procurementItemDetailService;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -75,31 +73,23 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
     private PurchaseExpediteService ProcurementOrderServiceImpl.purchaseExpediteService;
     
     /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    private ServiceProcurementItemDetailService ProcurementOrderServiceImpl.serviceProcurementItemDetailService;
-    
-    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param procurementOrderRepository
      * @param documentService
      * @param imageDocumentService
-     * @param materialProcurementItemDetailService
+     * @param procurementItemDetailService
      * @param procurementOrderFinanceTrackingService
      * @param purchaseExpediteService
-     * @param serviceProcurementItemDetailService
      */
     @Autowired
-    public ProcurementOrderServiceImpl.new(ProcurementOrderRepository procurementOrderRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService, @Lazy MaterialProcurementItemDetailService materialProcurementItemDetailService, @Lazy ProcurementOrderFinanceTrackingService procurementOrderFinanceTrackingService, @Lazy PurchaseExpediteService purchaseExpediteService, @Lazy ServiceProcurementItemDetailService serviceProcurementItemDetailService) {
+    public ProcurementOrderServiceImpl.new(ProcurementOrderRepository procurementOrderRepository, @Lazy DocumentService documentService, @Lazy ImageDocumentService imageDocumentService, @Lazy ProcurementItemDetailService procurementItemDetailService, @Lazy ProcurementOrderFinanceTrackingService procurementOrderFinanceTrackingService, @Lazy PurchaseExpediteService purchaseExpediteService) {
         setProcurementOrderRepository(procurementOrderRepository);
         setDocumentService(documentService);
         setImageDocumentService(imageDocumentService);
-        setMaterialProcurementItemDetailService(materialProcurementItemDetailService);
+        setProcurementItemDetailService(procurementItemDetailService);
         setProcurementOrderFinanceTrackingService(procurementOrderFinanceTrackingService);
         setPurchaseExpediteService(purchaseExpediteService);
-        setServiceProcurementItemDetailService(serviceProcurementItemDetailService);
     }
 
     /**
@@ -159,19 +149,19 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return MaterialProcurementItemDetailService
+     * @return ProcurementItemDetailService
      */
-    public MaterialProcurementItemDetailService ProcurementOrderServiceImpl.getMaterialProcurementItemDetailService() {
-        return materialProcurementItemDetailService;
+    public ProcurementItemDetailService ProcurementOrderServiceImpl.getProcurementItemDetailService() {
+        return procurementItemDetailService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialProcurementItemDetailService
+     * @param procurementItemDetailService
      */
-    public void ProcurementOrderServiceImpl.setMaterialProcurementItemDetailService(MaterialProcurementItemDetailService materialProcurementItemDetailService) {
-        this.materialProcurementItemDetailService = materialProcurementItemDetailService;
+    public void ProcurementOrderServiceImpl.setProcurementItemDetailService(ProcurementItemDetailService procurementItemDetailService) {
+        this.procurementItemDetailService = procurementItemDetailService;
     }
     
     /**
@@ -208,24 +198,6 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      */
     public void ProcurementOrderServiceImpl.setPurchaseExpediteService(PurchaseExpediteService purchaseExpediteService) {
         this.purchaseExpediteService = purchaseExpediteService;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return ServiceProcurementItemDetailService
-     */
-    public ServiceProcurementItemDetailService ProcurementOrderServiceImpl.getServiceProcurementItemDetailService() {
-        return serviceProcurementItemDetailService;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param serviceProcurementItemDetailService
-     */
-    public void ProcurementOrderServiceImpl.setServiceProcurementItemDetailService(ServiceProcurementItemDetailService serviceProcurementItemDetailService) {
-        this.serviceProcurementItemDetailService = serviceProcurementItemDetailService;
     }
     
     /**
@@ -274,13 +246,13 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
-     * @param materialProcurementItemDetailsToAdd
+     * @param pocurementItemDetailsToAdd
      * @return ProcurementOrder
      */
     @Transactional
-    public ProcurementOrder ProcurementOrderServiceImpl.addToMaterialProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> materialProcurementItemDetailsToAdd) {
-        List<MaterialProcurementItemDetail> materialProcurementItemDetails = getMaterialProcurementItemDetailService().findAll(materialProcurementItemDetailsToAdd);
-        procurementOrder.addToMaterialProcurementItemDetails(materialProcurementItemDetails);
+    public ProcurementOrder ProcurementOrderServiceImpl.addToPocurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> pocurementItemDetailsToAdd) {
+        List<ProcurementItemDetail> pocurementItemDetails = getProcurementItemDetailService().findAll(pocurementItemDetailsToAdd);
+        procurementOrder.addToPocurementItemDetails(pocurementItemDetails);
         return getProcurementOrderRepository().save(procurementOrder);
     }
     
@@ -316,20 +288,6 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
-     * @param serviceProcurementItemDetailsToAdd
-     * @return ProcurementOrder
-     */
-    @Transactional
-    public ProcurementOrder ProcurementOrderServiceImpl.addToServiceProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> serviceProcurementItemDetailsToAdd) {
-        List<ServiceProcurementItemDetail> serviceProcurementItemDetails = getServiceProcurementItemDetailService().findAll(serviceProcurementItemDetailsToAdd);
-        procurementOrder.addToServiceProcurementItemDetails(serviceProcurementItemDetails);
-        return getProcurementOrderRepository().save(procurementOrder);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
      * @param documentsToRemove
      * @return ProcurementOrder
      */
@@ -358,13 +316,13 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
-     * @param materialProcurementItemDetailsToRemove
+     * @param pocurementItemDetailsToRemove
      * @return ProcurementOrder
      */
     @Transactional
-    public ProcurementOrder ProcurementOrderServiceImpl.removeFromMaterialProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> materialProcurementItemDetailsToRemove) {
-        List<MaterialProcurementItemDetail> materialProcurementItemDetails = getMaterialProcurementItemDetailService().findAll(materialProcurementItemDetailsToRemove);
-        procurementOrder.removeFromMaterialProcurementItemDetails(materialProcurementItemDetails);
+    public ProcurementOrder ProcurementOrderServiceImpl.removeFromPocurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> pocurementItemDetailsToRemove) {
+        List<ProcurementItemDetail> pocurementItemDetails = getProcurementItemDetailService().findAll(pocurementItemDetailsToRemove);
+        procurementOrder.removeFromPocurementItemDetails(pocurementItemDetails);
         return getProcurementOrderRepository().save(procurementOrder);
     }
     
@@ -393,20 +351,6 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
     public ProcurementOrder ProcurementOrderServiceImpl.removeFromPurchaseExpedites(ProcurementOrder procurementOrder, Iterable<Long> purchaseExpeditesToRemove) {
         List<PurchaseExpedite> purchaseExpedites = getPurchaseExpediteService().findAll(purchaseExpeditesToRemove);
         procurementOrder.removeFromPurchaseExpedites(purchaseExpedites);
-        return getProcurementOrderRepository().save(procurementOrder);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @param serviceProcurementItemDetailsToRemove
-     * @return ProcurementOrder
-     */
-    @Transactional
-    public ProcurementOrder ProcurementOrderServiceImpl.removeFromServiceProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> serviceProcurementItemDetailsToRemove) {
-        List<ServiceProcurementItemDetail> serviceProcurementItemDetails = getServiceProcurementItemDetailService().findAll(serviceProcurementItemDetailsToRemove);
-        procurementOrder.removeFromServiceProcurementItemDetails(serviceProcurementItemDetails);
         return getProcurementOrderRepository().save(procurementOrder);
     }
     
@@ -470,24 +414,24 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
-     * @param materialProcurementItemDetails
+     * @param pocurementItemDetails
      * @return ProcurementOrder
      */
     @Transactional
-    public ProcurementOrder ProcurementOrderServiceImpl.setMaterialProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> materialProcurementItemDetails) {
-        List<MaterialProcurementItemDetail> items = getMaterialProcurementItemDetailService().findAll(materialProcurementItemDetails);
-        Set<MaterialProcurementItemDetail> currents = procurementOrder.getMaterialProcurementItemDetails();
-        Set<MaterialProcurementItemDetail> toRemove = new HashSet<MaterialProcurementItemDetail>();
-        for (Iterator<MaterialProcurementItemDetail> iterator = currents.iterator(); iterator.hasNext();) {
-            MaterialProcurementItemDetail nextMaterialProcurementItemDetail = iterator.next();
-            if (items.contains(nextMaterialProcurementItemDetail)) {
-                items.remove(nextMaterialProcurementItemDetail);
+    public ProcurementOrder ProcurementOrderServiceImpl.setPocurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> pocurementItemDetails) {
+        List<ProcurementItemDetail> items = getProcurementItemDetailService().findAll(pocurementItemDetails);
+        Set<ProcurementItemDetail> currents = procurementOrder.getPocurementItemDetails();
+        Set<ProcurementItemDetail> toRemove = new HashSet<ProcurementItemDetail>();
+        for (Iterator<ProcurementItemDetail> iterator = currents.iterator(); iterator.hasNext();) {
+            ProcurementItemDetail nextProcurementItemDetail = iterator.next();
+            if (items.contains(nextProcurementItemDetail)) {
+                items.remove(nextProcurementItemDetail);
             } else {
-                toRemove.add(nextMaterialProcurementItemDetail);
+                toRemove.add(nextProcurementItemDetail);
             }
         }
-        procurementOrder.removeFromMaterialProcurementItemDetails(toRemove);
-        procurementOrder.addToMaterialProcurementItemDetails(items);
+        procurementOrder.removeFromPocurementItemDetails(toRemove);
+        procurementOrder.addToPocurementItemDetails(items);
         // Force the version update of the parent side to know that the parent has changed
         // because it has new books assigned
         procurementOrder.setVersion(procurementOrder.getVersion() + 1);
@@ -554,34 +498,6 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated method documentation
      * 
      * @param procurementOrder
-     * @param serviceProcurementItemDetails
-     * @return ProcurementOrder
-     */
-    @Transactional
-    public ProcurementOrder ProcurementOrderServiceImpl.setServiceProcurementItemDetails(ProcurementOrder procurementOrder, Iterable<Long> serviceProcurementItemDetails) {
-        List<ServiceProcurementItemDetail> items = getServiceProcurementItemDetailService().findAll(serviceProcurementItemDetails);
-        Set<ServiceProcurementItemDetail> currents = procurementOrder.getServiceProcurementItemDetails();
-        Set<ServiceProcurementItemDetail> toRemove = new HashSet<ServiceProcurementItemDetail>();
-        for (Iterator<ServiceProcurementItemDetail> iterator = currents.iterator(); iterator.hasNext();) {
-            ServiceProcurementItemDetail nextServiceProcurementItemDetail = iterator.next();
-            if (items.contains(nextServiceProcurementItemDetail)) {
-                items.remove(nextServiceProcurementItemDetail);
-            } else {
-                toRemove.add(nextServiceProcurementItemDetail);
-            }
-        }
-        procurementOrder.removeFromServiceProcurementItemDetails(toRemove);
-        procurementOrder.addToServiceProcurementItemDetails(items);
-        // Force the version update of the parent side to know that the parent has changed
-        // because it has new books assigned
-        procurementOrder.setVersion(procurementOrder.getVersion() + 1);
-        return getProcurementOrderRepository().save(procurementOrder);
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
      */
     @Transactional
     public void ProcurementOrderServiceImpl.delete(ProcurementOrder procurementOrder) {
@@ -595,8 +511,8 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
             item.setProcurementOrder(null);
         }
         
-        // Clear bidirectional one-to-many parent relationship with MaterialProcurementItemDetail
-        for (MaterialProcurementItemDetail item : procurementOrder.getMaterialProcurementItemDetails()) {
+        // Clear bidirectional one-to-many parent relationship with ProcurementItemDetail
+        for (ProcurementItemDetail item : procurementOrder.getPocurementItemDetails()) {
             item.setProcurementOrder(null);
         }
         
@@ -607,11 +523,6 @@ privileged aspect ProcurementOrderServiceImpl_Roo_Service_Impl {
         
         // Clear bidirectional one-to-many parent relationship with PurchaseExpedite
         for (PurchaseExpedite item : procurementOrder.getPurchaseExpedites()) {
-            item.setProcurementOrder(null);
-        }
-        
-        // Clear bidirectional one-to-many parent relationship with ServiceProcurementItemDetail
-        for (ServiceProcurementItemDetail item : procurementOrder.getServiceProcurementItemDetails()) {
             item.setProcurementOrder(null);
         }
         

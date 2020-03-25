@@ -4,8 +4,6 @@
 package com.ocmms.cmms.service.api;
 
 import com.ocmms.cmms.model.mm.master.ServiceCatalog;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.service.api.ServiceProcurementItemDetailService;
 import io.springlets.data.domain.GlobalSearch;
@@ -132,48 +130,12 @@ privileged aspect ServiceProcurementItemDetailService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param procurementOrder
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<ServiceProcurementItemDetail> ServiceProcurementItemDetailService.findByProcurementOrder(ProcurementOrder procurementOrder, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<ServiceProcurementItemDetail> ServiceProcurementItemDetailService.findByProcurementRequest(ProcurementRequest procurementRequest, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
      * @param serviceCatalog
      * @param globalSearch
      * @param pageable
      * @return Page
      */
     public abstract Page<ServiceProcurementItemDetail> ServiceProcurementItemDetailService.findByServiceCatalog(ServiceCatalog serviceCatalog, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @return Long
-     */
-    public abstract long ServiceProcurementItemDetailService.countByProcurementOrder(ProcurementOrder procurementOrder);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @return Long
-     */
-    public abstract long ServiceProcurementItemDetailService.countByProcurementRequest(ProcurementRequest procurementRequest);
     
     /**
      * TODO Auto-generated method documentation

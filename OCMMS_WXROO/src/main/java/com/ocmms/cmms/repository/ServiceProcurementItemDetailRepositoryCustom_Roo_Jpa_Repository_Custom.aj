@@ -4,8 +4,6 @@
 package com.ocmms.cmms.repository;
 
 import com.ocmms.cmms.model.mm.master.ServiceCatalog;
-import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
-import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.repository.ServiceProcurementItemDetailRepositoryCustom;
 import io.springlets.data.domain.GlobalSearch;
@@ -14,26 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 privileged aspect ServiceProcurementItemDetailRepositoryCustom_Roo_Jpa_Repository_Custom {
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequest
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<ServiceProcurementItemDetail> ServiceProcurementItemDetailRepositoryCustom.findByProcurementRequest(ProcurementRequest procurementRequest, GlobalSearch globalSearch, Pageable pageable);
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementOrder
-     * @param globalSearch
-     * @param pageable
-     * @return Page
-     */
-    public abstract Page<ServiceProcurementItemDetail> ServiceProcurementItemDetailRepositoryCustom.findByProcurementOrder(ProcurementOrder procurementOrder, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

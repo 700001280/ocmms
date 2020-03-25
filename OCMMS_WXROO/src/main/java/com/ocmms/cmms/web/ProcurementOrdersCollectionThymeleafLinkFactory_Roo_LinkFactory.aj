@@ -21,6 +21,12 @@ privileged aspect ProcurementOrdersCollectionThymeleafLinkFactory_Roo_LinkFactor
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String ProcurementOrdersCollectionThymeleafLinkFactory.EXPORTPROCUREMENTORDERPDF = "exportProcurementOrderPdf";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String ProcurementOrdersCollectionThymeleafLinkFactory.LIST = "list";
     
     /**
@@ -95,6 +101,9 @@ privileged aspect ProcurementOrdersCollectionThymeleafLinkFactory_Roo_LinkFactor
      * @return UriComponents
      */
     public UriComponents ProcurementOrdersCollectionThymeleafLinkFactory.toUri(String methodName, Object[] parameters, Map<String, Object> pathVariables) {
+        if (methodName.equals(EXPORTPROCUREMENTORDERPDF)) {
+            return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).exportProcurementOrderPdf(null, null, null, null, null)).buildAndExpand(pathVariables);
+        }
         if (methodName.equals(LIST)) {
             return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).list(null)).buildAndExpand(pathVariables);
         }

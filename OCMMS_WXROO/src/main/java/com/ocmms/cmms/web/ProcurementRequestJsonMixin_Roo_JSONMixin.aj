@@ -10,9 +10,8 @@ import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.procurement.CatalogType;
-import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.PriorityType;
-import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
+import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
 import com.ocmms.cmms.model.system.RecordStatus;
 import com.ocmms.cmms.web.CatalogTypeDeserializer;
 import com.ocmms.cmms.web.EmployeeDeserializer;
@@ -43,14 +42,7 @@ privileged aspect ProcurementRequestJsonMixin_Roo_JSONMixin {
      * 
      */
     @JsonIgnore
-    private Set<MaterialProcurementItemDetail> ProcurementRequestJsonMixin.materialProcurementItemDetails;
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    @JsonIgnore
-    private Set<ServiceProcurementItemDetail> ProcurementRequestJsonMixin.serviceProcurementItemDetails;
+    private Set<ProcurementItemDetail> ProcurementRequestJsonMixin.procurementItemDetails;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -128,35 +120,17 @@ privileged aspect ProcurementRequestJsonMixin_Roo_JSONMixin {
      * 
      * @return Set
      */
-    public Set<MaterialProcurementItemDetail> ProcurementRequestJsonMixin.getMaterialProcurementItemDetails() {
-        return materialProcurementItemDetails;
+    public Set<ProcurementItemDetail> ProcurementRequestJsonMixin.getProcurementItemDetails() {
+        return procurementItemDetails;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param materialProcurementItemDetails
+     * @param procurementItemDetails
      */
-    public void ProcurementRequestJsonMixin.setMaterialProcurementItemDetails(Set<MaterialProcurementItemDetail> materialProcurementItemDetails) {
-        this.materialProcurementItemDetails = materialProcurementItemDetails;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return Set
-     */
-    public Set<ServiceProcurementItemDetail> ProcurementRequestJsonMixin.getServiceProcurementItemDetails() {
-        return serviceProcurementItemDetails;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param serviceProcurementItemDetails
-     */
-    public void ProcurementRequestJsonMixin.setServiceProcurementItemDetails(Set<ServiceProcurementItemDetail> serviceProcurementItemDetails) {
-        this.serviceProcurementItemDetails = serviceProcurementItemDetails;
+    public void ProcurementRequestJsonMixin.setProcurementItemDetails(Set<ProcurementItemDetail> procurementItemDetails) {
+        this.procurementItemDetails = procurementItemDetails;
     }
     
     /**

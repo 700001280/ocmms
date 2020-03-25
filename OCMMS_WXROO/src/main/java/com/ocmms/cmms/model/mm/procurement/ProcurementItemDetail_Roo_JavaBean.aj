@@ -10,6 +10,8 @@ import com.ocmms.cmms.model.edm.ImageDocument;
 import com.ocmms.cmms.model.hrm.Employee;
 import com.ocmms.cmms.model.hrm.Organization;
 import com.ocmms.cmms.model.mm.procurement.ProcurementItemDetail;
+import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
+import com.ocmms.cmms.model.mm.procurement.ProcurementRequest;
 import com.ocmms.cmms.model.system.RecordStatus;
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -39,6 +41,46 @@ privileged aspect ProcurementItemDetail_Roo_JavaBean {
     }
     
     /**
+     * Gets procurementRequest value
+     * 
+     * @return ProcurementRequest
+     */
+    public ProcurementRequest ProcurementItemDetail.getProcurementRequest() {
+        return this.procurementRequest;
+    }
+    
+    /**
+     * Sets procurementRequest value
+     * 
+     * @param procurementRequest
+     * @return ProcurementItemDetail
+     */
+    public ProcurementItemDetail ProcurementItemDetail.setProcurementRequest(ProcurementRequest procurementRequest) {
+        this.procurementRequest = procurementRequest;
+        return this;
+    }
+    
+    /**
+     * Gets procurementOrder value
+     * 
+     * @return ProcurementOrder
+     */
+    public ProcurementOrder ProcurementItemDetail.getProcurementOrder() {
+        return this.procurementOrder;
+    }
+    
+    /**
+     * Sets procurementOrder value
+     * 
+     * @param procurementOrder
+     * @return ProcurementItemDetail
+     */
+    public ProcurementItemDetail ProcurementItemDetail.setProcurementOrder(ProcurementOrder procurementOrder) {
+        this.procurementOrder = procurementOrder;
+        return this;
+    }
+    
+    /**
      * Gets requester value
      * 
      * @return Employee
@@ -55,6 +97,46 @@ privileged aspect ProcurementItemDetail_Roo_JavaBean {
      */
     public ProcurementItemDetail ProcurementItemDetail.setRequester(Employee requester) {
         this.requester = requester;
+        return this;
+    }
+    
+    /**
+     * Gets prNumber value
+     * 
+     * @return String
+     */
+    public String ProcurementItemDetail.getPrNumber() {
+        return this.prNumber;
+    }
+    
+    /**
+     * Sets prNumber value
+     * 
+     * @param prNumber
+     * @return ProcurementItemDetail
+     */
+    public ProcurementItemDetail ProcurementItemDetail.setPrNumber(String prNumber) {
+        this.prNumber = prNumber;
+        return this;
+    }
+    
+    /**
+     * Gets poNumber value
+     * 
+     * @return String
+     */
+    public String ProcurementItemDetail.getPoNumber() {
+        return this.poNumber;
+    }
+    
+    /**
+     * Sets poNumber value
+     * 
+     * @param poNumber
+     * @return ProcurementItemDetail
+     */
+    public ProcurementItemDetail ProcurementItemDetail.setPoNumber(String poNumber) {
+        this.poNumber = poNumber;
         return this;
     }
     
@@ -416,15 +498,17 @@ privileged aspect ProcurementItemDetail_Roo_JavaBean {
     public String ProcurementItemDetail.toString() {
         return "ProcurementItemDetail {" + 
                 "id='" + id + '\'' + 
-
+                ", prNumber='" + prNumber + '\'' + 
+                ", poNumber='" + poNumber + '\'' + 
+                ", submitDate='" + submitDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(submitDate.getTime()) + '\'' + 
                 ", quantity='" + quantity + '\'' + 
                 ", unitPrice='" + unitPrice + '\'' + 
                 ", memo='" + memo + '\'' + 
                 ", closed='" + closed + '\'' + 
                 ", version='" + version + '\'' + 
-
+                ", createdDate='" + createdDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(createdDate.getTime()) + '\'' + 
                 ", createdBy='" + createdBy + '\'' + 
-
+                ", lastModifiedDate='" + lastModifiedDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(lastModifiedDate.getTime()) + '\'' + 
                 ", lastModifiedBy='" + lastModifiedBy + '\'' + "}" + super.toString();
     }
     
