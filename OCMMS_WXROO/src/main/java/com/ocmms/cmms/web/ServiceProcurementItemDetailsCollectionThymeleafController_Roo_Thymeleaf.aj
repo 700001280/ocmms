@@ -9,7 +9,6 @@ import ar.com.fdvs.dj.domain.builders.ColumnBuilderException;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import com.ocmms.cmms.model.mm.procurement.ServiceProcurementItemDetail;
 import com.ocmms.cmms.service.api.ServiceProcurementItemDetailService;
-import com.ocmms.cmms.service.api.UserInfoService;
 import com.ocmms.cmms.web.ServiceProcurementItemDetailsCollectionThymeleafController;
 import com.ocmms.cmms.web.ServiceProcurementItemDetailsItemThymeleafController;
 import com.ocmms.cmms.web.ServiceProcurementItemDetailsItemThymeleafLinkFactory;
@@ -104,15 +103,6 @@ privileged aspect ServiceProcurementItemDetailsCollectionThymeleafController_Roo
     private ConversionService ServiceProcurementItemDetailsCollectionThymeleafController.conversionService;
     
     /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    private UserInfoService ServiceProcurementItemDetailsCollectionThymeleafController.userInfoService;
-   
-    
-   
-    
-    /**
      * TODO Auto-generated constructor documentation
      * 
      * @param serviceProcurementItemDetailService
@@ -121,31 +111,12 @@ privileged aspect ServiceProcurementItemDetailsCollectionThymeleafController_Roo
      * @param linkBuilder
      */
     @Autowired
-    public ServiceProcurementItemDetailsCollectionThymeleafController.new(UserInfoService userInfoService,ServiceProcurementItemDetailService serviceProcurementItemDetailService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
-    	setUserInfoService(userInfoService);
-    	setServiceProcurementItemDetailService(serviceProcurementItemDetailService);
+    public ServiceProcurementItemDetailsCollectionThymeleafController.new(ServiceProcurementItemDetailService serviceProcurementItemDetailService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+        setServiceProcurementItemDetailService(serviceProcurementItemDetailService);
         setConversionService(conversionService);
         setMessageSource(messageSource);
         setItemLink(linkBuilder.of(ServiceProcurementItemDetailsItemThymeleafController.class));
         setCollectionLink(linkBuilder.of(ServiceProcurementItemDetailsCollectionThymeleafController.class));
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @return ProcurementRequestService
-     */
-    public UserInfoService ServiceProcurementItemDetailsCollectionThymeleafController.getUserInfoService() {
-        return userInfoService;
-    }
-    
-    /**
-     * TODO Auto-generated method documentation
-     * 
-     * @param procurementRequestService
-     */
-    public void ServiceProcurementItemDetailsCollectionThymeleafController.setUserInfoService(UserInfoService userInfoService) {
-        this.userInfoService = userInfoService;
     }
 
     /**
@@ -358,16 +329,6 @@ privileged aspect ServiceProcurementItemDetailsCollectionThymeleafController_Roo
             
             return new ModelAndView("serviceprocurementitemdetails/create");
         }
-        
-        serviceProcurementItemDetail.setRequester(getUserInfoService().getCurrentEmployee());
-        serviceProcurementItemDetail.setSubmitDate(Calendar.getInstance());
-        if(serviceProcurementItemDetail.getProcurementRequest()!=null) {
-        	serviceProcurementItemDetail.setPrNumber(serviceProcurementItemDetail.getProcurementRequest().getRequestNumber());
-        }
-        if(serviceProcurementItemDetail.getProcurementOrder()!=null) {
-        	serviceProcurementItemDetail.setPoNumber(serviceProcurementItemDetail.getProcurementOrder().getOrderNumber());
-        }        
-    	
         ServiceProcurementItemDetail newServiceProcurementItemDetail = getServiceProcurementItemDetailService().save(serviceProcurementItemDetail);
         UriComponents showURI = getItemLink().to(ServiceProcurementItemDetailsItemThymeleafLinkFactory.SHOW).with("serviceProcurementItemDetail", newServiceProcurementItemDetail.getId()).toUri();
         return new ModelAndView("redirect:" + showURI.toUriString());
@@ -558,6 +519,15 @@ privileged aspect ServiceProcurementItemDetailsCollectionThymeleafController_Roo
         try {
         if (columnName.equals("id")) {
             builder.addColumn(getMessageSource().getMessage("label_serviceprocurementitemdetail_id", null, "Id", locale), "id", Long.class.getName(), 50);
+        }
+        else if (columnName.equals("prNumber")) {
+            builder.addColumn(getMessageSource().getMessage("label_serviceprocurementitemdetail_prnumber", null, "Pr Number", locale), "prNumber", String.class.getName(), 100);
+        }
+        else if (columnName.equals("poNumber")) {
+            builder.addColumn(getMessageSource().getMessage("label_serviceprocurementitemdetail_ponumber", null, "Po Number", locale), "poNumber", String.class.getName(), 100);
+        }
+        else if (columnName.equals("material")) {
+            builder.addColumn(getMessageSource().getMessage("label_serviceprocurementitemdetail_material", null, "Material", locale), "material", String.class.getName(), 100);
         }
         else if (columnName.equals("submitDate")) {
             builder.addColumn(getMessageSource().getMessage("label_serviceprocurementitemdetail_submitdate", null, "Submit Date", locale), "submitDate", Calendar.class.getName(), 100);

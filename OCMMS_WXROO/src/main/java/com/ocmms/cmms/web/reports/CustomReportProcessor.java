@@ -33,12 +33,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ocmms.cmms.InitApplication;
 import com.ocmms.cmms.model.loto.LotoBaseInfo;
 import com.ocmms.cmms.model.loto.LotoInfo;
+import com.ocmms.cmms.model.mm.procurement.MaterialProcurementItemDetail;
 import com.ocmms.cmms.model.mm.procurement.ProcurementOrder;
 import com.ocmms.cmms.model.mm.storage.StorageLocation;
 import com.ocmms.cmms.model.pm.routine.PartMaintenanceRecord;
 import com.ocmms.cmms.model.pm.technicalobject.Equipment;
 import com.ocmms.cmms.service.api.EquipmentService;
 import com.ocmms.cmms.service.api.LotoInfoService;
+import com.ocmms.cmms.service.api.MaterialProcurementItemDetailService;
 import com.ocmms.cmms.service.api.ProcurementOrderService;
 import com.ocmms.cmms.service.api.PartMaintenanceRecordService;
 import com.ocmms.cmms.service.api.StorageLocationService;
@@ -83,9 +85,13 @@ public class CustomReportProcessor {
 
 	@Value("${ocmms.report.template.equipment}")
 	private String equipmentTemplate;
+	
+	@Value("${ocmms.report.template.pomaterialdetail}")
+	private String poMaterialDetailTemplate;		
 
-	@Value("${ocmms.report.template.pomaterial}")
-	private String pomaterialTemplate;
+			
+	@Value("${ocmms.report.template.podetail}")
+	private String poDetailTemplate;
 
 	@Value("${ocmms.report.template.storageLogcation}")
 	private String storagelocationTemplate;
@@ -162,7 +168,7 @@ public class CustomReportProcessor {
 		} 
 	}
 
-	public void exportPoMaterialTemplate(GlobalSearch search, @PageableDefault(size = 2147483647) Pageable pageable,
+	public void exportPoDetailTemplate(GlobalSearch search, @PageableDefault(size = 2147483647) Pageable pageable,
 			HttpServletResponse response, JasperReportsExporter exporter,
 			ProcurementOrderService procurementOrderService, Map<String, Object> parameters,
 			Locale locale) {
@@ -171,10 +177,33 @@ public class CustomReportProcessor {
 			return;
 		}
 		try {
-			JasperReport jasperReport = getJasperReport(pomaterialTemplate);
+			JasperReport jasperReport = getJasperReport(poDetailTemplate);
 			JRDataSource ds = new JRBeanCollectionDataSource(procurementOrders.getContent());
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, ds);
-			exporter.export(jasperPrint, getExportFileName(pomaterialTemplate), response);
+			exporter.export(jasperPrint, getExportFileName(poDetailTemplate), response);
+		} catch (JRException e) {
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		}catch (IOException e) {
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		} 
+	}
+	
+	
+	public void exportPoMaterialDetailTemplate(GlobalSearch search, @PageableDefault(size = 2147483647) Pageable pageable,
+			HttpServletResponse response, JasperReportsExporter exporter,
+			MaterialProcurementItemDetailService materialProcurementItemDetailService, Map<String, Object> parameters,
+			Locale locale) {
+		Page<MaterialProcurementItemDetail> materialProcurementItemDetails =materialProcurementItemDetailService.findAll(search, pageable);
+		if (materialProcurementItemDetails == null || materialProcurementItemDetails.getContent().isEmpty()) {
+			return;
+		}
+		try {
+			JasperReport jasperReport = getJasperReport(poMaterialDetailTemplate);
+			JRDataSource ds = new JRBeanCollectionDataSource(materialProcurementItemDetails.getContent());
+			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, ds);
+			exporter.export(jasperPrint, getExportFileName(poMaterialDetailTemplate), response);
 		} catch (JRException e) {
 			logger.error(e.getMessage());
 			e.printStackTrace();

@@ -49,7 +49,7 @@ public class ProcurementOrdersCollectionThymeleafController {
     	 Map<String, Object> parameters = new HashMap<>();
          parameters.put("title", "Procurement Order BarCode");
     	
-    	customReportProcessor.exportPoMaterialTemplate(search,pageable,
+    	customReportProcessor.exportPoDetailTemplate(search,pageable,
     			response, new JasperReportsPdfExporter(), getProcurementOrderService(),
     			parameters, locale);
     	//export(search, pageable, datatablesColumns, response, new JasperReportsPdfExporter(), "equipments_report.pdf", locale);

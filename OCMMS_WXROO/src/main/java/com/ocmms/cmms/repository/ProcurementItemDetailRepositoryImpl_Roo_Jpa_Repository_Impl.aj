@@ -58,6 +58,12 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String ProcurementItemDetailRepositoryImpl.MATERIAL = "material";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String ProcurementItemDetailRepositoryImpl.SUBMIT_DATE = "submitDate";
     
     /**
@@ -145,7 +151,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ProcurementItemDetail> query = from(procurementItemDetail);
         
-        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.material,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -154,6 +160,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(REQUESTER, procurementItemDetail.requester)
 			.map(PR_NUMBER, procurementItemDetail.prNumber)
 			.map(PO_NUMBER, procurementItemDetail.poNumber)
+			.map(MATERIAL, procurementItemDetail.material)
 			.map(SUBMIT_DATE, procurementItemDetail.submitDate)
 			.map(QUANTITY, procurementItemDetail.quantity)
 			.map(UOM, procurementItemDetail.uom)
@@ -188,7 +195,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<ProcurementItemDetail> query = from(procurementItemDetail);
         
-        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.material,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -200,6 +207,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(REQUESTER, procurementItemDetail.requester)
 			.map(PR_NUMBER, procurementItemDetail.prNumber)
 			.map(PO_NUMBER, procurementItemDetail.poNumber)
+			.map(MATERIAL, procurementItemDetail.material)
 			.map(SUBMIT_DATE, procurementItemDetail.submitDate)
 			.map(QUANTITY, procurementItemDetail.quantity)
 			.map(UOM, procurementItemDetail.uom)
@@ -237,7 +245,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(organization, "organization is required");
         
         query.where(procurementItemDetail.organization.eq(organization));
-        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.material,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -246,6 +254,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(REQUESTER, procurementItemDetail.requester)
 			.map(PR_NUMBER, procurementItemDetail.prNumber)
 			.map(PO_NUMBER, procurementItemDetail.poNumber)
+			.map(MATERIAL, procurementItemDetail.material)
 			.map(SUBMIT_DATE, procurementItemDetail.submitDate)
 			.map(QUANTITY, procurementItemDetail.quantity)
 			.map(UOM, procurementItemDetail.uom)
@@ -283,7 +292,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(procurementOrder, "procurementOrder is required");
         
         query.where(procurementItemDetail.procurementOrder.eq(procurementOrder));
-        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.material,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -292,6 +301,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(REQUESTER, procurementItemDetail.requester)
 			.map(PR_NUMBER, procurementItemDetail.prNumber)
 			.map(PO_NUMBER, procurementItemDetail.poNumber)
+			.map(MATERIAL, procurementItemDetail.material)
 			.map(SUBMIT_DATE, procurementItemDetail.submitDate)
 			.map(QUANTITY, procurementItemDetail.quantity)
 			.map(UOM, procurementItemDetail.uom)
@@ -329,7 +339,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(procurementRequest, "procurementRequest is required");
         
         query.where(procurementItemDetail.procurementRequest.eq(procurementRequest));
-        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.material,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -338,6 +348,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(REQUESTER, procurementItemDetail.requester)
 			.map(PR_NUMBER, procurementItemDetail.prNumber)
 			.map(PO_NUMBER, procurementItemDetail.poNumber)
+			.map(MATERIAL, procurementItemDetail.material)
 			.map(SUBMIT_DATE, procurementItemDetail.submitDate)
 			.map(QUANTITY, procurementItemDetail.quantity)
 			.map(UOM, procurementItemDetail.uom)
@@ -375,7 +386,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(requester, "requester is required");
         
         query.where(procurementItemDetail.requester.eq(requester));
-        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
+        Path<?>[] paths = new Path<?>[] {procurementItemDetail.procurementRequest,procurementItemDetail.procurementOrder,procurementItemDetail.requester,procurementItemDetail.prNumber,procurementItemDetail.poNumber,procurementItemDetail.material,procurementItemDetail.submitDate,procurementItemDetail.quantity,procurementItemDetail.uom,procurementItemDetail.organization,procurementItemDetail.unitPrice,procurementItemDetail.currencyUnit,procurementItemDetail.memo,procurementItemDetail.closed,procurementItemDetail.recordStatus,procurementItemDetail.createdDate,procurementItemDetail.createdBy,procurementItemDetail.lastModifiedDate,procurementItemDetail.lastModifiedBy};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -384,6 +395,7 @@ privileged aspect ProcurementItemDetailRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(REQUESTER, procurementItemDetail.requester)
 			.map(PR_NUMBER, procurementItemDetail.prNumber)
 			.map(PO_NUMBER, procurementItemDetail.poNumber)
+			.map(MATERIAL, procurementItemDetail.material)
 			.map(SUBMIT_DATE, procurementItemDetail.submitDate)
 			.map(QUANTITY, procurementItemDetail.quantity)
 			.map(UOM, procurementItemDetail.uom)

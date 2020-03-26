@@ -526,6 +526,9 @@ privileged aspect ProcurementItemDetailsCollectionThymeleafController_Roo_Thymel
         else if (columnName.equals("poNumber")) {
             builder.addColumn(getMessageSource().getMessage("label_procurementitemdetail_ponumber", null, "Po Number", locale), "poNumber", String.class.getName(), 100);
         }
+        else if (columnName.equals("material")) {
+            builder.addColumn(getMessageSource().getMessage("label_procurementitemdetail_material", null, "Material", locale), "material", String.class.getName(), 100);
+        }
         else if (columnName.equals("submitDate")) {
             builder.addColumn(getMessageSource().getMessage("label_procurementitemdetail_submitdate", null, "Submit Date", locale), "submitDate", Calendar.class.getName(), 100);
         }

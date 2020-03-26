@@ -141,6 +141,26 @@ privileged aspect ProcurementItemDetail_Roo_JavaBean {
     }
     
     /**
+     * Gets material value
+     * 
+     * @return String
+     */
+    public String ProcurementItemDetail.getMaterial() {
+        return this.material;
+    }
+    
+    /**
+     * Sets material value
+     * 
+     * @param material
+     * @return ProcurementItemDetail
+     */
+    public ProcurementItemDetail ProcurementItemDetail.setMaterial(String material) {
+        this.material = material;
+        return this;
+    }
+    
+    /**
      * Gets submitDate value
      * 
      * @return Calendar
@@ -500,7 +520,8 @@ privileged aspect ProcurementItemDetail_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", prNumber='" + prNumber + '\'' + 
                 ", poNumber='" + poNumber + '\'' + 
-                ", submitDate='" + submitDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(submitDate.getTime()) + '\'' + 
+                ", material='" + material + '\'' + 
+                //", submitDate='" + submitDate == null ? null : java.text.DateFormat.getDateTimeInstance().format(submitDate.getTime()) + '\'' + 
                 ", quantity='" + quantity + '\'' + 
                 ", unitPrice='" + unitPrice + '\'' + 
                 ", memo='" + memo + '\'' + 

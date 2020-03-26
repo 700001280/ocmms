@@ -488,16 +488,9 @@ privileged aspect ProcurementOrdersCollectionThymeleafController_Roo_Thymeleaf {
     @GetMapping(name = "exportPdf", value = "/export/pdf")
     @ResponseBody
     public ResponseEntity<?> ProcurementOrdersCollectionThymeleafController.exportPdf(GlobalSearch search, @PageableDefault(size = 2147483647) Pageable pageable, @RequestParam("datatablesColumns") String[] datatablesColumns, HttpServletResponse response, Locale locale) {
-    	Map<String, Object> parameters = new HashMap<>();
-        parameters.put("title", "Procurement Order BarCode");
-   	
-        customReportProcessor.exportPoMaterialTemplate(search,pageable,
-   			response, new JasperReportsPdfExporter(), getProcurementOrderService(),
-   			parameters, locale);
-        //export(search, pageable, datatablesColumns, response, new JasperReportsPdfExporter(), "equipments_report.pdf", locale);
-       return ResponseEntity.ok().build();
-    	//export(search, pageable, datatablesColumns, response, new JasperReportsPdfExporter(), "procurementOrders_report.pdf", locale);
-        //return ResponseEntity.ok().build();
+    	
+    	export(search, pageable, datatablesColumns, response, new JasperReportsPdfExporter(), "procurementOrders_report.pdf", locale);
+        return ResponseEntity.ok().build();
     }
     
     /**

@@ -116,6 +116,13 @@ public class ProcurementItemDetail {
 	 * TODO Auto-generated attribute documentation
 	 *
 	 */
+	@Column(name = "MATERIAL")
+	private String material;
+	
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
 	@Column(name = "SUBMITDATE")
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(style = "M-")

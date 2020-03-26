@@ -382,7 +382,9 @@ privileged aspect ServiceProcurementItemDetailsItemThymeleafController_Roo_Thyme
                 if(serviceProcurementItemDetail.getProcurementOrder()!=null) {
                 	serviceProcurementItemDetail.setPoNumber(serviceProcurementItemDetail.getProcurementOrder().getOrderNumber());
                 }
-                
+                if(serviceProcurementItemDetail.getServiceCatalog()!=null) {
+                	serviceProcurementItemDetail.setMaterial(serviceProcurementItemDetail.getServiceCatalog().getCode());
+                }
             	
             	return getServiceProcurementItemDetailService().save(serviceProcurementItemDetail);
             }

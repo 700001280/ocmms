@@ -55,12 +55,7 @@ public class MaterialProcurementItemDetail extends ProcurementItemDetail{
 	@EntityFormat
 	private MaterialCatalog materialCatalog;
 		
-	/**
-	 * TODO Auto-generated attribute documentation
-	 *
-	 */
-	@Column(name = "MATERIAL")
-	private String material;
+	
 	
 	/**
 	 * TODO Auto-generated attribute documentation
