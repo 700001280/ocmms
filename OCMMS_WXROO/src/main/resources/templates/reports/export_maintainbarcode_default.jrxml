@@ -13,7 +13,7 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="purchaseDetail" class="com.ocmms.cmms.model.mm.procurement.PurchaseDetail"/>
+	<field name="procurementOrder" class="com.ocmms.cmms.model.mm.procurement.ProcurementOrder"/>
 	<field name="maintStartDate" class="java.util.Calendar"/>
 	<field name="materialCatalog" class="com.ocmms.cmms.model.mm.master.MaterialCatalog"/>
 	<field name="maintEndDate" class="java.util.Calendar"/>
@@ -118,7 +118,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{purchaseDetail}.getPoNumber()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{procurementOrder}.getOrderNumber()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="145" y="79" width="103" height="15" uuid="57e2218e-12b0-499b-a090-900a0b16aa05">

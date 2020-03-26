@@ -30,8 +30,11 @@ import io.springlets.web.mvc.util.MethodLinkBuilderFactory;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import net.sf.jasperreports.engine.JRDataSource;
@@ -484,8 +487,16 @@ privileged aspect StorageLocationsCollectionThymeleafController_Roo_Thymeleaf {
     @GetMapping(name = "exportPdf", value = "/export/pdf")
     @ResponseBody
     public ResponseEntity<?> StorageLocationsCollectionThymeleafController.exportPdf(GlobalSearch search, @PageableDefault(size = 2147483647) Pageable pageable, @RequestParam("datatablesColumns") String[] datatablesColumns, HttpServletResponse response, Locale locale) {
-        export(search, pageable, datatablesColumns, response, new JasperReportsPdfExporter(), "storageLocations_report.pdf", locale);
+    	 Map<String, Object> parameters = new HashMap<>();
+         parameters.put("title", "Storage Location BarCode");
+    	
+    	customReportProcessor.exportStorageLocationTemplate(search,pageable,
+    			response, new JasperReportsPdfExporter(), getStorageLocationService(),
+    			parameters, locale);
+    	//export(search, pageable, datatablesColumns, response, new JasperReportsPdfExporter(), "equipments_report.pdf", locale);
         return ResponseEntity.ok().build();
+    	//export(search, pageable, datatablesColumns, response, new JasperReportsPdfExporter(), "storageLocations_report.pdf", locale);
+        //return ResponseEntity.ok().build();
     }
     
     /**
