@@ -3,20 +3,20 @@
     <table id="serviceprocurementitemdetails-detail-table-item-to-remove" data-parent-table="servicecatalog-entity-table" data-data-parent-id="${serviceCatalog != null ? serviceCatalog.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('serviceCatalog', '_PARENTID_')}">
       <thead>
         <tr>
+              <th data-data="procurementRequest" data-th-text="#{label_servicecatalog_serviceprocurementitemdetails_procurementrequest}">procurementRequest</th>
+              <th data-data="procurementOrder" data-th-text="#{label_servicecatalog_serviceprocurementitemdetails_procurementorder}">procurementOrder</th>
               <th data-data="requester" data-th-text="#{label_servicecatalog_serviceprocurementitemdetails_requester}">requester</th>
-              <th data-data="submitDate" data-th-text="#{label_servicecatalog_serviceprocurementitemdetails_submitdate}">submitDate</th>
-              <th data-data="quantity" data-th-text="#{label_servicecatalog_serviceprocurementitemdetails_quantity}">quantity</th>
-              <th data-data="uom" data-th-text="#{label_servicecatalog_serviceprocurementitemdetails_uom}">uom</th>
-              <th data-data="organization" data-th-text="#{label_servicecatalog_serviceprocurementitemdetails_organization}">organization</th>
+              <th data-data="prNumber" data-th-text="#{label_servicecatalog_serviceprocurementitemdetails_prnumber}">prNumber</th>
+              <th data-data="poNumber" data-th-text="#{label_servicecatalog_serviceprocurementitemdetails_ponumber}">poNumber</th>
         </tr>
       </thead>
       <tbody data-th-remove="all">
         <tr>
+              <td>procurementRequest</td>
+              <td>procurementOrder</td>
               <td>requester</td>
-              <td>submitDate</td>
-              <td>quantity</td>
-              <td>uom</td>
-              <td>organization</td>
+              <td>prNumber</td>
+              <td>poNumber</td>
         </tr>
       </tbody>
     </table>

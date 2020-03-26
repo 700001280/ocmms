@@ -34,6 +34,28 @@
             <fieldset id="containerFields">
               <legend class="sr-only" data-th-text="#{label_data_entity(#{label_procurementitemdetail})}">ProcurementItemDetail data </legend>
 
+<div class="form-group has-error has-feedback" data-z="88b807e9" id="procurementitemdetail-procurementrequest-field" data-th-classappend="${#fields.hasErrors('procurementRequest')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('ProcurementRequestsCollectionThymeleafController')}">
+    <label for="procurementRequest" class="col-md-3 control-label" data-th-text="#{label_procurementitemdetail_procurementrequest}">ProcurementRequest</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{procurementRequest}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{procurementRequest} == null" data-th-value="*{procurementRequest.id}" data-th-text="*{{procurementRequest}}" selected="selected">ProcurementRequest</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('procurementRequest')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('procurementRequest')}" aria-hidden="true"></span>
+      <span id="procurementRequest-error" class="help-block" data-th-if="${#fields.hasErrors('procurementRequest')}" data-th-errors="*{procurementRequest}">Error message.</span>
+    </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="ed87be89" id="procurementitemdetail-procurementorder-field" data-th-classappend="${#fields.hasErrors('procurementOrder')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('ProcurementOrdersCollectionThymeleafController')}">
+    <label for="procurementOrder" class="col-md-3 control-label" data-th-text="#{label_procurementitemdetail_procurementorder}">ProcurementOrder</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{procurementOrder}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{procurementOrder} == null" data-th-value="*{procurementOrder.id}" data-th-text="*{{procurementOrder}}" selected="selected">ProcurementOrder</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('procurementOrder')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('procurementOrder')}" aria-hidden="true"></span>
+      <span id="procurementOrder-error" class="help-block" data-th-if="${#fields.hasErrors('procurementOrder')}" data-th-errors="*{procurementOrder}">Error message.</span>
+    </div>
+</div>
 <div class="form-group has-error has-feedback" data-z="74babe15" id="procurementitemdetail-requester-field" data-th-classappend="${#fields.hasErrors('requester')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('EmployeesCollectionThymeleafController')}">
     <label for="requester" class="col-md-3 control-label" data-th-text="#{label_procurementitemdetail_requester}">Employee</label>
     <div class="col-md-6">
@@ -44,6 +66,22 @@
       <span data-th-classappend="${#fields.hasErrors('requester')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('requester')}" aria-hidden="true"></span>
       <span id="requester-error" class="help-block" data-th-if="${#fields.hasErrors('requester')}" data-th-errors="*{requester}">Error message.</span>
     </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="5605c329" id="procurementitemdetail-prnumber-field" data-th-classappend="${#fields.hasErrors('prNumber')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="prNumber" class="col-md-3 control-label" data-th-text="#{label_procurementitemdetail_prnumber}">prNumber</label>
+  <div class="col-md-6">
+    <input id="prNumber" name="prNumber" data-th-value="*{{prNumber}}" type="text" class="form-control" placeholder="prNumber" data-th-placeholder="#{label_procurementitemdetail_prnumber}" data-toggle="tooltip" aria-describedby="prNumberStatus" />
+      <span data-th-classappend="${#fields.hasErrors('prNumber')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('prNumber')}" aria-hidden="true"></span>
+      <span id="prNumber-error" class="help-block" data-th-if="${#fields.hasErrors('prNumber')}" data-th-errors="*{prNumber}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="6194ef89" id="procurementitemdetail-ponumber-field" data-th-classappend="${#fields.hasErrors('poNumber')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="poNumber" class="col-md-3 control-label" data-th-text="#{label_procurementitemdetail_ponumber}">poNumber</label>
+  <div class="col-md-6">
+    <input id="poNumber" name="poNumber" data-th-value="*{{poNumber}}" type="text" class="form-control" placeholder="poNumber" data-th-placeholder="#{label_procurementitemdetail_ponumber}" data-toggle="tooltip" aria-describedby="poNumberStatus" />
+      <span data-th-classappend="${#fields.hasErrors('poNumber')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('poNumber')}" aria-hidden="true"></span>
+      <span id="poNumber-error" class="help-block" data-th-if="${#fields.hasErrors('poNumber')}" data-th-errors="*{poNumber}">Error message.</span>
+  </div>
 </div>
 <div class="form-group has-error has-feedback" id="procurementitemdetail-submitdate-field" data-z="c741dd49" data-th-classappend="${#fields.hasErrors('submitDate')}? 'has-error has-feedback'" data-th-class="form-group">
   <label for="submitDate" class="col-md-3 control-label" data-th-text="#{label_procurementitemdetail_submitdate}">submitDate</label>

@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="procurementitemdetails-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('ProcurementRequestsItemProcurementItemDetailsThymeleafController')}">
+    <table id="procurementitemdetails-detail-table-item-to-remove" data-parent-table="procurementrequest-entity-table" data-data-parent-id="${procurementRequest != null ? procurementRequest.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('procurementRequest', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="procurementRequest" data-th-text="#{label_procurementrequest_procurementitemdetails_procurementrequest}">procurementRequest</th>
+              <th data-data="procurementOrder" data-th-text="#{label_procurementrequest_procurementitemdetails_procurementorder}">procurementOrder</th>
+              <th data-data="requester" data-th-text="#{label_procurementrequest_procurementitemdetails_requester}">requester</th>
+              <th data-data="prNumber" data-th-text="#{label_procurementrequest_procurementitemdetails_prnumber}">prNumber</th>
+              <th data-data="poNumber" data-th-text="#{label_procurementrequest_procurementitemdetails_ponumber}">poNumber</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>procurementRequest</td>
+              <td>procurementOrder</td>
+              <td>requester</td>
+              <td>prNumber</td>
+              <td>poNumber</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

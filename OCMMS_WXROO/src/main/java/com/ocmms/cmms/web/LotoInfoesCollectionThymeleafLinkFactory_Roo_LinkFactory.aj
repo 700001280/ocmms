@@ -21,6 +21,12 @@ privileged aspect LotoInfoesCollectionThymeleafLinkFactory_Roo_LinkFactory {
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String LotoInfoesCollectionThymeleafLinkFactory.EXPORTLOTOINFOPDF = "exportLotoInfoPdf";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String LotoInfoesCollectionThymeleafLinkFactory.LIST = "list";
     
     /**
@@ -95,6 +101,9 @@ privileged aspect LotoInfoesCollectionThymeleafLinkFactory_Roo_LinkFactory {
      * @return UriComponents
      */
     public UriComponents LotoInfoesCollectionThymeleafLinkFactory.toUri(String methodName, Object[] parameters, Map<String, Object> pathVariables) {
+        if (methodName.equals(EXPORTLOTOINFOPDF)) {
+            return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).exportLotoInfoPdf(null, null, null, null, null)).buildAndExpand(pathVariables);
+        }
         if (methodName.equals(LIST)) {
             return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).list(null)).buildAndExpand(pathVariables);
         }

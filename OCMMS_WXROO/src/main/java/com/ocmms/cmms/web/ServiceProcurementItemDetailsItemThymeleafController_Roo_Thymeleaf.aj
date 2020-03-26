@@ -375,7 +375,7 @@ privileged aspect ServiceProcurementItemDetailsItemThymeleafController_Roo_Thyme
             public ServiceProcurementItemDetail doInConcurrency(ServiceProcurementItemDetail serviceProcurementItemDetail) throws Exception {
                 
             	//serviceProcurementItemDetail.setRequester(getUserInfoService().getCurrentEmployee());
-            	serviceProcurementItemDetail.setSubmitDate(Calendar.getInstance());
+            	//serviceProcurementItemDetail.setSubmitDate(Calendar.getInstance());
                 if(serviceProcurementItemDetail.getProcurementRequest()!=null) {
                 	serviceProcurementItemDetail.setPrNumber(serviceProcurementItemDetail.getProcurementRequest().getRequestNumber());
                 }

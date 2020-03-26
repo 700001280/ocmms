@@ -21,6 +21,12 @@ privileged aspect PartMaintenanceRecordsCollectionThymeleafLinkFactory_Roo_LinkF
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String PartMaintenanceRecordsCollectionThymeleafLinkFactory.EXPORTPARTMAINTENANCERECORDPDF = "exportPartMaintenanceRecordPdf";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String PartMaintenanceRecordsCollectionThymeleafLinkFactory.LIST = "list";
     
     /**
@@ -95,6 +101,9 @@ privileged aspect PartMaintenanceRecordsCollectionThymeleafLinkFactory_Roo_LinkF
      * @return UriComponents
      */
     public UriComponents PartMaintenanceRecordsCollectionThymeleafLinkFactory.toUri(String methodName, Object[] parameters, Map<String, Object> pathVariables) {
+        if (methodName.equals(EXPORTPARTMAINTENANCERECORDPDF)) {
+            return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).exportPartMaintenanceRecordPdf(null, null, null, null, null)).buildAndExpand(pathVariables);
+        }
         if (methodName.equals(LIST)) {
             return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).list(null)).buildAndExpand(pathVariables);
         }

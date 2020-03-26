@@ -21,6 +21,12 @@ privileged aspect EquipmentsCollectionThymeleafLinkFactory_Roo_LinkFactory {
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String EquipmentsCollectionThymeleafLinkFactory.EXPORTEQUIPMENTPDF = "exportEquipmentPdf";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String EquipmentsCollectionThymeleafLinkFactory.LIST = "list";
     
     /**
@@ -95,6 +101,9 @@ privileged aspect EquipmentsCollectionThymeleafLinkFactory_Roo_LinkFactory {
      * @return UriComponents
      */
     public UriComponents EquipmentsCollectionThymeleafLinkFactory.toUri(String methodName, Object[] parameters, Map<String, Object> pathVariables) {
+        if (methodName.equals(EXPORTEQUIPMENTPDF)) {
+            return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).exportEquipmentPdf(null, null, null, null, null)).buildAndExpand(pathVariables);
+        }
         if (methodName.equals(LIST)) {
             return SpringletsMvcUriComponentsBuilder.fromMethodCall(SpringletsMvcUriComponentsBuilder.on(getControllerClass()).list(null)).buildAndExpand(pathVariables);
         }
