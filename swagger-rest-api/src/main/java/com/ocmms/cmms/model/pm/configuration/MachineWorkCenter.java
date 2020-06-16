@@ -1,0 +1,357 @@
+package com.ocmms.cmms.model.pm.configuration;
+
+import java.util.Calendar;
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.ocmms.cmms.model.common.UnitOfMeasure;
+import com.ocmms.cmms.model.fico.CostCenter;
+import com.ocmms.cmms.model.hrm.Organization;
+import com.ocmms.cmms.model.system.RecordStatus;
+import lombok.Data;
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Table;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+/**
+ * = MachineWorkCenter TODO Auto-generated class documentation
+ *
+ */
+@Data
+
+@EntityListeners(AuditingEntityListener.class)
+@Entity
+@Table(name = "PM_CONFIGURATION_MACHINEWORKCENTER")
+//@JsonIgnoreProperties({ "hibernateLazyInitializer" })
+public class MachineWorkCenter implements Serializable {
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@Id
+	@SequenceGenerator(name = "machineWorkCenterGen", sequenceName = "SEQ_PM_CONFIGURATION_MACHINEWORKCENTER_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "machineWorkCenterGen")
+	@Column(name = "ID")
+	private Long id;
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Organization")
+
+	private Organization organization;
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "OPERATIONALWORKCENTER")
+
+	private OperationalWorkCenter operationalWorkCenter;
+
+	/**
+	 * Work Center Code,eg: ME-01/EL-01
+	 *
+	 */
+	@NotNull
+	@Column(name = "CODE", unique = true, length = 8)
+	private String code;
+
+	/**
+	 * Work Center Code,eg: PM03
+	 *
+	 */
+	@NotNull
+	@Column(name = "CATEGORY", length = 10)
+	private String category;
+
+	/**
+	 * WORK CENTER NAME:MECHANIC ELECTRICIAN
+	 *
+	 *
+	 */
+	@NotNull
+	@Column(name = "DESCRIPTION", unique = true, length = 40)
+	private String description;
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "RESPONSIBLE")
+
+	private WorkCenterResponsible responsible;
+
+	/**
+	 * CONTROLKEY:PMIN PMEX
+	 *
+	 */
+	@NotNull
+	@Column(name = "CONTROLKEY", length = 4)
+	private String controlKey;
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PLANNERGROUP")
+
+	private PlannerGroup plannerGroup;
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CAPACITYUNITOFMEASURE")
+
+	private UnitOfMeasure capacityUnitOfMeasure;
+
+	/**
+	 * notification reported date<br>
+	 *
+	 * @author qinzeyong
+	 * @since 3.0.0.0
+	 */
+	@Column(name = "CAPACITYSTARTTIME")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "-M")
+	private Calendar capacityStartTime;
+
+	/**
+	 * notification reported date<br>
+	 *
+	 * @author qinzeyong
+	 * @since 3.0.0.0
+	 */
+	@Column(name = "CAPACITYENDTIME")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "-M")
+	private Calendar capacityEndTime;
+
+	/**
+	 * Capacity Utilization (in Percentage)
+	 *
+	 */
+	@NotNull
+	@Column(name = "CAPACITYUTILIZATION")
+	private Integer capacityUtilization;
+
+	/**
+	 * Capacity Utilization (in Percentage)
+	 *
+	 */
+	@NotNull
+	@Column(name = "NUMBEROFCAPACITIES")
+	private Integer numberofCapacities;
+
+	/**
+	 * notification reported date<br>
+	 *
+	 * @author qinzeyong
+	 * @since 3.0.0.0
+	 */
+	@Column(name = "VALIDITYSTARTDATE")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "MM")
+	private Calendar validityStartDate;
+
+	/**
+	 * notification reported date<br>
+	 *
+	 * @author qinzeyong
+	 * @since 3.0.0.0
+	 */
+	@Column(name = "VALIDITYENDDATE")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "MM")
+	private Calendar validityEndDate;
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "COSTCENTER")
+
+	private CostCenter costCenter;
+
+	/**** General Information Generated By System Start ****/
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "RECORDSTATUS")
+
+	private RecordStatus recordStatus;
+
+	/**
+	 * record version, while changed or updated should be plus one;
+	 *
+	 */
+	@Version
+	@Column(name = "VERSION")
+	private Long version;
+
+	/**
+	 * record created date, while created record this filed will be set;
+	 *
+	 */
+	@Column(name = "CREATED_DATE")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "M-")
+	@CreatedDate
+	private Calendar createdDate;
+
+	/**
+	 * record created user, while created record this filed will be set;
+	 *
+	 */
+	@Column(name = "CREATED_BY")
+	@CreatedBy
+	private String createdBy;
+
+	/**
+	 * record update date, while update record this filed will be set;
+	 *
+	 */
+	@Column(name = "LASTMODIFIED_DATE")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "M-")
+	@LastModifiedDate
+	private Calendar lastModifiedDate;
+
+	/**
+	 * Record last update user, while last update record this filed will be set;
+	 *
+	 */
+	@Column(name = "LASTMODIFIED_BY")
+	@LastModifiedBy
+	private String lastModifiedBy;
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE = "The given Iterable of items to add can't be null!";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE = "The given Iterable of items to add can't be null!";
+
+	
+
+	/**
+	 * This `equals` implementation is specific for JPA entities and uses the entity
+	 * identifier for it, following the article in
+	 * https://vladmihalcea.com/2016/06/06/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+	 *
+	 * @param obj
+	 * @return Boolean
+	 */
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		// instanceof is false if the instance is null
+		if (!(obj instanceof MachineWorkCenter)) {
+			return false;
+		}
+		return getId() != null && Objects.equals(getId(), ((MachineWorkCenter) obj).getId());
+	}
+
+	/**
+	 * This `hashCode` implementation is specific for JPA entities and uses a fixed
+	 * `int` value to be able to identify the entity in collections after a new id
+	 * is assigned to the entity, following the article in
+	 * https://vladmihalcea.com/2016/06/06/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+	 *
+	 * @return Integer
+	 */
+	public int hashCode() {
+		return 31;
+	}
+
+	/**
+	 * TODO Auto-generated method documentation
+	 *
+	 * @return String
+	 */
+	public String toString() {
+		return "MachineWorkCenter {" + "id='" + id + '\'' + ", code='" + code + '\'' + ", category='" + category + '\''
+				+ ", description='" + description + '\'' + ", controlKey='" + controlKey + '\''
+				+ ", capacityStartTime='" + capacityStartTime == null
+						? null
+						: java.text.DateFormat.getDateTimeInstance().format(capacityStartTime.getTime()) + '\''
+								+ ", capacityEndTime='" + capacityEndTime == null
+										? null
+										: java.text.DateFormat.getDateTimeInstance().format(capacityEndTime.getTime())
+												+ '\'' + ", capacityUtilization='" + capacityUtilization + '\''
+												+ ", numberofCapacities='" + numberofCapacities + '\''
+												+ ", validityStartDate='" + validityStartDate == null
+														? null
+														: java.text.DateFormat.getDateTimeInstance()
+																.format(validityStartDate.getTime()) + '\''
+																+ ", validityEndDate='" + validityEndDate == null
+																		? null
+																		: java.text.DateFormat.getDateTimeInstance()
+																				.format(validityEndDate.getTime())
+																				+ '\'' + ", version='" + version + '\''
+																				+ ", createdDate='"
+																				+ createdDate == null
+																						? null
+																						: java.text.DateFormat
+																								.getDateTimeInstance()
+																								.format(createdDate
+																										.getTime())
+																								+ '\'' + ", createdBy='"
+																								+ createdBy + '\''
+																								+ ", lastModifiedDate='"
+																								+ lastModifiedDate == null
+																										? null
+																										: java.text.DateFormat
+																												.getDateTimeInstance()
+																												.format(lastModifiedDate
+																														.getTime())
+																												+ '\''
+																												+ ", lastModifiedBy='"
+																												+ lastModifiedBy
+																												+ '\''
+																												+ "}"
+																												+ super.toString();
+	}
+}

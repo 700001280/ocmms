@@ -1,0 +1,192 @@
+package com.ocmms.cmms.repository;
+
+import com.ocmms.cmms.model.pm.measuringpoint.MeasuringRecord;
+import com.ocmms.cmms.model.pm.measuringpoint.QMeasuringRecord;
+import com.ocmms.cmms.model.pm.technicalobject.Equipment;
+import com.querydsl.core.types.Path;
+import com.querydsl.jpa.JPQLQuery;
+
+import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+/**
+ * = MeasuringRecordRepositoryImpl TODO Auto-generated class documentation
+ *
+ */
+
+@Transactional(readOnly = true)
+public class MeasuringRecordRepositoryImpl extends QueryDslRepositorySupportExt<MeasuringRecord>
+		implements MeasuringRecordRepositoryCustom {
+
+	/**
+	 * Default constructor
+	 */
+	MeasuringRecordRepositoryImpl() {
+		super(MeasuringRecord.class);
+	}
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String CREATED_BY = "createdBy";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String EQUIPMENT = "equipment";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String MEASURING_VALUE = "measuringValue";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String LAST_MODIFIED_BY = "lastModifiedBy";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String DESCRIPTION = "description";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String CREATED_DATE = "createdDate";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String MEASURING_DATE = "measuringDate";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String MEASURING_POINT = "measuringPoint";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String LAST_MODIFIED_DATE = "lastModifiedDate";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String RECORD_STATUS = "recordStatus";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String RECORDER = "recorder";
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	public static final String DCS_VALUE = "dcsValue";
+
+	/**
+	 * TODO Auto-generated method documentation
+	 *
+	 * @param globalSearch
+	 * @param pageable
+	 * @return Page
+	 */
+	public Page<MeasuringRecord> findAll(GlobalSearch globalSearch, Pageable pageable) {
+		QMeasuringRecord measuringRecord = QMeasuringRecord.measuringRecord;
+		JPQLQuery<MeasuringRecord> query = from(measuringRecord);
+		Path<?>[] paths = new Path<?>[] { measuringRecord.measuringPoint, measuringRecord.measuringDate,
+				measuringRecord.measuringValue, measuringRecord.description, measuringRecord.recorder,
+				measuringRecord.dcsValue, measuringRecord.equipment, measuringRecord.recordStatus,
+				measuringRecord.createdDate, measuringRecord.createdBy, measuringRecord.lastModifiedDate,
+				measuringRecord.lastModifiedBy };
+		applyGlobalSearch(globalSearch, query, paths);
+		AttributeMappingBuilder mapping = buildMapper().map(MEASURING_POINT, measuringRecord.measuringPoint)
+				.map(MEASURING_DATE, measuringRecord.measuringDate).map(MEASURING_VALUE, measuringRecord.measuringValue)
+				.map(DESCRIPTION, measuringRecord.description).map(RECORDER, measuringRecord.recorder)
+				.map(DCS_VALUE, measuringRecord.dcsValue).map(EQUIPMENT, measuringRecord.equipment)
+				.map(RECORD_STATUS, measuringRecord.recordStatus).map(CREATED_DATE, measuringRecord.createdDate)
+				.map(CREATED_BY, measuringRecord.createdBy).map(LAST_MODIFIED_DATE, measuringRecord.lastModifiedDate)
+				.map(LAST_MODIFIED_BY, measuringRecord.lastModifiedBy);
+		applyPagination(pageable, query, mapping);
+		applyOrderById(query);
+		return loadPage(query, pageable, measuringRecord);
+	}
+
+	/**
+	 * TODO Auto-generated method documentation
+	 *
+	 * @param ids
+	 * @param globalSearch
+	 * @param pageable
+	 * @return Page
+	 */
+	public Page<MeasuringRecord> findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable) {
+		QMeasuringRecord measuringRecord = QMeasuringRecord.measuringRecord;
+		JPQLQuery<MeasuringRecord> query = from(measuringRecord);
+		Path<?>[] paths = new Path<?>[] { measuringRecord.measuringPoint, measuringRecord.measuringDate,
+				measuringRecord.measuringValue, measuringRecord.description, measuringRecord.recorder,
+				measuringRecord.dcsValue, measuringRecord.equipment, measuringRecord.recordStatus,
+				measuringRecord.createdDate, measuringRecord.createdBy, measuringRecord.lastModifiedDate,
+				measuringRecord.lastModifiedBy };
+		applyGlobalSearch(globalSearch, query, paths);
+		// Also, filter by the provided ids
+		query.where(measuringRecord.id.in(ids));
+		AttributeMappingBuilder mapping = buildMapper().map(MEASURING_POINT, measuringRecord.measuringPoint)
+				.map(MEASURING_DATE, measuringRecord.measuringDate).map(MEASURING_VALUE, measuringRecord.measuringValue)
+				.map(DESCRIPTION, measuringRecord.description).map(RECORDER, measuringRecord.recorder)
+				.map(DCS_VALUE, measuringRecord.dcsValue).map(EQUIPMENT, measuringRecord.equipment)
+				.map(RECORD_STATUS, measuringRecord.recordStatus).map(CREATED_DATE, measuringRecord.createdDate)
+				.map(CREATED_BY, measuringRecord.createdBy).map(LAST_MODIFIED_DATE, measuringRecord.lastModifiedDate)
+				.map(LAST_MODIFIED_BY, measuringRecord.lastModifiedBy);
+		applyPagination(pageable, query, mapping);
+		applyOrderById(query);
+		return loadPage(query, pageable, measuringRecord);
+	}
+
+	/**
+	 * TODO Auto-generated method documentation
+	 *
+	 * @param equipment
+	 * @param globalSearch
+	 * @param pageable
+	 * @return Page
+	 */
+	public Page<MeasuringRecord> findByEquipment(Equipment equipment, GlobalSearch globalSearch, Pageable pageable) {
+		QMeasuringRecord measuringRecord = QMeasuringRecord.measuringRecord;
+		JPQLQuery<MeasuringRecord> query = from(measuringRecord);
+		Assert.notNull(equipment, "equipment is required");
+		query.where(measuringRecord.equipment.eq(equipment));
+		Path<?>[] paths = new Path<?>[] { measuringRecord.measuringPoint, measuringRecord.measuringDate,
+				measuringRecord.measuringValue, measuringRecord.description, measuringRecord.recorder,
+				measuringRecord.dcsValue, measuringRecord.equipment, measuringRecord.recordStatus,
+				measuringRecord.createdDate, measuringRecord.createdBy, measuringRecord.lastModifiedDate,
+				measuringRecord.lastModifiedBy };
+		applyGlobalSearch(globalSearch, query, paths);
+		AttributeMappingBuilder mapping = buildMapper().map(MEASURING_POINT, measuringRecord.measuringPoint)
+				.map(MEASURING_DATE, measuringRecord.measuringDate).map(MEASURING_VALUE, measuringRecord.measuringValue)
+				.map(DESCRIPTION, measuringRecord.description).map(RECORDER, measuringRecord.recorder)
+				.map(DCS_VALUE, measuringRecord.dcsValue).map(EQUIPMENT, measuringRecord.equipment)
+				.map(RECORD_STATUS, measuringRecord.recordStatus).map(CREATED_DATE, measuringRecord.createdDate)
+				.map(CREATED_BY, measuringRecord.createdBy).map(LAST_MODIFIED_DATE, measuringRecord.lastModifiedDate)
+				.map(LAST_MODIFIED_BY, measuringRecord.lastModifiedBy);
+		applyPagination(pageable, query, mapping);
+		applyOrderById(query);
+		return loadPage(query, pageable, measuringRecord);
+	}
+}
